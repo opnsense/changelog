@@ -1,0 +1,35 @@
+@ February 10, 2015
+
+Howdy everyone,
+
+We shifted the release back a couple of days to discuss current progress and
+the feedback we’ve gotten and directly review the release process -- it seems
+to be "clean enough".  ;)
+
+We’ve updated the bug trackers, added a couple of wiki pages and related
+articles with more on roadmap refinement on the way in a day or two.  Thank
+you for all the responses and kind mentions.
+
+This is a typical maintenance release with ports stable updates and various
+core fixes.  On the other hand, we are putting a new MVC-based framework in
+place to slowly replace the current front end scripting (yep, this is a
+request for comments).  Here is the full list of changes:
+
+o Removed a spurious user-agent check to restore mobile device support.
+o Fixed pop-up window handling for LDAP configuration.
+o Fixed several minor GUI bugs in firewall rules and system pages.
+o Grab the correct OpenSSL from the system for encrypting/decrypting the
+  configuration files.
+o Message of the day now shows the correct system version.
+o Fixed sorting and button for deleting selected rules in NAT pages.
+o Notable ports updates: pkg 1.4.10, gettext 0.19.4, libzmq 4.0.5,
+  ntp 4.2.8p1, ca_root_nss 3.17.4, libsodium 1.0.2
+o Groundwork on the MVC-based GUI replacement including examples.  This does
+  not affect the current GUI.
+
+All upgrade methods are viable.  The images can be found here:
+
+https://sourceforge.net/projects/opnsense/files/15.1.5/
+
+Upgrade responsibly (swiftly that is),
+The OPNsense team

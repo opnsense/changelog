@@ -1,0 +1,80 @@
+@ February 28, 2015
+
+Hello everyone,
+
+We are saddened by the news of Leonard Nimoy passing away.  He has been an
+inspiration for many of us ever since Star Trek first flickered over the TV
+screens and all the years thereafter.  What a strange world we’d live in if
+it weren’t for him?  Thank you, Leonard, 15.1.7 is being released in your
+honour.
+
+As we move forward, we’ve found that 15.1.6.1's new tool opnsense-update
+works really well for everybody and thus we are very happy with the new
+live upgrade path.  To show you that we are super serious we are shipping
+the latest FreeBSD 10.1 release engineering and security advisories and
+encourage you to try it out.  We also have numerous tweaks with regard to
+tightening security in Bind, OpenSSL, StrongSwan, OpenSSH as well as needed
+GUI fixes thanks to the steady stream of incoming reports.  If you encounter
+an issue or even a slight hiccup, please let us know through any of the
+available channels.
+
+The images can be found here:
+
+https://sourceforge.net/projects/opnsense/files/15.1.7/
+
+How to upgrade:
+
+Always backup your config.  Do not try to go from the LibreSSL snapshot to
+OpenSSL.  The parallel LibreSSL snapshot will be out by tomorrow.
+
+Do a clean install using the desired install media.  You can always import
+the old configuration from the installer if you already have an older
+installation.
+
+Alternatively and experimentally, upgrade using the firmware update, then
+drop to a root shell and issue the following commands.
+
+# opnsense-update && reboot
+
+At this point, using any of the two methods, you should be on OPNsense
+15.1.7-78bdb9aef FreeBSD 10.1-RELEASE-p6.
+
+This is the official change log:
+o Fix integer overflow in IGMP protocol[1]
+o Fix vt(4) crash with improper ioctl parameters[2]
+o Updated base system OpenSSL to 1.0.1l[3]
+o Fix freebsd-update libraries update ordering issue[4]
+o Disabled OpenSSH’s High Performance SSH/SCP and None-Cipher extensions to
+  follow up on several security-related discussions.
+o Switched from a heavy Bind installation to a lightweight one to reduce
+  attack surface.
+o Removed and replaced the legacy `check_reload_status' daemon with a
+  Python-based rewrite.
+o Fixed the auto-login console lockout regression introduced in 15.1.6.1.
+o Fixed a problem associated with OpenVPN not being able to read passwords
+  from files.
+o Notable ports upgrades: bind-tools 9.10.2, strongswan 5.2.2_1, curl 7.41
+  plus our LibreSSL fixes for mpd4/mpd5/libpdel.
+o Removed PHP-FPM remnants from IPv6 and OpenVPN scripts.
+o Fixed several OpenSSL invokes to use the latest port version as opposed
+  to the base version.
+o Improved memory/disc/swap usage on the dashboard.
+o Properly set DNS Resolver Advanced defaults.
+o Fixed append of custom Unbound scrips.
+o Modified the root menu shell to pass through to a real shell when arguments
+  are given.
+o Zapped the spurious “Array” prefix in user-defined aliases.
+o Moved the bogons files fetch location to a local mirror.
+o The core.git development boot hook has been improved to properly include
+  /usr/local/etc/rc changes.
+o All of our packages are now annotated as coming from our mirror as well as
+  additional safeguards potentially allowing you to use additional FreeBSD
+  packages on top of OPNsense.
+
+Live long and prosper,
+The OPNsense team
+--
+[1] https://www.freebsd.org/security/advisories/FreeBSD-SA-15:04.igmp.asc
+[2] https://security.freebsd.org/advisories/FreeBSD-EN-15:01.vt.asc
+[3] https://security.freebsd.org/advisories/FreeBSD-EN-15:02.openssl.asc
+[4] https://security.freebsd.org/advisories/FreeBSD-EN-15:03.freebsd-update.asc

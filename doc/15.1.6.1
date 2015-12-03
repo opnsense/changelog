@@ -1,0 +1,92 @@
+@ February 21, 2015
+
+Hello everyone,
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+QUICK UPDATE: A regression sneaked into the release that renders the console
+unusable when "System: Advanced: Admin Access: Console menu protection" is
+being disabled.  As far as we can see, this does not effect anything but the
+console login so you should be able to log back in and recheck the option to
+get it back (even though you will have to type the username/password).
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+What an intense week.  The m0n0wall EoL announcement[1] leaves us with a long
+TODO list that goes as far as realigning the project, especially in terms of
+lowering hardware requirements.  We’re slowly getting there, but it has only
+been a week for us compared to m0n0wall’s 12 year track record.  We ask for a
+little more time and for you to keep discussing challenges and opportunities
+through the available communication channels.
+
+Speaking of track records, today we bring you 15.1.6.1, the extra one meaning
+we’ve caught 3 issues during the release process tests and had to essentially
+redo the whole thing. No idea if we keep this numbering trick or not, consider
+it a little experiment.
+
+The highlights (TL;DR): We now run FreeBSD 10.1 with lots of driver updates
+and security patches on top, addressed two CVEs, introduce our base upgrade
+tool opnsense-update, new naming scheme for install images and IKEv1 for IPsec.
+
+Acquiring the release:
+
+https://sourceforge.net/projects/opnsense/files/15.1.6.1/
+
+Explaining the naming scheme:
+
+o cdrom: ISO installer image with live system capabilities running in
+  VGA-only mode
+o vga: USB installer image with live system capabilities running in
+  VGA-only mode
+o serial: USB installer image with live system capabilities running in
+  serial console (115200) mode with secondary VGA support (no kernel
+  messages there though)
+
+Explaining (experimental) base upgrades:
+
+The preferred method for upgrades is still booting install media, importing
+the config through the installer and reinstalling as it is a clean fallback.
+Nevertheless, we’ve pushed a new tool that can be invoked manually on the
+command line after the firmware upgrade to 15.1.6.1 has been completed.
+
+To upgrade the base system, as root type
+
+# opnsense-update
+# reboot
+
+The immediate reboot is mandatory, but you are in charge.  Again, this is
+still experimental, so please report any bugs or strange behaviour running
+an older release that has been upgraded in this way.  If all hell breaks
+loose, the config can still be recovered using the preferred upgrade method
+even when the system is broken during the upgrade.  And you should always
+keep a backup of your config somewhere else...
+
+Change Log 15.1.6:
+
+o Migrated FreeBSD 10.1-RELEASE-p5 plus required custom patches
+o Two additional kernel security fixes (thanks to Olivér Pintér/HardenedBSD)
+o New naming scheme for installer images: cdrom, serial, vga
+o New opnsense-update tool for base system upgrades
+o Notable port updates: pkg 1.4.12, bind 9.9.6-P2[2] (CVE-2015-1349),
+  php 5.6.6[3] (CVE-2015-0273), syslogd 10.1
+o Fixed wizard default settings and reload/redirect
+o DNS forwarder now properly reloads on host overrides updates
+o IPFW ruleset reload fix after start/restart of captive portal
+o Page contents upload and MIME type for svg images fix in captive portal
+o IPsec/Strongswan now supports IKEv1
+o Basic plumbing for the MVC framework has been completed
+o Fix Copy my MAC address in DHCP service editor
+o Removed IPv6 fcgi-fpm leftovers
+o Assorted fixes regarding menus, page titles and links
+
+Change Log 15.1.6.1:
+
+o Don’t clobber user and group settings when running opnsense-update.
+  Caused e.g. dhcpd to refuse operation.
+o Fix a regression that would prevent e.g. sshd from starting.
+o Install opnsense-update by default.
+
+Stay safe,
+The OPNsense team
+--
+[1] http://m0n0.ch/wall/end_announcement.php
+[2] https://kb.isc.org/article/AA-01235
+[3] http://php.net/ChangeLog-5.php#5.6.6

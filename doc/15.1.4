@@ -1,0 +1,38 @@
+@ January 31, 2015
+
+Hi everyone,
+
+So this has been January: an interview on BSDnow, amd64 and i386 images,
++150 followers on Twitter, +3000 downloads and five releases.  Yes, five.
+We proudly announce our next stable cut: It has been quite calm on the ports
+side of things, but there have been many commits in the core adding up to an
+incentive to upgrade as soon as possible.  And, yes, there are patches
+addressing CVEs in FreeBSD.  Here is the change log:
+
+o FreeBSD-SA-15:02.kmem[1] (CVE-2014-8612)
+o FreeBSD-SA-15:03.sctp[2] (CVE-2014-8613)
+o time zone data updated to 2015a[2]
+o sshd now uses the correct OpenSSH version
+o fixed SSL certificate generation issue
+o interfaces, unbound, certificates and NAT GUI fixes
+o captive portal voucher key regeneration and OpenSSL usage fixed
+
+The images can be found here:
+
+https://sourceforge.net/projects/opnsense/files/15.1.4/
+
+The advised upgrade method is to boot from install media, recover your
+device configuration using the import configuration option, then do a
+quick/easy install (or a custom one if you did that previously).
+
+Please note that the current firmware upgrade does *not* update the kernel and
+base system to fix the FreeBSD security advisories. We are actively working on
+a solution which also includes discussing using pkgng as the system for such
+tasks in the future.
+
+Stay safe,
+The OPNsense team
+--
+[1] https://www.freebsd.org/security/advisories/FreeBSD-SA-15:02.kmem.asc
+[2] https://www.freebsd.org/security/advisories/FreeBSD-SA-15:03.sctp.asc
+[3] http://mm.icann.org/pipermail/tz-announce/2015-January/000028.html

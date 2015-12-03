@@ -1,0 +1,28 @@
+@ January 18, 2015
+
+Hi folks,
+
+Some of you have been wondering; now wonder no more: the next stable release
+is here.  From the changelog:
+
+o firmware upgrade experience improvements
+o FreeBSD SA-15:01 with multiple OpenSSL fixes
+o OpenSSL from ports now brings you the latest and greatest 1.0.1l
+o pkg 1.4.6 hot off the press
+
+The images can be found here: https://sourceforge.net/projects/opnsense/files/
+
+This is mostly motivated by the latest OpenSSL issues, although I must say we
+work on giving LibreSSL a chance soon and make a final decision about the
+library that we are going to stick to from 15.7 on. Any help here is
+appreciated. :)
+
+Recommended ways of upgrade:
+
+(1) Upgrade via the GUI, make sure you restart the box so that no service will
+    run on vulnerable binaries. The base OpenSSL will *not* be updated at this
+    point, so if you don't fully trust the port just yet try the second method.
+(2) Take your favourite image, boot up the device or VM with the new install
+    image.  In the installer, choose "Import Configuration" and if all is well,
+    continue with the Easy/Quick install.  This way makes sure all of the base
+    system is replaced.
