@@ -1,0 +1,53 @@
+@ March 13, 2015
+
+Hello again,
+
+This week has been really quiet just like last week so we give you another
+tiny stable update in the style of "click-click-click-done".  Most notably,
+we've tracked down two issues with the package database being unavailable,
+resulting in "no updates available" situations.  Thanks again to everyone
+who helped to debug and test this with us!
+
+We are not aware of any security issues at this point.  Our LibreSSL efforts
+continue with 15.1.7.2-LibreSSL later today and it seems to be an extended
+work in progress as we uncover just how deep OpenSSL is tied into the FreeBSD
+ecosystem.  Needless to say it shouldn't be this way, but we're getting there
+step by step.
+
+For everybody running 15.1.7.1 that might be a good opportunity to try the
+root console menu option 12 to update in one single go (including available
+base updates).  It can also be invoked via SSH if you are into that sort of
+headless/remote workflow.
+
+Here is the full list of changes:
+
+o bsdinstaller: fixed the package database wipe on custom install
+o bsdinstaller: install progress bar is now more responsive with regard to
+  individual directories in /usr
+o firmware: removed obsoleted upgrade code and tools following our
+  pkgng/opnsense-update approach
+o miniupnpd: now properly links to the OpenSSL/LibreSSL port
+o ipmitool: now properly links to the OpenSSL/LibreSSL port
+o core: extensive cleanups for PHP shebang usage, wiped numerous unused
+  scripts and unreachable web pages, removed PBI remnants, removed ‘tmp_path’
+  softcoding to improve readability and git-grep(1) experience, removed stale
+  debug statement that were only marginally useful while bumping the
+  statements to default that indicate real errors
+o console: fixed halt script permissions and switched to synchronous mode
+o sysctl: added net.inet6.ip6.rfc6204w3 to improve the DHCPv6 experience
+o nat: remove target IP hardcoding in automatic rules (props to pfSense for
+  pointing that out to us)
+o rc: fixed missing package database when using the MFS option for /var
+o configd: added a standard rc.d script for easy daemon control
+o mvc: a lot of new code to support general infrastructure for upcoming
+  porting of features, e.g. proxy feature
+o help: adjusted links in the help menu to use HTTPS and improved targeting
+
+If you are new to OPNsense, the 15.1.7 images can be found here and are easily
+updated through the GUI after installation:
+
+https://sourceforge.net/projects/opnsense/files/15.1.7/
+
+
+Stay safe,
+The OPNsense team

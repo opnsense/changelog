@@ -52,26 +52,27 @@ for (@lines) {
 # print json metadata to standard error
 say STDERR "{version: \"$ver\", date: \"$date\"}";
 
-my $skip = 0;
 my $pp = '<p>';
+my $bl = '';
+my $in = 0;
+
+push @lines, '';
 
 # second pass: webify all the text!
 for (@lines) {
-	if ( $_ eq '' ) {
-		$skip = 1;
-		next;
+	$_ =~ s/(http[s]?:\/\/\S*)/<a target="_blank" href="$1">$1<\/a>/g;
+	foreach my $key ( keys %refs ) {
+		$_ =~ s/\[$key\]/[<a target="_blank" href="$refs{$key}">$key<\/a>]/g;
 	}
 
-	$_ =~ s/(http[s]?:\/\/\S*)/<a href="$1">$1<\/a>/g;
-	foreach my $key ( keys %refs ) {
-		$_ =~ s/\[$key\]/[<a href="$refs{$key}">$key<\/a>]/g;
+	$_ =~ s/\s*$//g;
+	if ( $_ =~ s/^\s*//g ) {
+		# XXX
 	}
 
 	if ( $pp ne '<p>' ) {
-		if ( $skip ) {
-			print STDOUT $pp;
-			print STDOUT "</p>\n";
-			$skip = 0;
+		if ( $_ eq '' ) {
+			print STDOUT $pp . '</p>' . "\n";
 			$pp = '<p>' . $_;
 			next;
 		}

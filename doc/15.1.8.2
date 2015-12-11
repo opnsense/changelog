@@ -1,0 +1,84 @@
+@ March 25, 2015
+
+Hello friends,
+
+After an extended low profile period we are back in business with the latest
+and greatest 15.1.8.  You’ll notice that we have incorporated the recent
+OpenSSL security advisories along with a larger number of fixes and cleanups.
+But there’s more.  We have pushed the bulk load of our new configuration
+handling code which is intended to bridge the gap between the old and the
+new front-end code.  And since we don’t like to stop there just yet, we’ve
+also added support for backing up your configs on your private Google Drive.
+
+We encourage our users running 15.1.7.1 or later to try the root console menu
+option “12” for a fully automatic system upgrade.  Otherwise, it’s either
+installing from scratch using install media and the installer's config import
+feature, or running the GUI firmware update and dropping to a root shell to
+run `opnsense-update && reboot’ to fully benefit from the base system
+security updates.  Please let us know about your upgrade experience.  We are
+still adding and tweaking code to complement and simplify the upgrade process.
+
+Users of the install media are encouraged to update their firmware via the GUI
+from 15.1.8 to 15.1.8.2 as soon as possible due to a few important config
+system hotfixes.
+
+Here is the full list of changes:
+
+o src: applied FreeBSD-SA-15:06.openssl[1]
+o src: updated to tzdata2015b[2]
+o src: add missing max-packets parsing for pf(4)
+o src: OPNsense branding for boot loader
+o bsdinstaller: speed up SD card writes using async mode and assorted cleanups
+o opnsense-update: don't trigger a spurious update after a fresh install when
+  invoked for the first time
+o notable port updates: isc-dhcp42 4.2.8, libressl 2.1.6 (hopefully builds
+  will be available on Friday), openssl 1.0.1m, ca_root_nss 3.18
+o core: removed obsolete conf_mount_ro() and conf_mount_rw() usage
+o core: removed platform awareness with a more appropriate probe for install
+  media
+o core: removed all remnants of the old firmware update code
+o core: completely rewrote the config.xml handling to unify old and new GUI
+  components
+o core: added support for config backup to Google Drive[3]
+o core: fixed a few config handling issues with the new system via 15.1.8.1
+o core: fixed missing aliases in new config system via 15.1.8.2
+o core: removed php-fpm remnants that would e.g. prevent automatic IP
+  assignment in DHCP mode via 15.1.8.2
+o packages: removed the legacy package system
+o upnp: transformed the preinstalled package into a standard feature
+o openvpn: added the client export package as a standard feature
+o dyndns: minor follow-ups for Duck DNS support
+o firewall log: fix bug that would prevent the filter from working correctly
+o ntp: added numerous config form tweaks and fixed daemon startup
+o igmpproxy: fixed daemon startup
+o dns: properly regenerate hosts file on reload
+o ssh: fix sshd reload on save in system admin access page
+o src: avoid invoke of FreeBSD’s rc system on halt and reboot
+o dhcp: improve compatibility with IPv6 deployments
+
+The install media images can be found here:
+
+https://sourceforge.net/projects/opnsense/files/15.1.8/
+
+The checksums are:
+
+# SHA256 (OPNsense-15.1.8-cdrom-amd64.iso.bz2) = c8cb295cd711f880e6406ab8d84c84a31cdc678c40e4d3be4c3fe9546614bdcc
+# SHA256 (OPNsense-15.1.8-serial-amd64.img.bz2) = 1d51a7d229a145eb92517211a96d9c9bcb0e3585c21931406463368349129997
+# SHA256 (OPNsense-15.1.8-vga-amd64.img.bz2) = 9a9777af215e66dfa4032d2052f320234c32809816094c1a58d2ebe5c81bdd1a
+# SHA256 (OPNsense-15.1.8-cdrom-i386.iso.bz2) = e1d1b11ac23a043ab0bdff2a923a8a920814f72e79b852f39e66f185963f8cc4
+# SHA256 (OPNsense-15.1.8-serial-i386.img.bz2) = fe078471b8409a2102f216252db4f59580853a0182c33d39d4b2c676a1f9e3b7
+# SHA256 (OPNsense-15.1.8-vga-i386.img.bz2) = df7ca44649f7283df774acddc2df7e06961d80033e959cde01ebce664bf6f488
+# MD5 (OPNsense-15.1.8-cdrom-amd64.iso.bz2) = 79eff753cdb749dacb9e106a1781ce64
+# MD5 (OPNsense-15.1.8-serial-amd64.img.bz2) = 8e643edf6d6cee72535bd8913cf4176e
+# MD5 (OPNsense-15.1.8-vga-amd64.img.bz2) = c20fee3989a786e12ba0ec3f0e565660
+# MD5 (OPNsense-15.1.8-cdrom-i386.iso.bz2) = 8b8459017333d654c8b1a7f246a4e250
+# MD5 (OPNsense-15.1.8-serial-i386.img.bz2) = 6f2e9656a02f32cebf18c9b31b5439f2
+# MD5 (OPNsense-15.1.8-vga-i386.img.bz2) = 4cbbebe46142d1e954c76383340f61e6
+
+
+Stay safe,
+Your OPNsense team
+--
+[1] https://www.freebsd.org/security/advisories/FreeBSD-SA-15:06.openssl.asc
+[2] http://mm.icann.org/pipermail/tz-announce/2015-March/000029.html
+[3] https://wiki.opnsense.org/index.php/Manual:Backup_to_Google_Drive
