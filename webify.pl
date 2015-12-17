@@ -54,6 +54,7 @@ say STDERR "{version: \"$ver\", date: \"$date\"}";
 
 my $pp = '<p>';
 my $bl = '';
+my $li = '';
 my $in = 0;
 
 push @lines, '';
@@ -70,13 +71,26 @@ for (@lines) {
 		# XXX
 	}
 
+	if ($_ =~ s/^#\s//g) {
+		if ($li eq '') {
+			$li = '</pre>';
+			$pp .= '<pre>';
+		}
+	}
+
 	if ( $pp ne '<p>' ) {
 		if ( $_ eq '' ) {
-			print STDOUT $pp . '</p>' . "\n";
-			$pp = '<p>' . $_;
-			next;
+			chop $pp if $li ne '';
+			print STDOUT $pp . $li . '</p>' . "\n";
+			$pp = '<p>';
+			$li = '';
+		} else {
+			if ($li eq '') {
+				$pp .= ' ';
+			} else {
+				$_ .= "\n";
+			}
 		}
-		$pp .= ' ';
 	}
 
 	$pp .= $_;
