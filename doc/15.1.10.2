@@ -1,0 +1,72 @@
+@ May 13, 2015
+
+Dear friends and followers,
+
+We are happy to announce OPNsense 15.1.10.2 today following a rather
+exciting firmware upgrade bug that prevented the release yesterday.
+We are back to normal now thanks to the wonderful people of pkgng, and,
+boy, do we have news to share.
+
+First and foremost, it's time to reveal to all of you the Proxy Server
+(based on squid) work we've done under the hood for a few months now.
+The new MVC framework has been plugged seamlessly into the GUI and can
+be inspected under "Services: Proxy Server".  This is a sneak preview of
+things to come and any help in testing and commenting on the feature is
+going to be a huge help as we go forward.
+
+The translation project has been kickstarted for Japanese[1] and Chinese,
+although the translations are not yet available in the GUI due to their
+incompleteness.  We do, however, think this is a good opportunity to ask
+for contributions to the translations and welcome efforts for other
+languages as well.
+
+Last but not least HardenedBSD's work[2] to build OPNsense on top of their
+code has been a quick success story and will eventually bring features like
+ASLR into the project.  The cooperation also sparked a number of build tools
+improvements that will make maintaining the project easier in the future.
+Changes also help to unify the OpenSSL/LibreSSL release handling so that
+with this announcement you will be enjoying your timely LibreSSL firmware
+upgrade.  ;)
+
+Here is the full list of changes:
+
+o proxy: basic proxy features on top of our new and shiny MVC framework
+  under "Services: Proxy Server"
+o proxy: smart tokens for item lists (copy/paste CSV list into them and
+  watch the magic happen)
+o proxy: help on/off per item or full page
+o proxy: hide advanced options and include sane defaults
+o proxy: FTP proxy included with same ACL controls as HTTP
+o proxy: simple authentication using built-in user database
+o openvpn: added Tunnelblick's version of the OpenVPN XOR feature for
+  protocol obfuscation[3]
+o core: fixed config.xml section import regression
+o core: stripped numerous dynamic strings from gettext() invokes
+o ports: added FreeBSD's 10.1 ifinfo tool to probe for interface statistics
+  to replace legacy PHP module code
+o ports: bsdinstaller 2.3 no longer uses cpdup utility, plus log collection
+  and SONAME fixes
+o ports: updated to pkg 1.5.2, phalcon 2.0.0, dnsmasq 2.72_1[4]
+o ports: perl5 is now installed by default (5.18)
+o development: OpenSSL and LibreSSL branches have been merged for a simpler
+  build experience and smaller release times
+o development: the package sets are now always kept as a single archive that
+  can be reused and recompiled (even selectively)
+o development: stable translation template file is available now[5]
+o development: kickstarted Japanese and Chinese translations
+o development: language translation files are now automatically compiled
+  into the core package
+o development: added a persistent build config file for setting the version,
+  crypto flavour and release version tag (if applicable)
+
+The update is available via the firmware upgrade feature only.
+
+
+Stay safe,
+Your OPNsense team
+--
+[1] http://dotike.github.io/opnsense.core.ja_JP.UTF8/
+[2] https://hardenedbsd.org/article/shawn-webb/2015-05-08/hardenedbsd-teams-opnsense
+[3] https://code.google.com/p/tunnelblick/wiki/cOpenvpn_xorpatch
+[4] https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-3294
+[5] https://raw.githubusercontent.com/opnsense/core/master/src/share/locale/en_US/LC_MESSAGES/OPNsense.pot

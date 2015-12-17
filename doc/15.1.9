@@ -1,0 +1,81 @@
+@ April 10, 2015
+
+Hello friends,
+
+Although we have already released 15.1.8.4 early this week, we're pushing out
+15.1.9 for two important reasons: security updates, kernel panic fixes and
+clean images as we've had a couple of things that needed addressing following
+the configuration system rewrite in 15.1.8.  That's three important reasons
+really. ;)
+
+The recommended upgrade method is the root console option 12 to properly
+update both the packages and the base system to the latest available
+releases.  Please verify that the system information widget on the dashboard
+presents you with the following and new version information (will show
+"i386" as opposed to "amd64" if you use the 32 bit version):
+
+# OPNsense 15.1.9-amd64
+# FreeBSD 10.1-RELEASE-p9
+# OpenSSL 1.0.1m 19 Mar 2015
+
+Alternatively, you can choose to boot a fresh install media and do a clean
+config import followed by an immediate installation to retain your full setup.
+
+As always, back up your configuration to an external location prior to
+upgrading.
+
+LibreSSL images and updates are expected later today.  Please watch out for
+the announcement on Twitter, IRC, the forum or elsewhere.  LibreSSL is still
+an experimental release despite the fact we keep it up to date and mix
+LibreSSL updates into the shared patch notes.
+
+Here is the change log for 15.1.9:
+
+o tools: install media live images now use the more flexible tmpfs(5)
+o tools: cxgbe(4) is now compiled into the kernel
+o ports: strongswan 5.3.0[1], openssh-portable 6.8p1[2], ntp 4.2.8p2[3]
+o src: reverted inconsistent carp(4) and pfsync(4) patches to retain
+  standard FreeBSD behaviour
+o src: fix multiple vulnerabilities of ntp[4]
+o src: fix denial of service with IPv6 router advertisements[5]
+o core: console upgrade now also triggers the unused package removal
+o core: fix regression that caused a faulty config.xml when applying limiter
+  settings
+o core: refactored the configd command structure for clarity
+o core: fix for SMTP notifications that broke due to PHP 5.6's new default
+  SSL behaviour
+o core: thorough unused java script purge under the hood
+o upnp: fix redeclaration error on main page shortcut click
+o user manager: consolidated the labels of all privileges, especially OpenVPN
+o development: opnsense-update can selectively upgrade base/kernel for testing
+o development: new chunk of progress on the new proxy feature and MVC structure
+
+The images can be found on a mirror of your choosing:
+
+https://opnsense.org/download/
+
+The checksums are:
+
+# SHA256 (OPNsense-15.1.9-cdrom-amd64.iso.bz2) = d159a791cbc373435f25c74f433cc6b419fd8d6df8940d854fec6cd07545acd4
+# SHA256 (OPNsense-15.1.9-serial-amd64.img.bz2) = 0584fa5092c40af9f8523be527408af57eac2ca71c9522e8167f7ae7f08e0586
+# SHA256 (OPNsense-15.1.9-vga-amd64.img.bz2) = ccd550b471aa6b13d9a8921aa9461d5eddedaeb9c375e97261ff4e54ebd881d2
+# SHA256 (OPNsense-15.1.9-cdrom-i386.iso.bz2) = dd3816e0b9c166009de0bde47adce28472bcc639918de91813db4b0ad3bd863e
+# SHA256 (OPNsense-15.1.9-serial-i386.img.bz2) = 6b39d3a3ede80f6996c589eeeb39b0777b3ae878f79101b85f9b7af3dad771d3
+# SHA256 (OPNsense-15.1.9-vga-i386.img.bz2) = 56b401719811d233cfd476f49501c436e0f3f02422a1bbc711aa70c0a1a4e340
+
+# MD5 (OPNsense-15.1.9-cdrom-amd64.iso.bz2) = 82b9575e8070248d52b01baae9d31544
+# MD5 (OPNsense-15.1.9-serial-amd64.img.bz2) = 3f516cfb088d13f747bc68a0725b955d
+# MD5 (OPNsense-15.1.9-vga-amd64.img.bz2) = 14f035f45c89f5fd404881baac93528f
+# MD5 (OPNsense-15.1.9-cdrom-i386.iso.bz2) = 09e724a1313f5ebbbfcbf61c62e0803d
+# MD5 (OPNsense-15.1.9-serial-i386.img.bz2) = 736069fb503de87599b0f866a47fdb02
+# MD5 (OPNsense-15.1.9-vga-i386.img.bz2) = c79f0c9fe2a0fcb4d8f4ff18146fe340
+
+
+Stay safe and enjoy,
+Your OPNsense team
+--
+[1] https://www.strongswan.org/blog/2015/03/30/strongswan-5.3.0-released.html
+[2] http://www.openssh.com/txt/release-6.8
+[3] http://support.ntp.org/bin/view/Main/SecurityNotice#Recent_Vulnerabilities
+[4] https://www.freebsd.org/security/advisories/FreeBSD-SA-15:07.ntp.asc
+[5] https://www.freebsd.org/security/advisories/FreeBSD-SA-15:09.ipv6.asc

@@ -1,0 +1,49 @@
+@ April 22, 2015
+
+Hi everyone,
+
+Another week, another stable release.  :) While we are busy working on
+extensive kernel cleanups to bring OPNsense closer to FreeBSD, we decided
+to ship a minor update today with a number of third-party software refreshes
+and assorted fixes across the board before we make the leap to 15.1.10.
+
+We'd like to mention the extensive translation groundwork being done by
+Isaac Levy, which will enable others to start working on specific language
+support now that there's an official English translation in the system.  A
+Japanese translation is being discussed already--if you'd like to contribute
+other language translations let us know through the usual channels.  We'd be
+more than happy to include them into a future release.
+
+Here is the full change log of 15.1.9.2:
+
+o captive portal: fixed rule generation on empty IP
+o gui: print current user in upper right corner along with the hostname
+o user manager: fixed empty password error when creating a new user
+o high availability: don't trigger sync when not configured
+o interfaces: added the hn(4) interfaces as ALTQ capable
+o configuration: do not overwrite the default configuration on firmware
+  updates
+o ipsec: fixed road warrior authentication
+o openvpn: fixed client edit link
+o ports: sqlite 3.8.9[1]
+o ports: strongswan fix for xauth (road warrior-related)
+o ports: PHP 5.6.8[2]
+o ports: pkg 1.5.1[3]
+o development: kickstarted language support via English
+  translation (.pot file)
+o development: further progress on the proxy feature/MVC framework
+o development: improved the live mount to propagate the mounted version
+  into the dashboard
+
+The update is not available via install media, but you can just as well
+download 15.1.9 from a mirror and upgrade with a few simple clicks:
+
+https://opnsense.org/download/
+
+
+Stay safe,
+Your OPNsense team
+--
+[1] http://www.sqlite.org/releaselog/3_8_9.html
+[2] http://php.net/ChangeLog-5.php#5.6.8
+[3] https://lists.freebsd.org/pipermail/freebsd-stable/2015-April/082234.html

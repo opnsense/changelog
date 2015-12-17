@@ -1,0 +1,46 @@
+@ May 23, 2015
+
+Hello again,
+
+Today it's time for 15.1.11.1 which includes two tweaks for the recent
+Logjam vulnerability as well as the images for OPNsense on top of OpenSSL.
+The reason for not providing LibreSSL images is that we are going to make
+the flavour selectable via the GUI since pkgng does such a great job of
+tracking and resolving all the provided and required dependencies.
+
+o crypto: regenerate DH parameters for 1024, 2048 and 4096 bit
+o crypto: tweak the web server config to harden against Logjam
+
+Firmware upgrades for LibreSSL and OpenSSL are live.  The OpenSSL images
+can be found here:
+
+https://opnsense.org/download/
+
+The checksums are as follows:
+
+# SHA256 (OPNsense-15.1.11.1_OpenSSL-cdrom-amd64.iso.bz2) = 280f02a2da3ff9e9ad1f655a8661c845765493f36e1788b8c852af9886c50316
+# SHA256 (OPNsense-15.1.11.1_OpenSSL-nano-amd64.img.bz2) = 2d14d881311ca8b188a41a2d57aee6e0bec66f55066f2844502d4ef17e64935e
+# SHA256 (OPNsense-15.1.11.1_OpenSSL-serial-amd64.img.bz2) = e6e3c8c425dfebc33df9d66cc013616898963c72c52df6e0bed388126c2143a1
+# SHA256 (OPNsense-15.1.11.1_OpenSSL-vga-amd64.img.bz2) = 64de0201f37cf75c3ba5084f06a1f545eb0a9c4e8248354b584a024322edf488
+# SHA256 (OPNsense-15.1.11.1_OpenSSL-cdrom-i386.iso.bz2) = 18f1b40981d243173c524af208f8c4cf10a46d41f676d350baba477f07c2ff9e
+# SHA256 (OPNsense-15.1.11.1_OpenSSL-nano-i386.img.bz2) = 2160335ab904fb0f82dc2629ea7c9116c36059928860169bb9eeac87038db5c7
+# SHA256 (OPNsense-15.1.11.1_OpenSSL-serial-i386.img.bz2) = a2f7ce128a1ea3ab4942e7ff5accb2901110324d73c516b7bd1a7947b70697cf
+# SHA256 (OPNsense-15.1.11.1_OpenSSL-vga-i386.img.bz2) = df112aca62de658518bc3f904336fb9024daf404741880e9bb7b93912a5b2af3
+
+# MD5 (OPNsense-15.1.11.1_OpenSSL-cdrom-amd64.iso.bz2) = edc4349b7f3b815302724e60c7ddc0cb
+# MD5 (OPNsense-15.1.11.1_OpenSSL-nano-amd64.img.bz2) = 1f2cca409ba7e1ab91d6e937627ac275
+# MD5 (OPNsense-15.1.11.1_OpenSSL-serial-amd64.img.bz2) = 3dcb482fa561fb46748d18fb07048553
+# MD5 (OPNsense-15.1.11.1_OpenSSL-vga-amd64.img.bz2) = e56074166925c14b586dfff68c8d4494
+# MD5 (OPNsense-15.1.11.1_OpenSSL-cdrom-i386.iso.bz2) = 3b1904072a4ea48aad6a70cde451cade
+# MD5 (OPNsense-15.1.11.1_OpenSSL-nano-i386.img.bz2) = a040f331af20a5025d5cbcea1e57d348
+# MD5 (OPNsense-15.1.11.1_OpenSSL-serial-i386.img.bz2) = 0a8f26ff6fab41c699ba03a9805ec6b5
+# MD5 (OPNsense-15.1.11.1_OpenSSL-vga-i386.img.bz2) = cf7b4e86a0a856499ca843524d0824bc
+
+Info on how to obtain LibreSSL-based images which are then easily upgraded
+to 15.1.11.1 can be found here:
+
+https://forum.opnsense.org/index.php?topic=78.0
+
+
+Stay safe,
+Your OPNsense team

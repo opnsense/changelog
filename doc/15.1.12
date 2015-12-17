@@ -1,0 +1,82 @@
+@ June 17, 2015
+
+G'day everyone,
+
+It's sad but true: 15.1.12 may very well be the last of its kind.  6 months
+are almost over and 15.7 is around the corner with a number of changes e.g.
+how we do version numbers, release engineering branches and upcoming versions
+such as 16.1.  As nothing is set in stone, we ask you to participate in the
+discussion on the forums:
+
+https://forum.opnsense.org/index.php?topic=705.0
+
+The aftermath of the recent OpenSSL release(s) finally settled so now we are
+shipping FreeBSD's security advisory along with the latest releases of
+OpenSSL 1.0.2c and LibreSSL 2.2.0.  Upgrading PHP 5.6.10 seemed like another
+sensible thing to do.
+
+The firmware update side of things received another minor batch of changes
+and is now at a point we're satisfied with.  Should you find anything odd
+or unusual, please let us know.
+
+Here is the full list of changes:
+
+o src: fix OpenSSL multiple vulnerabilities[1]
+o src: update base system file(1) to 5.22[2]
+o src: improve reliability of ZFS[3]
+o src: updated to tzdata2015e[4]
+o ports: openssl 1.0.2c[5], libressl 2.2.0[6], php 5.6.10[7],
+  dnsmasq 2.73[8], smartmontools 6.4 [9]
+o syslogd: disable unmaintained and unused ZMQ patches
+o opnsense-update: gained independent awareness of kernel and
+  base system version
+o opnsense-update: improved the manual page to include all recent changes
+o firmware: bring back /etc/shells support to avoid the unknown shell
+  warning on bootup
+o firmware: always schedule next poll while upgrade is running to
+  accommodate for web server restart delay
+o logs: fix DHCP reverse ordering and update layout
+o wizard: remove false statement about using "dhcp" for LAN setup
+o menu: order interfaces by name
+o captive portal: fix database creation query by avoiding SQL injection
+  syntax that broke due to a recent upstream hardening of the database
+  adapter underneath
+
+The images can be obtained via any of our mirrors, given a bit of delay
+for them to pull in the latest images:
+
+https://opnsense.org/download/
+
+The checksums are:
+
+# SHA256 (OPNsense-15.1.12_OpenSSL-cdrom-amd64.iso.bz2) = 60664c127e0f35f7ca9150ca31ef56de89b217f34f45959957ddd279d8512007
+# SHA256 (OPNsense-15.1.12_OpenSSL-nano-amd64.img.bz2) = 044b144fd892bebb1499a9788e37f43a92ffa2c175b07fc49ea24f3cb21032b7
+# SHA256 (OPNsense-15.1.12_OpenSSL-serial-amd64.img.bz2) = 8b450c6aff84cc9bfb7bcae72a50975d965872415f12a04226ef6688c074a3ef
+# SHA256 (OPNsense-15.1.12_OpenSSL-vga-amd64.img.bz2) = 6c0d7529ce77b387ab97fc6557987ac68256a2e5cb6e5993ba807be91a08cd45
+# SHA256 (OPNsense-15.1.12_OpenSSL-cdrom-i386.iso.bz2) = 95a31bb2d854cb8370b58e95155fae34b824393e1add53a99349e7452e4c7313
+# SHA256 (OPNsense-15.1.12_OpenSSL-nano-i386.img.bz2) = 9d86a0ecdf74b28b627672f19fd652c6792e884dda68effe680c495934926e6d
+# SHA256 (OPNsense-15.1.12_OpenSSL-serial-i386.img.bz2) = a6b6460b9cb398993f9507c77644fc6ab13ad65786ed33c4bdd16a2d93d58606
+# SHA256 (OPNsense-15.1.12_OpenSSL-vga-i386.img.bz2) = aecf58f9f77cf1f4f712bc8deb0ac987b0f060c7f4e9f7163d5767d1c2fbc105
+
+# MD5 (OPNsense-15.1.12_OpenSSL-cdrom-amd64.iso.bz2) = f7701aa70024bbab8395f808d9695eb0
+# MD5 (OPNsense-15.1.12_OpenSSL-nano-amd64.img.bz2) = 2e32ea342755513f87b13db4900cd1b8
+# MD5 (OPNsense-15.1.12_OpenSSL-serial-amd64.img.bz2) = 7722c2de2d06b56a32d32f49b28007d6
+# MD5 (OPNsense-15.1.12_OpenSSL-vga-amd64.img.bz2) = d2ad9fc3bad8bff348d60f6a879122e6
+# MD5 (OPNsense-15.1.12_OpenSSL-cdrom-i386.iso.bz2) = acefe5ce4cefe49e6c601db602af95b2
+# MD5 (OPNsense-15.1.12_OpenSSL-nano-i386.img.bz2) = 5f2f3c2c76996284557b2e8e4f9cadf2
+# MD5 (OPNsense-15.1.12_OpenSSL-serial-i386.img.bz2) = 6b0745526824badc05c53fee6c5b035c
+# MD5 (OPNsense-15.1.12_OpenSSL-vga-i386.img.bz2) = f1c67cac62d621a289dfb8c7384a242f
+
+
+Stay safe,
+Your OPNsense team
+--
+[1] https://www.freebsd.org/security/advisories/FreeBSD-SA-15:10.openssl.asc
+[2] https://www.freebsd.org/security/advisories/FreeBSD-EN-15:07.zfs.asc
+[3] https://www.freebsd.org/security/advisories/FreeBSD-EN-15:06.file.asc
+[4] http://mm.icann.org/pipermail/tz-announce/2015-June/000032.html
+[5] https://www.openssl.org/news/openssl-1.0.2-notes.html
+[6] http://ftp.openbsd.org/pub/OpenBSD/LibreSSL/libressl-2.2.0-relnotes.txt
+[7] http://www.php.net/ChangeLog-5.php#5.6.10
+[8] http://lists.thekelleys.org.uk/pipermail/dnsmasq-discuss/2015q2/009644.html
+[9] https://www.smartmontools.org/browser/tags/RELEASE_6_4/smartmontools/NEWS

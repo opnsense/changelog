@@ -3,18 +3,18 @@
 Hello friends,
 
 After an extended low profile period we are back in business with the latest
-and greatest 15.1.8.  You’ll notice that we have incorporated the recent
+and greatest 15.1.8.  You'll notice that we have incorporated the recent
 OpenSSL security advisories along with a larger number of fixes and cleanups.
-But there’s more.  We have pushed the bulk load of our new configuration
+But there's more.  We have pushed the bulk load of our new configuration
 handling code which is intended to bridge the gap between the old and the
-new front-end code.  And since we don’t like to stop there just yet, we’ve
+new front-end code.  And since we don't like to stop there just yet, we've
 also added support for backing up your configs on your private Google Drive.
 
 We encourage our users running 15.1.7.1 or later to try the root console menu
-option “12” for a fully automatic system upgrade.  Otherwise, it’s either
+option "12" for a fully automatic system upgrade.  Otherwise, it's either
 installing from scratch using install media and the installer's config import
 feature, or running the GUI firmware update and dropping to a root shell to
-run `opnsense-update && reboot’ to fully benefit from the base system
+run `opnsense-update && reboot' to fully benefit from the base system
 security updates.  Please let us know about your upgrade experience.  We are
 still adding and tweaking code to complement and simplify the upgrade process.
 
@@ -53,7 +53,7 @@ o ntp: added numerous config form tweaks and fixed daemon startup
 o igmpproxy: fixed daemon startup
 o dns: properly regenerate hosts file on reload
 o ssh: fix sshd reload on save in system admin access page
-o src: avoid invoke of FreeBSD’s rc system on halt and reboot
+o src: avoid invoke of FreeBSD's rc system on halt and reboot
 o dhcp: improve compatibility with IPv6 deployments
 
 The install media images can be found here:
@@ -68,6 +68,7 @@ The checksums are:
 # SHA256 (OPNsense-15.1.8-cdrom-i386.iso.bz2) = e1d1b11ac23a043ab0bdff2a923a8a920814f72e79b852f39e66f185963f8cc4
 # SHA256 (OPNsense-15.1.8-serial-i386.img.bz2) = fe078471b8409a2102f216252db4f59580853a0182c33d39d4b2c676a1f9e3b7
 # SHA256 (OPNsense-15.1.8-vga-i386.img.bz2) = df7ca44649f7283df774acddc2df7e06961d80033e959cde01ebce664bf6f488
+
 # MD5 (OPNsense-15.1.8-cdrom-amd64.iso.bz2) = 79eff753cdb749dacb9e106a1781ce64
 # MD5 (OPNsense-15.1.8-serial-amd64.img.bz2) = 8e643edf6d6cee72535bd8913cf4176e
 # MD5 (OPNsense-15.1.8-vga-amd64.img.bz2) = c20fee3989a786e12ba0ec3f0e565660

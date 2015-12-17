@@ -1,0 +1,115 @@
+@ May 04, 2015
+
+Dear all,
+
+The new release is finally here!  Yet before we begin, we'd like to stress
+this part: please read the notes enclosed; they are important for the future
+of OPNsense.
+
+We are now about two thirds into what is going to be 15.7.  On this path,
+we've always released cutting edge snapshot releases and 15.1.10 is no
+different.  However, what is different is the fact that this release marks
+a larger departure from what is considered a mere fork: we are leaving
+behind numerous kernel patches and two major features to better align with
+FreeBSD's code base and to rebuild these features on more maintainable
+fundament.  In this case we're talking about the layer 7 shaper and
+FAIRQ/CODEL support.
+
+But we not only delete all the things.  No, we have added NanoBSD images to
+the release bundle.  Reengineered the process to keep completely in sync with
+the FreeBSD ports collection.  Replaced the GUI menu and ACL with MVC-based
+rewrites.  We've switched on the fingerprint verification to finally enforce
+the (previously introduced) package repository signing.
+
+It's very likely that most of these additions and removals are not visible
+from a usage perspective and we do believe that is a good thing.  For some
+these changes will spark criticism, but then again they are a chance to
+better distinguish between projects and individual requirements.  We believe
+in choice.  We believe in the choices we make for the benefit of our users.
+And we intend to keep it that way for a long time.  Talk to us and let us
+know what we can achieve together.  :)
+
+Important notes on the live upgrade:
+
+The recommended way to upgrade is the root shell menu option "12". The box
+will require an immediate reboot.  No further steps will be necessary.
+
+The GUI firmware upgrade has never been perfect due to wanting to upgrade
+itself through running the update.  The GUI update is still safe to run, but
+it will not let you know when it is finished.  The update window will go
+blank, which is your queue to refresh the page.  The login window will
+reappear.  After login, the GUI update will already be finished.  To wrap
+up the full upgrade cycle, drop to the root shell and type:
+
+# opnsense-update && reboot
+
+But then again, simply use the root shell menu option "12". It works
+seamlessly via SSH, too.
+
+The full change log of 15.1.10 is as follows:
+
+o kernel: cleaned up the custom legacy patches to move the underlying
+  FreeBSD back to more standard behaviour
+o kernel: removed dysfunctional dummynet patches and traffic shaper / limiter
+  GUI feature (ETA for a replacement is 15.7)
+o kernel: stripped FAIRQ and CODELQ disciplines as they are no longer
+  supported by FreeBSD
+o kernel: isolated MPD (Multi-link PPP daemon) alteration patches
+  (will be dropped in a future release)
+o kernel: fixed IPSec dropping connections in some scenarios
+o images: a new NanoBSD-based image has been added to the release
+  bundle (directly written to SD or HD)
+o notable ports updates: curl 7.42.1, ca_root_nss: 3.18.1
+o installer: omit swap and add noatime to root partition in quick/easy
+  install when available space is under 30GB, fixed faulty exit on
+  importer cancel
+o development: the ports tree is now kept fully in sync with FreeBSD
+o development: improved the ports build script in terms of error reporting
+  and rebuilding speed
+o development: simplified file system path handling in most files to make
+  the code easier to maintain
+o development: fixed a bug that prevented extracting our packages on ZFS
+o core: replaced most of the legacy PHP module usage with more portable
+  (and maintainable) scripting code
+o dashboard: fixed the main link to always land on the dashboard to not
+  confuse a restricted ACL setup
+o traffic shaper: layer 7 filter removed as the project has been abandoned
+  (ETA for a replacement is 16.1)
+o system/settings: added an FTP proxy feature for clients trying to do
+  active transfers
+o menu: replaced the old one with the new MVC equivalent plus assorted
+  improvements
+o ACL: replaced the old one with the new MVC equivalent
+o login: polished the login screen behaviour
+o backend: don't try to send a signal to non-existing process
+o user: can now change the password via "User: Change Password" from the menu
+o firmware: enforce signed packages on upgrade for our mirrors
+o rrd: fixed directory create-after-use
+
+The images can be acquired from here:
+
+https://opnsense.org/download/
+
+Last but not least, checksums are:
+
+# SHA256 (OPNsense-15.1.10-cdrom-amd64.iso.bz2) = 27deac90b9e2e43fa71ff68c30b5fb28d3afcfb12483e01ff52ea40e8ca6f4a8
+# SHA256 (OPNsense-15.1.10-nano-amd64.img.bz2) = e61007bd2a735cdc8301d90431b6bb23dc425dfe3d7cdae162b16bd6f0dfd4a3
+# SHA256 (OPNsense-15.1.10-serial-amd64.img.bz2) = c7a412b1cc74331ebf13c8e95316c4c11ee56a331d7992a3bb27e80e0ce9a127
+# SHA256 (OPNsense-15.1.10-vga-amd64.img.bz2) = 1d9449b6bc61904995189cf264ec9c071a7effb4c203579778c827262bb88654
+# SHA256 (OPNsense-15.1.10-cdrom-i386.iso.bz2) = f6e7e4953cdb155490136134393892e92414e3a70baf419ba6c5319e58d45620
+# SHA256 (OPNsense-15.1.10-nano-i386.img.bz2) = 4e85700f4c491529f8ec60da09283674f29bfdbede83e372a95fc3719f20a661
+# SHA256 (OPNsense-15.1.10-serial-i386.img.bz2) = 786a5d831e37ac4d55618b5fc1ae0af1a5bfde52b048f185c5ce16f4f18821b9
+# SHA256 (OPNsense-15.1.10-vga-i386.img.bz2) = 6cf6c88bfa910da402e96a883bef7766570b9500941d7c5549e050bc8d74818c
+
+# MD5 (OPNsense-15.1.10-cdrom-amd64.iso.bz2) = d6f9f4736c911157067b47b8e1793a0e
+# MD5 (OPNsense-15.1.10-nano-amd64.img.bz2) = a4a6ed4a51cf501d5a27041f9255694a
+# MD5 (OPNsense-15.1.10-serial-amd64.img.bz2) = 719665d9b5e9e8d48f88b8e2b6cf177b
+# MD5 (OPNsense-15.1.10-vga-amd64.img.bz2) = 4f1f9a2d5fdc176e7516660ea34c6564
+# MD5 (OPNsense-15.1.10-cdrom-i386.iso.bz2) = 7a7bbabc27d596b0da8874ca4e31714d
+# MD5 (OPNsense-15.1.10-nano-i386.img.bz2) = a3a6d4d96217e6c86e430e9766971049
+# MD5 (OPNsense-15.1.10-serial-i386.img.bz2) = 6d3a5c3dbe02d6012d50219aaab4b7c6
+# MD5 (OPNsense-15.1.10-vga-i386.img.bz2) = 5ec2c602a8e3f31ad78c2f63c2d266b9
+
+
+May the force be with you,
+Your OPNsense team

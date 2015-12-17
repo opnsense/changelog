@@ -1,0 +1,70 @@
+@ May 22, 2015
+
+Hello everyone,
+
+As we are nearing the finish line for version 15.7 in July, we sat down on
+a single table in the Netherlands this week to review the changes that we've
+made over the past 5 months and we saw that only one road map[1] item is
+still open: the frequently requested IDS package!  We've come a long way
+since the initial 15.1 and have seen stability increase, functionality
+expand and timely updates being sustained on an almost weekly basis.
+Certainly achievements we want to keep whilst going forward.
+
+The initial release of 15.1.11 has been postponed since Tuesday due to a
+framework update we've had to exclude as well as polishing the new GUI
+firmware feature to finally revive the base system update.  If you are
+updating from the GUI to this release, you will still have to run the
+Console Firmware (Option 12) upgrade to bring your base system up to date
+(FreeBSD 10.1-RELEASE-p10).  This is the last time, we promise.  A reboot
+is mandatory.
+
+We ship PHP 5.6.9 ahead of FreeBSD, removed numerous unused packages and
+two more custom kernel patches bringing us down to 5 custom patches from
+previously more than 40.  We also have plans for further pruning, probably
+running without custom patches when FreeBSD 10.2 hits the shelves,
+metaphorically speaking.
+
+We haven't forgotten the recent Logjam Attack[2], but wanted not to postpone
+the current release any further.  With that being said, 15.1.11.1 is coming
+out tomorrow including wary tweaks related to Logjam.
+
+Here is the full list of changes for 15.1.11:
+
+o core: removed unused package dependencies b42-fwcutter, bwi-firmware-kmod,
+  dmidecode, ifstated, pecl-ssh2
+o core: switched back from bind-tools to the latest full bind 9.10 package
+  due to various requests
+o src: fix panic in pf(4) in conjunction with ALTQ[3]
+o src: updated to FreeBSD 10.0-RELEASE-p10[4][5]
+o src: reverted two more custom patches to align with FreeBSD
+o ports: updated to ca_root_nss 3.19, sqlite3 3.8.10.1, php56 5.6.9[6],
+  openssh-portable 6.8p1_7[7]
+o opnsense-update: exclude /etc/tty from the upgrade
+o bsdinstaller: reworked the internals to align to modern port standards
+o captive portal: switched rules generation to new template engine
+o firmware: reimplement the GUI firmware update using MVC code
+o menu: remove collapse/expand inconsistencies
+o dashboard: fix disabled widgets dialog
+o nat: fixed delete of multiple item
+o nat: fix display of disabled rules
+o queues: the legacy ALTQ traffic shaper is now found under
+  "Firewall: Queues" to make room for the upcoming traffic shaper
+  reimplementation based on IPFW/dummynet
+o core: fix faulty read of /var/log/dmesg.boot
+
+The live upgrades are up for both LibreSSL and OpenSSL.  Images will follow
+in a later announcement as the testing backlog has gotten larger with more
+images and flavours.  We are working on a Continuous Integration platform,
+but for now we're still doing things manually.
+
+
+Stay safe,
+Your OPNsense team
+--
+[1] https://opnsense.org/about/road-map/
+[2] https://weakdh.org/
+[3] https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=200222
+[4] https://www.freebsd.org/security/advisories/FreeBSD-EN-15:04.freebsd-update.asc
+[5] https://www.freebsd.org/security/advisories/FreeBSD-EN-15:05.ufs.asc
+[6] http://php.net/ChangeLog-5.php#5.6.9
+[7] http://www.openwall.com/lists/oss-security/2015/05/16/3

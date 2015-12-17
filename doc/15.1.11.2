@@ -1,0 +1,32 @@
+@ June 03, 2015
+
+Dear fellow firewall enthusiasts,
+
+Today's update includes a shiny new rewrite of the traffic shaper
+functionality for dummynet, another completed chapter in the ongoing
+quest for standardisation towards FreeBSD.  The other gem is the first
+batch of translations for Simplified Chinese kindly provided by two of
+our enthusiastic users from China.  We ask for you to try both features
+and let us know about limitations and issues through any of the usual
+channels.  We appreciate likes and don't-likes alike.  :)
+
+Security-wise, it has been rather quiet.  Enjoy it while it lasts.  Here
+are the full patch notes:
+
+o notable ports upgrades: pcre 8.37, pkg 1.5.3, ca_root_nss 3.19.1
+o aliases: fix javascript error that prevented aliases from woking
+o traffic shaper: rewrote the feature using standard components on top
+  of the new MVC framework/API (see Firewall: Traffic Shaper)
+o system: enabled first few hundred translations of Simplified Chinese
+  to help the community to progress and review said translation
+  (see System: Settings: General)
+o vpn: all GUI files underwent a thorough coding style refresh
+o firmware: prevent spurious "Module already loaded" errors while
+  upgrading PHP packages
+
+The packages for OpenSSL and LibreSSL are up and can be applied via the
+GUI or console firmware upgrade.
+
+
+Stay safe,
+Your OPNsense team
