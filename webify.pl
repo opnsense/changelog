@@ -85,13 +85,13 @@ for ( @lines ) {
 
 	# literal block transformation
 	if ( $_ =~ s/^#\s//g ) {
-		if ( $li eq '' ) {
+		if ( $pp eq '<p>' && $li eq '' ) {
 			$li = '</pre>';
 			$pp .= '<pre>';
 		}
 	# bullet list transformation
 	} elsif ( $_ =~ s/^o\s+//g ) {
-		if ( $bl eq '' ) {
+		if ( $pp eq '<p>' && $bl eq '' ) {
 			$bl = '</ul>';
 			$pp .= '<ul>';
 		}
