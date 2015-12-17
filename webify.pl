@@ -41,12 +41,12 @@ my $date;
 my %refs;
 
 # first pass: read date, build table, strip stuff
-for (@lines) {
+for ( @lines ) {
 	chomp;
 	$refs{$1} = $2 if $_ =~ s/^\[(\d*?)\]\s*(.*)\s*$//g;
 	$date = $1 if $_ =~ s/^@\s*(.*)\s*$//g;
 	$_ =~ s/^--.*$//g;
-	$_ =~ s/^\s*$//g;
+	$_ =~ s/\s*$//g;
 }
 
 # print json metadata to standard error
@@ -60,35 +60,43 @@ my $in = 0;
 push @lines, '';
 
 # second pass: webify all the text!
-for (@lines) {
+for ( @lines ) {
 	$_ =~ s/(http[s]?:\/\/\S*)/<a target="_blank" href="$1">$1<\/a>/g;
 	foreach my $key ( keys %refs ) {
 		$_ =~ s/\[$key\]/[<a target="_blank" href="$refs{$key}">$key<\/a>]/g;
 	}
 
-	$_ =~ s/\s*$//g;
-	if ( $_ =~ s/^\s*//g ) {
-		# XXX
+	if ( $bl ne '' && $_ =~ s/^\s+//g ) {
+		$pp =~ s/<\/li>\n$/ /g;
 	}
 
-	if ($_ =~ s/^#\s//g) {
-		if ($li eq '') {
+	if ( $_ =~ s/^#\s//g ) {
+		if ( $li eq '' ) {
 			$li = '</pre>';
 			$pp .= '<pre>';
 		}
+	} elsif ( $_ =~ s/^o\s+//g ) {
+		if ( $bl eq '' ) {
+			$bl = '</ul>';
+			$pp .= '<ul>';
+		}
+		$pp .= '<li>';
 	}
 
 	if ( $pp ne '<p>' ) {
 		if ( $_ eq '' ) {
 			chop $pp if $li ne '';
-			print STDOUT $pp . $li . '</p>' . "\n";
+			print STDOUT $pp . $li . $bl . '</p>' . "\n";
 			$pp = '<p>';
+			$bl = '';
 			$li = '';
 		} else {
-			if ($li eq '') {
-				$pp .= ' ';
-			} else {
+			if ( $li ne '' ) {
 				$_ .= "\n";
+			} elsif ( $bl ne '' ) {
+				$_ .= "</li>\n";
+			} else {
+				$pp .= ' ';
 			}
 		}
 	}
