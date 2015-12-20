@@ -1,0 +1,40 @@
+@ September 22, 2015
+
+Good day everyone,
+
+originally, we wanted to make 15.7.14 as boring as possible, but now we're
+shipping our major firewall section rework on top of intricate configuration
+management fixes instead.  We should also note that the former improved
+configuration imports from older systems.  Be sure to let us know when you
+find any issues with these changes.
+
+From the third-party and/or security side not much has happened recently.
+We're shipping the latest Bind and Squid, for details see the provided links.
+Here are the full patch notes:
+
+o config: don't set login auto-complete on factory reset
+o config: fix faulty timezone on factory reset
+o config: improve config migration path for legacy config imports
+o config: new home in system section for the config history and backups
+o config: improved the config history differential view
+o notable port upgrades: bind 9.10.3 [1], squid 3.5.9 [2]
+o firmware: added Supranet Communications mirror (Middleton, US)
+o firewall: reworked rules, schedules, virtual ip, nat and aliases pages
+o users: removed special handling of the  `all' group
+o crash reporter: fixed 9 minor problem reports
+o wireless: only advertise supported modes of operation
+o system: fix theme selection for user-added themes
+o menu: fix expand on all interface edit pages
+o ntp: improve service status probing
+o diagnostics: fix authentication tester to work in conjunction with
+  translations
+o languages: added French translation (33% complete)
+o languages: updated German translation (57% complete)
+
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] https://kb.isc.org/article/AA-01306/0/BIND-9.10.3-Release-Notes.html
+[2] http://ftp.meisei-u.ac.jp/mirror/squid/squid-3.5.9-RELEASENOTES.html

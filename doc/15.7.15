@@ -1,0 +1,38 @@
+@ September 30, 2015
+
+Good news everyone!
+
+We hope you guys are having a good week?  Because if not we have a treat for
+you: the wait for System Health[1] is finally over and the best part is that
+it'll just work with your previously collected RRD data.  :) We kindly ask
+you to provide feedback via the usual channels in order to make it even
+better.  There's still a lot of time till 16.1 hits the shelves, so to speak.
+
+This is a rather small maintenance release with a handful of fixes.  The
+things that pop out are StrongSwan 5.3.3[2] as well as the menu now being
+correctly translated when selecting a different language.  And, BTW, behind
+the scenes we're just now opening up our translation server that'll make it
+even easier to contribute to language translations in the future.
+
+Here are the full patch notes:
+
+o health: added feature to browse RRD data in a modern way
+o notable ports updates: strongswan 5.3.3
+o logs: added proxy server access log and updated the layout
+o users: fixed ldap import warning when no users could be found
+o dhcp6: fix IPv6 grabbing with PPPoE
+o openvpn: fix TLS auth enable behaviour in client settings
+o firewall: fix missing log option in save form
+o firewall: fix missing interface address in NAT page
+o firmware: sped up package queries and added package size column
+o wizard: multiple fixes and security improvements
+o menu: now properly translates into the selected language
+o traffic shaper: unload ipfw rules on disable
+
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] https://opnsense.org/system-health-whats-next/
+[2] https://wiki.strongswan.org/projects/strongswan/wiki/Changelog53

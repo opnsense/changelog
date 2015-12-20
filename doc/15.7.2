@@ -1,0 +1,39 @@
+@ July 10, 2015
+
+Good day,
+
+It's us.  Again.  Following the recent OpenSSL announcement of CVE-2015-1793
+we are pushing out 15.7.2 earlier than expected.  It is notable that FreeBSD
+10.1 as well as LibreSSL are not affected.  However, if you are running
+OPNsense with OpenSSL you should upgrade immediately.  Services are not
+restarted automatically, so a reboot is advised but not mandatory.  Please
+take a responsible course of action.
+
+Here are the full patch notes:
+
+o notable ports updates: phalcon 2.0.4[1], libressl 2.2.1[2],
+  openssl 1.0.2d[3]
+o opnsense-update: can now switch from/to LibreSSL/OpenSSL on the fly
+  (needs root shell for now)
+o ssh: work around a shutdown bug that prevents other users from logging
+  in (requires a reboot if used)
+o console: allow the root menu to run one-shot shell commands too
+o console: clean up the version advertisement in the banner
+o dashboard: colour hostap wifi as green when up
+o backup: do not redirect on interface mismatch, reboot right away instead
+o system: migrated /var and /tmp memory disks to tmpfs (requires a reboot
+  if used)
+o proxy: fix the startup when used on a /var memory disk (requires a manual
+  start after boot)
+o intrusion detection: fix the startup when used on a /var memory disk
+  (requires a manual start after boot)
+o intrusion detection: enable the uricontent keyword for the ET ruleset
+
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] https://blog.phalconphp.com/post/phalcon-2-0-4-released
+[2] http://ftp.openbsd.org/pub/OpenBSD/LibreSSL/libressl-2.2.1-relnotes.txt
+[3] https://www.openssl.org/news/secadv_20150709.txt

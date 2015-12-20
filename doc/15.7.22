@@ -1,0 +1,59 @@
+@ December 09, 2015
+
+Howdy partners,
+
+So here are OpenSSL 1.0.2e and LibreSSL 2.2.5, finally!  15.7.22 itself is
+only tweaks and minor fixes.  We take it as a good sign that there were no
+"oh no what did you do to the menu" complaints in the past week.  Nobody
+missed the RRD graphs either.  You guys are really cool.
+
+The root cause for the filter reload timeout reports that some of you
+encountered in 15.7.19 has finally been found.  The function
+filter_generate_optcfg_array() could be called hundreds of times in a single
+filter reload while only providing static interface data to the callers that
+did not change over the runtime of the reload.  At some point it must have
+gotten so slow that a caching mechanism was added around the function, which
+caused the function's output to get stuck, causing the initial bug report.
+Now it's as fast as ever and glitch-free.
+
+Here are the full patch notes:
+
+o dhcp: show lease description in status pages if available (contributed
+  by Frank Wall)
+o firewall: improve and align display of RFC 1918 and IANA rules (contributed
+  by Manuel Faux)
+o firewall: fix hover cursor on the filter log page (contributed by
+  Manuel Faux)
+o firewall: show implicit IPv6 block rule if enabled in system settings
+  (contributed by Manuel Faux)
+o firewall: extend pfInfo to show active rules (contributed by Manuel Faux)
+o unbound: fix JS to enable/disable interface selector (contributed by
+  Manuel Faux)
+o unbound: fix starting of unbound via service status page (contributed by
+  Manuel Faux)
+o proxy server: allow authentication against all available authentication
+  servers
+o universal plug and play: fix read/write on the settings page
+o interfaces: break device configuration pages out of interface assignment
+  section
+o backend: optimise filter reload to not collect overall interface information
+  more than once
+o backend: reapply the cache removal in light of the filter reload fixing
+o backend: trigger config daemon templates on bootup
+o backend: throw error when attempting to trigger a nonexistent template
+o ports: curl 7.46[1]
+o ports: openssl 1.0.2e[2]
+o ports: libressl 2.2.5[3]
+o ports: squid 3.5.12[4]
+o ports: lighttpd 1.4.38[5]
+
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] http://curl.haxx.se/mail/lib-2015-12/0001.html
+[2] http://openssl.org/news/secadv/20151203.txt
+[3] http://ftp.openbsd.org/pub/OpenBSD/LibreSSL/libressl-2.2.5-relnotes.txt
+[4] http://ftp.meisei-u.ac.jp/mirror/squid/squid-3.5.12-RELEASENOTES.html
+[5] http://www.lighttpd.net/2015/12/5/1.4.38/

@@ -1,0 +1,63 @@
+@ December 04, 2015
+
+Hello everyone,
+
+Back in September we've started out to work on the excessive GUI padding
+and dispersed menu structure in order to get to a slick and clean page
+layout.  We've transformed tab navigation into submenu items, pulling
+similar items together into one single category, adding distinctive icons
+as a highlight and anchor point.  We've come to like it so much that we
+can't wait for 16.1 to merge it in so here it is for everyone to enjoy.
+Work in this area will continue in tiny pieces as we go along.  Send us
+feedback, let us know what we can push even further.
+
+15.7.21 brings updates to some of the most important ports and RRD frontend
+pages have been completely removed.  Unfortunately, we couldn't squeeze in
+OpenSSL and LibreSSL at this point, but will follow up as soon as both of
+them are available. Here are the full patch notes:
+
+o ports: phalcon 2.0.9[1]
+o ports: php 5.6.16[2]
+o ports: suricata 2.0.10[3]
+o ports: openldap 2.4.43[4]
+o ports: strongswan 5.3.5[5]
+o menu: removed tab navigation in favour of submenu items
+o menu: removed the status and diagnostics from the top menu
+o menu: made the menu smaller and added distinctive icons
+o menu: order interfaces by their descriptive name
+o layout: removed several paddings and spurious boarders
+o rrd: removed the graphing frontend to complete our switch to System Health
+o rrd: moved remaining settings to System: Settings: Logs / Reporting
+o logs: can now narrow search using individual keywords separated by
+  whitespace
+o logs: added a raw firewall view as a default page instead of having a
+  setting for it
+o logs: ppp log messages won't show up in the system messages anymore
+o universal plug and play: reworked settings page for clarity
+o gateways/routes/users: reworked all pages for clarity
+o settings: reworked admin access and general section for clarity
+o settings: password authentication and permit root login settings changes
+  did not trigger an immediate sshd restart
+o ipsec: remove use of reqid in config
+o ipsec: fix ESP/AH options on multiple phase2 entries
+o ipsec: fix algorithm selection in phase1 and phase2
+o ipsec: properly handle status error when ipsec is not enabled
+o ipsec: subnet selection can now extend beyond 24 bits
+o ipsec: make NAT type configurable for phase2 (Contributed by Frank Wall)
+o layout: updated to jQuery Bootgrid v1.3.1
+o language: many translations added (Contributed by Frederic Lietart
+  and Fabian Franz)
+o config: improve the session handling to ensure a responsive GUI
+o ntp: gps settings now work with translations and properly reselect the
+  configured device
+
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] https://github.com/phalcon/cphalcon/releases/tag/phalcon-v2.0.9
+[2] http://php.net/ChangeLog-5.php#5.6.16
+[3] http://suricata-ids.org/2015/11/25/suricata-2-0-10-available/
+[4] http://www.openldap.org/software/release/changes.html
+[5] https://www.strongswan.org/blog/2015/11/26/strongswan-5.3.5-released.html

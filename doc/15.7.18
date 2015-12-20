@@ -1,0 +1,98 @@
+@ November 04, 2015
+
+Good day everyone,
+
+It took a while to track down a NTP regression with FreeBSD that turned out
+to be a flaw in the kernel itself.  That's now fixed for all FreeBSD versions.
+Thanks everyone for helping out here again.  :)
+
+This update brings quite a few fixes, especially with regard to VMware and
+Xen virtualisation plugins.  If you are in need of such plugins for seamless
+guest support the installation is quite painless:
+
+# pkg install os-vmware
+# pkg install os-xen
+
+In case of VMware, the masterplan is that vmx network devices will be
+persistent after reboot so that such devices can be embedded into the
+config.xml.  Let us know how that works for you guys.  Needless to say,
+we'll keep working on making plugins accessible through the GUI with our
+next major version that is 16.1.
+
+We've also been working on ironing out further IPsec hiccups and adding more
+features to the captive portal in the development version.  Oh, and this:
+fresh images based on 15.7.18 will be available a couple of days after this
+release.
+
+Here are the full patch notes:
+
+o plugins: updated the VMware plugin to support early boot for persistent
+  vmx(4) device access
+o plugins: added the Xen plugin for automatic guest support
+o openvpn: fix server not saving interface without IP
+o crash reporter: remember email for continuous feedback
+o crash reporter: Suhosin PHP module no longer triggers crash reports
+o crash reporter: fixed 10 assorted crash reports
+o languages: fix all apply button prompts for non-English translations
+o languages: updated German and French via https://translate.opnsense.org
+o backend: added simple plugin hooks for boot up, early boot up and shutdown
+o GUI: hooked up the authentication backend rewrite
+o dhcp: remove illegal ifconfig tag in custom dhclient script
+o virtual ips: make subnet selectable on ipalias
+o ipsec: flip ipv4/ipv6 subnet options in phase2
+o ipsec: fix issue when using both tunnels and roadwarrior
+o ipsec: listen to disabled ipsec nat entries
+o ipsec: do not overwrite settings for rekey/reauth
+o proxy: fix error on saving special URL characters
+o aliases: fix missing url table items
+o aliases: hide minus when not applicable
+o ntp: don't trigger set_gps_default on page load
+o captive portal (development): clean rewrite of RADIUS
+  authentication/accounting
+o captive portal (development): added a session overview feature to the new
+o captive portal (development): fixed template download file name in Google
+  Chrome
+o src: Implement pubkey support for pkg(7) bootstrap[1]
+o src: rpcbind remote denial of service[2]
+o src: Applications exiting due to segmentation violation on a correct
+  memory address[3]
+o src: tzdata updated to 2015g[4]
+o ports: ntp 4.2.8p4[5]
+o ports: pkg 1.6.1[6][7]
+o ports: sqlite 3.9.1[8]
+o ports: suricata 2.0.9[9]
+o ports: php 5.6.15[10]
+
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] https://www.freebsd.org/security/advisories/FreeBSD-EN-15:18.pkg.asc
+[2] https://www.freebsd.org/security/advisories/FreeBSD-SA-15:24.rpcbind.asc
+[3] https://www.freebsd.org/security/advisories/FreeBSD-EN-15:20.vm.asc
+[4] http://mm.icann.org/pipermail/tz-announce/2015-October/000034.html
+[5] https://www.eecis.udel.edu/~ntp/ntp_spool/ntp4/ChangeLog-dev
+[6] https://github.com/freebsd/freebsd-ports/commit/233063d86be930
+[7] https://github.com/freebsd/freebsd-ports/commit/4cee57325035cc6
+[8] https://www.sqlite.org/releaselog/3_9_1.html
+[9] http://suricata-ids.org/2015/09/25/suricata-2-0-9-available/
+[10] http://php.net/ChangeLog-5.php#5.6.15
+
+# SHA256 (OPNsense-15.7.18-OpenSSL-cdrom-amd64.iso.bz2) = f193e04ce0f0d2b1eab54b246f5b4931cdd50ed0a97015a363e8ece24449825d
+# SHA256 (OPNsense-15.7.18-OpenSSL-nano-amd64.img.bz2) = f1cfa7ff9f2fe30361f92773aa6fe416ac5bb3e27bd98c1b470f32ceea9ee4eb
+# SHA256 (OPNsense-15.7.18-OpenSSL-serial-amd64.img.bz2) = e95698fac21e8bef7ac8c8e66406fcbece583a32db325da19be810d33a714147
+# SHA256 (OPNsense-15.7.18-OpenSSL-vga-amd64.img.bz2) = 3cc366d5e48f74bba5a07466cbaa2808d98fba422814d3cafbbffb5e2847c888
+# SHA256 (OPNsense-15.7.18-OpenSSL-cdrom-i386.iso.bz2) = 57229a3873d6020979e8ebb1dff1c97b14166afff7da6d5ca7e5b32a17e40207
+# SHA256 (OPNsense-15.7.18-OpenSSL-nano-i386.img.bz2) = e89464b51c52c02a9d1a15d168190f23b7d72030be5b31db4bd5a78cfa0a108f
+# SHA256 (OPNsense-15.7.18-OpenSSL-serial-i386.img.bz2) = 0eb92ffcbe6d4152b79e89e71984b5a3d00cf0e2e0946868331fd93a506cf54c
+# SHA256 (OPNsense-15.7.18-OpenSSL-vga-i386.img.bz2) = 284157e596dd77551ce6ce4e5b661614273abcfaa590f6d4553903172332f370
+
+# MD5 (OPNsense-15.7.18-OpenSSL-cdrom-amd64.iso.bz2) = 7718af5a632a426c7e3832e4cf6e7f91
+# MD5 (OPNsense-15.7.18-OpenSSL-nano-amd64.img.bz2) = 88018ba7ec8c6e6906054a03106020c6
+# MD5 (OPNsense-15.7.18-OpenSSL-serial-amd64.img.bz2) = 50879c1a12ca65b95ebd5a77eea389e5
+# MD5 (OPNsense-15.7.18-OpenSSL-vga-amd64.img.bz2) = 764c8a9c42b13cdfc73d1025e9795901
+# MD5 (OPNsense-15.7.18-OpenSSL-cdrom-i386.iso.bz2) = ce115445d922883c1e57457503b7d044
+# MD5 (OPNsense-15.7.18-OpenSSL-nano-i386.img.bz2) = 947d4955775295f09ef849b8ac7757a6
+# MD5 (OPNsense-15.7.18-OpenSSL-serial-i386.img.bz2) = 4b7affd7c051e15171ef2ee4869739b6
+# MD5 (OPNsense-15.7.18-OpenSSL-vga-i386.img.bz2) = 59b796e2a2a68cb699bb67b79f08c808

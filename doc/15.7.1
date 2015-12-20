@@ -1,0 +1,44 @@
+@ July 08, 2015
+
+Hello everyone,
+
+We hope you guys are doing well.  We are certainly happy with our first
+production release out in the open.  :) Now that that's taken care of, we
+have the opportunity to introduce stable braches for 15.7.x, with this
+week's 15.7.1 as the first of many.
+
+Squid and Bind have CVE-related fixes.  Otherwise, only minor fixes and
+improvements went into this release.  If you are being affected by the
+DHCP server startup issue reboots are necessary in order to fix the root
+cause.  Please follow these steps:
+
+1. Upgrade to 15.7.1 using your preferred method.
+
+2. Disable RAM disks in "System: Settings: Misc." and reboot.
+
+3. Enable RAM disks in  "System: Settings: Misc." and reboot.
+
+4. The DHCP server will now startup correctly.
+
+Here is the full list of changes:
+
+o overall: introducing stable updates for 15.7.x
+o ports: bind910 9.10.2-P2[1], freetype2 2.6[2], squid 3.5.6[3]
+o crash reporter: fixed the upload of additional files
+o system: always have a symlink available for /var/db/pkg
+o system: protect sshd against OOM kills
+o system: can now properly select time zones which have a sub-sub-category
+o intrusion detection: switch default interface to WAN
+o menu: added awareness for further routing tabs
+o login: switch off  `autocapitalize' and `autocorrect' for username field
+o status: do not scale RRD graphs over 100% of their actual size
+o languages: minor tweaks for the German translation
+
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] https://kb.isc.org/article/AA-01269/81/BIND-9.10.2-P2-Release-Notes.html
+[2] https://sourceforge.net/projects/freetype/files/freetype2/2.6/
+[3] http://ftp.meisei-u.ac.jp/mirror/squid/squid-3.5.6-RELEASENOTES.html

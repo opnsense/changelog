@@ -1,0 +1,45 @@
+@ October 10, 2015
+
+Good day everyone,
+
+We've spent three great days in Nuremberg at it-sa, thanks for everybody
+who dropped by.
+
+Originally we wanted to push out 15.7.16 earlier, but faced an interesting
+challenge with the latest FreeBSD package manager version update.  To that
+end, we are probably going to release new images for 15.7.17 with the new
+package manager included just to make sure we can retain a clean and flat
+upgrade process even for the images.  But fear not, online upgrades are still
+working as expected.
+
+Speaking of releases and images, we've had recent feedback about what we
+call releases that do not necessarily offer images.  We do this because in
+a weekly update cycle it is far too complicated to bundle verified images.
+The versioning scheme does not reflect this at the moment, but we've had
+similar intentions when we moved away from the old 15.1 scheme.  Long story
+short, we will try to make this more clear in the future.  The preferred
+method of installation is via the latest available image that should be
+upgraded immediately after installation.
+
+Since the build tools are open, it's not a particular problem to build a
+newer version yourself or if you require one that comes directly from us
+just let us know so we can help your specific use case.  Last but not least,
+here are the full patch notes:
+
+o ports: phalcon 2.0.8[1], php 5.6.14[3]
+o unbound: improved DNS rebind protection
+o traffic shaper: improved description field validation
+o wizard: bring back missing files
+o captive portal: redirect after successful RADIUS login
+o health: fix reading of ntpd RRD data
+o config manager: fix revert and delete in translations
+o config daemon: don't pass stderr on script output call
+o languages: German now 64% complete
+
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] https://github.com/phalcon/cphalcon/releases/tag/phalcon-v2.0.8
+[2] http://php.net/ChangeLog-5.php#5.6.14

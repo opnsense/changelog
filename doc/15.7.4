@@ -1,0 +1,30 @@
+@ July 24, 2015
+
+Hello friends,
+
+Another week it is, this time with a rather exciting TCP state fix in the
+FreeBSD kernel.  We've also taken the time to work through most of the code
+base to eradicate code warnings and now enable them by default in the crash
+reporter.  We're half-expecting another stable update early next week just
+to make sure your infrastructure keeps running as smoothly as possible.
+
+Here are the the full patch notes:
+
+o updated sudo 1.8.14p3[1], pcre 8.37_2[2], and FreeBSD 10.1-RELEASE-p15[3]
+o firmware: fix upgrade when using opnsense-devel package
+o proxy: fix config write for multiple interfaces
+o crash reporter: raise PHP log level to warnings after an extensive cleanup
+o dashboard: made widgets translatable (contributed by Fabian Franz)
+o firewall logs: usability improvements (contributed by Fabian Franz)
+o languages: Simplified Chinsese 64% complete
+o languages: German 40% complete
+o menu: fixed navigation for PPPoE edit
+
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] http://www.sudo.ws/stable.html#1.8.14p3
+[2] https://bugs.exim.org/show_bug.cgi?id=1651
+[3] https://www.freebsd.org/security/advisories/FreeBSD-SA-15:13.tcp.asc

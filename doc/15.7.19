@@ -1,0 +1,44 @@
+@ November 13, 2015
+
+Hi there,
+
+Time for the weekly update.  :)
+
+15.7.19 is a smaller maintenance release with a backend switch for IPsec
+reporting and a couple of minor fixes.  With the help of the community, we're
+also improving the consistency of the GUI translation with more commits
+already in the works.
+
+Notable from a development version perspective are the API authentication
+and the revived voucher support for our new captive portal.  This means two
+more roadmap items already finished for 16.1.
+
+Here are the full patch notes:
+
+o ports: sudo 1.8.15[1], sqlite 3.9.2[2]
+o aliases: make url tables useable
+o interfaces: fix faulty GUI caching issues[3]
+o ipsec: obey force nat traversal
+o ipsec: switch status page and widget from deprecated SMP to VICI interface
+  for reliable output
+o ipsec: fixed remote network input validation
+o status: show more raw ipfw info in the commands section
+o config: don't use notices in early/low level code
+o languages: a large number of old and new strings is now being properly
+  translated (with contributions from Franz Fabian and Frederic Lietart)
+o languages: translation strings no longer use obfuscated argument reordering
+  by default
+o languages: updated German and French to a newer version from
+  translate.opnsense.org
+o captive portal (development): added a new voucher implementation
+o api (development): added API key authentication mechanism[4]
+
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] http://www.sudo.ws/stable.html#1.8.15
+[2] https://www.sqlite.org/releaselog/3_9_2.html
+[3] https://github.com/opnsense/core/issues/451
+[4] https://wiki.opnsense.org/index.php/Howto_use_the_API

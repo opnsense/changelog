@@ -1,0 +1,22 @@
+@ September 15, 2015
+
+Hello there,
+
+15.7.13 is a short GUI-only update since we've seen frequent validation
+errors in our crash reports.  We've fixed that ahead of schedule and also
+push a larger under-the-hood preparation of the coming firewall section
+and menu rework while at it.  Exciting stuff coming soon.  :)
+
+Here are the full patch notes:
+
+o diagnostics: added real backend code leading to upcoming privilege
+  separation for pfInfo, pfTop, States and Tables pages
+o dynamic dns: introduce constant naming away from "DynDNS" or "DDNS"
+o gui: fix numerous typos spotted by our relentless translators
+o gui: fixed validation errors in new components
+o gui: removed partial shadow from active tab
+o ipsec: fixed missing redirect after apply
+
+
+Stay safe,
+Your OPNsense team

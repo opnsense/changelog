@@ -1,0 +1,58 @@
+@ September 12, 2015
+
+Greetings everyone,
+
+The vacation time is over for most of us, and so we do roll on into
+what is going to be a busy autumn.  As we haven't had a release in 2
+weeks a longer list of changes has accumulated.  Most prominently, we
+have a security advisory for FreeBSD that may allow privilege
+escalation on amd64 architectures.  More security-related updates are
+available for LibreSSL, Bind and PHP.
+
+We've also been able to iron out the few IPsec configuration problems
+left related to the page rewrite thanks to relentless testing by
+Frank Wall and others.  We appreciate any help in doing the same for
+the new Firewall pages we have staged in our development version[12].
+Here is the full list of changes:
+
+o src: local privilege escalation in IRET handler[1]
+o src: disable ixgbe(4) flow-director support[2]
+o src: insufficient check of unsupported pkg(7) signature methods[3]
+o ports: libressl 2.2.3[4], bind  9.10.2P4[5], openldap24-client 2.4.42[6]
+o ports: radvd 1.15[7], lighttpd 1.4.37[8], squid 3.5.8[9]
+o ports: php 5.6.13[10], php-suhosin 0.9.38[11]
+o dhcp: use reverse mask instead of reverse address in config
+o dns resolver: honour log verbosity toggle
+o ssh: remove ssh1 key from generating, it is no longer supported in openssh
+o filter: remove the unused snort2c table from generated rules
+o xmlrpc: properly regenerate /etc/hosts on sync
+o openvpn: fix TLS authentication option reset
+o ipsec: proper redirect after apply in mobile tab
+o ipsec: fix behaviour of enable rekey and enable reauth
+o ipsec: only suffix connection number with sequence with multiple entries
+o ipsec: fix diagnostics to be able to connect multi phase2 IKEv1 entries
+o ipsec: fix Call to undefined function filter_configure()
+o dashboard: traffic graph highlights are now branded in orange
+o theme: render dropdown boxes a bit better
+o theme: partial fix for wrapped tab display
+o crash reporter: fix spurious crash report after actual submission
+o crash reporter: assorted fixes for warnings and errors in the code
+o crash reporter: improve submit/dismiss button layout
+
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] https://www.freebsd.org/security/advisories/FreeBSD-SA-15:21.amd64.asc
+[2] https://www.freebsd.org/security/advisories/FreeBSD-EN-15:14.ixgbe.asc
+[3] https://www.freebsd.org/security/advisories/FreeBSD-EN-15:15.pkg.asc
+[4] http://ftp.openbsd.org/pub/OpenBSD/LibreSSL/libressl-2.2.3-relnotes.txt
+[5] https://kb.isc.org/article/AA-01301/81/BIND-9.10.2-P4-Release-Notes.html
+[6] http://www.openldap.org/software/release/changes.html
+[7] http://www.litech.org/radvd/CHANGES-1.txt
+[8] http://www.lighttpd.net/2015/8/30/1.4.37/
+[9] http://bazaar.launchpad.net/~squid/squid/3-trunk/view/head:/ChangeLog
+[10] http://php.net/ChangeLog-5.php#5.6.13
+[11] https://raw.githubusercontent.com/stefanesser/suhosin/master/Changelog
+[12] https://forum.opnsense.org/index.php?topic=1305.0

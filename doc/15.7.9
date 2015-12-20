@@ -1,0 +1,39 @@
+@ August 19, 2015
+
+Hi everyone,
+
+What's up! We are about to release new images to put a stake in the ground
+following roughly 500 commits since 15.7 was released in early July.  FreeBSD
+10.2 is around the corner, which makes this all the more important.  First
+tests look promising, but it'll have to wait a few more weeks to hopefully
+get rid of more custom patches and thorough testing.  We've also made
+progress with nano-style images to improve interoperability between different
+media types.  Images are scheduled to be released shortly after 15.7.10 for
+said release.
+
+With that in mind, 15.7.9 is a maintenance release which only addresses our
+code before we make a bigger leap forward.  Focus has been to improve firmware
+upgrades and crash reporter, all OpenVPN and IPSec configuration pages and a
+fix for recent LibreSSL flavours not wanting to generate certificates.
+
+These are the full patch notes:
+
+o firmware: functional rework of update fetch and install, show reboot
+  needed in alert box
+o interfaces: fixed spurious truncated interface names from showing up
+  in the assignments
+o intrusion detection: improved rule select/deselect behaviour and alert
+  querying
+o firewall/rules: fix missing apply button when another language is
+  being used
+o crash reporter: multiple fixes, layout and submission improvements
+o firewall/logs: can now filter using IP version
+o firewall/nat: add anti-lockout rule for redirection
+o certificates: fix generation for LibreSSL flavour
+o openvpn: allow advanced settings for all server types
+o openvpn: reworked all configuration pages (especially client export)
+o ipsec: reworked all configuration pages
+
+
+Stay safe,
+Your OPNsense team

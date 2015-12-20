@@ -1,0 +1,47 @@
+@ August 25, 2015
+
+Hi guys,
+
+15.7.10 is here with a larger number of third party updates as
+well as a security advisory for FreeBSD.  Otherwise it's relatively
+silent as we are still busy reworking the firewall section pages
+like we did with OpenVPN and IPSec recently.
+
+We've also bumped the crash reporter into the system section as a
+tool to generate custom reports, delivering the shortest possible
+path to get in touch with us regarding bugs or other quirks that do
+not automatically generate a report.  We are totally happy with the
+way you guys have already embraced the reporter and wish to see
+even more usage of it.  It has helped us to identify issues and
+ship fixes a lot quicker.
+
+Here are the full patch notes:
+
+o src: Multiple integer overflows in expat (libbsdxml) XML parser[1]
+o src: bumped tzdata to 2015f[2]
+o ports: curl 7.44.0[3], ca_root_nss 3.20, openssh-portable 7.1p1_1[4],
+  sqlite3 3.8.11.1[5], phalcon 2.0.7[6], pcre 8.37_4[7]
+o crash reporter: create custom reports on demand
+o certificates: ca generation issues with recent LibreSSL
+o dns resolver: switched to ports-based Unbound (1.5.4) as per
+  FreeBSD handbook
+o menu: moved the crash reporter to system category for visibility
+o menu: added hot-plugging support for upcoming plugins
+o acl: added hot-plugging support for upcoming plugins
+o ipsec: fix faulty behaviour on configuration changes
+o console: switched halt and reboot numbering
+o languages: bring German to 51% completed
+o graphs: remove obsolete CPU graph pages
+
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] https://www.freebsd.org/security/advisories/FreeBSD-SA-15:20.expat.asc
+[2] http://mm.icann.org/pipermail/tz-announce/2015-August/000033.html
+[3] http://curl.haxx.se/changes.html
+[4] http://www.openssh.com/txt/release-7.1
+[5] http://www.sqlite.org/changes.html
+[6] https://github.com/phalcon/cphalcon/releases/tag/phalcon-v2.0.7
+[7] https://svnweb.freebsd.org/ports/head/devel/pcre/Makefile?revision=395178&view=markup

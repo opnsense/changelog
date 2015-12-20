@@ -1,0 +1,52 @@
+@ August 12, 2015
+
+Howdy partners,
+
+While we do hope everyone is enjoying their summer vacation we're rolling
+out a larger update due to multiple issues with FreeBSD and third party
+programs.  We also have a feature that our community has been yearning for:
+the transparent proxy!
+
+This time around, we took extra care with our development version and let
+features simmer there until they are fully ready to be rolled out.  We
+already have VPN configuration improvements and firmware upgrade eye candy
+staged in the current development package.  Join our forum to find out more:
+
+https://forum.opnsense.org/
+
+Here are the full patch notes:
+
+o src: shell injection vulnerability in patch[1]
+o src: routed remote denial of service vulnerability[2]
+o ports: dnsmasq 2.75[3], squid 3.5.7[4], openvpn 2.3.8[5]
+o ports: libressl 2.2.2[6], lighttpd 1.4.36[7], php 5.6.12[8]
+o ports: pcre 8.37_3[9], pkg 1.5.6[10], expat2 2.1.0_3[11]
+o dns resolver: improve bootstrapping of root directory to ensure
+  service startup
+o firmware: fix handling of sample mirror file
+o firmware: added a mirror for China
+o firewall: always provide a sample bogons file for IPv6
+o firewall: avoid blocking dhcpv6 on WAN via bogons
+o menu: added 3 direct links to subpages
+o crash reporter: weekly batch of PHP warnings purged from the codebase
+o logs: reworked the firewall log summary page (yum, pie charts)
+o intrusion detection: fix query for empty result
+o intrusion detection: fix validation on new entries
+o proxy: added transparent proxy knob
+
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] https://www.freebsd.org/security/advisories/FreeBSD-SA-15:18.bsdpatch.asc
+[2] https://www.freebsd.org/security/advisories/FreeBSD-SA-15:19.routed.asc
+[3] http://www.thekelleys.org.uk/dnsmasq/CHANGELOG
+[4] http://ftp.meisei-u.ac.jp/mirror/squid/squid-3.5.7-RELEASENOTES.html
+[5] https://community.openvpn.net/openvpn/wiki/ChangesInOpenvpn23#OpenVPN2.3.8
+[6] http://ftp.openbsd.org/pub/OpenBSD/LibreSSL/libressl-2.2.2-relnotes.txt
+[7] http://www.lighttpd.net/2015/7/26/1.4.36/
+[8] http://www.php.net/ChangeLog-5.php#5.6.12
+[9] https://github.com/freebsd/freebsd-ports/commit/1b0e3ce910b727
+[10] https://github.com/freebsd/freebsd-ports/commit/1a100a88a92d4
+[11] https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-1283

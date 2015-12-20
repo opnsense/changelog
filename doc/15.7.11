@@ -1,0 +1,34 @@
+@ August 27, 2015
+
+Good morning,
+
+As we've had a couple of pending issues that needed addressing
+before we push out new images, we've wrapped up 15.7.11 just now.
+
+Here are the full patch notes:
+
+o dns resolver: switch unbound to use libevent to address "too many fds"
+  log message
+o firmware: os-update package was renamed to opnsense-update so "os-" can
+  be our plugin prefix
+o firewall: fix alias page not being available due to a dirty config.xml
+  sample entry
+o ipsec: fix pages throwing warnings due to a dirty config.xml sample entry
+o ipsec: fix hash algorithm and protocol settings behaviour
+o openvpn: honour TLS authentication disable
+o themes: fix theme selection fallback not working in new components
+o diagnostics: unhide routing table headers
+
+
+Stay safe,
+Your OPNsense team
+
+--
+# SHA256 (OPNsense-15.7.11-OpenSSL-cdrom-amd64.iso.bz2) = 4e6a78e309945f950bb924345d3bb3571f4cc4891227129bbf7a9f462d1a0f6b
+# SHA256 (OPNsense-15.7.11-OpenSSL-nano-amd64.img.bz2) = 714d2ab06db2d56b81421182a6315b6b7373defbc4f3d82f795e22371b8ef501
+# SHA256 (OPNsense-15.7.11-OpenSSL-serial-amd64.img.bz2) = f644a45a770850aacee824a83992ecbf5f177ea05051f8907470d8d548183521
+# SHA256 (OPNsense-15.7.11-OpenSSL-vga-amd64.img.bz2) = 3da0787d7e0d4708230f0d7b95a9617d74f7a3e12b861091b6eefa934d2a5564
+# SHA256 (OPNsense-15.7.11-OpenSSL-cdrom-i386.iso.bz2) = 407a83caeaff638b046f8ee7b8fa0823eb8b5cae28458a376c80134f66555eea
+# SHA256 (OPNsense-15.7.11-OpenSSL-nano-i386.img.bz2) = 03ab10b56367249d742b824a454891678025db576bca126fb97fa2a9e0297835
+# SHA256 (OPNsense-15.7.11-OpenSSL-serial-i386.img.bz2) = cc316a27fee85107d358d6e970db69f9abae5cb67d33073026c9aec14210b9be
+# SHA256 (OPNsense-15.7.11-OpenSSL-vga-i386.img.bz2) = b90cbc906324d3b1671302804b5f902eaab2180d0cdde4145e54614d61355e6c

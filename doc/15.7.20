@@ -1,0 +1,49 @@
+@ November 25, 2015
+
+Hello fellows,
+
+Today we proudly present to you 15.7.20, which includes several improvements
+and fixes in all areas.  Notable from a development perspective are the
+opnsense-bootstrap tool, which can install the latest OPNsense version on a
+FreeBSD 10.1.  Additionally, the development branch offers a sneak preview of
+Suricata in true IPS mode!  Instructions on how to test it can be found in
+the forum[9].
+
+Here are the full patch notes:
+
+o src: fix kqueue write events never fired for files greater 2GB[1]
+o src: remove obsolete locking primitives IFA_LOCK() / IFA_UNLOCK()
+o src: enable netmap(4) driver support in the kernel
+o src: merge stf(4) driver modifications from pfSense[2]
+o ports: squid 5.3.11[3]
+o ports: strongswan 5.3.4[4]
+o ports: choparp 20150613[5]
+o ports: libxml 2.9.3[6]
+o ports: pkg 1.6.2[7]
+o ports: opnsense-bootstrap, the infamous installer that works on stock
+  FreeBSD[8]
+o intrusion detection: ignore json parse errors in eve log file
+o intrusion prevention (development): added Suricata 2.1beta4 in inline
+  mode[9]
+o interfaces: reverted cache removal due to multiple speed regressions reports
+o backend: send timeouts with proper description to syslog
+o openvpn: fix auth server selection for translations
+o filter: make the status reload page provide better debug info
+o interfaces: fix mobile carrier selection on main interface edit page
+o interfaces: unify release/renew/connect/disconnect buttons in status page
+o dashboard: show cell mode for ppp if available
+
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] https://www.freebsd.org/security/advisories/FreeBSD-EN-15:19.kqueue.asc
+[2] https://github.com/opnsense/src/commit/19ba0fbfd15ea8ff24ce172dee30e1
+[3] http://ftp.meisei-u.ac.jp/mirror/squid/squid-3.5.11-RELEASENOTES.html
+[4] https://www.strongswan.org/blog/2015/11/16/strongswan-5.3.4-released.html
+[5] https://github.com/quinot/choparp
+[6] http://www.xmlsoft.org/news.html
+[7] https://github.com/freebsd/freebsd-ports/commit/0466b08981bf9c714
+[8] https://github.com/opnsense/update/commit/e3f63ecdb1149a8cc30e3
+[9] https://forum.opnsense.org/index.php?topic=1740

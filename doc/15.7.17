@@ -1,0 +1,47 @@
+@ October 20, 2015
+
+Good day to you all,
+
+So this is 15.7.17 with a couple of neat things under the hood: AES-NI
+is now supported by both LibreSSL and OpenSSL.  Other than that only
+minor fixes went in along with the latest version bumps for cURL, Squid,
+Unbound and (of course) LibreSSL.
+
+The development version has more things happening: we've reorganised the
+menu to get rid of the "Status" and "Diagnostics" section, updating
+layouts and minimising padding of the bootstrap theme.  And that's not
+all, because we're also replacing the old captive portal!  The new captive
+portal can already be tested and will receive more features as we near
+version 16.1.  Let us know what you think.
+
+Here are the full patch notes:
+
+o ports: both LibreSSL and OpenSSL now support AES-NI acceleration
+o ports: curl 7.45[1], squid 3.5.10[2], unbound 1.5.5[3], libressl 2.2.4[4]
+o layout: bumped font awesome to 4.4
+o dhcp: dhcpd leases did not always reload dhcpleases daemon
+o openvpn: fix Strict User/CN matching checkbox behaviour
+o ipsec: fix tunnel identification when using NAT
+o dns filter: add OpenDNS IPv6 servers
+o dns resolver: fix apply glitch that would blank the settings temporarily
+o log files: search is now case-insensitive
+o firmware: improved reboot detection feedback
+o crash reporter: improved wording as reports without contact info may be
+  hard to fix
+o virtual ip: fix possible apply glitch with new VIP
+o synchronisation: do not error on target down, log it instead
+o languages: French is at 35% and German is at 65% complete now
+o development: the captive portal has been replaced with a newly implemented
+  variant based on our MVC standards -- if you still want to use the old one
+  please use the release package instead (although any feedback for the new
+  captive portal is greatly appreciated)
+
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] http://curl.haxx.se/changes.html
+[2] http://ftp.meisei-u.ac.jp/mirror/squid/squid-3.5.10-RELEASENOTES.html
+[3] http://www.unbound.net/download.html
+[4] http://ftp.openbsd.org/pub/OpenBSD/patches/5.8/common/007_obj2txt.patch.sig
