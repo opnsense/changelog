@@ -1,0 +1,44 @@
+Dearest friends and followers,
+
+As the end of the year 2015 is nearing, we push one last update.  And
+it's been a hell of a year!  This is actually the 49th official update
+we're releasing, so that gives you the idea of how serious we were about
+"once a week".  The major upgrade 16.1 is around the corner as well,
+although major is a bit of a stretch: the main reason for calling it 16.1
+are the all new captive portal and FreeBSD 10.2.  But that's not the point.
+Here it is...
+
+We would like to thank everyone for their resounding support through good
+and bad times, for lively discussions, outside contributions and all the
+encouragement we've received.  We've set a reasonable pace for progress
+within our project and we will certainly keep it up for 2016.  That's the
+least we can do for you.  After all, we do like to think we've built a
+little family.
+
+Here are the full patch notes:
+
+o ports: bind 9.10.3-P2[1], python 2.7.11[2], openvpn 2.3.9[3]
+o traffic shaper: page is now properly translated (Contributed by
+  Fabian Franz)
+o system: all remaining pages in this section have been reworked for clarity
+o logs: split up the old VPN multi-log page into their respective parts
+  (L2TP, PPTP, PPPoE)
+o logs: added filtering option to all logs that previously missed it
+o certificates: now supports different extensions (Key Usage, Subject
+  Alternative Name) and usage types
+o dhcp: allow commas in advanced DHCP client options (Contributed by
+  Simon van der Linden)
+o firewall: add direction indication icon to floating rules
+o firewall: lock port numbers on protocols that are not TCP/UDP
+o firewall: fix apply button on outbound NAT page in translation mode
+o traffic shaper: add TCP ACK/non-ACK matching options
+o proxy: two fixes for non-local authentication
+
+
+Happy holidays,
+Your OPNsense team
+
+--
+[1] https://kb.isc.org/article/AA-01328/0/BIND-9.10.3-P2-Release-Notes.html
+[2] https://hg.python.org/cpython/raw-file/53d30ab403f1/Misc/NEWS
+[3] https://community.openvpn.net/openvpn/wiki/ChangesInOpenvpn23#OpenVPN2.3.9
