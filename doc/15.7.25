@@ -1,0 +1,52 @@
+@ January 18, 2016
+
+Hi everyone,
+
+This is good-bye.  6 months have passed and 15.7 has served us well.
+In only 10 days 16.1 will be out and it is looking shiny.  Please study
+the end of life announcement on the firmware page before attempting to
+upgrade to the next version.
+
+As such, we have incorporated all of the outstanding security issues
+of last week, mostly related to FreeBSD and OpenSSH.  Patches for the
+GUI are light; all pending improvements go directly into the next major
+release.
+
+Here are the full patch notes:
+
+o src: SCTP ICMPv6 error message vulnerability[1]
+o src: ntp panic threshold bypass vulnerability[2]
+o src: Linux compatibility layer incorrect futex handling[3]
+o src: Linux compatibility layer setgroups(2) system call vulnerability[4]
+o src: TCP MD5 signature denial of service[5]
+o src: Insecure default snmpd.config permissions[6]
+o src: OpenSSH client information leak[7]
+o src: Invalid TCP checksums with pf(4)[8]
+o src: YP/NIS client library critical bug[9]
+o ports: sqlite3 3.10.0[10], easy-rsa 3.0.1[11], openssh-portable 7.1p2[12]
+o traffic graphs: fix truncation of IP address to 14 characters
+o firmware: EOL announcement for 15.7 added, ready for upgrading to
+  16.1 on January 28
+o firmware: added mirror provided by RageNetwork (Munich, DE)
+o menu: fix navigation after editing IPsec mobile clients (contributed
+  by Manuel Faux)
+o trust: properly reference CA in intermediate CAs (contributed by
+  Manuel Faux)
+
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] https://www.freebsd.org/security/advisories/FreeBSD-SA-16:01.sctp.asc
+[2] https://www.freebsd.org/security/advisories/FreeBSD-SA-16:02.ntp.asc
+[3] https://www.freebsd.org/security/advisories/FreeBSD-SA-16:03.linux.asc
+[4] https://www.freebsd.org/security/advisories/FreeBSD-SA-16:04.linux.asc
+[5] https://www.freebsd.org/security/advisories/FreeBSD-SA-16:05.tcp.asc
+[6] https://www.freebsd.org/security/advisories/FreeBSD-SA-16:06.bsnmpd.asc
+[7] https://www.freebsd.org/security/advisories/FreeBSD-SA-16:07.openssh.asc
+[8] https://www.freebsd.org/security/advisories/FreeBSD-EN-16:02.pf.asc
+[9] https://www.freebsd.org/security/advisories/FreeBSD-EN-16:03.yplib.asc
+[10] https://www.sqlite.org/releaselog/3_10_0.html
+[11] https://github.com/OpenVPN/easy-rsa/releases
+[12] http://www.openssh.com/txt/release-7.1p2
