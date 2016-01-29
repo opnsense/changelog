@@ -1,0 +1,141 @@
+@ January 28, 2016
+
+Welcome back!
+
+No, we would not say it was easy getting here, but booting into 16.1
+for the first time sure is as relieving (and exciting) as it could get
+for our project growing beyond what we had ever imagined.  It has been
+more than a year since OPNsense first came out.  Back then it was
+FreeBSD 10.0. Not even two months after, 10.1 was introduced along
+with the opnsense-update utility.  Today is the day for FreeBSD 10.2,
+the latest and greatest release currently available for broader driver
+support and stability improvements.
+
+16.1 is nick-named "Crafty Coyote" in honour of our beloved childhood
+TV sessions.  It is the accumulation of 6 months of work, having had
+our focus on reengineering the captive portal, native intrusion
+prevention, plugin support, and transforming the reporting frontend
+into something more modern and flexible just to name a few[1].  Apart
+from the recently published security advisories (see patch notes below),
+we have included a quick navigation feature which can be activated by
+pressing (TAB) followed by search keywords and hitting (ENTER) to go to
+the desired page.  Last but not least, a larger batch of improvements
+and fixes went into assorted sections of the GUI that certainly help
+to get your work done without ending up dazed and confused.
+
+Speaking of clearing things up, there is more...  While Ad, Franco
+and a couple of amazing external contributors have been busy writing
+and reviewing code, Jos worked in the shadows to bring to you a fully
+revised set of project documentation in the form of an online
+handbook[2].  More content will follow as we slow down development
+speed a bit in order to catch up.  We will have to see how that works
+out.  ;)
+
+Another thing we have noticed is that translations are hard!  We have
+planned to finish a translation for this iteration, but the sheer
+amount of work overwhelmed even the sizeable German translation team.
+The German translation is now at 77% percent completed with Japanese,
+Chinese and French chasing tails. If you want to help drop us a line
+at project@opnsense.org for details on how to contribute.
+
+All images have been pushed as well, although may take a bit more time
+to reach a mirror near you. You can find the checksums attached at the
+end of this announcement.
+
+https://opnsense.org/download/
+
+Finally, here are the full patch notes:
+
+o src: FreeBSD 10.2-RELEASE-p11[4]
+o bootstrap: can now update from any available FreeBSD 10 release
+o ports: libarchive 3.1.2_6[5], Suricata 3.0[6], squid 3.5.13[7],
+  bind 9.10.3P3[8], sqlite 3.10.2[9], ntp 4.2.8p6[10]
+o firewall: lock source / destination port settings when neither
+  TCP nor UDP is selected
+o firewall: simplify the outbound page to hide unwanted items and
+  zap complicated explanations (contributed by Manuel Faux)
+o firewall: do not leak floating rules into other interface tabs
+o firewall: add clear button to all log file types
+o firewall: hide NAT rules from normal rules screen
+o firewall: removed the unsupported dscp rule option
+o firewall: display alias descriptions as tooltips (contributed by
+  Manuel Faux)
+o universal plug and play: switch to secure mode as the new default
+o unbound: add MX entries to host overrides (contributed by Manuel Faux)
+o gateways: always safe the monitor IP regardless of monitoring being
+  on or off
+o gateways: properly add and remove routes for monitors on toggle
+o backend: fix harmless error message caused by a sample template
+o high availability: allow specification of a different port for
+  synchronisation
+o high availability: special characters are now being properly preserved
+o high availability: added new captive portal and traffic shaper as
+  sync options
+o high availability: reworked and pruned the client synchronisation
+o firmware: optional php extensions now peacefully coexist with
+  preinstalled extensions
+o firmware: update plugin list on refresh to reveal available plugin list
+o intrusion detection: adds intrusion prevention mode for netmap(4)
+  devices (must disable Hardware CRC manually)
+o captive portal: completely rewritten on top of our new components
+o proxy: hook up remote ACL settings to translation engine (contributed
+  by Fabian Franz)
+o proxy: add support for compressed ACLs (.gz, .tar.gz, .tgz, .zip)
+o proxy: fix toggle for storage log
+o ipsec: improve display of tunnel overview
+o openvpn: provide full ca chain on client export (contributed by
+  Manuel Faux)
+o openvpn: fix engine detection for LibreSSL
+o layout: all tooltips and icons of action buttons have been updated
+  for proper look and feel (contributed by Manuel Faux)
+o layout: added the infamous quick navigation feature
+o layout: consolidated the display of the upper right corner
+  as "user@host.domain"
+o interfaces: reworked all the pages for proper look and feel
+o interfaces: ARP and NDP tables have been rewritten and now properly
+  show vendor info
+o login: improved look and feel
+o dashboard: rss widget has been reworked and its library has been
+  updated to a new version
+o config: recover last backup automatically on broken xml
+o menu: properly aligned submenu icons
+o system: removed XDebug package from the default installation
+
+We thank all our contributors and users for their ongoing love
+and support. <3
+
+
+Cheers,
+Ad, Franco and Jos
+
+--
+[1] https://opnsense.org/about/road-map/
+[2] https://docs.opsense.org/
+[3] https://pkg.opnsense.org/releases/mirror/README
+[4] https://www.freebsd.org/releases/10.2R/announce.html
+[5] https://vuxml.freebsd.org/freebsd/7c63775e-be31-11e5-b5fe-002590263bf5.html
+[6] http://suricata-ids.org/2016/01/27/suricata-3-0-available/
+[7] http://ftp.meisei-u.ac.jp/mirror/squid/squid-3.5.13-RELEASENOTES.html
+[8] https://kb.isc.org/article/AA-01346/81/BIND-9.10.3-P3-Release-Notes.html
+[9] http://www.sqlite.org/changes.html
+[10] http://support.ntp.org/bin/view/Main/SecurityNotice#Recent_Vulnerabilities
+
+# SHA256 (OPNsense-16.1-OpenSSL-cdrom-amd64.iso.bz2) = bd94c4bf304fa99d7fb426061cf17f45fa2e427cef3ab089704e14b2b570b261
+# SHA256 (OPNsense-16.1-OpenSSL-nano-amd64.img.bz2) = abd0c9beb843ad8232f9fc5f0b6c68318993b55529bc06a8c331587863a6c13f
+# SHA256 (OPNsense-16.1-OpenSSL-serial-amd64.img.bz2) = 9a5faaebc6cba481199bbc2ae5395877c8acf0dfa225e643ec5c3258e5014c4f
+# SHA256 (OPNsense-16.1-OpenSSL-vga-amd64.img.bz2) = 85e3c4275460758565cb0eced8c69afd13a26eb8b9116d86db80be098b6d3e4b
+
+# SHA256 (OPNsense-16.1-OpenSSL-cdrom-i386.iso.bz2) = 8346db1a23563895f071a51ea86be00f7e405e5df709943b26435c13f1c898f1
+# SHA256 (OPNsense-16.1-OpenSSL-nano-i386.img.bz2) = 380819194a3c5a508b161153cc532e8c1caaba31b08bdb01643493438634d2ab
+# SHA256 (OPNsense-16.1-OpenSSL-serial-i386.img.bz2) = 1a413fb0563cc63e1b80278df303b092b219d6d58a87f841b7389a1a4939734a
+# SHA256 (OPNsense-16.1-OpenSSL-vga-i386.img.bz2) = 16a360b05d3fd325499baa6bd38fcd19090ac1d5c3d8ba2a8fa3e763137e87fc
+
+# MD5 (OPNsense-16.1-OpenSSL-cdrom-amd64.iso.bz2) = 941e9cd797e4189868398fcd057a428e
+# MD5 (OPNsense-16.1-OpenSSL-nano-amd64.img.bz2) = ededf0767412daafcb8209a3fbf85714
+# MD5 (OPNsense-16.1-OpenSSL-serial-amd64.img.bz2) = 0094c6275128a35e6f8bf965178245eb
+# MD5 (OPNsense-16.1-OpenSSL-vga-amd64.img.bz2) = ddaae54fe90634ca8223f483cebebaa2
+
+# MD5 (OPNsense-16.1-OpenSSL-cdrom-i386.iso.bz2) = d1a216d5eed3534d7f33a6a4482851e2
+# MD5 (OPNsense-16.1-OpenSSL-nano-i386.img.bz2) = 871f23a40d3eee49350fe06cadb37884
+# MD5 (OPNsense-16.1-OpenSSL-serial-i386.img.bz2) = be04acd8c51347711c4a5f58b711da8e
+# MD5 (OPNsense-16.1-OpenSSL-vga-i386.img.bz2) = 549267467adbf194505c6daaae589ee8
