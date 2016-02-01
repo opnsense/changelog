@@ -1,0 +1,44 @@
+@ Feburary 2, 2016
+
+Hi guys,
+
+Today we are following up on the OpenSSL advisories.  LibreSSL was not
+affected (surprise, surprise), but received a tiny fix to sync up with
+the deprecation of the high-severity SSL_OP_SINGLE_DH_USE option of its
+sibling.
+
+In other news, we are shipping a few minor fixes along with all-new
+SSL-centric rulesets for the intrusion prevention courtesy of abuse.ch[3].
+Protect your assets, they are worth it!
+
+Without fuzz, here are the full patch notes:
+
+o ports: libressl 2.2.6[1], openssl 1.0.2f[2]
+o intrusion prevention: add SSL fingerprint blacklist and other abuse lists
+  (courtesy of abuse.ch[3])
+o captive portal: limit the max vouchers per call
+o captive portal: change voucher download filename to match group name
+o captive portal: strip bad characters from group name
+o captive portal: fix multiple voucher generation
+o firewall: add rule categorisation tag field
+o search: tweak padding to align with right visual boarder
+o console: fix halt script to show product name again
+o firmware: revoked the old 15.7 update fingerprint
+o interfaces: fix VLAN edit page to show the correct page name
+o squid: fix authentication script permission regression
+o dashboard: remove non-authoriative hardware crypto probing
+o system: do not accept an authentication server with an empty name
+o system: added hint that device polling setting needs reboot
+  (contributed by Olivier Paroz)
+o system: assorted translation fixes (contributed by Fabian Franz)
+o logging: unhide IGMP packets from firewall log view
+  (contributed by Isaac Levy)
+
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] http://ftp.openbsd.org/pub/OpenBSD/LibreSSL/libressl-2.2.6-relnotes.txt
+[2] https://www.openssl.org/news/secadv/20160128.txt
+[3] https://www.abuse.ch/
