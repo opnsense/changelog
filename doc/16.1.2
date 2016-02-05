@@ -1,0 +1,55 @@
+@ February 5, 2016
+
+Hi guys,
+
+It is time for a swift update for our dear Hyper-V users.  There is a
+packet forwarding regression in FreeBSD 10.2 that has not been added
+as errata yet so we had to pin it down with the help of three brave
+testers.  If you happen to want to run Hyper-V without going through
+the issue, install from an older 15.7 image and upgrade directly to
+avoid the bad version.
+
+To improve upon Suricata 3.0 and the SSL fingerprint lists we are now
+enabling users to add user-defined rules for adding and enforcing their
+own fingerprints.  But wait, that is not all.  On top of that the IP
+geolocation feature was added as well while at it.  :)
+
+Otherwise, only smaller bugs have been addressed to make 16.1 look
+even shinier.  The FreeBSD security advisory for OpenSSL got integrated
+too, but is not of much concern since we consistently use the ports
+version for our components.  The important fixes have been shipped
+with version 16.1.1 back on Monday.
+
+Here are the full patch notes:
+
+o src: OpenSSL SSLv2 ciphersuite downgrade vulnerability[1]
+o src: Fix packet forwarding in Hyper-V netvsc driver[2]
+o src: Honour disabled pf(4) log flag on dropped packets with IP options[3]
+o ports: curl 7.47.0[4], nettle 3.2[5]
+o wizard: fix certificate generation for OpenVPN
+o firewall: fix interface selection on post issues in floating rules
+o firewall: make category filter multi-select for maximum convenience
+o firewall: do not hide gateways from the gateway selection
+o firewall: added null routes to the gateway selection
+o firewall: rather than hiding associated nat rules, remove their edit
+  and clone buttons so they can still be deleted manually
+o dns resolver: fix $numprocs setting in config according to manual
+o dns resolver: do not render illegal output for empty IPv6 addresses
+o dhcp: applying static mappings with DNS resolver enabled no longer
+  seems stuck in apply step
+o search: resize box on focus and also propagate proxy server tabs
+o system: fix inversion bug of the default pass logging setting
+o captive portal: properly log messages to associated log file
+o intrusion detection: can now add user rules based on SSL fingerprints
+  and IP geolocation
+
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] https://www.freebsd.org/security/advisories/FreeBSD-SA-16:11.openssl.asc
+[2] https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=203630
+[3] https://reviews.freebsd.org/D3222
+[4] https://curl.haxx.se/changes.html
+[5] https://fossies.org/diffs/nettle/3.1.1_vs_3.2/ChangeLog-diff.html
