@@ -1,0 +1,60 @@
+@ February 17, 2016
+
+Good news everyone,
+
+It is time for a smaller update to 16.1.3.  There is another fix for our
+Hyper-V users, the health section finally received its CPU temperature
+graph and a few ports have been updated to their latest version.  Nothing
+of particular interest happened, no issues with glibc from our side today.  :)
+
+A number of assorted issues have been flushed from the code thanks to good
+use of the crash reporter.  A special thank you goes to those of you who
+submit email addresses and a brief description along with the report.  For
+us it is tremendously useful to get as many details as possible and to
+verify that our fixed work reliably in a particular use cases before
+shipping them.
+
+Enough with the announcing already, here are the full patch notes:
+
+o src: hyperv/kvp: wake up the daemon if it is sleeping due to poll()[1]
+o src: Use correct src/dst ports when removing states in pf[2]
+o src: finish the boot loader branding by adding a shiny logo
+o ports: unbound 1.5.7[3], openldap 2.4.44[4], ca_root_nss 3.22,
+  php 5.7.18[5], phalcon 2.0.10[6], pkg 1.6.4[7][8]
+o interfaces: collapsible overview for each interface
+o shaper: fix issue with model when not able to save an old config
+o health: added pages to ACL for configurable user access
+o health: record system CPU temperature in additional graph
+o firmware: add UK-based mirror (contributed by Will Jones)
+o access: force a visible and non-critical page on non-access redirect
+o access: make sure "/" is handled like "/index.php"
+o configuration: add a number of previously missing config sections for
+  selection on restore/backup
+o firewall: bring back alias nesting
+o dhcp: add missing DNS resolver awareness
+o dhcp: fix multiple minor crash reports
+o radvd: add missing DNS resolver awareness
+o captive portal: ensure MAC address is saved in lowercase and improve
+  validation
+o captive portal: fix unicode issue in template generation
+o captive portal: correct syslog redirection regression
+o crash reporter: limit log size upload to 1MB
+o cron: fix validation of hour value
+o intrusion detection: show origin link of rule sets in details
+o services: add background daemon to known services for easy reload
+o services: add captive portal to known services for easy reload
+o services: improve redirect on service reload in diagnostics page
+
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] https://github.com/opnsense/core/issues/748
+[2] https://github.com/opnsense/src/pull/9
+[3] http://www.unbound.net/download.html
+[4] http://www.openldap.org/software/release/changes.html
+[5] http://php.net/ChangeLog-5.php#5.6.18
+[6] https://github.com/phalcon/cphalcon/releases/tag/phalcon-v2.0.10
+[7] https://github.com/freebsd/freebsd-ports/commit/364bf01c846
+[8] https://github.com/freebsd/freebsd-ports/commit/69fe3e55ff5
