@@ -1,0 +1,45 @@
+@ March 2, 2016
+
+Dear friends and followers,
+
+It pleases us to say that although we ship the latest OpenSSL 1.0.2g today,
+we have had both SSv2 and SSv3 support disabled in our installation for a
+long while, so older installations are also not affected by yesterday's
+announcement.  On a slightly related note, LibreSSL was not affected at all.
+
+With that out of the way, we also happily let you know that we are shipping
+RFC 4638 support with this stable release.  We also push a fix for an
+upstream bug in Unbound and update Squid to the latest version... again. ;)
+
+We have also announced the roadmap for 16.7.  Take a look at our upcoming
+milestones:
+
+https://opnsense.org/about/road-map/
+
+And now, here are the full patch notes:
+
+o ports: squid 3.5.15[1], unbound 1.5.7 hotfix[2], pkg 1.6.4 hotfix[3],
+  openssl 1.0.2g[4]
+o services: infrastructure rework for plugin additions
+o openvpn: added copy/move to client-specific overrides
+o openvpn: allow binding client-specific overrides to specific server(s)
+o openvpn: service on/off toggle via overview pages
+o openvpn: fix problem with service status display
+o openvpn: when services are disabled, make sure a reconfigure will always
+  stop the associated process
+o vpn: transform PPTP, L2TP and PPPoE servers to plugin addition to be
+  removed from base install for 16.7
+o vpn: add proper service probing for PPTP, L2TP and PPPoE servers
+o interfaces: added RFC 4638 support (MTU > 1492 in PPPoE)
+o ntp: disable when no servers are set
+o language: updates for Chinese, French and German
+
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] http://ftp.meisei-u.ac.jp/mirror/squid/squid-3.5.15-RELEASENOTES.html
+[2] https://www.nlnetlabs.nl/bugs-script/show_bug.cgi?id=729
+[3] https://github.com/freebsd/pkg/issues/1394
+[4] https://www.openssl.org/news/secadv/20160301.txt
