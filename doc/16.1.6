@@ -1,0 +1,68 @@
+@ March 9, 2016
+
+Hi guys,
+
+It is update time!  This time around, DHCP and DNS have been freshened up
+thoroughly, removing both potential and real problems from the GUI and
+underneath.  Additionally, the proxy server gained ICAP support and a
+category-based remote block list selection.
+
+Our firmware mirror support has finally been extended so that it is now
+possible to pull all updates from a single mirror, which will very soon
+make it possible to run a local mirror for your internal installations.
+We are also shipping the original FreeBSD OpenSSL patch, although the
+security issues cannot not surface on OPNsense.  We just like to be
+thorough.
+
+Here are the full patch notes:
+
+o src: Fix multiple vulnerabilities of OpenSSL[1]
+o src: update tzdata to 2016a[2]
+o ports: openssh-portable 7.2p1[3], isc-dhcp-43 4.3.3P1_1[4],
+  php56 5.6.19[5], curl 7.41.1[6]
+o firmware: mirror selection has been widened to include kernel/base
+  upgrades
+o firmware: bootstrap utility can now directly install e.g. the
+  development version
+o dhcp: all GUI pages have been reworked for a polished look and feel
+o proxy: added category-based remote file support if compressed file
+  contains multiple files
+o proxy: added ICAP support (contributed by Fabian Franz)
+o proxy: hook up the transparent FTP proxy
+o proxy: add intercept on IPv6 for FTP and HTTP proxy options
+o logging: syslog facilities, like services, are now fully pluggable
+o vpn: stripped an invalid PPTP server configuration from the standard
+  configuration
+o vpn: converted to pluggable syslog, menu and ACL
+o dyndns: all GUI pages have been reworked for a polished look and feel
+o dyndns: widget now shows IPv6 entries too
+o dns forwarder: all GUI pages have been reworked for a polished
+  look and feel
+o dns resolver: all GUI pages have been reworked for a polished
+  look and feel
+o dns resolver: rewrote the dhcp lease registration hooks
+o dns resolver: allow parallel operation on non-standard port when dns
+  forwarder is running as well
+o firewall: hide outbound nat rule input for "interface address" option
+  and toggle bitmask correctly
+o interfaces: fix problem when VLAN tags weren't generated properly
+o interfaces: improve interface capability reconfigure
+o ipsec: fix service restart behaviour from GUI
+o captive portal: add missing chain in certificate generation
+o configd: improve recovery and reload behaviour
+o load balancer: reordered menu entries for clarity
+o ntp: reordered menu entries for clarity
+o traffic shaper: fix mismatch for direction + dual interfaces setup
+o languages: updated German and French
+
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] https://github.com/freebsd/freebsd/commit/7d8d4cb5
+[2] http://mm.icann.org/pipermail/tz-announce/2016-January/000035.html
+[3] http://www.openssh.com/txt/release-7.2
+[4] https://www.isc.org/blogs/isc-dhcp-4-3-0-is-live/
+[5] http://php.net/ChangeLog-5.php#5.6.19
+[6] https://curl.haxx.se/changes.html
