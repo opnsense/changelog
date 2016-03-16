@@ -1,0 +1,65 @@
+@ March 16, 2016
+
+Hi guys,
+
+Time for a quick update!  We are still polishing our non-MVC GUI pages
+to match the modern style of the MVC equivalents and fix a few minor
+bugs along the way.  In these matters, we ask for your participation in
+critically reviewing the changes below in order to catch remaining
+issues as soon as possible.  We expect to finish our full code sweep
+next week.  After that we will shift focus to work on new features.
+
+The upgrades from 15.7.25 to 16.1.x briefly stalled with 16.1.6 due to
+a dormant incompatibility in the FreeBSD package management tool after
+flipping from 10.1 to 10.2, so we went ahead and made it all better.
+More precaution in our own update tools will hopefully prevent such
+unwanted breakage in the future, but we understand that these things
+can slip through. :)
+
+New images are on the way shortly after 16.1.8.  We are also introducing
+the new "opnsense-stable" firmware path and some cool upgrade features
+for our brave testers.  More explanations will follow soon.
+
+Here are the full patch notes:
+
+o ports: pecl-radius 1.3.0[1], bind 9.10.3-P4[2], bsnmp-ucd 0.4.2[3],
+  openssh-portable 7.2p2[4], sqlite 3.11.1[5]
+o captive portal: add session timeout to status info
+o firewall: fix non-report of errors when filter reload errors
+  could not be parsed
+o pppoe server: make service control buttons work with multiple
+  instances
+o wake on lan: reworked pages for a polished look and feel
+o load balancer: reworked pages for a polished look and feel
+o dashboard: better colouring for widget status bars
+o dns filter: rewporked page for a polished look and feel
+o dns rfc2136: reworked pages for a polished look and feel
+o igmp proxy: reworked pages for a polished look and feel
+o system: routes diagnostics page ported to MVC
+o proxy: adjust category visibility as not all of them were shown before
+o firmware: fix an overzealous upgrade run when the package tool only
+  changes options
+o firmware: fixed the binary upgrade patch from 15.7.x in FreeBSD's
+  package tool
+o network time: reworked pages for a polished look and feel
+o system: removed NTP settings from general settings
+o snmp: refactored page for a polished look and feel
+o access: let only root access status.php as it leaks too much info
+o development: remove the automount features
+o development: added in-place package upgrades using the upstream
+  repository
+o development: addition of "opnsense-stable" package on our way to
+  nightly builds
+o development: opnsense-update can now install locally available base
+  and kernel sets
+
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] https://pecl.php.net/package-changelog.php?package=radius
+[2] https://kb.isc.org/article/AA-01363/81/BIND-9.10.3-P4-Release-Notes.html
+[3] https://github.com/trociny/bsnmp-ucd/blob/master/CHANGELOG
+[4] http://www.openssh.com/txt/release-7.2p2
+[5] https://www.sqlite.org/releaselog/3_11_1.html
