@@ -1,0 +1,53 @@
+@ May 23, 2016
+
+Hello there,
+
+This quick 16.1.8 is not a big update, but it means a lot.  We have
+finished our full sweep of the GUI to update the look and feel of all
+pages and made the code ready for what is to come now: new features
+that are on our roadmap for 16.7.  The first one will be the HTTPS
+proxy, but there is also NetFlow and improved statistics / reporting
+on the shortlist.
+
+A day after 16.1.7 was out last week, FreeBSD 10.2-RELEASE-p14 was
+announced.  Of the four patches enclosed, the two Hyper-V patches we
+have already brought to OPNsense over a month ago, the OpenSSH patch
+does not apply since we only use the port and already had it up-to-date.
+That leaves us with only one patch that we are shipping now to complete
+the experience.
+
+Attention to everyone using OpenVPN + cryptodev acceleration: the
+cryptodev module along with older crypto drivers has been removed
+from the kernel itself, which means that if you need to keep using
+it, go to System: Settings: Misc and reconfigure your crypto hardware
+including an enable of cryptodev usage.
+
+New images based on 16.1.8 will be out will be out early next week.
+
+Here are the full patch notes:
+
+o src: updated tzdata to version 2016b[1]
+o src: fix incorrect argument validation in sysarch[2]
+o src: fix pfi_table_update: cannot set new addresses
+o src: added APU2 temperature sensor support
+o ports: unbound 1.5.8[3], sudo 1.8.16[4], pcre 8.38[5]
+o proxy: better matching for overlapping URLs
+o universal plug and play: refactored pages for improved look and feel
+o vpn: refactored L2TP and PPTP pages for improved look and feel
+o openvpn: fix missed configure stage for Peer to Peer (TLS/SSL) mode
+o system: reworked the behaviour of thermal and crypto modules
+o firewall: tweaked a few rule indicator icons to improve clarity
+o firewall: improved alias validation on edit
+o interfaces: also add previous DHCP override fixes for IPv6
+o language: updated French and German
+
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] http://mm.icann.org/pipermail/tz-announce/2016-March/000036.html
+[2] https://www.freebsd.org/security/advisories/FreeBSD-SA-16:15.sysarch.asc
+[3] http://www.unbound.net/download.html
+[4] https://www.sudo.ws/stable.html#1.8.16
+[5] http://vcs.pcre.org/pcre/code/trunk/ChangeLog?view=markup
