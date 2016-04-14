@@ -1,0 +1,40 @@
+@ April 14, 2016
+
+Hi everyone,
+
+It has been a quite uneventful week.  Suricata and Squid have been
+upgraded to their latest versions and you can find their individual
+change logs below.  The next part of the Russian translation brings
+it to number one with a dreamy 83% completed.  Otherwise only small
+fixed and improvements have been made and it will not even require
+a reboot.
+
+Here is the full list of changes:
+
+o ports: suricata 3.0.1[1], squid 3.5.16[2]
+o traffic shaper: added individual tabs to quick navigation
+o traffic shaper: fix behaviour on pppoe devices
+o openvpn: revive windows installer binaries
+o firewall: validate alias url download
+o system: improved config history and backup pages layout
+o system: increased backup count default from 30 to 60
+o system: moved several settings to different pages for better
+  technology alignment
+o system: /var /tmp MFS awareness for crash dumps added
+o trust: add "IP security IKE intermediate" to server key usage
+o firmware: moved reboot, halt and defaults pages to new home
+o proxy: add redirection rule creation link for HTTPS proxy
+  (contributed by Fabian Franz)
+o pptp: prevent service from printing boot messages due to a
+  stale entry in the default config.xml
+o interfaces: show LAGG protocol in overview page
+o languages: another large batch of Russian, now 83% complete
+  (contributed by Smart-Soft Ltd.)
+o languages: updated French, German and Japanese
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] https://suricata-ids.org/2016/04/04/suricata-3-0-1-released/
+[2] http://ftp.meisei-u.ac.jp/mirror/squid/squid-3.5.16-RELEASENOTES.html
