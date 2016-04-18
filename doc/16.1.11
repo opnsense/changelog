@@ -13,6 +13,7 @@ Russian, effectively bringing it to 100% completed.  Wow!
 Here is the full change log:
 
 o services: fix CSRF vulnerability in status_services.php[2]
+o www: strengthen CSRF secret generation for legacy pages
 o dhcp: bring back usage of the authoritative directive
 o system: allow periodic backups of RRD and DHCP for non-MFS
 o openvpn: status page would not show the correct process status
