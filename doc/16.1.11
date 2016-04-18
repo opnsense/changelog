@@ -1,0 +1,31 @@
+@ April 18, 2016
+
+Hi everyone,
+
+We are skipping a bit ahead with 16.1.11 to address a CSRF vulnerability,
+which outlines the path we have been on since we started[1] and we will
+surely continue this security-aware trend.
+
+In other news, this update includes native GeoIP alias support, captive
+portal voucher customisations requested by many and the last batch of
+Russian, effectively bringing it to 100% completed.  Wow!
+
+Here is the full change log:
+
+o services: fix CSRF vulnerability in status_services.php[2]
+o dhcp: bring back usage of the authoritative directive
+o system: allow periodic backups of RRD and DHCP for non-MFS
+o openvpn: status page would not show the correct process status
+o captive portal: add option for less secure passwords, password
+  and username length
+o firewall: add GeoIP aliases feature
+o languages: completed Russian translation (contributed by Smart-Soft Ltd.)
+o languages: updated French
+
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] https://forum.opnsense.org/index.php?topic=2837.0
+[2] https://cxsecurity.com/issue/WLB-2016040106
