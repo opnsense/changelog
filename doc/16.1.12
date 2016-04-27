@@ -1,0 +1,74 @@
+@ April 27, 2016
+
+Hi everyone,
+
+How are you doing?  We have been doing fine, trying new things, moving
+on further...  The progress for our upcoming version 16.7 now accumulates
+to 3 full months.  To that end we are making the transition from ALPHA toi
+BETA on the 16.7 development series.  And since we have been asked to
+incorporate development change logs as well, look no further (well, look
+below).
+
+Anyway, 16.1.12 brings a handful of anticipated additions like FreeBSD's
+package manager version 1.7.2 and the ability to use CoDel / FQ-Codel in
+the traffic shaper.  We have also started to move services to the plugin
+framework instead of having them in the base installation.  And, maybe as
+a last point, initial work for fixing the trusty apinger utility for
+gateway monitoring has surfaced.
+
+Here is the full change log for 16.1.12:
+
+o ports: pkg 1.7.2[1][2][3], sqlite 3.12.1[4], squid 3.5.17[5]
+o firewall: skip anti-lockout WAN rule when only LAN is connected
+o firewall: clean up unused alias tabes
+o firewall: improve alias usage validation
+o firewall: validate / transform url content before save
+o traffic shaper: add Codel / FQ-CoDel support[6]
+o firmware: changed "halt" to "power off"
+o firmware: advertise current product and os version in API
+o firmware: kernel and base fetch will now advertise download progress
+o interfaces: translation fixes (contributed by Fabian Franz)
+o system: fix RRD boot error for CPU temperature graph
+o gateways: code modernisation for the trusty apinger utility
+o ipsec: added service control to log page
+o captive portal: cleanse cert output before write
+o proxy: cleanse cert output before write
+o proxy: do not stop authenticating after an empty string
+o proxy: added log page to ACL
+o proxy: remove auth local database as default
+o smart: removed from base, can be installed as plugin "os-smart"
+
+And this is the change long for 16.7 BETA:
+
+o netflow: finished exporter capable of sending NetFlow to multiple
+  remote destinations
+o netflow: finished local reporting frontend on top of collected
+  NetFlow data
+o interfaces: polling mode has been deprecated and will be phased
+  out soon
+o vpn: L2TP, PPTP and PPPoE servers have been ported to use MPD5
+o vpn: legacy servers have been prepared to be moved from base
+  install to plugins
+o cron: code preparations for opening up the MVC cron API
+o tests: added a unit test framework and several tests
+o backup: reworked the RRD and DHCP leases backup strategies
+o backup: added the ability to also backup local NetFlow data
+o plugins: added the HAProxy plugin (contributed by Frank Wall)
+o kernel: CoDel / FQ-CoDel AQM patch version 0.2
+o kernel: HardenedBSD's ASLR
+o languages: translations have their own repository and package now
+o languages: updated Dutch, French, German, Japanese, Russian
+o languages: can now collect strings from all plugins
+o languages: first steps for Portuguese
+
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] https://github.com/freebsd/freebsd-ports/commit/aabba637e
+[2] https://github.com/freebsd/freebsd-ports/commit/d3e9dc5ee
+[3] https://github.com/freebsd/freebsd-ports/commit/057fbfc94b
+[4] http://www.sqlite.org/changes.html
+[5] ftp://ftp.meisei-u.ac.jp/mirror/squid/squid-3.5-ChangeLog.txt
+[6] https://github.com/opnsense/core/issues/505
