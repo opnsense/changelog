@@ -38,7 +38,7 @@ o proxy: added log page to ACL
 o proxy: remove auth local database as default
 o smart: removed from base, can be installed as plugin "os-smart"
 
-And this is the change long for 16.7 BETA:
+And this is the change log for 16.7 BETA:
 
 o netflow: finished exporter capable of sending NetFlow to multiple
   remote destinations
