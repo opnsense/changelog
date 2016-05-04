@@ -1,0 +1,63 @@
+@ May 4, 2016
+
+Dear all,
+
+Ever so swiftly we are adopting the OpenSSL and LibreSSL updates
+and welcome the cooperation between both projects on this one.
+Way to go guys!
+
+In other news, NTP and Bind were updated to their latest versions.
+The gateway monitoring tool Apinger can now properly handle NTP
+taking over time from time to time.  Er, anyway, language packs
+will become pluggable in the long run and the MVC work for the
+HAProxy plugin is now completely bundled with the release.  Plugin
+release is currently scheduled for 16.1.14.
+
+Here is the full change log for 16.1.13:
+
+o ports: ntp 4.2.8p7[1], bind 9.10.4[2], php 5.6.21[3],
+  libressl 2.2.7[4], openssl 1.0.2h[5]
+o languages: newly packaged translations with latest updates
+o gateways: apinger monitoring quality is no longer affected by
+  NTP operation
+o backend: lowered configd connection timeout for better response
+  time when unavailable
+o backend: plugged numerous minor crash reports caused by configd
+o backup: reworked backup strategies for RRD and DHCP leases
+o interfaces: allow bridges with at least one member
+o rc: defer recover for packages to avoid database duplication
+o intrusion detection: added an eicar test ruleset
+o intrusion detection: fixed sort order of rulesets
+o captive portal: properly catch exception for accounting
+  background job
+o firewall: annotate deprecated ICMP types in rule filter selection
+o firewall: direction arrows in rule overview now have different
+  colours for easier distinction
+o gui: correct HTML escaping in MVC between client-side JavaScript
+  and server-side API
+o gui: various improvements in MVC components required for upcoming
+  HAProxy plugin
+o gui: enable tooltips in MVC base template
+o gui: set HTTP-only cookie
+
+And here is what changed in 16.7 Beta:
+
+o dashboard: selectable multi-column count
+o dashboard: half-way through widget modernisation
+o dashboard: brought back drag and drop for widget reordering
+o dashboard: new pluggable API backend for widgets
+o languages: added first steps for Turkish
+o backend: removed legacy PHP module for interface information collection
+o gui: improve and streamline CSRF protection
+o netflow: fixed bug with reporting frontend in Safari
+
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] http://support.ntp.org/bin/view/Main/SecurityNotice#Recent_Vulnerabilities
+[2] https://ftp.isc.org/isc/bind/9.10.4/RELEASE-NOTES-bind-9.10.4.html
+[3] http://php.net/ChangeLog-5.php#5.6.21
+[4] http://ftp.openbsd.org/pub/OpenBSD/LibreSSL/libressl-2.2.7-relnotes.txt
+[5] https://mta.openssl.org/pipermail/openssl-announce/2016-May/000072.html
