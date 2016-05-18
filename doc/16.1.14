@@ -1,0 +1,74 @@
+@ May 18, 2016
+
+Hello there,
+
+It is time for something new.  How about an update with your new NetFlow
+remote export.  Or your local reporting frontend?  Well, you can always
+use both if you like.  Read all about it here:
+
+https://docs.opnsense.org/manual/netflow.html
+
+Furthermore, we have added the brand new AQM CoDel version 0.2.1 to the
+mix, yesterday's FreeBSD security advisories, released the HAProxy plugin,
+bundled a full Japanese translation.  And two-factor authentication support
+for our components?  Yes, we also have that now.  :)
+
+There is also a refreshed website for our general viewing pleasure.  Let
+us know what you think or what it is missing.
+
+https://opnsense.org/
+
+And now, here is the full change log for 16.1.14:
+
+o src: tzdata updated to 2014d[1]
+o src: dummynet AQM updated to 0.2.1[2]
+o src: fix multiple OpenSSL vulnerabilities[3]
+o src: fix excessive latency in x86 IPI delivery[4]
+o src: fix memory leak in ZFS[5]
+o src: fix buffer overflow in keyboard driver[6]
+o src: fix incorrect argument handling in sendmsg[7]
+o ports: sqlite 3.12.2[8], openvpn 2.3.11[9], squid 3.5.19[10]
+o plugins: HAProxy plugin version 1.0 (contributed by Frank Wall)
+o lang: Japanese 100% completed
+o lang: updates for French and German
+o interfaces: removed polling support
+o interfaces: allow subnet size of 31 bits
+o high availability: can now sync DNS resolver configuration
+o cron: reworked job registration
+o system: do not unload cryptodev to prevent panics when used by OpenVPN
+o system: user expiration date edit now has a fancy date picker
+o system: add RFC 6238 (TOTP) support for two-factor authentication
+o reporting: added local NetFlow reporting frontend[11]
+o reporting: added remote NetFlow exporter for multiple sources[12]
+o firewall: fixed schedule cloning
+o services: lower intervals for router advertisement messages
+
+And this is the change log for 16.7 BETA:
+
+o firmware: assorted improvements for error reporting and smooth operation
+o firmware: partial fix for Nano update issues when RAM is too small
+o intrusion detection: promiscuous interface mode for better VLAN operation
+o gateways/routes: support for gateways outside of the interface subnet
+o routes: fixed null routes / blackholes
+o interfaces: SVG traffic graphs replaced by modern alternative
+o dashboard: finished the rework, ready for general testing
+o firewall: removed the need for custom kernel patches for schedules
+o lang: numerous improvements (contributed by Fabian Franz)
+
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] http://mm.icann.org/pipermail/tz-announce/2016-April/000038.html
+[2] http://caia.swin.edu.au/freebsd/aqm/patches/ChangeLog-0.2.1.txt
+[3] https://www.freebsd.org/security/advisories/FreeBSD-SA-16:17.openssl.asc
+[4] https://www.freebsd.org/security/advisories/FreeBSD-EN-16:07.ipi.asc
+[5] https://www.freebsd.org/security/advisories/FreeBSD-EN-16:08.zfs.asc
+[6] https://www.freebsd.org/security/advisories/FreeBSD-SA-16:18.atkbd.asc
+[7] https://www.freebsd.org/security/advisories/FreeBSD-SA-16:19.sendmsg.asc
+[8] http://www.sqlite.org/changes.html
+[9] https://community.openvpn.net/openvpn/wiki/ChangesInOpenvpn23#OpenVPN2.3.11
+[10] ftp://ftp.meisei-u.ac.jp/mirror/squid/squid-3.5-ChangeLog.txt
+[11] https://docs.opnsense.org/manual/how-tos/insight.html
+[12] https://docs.opnsense.org/manual/how-tos/netflow_exporter.html
