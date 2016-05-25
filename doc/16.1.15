@@ -1,0 +1,57 @@
+@ May 25, 2016
+
+Hi all,
+
+We are dropping in for a quick update bundling assorted fixes
+and general improvements throughout the code.  Not much to add
+this week, see for yourselves...
+
+Do not forget that ASLR is coming next week.  :)
+
+Here are the full patch notes for 16.1.15:
+
+o system: make authentication fallback configurable
+o system: settings cleanup and prettify
+o system: added explicit ETC timezone selection
+o high availability: add page for remote service control
+o high availability: properly enforce authentication
+o firmware: reboot and poweroff API actions
+o firmware: only kill GUI process, not captive portal
+o firmware: show errors in update window
+o firmware: keep polling for progress even when GUI restarts
+o backend: skip failing templates on bootup
+o trust: fix CA certificate count in overview
+o trust: allow key size up to 8192 bits
+o firewall: fix invalid NPT rule generation
+o firewall: speed up filter log pages
+o firewall: do not allow to change virtual IP mode after creation
+o firewall: moved settings page and rearranged settings accordingly
+o interfaces: unhook all but the last custom PHP module functions
+o interfaces: moved settings page and rearranged settings accordingly
+o dhcp: do not override RA settings after save
+o dns: resolver outgoing interface section moved to advanced as it
+  will break setups with dynamic interfaces selected there
+o load balancer: sticky mode from firewall / system split off as
+  separate setting
+o snmp: do not allow unicode in system location
+o intrusion detection: remove deprecated rbn-malvertisers.rules set
+o intrusion detection: add promiscuous mode / physical interface selection
+o overall: fix menu width on small size screens
+o overall: numerous translation fixes (contributed by Frederic Lietart)
+o overall: numerous translation fixes (contributed by Fabian Franz)
+o plugins: assorted bugfixes for HAProxy (contributed by Frank Wall)
+o mvc: fix translations by adding an escaping wrapper
+
+And here are the patch notes for 16.7 BETA:
+
+o system: reworked the user / group manager privilege selection
+o firewall: IPv6 outbound NAT rework
+o interfaces: allow debug mode for DHCPv6 client
+o interfaces: remove ath(4) long distance helpers
+o dns: add custom port option for domain overrides
+o gateways/routes: fix for far gateway setups
+o overall: add stacked-to-horizontal feature for input forms
+
+
+Stay safe,
+Your OPNsense team
