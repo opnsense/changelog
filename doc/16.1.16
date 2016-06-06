@@ -1,0 +1,92 @@
+@ June 6, 2016
+
+Dear all,
+
+It has been a long journey for HardenedBSD and OPNsense, and
+finally the paths start to merge as the splendid and battle-
+proven ASLR implementation gets incorporated into the default
+installation!  It is just the beginning as we will start to
+leverage the extra security by enabling position independent
+execution in 16.7 and merge more security-related features.
+We thank again the HardenedBSD team for their continued efforts
+on making this world a safer place.
+
+In other news, there is a thoroughly revamped dashboard for you
+to enjoy and a handful of security fixes in FreeBSD and the ports
+ecosystem.  LibreSSL has been updated to the latest production
+release and the BETA version is progressing nicely as we change
+our working mode from "rework all the things" to "polish all the
+things".  A release candidate is coming up soon.
+
+Here are the patch notes for 16.1.16:
+
+o src: merged and enabled HardenedBSD's ASLR implementation[1]
+o src: kernel stack disclosure in Linux compatibility layer[2]
+o src: kernel stack disclosure in 4.3BSD compatibility layer[3]
+o src: directory traversal in cpio[4]
+o ports: libressl 2.3.5[5], phalcon 2.0.13[6], dnsmasq 2.76[7]
+o ports: apinger 0.7[8], curl 7.49[9], bind 9.10.4-p1[10]
+o ports: php 5.6.22[11], sqlite 3.13[12], ntp 4.2.8p8[13]
+o dashboard: movable widgets, multi-column support and improved
+  look and feel
+o system: improved CSRF handling
+o system: allow far gateway support for non-subnet gateways
+o system: fix null routes add / delete
+o system: user/group privilege selection improvements
+o system fix missing cron job for GUI lock / expire
+o firmware: adds opnsense-patch tool for simple upstream repo patch apply
+o dns resolver: fix AAAA record save
+o dns forwarder: add custom port option for domain overrides
+o firewall: for us bogons do not extend to private networks
+o firewall: fix schedule clone when in use
+o interfaces: remove explicit ath(4) long distance support
+o interfaces: removed SVG traffic graphs in favour of modern replacements
+o captive portal: allow to drop all expired vouchers
+o cron: fix parameter ignore
+o layout: "Stacked-to-horizontal" emulation for mobile view
+o layout: consistent tooltip button placement
+o layout: fix footer on small screen size
+o plugins: fix HAProxy X-Forwarded-For header option
+
+And here is the change log for 16.7 BETA:
+
+o interfaces: interface-based plugin system used by OpenVPN and IPSec
+o interfaces: removed complex PPPoE reset handling by optional cron job
+o plugins: allow local socket in chroot'ed services
+o plugins: removed L2TP, PPTP and PPPoE servers from core
+o firmware: allow resume for update page
+o firmware: dump / restore package database on shutdown / boot
+o firewall: removed proxy NAT reflection mode
+o firewall: properly start/stop proxy APR daemons
+o firewall: implement flexible scrub / normalisation config pages to
+  zap hidden scrubbing code
+o firewall: removed "match" action from floating rules, no FreeBSD
+  support
+o firewall: removed negate rules that would magically prevent load-
+  balancing VPN links
+o system: migrated new cron handling to do privilege separation where
+  possible
+o system: better branding support for boot loader on package install /
+  remove
+o system: remove single forward GUI item for RFC 2893, can be set in
+  NAT just as well
+o router advertisements: allow to set mode and min / max intervals
+
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] https://github.com/opnsense/src/commit/e13c0d42ebbd4
+[2] https://www.freebsd.org/security/advisories/FreeBSD-SA-16:20.linux.asc
+[3] https://www.freebsd.org/security/advisories/FreeBSD-SA-16:21.43bsd.asc
+[4] https://www.freebsd.org/security/advisories/FreeBSD-SA-16:22.libarchive.asc
+[5] http://ftp.openbsd.org/pub/OpenBSD/LibreSSL/libressl-2.3.5-relnotes.txt
+[6] https://github.com/phalcon/cphalcon/releases/tag/phalcon-v2.0.13
+[7] http://www.thekelleys.org.uk/dnsmasq/CHANGELOG
+[8] https://github.com/opnsense/apinger/blob/master/NEWS
+[9] https://curl.haxx.se/changes.html
+[10] https://kb.isc.org/article/AA-01383/81/BIND-9.10.4-P1-Release-Notes.html
+[11] http://php.net/ChangeLog-5.php#5.6.22
+[12] http://www.sqlite.org/changes.html
+[13] https://www.eecis.udel.edu/~ntp/ntp_spool/ntp4/ChangeLog-stable
