@@ -1,0 +1,47 @@
+@ June 15, 2016
+
+Hi there!
+
+Today we offer complementary improvements and fixes to your swinging
+installation in the hopes that they will make your daily experience
+even better, rounded off with a pinch of SSL crypto updates.
+
+In other news, we are getting ready for a first 16.7 release candidate
+after having finished the full work on the FreeBSD 10.3 base system
+including the addition of HardenedBSD's ASLR.  More on this next week.
+
+Here is the change log for 16.1.17:
+
+o ports: isc-dhcp-server 4.3.4[1], syslogd 10.3, libressl 2.3.6[2],
+  openssl 1.0.2_13[3]
+o system: fix OTP QR code link to amend the first request
+o system: allow to override TRIM apply at boot time via /etc/fstab[4]
+o dashboard: fix OpenVPN test data display
+o dashboard: gateway widget style updated
+o interfaces: allow debug option for dhcp6 client
+o interfaces: allow to delete WAN as well
+o interfaces: properly restart the respective proxy ARP daemon
+o firewall: fixed HTML errors in NAT edit page
+o services: fixed unbound custom option handling
+o services: allow RA send behaviour to be configured
+o services: show correct dynamic DNS type when editing an existing entry
+o openvpn: bring back authentication method selector
+o openvpn: create interfaces at boot time and even when disabled
+o power: separate menu for power off and reboot functions
+o intrusion detection: allow to drop/reset log files
+o plugins: can now create local logging sockets for chroot environments
+o plugins: new HAProxy version 1.3 with assorted fixes (contributed by
+  Frank Wall and Manus Freedom)
+o lang: major updates for Russian (contributed by Smart-Soft Ltd.)
+o lang: assorted translation fixes (contributed by Fabian Franz)
+o lang: minor updates to Chinese, German and French
+
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] https://kb.isc.org/article/AA-01364/82/DHCP-4.3.4-Release-Notes.html
+[2] http://ftp.openbsd.org/pub/OpenBSD/LibreSSL/libressl-2.3.6-relnotes.txt
+[3] https://github.com/freebsd/freebsd-ports/commit/5ae24c9c91bd
+[4] https://forum.opnsense.org/index.php?topic=3044
