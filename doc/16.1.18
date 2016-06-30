@@ -1,0 +1,48 @@
+@ June 30, 2016
+
+Hello everyone,
+
+Before we get on with the release candidate for 16.7, we are proudly
+presenting the latest and greatest stable addition to the 16.1 series.
+
+No time to lose, enjoy the summer!
+
+Here are the full patch notes:
+
+o system: properly run fsck on boot if needed
+o system: new Cron page and API now available for general use
+o system: QR codes are now generated locally in the browser
+  (contributed by Fabian Franz)
+o system: harden serial config write against power failures
+o system: allow serial config to attach to all available ttys
+o system: added missing ACL entry for LDAP user import page
+o system: reworked log page layout and dependencies
+o firmware: detach / reattach support for upgrade page
+o firmware: mirror and flavour selection moved to respective page
+o interfaces: improvements for 4G devices (sponsored by OSNet.eu[1])
+o interfaces: debug mode and logging for rtsold in DHCPv6 mode
+o dhcp: separate pages for router advertisements and service control
+o dhcp: IPv6 server as a stand-alone process for service control
+o dhcp: fixed and improved writing of dynamic DNS configuration
+o ports: python 2.7.11_3[2], unbound 1.5.9[3], curl 7.49.1[4],
+  openssl 1.0.2_14[5], sudo 1.8.17p1[6], php 5.6.23[7],
+  pcre 8.39[8], haproxy 1.6.6[9]
+o src: tzdata updated to 2016e[10]
+o src: fix pf fragement timeout[11]
+
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] https://www.osnet.eu/
+[2] http://bugs.python.org/issue26171
+[3] http://www.unbound.net/download.html
+[4] https://curl.haxx.se/changes.html
+[5] https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-2177
+[6] https://www.sudo.ws/sudo/changes.html
+[7] http://php.net/ChangeLog-5.php#5.6.23
+[8] http://www.pcre.org/original/changelog.txt
+[9] http://www.haproxy.org/download/1.6/src/CHANGELOG
+[10] http://mm.icann.org/pipermail/tz-announce/2016-June/000039.html
+[11] https://lists.freebsd.org/pipermail/freebsd-pf/2016-May/008044.html
