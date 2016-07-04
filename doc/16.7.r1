@@ -1,0 +1,83 @@
+@ July 04, 2016
+
+Hi all,
+
+It has been 5 months since 16.1 came out.  Since then, over 1500 commits
+and 18 stable releases have continuously improved and enhanced the
+project.  Since then, thousands of new users have joined. And, since
+then, our new documentation has been extended and tweaked with numerous
+guides, explanations and answers to your questions.
+
+The cumulation of these efforts is this announcement of the first release
+candidate for 16.7.  Images are being provided to encourage to try these
+in a fresh setting, but the config import in the installer and the GUI
+work as usual so that migration is simple. Checksums for the images can
+be found below.  VGA images have been omitted to permit work on the UEFI
+variant in the meantime.
+
+https://opnsense.org/download/
+
+The RC cycle will end in a month with the actual 16.7 release so that
+early birds will not have to reinstall afterwards.  Remember: feedback
+is key in this phase, feel free to contact us in any way you like and
+let us make 16.7 grand together.
+
+Here is our list of major features that were worked on since 16.1:
+
+o SSL fingerprinting / blacklisting in the IDS/IPS
+o Firewall rules category tags for easy filtering
+o CPU temperature graph in system health
+o Custom mirror support for firmware upgrades
+o OpenVPN client-specific overrides can now be bound to selected servers
+o Added RFC 4638 support (MTU > 1492 in PPPoE)
+o NTP can now be disabled if required
+o New category-based remote ACL support in proxy server
+o ICAP configuration aded to proxy server
+o Pluggable service infrastructure
+o Pluggable syslog infrastructure
+o Finished a full sweep of visible GUI pages for improved look and feel
+o HTTPS proxy support
+o Russian translations 100% completed
+o NetFlow export to multiple remote destinations
+o NetFlow local reporting frontend
+o PPTP, L2TP and PPPoE Servers ported to MPD5
+o HAProxy plugin
+o Traffic shaping with CoDel / FQ-CoDel
+o Firewall alias geolocation support
+o Cron GUI and API
+o Japanese translations 100% completed
+o Dashboard revamp with multi-column support, drag and drop and mini API
+o RFC 6238 (TOTP) support for two-factor authentication
+o HardenedBSD's ASLR implementation
+o High availability page for remote service status and start/stop/restart
+o API commands for remote reboot and power off
+o Firmware page resume support and cron-based "nightly" updates
+o opnsense-patch, the tremendously nifty patching tool
+o Traffic graphs frontend has been replaced by a modern alternative
+o PPTP, L2TP and PPPoE Servers are now individual plugins no longer found
+  in the default installation
+o Pluggable interface infrastructure
+o New firewall GUI page for custom scrubbing rules (normalisation)
+o Removal of proxy-based NAT reflection
+o No more custom PHP modules
+o FreeBSD 10.3
+o Suricata 3.1
+
+
+Stay safe,
+Your OPNsense team
+
+--
+# SHA256 (OPNsense-16.7.r1-OpenSSL-cdrom-amd64.iso.bz2) = d5db6f91221121ab2e0efb962e9aa08ec095977e733a74f4e797d81329a4a1b7
+# SHA256 (OPNsense-16.7.r1-OpenSSL-nano-amd64.img.bz2) = 596aa7468850a1857140bc3373650556b53bdde73fa1ac7cc639a868f4a0bcc7
+# SHA256 (OPNsense-16.7.r1-OpenSSL-serial-amd64.img.bz2) = c28f7eebb6b56e91152bd21dee6a741ad09732d144af05c9a5099da12961531f
+# SHA256 (OPNsense-16.7.r1-OpenSSL-cdrom-i386.iso.bz2) = fcac3e7aad5c09ed4f5352dc125cd00e200616bc77a47fa3ce4cf04826fc0970
+# SHA256 (OPNsense-16.7.r1-OpenSSL-nano-i386.img.bz2) = 6a22e438ef30f7611df835ca53b0e0087d7eda3137f41224d2ee9e0d01d9ffe4
+# SHA256 (OPNsense-16.7.r1-OpenSSL-serial-i386.img.bz2) = aeb5502a81520f7398187635d0426630034c276491fa32512e5702eb73d8525f
+
+# MD5 (OPNsense-16.7.r1-OpenSSL-cdrom-amd64.iso.bz2) = 5a440e46e841d3c4c05bdb8ee6566fe6
+# MD5 (OPNsense-16.7.r1-OpenSSL-nano-amd64.img.bz2) = 13ccbcf88b1b5338ccba7440526f146f
+# MD5 (OPNsense-16.7.r1-OpenSSL-serial-amd64.img.bz2) = 97a3c5e08c4cecff62c5c63d5e29dda0
+# MD5 (OPNsense-16.7.r1-OpenSSL-cdrom-i386.iso.bz2) = 8cced3f828d063ac237d96f32a8bb2e3
+# MD5 (OPNsense-16.7.r1-OpenSSL-nano-i386.img.bz2) = 2f38a263a2f0ed2071d5698e31eeb30f
+# MD5 (OPNsense-16.7.r1-OpenSSL-serial-i386.img.bz2) = 397a54eb4a51f5703b8ec3062afbcef0
