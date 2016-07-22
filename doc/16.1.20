@@ -1,0 +1,20 @@
+@ July 22, 2016
+
+Hello there,
+
+We are pushing out 16.1.20 a little earlier than expected to fix a
+GUI regression that can affect users with IPv6.  Sorry about that.
+
+Since this is the last 16.1 series release, the firmware page offers
+an overview of migration hints for the 16.7 series.  We are expecting
+to be right on schedule, namely July 28.  Oh, and by the way, the next
+release will be called "Dancing Dolphin".
+
+Here are the full patch notes:
+
+o firmware: end-of-life announcement and preparation for 16.7 upgrade
+o services: fix a missing dependency for the DHCPv6 service probing
+
+
+Stay safe,
+Your OPNsense team
