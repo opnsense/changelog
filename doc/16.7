@@ -1,0 +1,87 @@
+@ July 28, 2016
+
+Welcome everyone,
+
+It is time for the next major iteration in open-source security!  After
+6 months and 20 minor releases we hereby declare the general availability
+of OPNsense 16.7, nick-named "Dancing Dolphin".  The highlights of this
+major release include:
+
+o Suricata 3.1.1 with Intel Hyperscan support
+o NetFlow-based reporting and export
+o Traffic shaping using CoDel / FQ-CoDel
+o Two-factor authentication based on RFC 6238 (TOTP)
+o HTTPS and ICAP support in the proxy server
+o FreeBSD 10.3 with full integration of HardenedBSD ASLR
+o UEFI boot and installation modes
+o Substantial updates to our language packs: Japanese,
+  Russian, German, French, Chinese
+
+We thank all contributors, testers and users for their relentless support
+and invaluable feedback.  The release candidate phase has been the most
+fun we have had so far.  :)
+
+Attention: An incompatibility in Chrome may prevent the firmware update
+from running.  Try a different browser to upgrade to 16.7 where a
+workaround has been added to avoid the problem in the future.
+
+All images can be found on the mirrors below with checksums attached to
+the end of this announcement:
+
+https://opnsense.org/download/
+
+Please stay in touch, tell us what you think about OPNsense and how we can
+improve it further!  You can find us in any of these popular locations:
+
+Twitter: https://twitter.com/opnsense
+Forum: https://forum.opnsense.org/
+GitHub: https://github.com/opnsense
+IRC: Freenode #OPNsense
+
+Lastly, here are the full changes since 16.7-RC2:
+
+o installer: fix UI glitch with overlong disk name selections
+o installer: warn on low RAM as install phase can fail
+o ports: suricata 3.1.1[1], php 5.6.24[2]
+o system: Etc/UTC is now the default time zone
+o system: prevent user from deleting itself
+o interfaces: register groups in the system immediately
+o firmware: add subscription option for private repositories[3]
+o firmware: work around API POST problem on Chrome by deleting
+  css source map pointer
+o firewall: allow cron to set arbitrary syslog times for alias updates
+o proxy: add syslog target for access_log
+o reporting: can now individually flush health reports
+o reporting: can now flush insight and NetFlow data
+o reporting: translate interface names on health page
+o reporting: shut down insight service on backup to
+  prevent database corruption
+o lang: Russian is now 97% completed (contributed by Smart-Soft Ltd.)
+o lang: minor updates in all other languages
+
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] https://suricata-ids.org/2016/07/13/suricata-3-1-1-released/
+[2] http://php.net/ChangeLog-5.php#5.6.24
+[3] https://forum.opnsense.org/index.php?topic=3408.0
+
+# SHA256 (OPNsense-16.7-OpenSSL-cdrom-amd64.iso.bz2) = 3808ebf4519beef9122f32b2919c9fad337efd4971529621c6d4a7eede7433db
+# SHA256 (OPNsense-16.7-OpenSSL-nano-amd64.img.bz2) = 48e70fc263efeb27c8d8ac0f6e3284505833977f3ba2dfe200d83109cd0ce511
+# SHA256 (OPNsense-16.7-OpenSSL-serial-amd64.img.bz2) = 2346cb43389600f544505c48b4fc8c1648e74eae457f97ca6ae613c6b4ca8482
+# SHA256 (OPNsense-16.7-OpenSSL-vga-amd64.img.bz2) = 0c93d516a33b0a33fb9f98e7709d3270d472fa96136611751bcbf795c399a95a
+# SHA256 (OPNsense-16.7-OpenSSL-cdrom-i386.iso.bz2) = 9a1e7c13c9ed70fdc758781048ef8806c44e375bfeb1c7b788602e38b9d635cf
+# SHA256 (OPNsense-16.7-OpenSSL-nano-i386.img.bz2) = 3a6c47927c3005714eddeadcab21a5833394e09cd3516e576a61d5f257b8fdc4
+# SHA256 (OPNsense-16.7-OpenSSL-serial-i386.img.bz2) = b193c21dec852aaf90d1172c7d41ac63e403ff6c832a10217daea03d2d1725b0
+# SHA256 (OPNsense-16.7-OpenSSL-vga-i386.img.bz2) = 086cc24ca8eed27e504cdc1b48e15f8bf5640304f3f8874938d0973b72a47b9a
+
+# MD5 (OPNsense-16.7-OpenSSL-cdrom-amd64.iso.bz2) = 96a11a6892bde8b1d10a45b39f2fa47e
+# MD5 (OPNsense-16.7-OpenSSL-nano-amd64.img.bz2) = 21e94d5ebf3fba92d71ff5a3074f0f29
+# MD5 (OPNsense-16.7-OpenSSL-serial-amd64.img.bz2) = bcaa7d4cf5a9bb29bc7fa32a8fcfb2b7
+# MD5 (OPNsense-16.7-OpenSSL-vga-amd64.img.bz2) = 8149bad48d1825cbb8641d9d1f4f1bc3
+# MD5 (OPNsense-16.7-OpenSSL-cdrom-i386.iso.bz2) = f7136f20169b746e95ffdd867ee40ce3
+# MD5 (OPNsense-16.7-OpenSSL-nano-i386.img.bz2) = a9c9fe086b015bf13fa32d201940b80f
+# MD5 (OPNsense-16.7-OpenSSL-serial-i386.img.bz2) = fc5c6e39b2c2017290f67a12605e9924
+# MD5 (OPNsense-16.7-OpenSSL-vga-i386.img.bz2) = 292ef2aaa10853264cc8045c857b4e67
