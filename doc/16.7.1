@@ -1,0 +1,48 @@
+@ August 02, 2016
+
+Hi everyone,
+
+Thanks again for the warm welcome of the 16.7 series!  The feedback
+has been overwhelming, quite positively so.  It was partly addressed
+in to be released code, shall be weaved into the upcoming roadmap or
+will be further discussed in our forums.  Every wee bit counts on our
+way to 17.1.  :)
+
+This release addresses a pressing issue with the Intel e1000 driver
+in conjunction with IPS mode.  For now, a piece of code that went into
+FreeBSD 10.3 has been reverted to bring back stability, but we are
+working with the author on a more permanent solution.
+
+Here are the full patch notes:
+
+o system: default config now disables hardware offloading features
+o system: prevent carp demotion on sender and pfsync failures
+o firewall: removed obsolete reflection timeout value
+o firewall: added logging option for outbound NAT
+o firewall: fix interface address IPv6 outbound NAT
+o firewall: fix one-to-one copy feature
+o firewall: execute custom scrub rules before auto-generated rules
+o firmware: fixed race on base / kernel fetch
+o firmware: revoke the obsoleted 16.1 update fingerprint
+o interfaces: allow default route on multi-WAN PPPoE
+o interfaces: allow to set txpower for WiFi adapters
+o interfaces: allow backwards-compatible interface enable
+o vpn: fix faulty IPSec authenticator selection in phase 1
+o mvc: add missing CRL type in certificates cache
+o mvc: set robots meta to nofollow, noindex
+o mvc: always show logout button in menu
+o src: fix bspatch heap overflow vulnerability[1]
+o src: fix ICMP translation in pf
+o src: revert extended descriptor format for em(4)[2]
+o src: lower spurious log notice to debug in rtsold
+o plugins: os-haproxy 1.4 (contributed by Frank Wall)
+o ports: libressl 2.3.7[3]
+
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] https://www.freebsd.org/security/advisories/FreeBSD-SA-16:25.bspatch.asc
+[2] https://github.com/opnsense/src/commit/b0f7ff3
+[3] http://ftp.openbsd.org/pub/OpenBSD/LibreSSL/libressl-2.3.7-relnotes.txt
