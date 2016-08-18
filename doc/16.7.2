@@ -1,0 +1,73 @@
+@ August 18, 2016
+
+Hi everyone,
+
+The release schedule is being stretched bit by bit to see how long we
+can go without an update.  Well, we did not want wait any longer to
+share with you the following bits... so here they are.  ;)
+
+FreeBSD incorporated several reliability fixes for Hyper-V and we had
+to back out an ICMP stable commit that was not fully working for trace
+route output over the network.  There are several important ports
+updates, namely Lighttpd, Strongswan and OpenSSH all brought to their
+latest versions.
+
+On our side, multi-point VPN plugins habe ben corrected to properly
+group to their respective firewall rule interface.  For anyone waiting
+to migrate their VPNs from 16.1.20 to 16.7, now is the time to do so!
+Also, the stale OpenVPN windows binaries have been removed. Note that
+we gracefully support configuration file export in several formats.
+
+Here are the full patch notes:
+
+o src: revert fix ICMP translation in pf[1]
+o src: better handle unknown options received from a DHCP server[2]
+o src: void using spin locks for channel message locks[3]
+o src: enable INQUIRY result check only on Windows 10 host systems[4]
+o src: register time counter early enough for TSC freq calibration[5]
+o src: disable incorrect callout in hv_storvsc(4)[6]
+o src: better handle the GPADL setup failure in Hyper-V[7]
+o src: fix SCSI INQUIRY checks and error handling[8]
+o ports: lighttpd 1.4.41[9], strongswan 5.5.0[10], curl 7.50.1[11]
+o ports: ca_root_nss 3.26, openssh 7.3p1[12]
+o ports: enabled LDAP SASL bindings
+o system: remove source maps to prevent further Chrome breakage
+  during API calls
+o system: switch to individual registration of PHP extensions
+o system: added UO field to CSR
+o interfaces: properly remove PPPoE server from list of firewall
+  interfaces when deactivated
+o interfaces: extended logging for 4G modems
+o interfaces: correct download of large packet captures
+o interfaces: add lacp_fast_timeout flag support for LAGG
+o interfaces: fix clearing the DHCP config file when override
+  file is gone
+o interfaces: improve dmesg probe on interface listing (contributed by
+  Per von Zweigbergk)
+o firewall: double-check file availability after alias URL download
+o services: corrected DNS forwarder settings save in mobile layout
+o dashboard: fix gateway widget status text update
+o plugins: corrected firewall interface usage for multi-point VPNs
+o vpn: removed the stale OpenVPN windows installer binaries
+o vpn: default to IPsec main mode
+o lang: assorted translation fixes (contributed by Fabian Franz and
+  Antonio Prado)
+o lang: translation updates for Chinese, French, German and Japanese
+
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=201519
+[2] https://www.freebsd.org/security/advisories/FreeBSD-EN-16:10.dhclient.asc
+[3] https://www.freebsd.org/security/advisories/FreeBSD-EN-16:11.vmbus.asc
+[4] https://www.freebsd.org/security/advisories/FreeBSD-EN-16:12.hv_storvsc.asc
+[5] https://www.freebsd.org/security/advisories/FreeBSD-EN-16:13.vmbus.asc
+[6] https://www.freebsd.org/security/advisories/FreeBSD-EN-16:14.hv_storvsc.asc
+[7] https://www.freebsd.org/security/advisories/FreeBSD-EN-16:15.vmbus.asc
+[8] https://www.freebsd.org/security/advisories/FreeBSD-EN-16:16.hv_storvsc.asc
+[9] https://www.lighttpd.net/download/
+[10] https://wiki.strongswan.org/projects/strongswan/wiki/Changelog55
+[11] https://curl.haxx.se/changes.html#7_50_1
+[12] http://www.openssh.com/txt/release-7.3
