@@ -26,7 +26,7 @@ o system: SSH-enabled installer and associated changes
 o system: deprecate DSA keys as per OpenSSH recommendation
 o system: reworked config import / export for consistency
 o system: reboot after config import is now selectable
-o system: fix improper escape of HTML entities
+o system: fix improper escape of HTML entities in log file filter
 o system: handle legal boolean return result from searchUsers()
   (contributed by Evgeny Bevz)
 o system: add dynamic DNS update to cron
@@ -34,11 +34,11 @@ o system: fix race in php.ini setup
 o system: always keep repository configurations on core package deinstall
 o system: properly trigger filter reload on HA peer
 o system: add ordering to rc.syshook scripting facility
-o system: add missing parameter for LDAPS
+o system: add missing parameter for LDAPS authentication server
 o firewall: change CARP to operate using BSD standards to fix several
   edge cases and reported issues
-o firewall: fix validation of of redirection in NAT
-o firewall: redirect target IP selection can now us aliases
+o firewall: fix validation of redirection in NAT
+o firewall: redirect target IP selection can now use aliases
 o firewall: simplify empty rules message in interface rules tabs
 o interfaces: do not attempt to fix the MAC address of a broken NIC
 o interfaces: adapt validation of PPP to not require idle timeout to be set
