@@ -1,0 +1,62 @@
+@ September 28, 2016
+
+Hey everyone,
+
+Now that we got the chance to ship not one, but two OpenSSL bumps at
+the same time we barely missed the LibreSSL updates.  That is life.
+But we still have a few great things to offer this week.
+
+First and foremost, users noted that the captive portal did not work
+with the transparent proxy.  This lead to internal investigation into
+the operating system kernel itself, where a number of issues with using
+several packet filters in a row can lead to shortcuts in packet paths
+through the networking stack.
+
+This circled back to a simple fix for the captive portal: you can now
+edit each zone to enable the proxy for HTTP (port 3128) or HTTPS (port
+3129) for captive portal use without requiring the firewall redirect.
+You only have to make sure you actually have your captive portal
+interface set up as an interface in the proxy.
+
+We will continue to look into the remaining kernel issues and give
+updates and calls for testing when we reach new milestones.
+
+In other news, both OpenVPN and IPsec received several improvements
+for interoperability and the occasional bug with the missing firewall
+rules tab for their respective interfaces.
+
+Here are the full patch notes:
+
+o captive portal: handle transparent proxy from within the zone configuration
+o openvpn: adapt to cipher output changes in OpenVPN 2.3.12
+o openvpn: improve plugin probing for virtual interface
+o openvpn: added missing IPv6 tunnel network to overrides
+o ipsec: human-readable format of authentication method in overview
+o ipsec: refine behaviour of enable/apply on main page
+o ipsec: deduplicate leftsubnet/rightsubnet for meshed IKEv2
+o ipsec: more elegant interface and service plugging
+o ipsec: added unmeshed "tunnel isolation" mode for IKEv2
+o ipsec: cleanup pass over backend code
+o ipsec: allow Camellia for IKEv2
+o ipsec: allow %any in phase 1
+o ipsec: allow EAP-MSCHAPV2
+o system: load if_bridge on boot to correctly set its sysctl values
+o system: do not explicitly call plugins_interfaces() anymore
+o services: DNS resolver translation fixes (contributed by Fabian Franz)
+o services: fix a race in the DynDNS widget display
+o ports: curl 7.50.3[1], sudo 1.8.18[2], php 5.6.26[3], openssl 1.0.2j[4][5]
+o src: Multiple OpenSSL vulnerabilities[5]
+o src: updated tzdata to 2016f[6]
+
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] https://curl.haxx.se/mail/lib-2016-09/0040.html
+[2] https://www.sudo.ws/stable.html#1.8.18
+[3] http://php.net/ChangeLog-5.php#5.6.26
+[4] https://www.openssl.org/news/secadv/20160922.txt
+[5] https://www.openssl.org/news/secadv/20160926.txt
+[6] https://www.freebsd.org/security/advisories/FreeBSD-SA-16:26.openssl.asc
+[7] http://mm.icann.org/pipermail/tz-announce/2016-July/000040.html
