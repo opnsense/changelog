@@ -1,0 +1,40 @@
+@ October 11, 2016
+
+Hi all,
+
+This update is preparation for the upcoming major release firmware
+upgrades, because FreeBSD 11.0 just came out (yay!).  The intended
+target for this version is OPNsense 17.1, so it feels only natural
+to add the bits and bolts for it as early as possible.  Seamless
+upgrades from any major release to the next is our mission.  :)
+
+A few security-related ports got updated to their latest versions
+and we have fixed the PSK-related IPsec regression that sneaked
+into 16.7.5.
+
+Here are the full patch notes:
+
+o system: add language selection to initial wizard
+o system: allow disabling the root user
+o firmware: new mirror in Serbia (contributed by FourDots[1])
+o firmware: assorted changes for upcoming major upgrade
+o interfaces: wait for DHCP6 client to properly exit
+o firewall: allow route-to to loopback gateways
+o openvpn: fix download of config file for iOS
+o ipsec: fix mobile / PSK regression of 16.7.5
+o intrusion detection: added syslog support
+o dns: improve forwarder interface listening generation
+o rc: silence backup warnings about stripped leading slashes
+o ports: libressl 2.3.8[2], bind 9.10.4-P3[3]
+p ports: ca_root_nss 3.27.1[4], unbound 1.5.10[5]
+
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] https://fourdots.com/
+[2] http://ftp.openbsd.org/pub/OpenBSD/LibreSSL/libressl-2.3.8-relnotes.txt
+[3] ftp://ftp.isc.org/isc/bind9/9.10.4-P3/RELEASE-NOTES-bind-9.10.4-P3.html
+[4] https://developer.mozilla.org/en-US/docs/Mozilla/Projects/NSS/NSS_3.27.1_release_notes
+[5] http://www.unbound.net/download.html
