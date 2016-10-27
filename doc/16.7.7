@@ -1,0 +1,62 @@
+@ October 27, 2016
+
+Hi everyone,
+
+This update brings several reliability and security improvements
+as usual.  Our LibreSSL fans will notice the version 2.3 has finally
+been replaced with 2.4 and we switched to position independent
+executables in our base system to make good use of HardenedBSD ASLR.
+
+Another hot topic is the addition of a Czech translation into the
+release.  Many thanks to pavelb for making that happen!
+
+Overall progress towards OPNsense 17.1 is steady: native PAM support
+is through the testing phase and major FreeBSD upgrade support is
+already enclosed within this very update.  Our next step is the release
+of beta images some time during November.
+
+Here are the full patch notes:
+
+o captive portal: add expire voucher option
+o intrusion detection: added support for compressed rule files
+o web proxy: basic auth support for remote ACLs
+o web proxy: fix ICAP config write for MIME-types (contributed by
+  Fabian Franz)
+o ipsec: fix spacing and type for shared secrets on Windows 7+
+o ipsec: restart must only restart, not completely reconfigure
+o ipsec: correctly set 28673 option to "yes"
+o openvpn: reintroduce zip usage instead of 7z
+o interfaces: fix performance issues on status page
+o interfaces: fix ARP and NDP to show all entries
+o rc: revamp the handling of /boot/loader.conf to be fully pluggable
+o firmware: opnsense-update can now perform major FreeBSD updates
+o plugins: multiple fixes for HAProxy plugin (contributed by Frank Wall)
+o plugins: new PT research rule set intrusion detection plugin
+o lang: new language Czech at 54% completed (contributed by pavelb)
+o lang: updates for German and French
+o ports: libressl 2.4.3[1]
+o ports: isc-dhcp 4.3.5[2]
+o ports: php 5.6.27[3]
+o ports: lighttpd 1.4.42[4]
+o src: base system now uses position independent executables
+o src: tzdata updated to version 2016h[5]
+o src: revised dummynet patches for NAT, also includes IPv6 support
+o src: Fix bspatch heap overflow vulnerability[6]
+o src: Fix multiple libarchive vulnerabilities[7]
+o src: Fix virtual memory subsystem bugs[8]
+o src: Fix incorrect argument validation in sysarch(2)[9]
+
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] https://ftp.openbsd.org/pub/OpenBSD/LibreSSL/libressl-2.4.3-relnotes.txt
+[2] https://kb.isc.org/article/AA-01430/82/DHCP-4.3.5-Release-Notes.html
+[3] http://php.net/ChangeLog-5.php#5.6.27
+[4] https://www.lighttpd.net/2016/10/16/1.4.42/
+[5] http://mm.icann.org/pipermail/tz-announce/2016-October/000042.html
+[6] https://www.freebsd.org/security/advisories/FreeBSD-SA-16:29.bspatch.asc
+[7] https://www.freebsd.org/security/advisories/FreeBSD-SA-16:31.libarchive.asc
+[8] https://www.freebsd.org/security/advisories/FreeBSD-EN-16:17.vm.asc
+[9] https://www.freebsd.org/security/advisories/FreeBSD-SA-16:15.sysarch.asc
