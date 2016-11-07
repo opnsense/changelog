@@ -1,6 +1,6 @@
-PAGER?=		less
-
-DOCS!=		(cd ${.CURDIR}/doc; ls)
+DOCS!=	(cd ${.CURDIR}/doc; ls)
+WORKDIR=${.CURDIR}/work
+PAGER?=	less
 
 all:
 	@cat ${.CURDIR}/README.md | ${PAGER}
@@ -11,17 +11,23 @@ lint:
 	@head -n1 ${.CURDIR}/doc/${DOC} | grep -q '^@'
 . endfor
 
-index:
-.if "${DESTDIR}" != ""
-	@mkdir -p ${DESTDIR}
-	@echo '{"index":[' > ${DESTDIR}/index.json
+changelog.txz:
+	@rm -f ${WORKDIR}/*
+	@echo '{"index":[' > ${WORKDIR}/index.json
 . for DOC in ${DOCS}
-	@${.CURDIR}/webify.pl ${DOC} > ${DESTDIR}/${DOC}.html 2>> ${DESTDIR}/index.json
+	@${.CURDIR}/webify.pl ${DOC} > ${WORKDIR}/${DOC}.htm 2>> \
+	    ${WORKDIR}/index.json
+	@cp ${.CURDIR}/doc/${DOC} ${WORKDIR}/${DOC}.txt
 .  if ${DOC} != ${DOCS:[-1]}
-	@echo ',' >> ${DESTDIR}/index.json
+	@echo ',' >> ${WORKDIR}/index.json
 .  endif
 . endfor
-	@echo ']}' >> ${DESTDIR}/index.json
-.endif
+	@echo ']}' >> ${WORKDIR}/index.json
+	@tar -C ${WORKDIR} -cJf changelog.txz .
 
-.PHONY:	all lint update
+set: changelog.txz
+
+clean:
+	@rm -f changelog.txz
+
+.PHONY: all clean lint set
