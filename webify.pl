@@ -80,7 +80,7 @@ for ( @lines ) {
 
 	# bullet list continuation
 	if ( $bl ne '' && $_ =~ s/^\s+//g ) {
-		$pp =~ s/<\/li>\n$/ /g;
+		$pp =~ s/<\/li>$/ /g;
 	}
 
 	# literal block transformation
@@ -105,19 +105,18 @@ for ( @lines ) {
 			# adjust last newline for literal block end
 			chop $pp if $li ne '';
 			# print paragraph trailer
-			print STDOUT $pp . $li . $bl . '</p>' . "\n";
+			print STDOUT $pp . $li . $bl . '</p>';
 			# reset tag states
 			$pp = '<p>';
 			$bl = '';
 			$li = '';
 		# text continuation
 		} else {
-			# literal block embedded newline
+			# ignore literal block embedded newline
 			if ( $li ne '' ) {
-				$_ .= "\n";
 			# bullet list list item end
 			} elsif ( $bl ne '' ) {
-				$_ .= "</li>\n";
+				$_ .= "</li>";
 			# normal text append
 			} else {
 				$pp .= ' ';
