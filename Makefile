@@ -13,7 +13,7 @@ lint:
 
 changelog.txz:
 	@rm -f ${WORKDIR}/*
-	@echo '{"index":[' > ${WORKDIR}/index.json
+	@echo '[' > ${WORKDIR}/index.json
 . for DOC in ${DOCS}
 	@${.CURDIR}/webify.pl ${DOC} > ${WORKDIR}/${DOC}.htm 2>> \
 	    ${WORKDIR}/index.json
@@ -22,7 +22,7 @@ changelog.txz:
 	@echo ',' >> ${WORKDIR}/index.json
 .  endif
 . endfor
-	@echo ']}' >> ${WORKDIR}/index.json
+	@echo ']' >> ${WORKDIR}/index.json
 	@tar -C ${WORKDIR} -cJf changelog.txz .
 
 set: changelog.txz
