@@ -74,7 +74,7 @@ for ( @lines ) {
 	$_ =~ s/(http[s]?:\/\/\S*)/<a target="_blank" href="$1">$1<\/a>/g;
 
         # extra break for our signature line
-	$_ .= '<br>' if $_ =~ /^Stay safe/;
+	$_ = '<br>' . $_ . '<br>' if $_ =~ /^Stay safe.*,$/;
 
 	# fixup newline for preformatted block
         $_ .= "\n" if /^#/;
