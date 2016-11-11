@@ -73,6 +73,12 @@ for ( @lines ) {
 	# transform literal URLs into hyperlinks
 	$_ =~ s/(http[s]?:\/\/\S*)/<a target="_blank" href="$1">$1<\/a>/g;
 
+        # extra break for our signature line
+	$_ .= '<br>' if $_ =~ /^Stay safe/;
+
+	# fixup newline for preformatted block
+        $_ .= "\n" if /^#/;
+
 	# transform references into hyperlinks
 	foreach my $key ( keys %refs ) {
 		$_ =~ s/\[$key\]/[<a target="_blank" href="$refs{$key}">$key<\/a>]/g;
