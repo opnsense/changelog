@@ -55,7 +55,7 @@ for ( @lines ) {
 }
 
 # print json metadata to standard error
-say STDERR "{version: \"$ver\", date: \"$date\"}";
+say STDERR "{\"version\":\"$ver\",\"date\":\"$date\"}";
 
 # initialise tag states for:
 # paragraph
