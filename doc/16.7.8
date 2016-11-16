@@ -1,0 +1,90 @@
+@ November 16, 2016
+
+Ladies and gentlemen!
+
+Today we present to you the latest stable iteration of the 16.7
+series focusing on improved reliability and security in all areas
+and major feature upgrades.
+
+Big news this week are the inclusion of two new fully-featured
+plugins for Tinc VPN and FTP proxying, the latter being kindly
+sponsored by EURO-LOG AG[1].  Together with the community we are
+continuing the trend towards a comprehensive plugins environment
+based on top of our distinctive MVC GUI framework, with more plugins
+already in direct development.
+
+Speaking of such, the MVC framework received fine-grained versioning
+and constraint support as well as a completely revamped API error
+handling and plugin-compatible authentication handling.
+
+Last but not least, enclosed within are third-party software updates,
+most importantly the latest versions of LibreSSL, Bind, Sudo, OpenVPN,
+Suricata, PHP and Curl.
+
+A reboot is not strictly necessary, but recommended.
+
+There are the full patch notes:
+
+o system: trigger xmlrpc sync before service action
+o system: header redirection security through url_safe()
+o system: "work in progress" indicator for service controls
+o system: always restart apinger to fix configuration apply
+o system: use Etc/UTC when timezone was removed from tzdata
+o system: fix infinite console menu loop on tty close
+  (contributed by Stephane Lesimple)
+o system: SSH launcher rework
+o firmware: only do console update reboot when update went ok
+o firmware: improved usefulness of several GUI status messages
+o firmware: allow inline use of opnsense-update -t
+o firmware: allow to resolve ABI using opnsense-verify -a
+o interfaces: set txcsum6 and rxcsum6 like their IPv4 counterparts
+o firewall: traffic shaper address lists and inversion support
+o firewall: revamped bogons download and verification
+o firewall: properly set NAT reflection helper for IPv6
+o firewall: allow pluggable rules anchors
+o captive portal: increase the database timeout to 30 seconds
+o captive portal: allow custom values for voucher validity and quantity
+o captive portal: fix spurious error on successful login
+o dynamic dns: fix race in page, reminiscent of previous widget correction
+o dynamic dns: log r53 errors to system log file
+o intrusion detection: fix ET open ruleset content
+o openvpn: missing p2p shared key settings for local subnets
+o universal plug and play: prepare for move into plugins
+o mvc: implemented model constraints and migrations
+o mvc: improved error reporting of API failures (contributed by
+  Per von Zweigbergk)
+o mvc: add spinner for row toggle (contributed by Frank Brendel)
+o mvc: pluggable authentication framework
+o mvc: added update-only field type
+o plugins: first release of FTP Proxy (contributed by Frank Brendel)
+o plugins: first release of Tinc VPN
+o ports: pkg 1.9.3[2][3][4][5]
+o ports: bind 9.10.4P4[6]
+o ports: curl 7.51.0[7]
+o ports: libressl 2.4.4[8]
+o ports: lighttd 1.4.43[9]
+o ports: openvpn 2.3.13[10]
+o ports: pecl-radius 1.4.0b1[11]
+o ports: php 5.6.28[12]
+o ports: sudo 1.8.18p1[13]
+o ports: suricata 3.1.3[14]
+
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] http://www.eurolog.com/
+[2] https://github.com/freebsd/freebsd-ports/commit/4d1a48fbd7
+[3] https://github.com/freebsd/freebsd-ports/commit/b8c8b82a0
+[4] https://github.com/freebsd/freebsd-ports/commit/5a3fa5bbce
+[5] https://github.com/freebsd/freebsd-ports/commit/d2104b2c85
+[6] https://kb.isc.org/article/AA-01435/81/BIND-9.10.4-P4-Release-Notes.html
+[7] https://curl.haxx.se/changes.html
+[8] https://ftp.openbsd.org/pub/OpenBSD/LibreSSL/libressl-2.4.4-relnotes.txt
+[9] https://www.lighttpd.net/2016/10/31/1.4.43/
+[10] https://community.openvpn.net/openvpn/wiki/ChangesInOpenvpn23#OpenVPN2.3.13
+[11] https://pecl.php.net/package-changelog.php?package=radius&release=1.4.0b1
+[12] http://php.net/ChangeLog-5.php#5.6.28
+[13] https://www.sudo.ws/stable.html#1.8.18p1
+[14] https://suricata-ids.org/2016/11/01/suricata-3-1-3-released/
