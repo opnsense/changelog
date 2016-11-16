@@ -28,6 +28,6 @@ changelog.txz:
 set: changelog.txz
 
 clean:
-	@rm -f changelog.txz
+	@rm -f changelog.txz ${WORKDIR}/*
 
 .PHONY: all clean lint set
