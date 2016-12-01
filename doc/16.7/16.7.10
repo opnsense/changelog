@@ -1,0 +1,63 @@
+@ December 1, 2016
+
+Dear friends and followers,
+
+Another week, another update.  We are addressing two regressions caught
+by our users and update the ports to their latest versions including NTP,
+Squid, and strongSwan.  As always, thank you for your support!
+
+This update also enables console upgrades for the development version
+into the upcoming 17.1-BETA, which will be published right after we finish
+the WiFi configuration and the last known trouble with PHP 7.0 in the GUI
+pages.  Please make sure you understand the implications of upgrading to
+BETA.  Release notes will be published along with it as soon as it is out.
+
+Here are the full patch notes:
+
+o system: revamped message of the day on console login
+o system: validate passed arguments instead of $_POST or $_REQUEST
+o system: merged VPN servers into get_possible_listen_ips()
+o system: repair French translation for user manager
+  (contributed by Valentin Deville)
+o dashboard: do not arbitrarily split descriptions in services
+o firewall: added maximum fragments setting
+o dhcp: interface column for leases
+o ipsec: properly configure syslog output
+o dns forwarder: use plugin framework
+o dns forwarder: improve DHCP registration option
+o dns resolver: use plugin framework
+o dns resolver: improve DHCP registration option
+o universal plug and play: fix regression in rules anchor
+o radvd: mark interface used in case of interface tracking
+o radvd: do not inject local DNS server when there is no IP
+o radvd: match service running metric with how it works
+o captive portal: validate input of voucher validity and quantity
+o captive portal: add error message on failed validation
+  (contributed by Fabian Franz)
+o netflow: added service control
+o ntp: use plugin framework
+o intrusion detection: rotate eve-log every 500 MB
+o web proxy: add FTP support back
+o web proxy: performance improvements on ACL parse
+o web proxy: allow option to disable HTTPS verification
+o web proxy: enable remote ACL by default when creating it
+o plugins: allow Tinc to sync via XMLRPC
+o lang: updates for Czech, French and German
+o ports: pkg 1.9.3 upstream fetch patch[1]
+o ports: sqlite 3.15.1[2]
+o ports: strongswan 5.5.1[3]
+o ports: ntp 4.2.8p9[4]
+o ports: squid 3.5.22[5]
+o ports: flock 2.29
+o ports: syslogd 11.0
+
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] https://github.com/opnsense/ports/commit/3249295dd
+[2] https://sqlite.org/releaselog/3_15_1.html
+[3] https://wiki.strongswan.org/versions/63
+[4] https://www.eecis.udel.edu/~ntp/ntp_spool/ntp4/ChangeLog-stable
+[5] http://ftp.meisei-u.ac.jp/mirror/squid/squid-3.5.22-RELEASENOTES.html
