@@ -1,6 +1,6 @@
 #!/usr/bin/env perl
 
-# Copyright (c) 2015 Franco Fichtner <franco@opnsense.org>
+# Copyright (c) 2015-2016 Franco Fichtner <franco@opnsense.org>
 #
 # Redistribution and use in source and binary forms, with or without
 # modification, are permitted provided that the following conditions
@@ -29,11 +29,11 @@ use strict;
 use warnings;
 use autodie;
 
-my $ver = shift;
+my $path = shift;
 my @lines;
 my $doc;
 
-open $doc, "<", "doc/" . $ver;
+open $doc, "<", $path;
 
 while (<$doc>) { push @lines, $_; }
 
@@ -54,8 +54,11 @@ for ( @lines ) {
 	$_ =~ s/\s+$//g;
 }
 
+# extract version info from path
+my @vers = split '/', $path;
+
 # print json metadata to standard error
-say STDERR "{\"version\":\"$ver\",\"date\":\"$date\"}";
+say STDERR "{\"series\":\"$vers[-2]\",\"version\":\"$vers[-1]\",\"date\":\"$date\"}";
 
 # initialise tag states for:
 # paragraph
