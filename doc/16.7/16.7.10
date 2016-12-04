@@ -37,7 +37,7 @@ o captive portal: add error message on failed validation
 o netflow: added service control
 o ntp: use plugin framework
 o intrusion detection: rotate eve-log every 500 MB
-o web proxy: add FTP support back
+o web proxy: add FTP support back to remote ACL fetch
 o web proxy: performance improvements on ACL parse
 o web proxy: allow option to disable HTTPS verification
 o web proxy: enable remote ACL by default when creating it
