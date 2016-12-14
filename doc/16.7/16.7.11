@@ -1,0 +1,61 @@
+@ December 14, 2016
+
+Hi all,
+
+The builds for 17.1-BETA are rolling as we write this and we are mighty
+proud of having come so far!  Almost two years ago we started with a
+simple vision and have been staying true to our goal of providing stable
+licensing, swift updates and modern features.  But that story is not
+for today.  :)
+
+In the meantime, this 16.7.11 update receives newer versions of OpenVPN
+and Suricata, improved password hashing and two DNS forwarder fixes.
+Furthermore, the firmware feature received an extensive user experience
+boost, including, but not limited to, being able to read pending release
+notes.
+
+Here is the full list of changes:
+
+o system: improved password hashing[1] (contributed by OSNet)
+o system: make sure vital kernel modules are always loaded
+o system: added mute console support and improved tty reconfiguration
+o system: revived "normal" power state config option for powerd
+  (contributed by Tikimotel)
+o system: removed description support for ACL entries
+o system: brought back LDAP scope and authentication containers support
+o system: separate class for ui/api routing
+o firmware: pull update sets from ABI-specific directory
+o firmware: multiple tweaks in opnsense-update workflow
+o firmware: no longer track UUID in a crash report submission
+o firmware: pkg-audit to view current FreeBSD vulnerability report
+o firmware: changelog viewer with all older and newer releases
+o firmware: more intelligent plugin handling, e.g. detecting orphaned plugins
+o firmware: simplified update presentation and workflow
+o firmware: license viewer for installed packages
+o firewall: added alias selection to missing NAT elements
+o openvpn: add reneg-sec option to client exports
+o dnsmasq: fix 16.7.10 regression in host file handling
+o web proxy: make backend config plugin-friendly
+o plugins: fix a potential error in MPD5 plugins (contributed by Evgeny Bevz)
+o src: fix possible login(1) argument injection in telnetd(8)[2]
+o src: fix link_ntoa(3) buffer overflow in libc[3]
+o src: fix possible escape from bhyve(8) virtual machine[4]
+o src: fix extended descriptor regression with netmap(4) on em(4)
+o src: fix use-after-free bugs in pfsync(4)
+o src: tzdata updated to version 2016j
+o ports: openvpn 2.3.14[5]
+o ports: phalcon 3.0.2[6]
+o ports: suricata 3.2[7]
+
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] https://www.osnet.eu/en/content/tutoriels/passwords-opnsense
+[2] https://www.freebsd.org/security/advisories/FreeBSD-SA-16:36.telnetd.asc
+[3] https://www.freebsd.org/security/advisories/FreeBSD-SA-16:37.libc.asc
+[4] https://www.freebsd.org/security/advisories/FreeBSD-SA-16:38.bhyve.asc
+[5] https://community.openvpn.net/openvpn/wiki/ChangesInOpenvpn23
+[6] https://github.com/phalcon/cphalcon/releases/tag/v3.0.2
+[7] https://suricata-ids.org/2016/12/01/suricata-3-2-available/
