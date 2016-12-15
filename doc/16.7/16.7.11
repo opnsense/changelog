@@ -47,6 +47,10 @@ o ports: openvpn 2.3.14[5]
 o ports: phalcon 3.0.2[6]
 o ports: suricata 3.2[7]
 
+List of hotfixes contained:
+
+o system: properly load crypto and thermal modules
+
 
 Stay safe,
 Your OPNsense team
