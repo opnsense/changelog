@@ -1,0 +1,43 @@
+@ December 29, 2016
+
+Hi all,
+
+This is a minor reliability update.  We were investigating a possible
+OpenVPN regression and have therefore reverted an upstream patch.  The
+results are currently inconclusive and we will be holding off on the
+newly released version 2.4 for OPNsense 17.1 for further testing.  If
+something was off in your setup please let us know.
+
+Here are the full patch notes:
+
+o system: improve cancel button behaviour
+o system: change coupled /tmp+/var MFS to /var MFS
+o system: load AESNI in the default configuration
+o firmware: list all licenses of packages
+o firewall: improve cancel button behaviour
+o traffic shaper: do not error on apply when no configuration is set
+o interfaces: do not allow VLAN delete when in use
+o interfaces: improve cancel button behaviour
+o interfaces: only parse lease sections for ARP entries
+o interfaces: fix QinQ setup
+o services: improve cancel button behaviour
+o ipsec: add clone phase 2 option to ease duplication
+o openvpn: force rewrite of Viscosity client export files
+o dns resolver: remove unused EDNS support
+o dns forwarder: allow to run on non-standard port when resolver is running
+o lang: updates for Czech, German and Italian
+o plugins: os-haproxy 1.8 (contributed by Frank Wall)
+o plugins: compatibility fix for os-pptp, os-pppoe and os-l2tp
+o ports: openvpn[1] (reverted topology subnet fix)
+o ports: pkg (license viewer upstream fix)
+o ports: sudo 1.8.19p1[2]
+o ports: php 5.6.29[3]
+
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] https://github.com/opnsense/core/issues/1314
+[2] https://www.sudo.ws/stable.html#1.8.18p1
+[3] http://php.net/ChangeLog-5.php#5.6.29
