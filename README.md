@@ -6,10 +6,11 @@ text-friendly documents, but that can be rendered more gracefully
 in the GUI.
 
 The changelogs are distributed as a fully contained and signed
-set including amendments for previous version.  That way, the
+set including amendments for previous versions.  That way, the
 changelogs are resilient against phising attacks but can still
-be updated as needed.  Thus, corrections in the form of pull
-requests are appreciated.
+be updated as needed.
+
+Corrections in the form of pull requests are welcome.
 
 The feature was first released in OPNSense 16.7.11 in December 2016.
 
