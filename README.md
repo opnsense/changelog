@@ -12,7 +12,7 @@ be updated as needed.
 
 Corrections in the form of pull requests are welcome.
 
-The feature was first released in OPNSense 16.7.11 in December 2016.
+The feature was first released in OPNsense 16.7.11 in December 2016.
 
 The format is as follows:
 
