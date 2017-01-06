@@ -60,7 +60,7 @@ Your OPNsense team
 
 --
 [1] https://hg.python.org/cpython/raw-file/v2.7.12/Misc/NEWS
-[2] ftp://ftp.meisei-u.ac.jp/mirror/squid/squid-3.5-ChangeLog.txt
+[2] http://ftp.meisei-u.ac.jp/mirror/squid/squid-3.5-ChangeLog.txt
 [3] https://github.com/freebsd/freebsd-ports/commit/06593f2394
 [4] https://01.org/hyperscan
 

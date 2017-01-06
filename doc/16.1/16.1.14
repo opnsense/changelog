@@ -69,6 +69,6 @@ Your OPNsense team
 [7] https://www.freebsd.org/security/advisories/FreeBSD-SA-16:19.sendmsg.asc
 [8] http://www.sqlite.org/changes.html
 [9] https://community.openvpn.net/openvpn/wiki/ChangesInOpenvpn23#OpenVPN2.3.11
-[10] ftp://ftp.meisei-u.ac.jp/mirror/squid/squid-3.5-ChangeLog.txt
+[10] http://ftp.meisei-u.ac.jp/mirror/squid/squid-3.5-ChangeLog.txt
 [11] https://docs.opnsense.org/manual/how-tos/insight.html
 [12] https://docs.opnsense.org/manual/how-tos/netflow_exporter.html
