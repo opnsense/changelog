@@ -1,0 +1,51 @@
+@ January 6, 2017
+
+Hello everyone,
+
+This update ships with the latest version of Squid, an enhanced
+version of the HAProxy plugin and other assorted reliability
+improvements.
+
+As 17.1 inevitably approaches, we have set the release date to
+January 31.  If all goes well, the upcoming 16.7.14 will be the
+EOL release for the 16.7 series.
+
+Here are the full patch notes:
+
+o system: extended sudo option to allow an additional
+  no-password mode
+o firmware: the package manager will now always delete modified
+  package files
+o firmware: allow major upgrades into other flavours from the
+  command line
+o firmware: do not overwrite /etc/rc.shutdown on base updates
+o firewall: add a note that ports only apply to TCP and/or
+  UDP (contributed by Andrew Berry)
+o dns resolver: correctly handle empty DHCP lease sections
+o dhcp: use regular expressions to optimize static lease
+  reading (contributed by Senol Korkmaz)
+o web proxy: fix subnet computation
+o netflow: fix missing check for egress_only
+o plugins: HAProxy 1.10 with HA sync, custom TCP checks,
+  bugfixes (contributed by Frank Wall)
+o ports: curl 7.52.1[1]
+o ports: ca_root_nss 3.28
+o ports: squid 3.5.23[2]
+o ports: python 2.7.13[3]
+o ports: perl 5.24.1-RC5[4]
+o ports: lighttpd 1.4.44[5]
+o ports: phalcon 3.0.3[6]
+o ports: heimdal 7.1.0[7]
+
+
+Stay safe and a happy new year,
+Your OPNsense team
+
+--
+[1] https://curl.haxx.se/changes.html
+[2] ftp://ftp.meisei-u.ac.jp/mirror/squid/squid-3.5.23-RELEASENOTES.html
+[3] https://hg.python.org/cpython/raw-file/v2.7.13/Misc/NEWS
+[4] http://search.cpan.org/~shay/perl-5.24.1-RC5/
+[5] https://www.lighttpd.net/2016/12/24/1.4.44/
+[6] https://github.com/phalcon/cphalcon/releases/tag/v3.0.3
+[7] https://www.h5l.org/releases.html?show=7.1
