@@ -1,0 +1,117 @@
+@ January 20, 2017
+
+Hi everyone,
+
+The wish list for our kernel improvements has been emptied just a
+week ago, which makes 17.1-RC1 look like the final 17.1 for all
+intents and purposes and already includes the stable upgrade path.
+Several features have been moved from the core to the plugins and
+may need to be reinstalled, namely Load Balancer, Wake on LAN, SNMP,
+IGMP Proxy and Universal Plug and Play.  More details are listed below.
+
+A special thank you goes to Carlos Meireles and Thiago Basilio, who
+brought to you Portuguese as a language choice (Portugal and Brazil,
+respectively).  Awesome work!
+
+Direct download links from our capable mirror providers (checksums
+below this announcement) are as follows:
+
+https://opnsense.c0urier.net/releases/17.1.r1/ (Europe)
+http://mirrors.nycbug.org/pub/opnsense/releases/17.1.r1/ (US East Coast)
+http://mirror.sfo12.us.leaseweb.net/opnsense/releases/17.1.r1/ (US West Coast)
+
+https://opnsense.org/download/ (full mirror list)
+
+If you have been running 17.1-BETA and want to switch to the stable
+upgrade path simply upgrade to 17.1-RC1 and run the following from
+the shell:
+
+# # opnsense-update -t opnsense
+
+Here is the full list of changes since 17.1-BETA:
+
+o core: default to integrated authentication (PAM) for su, login et al
+o core: lock down UNIX accounts for active integrated authentication
+o core: console option 11 now reloads all instead of only the web GUI
+o core: removed unused translations from console features
+o core: load AESNI by default
+o core: remove restrictions to not run DNS resolver and forwarder in parallel
+o core: use the sc console driver instead of vt
+o core: consolidate anti-lockout behaviour
+o core: optionally limit ciphers for web GUI
+o core: move individual XMLRPC sync options to their respective services
+o core: use rc.shutdown hook for graceful ACPI shutdown
+o core: fix locale setting in MVC (contributed by Alexander Shursha)
+o core: add translations to the wizard (contributed by Alexander Shursha)
+o core: fix several crash reports
+o core: use the ddb.conf that FreeBSD already provides
+o core: configure ddb even if no dump device was found
+o core: move bogon rules to fix DHCPv6 WAN scenarios
+o web proxy: allow to disable caching by zeroing cache_mem
+o plugins: the os-intel-em driver has been removed
+o plugins: configuration additions for os-tinc
+o plugins: exported several base features to plugins (os-snmp,
+  os-igmp-proxy, os-wol, os-upnp, os-relayd)
+o lang: added Portuguese/Portugal (contributed by Carlos Meireles)
+o lang: added Portuguese/Brazil (contributed by Thiago Basilio)
+o src: wireless firmware now only available via kernel modules
+o src: the EM_MULTIQUEUE kernel option has been removed
+o src: HardenedBSD SEGVGUARD improvements
+o src: HardenedBSD force -fPIC when building PIEs
+o src: do not initialize the adapter on MTU change when ix status is down
+o src fix panic during lagg destruction with simultaneous status check
+o src: restore link state probing for e1000 82574 chipsets
+o src: IP cooperative forwarding rework, fixes IPv4 in pf
+o src: avoid deadlocks during lagg configuration
+o src: multiple fixes for netmap to repair emulation panics
+
+Known issues in this version:
+
+o The inherited 6rd kernel patches are not included in standard
+  FreeBSD 11.0.  The impact on 6rd setups is currently unknown.
+o Fundamental WiFi stack changes in FreeBDS 11.0 could still
+  affect operability.
+o Insight and Health statistics import from the early installer may not work.
+o Due to a Python 2.7.13 incompatibility the NetFlow connector
+  may not work.  A workaround is to revert to the Python 2.7.12
+  release.  See the forum for details[1].
+o The LibreSSL version will not be available until the final release.
+o The console settings received a non-backwards compatible change.
+  If the VGA console is not working, simply reconfigure it from
+  System: Settings: Administration as it was likely set to Serial
+  due to a wrong GUI default.
+
+Any help in making 17.1 the best it could possibly be for its final
+release January 31 is highly appreciated.  Please do not hesitate to
+contact us through any of the known channels:
+
+o Twitter: https://twitter.com/opnsense
+o Forum: https://forum.opnsense.org/
+o GitHub: https://github.com/opnsense
+o IRC: Freenode #OPNsense
+
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] https://forum.opnsense.org/index.php?topic=4235.0
+
+# SHA256 (OPNsense-17.1.r1-OpenSSL-cdrom-amd64.iso.bz2) = 96bc814644c89128baa8afc7a4f057bd02b364ada4c33ac1d98129a0a2f2dd50
+# SHA256 (OPNsense-17.1.r1-OpenSSL-nano-amd64.img.bz2) = c777f3adea1621253a846bbd78c82993801e40085d1c9cab03a71d01e5c6d0a8
+# SHA256 (OPNsense-17.1.r1-OpenSSL-serial-amd64.img.bz2) = 0e87555296c58a51e905e4fac97ea6fac397d748b1369bab9f4c108d6adf9993
+# SHA256 (OPNsense-17.1.r1-OpenSSL-vga-amd64.img.bz2) = 08af040390230bffc2ac6e4eceb884c390e0058a0b8027f003eeaf601b38b909
+# SHA256 (OPNsense-17.1.r1-OpenSSL-cdrom-i386.iso.bz2) = 3ef78129e57414cd765cfbe903b747e6efa1222f799cc1d2e8331a68279a7c87
+# SHA256 (OPNsense-17.1.r1-OpenSSL-nano-i386.img.bz2) = 6a8040bf3b8a9c2bc9bb49b214c6a7612dca5235fa0314b474524e2ccdf38caf
+# SHA256 (OPNsense-17.1.r1-OpenSSL-serial-i386.img.bz2) = 442b774948ae14428a8c76489139644e49c935db61e32055508974fe76686fc0
+# SHA256 (OPNsense-17.1.r1-OpenSSL-vga-i386.img.bz2) = 27149d372ded7d069aec3e5aeab7708e53bf3ca8166193480863ace768a333d5
+
+# MD5 (OPNsense-17.1.r1-OpenSSL-cdrom-amd64.iso.bz2) = 680161da68fee3c03904970e7aa89c94
+# MD5 (OPNsense-17.1.r1-OpenSSL-nano-amd64.img.bz2) = 989bc7056ebaf08ff3ba06a5b56b2488
+# MD5 (OPNsense-17.1.r1-OpenSSL-serial-amd64.img.bz2) = 00d92a840c6180fb87d59b2f6728f10f
+# MD5 (OPNsense-17.1.r1-OpenSSL-vga-amd64.img.bz2) = 1574e871a3d64147e1a904074a4ff4b2
+# MD5 (OPNsense-17.1.r1-OpenSSL-cdrom-i386.iso.bz2) = 0e409d30009af857b23e67e97451cc81
+# MD5 (OPNsense-17.1.r1-OpenSSL-nano-i386.img.bz2) = 051a1072559982fce88fb39ef78aca77
+# MD5 (OPNsense-17.1.r1-OpenSSL-serial-i386.img.bz2) = c32106dc7070ae462200e15fa707e19c
+# MD5 (OPNsense-17.1.r1-OpenSSL-vga-i386.img.bz2) = 5ec394d7c2b331390d92baec41e3aece
+
