@@ -70,7 +70,6 @@ Stay safe and merry,
 Ad, Franco, Jos and Shawn
 
 --
-
 # SHA256 (OPNsense-17.1.b-OpenSSL-cdrom-amd64.iso.bz2) = 6ed4e335757f5f58e34f3f59984a06183612ed0cffd5a9238f85b1a156a56039
 # SHA256 (OPNsense-17.1.b-OpenSSL-nano-amd64.img.bz2) = 70b89467d6dc9cadaa7c855764a8bb91f0fe118bba60074ab1d8f41362a7042a
 # SHA256 (OPNsense-17.1.b-OpenSSL-serial-amd64.img.bz2) = affae7605fde77827e975597de5280db746f85c1ed38794ce647a6ad7c2f945d
