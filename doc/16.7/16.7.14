@@ -1,0 +1,41 @@
+@ January 25, 2017
+
+Hi all,
+
+We are back for one last update of the 16.7 series with a small number
+of fixes and security-related package updates.  Do not forget that 17.1
+is scheduled for next week: the update instructions will be delivered via
+the usual firmware update path.
+
+Until then, here are the full patch notes:
+
+o traffic shaper: order rules numerically by sequence number
+o firmware: added opnsense-revert tool for release-based package revert
+o captive portal: fix downloading files in Chrome
+o insight: fix downloading files in Chrome
+o mvc: consistently set locale (contributed by Alexander Shursha)
+o mvc: do not deliver content twice on API calls
+o python: downgraded to 2.7.12 in order to fix segmentation faults
+  within insight reporting
+o libressl: avoid possible side-channel leak of ECDSA private keys
+  when signing[1]
+o ports: bind 9.10.4-P5[2]
+o ports: perl5 5.24.1[3]
+o ports: sqlite3 3.16.2[4]
+o ports: openssh-portable 7.4p1[5]
+o ports: sudo 1.8.19p2[6]
+o ports: lighttpd 1.4.45[7]
+o ports: php56 5.6.30[8]
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] https://ftp.openbsd.org/pub/OpenBSD/patches/6.0/common/016_libcrypto.patch.sig
+[2] https://deepthought.isc.org/article/AA-01447/0/BIND-9.10.4-P5-Release-Notes.html
+[3] http://search.cpan.org/dist/perl-5.24.1/pod/perldelta.pod
+[4] https://sqlite.org/releaselog/3_16_2.html
+[5] https://www.openssh.com/txt/release-7.4
+[6] https://www.sudo.ws/stable.html#1.8.19p2
+[7] https://www.lighttpd.net/2017/1/14/1.4.45/
+[8] http://php.net/ChangeLog-5.php#5.6.30
