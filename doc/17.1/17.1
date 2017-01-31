@@ -1,0 +1,140 @@
+@ January 31, 2017
+
+Hi everyone,
+
+The OPNsense team is proud to announce the final availability of version
+17.1, nicknamed "Eclectic Eagle".  This major release features FreeBSD 11.0,
+the SSH remote installer, new languages Italian / Czech / Portuguese,
+state-of-the-art HardenedBSD security features, PHP 7.0, new plugins for
+FTP Proxy / Tinc VPN / Let's Encrypt, native PAM authentication against e.g.
+2FA (TOTP), as well a rewritten Nano-style card images that adapt to media
+size to name only a few.
+
+We would like to encourage everyone to supervise this major upgrade
+physically.  As such, it cannot be performed from the GUI.  Instead, go
+to the root console menu, choose option 12 and type "17.1" at the prompt.
+The process will download a full set of updates and reboot multiple.
+All operating system files and packages will be reinstalled as a consequence.
+This process can also be remotely triggered via SSH.
+
+For fresh installations images are provided with OpenSSL for 32 and 64 bit
+Intel architectures.  The new SSH installer feature will be listening on the
+LAN port 192.168.1.1, give out DHCP leases to clients and can connect using
+the user "root" (console menu) or "installer" (the installer, of course) with
+the default password "opnsense".  The respective checksums for the images can
+be found below this announcement and the direct download links from our
+capable mirror providers are as follows:
+
+https://opnsense.c0urier.net/releases/17.1/ (Europe)
+http://mirrors.nycbug.org/pub/opnsense/releases/17.1/ (US East Coast)
+http://mirror.sfo12.us.leaseweb.net/opnsense/releases/17.1/ (US West Coast)
+
+https://opnsense.org/download/ (full mirror list)
+
+Here is the list of major features that have been worked on since 16.7 was
+released 6 months ago:
+
+o cooperative firewall forwarding to allow traffic shaper/captive portal
+  with multi-WAN
+o install media now boots up with SSH for headless remote installation
+o HardenedBSD ASLR and PIE compilation for most binaries
+o HardenedBSD SEGVGUARD to prevent ASLR brute force attacks
+o PHP 7.0 compatibility and general GUI speed improvements
+o replaced the CSRF implementation in the non-MVC pages
+o integrated authentication using PAM to allow e.g. 2FA (TOTP) over SSH
+o system secondary console support with new EFI and Mute options
+o Portuguese/Portugal as a release language (contributed by Carlos Meireles)
+o Portuguese/Brazil as a release language (contributed by Thiago Basilio)
+o Italian as a release language (contributed by Antonio Prado)
+o Czech as a release language (contributed by Pavel Borecki)
+o improved password security (contributed by OSnet)
+o FTP proxy plugin (contributed by Frank Brendel)
+o Let's Encrypt Plugin (contributed by Frank Wall)
+o Tinc VPN Plugin
+o IPsec tunnel isolation mode for interoperability
+o micro versioning/migrations for config items
+o constraint support for config items
+o rewritten Nano images with growfs(8) support
+o authentication methods are now fully pluggable
+o firewall rules are now fully pluggable
+o FreeBSD 11.0 including additional reliability fixes
+
+Minor changes made since 16.7.14/17.1.r1:
+
+o system: always restore native /var layout on boot
+o system: make vt/sc configurable
+o web proxy: improve validation for SSL bump URL input
+  (contributed by Fabian Franz)
+o web proxy: add plugin-capable pre/post authentication directories
+  (contributed by Evgeny Bevz)
+o mvc: use empty string instead of "##Unlinked" in missing elements
+  (contributed by Frank Wall)
+o www: replace CSRF implementation of static PHP pages
+o src: convert result of hash_packet6() into host byte order
+o src: correctly initialise subrulenr in pflog
+o ports: openssl 1.0.2k[1]
+o ports: php 7.0.15[2]
+
+Additionally, these migration caveats should be heeded before upgrading:
+
+o The integrated authentication framework is now used as a system-wide
+  default including login(1), su(1) and sudo(8).  This means that e.g. 2FA
+  will be used for low-level password prompts as well and plain passwords
+  are disabled by default.  If this behaviour is undesired, set the "Disable
+  integrated authentication" option under System: Settings: Administration.
+o The console settings received a non-backwards compatible change.  If the
+  VGA console is not working, simply reconfigure it from System: Settings:
+  Administration as it was likely set to "Serial" due to a wrong GUI default.
+o FreeBSD 11.0 switched to the vt(4) console driver, but we are keeping sc(4)
+  as the default.  You can change this after installation by enabling the
+  virtual terminal driver under System: Settings: Administration.
+o The access privileges for "Lobby: Login / Logout / Dashboard" and
+  "Diagnostics: Backup / Restore" have been remapped internally and
+  need to be reapplied when they have been assigned explicitly.
+o The inherited 6rd kernel patches are not included in standard FreeBSD 11.0.
+  The state of 6rd is possibly broken.  We ask for volunteers to pick up the
+  work if 6rd is still a requirement, as we do not have access to such setups.
+o Fundamental WiFi stack changes in FreeBSD 11.0 could still affect overall
+  operability.  Please let us know about these right away.
+o The following services moved to individual plugins and need to be reinstalled
+  in order to be used: SNMP, Load Balancer, Wake on LAN, Universal Plug and
+  Play, IGMP Proxy.  Their respective configurations will be preserved by the
+  system even if these plugins are not installed.
+o The Intel e1000 driver plugin has been removed due to an incompatibility
+  with FreeBSD 11.0.  All previously known bugs of the FreeBSD 11.0 e1000
+  driver have been fixed in OPNsense 17.1 and reported to FreeBSD.
+
+We would love to hear your feedback!  As we want OPNsense the best it can
+be for you, please do not hesitate to contact us through any of the known
+channels:
+
+o Twitter: https://twitter.com/opnsense
+o Forum: https://forum.opnsense.org/
+o GitHub: https://github.com/opnsense
+o IRC: Freenode #OPNsense
+
+
+Stay safe,
+Ad, Franco, Jos and Shawn
+
+--
+[1] https://www.openssl.org/news/secadv/20170126.txt
+[2] http://php.net/ChangeLog-7.php#7.0.15
+
+# SHA256 (OPNsense-17.1-OpenSSL-cdrom-amd64.iso.bz2) = 6cbd83204366c366b603a36f5586424dd779d84c2b34f2e2ba3d66137d28fe97
+# SHA256 (OPNsense-17.1-OpenSSL-nano-amd64.img.bz2) = fc91680ad6933f4151afbd869b136d2d84348112dfd8f4837a1e8e0880aec1ec
+# SHA256 (OPNsense-17.1-OpenSSL-serial-amd64.img.bz2) = 4ba88dc98733e38ffc7681f862ad7197b866a4b7fffb858d64403d32b42fee3f
+# SHA256 (OPNsense-17.1-OpenSSL-vga-amd64.img.bz2) = de46b29fe8aa79bd9bab6d68c24b80759efd6ef59c235b296eb59adbe408d055
+# SHA256 (OPNsense-17.1-OpenSSL-cdrom-i386.iso.bz2) = 29ee7759e7834d9fc162623af0172899a3cd79e25c5205ee935c5131a51e8777
+# SHA256 (OPNsense-17.1-OpenSSL-nano-i386.img.bz2) = a89c3b15e3689693f8ed0610d4bc8a03ef779c7576b0a6bf5ae16b8080ac8c4c
+# SHA256 (OPNsense-17.1-OpenSSL-serial-i386.img.bz2) = 3314d0cdafa17900beda91a9a03a2325f164948f1e17421387532f4efdb9e9c4
+# SHA256 (OPNsense-17.1-OpenSSL-vga-i386.img.bz2) = 6a63746d021095fc72ca20303b46c4994dea85cafd9bdfca948fa17afb28f80e
+
+# MD5 (OPNsense-17.1-OpenSSL-cdrom-amd64.iso.bz2) = b39a8440377b6a2aae5832e3caea23d7
+# MD5 (OPNsense-17.1-OpenSSL-nano-amd64.img.bz2) = 583c7d4a4c4263d51e0fa153f8c021e4
+# MD5 (OPNsense-17.1-OpenSSL-serial-amd64.img.bz2) = d4da49aa8f4d24ab0dc8ed7f025b7b46
+# MD5 (OPNsense-17.1-OpenSSL-vga-amd64.img.bz2) = 5ea6b7771a35fbdd97abc99ca4da1b4c
+# MD5 (OPNsense-17.1-OpenSSL-cdrom-i386.iso.bz2) = c8b63d4018ab072f9a2370e1040381d8
+# MD5 (OPNsense-17.1-OpenSSL-nano-i386.img.bz2) = 3989eb61efcc7057166e64662d26714a
+# MD5 (OPNsense-17.1-OpenSSL-serial-i386.img.bz2) = 4ca5a146a050e46deffdac001e7b3f0d
+# MD5 (OPNsense-17.1-OpenSSL-vga-i386.img.bz2) = 888f3b23a381d93600596f86c0f94cd4
