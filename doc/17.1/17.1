@@ -78,10 +78,11 @@ o ports: php 7.0.15[2]
 Additionally, these migration caveats should be heeded before upgrading:
 
 o The integrated authentication framework is now used as a system-wide
-  default including login(1), su(1) and sudo(8).  This means that e.g. 2FA
-  will be used for low-level password prompts as well and plain passwords
-  are disabled by default.  If this behaviour is undesired, set the "Disable
-  integrated authentication" option under System: Settings: Administration.
+  default including login(1), su(1) and sudo(8).  This means that e.g. when
+  2FA is enabled for the GUI it will be used for low-level password prompts
+  as well and plain passwords are disabled by default.  If this behaviour is
+  undesired, set the "Disable integrated authentication" option under System:
+  Settings: Administration.
 o The console settings received a non-backwards compatible change.  If the
   VGA console is not working, simply reconfigure it from System: Settings:
   Administration as it was likely set to "Serial" due to a wrong GUI default.
