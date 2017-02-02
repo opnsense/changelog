@@ -83,12 +83,16 @@ o The integrated authentication framework is now used as a system-wide
   as well and plain passwords are disabled by default.  If this behaviour is
   undesired, set the "Disable integrated authentication" option under System:
   Settings: Administration.
+o Disabled Gateway entries are now always honoured instead of being set up
+  as a default gateway.
 o The console settings received a non-backwards compatible change.  If the
   VGA console is not working, simply reconfigure it from System: Settings:
   Administration as it was likely set to "Serial" due to a wrong GUI default.
 o FreeBSD 11.0 switched to the vt(4) console driver, but we are keeping sc(4)
   as the default.  You can change this after installation by enabling the
   virtual terminal driver under System: Settings: Administration.
+o EFI boots may not yield a console anymore, the setting for VGA is wrong
+  now and should be switched to "EFI" under System: Settings: Administration.
 o The access privileges for "Lobby: Login / Logout / Dashboard" and
   "Diagnostics: Backup / Restore" have been remapped internally and
   need to be reapplied when they have been assigned explicitly.
