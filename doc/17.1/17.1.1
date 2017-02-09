@@ -1,0 +1,69 @@
+@ February 09, 2017
+
+Hey there,
+
+This week we are introducing a number of reliability fixes especially with
+regard to our move to FreeBSD 11.0 and PHP 7.0; most prominently a NAT fix
+for the shared filter forwarding and repairing the CRL generation.  You will
+also find a few interesting IPsec additions.  ;)
+
+In case the shared forwarding is still giving you trouble on 17.1.1, run
+the following command to use the old behaviour and report back to us:
+
+# sysctl net.pf.shared_forward=0
+
+Here are the full patch notes:
+
+o system: LDAP picker CSRF error solved by introducing session-based
+  security tokens
+o system: fixed CRL generation inside PHP OpenSSL module
+o system: fix a typo with Portuguese (Portugal) in language selector
+o system: do not interpret passed values in wizard
+o system: fix forum link in message of the day
+o firewall: direction "any" was not respected in floating rules
+o firewall: fix double encoding of NO NAT for NAT addresses (contributed
+  by djGrrr)
+o firewall: improve validation between IPv4 and IPv6 to prevent faulty
+  rule generation
+o firmware: opnsense-update utility now unlocks packages before performing
+  major upgrades
+o firmware: opnsense-revoke utility now retains the automatic flag
+o firmware: revoked the 16.7 update fingerprints
+o dhcp: change relay text to make it clear multiple servers are
+  supported (contributed by GurliGebis)
+o ipsec: add EAP-RADIUS support (contributed by GurliGebis)
+o ipsec: set filtertunnel sysctl values to fix TCP teardown
+o ipsec: fix hidden interface rules tab
+o ipsec: add AES-GCM support
+o openvpn: fixed CRL generation inside PHP OpenSSL module
+o openvpn: do not escape advanced options on export
+o openvpn: fix hidden interface rules tab
+o mvc: multiple tab usage CSRF errors solved by introducing session-based
+  security tokens
+o mvc: fix HTTP status codes on CSRF errors
+o mvc: soft-fail on missing classes in ModelRelationField (contributed
+  by Frank Wall)
+o plugins: os-acme-client 1.1[1] (contributed by Frank Wall)
+o plugins: os-haproxy 1.12[2] (contributed by Frank Wall)
+o src: pf(4) shared forwarding fix during NAT
+o src: pf(4) sysctl switch to disable shared forwarding
+o src: fix a panic with stf(4) interfaces
+o src: unhide hard disks under Hyper-V
+o ports: pkg 1.9.4[3][4]
+o ports: pcre 8.40[5]
+o ports: libressl 2.4.5[6]
+o ports. libevent 2.1.8[7]
+o ports: squid 3.5.24[8]
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] https://github.com/opnsense/plugins/pull/71
+[2] https://github.com/opnsense/plugins/pull/72
+[3] https://github.com/freebsd/freebsd-ports/commit/9602cca88
+[4] https://github.com/freebsd/freebsd-ports/commit/55c9964f3
+[5] http://www.pcre.org/original/changelog.txt
+[6] https://ftp.openbsd.org/pub/OpenBSD/LibreSSL/libressl-2.4.5-relnotes.txt
+[7] https://raw.githubusercontent.com/libevent/libevent/release-2.1.8-stable/ChangeLog
+[8] http://ftp.meisei-u.ac.jp/mirror/squid/squid-3.5.24-RELEASENOTES.html
