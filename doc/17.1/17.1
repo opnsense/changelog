@@ -49,7 +49,7 @@ o Italian as a release language (contributed by Antonio Prado)
 o Czech as a release language (contributed by Pavel Borecki)
 o improved password security (contributed by OSnet)
 o FTP proxy plugin (contributed by Frank Brendel)
-o Let's Encrypt Plugin (contributed by Frank Wall)
+o Let's Encrypt Plugin[1] (contributed by Frank Wall)
 o Tinc VPN Plugin
 o IPsec tunnel isolation mode for interoperability
 o micro versioning/migrations for config items
@@ -72,8 +72,8 @@ o mvc: use empty string instead of "##Unlinked" in missing elements
 o www: replace CSRF implementation of static PHP pages
 o src: convert result of hash_packet6() into host byte order
 o src: correctly initialise subrulenr in pflog
-o ports: openssl 1.0.2k[1]
-o ports: php 7.0.15[2]
+o ports: openssl 1.0.2k[2]
+o ports: php 7.0.15[3]
 
 Additionally, these migration caveats should be heeded before upgrading:
 
@@ -123,8 +123,9 @@ Stay safe,
 Ad, Franco, Jos and Shawn
 
 --
-[1] https://www.openssl.org/news/secadv/20170126.txt
-[2] http://php.net/ChangeLog-7.php#7.0.15
+[1] https://github.com/opnsense/plugins/pull/66
+[2] https://www.openssl.org/news/secadv/20170126.txt
+[3] http://php.net/ChangeLog-7.php#7.0.15
 
 # SHA256 (OPNsense-17.1-OpenSSL-cdrom-amd64.iso.bz2) = 6cbd83204366c366b603a36f5586424dd779d84c2b34f2e2ba3d66137d28fe97
 # SHA256 (OPNsense-17.1-OpenSSL-nano-amd64.img.bz2) = fc91680ad6933f4151afbd869b136d2d84348112dfd8f4837a1e8e0880aec1ec
