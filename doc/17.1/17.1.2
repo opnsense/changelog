@@ -1,0 +1,77 @@
+@ February 22, 2017
+
+Hello everyone,
+
+This update addresses a longstanding issue with the overall reliability
+of Realtek NICs by replacing the FreeBSD driver with its latest vendor
+driver equivalent.  The results including inline intrusion prevention
+have been promising to say the least.  We thank Realtek for its recent
+release of version 1.93 and our users for pursuing the unthinkable with
+us.  :)
+
+Speaking of intrusion prevention, Suricata and Hyperscan have been
+updated to their latest versions which will now prevent crashes with
+older 64 bit CPUs that do not have the SSSE3 instruction set.
+
+Language updates have been plenty, with a new and very busy contributor
+for Chinese.  Xie xie!
+
+Furthermore, the shared forwarding between both packet filters introduced
+in OPNsense 17.1 has now been disabled by default and can be manually
+reenabled from the GUI on Firewall: Settings: Advanced.
+
+Here are the full patch notes:
+
+o system: allow to issue reboots via cron
+o system: allow to change password for imported users
+o firmware: run autoremove on minor operations
+o firmware: plugin detection via configd
+o wizard: rework modelling and UX
+o interfaces: fix wlan probe to not yield an empty interface
+o interfaces: fix bug in subnet matching on tun interfaces
+  on FreeBSD 11.0 (contributed by djGrrr)
+o interfaces: add VLAN Priority (PCP) setting to VLAN config
+  (contributed by djGrrr)
+o firewall: shared forwarding is off by default, added advanced
+  config option
+o captive portal: redirect using HTTP code 302
+o captive portal: add group enforcement
+o captive portal: fix transparent web proxy mode on FreeBSD 11.0
+o dhcp: do not link to WOL page if plugin is not installed
+  (contributed by Frank Wall)
+o ipsec: add mobike switch, change leftsendcert to always, etc.
+o unbound: provide link local interface selection
+o lang: Chinese to 65% completed (contributed by Tianmo)
+o lang: Czech to 86% completed (contributed by Pavel Borecki)
+o lang: Portuguese (Brazil) to 100% completed (contributed
+  by Thiago Basilio)
+o lang: Portuguese (Portugal) to 69% completed (contributed by
+  Carlos Meireles)
+o lang: minor updates to French and German
+o src: net.pf.share_forward now off by default
+o src: HardenedBSD procfs hardening
+o src: HardenedBSD disable unprivileged process debugging
+o src: replace Realtek re(4) driver with vendor version 1.93
+o src: add AE3000 and AE6000 to supported run(4) devices
+o src: revert a crash candidate micro-optimisation in rwlock
+o plugins: introduce development plugin variants
+o plugins: os-tinc 1.2 with network mode selection
+o ports: switch to MIT Kerberos version 5 release 1.14.4
+o ports: open-vm-tools integrated authentication fix
+o ports: bind 9.11.0-P3[1]
+o ports: unbound 1.6.0[2]
+o ports: tinc 1.0.31[3]
+o ports: suricata 3.2.1[4]
+o ports: hyperscan 4.4.0[5]
+o ports: ca_root_nss 3.29
+
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] https://ftp.isc.org/isc/bind9/9.11.0-P3/RELEASE-NOTES-bind-9.11.0-P3.html
+[2] http://www.unbound.net/download.html
+[3] https://www.tinc-vpn.org/news/
+[4] https://suricata-ids.org/2017/02/15/suricata-3-2-1-available/
+[5] https://github.com/01org/hyperscan/releases/tag/v4.4.0
