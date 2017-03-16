@@ -1,0 +1,99 @@
+@ March 16, 2017
+
+Greetings,
+
+A dozen bug fixes meet several dozen new features and enhancements,
+literally!  This update is about making OPNsense more flexible with
+the tools that everybody knows: firewall management, DNS services and
+Let's Encrypt.
+
+This is also the stepping stone for providing new images based on 17.1
+because the Hyper-V disk disappearance was now fixed upstream: a big
+thank you to Microsoft and FreeBSD for providing updates!  The vt(4)
+console driver migration is still underway, as well as applying
+SafeStack for the amd64 architecture and chasing down an IPsec
+regression with FreeBSD 11.0.  More on this next time, stay tuned.
+
+Here is the full list of changes:
+
+o system: allow up to 32 characters in user and group names
+o system: mute cron job output to prevent spurious system mails
+o system: fix scrambled password option on user add
+o system: add captive portal session backup
+o system: fix CRL certificate count display
+o firmware: add mirror via Universidad Pontificia Bolivariana
+  (Medellin, CO)[1]
+o firmware: add mirror via DMC Networks (Lincoln NE, US)[2]
+o firewall: add modulate state as an option for state
+  tracking (contributed by Ian Matyssik)
+o firewall: add ruleset optimization option for better
+  performance (contributed by Ian Matyssik)
+o firewall: improved the log widget (contributed by Fabian Franz)
+o firewall: port forwarding enhancements for tag, pool options
+  and target subnet
+o firewall: allow virtual interfaces as interface group members and
+  move to firewall section
+o firewall: allow port alias nesting
+o captive portal: improved ARP parsing
+o dyndns: support Google Domains (contributed by Alasley)
+o intrusion detection: improve ruleset selection indicators
+o openvpn: do not double-encode client auth credentials
+o openvpn: validate IPv4 CIDR more strictly to prevent startup error
+o openvpn: do not offer external CA for selection
+o rfc 2136: allow selection of record type (contributed by Elias Werberich)
+o unbound: option to not register IPv6 link-local addresses (contributed
+  by Ian Matyssik)
+o unbound: do not explicitly register loopback when selected as
+  listening interface
+o unbound: add serve-expired option
+o web proxy: update for non-transparent SSL bumping (contributed
+  by Mikhail Morev)
+o web proxy: add notice to inform the user about the need to
+  download new list
+o lang: Chinese updated to 100% completed (contributed by Tianmo)
+o lang: Portuguese (Portugal) updated to 100% completed (contributed
+  by Carlos Meireles)
+o lang: updates for German, French and Dutch
+o mvc: add boolean type to tables (contributed by Frank Brendel)
+o mvc: handle backend execution error more gracefully
+o mvc: added test for existing API method
+o mvc: send booleans as strings, not integers in API forms
+o mvc: allow dynamic hiding of sections in forms via model
+o plugins: register group interface type for PPTP, L2TP and PPPoE
+o plugins: add lifetime expiry for Universal Plug and Play rules
+o plugins: Let's Encrypt version 1.2 (contributed by Frank Wall)[3]
+o installer: do not configure console when /dev/ttyv0 is unavailable
+o installer: console settings now support vt(4) instead of syscons(4)
+o src: fix system hang when booting when PCI-express HotPlug is enabled[4]
+o src: fix NIS master updates are not pushed to NIS slave[5]
+o src: fix compatibility with Hyper-V/storage after KB3172614 or KB3179574[6]
+o src: make makewhatis output reproducible[7]
+o src: fix multiple vulnerabilities of OpenSSL[8]
+o src: properly build i386 with netmap(4) device to fix IPS mode
+o src: tzdata updated to version 2017a[9]
+o ports: php 7.0.16[10]
+o ports: phalcon 3.0.4[11]
+o ports: ca_root_nss 3.29.3
+o ports: sqlite 3.17.0[12]
+o ports: curl 7.53.1[13]
+o ports: unbound 1.6.1[14]
+
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] https://www.upb.edu.co/
+[2] http://dmcnet.net/
+[3] https://github.com/opnsense/plugins/pull/76
+[4] https://www.freebsd.org/security/advisories/FreeBSD-EN-17:01.pcie.asc
+[5] https://www.freebsd.org/security/advisories/FreeBSD-EN-17:02.yp.asc
+[6] https://www.freebsd.org/security/advisories/FreeBSD-EN-17:03.hyperv.asc
+[7] https://www.freebsd.org/security/advisories/FreeBSD-EN-17:04.mandoc.asc
+[8] https://www.freebsd.org/security/advisories/FreeBSD-SA-17:02.openssl.asc
+[9] http://mm.icann.org/pipermail/tz-announce/2017-February/000045.html
+[10] http://php.net/ChangeLog-7.php#7.0.16
+[11] https://github.com/phalcon/cphalcon/releases/tag/v3.0.4
+[12] https://www.sqlite.org/changes.html
+[13] https://curl.haxx.se/changes.html
+[14] http://www.unbound.net/download.html
