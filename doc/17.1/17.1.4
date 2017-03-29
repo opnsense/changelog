@@ -1,0 +1,70 @@
+@ March 29, 2017
+
+Dear friends and followers,
+
+The update finally addresses one of the larger issues with IPsec in
+17.1 where traffic was not properly tracked by the packet filter and
+therefore causing spurious connection drops in TCP sessions.  Another
+cool addition is the merge of the HardenedBSD SafeStack work to
+further harden our operating system application binaries.
+
+Last but not least, the switch to the new virtual terminal driver
+is now fully functional and we intend to release new images based
+on 17.1.4 on Monday next week.  Note this does not affect running
+installations.
+
+Upgrading from a physical console may abort the firmware update due
+to an incompatible switch in the TTY settings.  Simply log in again
+and restart the update to continue.  Note this does not affect
+upgrades via GUI or SSH.  Should problems arise, force a reinstall
+of the core package from the shell with the following command:
+
+# opnsense-revert opnsense
+
+Here are the full patch notes:
+
+o system: early installer switched for simpler config importer
+o system: no longer set shell privileges on password reset
+o system: avoid misinterpreting obsoleted options use_mfs_tmp_size
+  and use_mfs_var_size
+o system: do not prompt for password on user edit
+o system: modernise console/tty settings
+o interfaces: always wait for dhclient exit
+o firewall: handle scheduled restarts via new plugin_cron() facility
+o traffic shaper: exclude IP address when using 3G/4G modems
+o dnsmasq: configure exclusively via plugin calls
+o ipsec: remove filtertunnel workaround in light of bundled kernel fix
+o ipsec: fix missing CA selection for mutual RSA
+o ipsec: require authentication header as first file
+o ipsec: include path consolidation
+o openvpn: allow tunnel network overrides to contain host addresses
+o openvpn: take client IP for topology subnet in CSC
+o openvpn: include patch consolidation
+o unbound: configure exclusively via plugin calls
+o web proxy: harden SSL ciphers (contributed by Fabian Franz)
+o mvc: fix multiple scoping issues in base volt templates
+o lang: updates for Chinese, Czech, French, German, Portuguese
+o plugins: Let's Encrypt 1.4[1][2] (contributed by Felix Kling
+  and Frank Wall)
+o plugins: HAproxy 1.13[3] (contributed by Frank Wall)
+o src: tzdata version 2017b[4]
+o src: HardenedBSD SafeStack for base applications[5]
+o src: fix IPsec skip parameter handling in IPv4
+o src: discard 3072 bytes in arc4_stir() (contributed by Codarren Velvindron)
+o ports: ca_root_nss 3.30
+o ports: php 7.0.17[6]
+o ports: libarchive 3.3.1
+o ports: ntp 4.2.8p10[7]
+
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] https://github.com/opnsense/plugins/pull/91
+[2] https://github.com/opnsense/plugins/pull/103
+[3] https://github.com/opnsense/plugins/pull/94
+[4] http://mm.icann.org/pipermail/tz-announce/2017-March/000046.html
+[5] https://hardenedbsd.org/article/shawn-webb/2016-11-27/introducing-safestack
+[6] http://php.net/ChangeLog-7.php#7.0.17
+[7] https://www.eecis.udel.edu/~ntp/ntp_spool/ntp4/ChangeLog-stable
