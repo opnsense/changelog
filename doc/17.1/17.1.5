@@ -1,0 +1,76 @@
+@ April 24, 2017
+
+Hi all,
+
+After a brief timeout due to a super happy image release, 17.1.5 brings to
+you several longterm improvements for the firewall handling, dynamic DNS
+and several plugin updates, with Quagga and Monit as two brand new additions
+to the pool.  As an especially longterm improvement, the German translation
+finally hit 100% completed thanks to the many contributors over the last
+two years.
+
+We are currently working on extending SafeStack support to mission-critical
+third-party packages, testing the move to PHP 7.1 and finishing the
+associated roadmap for the upcoming 17.7 release.  Stay tuned for more.
+
+Here are the full patch notes:
+
+o system: show save message in correct language after language switch
+o firmware: remove obsoleted packages after a successful major update
+o firmware: flip the menu order of plugins and packages
+o firmware: switch to new embedded kernel/base set version
+o firewall: improve alias cleanup
+o firewall: new "select all" feature in firewall rules listings
+o firewall: add priority setting to advanced rules (contributed by djGrrr)
+o firewall: cleanup of gateway handling
+o firewall: cleanup of rule generation and fix for missing rules for
+  group interface network (contributed by Ian Matyssik)
+o firewall: improve alias validation messages
+o dhcp: add route features to router advertisements
+o dhcp: add missing server pool loop counter
+o unbound: fix DHCP watcher using wrong timezone
+o unbound: improve DHCP watcher MAC address read
+o intrusion detection: use "auto" hostmode setting
+o web proxy: decode content when downloading ACL
+o web proxy: add all virtual IPs to listening configuration
+o web proxy: add extended file logging option
+o openssh: migrated to plugin framework code
+o openvpn: correctly export renegotiate time of zero
+o openvpn: reenable the XOR patch support
+o dynamic dns: multiple fixes and migrated to plugin framework code
+o rfc2136: multiple fixes and migrated to plugin framework code
+o rfc2136: separated code from dynamic DNS
+p rfc2136: added dashboard widget
+o lang: updates for Chinese, Czech, Japanese
+o lang: German translation hits 100% completed
+o plugins: gracefully deal with fatal parse errors in plugin code
+o plugins: acme-client 1.5 (contributed by Frank Wall)
+o plugins: haproxy 1.14 (contributed by Frank Wall)
+o plugins: monit 1.0 (contributed by Frank Brendel)
+o plugins: quagga 1.0.0 with OSPF and RIP support (contributed
+  by Fabian Franz)
+o ports: pkg 1.10.1[1][2]
+o ports: sqlite 3.18.0[3]
+o ports: curl 7.54[4]
+o ports: openssh 7.5p1[5]
+o ports: hyperscan 4.4.1[6]
+o ports: dhcp6 20080615.2[7]
+o ports: ca_root_nss 3.30.1
+o ports: bind 9.11.1[8]
+o ports: strongswan 5.5.2[9]
+o ports: php 7.0.18[10]
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] https://github.com/freebsd/freebsd-ports/commit/cf239d3ab
+[2] https://github.com/freebsd/freebsd-ports/commit/6e290017
+[3] https://sqlite.org/changes.html
+[4] https://curl.haxx.se/changes.html
+[5] https://www.openssh.com/txt/release-7.5
+[6] https://github.com/01org/hyperscan/releases/tag/v4.4.1
+[7] https://github.com/freebsd/freebsd-ports/commit/3a3ac4aa
+[8] https://kb.isc.org/article/AA-01491/81/BIND-9.11.1-Release-Notes.html
+[9] https://wiki.strongswan.org/versions/64
+[10] http://php.net/ChangeLog-7.php#7.0.18
