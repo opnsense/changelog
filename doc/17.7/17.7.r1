@@ -1,0 +1,90 @@
+@ July 14, 2017
+
+Hello, hello!
+
+For more than two and a half years now, OPNsense is driving innovation
+through modularising and hardening the open source firewall, with simple
+and reliable firmware upgrades, multi-language support, HardenedBSD
+security, fast adoption of upstream software updates as well as clear
+and stable 2-Clause BSD licensing.
+
+We are writing to you today to announce the first release candidate for
+version 17.7, which, over the course of the last 5 months, includes
+highlights such as SafeStack application hardening, the Realtek re(4)
+driver for network stability, a Quagga plugin with broad routing protocol
+support and the Unbound resolver as the new default.  Additionally,
+translations for Czech, Chinese, Japanese, Portuguese and German have
+been completed during this iteration.
+
+Focus in OPNsense has shifted to improving and streamlining its various
+systems and providing continuous updates, which amounts to over 300
+individual changes made in 17.1 so far. The plugin infrastructure is
+growing as well thanks to our awesome contributors Frank Wall, Frank
+Brendel, Fabian Franz and Michael Muenz.  And we, last but not least,
+have been working more closely than ever with HardenedBSD by unifying
+our ports infrastructure.  Although this is only the beginning, let us
+not skip ahead.
+
+Download links, an installation guide[1] and the checksums for the images
+can be found below.
+
+o Europe: https://opnsense.c0urier.net/releases/17.7.r1/
+o US East Coast: http://mirrors.nycbug.org/pub/opnsense/releases/17.7.r1/
+o US West Coast: http://mirror.sfo12.us.leaseweb.net/opnsense/releases/17.7.r1/
+o Full mirror list: https://opnsense.org/download/
+
+Here is the full (and surprisingly sparse) list of changes against
+version 17.1.9:
+
+o system: added swap file option for SSD deployments
+o system: bring back crash reports for all types of kernel crashes
+o system: LDAP server StartTLS connection mode (contributed by Eugen Mayer)
+o system: prevent anonymous binds to AD by rejecting empty passwords
+o console: rewrote the backup restore to fix a possible licensing issue
+o interfaces: instead of renaming new interfaces create them with the
+  target name
+o interfaces: the IP renewal was redesigned to prevent spurious reloads
+o firewall: gateway code refactored
+o firewall: rule generation code refactored
+o dnamic dns: removed from core, installable as plugin
+o rfc 2136: removed from core, installable as plugin
+o ipsec: removed stale BINAT configuration items
+o proxy: hardened the SSL configuration (contributed by Fabian Franz)
+o src: netgraph/pppoe: user-supplied Host-Uniq tag and PADM messages
+
+The list of currently known issues with 17.7-RC1:
+
+o WLAN devices cannot be created. A patch exists[2] to remedy this problem.
+o LAGG device destroy may cause a kernel panic. A patch currently in testing.
+o The installer identifies itself as 17.1.
+
+As always with our pre-releases, only OpenSSL is provided at this point,
+but can be switched for LibreSSL as soon as the release is available.
+This release candidate does update directly into the 17.7 stable track
+and subsequent release candidates.  Please let us know about your experience!
+
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] https://docs.opnsense.org/manual/install.html
+[2] https://github.com/opnsense/core/commit/5cb149d
+
+# SHA256 (OPNsense-17.7.r1-OpenSSL-dvd-amd64.iso.bz2) = 7455ff527a5e7ed1eac6db650fd4ddbd0a3257d2a270489fd85e273c83786d95
+# SHA256 (OPNsense-17.7.r1-OpenSSL-nano-amd64.img.bz2) = 8c7e23f3dadc22bd03e174cc768c171207d4a0d95f32273d7a4baaf2fa678b57
+# SHA256 (OPNsense-17.7.r1-OpenSSL-serial-amd64.img.bz2) = 597ca2fd3dfc7031785a35f5b23092633dee5ee1e385870ec977f364204035ed
+# SHA256 (OPNsense-17.7.r1-OpenSSL-vga-amd64.img.bz2) = ebaa162d7184286e8b1a03976e0c6bb7220dff7e2fda9d709a2e32334bdf7100
+# SHA256 (OPNsense-17.7.r1-OpenSSL-dvd-i386.iso.bz2) = 79affa59a6b7319278964890779e97ce6c89f3441bccaf783610b29c708198d8
+# SHA256 (OPNsense-17.7.r1-OpenSSL-nano-i386.img.bz2) = 36476da5610a90ac5e110d0a87a26356477b5ce1e17e551c06be09d3c23e35ae
+# SHA256 (OPNsense-17.7.r1-OpenSSL-serial-i386.img.bz2) = 514d2fef9efd081d2294cb961478ea85b7527e7f71091f91beed329c7ba36b5c
+# SHA256 (OPNsense-17.7.r1-OpenSSL-vga-i386.img.bz2) = 6dc5bc2264767722c722b3d5f7b116e943e41374612256b94c32c4f6bbd05a5d
+
+# MD5 (OPNsense-17.7.r1-OpenSSL-dvd-amd64.iso.bz2) = f5ec6d052c59ac785b7c631e8f24cb4a
+# MD5 (OPNsense-17.7.r1-OpenSSL-nano-amd64.img.bz2) = 986754b73391f8a6e063842bbdd0ce4b
+# MD5 (OPNsense-17.7.r1-OpenSSL-serial-amd64.img.bz2) = 8fa9c85c2bff1339f131d572c667b84d
+# MD5 (OPNsense-17.7.r1-OpenSSL-vga-amd64.img.bz2) = 2427efe4140f634086cbaa71da7aec03
+# MD5 (OPNsense-17.7.r1-OpenSSL-dvd-i386.iso.bz2) = 23f1f152a40d352809796046053972c9
+# MD5 (OPNsense-17.7.r1-OpenSSL-nano-i386.img.bz2) = 02f1cdb6a64f598b809045c262e21b58
+# MD5 (OPNsense-17.7.r1-OpenSSL-serial-i386.img.bz2) = 4c330c7dc7d8728bc061e4ba2399490c
+# MD5 (OPNsense-17.7.r1-OpenSSL-vga-i386.img.bz2) = 0e5aa3f9117371e6c2acf93b29b25c79
