@@ -46,7 +46,7 @@ o interfaces: instead of renaming new interfaces create them with the
 o interfaces: the IP renewal was redesigned to prevent spurious reloads
 o firewall: gateway code refactored
 o firewall: rule generation code refactored
-o dnamic dns: removed from core, installable as plugin
+o dynamic dns: removed from core, installable as plugin
 o rfc 2136: removed from core, installable as plugin
 o ipsec: removed stale BINAT configuration items
 o proxy: hardened the SSL configuration (contributed by Fabian Franz)
