@@ -1,0 +1,38 @@
+@ July 18, 2017
+
+Hi all,
+
+Quick update, nothing overly fancy this week. :)
+
+Here are the full patch notes:
+
+o system: harden GUI by removing TLS_RSA_WITH_3DES_EDE_CBC_SHA
+o system: harden GUI by improving Secure Attribute cookie usage
+o system: harden GUI by using DH-4096 parameters
+o system: allow to reverse password / token order in TOTP authentication
+o system: add swap file option for SSD operation
+o interfaces: speed up GUI handling with configurations of more than 150 VLANs
+o interfaces: stop is_ipaddrv6() from accepting subnets
+o ipsec: IKEv2 can handle multiple phase 1 with the same IP
+o ipsec: list non-routed connections
+o unbound: removed obsolete so-rcvbuf optimisation code
+o net-mgmt/zabbix-agent: validation fix (contributed by Frank Wall)
+o net/quagga: version 1.3.1 (contributed by Frabian Franz and Michael Muenz)
+o layout: update to Font-Awesome 4.7
+o mvc: add setMultiple() to OptionField
+o ports: phalcon 3.2.1[1]
+o ports: php 7.0.21[2]
+o ports: bind 9.11.1-P3[3]
+o ports: unbound 1.6.4[4]
+o ports: suricata 3.2.3[5]
+
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] https://github.com/phalcon/cphalcon/releases/tag/v3.2.1
+[2] http://php.net/ChangeLog-7.php#7.0.21
+[3] https://kb.isc.org/article/AA-01457/0/BIND-9.11.0-P3-Release-Notes.html
+[4] http://www.unbound.net/download.html
+[5] https://suricata-ids.org/2017/07/13/suricata-3-2-3-available/
