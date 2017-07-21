@@ -8,7 +8,7 @@ and reliable firmware upgrades, multi-language support, HardenedBSD
 security, fast adoption of upstream software updates as well as clear
 and stable 2-Clause BSD licensing.
 
-We are writing to you today to announce the first release candidate for
+We are writing to you today to announce the second release candidate for
 version 17.7, which, over the course of the last 5 months, includes
 highlights such as SafeStack application hardening, the Realtek re(4)
 driver for network stability, a Quagga plugin with broad routing protocol
