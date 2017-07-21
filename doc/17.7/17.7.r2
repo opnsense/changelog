@@ -18,7 +18,7 @@ been completed during this iteration.
 
 Focus in OPNsense has shifted to improving and streamlining its various
 systems and providing continuous updates, which amounts to over 300
-individual changes made in 17.1 so far. The plugin infrastructure is
+individual changes made in 17.1 so far.  The plugin infrastructure is
 growing as well thanks to our awesome contributors Frank Wall, Frank
 Brendel, Fabian Franz and Michael Muenz.  And we, last but not least,
 have been working more closely than ever with HardenedBSD by unifying
@@ -55,14 +55,14 @@ o ports: unbound 1.6.4[4]
 
 The list of currently known issues with 17.7-RC2:
 
-o LAGG device destroy may cause a kernel panic. A fix is scheduled
+o LAGG device destroy may cause a kernel panic.  A fix is scheduled
   for 17.7.
-o IPsec inbound packet filtering does not work under NAT-T. A fix is
+o IPsec inbound packet filtering does not work under NAT-T.  A fix is
   scheduled for 17.7.
 o PPPoE Host-Uniq is still in the test phase and may not be fully
   operational.
 o Configuration handling of static PHP is not always compatible with
-  PHP 7.1 at this point. We are downgrading to 7.0 for the release of
+  PHP 7.1 at this point.  We are downgrading to 7.0 for the release of
   17.7 to ensure integrity.
 
 Users of 17.7-RC1 can upgrade to RC2 via the usual online updates.  Images
