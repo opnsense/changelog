@@ -22,6 +22,7 @@ o layout: update to Font-Awesome 4.7
 o mvc: add setMultiple() to OptionField
 o ports: phalcon 3.2.1[1]
 o ports: php 7.0.21[2]
+o ports: php70-openssl CRL hotfix
 o ports: bind 9.11.1-P3[3]
 o ports: unbound 1.6.4[4]
 o ports: suricata 3.2.3[5]
