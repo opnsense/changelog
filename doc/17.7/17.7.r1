@@ -18,7 +18,7 @@ been completed during this iteration.
 
 Focus in OPNsense has shifted to improving and streamlining its various
 systems and providing continuous updates, which amounts to over 300
-individual changes made in 17.1 so far.  The plugin infrastructure is
+individual changes made since 17.1 so far.  The plugin infrastructure is
 growing as well thanks to our awesome contributors Frank Wall, Frank
 Brendel, Fabian Franz and Michael Muenz.  And we, last but not least,
 have been working more closely than ever with HardenedBSD by unifying

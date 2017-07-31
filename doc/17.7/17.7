@@ -1,0 +1,119 @@
+@ July 31, 2017
+
+Hello, hello!
+
+For more than two and a half years now, OPNsense is driving innovation
+through modularising and hardening the open source firewall, with simple
+and reliable firmware upgrades, multi-language support, HardenedBSD
+security, fast adoption of upstream software updates as well as clear
+and stable 2-Clause BSD licensing.
+
+We are writing to you today to announce the final release of version
+17.7 "Free Fox", which, over the course of the last 6 months, includes
+highlights such as SafeStack application hardening, the Realtek re(4)
+driver for better network stability, a Quagga plugin with broad routing
+protocol support and the Unbound resolver as the new default.  Additionally,
+translations for Czech, Chinese, Japanese, Portuguese and German have been
+completed for the first time during this development cycle.
+
+Focus in OPNsense has shifted to improving and streamlining its various
+systems and providing continuous updates, which amounts to over 300
+individual changes made since 17.1 so far.  The plugin infrastructure is
+growing as well thanks to our awesome contributors Frank Wall, Frank
+Brendel, Fabian Franz and Michael Muenz.  And we, last but not least,
+have been working more closely than ever with HardenedBSD by unifying
+our ports infrastructure.
+
+Download links, an installation guide[1] and the checksums for the images
+can be found below.
+
+o Europe: https://opnsense.c0urier.net/releases/17.7/
+o US East Coast: http://mirrors.nycbug.org/pub/opnsense/releases/17.7/
+o US West Coast: https://mirror.sfo12.us.leaseweb.net/opnsense/releases/17.7/
+o South America: http://mirror.upb.edu.co/opnsense/releases/17.7/
+o South-East Asia: https://ftp.yzu.edu.tw/opnsense/releases/17.7/
+o Full mirror list: https://opnsense.org/download/
+
+Here is the full list of changes against version 17.7-RC2:
+
+o interfaces: dhcp6c can now properly reload without leaking its listening
+  socket to e.g. OpenVPN
+o interfaces: correctly write Host-Uniq string in PPPoE configuration
+  (contributed by Paolo Velati)
+o firmware: fix JavaScript typo in the GUI that would prevent an update
+  with a pending reboot
+o firmware: zap spurious newlines in end-of-life message
+o rc: allow to optionally prevent launch of configd via rc.conf variable
+o rc: print root file system when boot is completed
+o lang: Chinese 91% completed (contributed by Tianmo)
+o lang: Czech 94% completed (contributed by Pavel Borecki)
+o lang: German 100% completed (contributed by Fabian Franz et al)
+o lang: Japanese 92% completed (contributed by Chie and Takeshi Taguchi)
+o lang: Russian 89% completed (contributed by SmartSoft)
+o plugins: os-freeradius 1.0.0 (contributed by Michael Muenz)
+o plugins: os-quagga 1.3.2 (contributed by Fabian Franz and Michael Muenz)
+o src: do not update the LAGG link layer address when destroying a LAGG clone
+o src pull the next header as well to restore filtering on incoming
+  IPsec NAT-T traffic
+o ports: haproxy 1.7.8[2]
+o ports: strongswan 5.5.3[3]
+
+The list of currently known issues with 17.7:
+
+o Users from 17.7-RC2 may have trouble upgrading via the GUI[4].  Run
+  "opnsense-patch 246513c" from the command line to correct this problem
+o A regression in floating rules in 17.7 does not honour the non-quick
+  setting[5].  Run "opnsense-patch f25d8b" from the command line to
+  correct this problem.
+
+All images are provided with SHA-256 signatures, which can be verified
+against the distributed public key:
+
+# openssl base64 -d -in image.bz2.sig -out /tmp/image.sig
+# openssl dgst -sha256 -verify rsa.pub -signature /tmp/image.sig image.bz2
+
+The public key for version 17.7 is:
+
+-----BEGIN PUBLIC KEY-----
+MIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEA4pnxN5WeJxgthgJzfHEh
+iLYO5g6MItkv0YdNKNEUdij+wcYpPKNlvpI11QLEMGBy5gQJPuD9dlJYZiafIPwc
+9TYSAjuvmZMf7DPWK6xRouTOyvpxROH3ncAEqIGjONr9VrH3hZNcbp3gvbcS+AuH
+yo8Tfyka7xtaBZGVkVeXYLuobUishdWMSsmB06BcPzBYDK+suIVrg4Y0sPcm4ST2
+o3RN5UbDYE4NTdOoBbswdTK8gqH5O81gdsm5F0AVisuJ2lYbY/rx/Ya9axc85Yyg
+tU9RbLl0453X6sES0XtdZigkD20RQ0dLqL1deGVVtPKuK0n09jPRMdyncN03lg4+
+UxMycSXbnCajOjmajCtRFUfBBf+LcMdY1Pw+JbVYu//OApi14UBforjOoA+8fA30
+d5PnzAWChpAlyuprtxgvGJXvk6cN7cVVWimwNAP70p7fMsFkslXUlrs7xt42+HCB
+qRmGPiBkP5xdryKxZmpM7j9v7b6zp/9qH9ZeAuu/YY5cKNV4HEsyQ8fQVZE6CxTJ
+Q0mgRrMAFinAC8dEv7V1BPbc03qXzqzKSUqy11zi8eH09SKB/LHmgFMghqzZ9jlD
+tJdZTRdl8pd6PxRLXzXHLum0ziRQlRMxKXevHZyU57MpskkCzrZuxOFb+jOHJpeP
+4Kda10Dp7ujPdFHg1TEqQb0CAwEAAQ==
+-----END PUBLIC KEY-----
+
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] https://docs.opnsense.org/manual/install.html
+[2] https://www.haproxy.org/download/1.7/src/CHANGELOG
+[3] https://wiki.strongswan.org/versions/65
+[4] https://github.com/opnsense/core/commit/246513c
+[5] https://github.com/opnsense/core/commit/f25d8b
+
+# SHA256 (OPNsense-17.7-OpenSSL-dvd-amd64.iso.bz2) = 4169765919a01bd9a6313e7ff896976342bf13803e4c4979272f192c83a98ae6
+# SHA256 (OPNsense-17.7-OpenSSL-nano-amd64.img.bz2) = 0eee04cbb084536bfa51e3cb6032e61d57ed904b01e5d2590b981ff16f1498b9
+# SHA256 (OPNsense-17.7-OpenSSL-serial-amd64.img.bz2) = bc8b529accab5609aafaac04504cae48cbb69eb2320b72eadb9c3a1f1b0d4832
+# SHA256 (OPNsense-17.7-OpenSSL-vga-amd64.img.bz2) = ade47234f81738138e05cdc2c2137515006da9bde7dba74df91d4503b96abca1
+# SHA256 (OPNsense-17.7-OpenSSL-dvd-i386.iso.bz2) = df725d845014333b05f3a96cb8cbbb48dc5d712db72f7de94d5ac94fb17bcf89
+# SHA256 (OPNsense-17.7-OpenSSL-nano-i386.img.bz2) = cde4440c15b0aee668353b6e6a394a0b98171a655574d2495933eb8e14181794
+# SHA256 (OPNsense-17.7-OpenSSL-serial-i386.img.bz2) = 4aa1547dd50e23aa794925b997694631f713fc6a7325968faef67a4fbf7a11e3
+# SHA256 (OPNsense-17.7-OpenSSL-vga-i386.img.bz2) = a9af8114d30adf391668c60d1a003c8c4a58aa6d73d461c2260131b824175ec6
+
+# MD5 (OPNsense-17.7-OpenSSL-dvd-amd64.iso.bz2) = ec6fa7916fd41a5e09bcbbcadfe20941
+# MD5 (OPNsense-17.7-OpenSSL-nano-amd64.img.bz2) = edded194ec7482bc8f55930c84f8021d
+# MD5 (OPNsense-17.7-OpenSSL-serial-amd64.img.bz2) = 2a8953c1acaee9a56cd9c9cea710ef19
+# MD5 (OPNsense-17.7-OpenSSL-vga-amd64.img.bz2) = 46d7c2446b9c8f79683d8067b97cc86e
+# MD5 (OPNsense-17.7-OpenSSL-dvd-i386.iso.bz2) = 39f862a95ed2edb39ec9aa1d7db5c521
+# MD5 (OPNsense-17.7-OpenSSL-nano-i386.img.bz2) = b11917992d6ca36f1d6e6c5265231cd7
+# MD5 (OPNsense-17.7-OpenSSL-serial-i386.img.bz2) = e8549d9b882e67612221b7c0fef5814a
+# MD5 (OPNsense-17.7-OpenSSL-vga-i386.img.bz2) = 143f0f352c7e697dc9ad42b0af641058
