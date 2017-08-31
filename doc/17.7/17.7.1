@@ -1,0 +1,103 @@
+@ August 31, 2017
+
+Hi everyone,
+
+Our first stable round of version 17.7 brings a number of improvements,
+fixes and software updates for third party services.  Special attention
+goes to the major bump of LibreSSL from 2.4 to 2.5.  NAT before IPsec is
+now also neatly integrated and there are new plugins for fast Collectd
+and Zerotier setup.
+
+We would also like to use this opportunity to remind everyone that
+OPNsense is and always will be free software.  All of its source
+code and associated build tools can be found here:
+
+https://github.com/opnsense
+
+Over the course of the next weeks, we will be focusing on releasing the
+roadmap for version 18.1, ClamAV integration, PHP 7.1 and going back to
+a more frequent update schedule.
+
+Here are the full patch notes:
+
+o system: add email and comment field to users
+o system: do not set LC_ALL locale
+o firewall: fix floating rules default for quick parameter (contributed
+  by Frank Wall)
+o firewall: support outbound NAT source invert
+o firewall: allow SSH installer anti-lockout on setups with only one interface
+o firewall: add back interface gateway pinning when the protocol is assigned
+o firewall: add optional VHID to support alias IP on CARP
+o firewall: use privilege separation to fetch diagnostic states
+o firmware: revoke 17.1 fingerprint
+o interfaces: better labels for DHCPv6 extended settings (contributed
+  by Fabian Franz)
+o interfaces: fix display of validation error from gateway addition request
+o interfaces: do not write defunct advanced settings
+o interfaces: add ability to lock vital interfaces to prevent reboot
+  network recovery
+o interfaces: split device create and rename ifconfig calls as a single call
+  can be unstable
+o interfaces: probe VLAN hardware settings before changing
+o reporting: better insight database corruption detection and repair
+o captive portal: better login database corruption detection and repair
+o captive portal: fix startup after unclean shutdown
+o dhcp: fix string offset warnings in leases page (contributed
+  by Elias Werberich)
+o intrusion detection: fix startup after config import if no remote files
+  have been downloaded yet
+o ipsec: portable NAT before IPsec support[1]
+o openvpn: fix Tunnelblick link on export page (contributed by Stefan Husch)
+o openvpn: fix connected timestamp and bytes up/down display
+o openvpn: write proxy auth file in shared key export
+o openvpn: minor display tweaks in widget and configuration pages
+o openvpn: local group restriction feature
+o update: rename bootstrap '-V' argument to '-r' for consistency
+o update: fix code bug for /etc/make.conf link rewrite on upgrade
+o update: support '-S' argument to probe remote set size
+o update: support loading kernel debug sets via '-g' option
+o mvc: add standard dialog helper (contributed by Frank Wall)
+o mvc: simplify language selection code (contributed by Alexander Shursha)
+o mvc: allow to run targeted model migration if requested
+o mvc: ensure backend-cached JSON data is valid
+o lang: small updates to Chinese and German
+o lang: Japanese back at 100% (contributed by Chie and Takeshi Taguchi)
+o plugins: several updates for PHP 7.1 compatibility
+o plugins: os-acme-client 1.9 (contributed by Frank Wall)
+o plugins: os-collectd 1.0 (contributed by Michael Muenz)
+o plugins: os-freeradius 1.0.1 (contributed by Micheal Muenz)
+o plugins: os-dyndns 1.1 removes legacy notification support and adds
+  regfish IPv4 and IPv6 as a provider
+o plugins: os-haproxy 1.17 adds hard stop feature to avoid shutdown
+  stalls (contributed by Frank Wall)
+o plugins: os-rfc2136 1.2 removes legacy notification support
+o plugins: os-zerotier 1.0 (contributed by David Harrigan)
+o src: fix panic in PPPoE session lookup (contributed by Alex Dupre)
+o src: add new USB ID for Sierra LTE modem
+o src: fix VNET kernel panic with asynchronous I/O[2]
+o ports: curl 7.55.1[3]
+o ports: isc-dhcp 4.3.6[4]
+o ports: libressl 2.5.5[5]
+o ports: phalcon 3.2.2[6]
+o ports: php 7.0.22[7]
+o ports: sqlite 3.20.1[8]
+o ports: strongswan 5.6.0[9]
+o ports: suricata 4.0.0[10]
+o ports: unbound 1.6.5[11]
+
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] https://github.com/opnsense/core/issues/440
+[2] https://www.freebsd.org/security/advisories/FreeBSD-EN-17:07.vnet.asc
+[3] https://curl.haxx.se/changes.html
+[4] https://kb.isc.org/article/AA-01518/0/DHCP-4.3.6-Release-Notes.html
+[5] https://ftp.openbsd.org/pub/OpenBSD/LibreSSL/libressl-2.5.5-relnotes.txt
+[6] https://github.com/phalcon/cphalcon/releases/tag/v3.2.2
+[7] http://php.net/ChangeLog-7.php#7.0.22
+[8] https://www.sqlite.org/releaselog/3_20_1.html
+[9] https://wiki.strongswan.org/versions/66
+[10] https://suricata-ids.org/2017/07/27/suricata-4-0-released/
+[11] http://www.unbound.net/download.html
