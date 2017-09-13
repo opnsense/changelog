@@ -1,0 +1,55 @@
+@ September 13, 2017
+
+Good day to you all,
+
+Today brings antivirus to your web proxy via plugins as promised in the
+last release announcement.  Please note that we have updated the
+documentation on those subjects, something you will see with increasing
+frequency from now on.
+
+Here are the full patch notes:
+
+o system: make log file views adapt to log format to fix date display
+o system: removed m0n0wall/pfSense config migration code
+o reporting: traffic graph mini-graph additions (contributed by Jeffrey Gentes)
+o firewall: align NAT target port to destination port when creating a new entry
+o firewall: remove spurious filter reload page
+o firewall: wrong double-encode in schedule descriptions
+o firewall: naturally order settings menu
+o firmware: fix ALLOW_RISKY_MAJOR_UPGRADE cron job parameter
+o firmware: add new trusted fingerprint key for upcoming rotation
+o firmware: ABI auto-append on custom flavour entry without multiple directories
+o captive portal: small UX tweaks for dialogs and spacing
+o intrusion detection: selectable home networks as advanced option
+o intrusion detection: missing gzip decode on download
+o unbound: restart on new WAN IP if explicit interface matches
+o web proxy: log name now starts with a module name
+o rc: clear /var/run contents on bootup
+o ui: improved PHP 7.1 compatibility for static pages
+o ui: updated nvd3 to version 1.8.5-dev
+o ui: allow runtime bootgrid translation (contributed by Fabian Franz)
+o plugins: migrate plugin models on install
+o plugins: only restart configd once on reinstall
+o plugins: os-acme-client 1.10[1] (contributed by Frank Wall)
+o plugins: os-clamav 1.0[2] (contributed by Michael Muenz)
+o plugins: os-c-icap 1.0[3] (contributed by Michael Muenz)
+o plugins: os-dyndns fix for Cloudflare proxy status (contributed by sll552)
+o plugins: os-mdns-repeater[4] 1.0 (contributed by Fabian Franz)
+o plugins: os-zerotier 1.1.0 (contributed by David Harrigan)
+o ports: mpd 5.8_2[5][6]
+o ports: php 7.0.23[7]
+o ports: sudo 1.8.21p1[8]
+
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] https://github.com/opnsense/plugins/pull/254
+[2] https://docs.opnsense.org/manual/how-tos/clamav.html
+[3] https://docs.opnsense.org/manual/how-tos/c-icap.html
+[4] https://docs.opnsense.org/manual/how-tos/multicast-dns.html
+[5] https://github.com/freebsd/freebsd-ports/commit/4156f1e3d
+[6] https://github.com/freebsd/freebsd-ports/commit/003e792d
+[7] http://php.net/ChangeLog-7.php#7.0.23
+[8] https://www.sudo.ws/stable.html#1.8.21p1
