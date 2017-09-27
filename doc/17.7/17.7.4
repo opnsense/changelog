@@ -1,0 +1,49 @@
+@ September 27, 2017
+
+Dear all,
+
+Another week, another update.  Most notably, the Tor plugin has been
+officially released.
+
+New images finally follow in 17.7.5 and we are happy to report that
+the shared forwarding additions are already up and running on the
+FreeBSD 11.1 kernel with two major improvements: IPv6 support and
+tryforward compatibility!  That means 18.1-BETA and an associated
+public call for testing are not too far out at this point.
+
+And here are the full patch notes:
+
+o system: remove revoked certificates from list of certificates to revoke
+o firewall: add advanced setting to disable interface gateway rules
+o firewall: ignore gateway weight of zero
+o firewall: add reply-to specific gateway in pluggable rules
+o firewall: support anchor quick keyword in pluggable rules
+o intrusion detection: do not allow interface group in selection
+o openvpn: ns-cert-type becomes remote-cert-tls in client export
+o web proxy: ICAP exclude list (contributed by Alexander Shursha)
+o mvc: support value attribute for model option data
+o installer: UEFI partition size increased to 200 MB
+o installer: always error on password mismatch
+o plugins: os-acme-client 1.11 (contributed by Frank Wall)
+o plugins: os-c-icap 1.1 logging and virus scan settings (contributed
+  by Michael Muenz)
+o plugins: os-tor 1.0 (contributed by Fabian Franz)
+o plugins: os-zerotier 1.2.0 allows local.conf settings (contributed
+  by David Harrigan)
+o ports: libnghttp2 1.26[2]
+o ports: unbound 1.6.6[3]
+o ports: hyperscan 4.5.2[4]
+o ports: py-openssl 17.3.0[5]
+o ports: py-cryptography 2.03[6]
+
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] https://github.com/opnsense/plugins/pull/290
+[2] https://github.com/nghttp2/nghttp2/releases/tag/v1.26.0
+[3] http://www.unbound.net/download.html
+[4] https://github.com/01org/hyperscan/releases
+[5] https://pyopenssl.org/en/stable/changelog.html#id1
+[6] https://cryptography.io/en/latest/changelog/#v2-0-3
