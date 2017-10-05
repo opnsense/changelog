@@ -1,0 +1,39 @@
+@ October 5, 2017
+
+Hello,
+
+This update includes a larger number of security-related updates in third
+party software recently published.  We do recommend a reboot to ensure
+all services are restarted correctly.
+
+Here are the full patch notes:
+
+o system: always return unique list of active DNS servers
+o system: remove obsolete fast forwarding sysctl usage
+o gateways: appropriate use of link local scope gateway targets
+o interfaces: start rtsold in directly send SOLICIT case as well
+o firewall: improve virtual IP VHID edit handling
+o firmware: prevent submit of empty crash reports
+o web proxy: fix ICAP username header usage (contributed by Alexander Shursha)
+o plugins: os-c-icap 1.2 local squid authentication (contributed by Alexander Shursha)
+o plugins: os-collectd 1.1 graphite post and prefix (contributed by Michael Muenz)
+o plugins: os-intrusion-detection-content-et-pro 1.0
+o plugins: os-quagga 1.4.2 OSPF router ID support (contributed by Fabian Franz)
+o ports: dnsmasq 2.78[1]
+o ports: kerberos 1.15.2[2]
+o ports: openvpn 2.4.4[3]
+o ports: perl 5.24.3[4]
+o ports: php 7.0.24[5]
+o ports: python 2.7.14[6]
+
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] http://www.thekelleys.org.uk/dnsmasq/CHANGELOG
+[2] https://web.mit.edu/kerberos/krb5-1.15/#announcement
+[3] https://community.openvpn.net/openvpn/wiki/ChangesInOpenvpn24
+[4] http://search.cpan.org/dist/perl-5.24.3/pod/perldelta.pod
+[5] http://php.net/ChangeLog-7.php#7.0.24
+[6] https://raw.githubusercontent.com/python/cpython/84471935e/Misc/NEWS
