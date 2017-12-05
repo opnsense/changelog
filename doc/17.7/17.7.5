@@ -26,6 +26,70 @@ o ports: perl 5.24.3[4]
 o ports: php 7.0.24[5]
 o ports: python 2.7.14[6]
 
+We also are happy to announce the immediate availability of the renewed
+OPNsense 17.7 images based on version 17.7.5.  Apart from the numerous
+improvements since the initial release, the images contain an addition
+for single interfaces SSH installer scenarios as well as an PPPoE multi-AP
+kernel patch.  And due to popular demand the dynamic DNS plugin now comes
+preinstalled, something we missed in the original 17.7 plugin conversion
+process.
+
+For almost 3 years now, OPNsense is driving innovation through modularising
+and hardening the code base, quick and reliable firmware upgrades, multi-
+language support, fast adoption of upstream software updates as well as
+clear and stable 2-Clause BSD licensing.
+
+The full list of changes of OPNsense 17.7 can be reviewed using their
+original announcements:
+
+o 17.7: https://forum.opnsense.org/index.php?topic=5604.0
+o 17.7.1: https://forum.opnsense.org/index.php?topic=5863.0
+o 17.7.2: https://forum.opnsense.org/index.php?topic=5956.0
+o 17.7.3: https://forum.opnsense.org/index.php?topic=5994.0
+o 17.7.4: https://forum.opnsense.org/index.php?topic=6041.0
+o 17.7.5: this document
+
+We would also like to use this opportunity to remind everyone that OPNsense
+is and always will be free software.  All of its source code and associated
+build tools can be found here:
+
+https://github.com/opnsense
+
+Download links, an installation guide, the full list of changes and the
+checksums for the images can be found below.
+
+Download Locations
+
+o Europe: https://opnsense.c0urier.net/releases/17.7/
+o US East Coast: http://mirrors.nycbug.org/pub/opnsense/releases/17.7/
+o US West Coast: https://mirror.sfo12.us.leaseweb.net/opnsense/releases/17.7/
+o South America: http://mirror.upb.edu.co/opnsense/releases/17.7/
+o South-East Asia: https://ftp.yzu.edu.tw/opnsense/releases/17.7/
+o Full mirror list: https://opnsense.org/download/
+
+All images are provided with SHA-256 signatures, which can be verified
+against the distributed public key:
+
+# openssl base64 -d -in image.bz2.sig -out /tmp/image.sig
+# openssl dgst -sha256 -verify rsa.pub -signature /tmp/image.sig image.bz2
+
+The public key for version 17.7 is:
+
+# -----BEGIN PUBLIC KEY-----
+# MIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEA4pnxN5WeJxgthgJzfHEh
+# iLYO5g6MItkv0YdNKNEUdij+wcYpPKNlvpI11QLEMGBy5gQJPuD9dlJYZiafIPwc
+# 9TYSAjuvmZMf7DPWK6xRouTOyvpxROH3ncAEqIGjONr9VrH3hZNcbp3gvbcS+AuH
+# yo8Tfyka7xtaBZGVkVeXYLuobUishdWMSsmB06BcPzBYDK+suIVrg4Y0sPcm4ST2
+# o3RN5UbDYE4NTdOoBbswdTK8gqH5O81gdsm5F0AVisuJ2lYbY/rx/Ya9axc85Yyg
+# tU9RbLl0453X6sES0XtdZigkD20RQ0dLqL1deGVVtPKuK0n09jPRMdyncN03lg4+
+# UxMycSXbnCajOjmajCtRFUfBBf+LcMdY1Pw+JbVYu//OApi14UBforjOoA+8fA30
+# d5PnzAWChpAlyuprtxgvGJXvk6cN7cVVWimwNAP70p7fMsFkslXUlrs7xt42+HCB
+# qRmGPiBkP5xdryKxZmpM7j9v7b6zp/9qH9ZeAuu/YY5cKNV4HEsyQ8fQVZE6CxTJ
+# Q0mgRrMAFinAC8dEv7V1BPbc03qXzqzKSUqy11zi8eH09SKB/LHmgFMghqzZ9jlD
+# tJdZTRdl8pd6PxRLXzXHLum0ziRQlRMxKXevHZyU57MpskkCzrZuxOFb+jOHJpeP
+# 4Kda10Dp7ujPdFHg1TEqQb0CAwEAAQ==
+# -----END PUBLIC KEY-----
+
 
 Stay safe,
 Your OPNsense team
@@ -37,3 +101,21 @@ Your OPNsense team
 [4] http://search.cpan.org/dist/perl-5.24.3/pod/perldelta.pod
 [5] http://php.net/ChangeLog-7.php#7.0.24
 [6] https://raw.githubusercontent.com/python/cpython/84471935e/Misc/NEWS
+
+# SHA256 (OPNsense-17.7.5-OpenSSL-dvd-amd64.iso.bz2) = 3fab5b7f4596dc0300e4b36fb5fe8647ebd42750e6e28f5c7f1424ee07c350ec
+# SHA256 (OPNsense-17.7.5-OpenSSL-nano-amd64.img.bz2) = 2924ceec3f11206e866c6146112ae14d304cd5e18acb3803a923e04019651c1b
+# SHA256 (OPNsense-17.7.5-OpenSSL-serial-amd64.img.bz2) = 7a85ae36b52d6f85239b7a936cefa5c53dddfa272b968e24bc6b61c77f4dfbce
+# SHA256 (OPNsense-17.7.5-OpenSSL-vga-amd64.img.bz2) = 730dfaad385642902d00dc7361fea6c6c7e1c1861cb576d54df03f9d8d2e29c6
+# SHA256 (OPNsense-17.7.5-OpenSSL-dvd-i386.iso.bz2) = bece516dd4e0fafbd4fee07b5559563a66abd542a8eff9f3e833bc320338028f
+# SHA256 (OPNsense-17.7.5-OpenSSL-nano-i386.img.bz2) = 9ea24329650487dc08b7e846bec4b0e75ae965c1ba948d02a0857f1b4dfc989c
+# SHA256 (OPNsense-17.7.5-OpenSSL-serial-i386.img.bz2) = e600c0c223778425ed990ae3f34d68cbb705c563d1c309190fedbcc97f45861e
+# SHA256 (OPNsense-17.7.5-OpenSSL-vga-i386.img.bz2) = 0600eedd7842187ccfa1f97642959d10fe290d2db60d10687d0089627f574efe
+
+# MD5 (OPNsense-17.7.5-OpenSSL-dvd-amd64.iso.bz2) = ac69d1963ee0a45e705f3f7044d84511
+# MD5 (OPNsense-17.7.5-OpenSSL-nano-amd64.img.bz2) = e5f8f7a321e16d7d1af0d99a0b2b8a80
+# MD5 (OPNsense-17.7.5-OpenSSL-serial-amd64.img.bz2) = c8512821190515e9cc3ab6f7e76369dc
+# MD5 (OPNsense-17.7.5-OpenSSL-vga-amd64.img.bz2) = 811eeb34bfb853b3f3f2185c244c8051
+# MD5 (OPNsense-17.7.5-OpenSSL-dvd-i386.iso.bz2) = bfed9e4446738797525a3c6f790c4507
+# MD5 (OPNsense-17.7.5-OpenSSL-nano-i386.img.bz2) = a56def558397d6f20a9ada4ab5cd9848
+# MD5 (OPNsense-17.7.5-OpenSSL-serial-i386.img.bz2) = 404dc9a7d5f84244428d1e82302a45f2
+# MD5 (OPNsense-17.7.5-OpenSSL-vga-i386.img.bz2) = b3ea683a928324d3fd149c2580bdde57
