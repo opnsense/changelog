@@ -51,6 +51,15 @@ o ports: pkg 1.10.3[7]
 o ports: py-Jinja2 2.10[8]
 o ports: syslogd 11.1
 
+A hotfix release was issued as 17.7.9_8:
+
+o system: correctly populate logging settings after clearing all logs
+o firewall: fix 2 PHP 7.1 warnings
+o ipsec: fix 2 PHP 7.1 warnings and one runtime error
+o interfaces: fix a PHP 7.1 warning
+o intrusion detection: add protocol display to alert dialog
+o plugins: os-haproxy 2.1 fixes HSTS usage[9] (contributed by Frank Wall)
+
 
 Stay safe,
 Your OPNsense team
@@ -64,3 +73,4 @@ Your OPNsense team
 [6] http://de2.php.net/ChangeLog-7.php#7.1.12
 [7] https://github.com/freebsd/freebsd-ports/commit/c6da09c68
 [8] http://jinja.pocoo.org/docs/2.10/changelog/#version-2-10
+[9] https://github.com/opnsense/plugins/pull/419
