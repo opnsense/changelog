@@ -1,0 +1,40 @@
+@ December 14, 2017
+
+Good day everyone,
+
+A regression sneaked into 17.7.9 that updated Lighttpd web server which
+made the captive portal incompatible with the newer version.  We are also
+bundling OpenSSL updates for both the ports and source.  Last but not
+least, Suricata and Hyperscan have been bumped to their latest versions.
+
+Here are the full patch notes:
+
+o system: allow user-based language setting through Lobby: Password
+o system: allow strict interface binding for OpenSSH
+o system: prepare for MVC-based routing pages
+o firmware: prepare for production / development release type selection
+o firewall: fix a PHP warning when no user rules are installed
+o firewall: add refresh button to table diagnostics page
+o captive portal: fix chroot regression since lighttpd web server update in 17.7.9
+o interfaces: provide a link-local IPv6 when asking for addresses
+o intrusion detection: sync port-groups to default template
+o ipsec: upgrade vici lib to match strongSwan package
+o network time: fix a PHP warning during NMEA deselect
+o mvc: do not throw disabled errors in handler
+o plugins: os-dyndns 1.4_1 fixes issue with Namecheap error parsing
+o plugins: os-freeradius 1.4.0 adds log viewer and fixes users write (contributed by Michael Muenz)
+o plugins: os-quagga 1.4.3 adds OSPF firewall rule and spinners for save (contributed by Fabian Franz)
+o src: OpenSSL multiple vulnerabilities[1][2]
+o ports: hyperscan 4.6.0[3]
+o ports: openssl 1.0.2n[4]
+o ports: suricata 4.0.3[5]
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] https://www.freebsd.org/security/advisories/FreeBSD-SA-17:11.openssl.asc
+[2] https://www.freebsd.org/security/advisories/FreeBSD-SA-17:12.openssl.asc
+[3] https://github.com/intel/hyperscan/blob/master/CHANGELOG.md#460-2017-09-22
+[4] https://www.openssl.org/news/secadv/20171207.txt
+[5] https://suricata-ids.org/2017/12/06/suricata-4-0-3-available/
