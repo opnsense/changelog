@@ -32,6 +32,12 @@ o ports: hyperscan 4.6.0[3]
 o ports: openssl 1.0.2n[4]
 o ports: suricata 4.0.3[5]
 
+Two plugin hotfixes have been additionally issued:
+
+o plugins: os-quagga 1.4.3_1 fixes service startup regression
+o plugins: os-rfc2136 1.1_1 fixes edit button in IE 11
+
+
 Stay safe,
 Your OPNsense team
 
