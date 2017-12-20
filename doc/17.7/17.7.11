@@ -1,0 +1,39 @@
+@ December 20, 2017
+
+Dear all,
+
+A tiny update to round up the year.  An amazing one it has been.
+We wish everyone happy holidays and see you again next year!
+
+Here are the full patch notes:
+
+o system: numerical sort for "Use" and "MTU" columns in route diagnostics
+o system: gateway group edit tier selection issue with jQuery3
+o system: minor cleanups in the certificates backend
+o firewall: move anti-lockout rule to advanced settings
+o interfaces: minor cleanups in the backend
+o reporting: rework configuration handling on the settings page
+o dnsmasq: minor cleanups in the backend
+o firmware: strip the architecture from the base / kernel set version display
+o firmware: backend preparations for full base / kernel set lock and reinstall
+o firmware: increase crash report file limit to 2 MB
+o ipsec: minor cleanups in the backend
+o unbound: register DHCP domain name for interface if found
+o network time: show full remote address and fix page boxing on status page
+o network time: add advanced custom options
+o network time: fix leap second save
+o network time: minor cleanups in the backend
+o wizard: properly redirect on input errors in system wizard
+o mvc: ignore client-side anchors in breadcrumb generation
+o ui: do not use a CSRF input element ID
+o plugins: os-freeradius 1.4.1 fixes a warning
+  in clients (contributed by Michael Muenz)
+o ports: libxml 2.4.7[1]
+o ports: py-ipaddress 1.0.19
+
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] http://xmlsoft.org/news.html
