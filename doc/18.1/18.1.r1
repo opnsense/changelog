@@ -1,0 +1,173 @@
+@ January 11, 2018
+
+Hello good folks of the Internet,
+
+For more than 3 years now, OPNsense is driving innovation through
+modularising and hardening the open source firewall, with simple
+and reliable firmware upgrades, multi-language support, HardenedBSD
+security, fast adoption of upstream software updates as well as
+clear and stable 2-Clause BSD licensing.
+
+We humbly present to you the sum of another major iteration of the
+OPNsense firewall.  Over the second half of 2017 well over 500 changes
+have made it into this first release candidate.  Most notably, the
+firewall NAT rules have been reworked to be more flexible and usable
+via plugins, which is going to pave the way for subsequent API works
+on the core firewall functionality.  For more details please find the
+attached list of changes below.
+
+Meltdown and Spectre patches are currently being worked on in FreeBSD[1],
+but there is no reliable timeline.  We will keep you up to date through
+the usual channels as more news become available. Hang in there!
+
+Download links, an installation guide[2] and the checksums for the
+images can be found below as well.
+
+o Europe: https://opnsense.c0urier.net/releases/18.1/
+o US East Coast: http://mirrors.nycbug.org/pub/opnsense/releases/18.1/
+o US West Coast: https://mirror.sfo12.us.leaseweb.net/opnsense/releases/18.1/
+o South America: http://mirror.upb.edu.co/opnsense/releases/18.1/
+o South-East Asia: https://ftp.yzu.edu.tw/opnsense/releases/18.1/
+o Full mirror list: https://opnsense.org/download/
+
+Here is the full list of changes against version 17.7.11:
+
+o system: disabled AHCI MSI to prevent early mount failures with removable media
+o system: use correct crypto library to gather GUI SSL ciphers
+o system: added "save and go back" button to user edit page
+o system: removed obsolete host name routing support
+o system: do not wrap action buttons in tunables page
+o system: fix CA serial number decrement on save
+o system: added net.link.bridge.pfil_local_phys to tuneables (contributed by David Harrigan)
+o system: routing configuration was converted to MVC/API (contributed by Fabian Franz)
+o firewall: enables shared forwarding in default configuration
+o firewall: enables sticky connections in default configuration
+o firewall: normal and dynamic log viewers have been superseded by live view
+o firewall: fold NAT reflection type selection into simple checkbox
+o firewall: added option for sticky outbound NAT for WAN VIPs
+o firewall: rewrite of the alias backend code
+o firewall: backend code cleanup
+o firewall: NAT rules have been made pluggable
+o firewall: add indicator for negated fields in shaper grid view (contributed by Fabian Franz)
+o firewall: better NAT formatting in states dump page
+o interfaces: DHCPv6 VLAN priority setting (contributed by Team Rebellion)
+o interfaces: DHCPv6 no release setting (contributed by Team Rebellion)
+o interfaces: only reload DHCPv6 upon correct reason (contributed by Team Rebellion)
+o interfaces: static IPv6 configuration over IPv4 link (contributed by Team Rebellion)
+o interfaces: allow persistent saving and customising of the system IPv6 DUID (contributed by Team Rebellion)
+o interfaces: automatic backup and restore of the system IPv6 DUID
+o interfaces: deferred reload of plugins and VPN upon new interface IP request
+o interfaces: DNS lookup API for firewall live log and insight reporting
+o interfaces: make level of detail stick in packet capture
+o interfaces: auto-lock problematic interfaces upon assignment
+o reporting: do not mark multiple sub-tabs in health page as active
+o firmware: allow to change the package release type
+o firmware: add a package health audit
+o firmware: list installed plugins at the top of the list
+o firmware: visibility for base and kernel sets in packages listing
+o firmware: allow base and kernel set reinstall and locking
+o firmware: remove the discontinued hotfix backend support
+o firmware: allow dot in package name during package action
+o installer: swap partition opt-out during guided installation
+o installer: root password reset tool for existing installations
+o installer: restore IPv6 DUID on config import
+o installer: limit swap partition size to 8 GB (contributed by Frank Wall)
+o ipsec: removed obsolete dynamic host name support
+o ipsec: local group authentication setting
+o ipsec: removed the obsolete "IPsec XAUTH dialin" privilege
+o network time: OPNsense NTP pool is now available and used in default configuration
+o network time: fix for valid negative offset in health graph
+o network time: fix parsing of overly overlong lines
+o openvpn: backend code cleanup
+o openvpn: multiple wizard fixes
+o power: reboot poll dialog
+o web proxy: proper reload on cache setting toggle
+o web proxy: use PID file instead of daemon name for status probe
+o web gui: strict interface binding
+o web gui: removed login autocomplete toggle, now off by design
+o wizard: add Unbound to wizard and unset DNSSEC by default
+o ui: reworked service control look and feel
+o ui: folded tabs for firewall rules, DHCP / RA interfaces and wireless status into menu
+o ui: HTML compliance fixes button in link usage (contributed by NOYB)
+o ui: auto-position menu when item list does not fit the screen
+o ui: reworked sub-tab look and feel
+o ui added menu cache
+o ui: unification of layout of MVC and static page headers
+o ui: migrated to jQuery 3
+o ui: eliminate 300 ms tap delay (contributed by NOYB)
+o mvc: added ACL cache
+o mvc: added code-based ACL extensions
+o mvc: reload syslog settings for plugins
+o mvc: allow input fields to render as read-only (contributed by David Harrigan)
+o mvc: proper target page redirect after login
+o mvc: added mutable service controller
+o mvc: added sub-tab layout partials
+o mvc: do not render empty toggle header
+o plugins: c-icap 1.4 with multiple UI improvements (contributed by Alexander Shursha)
+o plugins: clamav 1.4 with multiple UI improvements (contributed by Alexander Shursha)
+o plugins: dyndns 1.5 with button in link usage fix (contributed by NOYB)
+o plugins: freeradius 1.5.0 with basic LDAP support (contributed by Michael Muenz)
+o plugins: frr 1.0 (contributed by Fabian Franz and Michael Muenz)
+o plugins: haproxy 2.3 allows disabling the introduction pages (contributed by Frank Wall)
+o plugins: helloworld 1.4
+o plugins: igmp-proxy 1.3 with button in link usage fix (contributed by NOYB)
+o plugins: quagga 1.4.4 is end of life, please use FRR instead
+o plugins: tinc 1.3 with path MTU discovery
+o plugins: tor 1.4 adds contact info (contributed by Fabian Franz)
+o plugins: web-proxy-useracl 1.0 (contributed by Smart-Soft)
+o src: update Realtek driver to vendor version 1.94
+o src update FreeBSD to 11.1-RELEASE-p6 with HardenedBSD additions
+o src: shared forwarding for IPv6 and try-forward support
+o ports: libressl 2.6.4[3]
+
+The list of currently known issues with 18.1-RC1:
+
+o The firewall NAT rule generation rewrite is not yet fully verified.
+o The web GUI recovery is not yet fully implemented.
+
+All images are provided with SHA-256 signatures, which can be verified
+against the distributed public key:
+
+# openssl base64 -d -in image.bz2.sig -out /tmp/image.sig
+# openssl dgst -sha256 -verify rsa.pub -signature /tmp/image.sig image.bz2
+
+The public key for the 18.1 series is:
+
+# -----BEGIN PUBLIC KEY-----
+# MIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEA5kMyxEWUoyY3y8JLlOnz
+# j2dE1QPYmWspn5Diqf1T6uSh0/HA8TwnRvI4m82dC2kgnafVB85zIS+rXQLiyJZI
+# JEqmBS5f54kVcyJPVORe7NepJq372amAMTcpPwH4b0SS9ZETebAOyuHjdG/lCjKD
+# yt5W5ZvaMiDMWLVuw1ZlTIxLgkRuCHsk66E1bdoiIMdZPoyk2Q9WQd3PynLRBVHC
+# iT32cJ/NlHiLEALp0wcNr+FllmFQXahQ5R1uBcsE/IXa7Tg0QXlW7s5+d6NTwQ/d
+# 7NVnfZzH8IiO0A/9O5jbBsD6HLmity5nMI+RBwFQ9OQoBNxl5aakkusizT6diMYb
+# PG+zPZsWo/ADqsbg1U/MMLJXD8CDFjcerhIDrrWSIVlSmQKw97nMK/TdUsqnVl7N
+# uDLl0RHe+N6ndmNGTQGg5HbrTmYKSEGBdS4xFtO60JCxubzfpvnkDnPCIJtxWukf
+# TzhORJHj2vkGLDA5FocTSOY76lWUO4qJQBA2bB3GtGbCm/nM4TlHpL4Kbf10IUJk
+# j1tRFi8gXNOhrdplFAR+lV/yy58/+ZOg61Yz7UvYG/A9rxGkyVmIjzB/4S6Wstye
+# IA6vpfzHwHq82hMqafCSB2KJciuKVEgVO6DHLV03VLTPqkJVsCbWXHgNjK2fQCFX
+# JeXNX68TcObIJzqbiegZYo8CAwEAAQ==
+# -----END PUBLIC KEY-----
+
+As always with our pre-releases, only OpenSSL is provided at this point,
+but can be switched for LibreSSL as soon as the release is available.
+This release candidate does update directly into the 18.1 stable track
+and subsequent release candidates.  Please let us know about your experience!
+
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] https://lists.freebsd.org/pipermail/freebsd-security/2018-January/009719.html
+[2] https://docs.opnsense.org/manual/install.html
+[3] https://ftp.openbsd.org/pub/OpenBSD/LibreSSL/libressl-2.6.4-relnotes.txt
+
+# SHA256 (OPNsense-18.1.r1-OpenSSL-dvd-amd64.iso.bz2) = 2a92811d93bcad7de7752a650f9bf934a4d92b190c673bb8d0314474984a5b11
+# SHA256 (OPNsense-18.1.r1-OpenSSL-nano-amd64.img.bz2) = e2a8026c20a3a91b63b1b1195eab689254dbfa80f05e98b8cd24d9b2b6c35356
+# SHA256 (OPNsense-18.1.r1-OpenSSL-serial-amd64.img.bz2) = 944a05acefe1466a8189b2318faa48e39a2e5226853557397c0dcefff8023f26
+# SHA256 (OPNsense-18.1.r1-OpenSSL-vga-amd64.img.bz2) = f8a763ad3b566be3bafa1291210145050431fc79c9f91d151166b57f6ff3e956
+
+# SHA256 (OPNsense-18.1.r1-OpenSSL-dvd-i386.iso.bz2) = 0d29b20a9f806a1a8e443c7d0ebcab0edab8f5c7a9f8fb629fb136956c15994e
+# SHA256 (OPNsense-18.1.r1-OpenSSL-nano-i386.img.bz2) = 65bcad5ebe84a7246a361638436fb1052647ab0b0de44ca57e6a7a1c2a143461
+# SHA256 (OPNsense-18.1.r1-OpenSSL-serial-i386.img.bz2) = 751db8e6d94b7c453b8a37c856725e4299fb929fbf74ae7700fbbe9e56bff0b9
+# SHA256 (OPNsense-18.1.r1-OpenSSL-vga-i386.img.bz2) = 9bb56ca458d54d6cf50c767c3e389e14aa26b27246ae5e266d2d689939c34137
