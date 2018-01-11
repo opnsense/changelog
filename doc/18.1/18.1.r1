@@ -38,7 +38,7 @@ o system: added "save and go back" button to user edit page
 o system: removed obsolete host name routing support
 o system: do not wrap action buttons in tunables page
 o system: fix CA serial number decrement on save
-o system: added net.link.bridge.pfil_local_phys to tuneables (contributed by David Harrigan)
+o system: added net.link.bridge.pfil_local_phys to tunables (contributed by David Harrigan)
 o system: routing configuration was converted to MVC/API (contributed by Fabian Franz)
 o firewall: enables shared forwarding in default configuration
 o firewall: enables sticky connections in default configuration
