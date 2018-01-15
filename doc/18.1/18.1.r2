@@ -45,7 +45,7 @@ o plugins: iperf 1.0 (contributed by Fabian Franz)
 o plugins: lldp 1.0 (contributed by Michael Muenz)
 o plugins: redis 1.0 (contributed by Fabian Franz)
 
-The list of currently known issues with 18.1-RC1:
+The list of currently known issues 18.1-RC2:
 
 o The firewall NAT rule generation rewrite is not yet fully verified.
 o The web GUI recovery is not yet fully implemented.
