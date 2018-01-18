@@ -1,0 +1,53 @@
+@ January 18, 2018
+
+Hello there,
+
+As 18.1 is drawing near this stable update for the 17.7 series could be
+the last one.  So whether there will be a hotfix to enable the update path
+or a full 17.7.13 remains to be seen, but we will keep you informed either
+way.  The targeted release date for 18.1 is January 29.
+
+For now we refrain from letting users upgrade directly to the release
+candidates, but suffice to say that with the development version
+accompanying this update it is possible from the console.  And again
+thank you to all early adopters which have made the release candidates
+a thoroughly enjoyable experience.
+
+Here are the full patch notes:
+
+o system: use correct crypto library to gather GUI SSL ciphers
+o system: do not wrap action buttons in tunables page
+o system: fix CA serial number decrement on save
+o firmware: remove the discontinued hotfix backend support
+o firmware: allow dot in package name during package action
+o firmware: remove defunct mirrors
+o interfaces: make level of detail stick in packet capture
+o interfaces: auto-lock problematic interfaces upon assignment
+o firewall: make NAT reflection enable less ambiguous
+o firewall: fix NAT formatting in states dump page
+o network time: fix for valid negative offset in health graph
+o network time: OPNsense NTP pool is now available
+o network time: fix parsing of overly overlong lines
+o web proxy: use PID file instead of daemon name for status probe
+o wizard: add unbound to wizard and uncheck DNSSEC by default
+o ui: HTML compliance fixes button in link usage (contributed by NOYB)
+o mvc: added mutable service controller
+o mvc: added sub-tab layout partials
+o mvc: do not render empty toggle header
+o plugins: acme-client 1.13[1] (contributed by Frank Wall)
+o plugins: dyndns 1.5 with button in link usage fix (contributed by NOYB)
+o plugins: helloworld 1.4
+o plugins: igmp-proxy 1.3 with button in link usage fix (contributed by NOYB)
+o plugins: tor 1.4 adds contact info (contributed by Fabian Franz)
+o plugins: web-proxy-useracl 1.0 (contributed by Smart-Soft)
+o ports: libressl 2.6.4[2]
+o ports: php 7.1.13[3]
+
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] https://github.com/opnsense/plugins/pull/482
+[2] https://ftp.openbsd.org/pub/OpenBSD/LibreSSL/libressl-2.6.4-relnotes.txt
+[3] http://nl1.php.net/ChangeLog-7.php#7.1.13
