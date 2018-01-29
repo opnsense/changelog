@@ -1,0 +1,132 @@
+@ January 29, 2018
+
+Hello good folks of the Internet,
+
+For more than 3 years now, OPNsense is driving innovation through
+modularising and hardening the open source firewall, with simple
+and reliable firmware upgrades, multi-language support, HardenedBSD
+security, fast adoption of upstream software updates as well as
+clear and stable 2-Clause BSD licensing.
+
+We humbly present to you the sum of another major iteration of the
+OPNsense firewall.  Over the second half of 2017 well over 500 changes
+have made it into this release.  Most notably, the firewall NAT rules
+have been reworked to be more flexible and usable via plugins, which
+is going to pave the way for subsequent API works on the core firewall
+functionality.  For more details please find the attached list of
+changes below.
+
+The upgrade track from 17.7 will be available later today.  Please be
+patient.  :)
+
+Meltdown and Spectre patches are currently being worked on in FreeBSD[1],
+but there is no reliable timeline.  We will keep you up to date through
+the usual channels as more news become available.  Hang in there!
+
+These are the most prominent changes since version 17.7:
+
+o FreeBSD 11.1, PHP 7.1 and jQuery 3 migration
+o Realtek vendor NIC driver version 1.94
+o Portable NAT before IPsec support
+o Local group restriction feature in OpenVPN and IPsec
+o OpenVPN multi-remote support for clients
+o Strict interface binding for SSH and web GUI
+o Improved MVC tabs and general page layout
+o Shared forwarding now works on IPv6, in conjunction with "try-forwarding" and improved reply-to multi-WAN behaviour
+o Easy-to-use update cache support for Linux and Windows in web proxy
+o Intrusion detection alert improvements and plugin support for new rulesets (ET Pro, Snort VRT)
+o Revamped HAProxy plugin with introduction pages
+o Moved interface selection to menu and quick search for firewall rules, DHCP and wireless status
+o Alias backend rewrite for future extensibility
+o Plugin-capable firewall NAT rules
+o Migration of system routes UI and backend to MVC (also available via API)
+o Reverse DNS support for insight reporting (also available via API)
+o Fully rewritten firewall live log in MVC (also available via API)
+o New plugins: zerotier, mdns-repeater, collectd, telegraf, clamav, c-icap, tor, siproxd, web-proxy-sso, web-proxy-useracl, postfix, rspamd, redis, iperf, arp-scan, zabbix-proxy, frr, node_exporter
+
+Download links, an installation guide[2] and the checksums for the
+images can be found below as well.
+
+o Europe: https://opnsense.c0urier.net/releases/18.1/
+o US East Coast: http://mirrors.nycbug.org/pub/opnsense/releases/18.1/
+o US West Coast: https://mirror.sfo12.us.leaseweb.net/opnsense/releases/18.1/
+o South America: http://mirror.upb.edu.co/opnsense/releases/18.1/
+o South-East Asia: https://ftp.yzu.edu.tw/opnsense/releases/18.1/
+o Full mirror list: https://opnsense.org/download/
+
+Here is the full list of changes against version 18.1.r2:
+
+o system: recover static version of PHP configuration files during boot
+o system: show warning dialog when editing web GUI listening interfaces
+o system: allow dots in certificate details
+o system: remove workaround for new 32 bit mmap disallow default (see below)
+o firewall: fix port range forward expansion
+o firewall: move alias directory to persistent memory
+o firewall: fix alias resolve during boot
+o firewall: revert VIP gateway option for PPPoE interfaces
+o interfaces: fix header link in list widget
+o interfaces: defer IP renewal during boot
+o installer: full password recovery mode enables user and sets local authentication
+o installer: prevent MFS transition on install media after import
+o network time: use all our time servers and prefer the first
+o ui: revert menu positioning improvements
+o plugins: os-freeradius 1.5.1 adds LDAP search filter (contributed by Michael Muenz)
+o plugins: os-haproxy 2.4[3] (contributed by Frank Wall)
+o plugins: os-node_exporter 1.0 (contributed by David Harrigan)
+o plugins: os-postfix 1.0 (contributed by Michael Muenz)
+o plugins: os-rspamd 1.0 (contributed by Fabian Franz)
+o plugins: os-telegraf 1.2 adds graphite and graylog output (contributed by Michael Muenz)
+o src: do not protect VLAN PCP write with the sysctl
+o src: enable numbered user class ID option in dhclient
+o src: set hardening.pax.disallow_map32bit.status=1 by default
+o ports: ca_root_nss 3.35
+o ports: libressl[4] 2.6.4
+o ports: php[5] 7.1.13
+o ports: sudo[6] 1.8.22
+o ports: unbound[7] 1.6.8
+
+All images are provided with SHA-256 signatures, which can be verified
+against the distributed public key:
+
+# openssl base64 -d -in image.bz2.sig -out /tmp/image.sig
+# openssl dgst -sha256 -verify rsa.pub -signature /tmp/image.sig image.bz2
+
+The public key for the 18.1 series is:
+
+# -----BEGIN PUBLIC KEY-----
+# MIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEA5kMyxEWUoyY3y8JLlOnz
+# j2dE1QPYmWspn5Diqf1T6uSh0/HA8TwnRvI4m82dC2kgnafVB85zIS+rXQLiyJZI
+# JEqmBS5f54kVcyJPVORe7NepJq372amAMTcpPwH4b0SS9ZETebAOyuHjdG/lCjKD
+# yt5W5ZvaMiDMWLVuw1ZlTIxLgkRuCHsk66E1bdoiIMdZPoyk2Q9WQd3PynLRBVHC
+# iT32cJ/NlHiLEALp0wcNr+FllmFQXahQ5R1uBcsE/IXa7Tg0QXlW7s5+d6NTwQ/d
+# 7NVnfZzH8IiO0A/9O5jbBsD6HLmity5nMI+RBwFQ9OQoBNxl5aakkusizT6diMYb
+# PG+zPZsWo/ADqsbg1U/MMLJXD8CDFjcerhIDrrWSIVlSmQKw97nMK/TdUsqnVl7N
+# uDLl0RHe+N6ndmNGTQGg5HbrTmYKSEGBdS4xFtO60JCxubzfpvnkDnPCIJtxWukf
+# TzhORJHj2vkGLDA5FocTSOY76lWUO4qJQBA2bB3GtGbCm/nM4TlHpL4Kbf10IUJk
+# j1tRFi8gXNOhrdplFAR+lV/yy58/+ZOg61Yz7UvYG/A9rxGkyVmIjzB/4S6Wstye
+# IA6vpfzHwHq82hMqafCSB2KJciuKVEgVO6DHLV03VLTPqkJVsCbWXHgNjK2fQCFX
+# JeXNX68TcObIJzqbiegZYo8CAwEAAQ==
+# -----END PUBLIC KEY-----
+
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] https://lists.freebsd.org/pipermail/freebsd-security/2018-January/009719.html
+[2] https://docs.opnsense.org/manual/install.html
+[3] https://github.com/opnsense/plugins/pull/483
+[4] https://ftp.openbsd.org/pub/OpenBSD/LibreSSL/libressl-2.6.4-relnotes.txt
+[5] http://nl1.php.net/ChangeLog-7.php#7.1.13
+[6] https://www.sudo.ws/stable.html#1.8.22
+[7] http://www.unbound.net/download.html
+
+# SHA256 (OPNsense-18.1-OpenSSL-dvd-amd64.iso.bz2) = 3988c506c818c0861bb9beb38166123e9aca0814c0ef508779c1ebe9a8400c9c
+# SHA256 (OPNsense-18.1-OpenSSL-nano-amd64.img.bz2) = ab284cfd62f095b8f745604099ee8b4f0b5cda06ec67ec72a3ffa921328635d5
+# SHA256 (OPNsense-18.1-OpenSSL-serial-amd64.img.bz2) = 31eb6f7c44126258eb1b062d44dd92b1b0e3ebf57777c899f2df8858e5321b13
+# SHA256 (OPNsense-18.1-OpenSSL-vga-amd64.img.bz2) = 714b347c3c62a9a1178f0b77661fa7e7ad8b0d06c1e174af1085fda761639505
+
+# SHA256 (OPNsense-18.1-OpenSSL-dvd-i386.iso.bz2) = 10d27b8d0e5b4dde46be413088440db47e49f4eea3de53cc7339976c6471d26a
+# SHA256 (OPNsense-18.1-OpenSSL-nano-i386.img.bz2) = 5c4289940f4c7f03eaf4c00d3b673bc85cb366a5f12334d00d19183dbafc221b
+# SHA256 (OPNsense-18.1-OpenSSL-serial-i386.img.bz2) = ff63e759cdab3960119db159141a96f7e98ed0a427621585edc8362b9abf7a33
+# SHA256 (OPNsense-18.1-OpenSSL-vga-i386.img.bz2) = c43712c87a3381102d33f2606fc666fdffde54d81a0f0b8c70cf334eddd4047c
