@@ -43,6 +43,10 @@ o plugins: web-proxy-useracl 1.0 (contributed by Smart-Soft)
 o ports: libressl 2.6.4[2]
 o ports: php 7.1.13[3]
 
+A hotfix release was issued as 17.7.12_1:
+
+o firmware: warn about end of life and enable upgrade path to 18.1
+
 
 Stay safe,
 Your OPNsense team
