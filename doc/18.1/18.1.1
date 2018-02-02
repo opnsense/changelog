@@ -1,0 +1,37 @@
+@ February 02, 2018
+
+Hi everyone,
+
+18.1.1 addresses issues in the previous release, while also updating
+the packages and plugins.  Most notably, a Python library change made
+intrusion detection rules fetch fail previously and we fixed GUI and
+backend behaviour for two special NAT cases.
+
+Here are the full patch notes:
+
+o firewall: ignore target port alias in port forwards when it equals the destination
+o firewall: align outbound NAT address output to edit page
+o firewall: use first region for country in GeoIP category instead of last one
+o system: improve layout of gateway status labels (contributed by Fabian Franz)
+o system: improve order of group / user setup as "wheel" was not added correctly on save
+o dashboard: touch device improvements in widgets (contributed by NOYB)
+o opendns: always refresh the setting on save
+o openvpn: open links in a new tab (contributed by Fabian Franz)
+o ui: system-wide HTML compliance improvements (contributed by NOYB)
+o plugins: arp-scan 1.1 improves interface search (contributed by Giuseppe De Marco)
+o plugins: os-dyndns 1.6 fixes Route 53 IPv6 usage (contributed by theq86)
+o plugins: os-freebsd 1.5.2 clarifies certificate validation (contributed by Michael Muenz)
+o plugins: os-openconnect 1.0 (contributed by Michael Muenz)
+o plugins: os-rfc2136 1.2 improves widget load
+o plugins: os-telegraf 1.3.1 adds ping hosts and graphite validation fix (contributed by Michael Muenz)
+o plugins: os-rspamd 1.1 fixes typos (contributed by Fabian Franz)
+o plugins: os-zerotier 1.3.1 makes database persist on /var MFS (contributed by David Harrigan)
+o ports: curl 7.58.0[1]
+o ports: py27-cryptography 2.1.4
+
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] https://curl.haxx.se/changes.html
