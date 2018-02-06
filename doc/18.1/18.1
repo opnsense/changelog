@@ -89,6 +89,15 @@ A hotfix release was issued as 18.1_1:
 
 o firewall: repair logic for ICMP fixup required by pfctl
 
+Incompatible changes to version 17.7 are as follows:
+
+Automatic outbound NAT now does round-robin for all configured addresses of
+the NAT interface when virtual IPs are defined.  If this is undesired try
+enabling the "Sticky outbound NAT" feature under Firewall: Settings: Advanced
+to keep user sessions from circling through the IP pool.  If this still does
+not solve your issue switch to hybrid or manual outbound NAT and define NAT
+over the WAN address manually.
+
 All images are provided with SHA-256 signatures, which can be verified
 against the distributed public key:
 
