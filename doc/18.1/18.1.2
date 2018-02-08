@@ -1,0 +1,42 @@
+@ February 08, 2018
+
+Hello, hello!
+
+This update addresses an issue with OpenVPN client NAT since 18.1 and a
+default gateway disappearance during route reconfiguration.  Assorted
+minor UI improvements have been made and both Phalcon and PHP are now on
+their latest version.
+
+Here are the full patch notes:
+
+o system: avoid default route from disappearing when no manual gateways are set
+o firewall: fix outbound NAT for OpenVPN interfaces
+o interfaces: multiple overview page improvements (contributed by NOYB)
+o firmware: revoke 17.7 update fingerprint
+o console: check for root invoke in importer, installer and console menu
+o intrusion detection: always show schedule tab
+o intrusion detection: log first drop of a flow
+o intrusion detection: add a log file viewer
+o unbound: add num-queries-per-thread option values for 4096 and 8192
+o ui: remove chrome=1 from X-UA-Compatible meta element (contributed by NOYB)
+o ui: HTML compliance for attribute "type" on script element (contributed by NOYB)
+o ui: HTML compliance for "navigation" "role" on nav element (contributed by NOYB)
+o ui: checkbox and radio button label children tweaks (contributed by NOYB)
+o ui: break help text on small screens
+o ui use pluggable locations for theme files
+o ui: remove table-responsive padding on small screens
+o ui: user-scalable viewport (contributed by NOYB)
+o mvc: CRUD functions for mutable model controller (contributed by Fabian Franz)
+o plugins: os-frr 1.0 with CRUD refactor (contributed by Fabian Franz)
+o plugins: os-tor 1.5 with CRUD refactor (contributed by Fabian Franz)
+o ports: phalcon 3.3.1
+o ports: php 7.1.14
+
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] https://github.com/phalcon/cphalcon/releases/tag/v3.3.0
+[2] https://github.com/phalcon/cphalcon/releases/tag/v3.3.1
+[3] http://www.php.net/ChangeLog-7.php#7.1.14
