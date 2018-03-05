@@ -1,0 +1,64 @@
+@ March 05, 2018
+
+Good morning everyone,
+
+Security updates for Squid, Suricata and NTP are now available, although
+more are pending which would indicate a version 18.1.4 later this week.
+Also, a number of firewall section fixes have been included.
+
+Here are the full patch notes:
+
+o system: account for variable headers in top output
+o system: move gateway status into main pages
+o system: slightly reorder routing configuration calls
+o system: optimize reading of SSL crypto library version string (contributed by Alexander Shursha)
+o system: rework LDAP authentication container selection
+o interfaces: avoid interaction of overview details with menu items
+o interfaces: allow "reject leases from" option in DHCP advanced settings
+o firewall: set alias cron update interval to 1 minute
+o firewall: align alias cron update with its background call
+o firewall: URL IP alias type missing in selections
+o firewall: fix defunct alias target in outbound NAT
+o firewall: ignore alias case while searching
+o firewall: move rule category filter to the top of the page
+o firewall: show IPv6 ports in live log and fix details for TCP
+o firewall: move general settings to AliasParser and fix Alias constructor to receive them
+o firewall: if the name of the alias equals its content try to resolve
+o dhcp: advertisement problem on PPPoE link without public IPv6 address (contributed by Team Rebellion)
+o dhcp: UEFI 64 network boot using wrong arch type
+o dhcp: validate maximum interface MTU
+o dhcp: add validation for DUID fields
+o ipsec: auto-route disable setting (contributed by Namezero)
+o network time: inline NMEA checksum calculator (contributed by Fabian Franz)
+o network time: fix stratum level write
+o unbound: optimize outgoing-range differently
+o unbound: local zone setting (contributed by NOYB)
+o ui: fix cropped dropdown regression
+o mvc: translate option values (contributed by Alexander Shursha)
+o mvc: fix access to undefined property translator
+o mvc: fix typo in getBase()
+o mvc: improve phpdoc
+o rc: protect console menu again, but keep shell invoke for rc.d subsystem
+o rc: fix some typos (contributed by John Eismeier)
+o rc: proper includes for plugin post-install hook
+o rc: recover all known shells
+o plugins: os-clamav 1.5 fixes log file parsing
+o plugins: os-frr 1.1 fixes service start on boot
+o plugins: os-haproxy 2.5[1] with PROXY support and HAProxy 1.8 (contributed by Frank Wall)
+o plugins: os-monit 1.5 (contributed by Frank Brendel)
+o ports: mpd 5.8[2]
+o ports: ntp 4.2.8p11[3]
+o ports: squid 3.5.27[4][5]
+o ports: suricata 4.0.4[6]
+
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] https://github.com/opnsense/plugins/pull/541
+[2] https://reviews.freebsd.org/D9848
+[3] http://support.ntp.org/bin/view/Main/SecurityNotice#February_2018_ntp_4_2_8p11_NTP_S
+[4] http://www.squid-cache.org/Advisories/SQUID-2018_1.txt
+[5] http://www.squid-cache.org/Advisories/SQUID-2018_2.txt
+[6] https://suricata-ids.org/2018/02/14/suricata-4-0-4-available/
