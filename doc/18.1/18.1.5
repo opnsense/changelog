@@ -1,0 +1,75 @@
+@ March 21, 2018
+
+Dear all,
+
+Today ships Meltdown and Spectre V2 mitigation for amd64, the latter only
+effective with the corresponding microcode update.  However, the combating
+of speculative execution security issues remains an ongoing quest for the
+unforeseeable future.  To avoid surprises HardenedBSD has enabled Meltdown
+mitigation (PTI) by default even for AMD CPUs who have not yet been found
+vulnerable.  Performance impact is luckily minimal here, although the Spectre
+V2 mitigation (IBRS) can slow down CPUs with the respective microcode updates
+in place.
+
+To opt out of one or both features, the following values can now be
+persistently set under System: Settings: Tunables:
+
+o Disable PTI via "vm.pmap.pti" to "0" and a reboot, and
+o Disable IBRS via "hw.ibrs_disable" to "1" with a simple "Apply".
+
+Here are the full patch notes:
+
+o system: optional prefix Google Drive backups with host and domain name
+o system: also render tunables in loader.conf to obsolete loader.conf.local editing
+o interfaces: allow /127, /128 and /32 static IP address configurations everywhere
+o interfaces: improve logging and assorted cleanups (contributed by Team Rebellion)
+o interfaces: ignore dynamic linkup events for unassigned interfaces
+o interfaces: hide previously assigned interfaces from bridges
+o interfaces: allow all IPv6 prefixes from 48 to 64 for DHCPv6 mode
+o firewall: add VIP gateway option for PPPoE interfaces
+o firewall: add update interval option to log widget (contributed by NOYB)
+o firewall: respect mask in traffic shaper queue config (contributed by Michael Muenz)
+o firmware: fix opnsense-code for src.git and ABI probing
+o firmware: fix opnsense-patch file permission apply for plugins
+o intrusion detection: support request headers in ruleset metadata
+o openvpn: switch status to version 3 to avoid wrong parsing of commas
+o openvpn: parse all states to retrieve all relevant connection status info
+o captive portal: exclude "I" from simplified voucher character set for clarity
+o plugins: os-lldpd 1.1 adds interface selection (contributed by Michael Muenz)
+o plugins: os-monit 1.6 fixes file path validation (contributed by Frank Brendel)
+o plugins: os-postfix 1.1 adds smart host and SMTP authentication (contributed by Michael Muenz)
+o plugins: os-tinc 1.3 corrects host port usage (contributed by DasTestament)
+o plugins: os-tor 1.6 adds IPv6 and exit settings (contributed by Gijs Peskens)
+o ui: update tokenizer to 2.6, visual tweaks and blur-add
+o ui: buttons for services control in MVC (contributed by Smart-Soft)
+o src: reinitialize IP header length after checksum calculation[1]
+o src: fix IPsec validation and use-after-free[2]
+o src: update timezone database information[3]
+o src: update file(1) to new version with security update[4]
+o src: add mitigations for two classes of speculative execution vulnerabilities on amd64[5]
+o ports: ca_root_nss 3.36
+o ports: curl 7.59.0[6]
+o ports: igmpproxy 0.2.1[7]
+o ports: lighttpd 1.4.49[8]
+o ports: openvpn 2.4.5[9]
+o ports: phalcon 3.3.2[10]
+o ports: php 7.1.15[11]
+o ports: strongswan 5.6.2 fix for public key authentication[12]
+
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=223835
+[2] https://www.freebsd.org/security/advisories/FreeBSD-SA-18:01.ipsec.asc
+[3] https://www.freebsd.org/security/advisories/FreeBSD-EN-18:01.tzdata.asc
+[4] https://www.freebsd.org/security/advisories/FreeBSD-EN-18:02.file.asc
+[5] https://www.freebsd.org/security/advisories/FreeBSD-SA-18:03.speculative_execution.asc
+[6] https://curl.haxx.se/changes.html
+[7] https://github.com/pali/igmpproxy/releases/tag/0.2.1
+[8] https://www.lighttpd.net/2018/3/11/1.4.49/
+[9] https://community.openvpn.net/openvpn/wiki/ChangesInOpenvpn24
+[10] https://github.com/phalcon/cphalcon/releases/tag/v3.3.2
+[11] http://php.net/ChangeLog-7.php#7.1.15
+[12] https://github.com/freebsd/freebsd-ports/commit/32b1298c0
