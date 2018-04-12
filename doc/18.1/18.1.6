@@ -6,11 +6,13 @@ With Meltdown and Spectre just behind us here comes another round of
 security advisories and assorted changes.
 
 Three mentionable changes are included: We are switching back to
-single-source NAT on the primary IP instead of using all additional
-VIPs on the interface.  The hardware-assisted VLAN capability check
-was removed from the system enabling e.g. XEN users to create VLANs.
-And the multi-WAN traffic shaping experience has been corrected for
-non-default interfaces within the scope of shared forwarding.
+single-source automatic outbound NAT on the primary IP instead of
+using all additional VIPs on the interface as was the case with
+OPNsense 17.7 and earlier.  The hardware-assisted VLAN capability
+check was removed from the system enabling e.g. XEN users to create
+VLANs.  And the multi-WAN traffic shaping experience has been
+corrected for non-default interfaces within the scope of shared
+forwarding.
 
 Expected is an image release based on this version some time within
 the next week for completeness.
@@ -23,7 +25,7 @@ o system: separate web GUI and configd log files
 o system: add syslog and login service visibility
 o system: show root as disabled in user manager if disabled
 o interfaces: no longer restrict VLAN driver capability
-o firewall: switch back to old NAT auto-outbound behaviour
+o firewall: switch back to the pre-18.1 auto-outbound NAT behaviour
 o firewall: reload schedules 1 minute later
 o firewall: filter descriptions option does no longer exist
 o firewall: updated anti-lockout link (contributed by Michael Muenz)
