@@ -54,7 +54,7 @@ o plugins: os-web-proxy-sso 2.2 adds XMLRPC sync (contributed by Smart-Soft)
 o plugins: os-web-proxy-useracl 1.1 adds XMLRPC sync (contributed by Smart-Soft)
 o plugins: os-zabbix-agent 1.2_1 fixes service controls
 o src: fix mutli-wan traffic shaper on non-default gateway interfaces
-o src:  ipsec crash or denial of service[1]
+o src: ipsec crash or denial of service[1]
 o src: vt console memory disclosure[2]
 o src: multiple small kernel memory disclosures[3]
 o src: timezone database information update[4]
@@ -63,6 +63,59 @@ o ports: openssl 1.0.2o[6]
 o ports: perl 5.26.1[7]
 o ports: php 7.1.16[8]
 o ports: squid 3.5.27 adds LDAP authentication
+
+We are also happy to announce the immediate availability of the renewed
+OPNsense 18.1 images based on version 18.1.6.  Apart from the numerous
+improvements since the initial release, the images contain three
+relevant fixes:
+
+o Fix Unbound DNS parameter underflow on systems with higher number of CPUs
+o Disable Health Reporting (RRD) by default on Nano images to reduce write cycles
+o Disable TRIM by default on Nano images to prevent corruptions of the file system
+
+The full list of changes of the OPNsense 18.1 series can be reviewed
+using their original announcements:
+
+o 18.1: https://forum.opnsense.org/index.php?topic=7044.0
+o 18.1.1: https://forum.opnsense.org/index.php?topic=7138.0
+o 18.1.2: https://forum.opnsense.org/index.php?topic=7219.0
+o 18.1.3: https://forum.opnsense.org/index.php?topic=7492.0
+o 18.1.4: https://forum.opnsense.org/index.php?topic=7543.0
+o 18.1.5: https://forum.opnsense.org/index.php?topic=7679.0
+o 18.1.6: this document
+
+Download links, an installation guide[9] and the checksums for the
+images can be found below as well.
+
+o Europe: https://opnsense.c0urier.net/releases/18.1/
+o US East Coast: http://mirrors.nycbug.org/pub/opnsense/releases/18.1/
+o US West Coast: https://mirror.sfo12.us.leaseweb.net/opnsense/releases/18.1/
+o South America: http://mirror.upb.edu.co/opnsense/releases/18.1/
+o South-East Asia: https://ftp.yzu.edu.tw/opnsense/releases/18.1/
+o Full mirror list: https://opnsense.org/download/
+
+All images are provided with SHA-256 signatures, which can be verified
+against the distributed public key:
+
+# openssl base64 -d -in image.bz2.sig -out /tmp/image.sig
+# openssl dgst -sha256 -verify rsa.pub -signature /tmp/image.sig image.bz2
+
+The public key for the 18.1 series is:
+
+# -----BEGIN PUBLIC KEY-----
+# MIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEA5kMyxEWUoyY3y8JLlOnz
+# j2dE1QPYmWspn5Diqf1T6uSh0/HA8TwnRvI4m82dC2kgnafVB85zIS+rXQLiyJZI
+# JEqmBS5f54kVcyJPVORe7NepJq372amAMTcpPwH4b0SS9ZETebAOyuHjdG/lCjKD
+# yt5W5ZvaMiDMWLVuw1ZlTIxLgkRuCHsk66E1bdoiIMdZPoyk2Q9WQd3PynLRBVHC
+# iT32cJ/NlHiLEALp0wcNr+FllmFQXahQ5R1uBcsE/IXa7Tg0QXlW7s5+d6NTwQ/d
+# 7NVnfZzH8IiO0A/9O5jbBsD6HLmity5nMI+RBwFQ9OQoBNxl5aakkusizT6diMYb
+# PG+zPZsWo/ADqsbg1U/MMLJXD8CDFjcerhIDrrWSIVlSmQKw97nMK/TdUsqnVl7N
+# uDLl0RHe+N6ndmNGTQGg5HbrTmYKSEGBdS4xFtO60JCxubzfpvnkDnPCIJtxWukf
+# TzhORJHj2vkGLDA5FocTSOY76lWUO4qJQBA2bB3GtGbCm/nM4TlHpL4Kbf10IUJk
+# j1tRFi8gXNOhrdplFAR+lV/yy58/+ZOg61Yz7UvYG/A9rxGkyVmIjzB/4S6Wstye
+# IA6vpfzHwHq82hMqafCSB2KJciuKVEgVO6DHLV03VLTPqkJVsCbWXHgNjK2fQCFX
+# JeXNX68TcObIJzqbiegZYo8CAwEAAQ==
+# -----END PUBLIC KEY-----
 
 
 Stay safe,
@@ -77,3 +130,14 @@ Your OPNsense team
 [6] https://www.openssl.org/news/secadv/20180327.txt
 [7] https://metacpan.org/pod/release/SHAY/perl-5.26.1/pod/perldelta.pod
 [8] http://php.net/ChangeLog-7.php#7.1.16
+[9] https://docs.opnsense.org/manual/install.html
+
+# SHA256 (OPNsense-18.1.6-OpenSSL-dvd-amd64.iso.bz2) = ee296edf026abd23b01d04c2aee7b9a0578ad4b3aa039e50eb40f720f13eac58
+# SHA256 (OPNsense-18.1.6-OpenSSL-nano-amd64.img.bz2) = 204e87a93b5bd0f7742e90bef8ae20bfd7c362a73ee29054a96356e9649572b3
+# SHA256 (OPNsense-18.1.6-OpenSSL-serial-amd64.img.bz2) = 063dc97b4177a932ba0bb243bec54b6b568ed84e515445b3eae7ba54f087478f
+# SHA256 (OPNsense-18.1.6-OpenSSL-vga-amd64.img.bz2) = 9be03dccce94705c35c476ea7ca0e2f42c70049ecc5c681a6dfe92b7f21d7c34
+
+# SHA256 (OPNsense-18.1.6-OpenSSL-dvd-i386.iso.bz2) = 06883a48295529bb7fae9fff4a77bbb95df9fcb08554f4c73aa3e0b894a4158b
+# SHA256 (OPNsense-18.1.6-OpenSSL-nano-i386.img.bz2) = ea87270fb5c83943c7cccae12ae9579f4f3a82489a901881cd4a786b7e09009d
+# SHA256 (OPNsense-18.1.6-OpenSSL-serial-i386.img.bz2) = 3ccbdf4fd31913afc93b0b51b4784df01d22ec03156659efe78d36ab2dcf222f
+# SHA256 (OPNsense-18.1.6-OpenSSL-vga-i386.img.bz2) = 252b16aae7592faf3d5912b5394124e494db7797ebeec7d6b7fae9a52ad28cd4
