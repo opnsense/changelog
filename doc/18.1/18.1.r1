@@ -91,7 +91,7 @@ o ui: folded tabs for firewall rules, DHCP / RA interfaces and wireless status i
 o ui: HTML compliance fixes button in link usage (contributed by NOYB)
 o ui: auto-position menu when item list does not fit the screen
 o ui: reworked sub-tab look and feel
-o ui added menu cache
+o ui: added menu cache
 o ui: unification of layout of MVC and static page headers
 o ui: migrated to jQuery 3
 o ui: eliminate 300 ms tap delay (contributed by NOYB)
