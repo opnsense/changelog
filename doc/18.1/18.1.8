@@ -1,0 +1,72 @@
+@ May 17, 2018
+
+Hi there,
+
+This update to 18.1.8 contains several improvements, kernel security
+patches and third-party software updates.
+
+Highlights include boot support on an otherwise installed ZFS.  The
+default route handling was improved to minimise issues with unstable
+links.  A NUT plugin is now available as well as a second optional
+theme.
+
+Here are the full patch notes:
+
+o system: improve VLAN console assignment handling
+o system: move backup crypto code to the only page using it
+o system: improve validation for web GUI related settings
+o system: split off monitor reload for upcoming dpinger integration
+o system: default route handler skips an already active default route
+o system: default route handler purges hint files only when switching to a newer route
+o system: default gateway switching uses the standard default route handler
+o system: properly add LDAP picker to ACL
+o system: properly unset password expired message after password change
+o interfaces: clear up use IPv4 connectivity and fix several typos
+o interfaces: parse and report tunnel data
+o interfaces: move dhclient-script to proper location
+o interfaces: allow SLAAC to latch on to IPv4 link
+o reporting: add destination address in Insight detail search
+o dhcp: fix labels of services to align with menu
+o dhcp: domain-search-list usage was removed in 2012
+o ipsec: rewrite resolve_retry() for its only use case
+o ipsec: improve RADIUS secret escaping (contributed by Rafael Cano)
+o ipsec: fix missing disable of DH group setting
+o router advertisements: correctly merge DNS server arrays
+o router advertisements: fix DNSSL settings
+o router advertisements: fix duplicated subnet statements
+o openssh: also use static interface IP addresses to listen on explicitly
+o unbound: allow wildcard host entry (contributed by Eugen Mayer)
+o webgui: also use static interface IP addresses to listen on explicitly
+o backend: improve escaping of passed parameters
+o ui: correct heigh of the login title bar
+o ui: unify the label printing of interfaces
+o ui: refactor script match for help messages
+o rc: ZFS boot awareness
+o plugins: os-cache 1.0 is an optional web server cache for the GUI/API
+o plugins: os-debug 1.3 now holds its own PHP settings
+o plugins: os-nut 1.0 (contributed by Michael Muenz)
+o plugins: os-snmp 1.3 improves handling of interface binding
+o plugins: os-theme-cicada 1.0 (contributed by Rene via Team Rebellion)
+o src: mishandling of x86 debug exceptions[1]
+o src: multiple small kernel memory disclosures[2]
+o src: timezone database information update[3]
+o ports: ca_root_nss 3.37
+o ports: krb5 1.16.1[4]
+o ports: liblz4 1.8.2[5]
+o ports: python 2.7.15[6]
+o ports: sqlite 3.23.1[7]
+o ports: sudo 1.8.23[8]
+
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] https://www.freebsd.org/security/advisories/FreeBSD-SA-18:06.debugreg.asc
+[2] https://www.freebsd.org/security/advisories/FreeBSD-EN-18:05.mem.asc
+[3] https://www.freebsd.org/security/advisories/FreeBSD-EN-18:06.tzdata.asc
+[4] https://web.mit.edu/kerberos/krb5-1.16/
+[5] https://github.com/lz4/lz4/releases/tag/v1.8.2
+[6] https://www.python.org/downloads/release/python-2715/
+[7] https://www.sqlite.org/releaselog/3_23_1.html
+[8] https://www.sudo.ws/stable.html#1.8.23
