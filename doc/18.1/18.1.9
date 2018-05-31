@@ -1,0 +1,95 @@
+@ May 31, 2018
+
+Good day to all,
+
+This update is going forward with a larger batch of firmware update
+improvements that are important for 18.7 and beyond, addressing the
+former lack of error handling, check for update speed and API check
+capabilities for major upgrades.
+
+Intrusion detection syslog behaviour changes slightly after a number
+of good discussions, meaning that now syslog is always on, but fast
+log alert info is steered by the former syslog option making the
+option the best of both worlds and enabling future syslog export,
+which is now also available in the development version.
+
+Last but not least we want to mention the work done on allowing detached
+UI development which is now included in the release.  For more information
+check out the UI development tools[1] that have been released alongside.
+
+There is more preparation underway for 18.7, but that info will have to
+wait as it eludes the context of this announcement.  Feel free to
+frequently check the milestone progress in the forums[2] in the meantime.
+
+Here is the full list of changes:
+
+o firewall: advanced option to reset states on IPv4 change
+o interfaces: rename $wancfg to $lancfg in tracking code
+o interfaces: further simplifications for dhclient usage
+o reporting: add logging to database repair stage
+o reporting: Insight click event issue
+o system: use uppercase gateway names for compatibility
+o system: gateway alert script always returns true
+o system: align static ACL check with MVC variant
+o system: pluggable backup support
+o system: configurable user landing pages
+o system: safety belt for password policy check
+o wizard: add missing element IDs to fix scripting issues
+o firmware: parse and return to be removed packages for update summary
+o firmware: release type change properly updates the repository and summary
+o firmware: extended settings can now be registered via XML files
+o firmware: return repository errors in greater detail (4 new error types)
+o firmware: make returned backend JSON a bit more human-readable
+o firmware: fix leak of base/kernel update info on package manager updates
+o firmware: refactor package manager update summary parsing for speed
+o firmware: add and use API for major upgrades
+o dhcp: fix unwanted name-server write in v6
+o dhcp: ldap-server does not exist in v6
+o intrusion detection: update classification.config
+o intrusion detection: optional fast log to syslog
+o ipsec: set ignore_acquire_ts to allow ASA compatibility
+o ipsec: add ike_name to syslog output
+o openvpn: improve validation between TCP, TCP4, TCP6, UDP, UDP4 and UDP6
+o console: manual pages for opnsense-importer and opnsense-installer
+o console: let opnsense-installer set up an early runtime environment
+o console: show firmware reboot hint prior to update when applicable
+o console: longer timeout for opnsense-importer invoke on first boot
+o console: proper return values for opnsense-importer in edge cases
+o mvc: support multiple directories for detached UI development
+o mvc: add AddressFamily option to NetworkField
+o mvc: non-functional menu node name tweaks
+o rc: action changes for "||" avoidance
+o ui: fix tokenizer selection when values and labels do not match
+o ui: serve 404 when page was not found
+o ui: add and use SVG logo support
+o ui: upgrade nvd3 to version 1.8.6
+o plugins: os-acme-client 1.15[3] (contributed by Frank Wall and Omar Khalil)
+o plugins: os-freeradius 1.7.0 (contributed by Michael Muenz)
+o plugins: os-haproxy 2.7[4] (contributed by Frank Wall)
+o plugins: os-postfix 1.3 (contributed by Michael Muenz)
+o plugins: os-siproxd 1.3 (contributed by Michael Muenz)
+o plugins: os-telegraf 1.4.0 (contributed by Michael Muenz)
+o plugins: os-theme-ciaca 1.1 (contributed by Team Rebellion)
+o plugins: os-theme-rebellion 1.1 (contributed by Team Rebellion)
+o plugins: os-theme-tukan 1.0 (contributed by Team Rebellion)
+o ports: ca_root_nss 3.37.1
+o ports: curl 7.60.0[5]
+o ports: pcre 8.42[6]
+o ports: php 7.1.18[7]
+o ports: pkg upstream fix for segfault on upgrade[8]
+o ports: unbound 1.7.1[9]
+
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] https://github.com/opnsense/ui_devtools
+[2] https://forum.opnsense.org/index.php?topic=8597.0
+[3] https://github.com/opnsense/plugins/pull/682
+[4] https://github.com/opnsense/plugins/pull/579
+[5] https://curl.haxx.se/changes.html
+[6] https://www.pcre.org/original/changelog.txt
+[7] http://php.net/ChangeLog-7.php#7.1.18
+[8] https://github.com/freebsd/pkg/issues/1663
+[9] http://www.unbound.net/download.html
