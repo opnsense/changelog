@@ -1,0 +1,69 @@
+@ June 21, 2018
+
+Good morning,
+
+This update ships with the optional gateway monitoring tool dpinger and a
+new config backup option onto Nextcloud.  SSL crypto libraries have been
+updated to address CVE-2018-0732 along with other updates to assorted third
+party software.
+
+Here are the full patch notes:
+
+o system: provide default for user language
+o system: do not allow spaces in group names
+o system: dpinger gateway monitor option (contributed by Team Rebellion)
+o system: prepare for upcoming DH parameter regeneration feature
+o system: Nextcloud backup support (contributed by Fabian Franz)
+o system: userid 0 has trouble with %s in redirects, use %d instead
+o system: QR code quiet zone support[1]
+o system: add selectpicker style where previously missing
+o firmware: allow both origin.conf and OPNsense.conf to be used for repository setup
+o firmware: exclude password database files from base update as it breaks sudo
+o interfaces: clean up reload structure for single interfaces
+o interfaces: remove unused interface reload script
+o interfaces: simplify semantics of link_interface_to_track6()
+o interfaces: assorted cleanups in the code
+o firewall: add enable flag to shaper rules
+o firewall: improve parsing speed of firewall log
+o firewall: fix wrong alias reference in outbound rules
+o firewall: generate ipfw comments for debugging (contributed by Robin Schneider)
+o firewall: move color settings from schedules to theme (contributed by Fabian Franz)
+o intrusion detection: correct typo in CSS
+o openvpn: raise default DH parameter to 2048 bit
+o console: pass output of stop scripts to user during halt/reboot
+o console: clarify that installer is for installing  when SSH is off also
+o rc: change NetFlow backup to only stop/start when needed
+o rc: backup and restore via XML files again
+o rc: slightly refactor halt/reboot/shutdown
+o rc: break out config stop script
+o rc: simplify configctl plumbing
+o ui: add country flags for upcoming changes in GeoIP handling
+o ui: trigger onChange event to support custom hooks in form post
+o ui: change multi-select default from tokenizer to selectpicker
+o ui: add support for custom separators in select items
+o plugins: test for template scripts before executing them
+o plugins: os-acme-client fixes password field usage
+o plugins: os-relayd 2.0 MVC rewrite (contributed by Frank Brendel)
+o plugins: os-smart 1.3 translation and UI fixes (contributed by Fabian Franz)
+o plugins: os-upnp daemon now uses CHECK_PORTINUSE and PF_FILTER_RULES port options
+o plugins: os-zerotier 1.3.2 translation and UI fixes (contributed by Smart-Soft)
+o ports: ca_root_nss 3.37.3
+o ports: libressl 2.6.5[2]
+o ports: openssl patch for CVE-2018-0732[3]
+o ports: phalcon 3.4.0[4]
+o ports: sqlite 3.24.0[5]
+o ports: strongswan 5.6.3[6]
+o ports: unbound 1.7.2[7]
+
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] https://github.com/jeromeetienne/jquery-qrcode/pull/43
+[2] https://ftp.openbsd.org/pub/OpenBSD/LibreSSL/libressl-2.6.5-relnotes.txt
+[3] https://github.com/freebsd/freebsd-ports/commit/c5a81698
+[4] https://github.com/phalcon/cphalcon/releases/tag/v3.4.0
+[5] https://sqlite.org/releaselog/3_24_0.html
+[6] https://wiki.strongswan.org/versions/69
+[7] http://www.unbound.net/download.html
