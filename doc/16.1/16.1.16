@@ -26,7 +26,7 @@ o src: kernel stack disclosure in 4.3BSD compatibility layer[3]
 o src: directory traversal in cpio[4]
 o ports: libressl 2.3.5[5], phalcon 2.0.13[6], dnsmasq 2.76[7]
 o ports: apinger 0.7[8], curl 7.49[9], bind 9.10.4-p1[10]
-o ports: php 5.6.22[11], sqlite 3.13[12], ntp 4.2.8p8[13]
+o ports: php 5.6.22[11], sqlite 3.13.0[12], ntp 4.2.8p8[13]
 o dashboard: movable widgets, multi-column support and improved
   look and feel
 o system: improved CSRF handling
@@ -88,5 +88,5 @@ Your OPNsense team
 [9] https://curl.haxx.se/changes.html
 [10] https://kb.isc.org/article/AA-01383/81/BIND-9.10.4-P1-Release-Notes.html
 [11] http://php.net/ChangeLog-5.php#5.6.22
-[12] http://www.sqlite.org/changes.html
+[12] https://sqlite.org/releaselog/3_13_0.html
 [13] https://www.eecis.udel.edu/~ntp/ntp_spool/ntp4/ChangeLog-stable

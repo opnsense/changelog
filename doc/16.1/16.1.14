@@ -67,7 +67,7 @@ Your OPNsense team
 [5] https://www.freebsd.org/security/advisories/FreeBSD-EN-16:08.zfs.asc
 [6] https://www.freebsd.org/security/advisories/FreeBSD-SA-16:18.atkbd.asc
 [7] https://www.freebsd.org/security/advisories/FreeBSD-SA-16:19.sendmsg.asc
-[8] http://www.sqlite.org/changes.html
+[8] https://sqlite.org/releaselog/3_12_2.html
 [9] https://community.openvpn.net/openvpn/wiki/ChangesInOpenvpn23#OpenVPN2.3.11
 [10] http://ftp.meisei-u.ac.jp/mirror/squid/squid-3.5-ChangeLog.txt
 [11] https://docs.opnsense.org/manual/how-tos/insight.html
