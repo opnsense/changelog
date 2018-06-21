@@ -31,7 +31,7 @@ o firewall: move color settings from schedules to theme (contributed by Fabian F
 o intrusion detection: correct typo in CSS
 o openvpn: raise default DH parameter to 2048 bit
 o console: pass output of stop scripts to user during halt/reboot
-o console: clarify that installer is for installing  when SSH is off also
+o console: clarify that installer is for installing when SSH is off also
 o rc: change NetFlow backup to only stop/start when needed
 o rc: backup and restore via XML files again
 o rc: slightly refactor halt/reboot/shutdown
