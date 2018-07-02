@@ -1,0 +1,45 @@
+@ July 02, 2018
+
+Hi there,
+
+A small update ships several improvements and preparations for the upcoming
+version 18.7.  We are also bundling a patch for the lazy FPU state restore
+information disclosure.
+
+Here are the full patch notes:
+
+o system: enforce full password policy check for local passwords including TOTP
+o system: add RFC 7919 DH parameter files for upcoming 18.7 feature
+o system: add 3072-bit RSA key length options to certificates (contributed by Justin Coffman)
+o system: move auto-cron jobs to plugin files
+o interfaces: refactor reload handling around interfaces_configure()
+o interfaces: allow private addresses in 6RD
+o interfaces: check existence of "status" (contributed by Tian Yunhao)
+o reporting: add NetFlow/Insight database force repair function
+o dhcp: update from ISC version 4.3 to 4.4
+o importer: allow ZFS import for upcoming 18.7 ZFS installer feature
+o importer: allow import from simple MSDOS USB drives
+o intrusion detection: add app detect rules (contributed by Michael Muenz)
+o rc: suppress message of service not enabled on NetFlow backup
+o rc: use exec in /etc/rc and /etc/rc.shutdown hooks
+o rc: rework rc.syshook facility to be driven by directories and not suffixes
+o unbound: remove defunct unbound_statistics() function
+o plugins: os-postfix 1.4 advanced force recipient check (contributed by Michael Muenz)
+o plugins: service start corrections for accompanying rc.syshook changes
+o src: incorrect TLB shootdown for Xen-based guests[1]
+o src: lazy FPU state restore information disclosure[2]
+o src: enable usage of locate(1) utility
+o ports: isc-dhcp 4.4.1[3]
+o ports: php 7.1.19[4]
+o ports: unbound 1.7.3[5]
+
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] https://www.freebsd.org/security/advisories/FreeBSD-EN-18:07.pmap.asc
+[2] https://www.freebsd.org/security/advisories/FreeBSD-SA-18:07.lazyfpu.asc
+[3] https://deepthought.isc.org/article/AA-01571
+[4] http://php.net/ChangeLog-7.php#7.1.19
+[5] http://www.unbound.net/download.html
