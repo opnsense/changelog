@@ -1,0 +1,143 @@
+@ July 11, 2018
+
+Dear friends and followers,
+
+For 3 and a half years now, OPNsense is driving innovation through
+modularising and hardening the open source firewall, with simple
+and reliable firmware upgrades, multi-language support, HardenedBSD
+security, fast adoption of upstream software updates as well as clear
+and stable 2-Clause BSD licensing.
+
+Another 6 months passed by ever so quickly!  The main goal for 18.7 is
+stability so we have not yet begun to adopt FreeBSD 11.2, but there are
+several Intel NIC driver updates included to bridge the gap until 19.1
+comes out.  The upgrade also includes a tremendous amount of IPv6
+improvements and authentication framework consolidation.  Please also
+take note that QinQ is no longer included in this release.
+
+We thank all of you for helping test, shape and contribute to the project!
+We know it would not be the same without you.
+
+Download links, an installation guide[1] and the checksums for the images
+can be found below as well.
+
+o Europe: https://opnsense.c0urier.net/releases/18.7/
+o US East Coast: http://mirrors.nycbug.org/pub/opnsense/releases/18.7/
+o US West Coast: https://mirror.sfo12.us.leaseweb.net/opnsense/releases/18.7/
+o South America: http://mirror.upb.edu.co/opnsense/releases/18.7/
+o South-East Asia: https://ftp.yzu.edu.tw/opnsense/releases/18.7/
+o Full mirror list: https://opnsense.org/download/
+
+Here are the full changes against version 18.1.11:
+
+o system: improve local account expire cron job to also flush passwords and SSH keys
+o system: do not account-lock root user to avoid meddling with cron
+o system: only write authorized SSH keys for login-capable users
+o system: Diffie-Helman parameter selection: auto, cron-based, RFC 7919
+o system: avoid use of expired nsCertType attribute in certificate purpose test (contributed by Justin Coffman)
+o system: steer SSH shell access via group to separate system-wide admins from SCP-only users
+o system: web GUI cipher hardening and optional HSTS use
+o system: administration settings now include session timeout and authentication server selection
+o system: remove authentication fallback in favour of allowing to select multiple servers at once
+o system: local password policies are now found via local database server edit
+o system: removed spurious LDAP user test page
+o system: allow to select a shell per user
+o system: unlimited sessions are no longer allowed
+o system: remote syslog support for intrusion detection
+o system: allow full validation on gateways added via interfaces configuration page
+o system: use red color on all administrator users and superuser groups in access lists
+o system: removed average tooltip indication from both CPU usage graphs on dashboard (contributed by Team Rebellion)
+o system: large CPU usage widget now shows the time and date for each data point
+o interfaces: allow tracking mode for SLAAC (ISP 018.net.il)
+o interfaces: rework IPv6 interface detection logic on PPP links
+o interfaces: optionally allow manual router advertisements and DHCPv6 for tracking (contributed by Team Rebellion)
+o interfaces: merged CARP BACKUP / MASTER handlers into rc.syshook
+o interfaces: optionally offer multi-wan and far gateway options for static interface configuration when adding a new gateway
+o interfaces: allow full interface reload cycle in overview page instead of split release/renew
+o interfaces: removed QinQ functionality
+o firewall: improved feedback and reading of filter reload errors
+o firewall: do not trigger rules scheduling if scheduled rule is disabled
+o firewall: do not automatically port-forward attached VIPs of an interface
+o dhcp: remove legacy wake on lan support from leases page
+o dnsmasq: listen on all interface addresses for selected interfaces
+o firmware: dedicated error for when package manager keeps running in background
+o firmware: new mirror Aalborg University (Aalborg, DK)
+o firmware: new mirror Dataroute (Dusseldorf, DE)
+o importer: keep asking for a partition of the selected partition is not support by the importer
+o installer: use opnsense-importer on configuration import to avoid code duplication
+o installer: password recovery option only works for 18.7 onwards
+o installer: simplify GEOM mirror setup questions and resulting mirror name
+o intrusion detection: add support for rule version checks
+o ipsec: support mutual RSA with EAP-MSCHAPv2
+o monit: former plugin imported into core and brand new dashboard widget (contributed by Frank Brendel)
+o openvpn: client-specific overrides rework to support RADIUS attributes Framed-IP-Address, Framed-IP-Address, Framed-Route
+o openvpn: destroy device nodes when deleting servers or clients
+o unbound: create ACL entries for all interface addresses of selected interfaces
+o unbound: support ACL modes deny_non_local and refuse_non_local (contributed by DJFelix)
+o wizard: added a dedicated Diffie-Helman parameter selector
+o mvc: dynamic urls regardless if you have a trailing slash or not (contributed by Max Orelus)
+o mvc: switch from the default $_GET['_url'] to $_SERVER['REQUEST_URI'] and let Phalcon handle the routing
+o mvc: add support for application specific field types
+o mvc: IDNA encode fails when input starts with a dot
+o rc: unset rcvar before evaluation (contributed by Nicholas de Jong)
+o rc: redesigned rc.initial as opnsense-shell utility with command line support and improved RC system interoperability
+o ui: top level menu item link pivots and security improvements (contributed by Max Orelus)
+o ui: assorted style updates and minor fixes in static pages to improve overall visual representation
+o ui: content security policy hardening (contributed by Fabian Franz)
+o ui: switch remaining use of Glyphicons to Font-Awesome in static pages
+o ui: when JQuery Bootgrid rowselect is enabled the click event is triggered twice
+o ui: order menu alphabetically in a number of places
+o ui: replaced JQuery Tokenize with Tokenize2
+o plugins: os-net-snmp 1.0 supports use of Net-SNMP (contributed by Michael Muenz)
+o plugins: os-wol 2.0.d is a MVC rewrite of the wake on LAN plugin (contributed by Fabian Franz)
+o src: keep the CARP data structure when an address is not being removed
+o src merge pfSense stf(4) / 6RD additions not in FreeBSD
+
+The list of currently known issues with 18.7-RC1:
+
+o Boot may fail on Intel Denverton attached storage
+o 6RD prefix calculation is not always correct
+o Monit UI glitch in multi-select fields
+o Apollo Lake errata patch pending
+o ZFS installer support is missing
+
+All images are provided with SHA-256 signatures, which can be verified against the distributed public key:
+
+# openssl base64 -d -in image.bz2.sig -out /tmp/image.sig
+# openssl dgst -sha256 -verify rsa.pub -signature /tmp/image.sig image.bz2
+
+The public key for the 18.7 series is:
+
+# -----BEGIN PUBLIC KEY-----
+# MIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEAvkEFA2+DAhWXfucsgdvZ
+# 8xxkuzNt0nYttTmbRtLVJRKREysOj3/nqBcFWtvLr3ooVhkbxVY7HPLEoicqFdG/
+# +m5lLR2kI7hnZ2mpkl+/NKSixJaZkqXi5cQCp8KUlE7oOu3d6O5ZtTg4g40Ms8Dp
+# bQw8oZo3NpBrQK3gEEEzNYgChkZwTrEZ1Y8v8+/3zggh44sqg4vA1j5g9jq3Ldms
+# 3KnulBgettpHIapeAmbtCokaLaXxf4lgQxyUsy077aeNRptDpGG3D5ZQgtIjaYeE
+# h3u51PaVTL5OY/2uvcTnxR/ZrrHpppkIutUGzGJo9KK0gfrXLi31r9e+xtBJYBdC
+# FtdefujlV3Cfw1OFpUY/Y1p921xgHftNnrVDk+C9kl+FKf3qvFeyGCbd9V2k1JM2
+# uXHDwbsjZNPhbxbqtCoCDMbsUjBsfWyAOIoZfXOSmqJQt3jBUvwXKwLKncVh4Tvu
+# wxJGXNZXk/OCHVQYlx/uzwf5/ly/ApIwMKqr66E7mo0OVkPaME0uCCUJolugu9lI
+# tW8TJVZryBCQMQ4XhPZkcny22I2oRI5nCu7baRrFNJ8gB8UYUnrIPTIJIhrjrVOg
+# pFOxSb/tZAqtutFOE8F5+KwcgGlOBOKXPaNrdQ79X4kH7egChPrhm283rfW1oEG6
+# 8rHzvP45S09L8o7OXUddo8UCAwEAAQ==
+# -----END PUBLIC KEY-----
+
+As always with our pre-releases, only OpenSSL is provided at this point, but can be switched for LibreSSL as soon as the release is available. This release candidate does update directly into the 18.7 stable track and subsequent release candidates.  Please let us know about your experience!
+
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] https://docs.opnsense.org/manual/install.html
+
+# SHA256 (OPNsense-18.7.r1-OpenSSL-dvd-amd64.iso.bz2) = c5ca07eefde68d16d0fc060fd2fa0be12d77752d5376b5483103c8d1901975ca
+# SHA256 (OPNsense-18.7.r1-OpenSSL-nano-amd64.img.bz2) = c2252d379c10936f98ed02044dc61eda13b8b3ffe08c0e9e7f0a70a462fcb005
+# SHA256 (OPNsense-18.7.r1-OpenSSL-serial-amd64.img.bz2) = f48a065e8e6d0ed8f38737d46d991df4c231ef5ce60f022eb2252a41e55842fe
+# SHA256 (OPNsense-18.7.r1-OpenSSL-vga-amd64.img.bz2) = 4d6237590df8cb918fff580f7cf6fed08a9b1fbd224061870bf7e4cf4e394c18
+
+# SHA256 (OPNsense-18.7.r1-OpenSSL-dvd-i386.iso.bz2) = 3fc4405619763cdcf08620a029a1d5270271b2e796af7e4b8869995e28ad4f68
+# SHA256 (OPNsense-18.7.r1-OpenSSL-nano-i386.img.bz2) = 1efc4695be64cfee87603cea77d6e89b8b09c33fa1a491d15f0b652234c1f21a
+# SHA256 (OPNsense-18.7.r1-OpenSSL-serial-i386.img.bz2) = f010ca0d33addeb94f436a551a61418f95fde9bd7511c88b75a7131ca65b162f
+# SHA256 (OPNsense-18.7.r1-OpenSSL-vga-i386.img.bz2) = aba557b88ae27ecd5d301fa32f3910a7e5499491b8263e21a722976c0da714fc
