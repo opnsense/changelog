@@ -1,0 +1,37 @@
+@ July 13, 2018
+
+Hi there,
+
+This update ships a few minor bug fixes and several feature tweaks that
+were either wished for or contributed by the community.  That is why we
+wholeheartedly love our community. <3
+
+Here is the full list of changes:
+
+o system: improve local account expire cron job to also flush passwords and SSH keys
+o system: show fingerprint in certificate details (contributed by Robin Schneider)
+o system: fix NextCloud file name format (contributed by Fabian Franz)
+o system: allow remote backup via cron command
+o interfaces: allow /0 to /32 in 6rd and align prefix length calculation with effective prefix used
+o firewall: do not trigger rules scheduling if scheduled rule is disabled
+o firewall: allow to select external aliases
+o firewall: ignore namelookup when no nameservers are configured
+o dashboard: remove tooltips from CPU widgets (contributed by Team Rebellion)
+o dashboard: add date to large CPU widget data
+o firmware: add Aalborg University mirror
+o intrusion detection: add missing classification category
+o ipsec: add mutual RSA and EAP-MSCHAPv2 support
+o wizard: make clear that "admin password" means "root password"
+o ui: when JQuery Bootgrid rowselect is enabled the click event is triggered twice
+o mvc: switch from the default $_GET['_url'] to $_SERVER['REQUEST_URI'] and let Phalcon handle the routing
+o mvc: dynamic urls regardless if you have a trailing slash or not (contributed by Max Orelus)
+o mvc: multiselect may allow empty option, no need to give blank item too
+o mvc: add support for application specific field types
+o ui: top level menu item link pivots and security improvements (contributed by Max Orelus)
+o plugins: os-net-snmp 1.0 (contributed by Michael Muenz)
+o plugins: os-openconnect 1.1 (contributed by Michael Muenz)
+o plugins: os-web-proxy-sso UI fixes (contributed by Smart-Soft)
+
+
+Stay safe,
+Your OPNsense team
