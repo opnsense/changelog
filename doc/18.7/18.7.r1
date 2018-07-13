@@ -21,12 +21,12 @@ We know it would not be the same without you.
 Download links, an installation guide[1] and the checksums for the images
 can be found below as well.
 
-o Europe: https://opnsense.c0urier.net/releases/18.7/
-o US East Coast: http://mirrors.nycbug.org/pub/opnsense/releases/18.7/
-o US West Coast: https://mirror.sfo12.us.leaseweb.net/opnsense/releases/18.7/
-o South America: http://mirror.upb.edu.co/opnsense/releases/18.7/
-o South-East Asia: https://ftp.yzu.edu.tw/opnsense/releases/18.7/
-o Full mirror list: https://opnsense.org/download/
+o Europe: https://opnsense.c0urier.net/releases/18.7/
+o US East Coast: http://mirrors.nycbug.org/pub/opnsense/releases/18.7/
+o US West Coast: https://mirror.sfo12.us.leaseweb.net/opnsense/releases/18.7/
+o South America: http://mirror.upb.edu.co/opnsense/releases/18.7/
+o South-East Asia: https://ftp.yzu.edu.tw/opnsense/releases/18.7/
+o Full mirror list: https://opnsense.org/download/
 
 Here are the full changes against version 18.1.11:
 
@@ -76,7 +76,7 @@ o unbound: create ACL entries for all interface addresses of selected interfaces
 o unbound: support ACL modes deny_non_local and refuse_non_local (contributed by DJFelix)
 o wizard: added a dedicated Diffie-Helman parameter selector
 o mvc: dynamic urls regardless if you have a trailing slash or not (contributed by Max Orelus)
-o mvc: switch from the default $_GET['_url'] to $_SERVER['REQUEST_URI'] and let Phalcon handle the routing
+o mvc: switch from the default $_GET['_url'] to $_SERVER['REQUEST_URI'] and let Phalcon handle the routing
 o mvc: add support for application specific field types
 o mvc: IDNA encode fails when input starts with a dot
 o rc: unset rcvar before evaluation (contributed by Nicholas de Jong)
@@ -101,7 +101,8 @@ o Monit UI glitch in multi-select fields
 o Apollo Lake errata patch pending
 o ZFS installer support is missing
 
-All images are provided with SHA-256 signatures, which can be verified against the distributed public key:
+All images are provided with SHA-256 signatures, which can be verified
+against the distributed public key:
 
 # openssl base64 -d -in image.bz2.sig -out /tmp/image.sig
 # openssl dgst -sha256 -verify rsa.pub -signature /tmp/image.sig image.bz2
@@ -123,7 +124,10 @@ The public key for the 18.7 series is:
 # 8rHzvP45S09L8o7OXUddo8UCAwEAAQ==
 # -----END PUBLIC KEY-----
 
-As always with our pre-releases, only OpenSSL is provided at this point, but can be switched for LibreSSL as soon as the release is available. This release candidate does update directly into the 18.7 stable track and subsequent release candidates.  Please let us know about your experience!
+As always with our pre-releases, only OpenSSL is provided at this point,
+but can be switched for LibreSSL as soon as the release is available.
+This release candidate does update directly into the 18.7 stable track
+and subsequent release candidates.  Please let us know about your experience!
 
 
 Stay safe,
