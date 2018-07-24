@@ -1,0 +1,33 @@
+@ July 24, 2018
+
+Dear all,
+
+It is that time of the year again: this update is the last one in the
+18.1 series and 18.7, nicknamed "Happy Hippo", will be released next week!
+
+The transition will be seamless when heeding the upgrade notes to be
+published with the 18.7 images on July 31.  All 18.7-RC users will be
+able to upgrade right away.  After a number of hours we will enable the
+upgrade path with a small hotfix to 18.1.13.  This process may take up
+to 24 hours so please do not be alarmed about delays.
+
+Here are the full patch notes:
+
+o system: restart syslog when interface bind addresses may have changed
+o system: remove unused action_disable setting in gateway monitoring
+o firmware: new mirror Dataroute (Dusseldorf, DE)
+o ntp: typo in SiRF selection
+o openvpn: translate validated field names
+o rc: unset rcvar before evaluation (contributed by Nicholas de Jong)
+o installer: give basic tip that GUI IP can be set in console after install (contributed by stilez)
+o plugins: os-theme-cicada 1.2 (contributed by Team Rebellion)
+o plugins: os-theme-rebellion 1.2 (contributed by Team Rebellion)
+o plugins: os-theme-tukan 1.1 (contributed by Team Rebellion)
+o ports: suricata 4.0.5[1]
+
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] https://suricata-ids.org/2018/07/18/suricata-4-0-5-available/
