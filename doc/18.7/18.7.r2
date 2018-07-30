@@ -9,7 +9,7 @@ We have bundled the firewall alias API progress under the hood, but
 it looks like we will miss our initial 18.7 target.  Sorry about that.
 Though it should be worth the wait.  :)
 
-Here is the full list of changes:
+Here is the full list of changes against version 18.7-RC1:
 
 o system: show fingerprint in certificate details (contributed by Robin Schneider)
 o system: fix NextCloud file name format (contributed by Fabian Franz)
