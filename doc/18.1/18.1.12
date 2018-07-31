@@ -26,7 +26,7 @@ o ui: when JQuery Bootgrid rowselect is enabled the click event is triggered twi
 o mvc: switch from the default $_GET['_url'] to $_SERVER['REQUEST_URI'] and let Phalcon handle the routing
 o mvc: dynamic urls regardless if you have a trailing slash or not (contributed by Max Orelus)
 o mvc: multiselect may allow empty option, no need to give blank item too
-o mvc: add support for application specific field types
+o mvc: add support for application-specific field types
 o ui: top level menu item link pivots and security improvements (contributed by Max Orelus)
 o plugins: os-net-snmp 1.0 (contributed by Michael Muenz)
 o plugins: os-openconnect 1.1 (contributed by Michael Muenz)

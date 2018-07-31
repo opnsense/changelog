@@ -63,7 +63,7 @@ o dnsmasq: listen on all interface addresses for selected interfaces
 o firmware: dedicated error for when package manager keeps running in background
 o firmware: new mirror Aalborg University (Aalborg, DK)
 o firmware: new mirror Dataroute (Dusseldorf, DE)
-o importer: keep asking for a partition of the selected partition is not support by the importer
+o importer: keep asking for a partition if the selected partition is not supported by the importer
 o installer: use opnsense-importer on configuration import to avoid code duplication
 o installer: password recovery option only works for 18.7 onwards
 o installer: simplify GEOM mirror setup questions and resulting mirror name
@@ -77,7 +77,7 @@ o unbound: support ACL modes deny_non_local and refuse_non_local (contributed by
 o wizard: added a dedicated Diffie-Helman parameter selector
 o mvc: dynamic urls regardless if you have a trailing slash or not (contributed by Max Orelus)
 o mvc: switch from the default $_GET['_url'] to $_SERVER['REQUEST_URI'] and let Phalcon handle the routing
-o mvc: add support for application specific field types
+o mvc: add support for application-specific field types
 o mvc: IDNA encode fails when input starts with a dot
 o rc: unset rcvar before evaluation (contributed by Nicholas de Jong)
 o rc: redesigned rc.initial as opnsense-shell utility with command line support and improved RC system interoperability
