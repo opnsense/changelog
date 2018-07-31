@@ -1,0 +1,159 @@
+@ July 31, 2018
+
+Dear friends and followers,
+
+For 3 and a half years now, OPNsense is driving innovation through
+modularising and hardening the open source firewall, with simple
+and reliable firmware upgrades, multi-language support, HardenedBSD
+security, fast adoption of upstream software updates as well as clear
+and stable 2-Clause BSD licensing.
+
+Another 6 months passed by ever so quickly!  The main goal for 18.7,
+nicknamed "Happy Hippo", is stability so we have not yet begun to adopt
+FreeBSD 11.2, but there are several of its Intel NIC driver updates
+included to bridge the gap until 19.1 comes out.  The upgrade also
+includes a tremendous amount of IPv6 improvements including 6RD support
+as well as authentication and backup framework consolidation.  Please
+also take note that QinQ is no longer included in this release.
+
+These are the most prominent changes since version 18.1:
+
+o improved WAN DHCPv6 and SLAAC connectivity and tracking
+o functional IPv6 Rapid Deployment (6RD) support
+o improved default route handling and gateway switching
+o OpenVPN default setup improvements for IPv6 and RADIUS attribute support
+o Dpinger gateway monitoring integration
+o password policies for local authentication and coupled TOTP
+o Monit core integration to eventually replace the legacy notifications
+o OpenSSH access via group and shell selection instead of privilege
+o pluggable backup framework with new Nextcloud option
+o sytem tunables are now also used as loader tunables
+o unrestricted VLAN usage for e.g. Xen
+o QinQ interface removal
+o firmware GUI speedup, improved error parsing and console reboot hint
+o ZFS on root boot support (installer support is pending, but opnsense-bootstrap works)
+o ZFS and MSDOS config import support
+o ISC DHCP version moves from 4.3 to 4.4
+o RRDtool version moves from 1.2 to 1.7
+o rework rc.syshook facility to use drop-in directories instead of suffixes
+o backports of FreeBSD 11.2 Intel NIC drivers
+o stand-alone frontend UI development tools
+o language updates for Czech, French, German, Portuguese (Brazil)
+o UI header security and SSL cipher hardening
+o extensive UI cleanups and menu consolidation
+o new and rewritten plugins: os-cache, os-lcdproc-sdeclcd, os-net-snmp,
+  os-nut, os-openconnect, os-relayd 2.0, os-shadowsocks, os-theme-cicada,
+  os-theme-rebellion, os-theme-tukan, os-wol 2.0
+
+We thank all of you for helping test, shape and contribute to the project!
+We know it would not be the same without you.
+
+Download links, an installation guide[1] and the checksums for the images
+can be found below as well.
+
+o Europe: https://opnsense.c0urier.net/releases/18.7/
+o US East Coast: http://mirrors.nycbug.org/pub/opnsense/releases/18.7/
+o US West Coast: https://mirror.sfo12.us.leaseweb.net/opnsense/releases/18.7/
+o South America: http://mirror.upb.edu.co/opnsense/releases/18.7/
+o South-East Asia: https://ftp.yzu.edu.tw/opnsense/releases/18.7/
+o Full mirror list: https://opnsense.org/download/
+
+Here are the full changes against version 18.7-RC2:
+
+o system: clarify help for preventing local nameserver usage in general settings
+o system: deal with ACL trailing slash wildcards due to its removal from menu links
+o system: allow LDAP user import even when multiple authentications servers are set
+o system: merge duplicated encrypt() and decrypt() config backup implementations
+o system: extend encrypt() and decrypt() with optional header, footer and attribute usage
+o system: optional encryption of Nextcloud backup through user-specified password (contributed by Fabian Franz)
+o interfaces: do not yield IPv6 tunnel addresses via legacy_getall_interface_addresses()
+o firewall: rules alias preview on hover when no description was provided
+o firewall: transitional code for upcoming alias API usage
+o firewall: remove alias types urltable_ports and url_ports
+o firewall: revert only binding to first interface address due to ambiguity in IPv6 local-link setups
+o dnsmasq: unconditionally listen on loopback device but avoid binding more than 127.0.0.1 in IPv4
+o installer: properly accept cancel on guided install
+o installer: removed unused mail log feature
+o ipsec: remove validation to support for IPv6 over IPv4 tunnel and vice versa
+o web proxy: more elaborate fix of IDNA encode with leading dots
+o mvc: always use std_bootgrid_reload() for bootgrid reloads
+o ui: sidebar menu support for optional themes (contributed by Team Rebellion)
+o plugins: os-dyndns 1.8 fixes Eurodns support
+o plugins: os-theme-rebellion 1.3 (contributed by Team Rebellion)
+o plugins: os-relayd 2.2 (contributed by Frank Brendel)
+o plugins: os-siproxd 1.3 (contributed by Michael Muenz)
+o ports: dhcp6c v20180720 with fix for raw support (contributed by Team Rebellion)
+o ports: php 7.1.20[2]
+
+Migration notes and minor incomatibilities to look out for:
+
+o SSH access is now bound to the "wheel" group which is automatically
+  added to "admins" group, which "root" is a member of.  "root" is the
+  only user that has a default shell, namely opnsense-shell, which is the
+  root console menu.
+o SSH access can be set for an arbitrary group as well under System:
+  Administration for non-members of "admins" group.  However, in both
+  cases only SCP works due to a request in the forum to be more proactive
+  regarding yielding of shell access rights.  If you want a user to gain
+  true SSH access you need to change their shell from "nologin" to an
+  installed shell in their respective settings.
+o Web GUI HTTPS ciphers have been hardened.  To gain access please use a
+  recent browser.
+o The authentication fallback for the GUI/system has been removed in
+  favour of selecting multiple authentication servers at once.  Reassign
+  your fallback as a primary authentication method or now use more than
+  two methods.
+o It has been found that although WAN interfaces require gateways to
+  function, they do not necessarily have to be assigned in single-WAN
+  scenarios to avoid interfering with WAN reply behaviour.  The "none"
+  selection was therefore changed to "auto-detect" to reflect this and
+  now is the recommended setting unless multi-WAN is used.
+o In preparation for the firewall alias API the per-item descriptions have
+  been removed along with support for the deprecated types urltable_ports
+  and url_ports.
+o OpenVPN /31 tunnel network calculation changed to use the first and last
+  address as network address and broadcast address do not exist.  If you
+  are affected, adjust your clients or export their configuration again
+  which includes the configuration fix.  Additionally, /32 tunnel networks
+  are now prohibited.
+
+All images are provided with SHA-256 signatures, which can be verified
+against the distributed public key:
+
+# openssl base64 -d -in image.bz2.sig -out /tmp/image.sig
+# openssl dgst -sha256 -verify rsa.pub -signature /tmp/image.sig image.bz2
+
+The public key for the 18.7 series is:
+
+# -----BEGIN PUBLIC KEY-----
+# MIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEAvkEFA2+DAhWXfucsgdvZ
+# 8xxkuzNt0nYttTmbRtLVJRKREysOj3/nqBcFWtvLr3ooVhkbxVY7HPLEoicqFdG/
+# +m5lLR2kI7hnZ2mpkl+/NKSixJaZkqXi5cQCp8KUlE7oOu3d6O5ZtTg4g40Ms8Dp
+# bQw8oZo3NpBrQK3gEEEzNYgChkZwTrEZ1Y8v8+/3zggh44sqg4vA1j5g9jq3Ldms
+# 3KnulBgettpHIapeAmbtCokaLaXxf4lgQxyUsy077aeNRptDpGG3D5ZQgtIjaYeE
+# h3u51PaVTL5OY/2uvcTnxR/ZrrHpppkIutUGzGJo9KK0gfrXLi31r9e+xtBJYBdC
+# FtdefujlV3Cfw1OFpUY/Y1p921xgHftNnrVDk+C9kl+FKf3qvFeyGCbd9V2k1JM2
+# uXHDwbsjZNPhbxbqtCoCDMbsUjBsfWyAOIoZfXOSmqJQt3jBUvwXKwLKncVh4Tvu
+# wxJGXNZXk/OCHVQYlx/uzwf5/ly/ApIwMKqr66E7mo0OVkPaME0uCCUJolugu9lI
+# tW8TJVZryBCQMQ4XhPZkcny22I2oRI5nCu7baRrFNJ8gB8UYUnrIPTIJIhrjrVOg
+# pFOxSb/tZAqtutFOE8F5+KwcgGlOBOKXPaNrdQ79X4kH7egChPrhm283rfW1oEG6
+# 8rHzvP45S09L8o7OXUddo8UCAwEAAQ==
+# -----END PUBLIC KEY-----
+
+
+Stay safe and happy,
+Your OPNsense team
+
+--
+[1] https://docs.opnsense.org/manual/install.html
+[2] http://php.net/ChangeLog-7.php#7.1.20
+
+# SHA256 (OPNsense-18.7-OpenSSL-dvd-amd64.iso.bz2) = 6b3528f8dea8de5c96de5547636fd51c40382c245b30eb215608acbd04fb7e91
+# SHA256 (OPNsense-18.7-OpenSSL-nano-amd64.img.bz2) = cb0272f0bd945ea8070d9a40af2cd47a3b68e9bd389395b285bb9ab4128d1f00
+# SHA256 (OPNsense-18.7-OpenSSL-serial-amd64.img.bz2) = a4556080532d22e9ab296e2c6e163b3d65d5fe54a642253e1c01a22721afa850
+# SHA256 (OPNsense-18.7-OpenSSL-vga-amd64.img.bz2) = 4408840fba4177d44503968fce44d8ca7180003728660fd9c0a2e6920346008c
+
+# SHA256 (OPNsense-18.7-OpenSSL-dvd-i386.iso.bz2) = 8ea49dcb512365a1e92e94fb38f1b4a85463ffacfb98c055e84e6340a6321ecf
+# SHA256 (OPNsense-18.7-OpenSSL-nano-i386.img.bz2) = bdd753a63367944452d2d5d1e73e4aa9f3d607012d10c4274420d23867a4fbad
+# SHA256 (OPNsense-18.7-OpenSSL-serial-i386.img.bz2) = f74f5fd1c24cc54002fa9b99a0c10b4402b3f748a315ff302126acb154cd2633
+# SHA256 (OPNsense-18.7-OpenSSL-vga-i386.img.bz2) = 52208b57f9e89d235411df33faac71b8d9872d50947ff4c0dca6f552424a4d95
