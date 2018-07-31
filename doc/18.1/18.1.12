@@ -10,7 +10,7 @@ Here is the full list of changes:
 
 o system: improve local account expire cron job to also flush passwords and SSH keys
 o system: show fingerprint in certificate details (contributed by Robin Schneider)
-o system: fix NextCloud file name format (contributed by Fabian Franz)
+o system: fix Nextcloud file name format (contributed by Fabian Franz)
 o system: allow remote backup via cron command
 o interfaces: allow /0 to /32 in 6rd and align prefix length calculation with effective prefix used
 o firewall: do not trigger rules scheduling if scheduled rule is disabled
