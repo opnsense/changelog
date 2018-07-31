@@ -25,6 +25,10 @@ o plugins: os-theme-rebellion 1.2 (contributed by Team Rebellion)
 o plugins: os-theme-tukan 1.1 (contributed by Team Rebellion)
 o ports: suricata 4.0.5[1]
 
+A hotfix release was issued as 18.1.13_1:
+
+o firmware: enable upgrade path to 18.7
+
 
 Stay safe,
 Your OPNsense team
