@@ -1,0 +1,72 @@
+@ August 14, 2018
+
+Hi everyone,
+
+This is the first stable update and includes security updates for
+several third party software and FreeBSD.  A Bind plugin was released
+with DNSBL support and the reported problems with the HAProxy plugin
+have been sorted out thanks to enthusiastic reporters and testers.
+
+Here are the full patch notes:
+
+o system: hide web server info from server tag
+o system: fix group privileges edit menu hint
+o system: add text area field to backup framework (contributed by Joao Vilaca)
+o interfaces: use NIC preference for VLAN hardware filtering in default config
+o interfaces: router advertisement and DHCPv6 configure fix (contributed by Team Rebellion)
+o interfaces: fix PD when using DHCPv6 override on tracked interface
+o firewall: toggle filter and NAT rules using checkboxes
+o firewall: add state-policy if-bound option
+o firewall: added logging for tracing internal rule generator
+o firewall: fix ordering issue in port validation and disable
+o firewall: fix disabled reject action icon display (contributed by framer99)
+o captive portal: fix usage of vouchers and group with spaces in their names
+o captive portal: hide web server info from server tag
+o dnsmasq: fix listening behaviour on empty but set interface selection
+o firmware: remove the 18.1 update fingerprint and pre-18.7 config file fallback
+o firmware: do not show development version changelogs in releases
+o intrusion detection: reworked rule selection
+o ipsec: use selectpicker in mobile page
+o ipsec: add Brainpool EC groups
+o openvpn: do not remove client specific override files on disconnect
+o openvpn: do not create v6 gateway if disabled
+o shell: omit ":" from SSL fingerprint display
+o unbound: fix menu access for overrides
+o wizard: fix root password input
+o backend: call shutdown before close in background daemon
+o mvc: cause data from callback_ok to be passed through (contributed by Nicholas de Jong)
+o mvc: minor glich in getFormData() we should ignore empty id fields
+o mvc: do not offer internal interfaces in generic interface selector
+o mvc: handle validations better by removing duplicate messages
+o mvc: fix two glitches in new tokenize field handling
+o mvc: add numeric field type
+o rc: update php.ini include paths (contributed by Joao Vilaca)
+o ui: fix spacing of containers in static pages
+o ui: fix sidebar collapse in MVC pages for supported themes
+o ui: blank problem advanced button (contributed by Team Rebellion)
+o ui: store preference for sidebar toggle and remember the current setting on resize
+o plugins: os-acme-client 1.16 adds several DNS providers, ECC renewal fix and OSCP must staple (contributed by Omar Khalil)
+o plugins: os-bind 1.0 with blacklist (DNSBL) support (contributed by Michael Muenz)
+o plugins: os-smart 1.4 with style fixes (contributed by Fabian Franz)
+o plugins: os-wol 2.0 fixes ACL pattern and interface selection
+o plugins: os-theme-cicada 1.3 (contributed by Team Rebellion)
+o plugins: os-theme-tukan 1.2 (contributed by Team Rebellion)
+o src: resource exhaustion in TCP reassembly[1]
+o ports: curl 7.61.0[2]
+o ports: hyperscan 4.7.0[3]
+o ports: mpd5 upstream fixes[4][5]
+o ports: py-cryptography 2.3[6]
+o ports: py-idna 2.7[7]
+
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] https://www.freebsd.org/security/advisories/FreeBSD-SA-18:08.tcp.asc
+[2] https://curl.haxx.se/changes.html
+[3] https://github.com/intel/hyperscan/releases/tag/v4.7.0
+[4] https://github.com/freebsd/freebsd-ports/commit/67bbe6317
+[5] https://github.com/freebsd/freebsd-ports/commit/052b84f3ec
+[6] https://cryptography.io/en/latest/changelog/#v2-3
+[7] https://github.com/kjd/idna/releases/tag/v2.7
