@@ -1,0 +1,77 @@
+@ September 06, 2018
+
+Good day folks,
+
+Lots of third party security updates, plugin updates and minor enhancements
+in overall system reliability.
+
+In other news the firewall alias API has been finished in the development
+version.  If you use the development version you cannot go back to the
+production version until the API has been released there as well, which is
+probably 18.7.3 so not too far away.  We are happy about all reports of the
+new alias pages and API usability.
+
+We will soon begin the migration work for FreeBSD 11.2 for 19.1, but please
+keep in mind that we will be issuing security advisories to 11.1 when they
+arise even beyond the original end of life policy.
+
+Here are the full patch notes:
+
+o system: select correct network interface in case of IPv6 gateway lookups
+o system: tighten system wizard ACL and menu registration
+o system: do not wrap first column of log viewer (contributed by Alexander Graf)
+o firewall: return alias types to repair its outbound NAT rule edit
+o firewall: hide NAT redirect target port when port is not applicable
+o firewall: alias API is now live on the development version and will migrate your aliases to the new format
+o interfaces: allow explicit MTU to reach the 6RD device
+o interfaces: remove use of adv_dhcp6_prefix_interface_statement_sla_id (contributed by Team Rebellion)
+o interfaces: fix for DHCPv6 not being restarted for tracked interfaces (contributed by Team Rebellion)
+o interfaces: fix adding interfaces LAN bug of translated web GUI (contributed by Werner Fischer)
+o interfaces: remove incorrect display of prefix ID in help text for tracking configuration
+o interfaces: add groups to interface details output
+o interfaces: remove unused code and other nonfunctional cleanups
+o interfaces: use "x" in the list widget for no carrier
+o interfaces: hide global IPv6 address in list widget if DHCPv6 is set to use only a prefix
+o dhcp: remove unused inputs from static mapping page
+o dhcp: treat EFI BC the same as EFI x86-64 (contributed by andi-makandra)
+o ipsec: add automatic key exchange option
+o openvpn: fix /32 host validation logic
+o openvpn: clean up control sockets prior to startup
+o openvpn: align user authentication to use common_name as username
+o mvc: add iterateItems() method to base field type to simplify call flow
+o mvc: fix configd asList helper (contributed by Fabian Franz)
+o mvc: add configd XML attributes to template parser
+o ui: allow version query to match on main.css probing
+o ui: footer cleanups and static page repairs where boxing was not correct
+o ui: no minified version for tokenize2
+o ui: fix table headers in dialogs (contributed by Fabian Franz)
+o plugins: os-bind 1.1 adds 3 DNSBL providers (contributed by Michael Muenz)
+o plugins: os-freeradius 1.8.0 adds basic SQLite support (contributed by Michael Muenz)
+o plugins: os-haproxy 2.8[1] (contributed by Frank Wall)
+o plugins: os-nginx 1.0 (contributed by Fabian Franz)
+o plugins: os-postfix 1.5 allow empty destination in transport (contributed by Michael Muenz)
+o plugins: os-telegraf 1.5.1 adds ElasticSearch output and disk ignore fix (contributed by Michael Muenz)
+o plugins: os-theme-rebellion 1.4 style fixes
+o src: L1 terminal fault (L1TF) kernel information disclosure[2]
+o src: resource exhaustion in IP fragment reassembly[3]
+o ports: ntp 4.2.8p12[4]
+o ports: openssl 1.0.2p[5]
+o ports: phalcon 3.4.1[6]
+o ports: php 7.1.21[7]
+o ports: sudo 1.8.24[8]
+o ports: wpa_supplicant security updates[9]
+
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] https://github.com/opnsense/plugins/pull/772
+[2] https://www.freebsd.org/security/advisories/FreeBSD-SA-18:09.l1tf.asc
+[3] https://www.freebsd.org/security/advisories/FreeBSD-SA-18:10.ip.asc
+[4] http://support.ntp.org/bin/view/Main/SecurityNotice#Recent_Vulnerabilities
+[5] https://www.openssl.org/news/cl102.txt
+[6] https://github.com/phalcon/cphalcon/releases/tag/v3.4.1
+[7] http://php.net/ChangeLog-7.php#7.1.21
+[8] https://www.sudo.ws/stable.html
+[9] https://w1.fi/security/2018-1/
