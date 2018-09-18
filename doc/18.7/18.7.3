@@ -1,0 +1,75 @@
+@ September 18, 2018
+
+Hi there,
+
+Long-term IPv6 efforts continue in the form of further 6RD feature comfort
+and a few edge-case fixes in IPv6 interface selection.  Please note there
+is a reboot necessary due to a security advisory amendment and errata patch.
+
+Progress was made on the importer that blocked further efforts in ZFS
+installation originally planned for 18.7.  You can now list available ZFS
+pool and import from any of those if you so wish.  Props to Smart-Soft for
+the contribution.
+
+On the plugin side development for the upcoming WireGuard VPN, ntopng and
+vnStat plugins continues.  Check the forum for further updates.
+
+Here are the full patch notes:
+
+o system: gateways widget show/hide feature (contributed by Team Rebellion)
+o system: select correct IPv6 default route when underlying IPv6 interface differs
+o system: extended meta-matching for special characters in ACL patterns
+o system: show last diff by default in configuration history page
+o system: refactor password logic in user manager for clarity
+o system: link-local listen IPv6 requires reading underlying IPv6 interface
+o interfaces: avoid boot mismatch on several virtual plugin devices
+o interfaces: list widget show/hide feature (contributed by Team Rebellion)
+o interfaces: stats widget show/hide feature (contributed by Team Rebellion)
+o interfaces: stop wireless software before bringing down the interfaces
+o interfaces: fix selection issue for DHCPv6 PD "none" value
+o interfaces: make "64" the page default for DHCPv6 PD
+o interfaces: allow IPv4 address override in 6RD
+o interfaces: fix 18.7.2 gateway read regression in 6RD
+o interfaces: give each 6RD tracker a different IPv6 address
+o dhcp: add DHCP Dynamic DNS key algorithm selection (contributed by Ingo Theiss)
+o dhcp: correctly load DHCPv6 settings in manual tracking (contributed by Team Rebellion)
+o dhcp: do not show lease actions if interface cannot be found
+o dhcp: unhide DHCPv6 service when not using automatic PD
+o dnsmasq: annotate that "all" is the recommended interface binding option
+o importer: list all available ZFS pools (contributed by Smart-Soft)
+o importer: do not try to unload ZFS on ZFS boot, sanely rejected anyway ;)
+o importer: ZFS pools are now addressed as e.g. "zfs/zroot"
+o importer: always loop until exit or successful import
+o intrusion detection: source, destination, pass support in user rules (contributed by Michael Muenz)
+o ipsec: change hash checkboxes in phase 2 to selectpicker
+o openssh: change interface bind logic to only bind to currently available addresses
+o openvpn: align status columns for client and P2P case (contributed by Andy Binder)
+o shell: change banner and setaddr interface iteration
+o unbound: swap stub-zone for forward-zone in overrides (contributed by John Keates)
+o static: interface iteration conversions in system, firewall and interfaces pages
+o ui: fix firmware-product file access when using ui_devtools
+o plugins: os-bind 1.2 log file viewer and oversized list removal (contributed by Michael Muenz)
+o plugins: os-c-icap 1.6 (contributed by Michael Muenz)
+o plugins: os-dyndns 1.9 allow plus sign in username (contributed by Charles Ulrich)
+o plugins: os-haproxy 2.9 backend HTTP reuse option (contributed by andrewheberle)
+o plugins: os-net-snmp 1.1 IPv6 compatibility (contributed by MrXermon)
+o plugins: os-rfc2136 1.4 widget style tweaks
+o plugins: os-theme-rebellion 1.5 style update (contributed by Team Rebellion)
+o plugins: os-tinc 1.4 log facility fix
+o src: fix print of stf(4) interface information
+o src: fix regression in Lazy FPU remediation[1]
+o src: fix improper ELF header parsing[2]
+o ports: curl 7.61.1[3]
+o ports: lighttpd 1.4.50[4]
+o ports: sudo 1.8.25p1[5]
+
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] https://www.freebsd.org/security/advisories/FreeBSD-EN-18:08.lazyfpu.asc
+[2] https://www.freebsd.org/security/advisories/FreeBSD-SA-18:12.elf.asc
+[3] https://curl.haxx.se/changes.html
+[4] https://www.lighttpd.net/2018/8/13/1.4.50/
+[5] https://www.sudo.ws/stable.html#1.8.25p1
