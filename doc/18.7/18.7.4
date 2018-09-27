@@ -1,0 +1,56 @@
+@ September 27, 2018
+
+Dear all,
+
+This update reboots into the latest and greatest Realtek driver version
+1.95.  Also included is a web proxy implementation of the WPAD protocol.
+Furthermore LibreSSL was moved from version 2.6 to 2.7.
+
+Originally planned was the release of the firewall alias API, but this
+will have to way a while longer.  Thank you for your understanding and
+support!
+
+Here are the full patch notes:
+
+o system: correctly unset DNS override allow setting when saving
+o system: remove unused / default arguments from get_possible_listen_ips()
+o system: note that HA disable preempt requires reboot (contributed by Michael Muenz)
+o interfaces: add static IPv6 correctly when on top of PPPoE (contributed by Team Rebellion)
+o interfaces: lower MTU via tracked IPv6 interface MTU
+o interfaces: 6RD IPv4 prefix override is now prefix-only
+o firewall: also show scheduler info in shaper status (contributed by Michael Muenz)
+o firmware: introduce opnsense-version utility and fully template build metadata
+o firmware: annotate HTTP(S) status in mirrors in descriptions
+o firmware: avoid base upgrade error when /proc is mounted
+o monit: change mail format field for alerts to text area (contributed by Frank Brendel)
+o openssh: further tweak new interface bind approach introduced in 18.7.3
+o openvpn: change abbreviated column title to "Bytes Received" (contributed by Andy Binder)
+o web proxy: support WPAD / PAC (contributed by Fabian Franz)
+o ui: minified sidebar improvements (contributed by Team Rebellion)
+o ui: introduce cache_safe() to invalidate browser cache after updates
+o plugins: os-dyndns wildcard support for Namecheap
+o plugins: os-ntopng 1.0 (contributed by Michael Muenz)
+o plugins: os-openconnect 1.2 allows "@" in username (contributed by Michael Muenz)
+o plugins: os-relayd 2.3 fixes stuck scheduler value (contributed by Frank Brendel)
+o plugins: os-snmp compatibility fixes for version detection and listen interface core changes
+o plugins: os-theme-cidada 1.4 (contributed by Team Rebellion)
+o plugins: os-theme-rebellion 1.6 (contributed by Team Rebellion)
+o plugins: os-theme-tukan 1.3 (contributed by Team Rebellion)
+o plugins: os-tor 1.7 allows to enable directory page (contributed by Fabian Franz)
+o plugins: os-upnp compatibility fixes for version detection core changes
+o src: fix out-of-bounds read vulnerability in libarchive
+o src: update re(4) driver to upstream version 1.95
+o ports: libressl 2.7.4[1]
+o ports: php 7.1.22[2]
+o ports: sqlite 3.25.1[3]
+o ports: squid 3.5.28[4]
+
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] https://ftp.openbsd.org/pub/OpenBSD/LibreSSL/libressl-2.7.4-relnotes.txt
+[2] http://php.net/ChangeLog-7.php#7.1.22
+[3] https://www.sqlite.org/releaselog/3_25_1.html
+[4] http://ftp.meisei-u.ac.jp/mirror/squid/squid-3.5.28-RELEASENOTES.html
