@@ -1,0 +1,67 @@
+@ October 17, 2018
+
+Hi folks,
+
+While the HardenedBSD 11.2 adoption is almost finished behind the scenes,
+this release merely revolves around minor corrections and additions that
+make your life easier.  We are also confident that 18.7.6 finally ships
+the firewall alias API.
+
+Of worthy mention are also the IPsec phase 1 changes that allow multiple
+DH groups and hashes to be selected simultaneously to tackle interoperability
+between different mobile client requirements.  Also check out the Nginx
+plugin which has again extended its utility belt to include limiting,
+permanent bans, caching and more.
+
+Here are the full patch notes:
+
+o system: add (de)select all option in LDAP importer
+o firewall: keep previous content for URL alias on fetch error
+o firewall: make schedule icon reflect current schedule state (contributed by framer99)
+o firewall: toggle and migration fix for upcoming alias API
+o firewall: round-robin limitation is for host alias outbound NAT only
+o firewall: resolve network addresses in kernel for static routes bypass option
+o firewall: do not clean up visible records when limit was not reached
+o firewall: do not hardcode live log pass / block colours
+o firewall: add live log direction icons
+o firmware: shorten shaper name and assorted cleanups
+o firmware: fix upgrade compatibility with FreeBSD 11.2
+o firmware: use opnsense-version where appropriate
+o firmware: correctly translate GUI buttons (contributed by Smart-Soft)
+o dnsmasq: use more robust approach to interface binding
+o ipsec: more secure phase 1 default settings (contributed by Michael Muenz)
+o ipsec: support for multiple phase 1 DH groups and hashes
+o openvpn: option to match CSO against common_name or login (contributed by Fabio Prina)
+o unbound: fix usage of the remote control backend calls
+o unbound: remove faulty "DHCP" label hint for IPv6 link-local registration option
+o web proxy: several corrections for PAC template
+o backend: fix CPU hogging when reading on already disconnected streams
+o mvc: speed up parsing very large config files
+o mvc: add single select constraint
+o mvc: add UUID field to the result of addBase (contributed by CJ)
+o ui: sidebar UX improvements (contributed by Team Rebellion)
+o ui: use single guillemets for previous/next page
+o plugins: os-acme-client /var MFS awareness
+o plugins: os-cicada 1.5 (contributed by Team Rebellion)
+o plugins: os-collectd 1.2 makes hostname override optional (contributed by Michael Muenz)
+o plugins: os-dyndns 1.10 adds CloudFlare IPv6 support (contributed by Charles Ulrich)
+o plugins: os-net-snmp 1.2 adds write access for users (contributed by Michael Muenz)
+o plugins: os-nginx 1.2[1] (contributed by Fabian Franz)
+o plugins: os-ntopng hides interface selection under advanced (contributed by Michael Muenz)
+o plugins: os-openconnect allows uppercase usernames (contributed by Michael Muenz)
+o plugins: os-postfix 1.6 adds port field (contributed by Michael Muenz)
+o plugins: os-telegraf 1.7.0 adds global tags, HAProxy input, prometheus output, fixes logging (contributed by Michael Muenz)
+o plugins: os-tukan 1.4 (contributed by Team Rebellion)
+o plugins: os-vnstat 1.0 (contributed by Michael Muenz)
+o plugins: os-zerotier fixes status table (contributed by Christoph Engelbert)
+o ports: mpd5 upstream MTU fix[2]
+o ports: PHP 7.1.23[3]
+
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] https://github.com/opnsense/plugins/commit/6776a5a17
+[2] https://github.com/freebsd/freebsd-ports/commit/7d765cc2f
+[3] http://php.net/ChangeLog-7.php#7.1.23
