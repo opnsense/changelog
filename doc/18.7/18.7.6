@@ -1,0 +1,62 @@
+@ October 25, 2018
+
+Hello there,
+
+We are back for new features, updates and reliability fixes.  Noteworthy
+are the addition of the PIE shaper option and firewall alias API.  Both
+Unbound and Dnsmasq have been updated to their latest version.
+
+Here are the full patch notes:
+
+o firewall: resolve interface address ":0" for port forwarding in kernel
+o firewall: list action corrections (contributed by Thomas Bandixen)
+o firewall: add support for the PIE shaper (contributed by Michael Muenz)
+o firewall: migrate to new alias API including a new failsafe
+o firewall: repair log widget for plugin themes
+o interfaces: do not remove CARP addresses on link-down
+o interfaces: get pfsync MTU from actual CARP interface
+o interfaces: add backend call returning all interface data
+o interfaces: partially rewrite ping, port and traceroute tools
+o interfaces: improve IPv6 merging in make_ipv6_64_address()
+o interfaces: use correct IPv6 interface where appropriate
+o interfaces: replace get_configured_interface_list() usage
+o interfaces: small refactoring around interface up and down code
+o system: cleanups in utility and config functions
+o captive portal: added connect action in API (contributed by zvs44)
+o firmware: move build-time version information to core version file
+o firmware: rename backend script "audit" to "security" for clarity
+o ipsec: bring back service widget lost back in 2016
+o monit: change status page to support easier CSS styling
+o unbound: set up a full chroot including local log socket
+o unbound: replace custom msort() function with standard function
+o unbound: use correct IPv4 or IPv6 interface for address lookups
+o webgui: use interfaces_addresses() for interface binding
+o mvc: show an error message on failed model migrations
+o mvc: refactor __items access via iterateItems()
+o mvc: accept style keyword on all input types
+o mvc: improved menu API endpoint integration
+o plugins: os-bind adds 4 new blacklist providers (contributed by Michael Muenz)
+o plugins: os-dyndns validates custom updates solely for URL input
+o plugins: os-nginx 1.3 correctly sets upstream headers (contributed by Fabian Franz)
+o plugins: os-theme-cicada 1.6 (contributed by Team Rebellion)
+o plugins: os-theme-rebellion 1.7 (contributed by Team Rebellion)
+o plugins: os-theme-tukan 1.5 (contributed by Team Rebellion)
+o plugins: os-zerotier reorders VPN menu entry (contributed by Michael Muenz)
+o src: fix regression in IPv6 fragment reassembly[1]
+o src: fix NULL pointer dereference in freebsd4_getfsstat[2]
+o src: fix DoS in listen syscall over IPv6 socket[3]
+o src: fix small kernel memory disclosures[4]
+o ports: unbound 1.8.1[5]
+o ports: dnsmasq 2.80[6]
+
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] https://www.freebsd.org/security/advisories/FreeBSD-EN-18:09.ip.asc
+[2] https://www.freebsd.org/security/advisories/FreeBSD-EN-18:10.syscall.asc
+[3] https://www.freebsd.org/security/advisories/FreeBSD-EN-18:11.listen.asc
+[4] https://www.freebsd.org/security/advisories/FreeBSD-EN-18:12.mem.asc
+[5] https://nlnetlabs.nl/projects/unbound/download/
+[6] http://www.thekelleys.org.uk/dnsmasq/CHANGELOG
