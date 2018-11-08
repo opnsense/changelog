@@ -1,0 +1,80 @@
+@ November 08, 2018
+
+Dear all,
+
+Today we are addressing CVE-2018-18958 regarding an unenforced "deny
+config write" privilege.  The issue was reported by brainrecursion this
+Monday and subsequently fixed along with several related issues.  The
+"deny config write" privilege coupled with admin or user and group manager
+rights are affected combinations.  It is an uncommon way to configure
+access as the "deny config write" privilege is commonly used for role-based
+access to non-system services, e.g. captive portals.
+
+As we cannot be sure that no further issues of this sort exist please
+refrain from using the "deny config write" privilege or at least stop
+giving access to system services or full admin rights to these users
+or groups.  In the midterm we will be looking for replacements of the
+current privilege for something that is more generic and robust in
+enforcement.
+
+Additionally, the update to Suricata 4.0.6 addresses the SMTP crash
+vulnerability CVE-2018-18956.  Since the update does not reboot without
+an operating system update please manually restart the intrusion detection
+service.
+
+Here are the full patch notes:
+
+o system: CVE-2018-18958 prevent restore of configuration of read-only user[1] (reported by brainrecursion)
+o system: prevent related read-only user configuration manipulation for history and defaults pages
+o system: prevent several creative ways to strip read-only privileges in the user and group manager
+o system: allow wildcards in certificate subject alternative name
+o system: avoid direct $global access in routing setup
+o system: do not offer root-only opnsense-shell to non-root users
+o system: remove FreeBSD 10 password workaround
+o interfaces: use pure jquery to avoid browser-specific behaviour
+o interfaces: nonfunctional cleanups in backend and interface GUI configuration
+o interfaces: clear the correct files IPv6 state files on interface down
+o interfaces: wait for PPPoE to fully exit on interface down
+o firewall: fix port alias conversion under new API
+o firewall: missing filter reload for port alias types
+o firewall: missing "other" type in VIP network expand
+o firewall: disabled alias should leave us with an empty one
+o firewall: category for "United States" moves from Pacific to America
+o firewall: resolve outbound NAT interface address in kernel
+o dhcp: only map enabled interfaces in IPv4 leases
+o dhcp: interface iteration code cleanups
+o dhcp: do not hand out IPv6 system DNS servers when Unbound or Dnsmasq are used
+o dhcp: IPv6 PD in manual DHCPv6 case (contributed by Team Rebellion)
+o dhcp: correctly merge prefix for IPv6 static leases in manual DHCPv6 case (contributed by Raimar Sandner)
+o firmware: add log file for package manager output
+o monit: use theme override for widget CSS (contributed by Fabian Franz)
+o ntp: internal cleanup of function argument order
+o rc: improvements in service startup scripting
+o rc: print date and time after successful boot
+o unbound: disable redirect type until fixed
+o web proxy: fix typo in description of upload caps (contributed by Juan Manuel Carrillo Moreno)
+o shell: stop router advertisement daemon too on console port reassign
+o mvc: remove errors in cron and monit API
+o plugins: os-freeradius 1.8.2 (contributed by Michael Muenz and Reza Ebrahimi)
+o plugins: os-nut 1.3 apcsmart and blazer_usb driver, reworked UI (contributed by Michael Muenz)
+o plugins: os-telegraf 1.7.1 adds ZFS input (contributed by Michael Muenz)
+o plugins: os-tinc now sets all defined subnets (contributed by QDaniel)
+o plugins: os-theme-cicada 1.8 (contributed by Team Rebellion)
+o plugins: os-theme-tukan 1.8 (contributed by Team Rebellion)
+o plugins: os-smart 1.5 standard widget coloring (contributed by Fabian Franz)
+o plugins: os-rspamd now uses scan_mime_parts (contributed by Michael Muenz)
+o ports: curl 7.62.0[2]
+o ports: krb5 1.16.2[3]
+o ports: strongswan 5.7.1[4]
+o ports: suricata 4.0.6[5]
+
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-18958
+[2] https://curl.haxx.se/changes.html
+[3] https://web.mit.edu/kerberos/krb5-1.16/
+[4] https://wiki.strongswan.org/versions/71
+[5] https://suricata-ids.org/2018/11/06/suricata-4-0-6-available/
