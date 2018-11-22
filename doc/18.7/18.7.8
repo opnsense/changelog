@@ -1,0 +1,82 @@
+@ November 22, 2018
+
+Hi everyone,
+
+This stable update finally brings you the promised LDAP+TOTP authentication,
+but also renewed language translations and several third party software
+updates for software such as OpenSSL, OpenSSH and Sudo.  A reboot is not
+required, but recommended.
+
+Here are the full patch notes:
+
+o system: show the actual validation messages for NextCloud backup constraints
+o system: LDAP import button primary colour and prevent default page submit
+o system: add LDAP+TOTP authentication variant (2FA)
+o system: avoid silent fatal error when LDAP OUs could not be retrieved
+o system: avoid duplicated cookies on login page by not closing session
+o system: allow to fully disable misc. reboot failsafe backups
+o system: switch default argument for return_gateways_status()
+o system: add "Synchronize config to backup" button to HA status page
+o system: disable help text expand when backup fields have no help text
+o system: sort user and group lists alphabetically
+o interfaces: add CARP info to legacy_interfaces_details()
+o interfaces: removal of find_interface_subnet() and find_interface_subnetv6()
+o interfaces: introduce find_interface_network() and find_interface_networkv6()
+o interfaces: refactor find_interface_ip() and find_interface_ipv6()
+o interfaces: fix and use ipaddr6_ll return value in find_interface_ipv6_ll()
+o firewall: extend outbound NAT address source and destination with networks
+o firewall: fix save error when alias name contains an underscore
+o firewall: do not set days or hours when update frequency is empty
+o firewall: increase resolve() performance for aliases
+o firmware: change packaging to be able to place files in the root directory
+o reporting: fix possible division by zero in NetFlow aggregator
+o dhcp: reorder arguments of function services_dhcpd_configure()
+o dhcp: consolidate service probe of IPv6 and router advertisement daemons
+o dhcp: fix clear hook on log file delete
+o importer: make clear that /conf/config.xml is required for any import to take place
+o monit: add quotes and timeout to custom program path (contributed by Frank Brendel)
+o monit: add SSL options to mail server connection (contributed by Frank Brendel)
+o network time: improve GPS status parsing
+o openvpn: add remote address as route when set during linkup
+o shell: interface banner now only shows enabled interfaces
+o unbound: do not clear statistics when querying them
+o lang: updates for Chinese, Czech, French, German, Japanese, Portuguese and Russian
+o mvc: fix toggleBase returning 'failed' result when using $enabled
+o mvc: fix PortField validation and make well-known ports optional
+o mvc: fix checking empty string in grid view (contributed by Smart-Soft)
+o rc: make it more obvious in /boot/loader.conf that system tunables work as well
+o ui: sidebar performance optimisation (contributed by Team Rebellion)
+o ui: vertically center current menu item on visible screen when height is too small
+o plugins: os-haproxy 2.10[1][2][3] (contributed by Frank Wall)
+o plugins: os-igmp-proxy forces reinstall due to missing core function
+o plugins: os-ntopng 1.1 adds HTTPS support (contributed by Michael Muenz)
+o plugins: os-nut fix for config file generation (contributed by Michael Muenz)
+o plugins: os-postfix fixes typo (contributed by Michael Muenz)
+o plugins: os-telegraf 1.7.2 adds validation messages to tags (contributed by Michael Muenz)
+o plugins: os-theme-cicada 1.9 (contributed by Team Rebellion)
+o plugins: os-theme-tukan 1.8 (contributed by Team Rebellion)
+o plugins: os-upnp removes unused function
+o plugins: os-zabbix-agent 1.4[4] (contributed by Frank Wall)
+o ports: cyrus-sasl 2.1.27[5]
+o ports: lighttpd 1.4.51[6]
+o ports: openssh 7.9p1[7]
+o ports: openssl 1.0.2q[8]
+o ports: php 7.1.24[9]
+o ports: pkg minor upstream fixes
+o ports: sudo 1.8.26[10]
+
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] https://github.com/opnsense/plugins/pull/960
+[2] https://github.com/opnsense/plugins/pull/970
+[3] https://github.com/opnsense/plugins/pull/1003
+[4] https://github.com/opnsense/plugins/pull/998
+[5] https://www.cyrusimap.org/sasl/sasl/release-notes/2.1/index.html
+[6] https://www.lighttpd.net/2018/10/14/1.4.51/
+[7] https://www.openssh.com/txt/release-7.9
+[8] https://www.openssl.org/news/cl102.txt
+[9] http://php.net/ChangeLog-7.php#7.1.24
+[10] https://www.sudo.ws/stable.html#1.8.26
