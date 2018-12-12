@@ -1,0 +1,102 @@
+@ December 12, 2018
+
+Hello world!
+
+To keep it snappy: enclosed are assorted updates and fixes, a new
+dnscrypt-proxy plugin as well as security updates from FreeBSD and
+third parties.  Happy patchday!
+
+Here are the full patch notes:
+
+o system: allow setting alternative names on CSR
+o system: add link-local routes with correct scope
+o system: fix LDAP import button for Firefox
+o system: assorted cleanups in HTML and PHP code
+o interfaces: add note about CGN addresses included in private range
+o interfaces: fix checksum disable for IPv6 TX / RX flags
+o interfaces: multiple type DUID support (contributed by Team Rebellion)
+o interfaces: properly read and write dhcp6c DUID binary file
+o interfaces: do not read VLAN capabilities from nonexistent interfaces
+o interfaces: removal of PEAR.inc from IPv6 address library
+o interfaces: assorted cleanups in HTML and PHP code
+o firewall: only suffix subnet alias entry when a network is expected
+o firewall: default alias protocol to both IPv4 and IPv6
+o firewall: fix validation of outbound NAT destination alias
+o firewall: fix performance regression in get_alias_description()
+o firewall: repair defunct "no nat proto carp all" rule
+o firewall: limit type to CARP when checking for VIP VHID reuse
+o firewall: refactor subnet retrieval in VIP deletion
+o firewall: display VHID for IP alias in overview
+o firewall: DHCPv6 outgoing firewall rule changed to "from (self)" to fix static setups
+o firewall: rearranged outbound NAT bottom symbol hints (contributed by Team Rebellion)
+o firewall: ignore empty values in alias migration (contributed by Frank Wall)
+o firewall: assorted cleanups in HTML and PHP code
+o captive portal: work around service boot ordering issue
+o captive portal: change "onestop" to "stop" in backend action
+o dnsmasq: add DNSSEC option
+o dnsmasq: assorted cleanups in HTML and PHP code
+o dhcp: show lease count in page heading
+o dhcp: refactor IPv6 subnet read
+o dhcp: fix DDNS IPv6 algorithm use
+o dhcp: assorted cleanups in HTML and PHP code
+o firmware: opnsense-version can now handle kernel, base and plugin metadata
+o firmware: when pkg needs to be updated do not prompt for base and kernel set
+o firmware: use embedded obsolete file list for removal on base set install
+o intrusion detection: fix daily cron job, was actually monthly
+o ipsec: assorted cleanups in HTML and PHP code 
+o openvpn: assorted cleanups in HTML and PHP code 
+o unbound: only use IPv6 when enabled and IPv4 is not preferred
+o unbound: restart after VPN is up
+o unbound: updated help text for verbosity level (contributed by Northguy)
+o unbound: assorted cleanups in HTML and PHP code
+o web proxy: move bump_step1 down (contributed by Michael Muenz)
+o mvc: missing isset() in routes migration
+o mvc: Phalcon 3.4.2 scope compatibility fix
+o mvc: assorted fixes in PHPDoc
+o mvc: fix advanced field bug in dialogs (contributed by Fabian Franz)
+o mvc: SetIfConstraint (contributed by Fabian Franz)
+o mvc: hidden input field (contributed by Fabian Franz)
+o mvc: json-data access support (contributed by Fabian Franz)
+o ui: remove markup from user indicator
+o ui: sidebar fixes (contributed by Team Rebellion)
+o plugins: os-acme-client 1.18 with GratisDNS and ACME DNS support (contributed by Frank Wall, ricobach, TuEye)
+o plugins: os-bind 1.3 adds Google and Yahoo safe search (contributed by Michael Muenz)
+o plugins: os-dnscrypt-proxy 1.0 (contributed by Michael Muenz)
+o plugins: os-freeradius 1.8.3 makes use of certificates clearer (contributed by Michael Muenz)
+o plugins: os-haproxy 2.12 HTTP/2 support, http-request before use_backend (contributed by Frank Wall, Mathias Aerts)
+o plugins: os-net-snmp 1.3 mark device as L3 enabled via SysServices (contributed by Michael Muenz)
+o plugins: os-nginx 1.5 with lots of new features[1] (contributed by Fabian Franz, Carlos Cesario, Julio Cesar Camargo, fzoske)
+o plugins: os-nut 1.4 adds listen directive and more flexible arguments (contributed by Michael Muenz)
+o plugins: os-postfix 1.7 adds address rewriting, sender/recipient BCC and domain masquerading (contributed by Michael Muenz)
+o plugins: os-theme-cicada 1.11 (contributed by Team Rebellion)
+o plugins: os-theme-rebellion 1.8.1 (contributed by Team Rebellion)
+o plugins: os-theme-tukan 1.10 (contributed by Team Rebellion)
+o src: fix multiple vulnerabilities in NFS server code[2]
+o src: fix ICMP buffer underwrite[3]
+o src: timezone database information update[4]
+o src: fix deferred kernel loading breaks loader password[5]
+o src: fix insufficient bounds checking in bhyve(8) device model[6]
+o ports: lighttpd 1.4.52[7]
+o ports: sqlite 3.26.0[8]
+o ports: perl 5.26.3[9]
+o ports: php 7.1.25[10]
+o ports: hostapd / wpa_supplicant 2.7[11]
+o ports: unbound 1.8.2[12]
+
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] https://github.com/opnsense/plugins/blob/master/www/nginx/pkg-descr
+[2] https://www.freebsd.org/security/advisories/FreeBSD-SA-18:13.nfs.asc
+[3] https://www.freebsd.org/security/advisories/FreeBSD-EN-18:13.icmp.asc
+[4] https://www.freebsd.org/security/advisories/FreeBSD-EN-18:14.tzdata.asc
+[5] https://www.freebsd.org/security/advisories/FreeBSD-EN-18:15.loader.asc
+[6] https://www.freebsd.org/security/advisories/FreeBSD-SA-18:14.bhyve.asc
+[7] https://www.lighttpd.net/2018/11/28/1.4.52/
+[8] https://www.sqlite.org/releaselog/3_26_0.html
+[9] https://metacpan.org/pod/release/SHAY/perl-5.26.3/pod/perldelta.pod
+[10] http://php.net/ChangeLog-7.php#7.1.25
+[11] http://lists.infradead.org/pipermail/hostap/2018-December/039069.html
+[12] https://nlnetlabs.nl/news/2018/Dec/04/unbound-1.8.2-released/
