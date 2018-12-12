@@ -76,7 +76,7 @@ o unbound: create ACL entries for all interface addresses of selected interfaces
 o unbound: support ACL modes deny_non_local and refuse_non_local (contributed by DJFelix)
 o wizard: added a dedicated Diffie-Helman parameter selector
 o mvc: dynamic urls regardless if you have a trailing slash or not (contributed by Max Orelus)
-o mvc: switch from the default $_GET['_url'] to $_SERVER['REQUEST_URI'] and let Phalcon handle the routing
+o mvc: switch from the default $_GET["_url"] to $_SERVER["REQUEST_URI"] and let Phalcon handle the routing
 o mvc: add support for application-specific field types
 o mvc: IDNA encode fails when input starts with a dot
 o rc: unset rcvar before evaluation (contributed by Nicholas de Jong)

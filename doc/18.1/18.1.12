@@ -23,7 +23,7 @@ o intrusion detection: add missing classification category
 o ipsec: add mutual RSA and EAP-MSCHAPv2 support
 o wizard: make clear that "admin password" means "root password"
 o ui: when JQuery Bootgrid rowselect is enabled the click event is triggered twice
-o mvc: switch from the default $_GET['_url'] to $_SERVER['REQUEST_URI'] and let Phalcon handle the routing
+o mvc: switch from the default $_GET["_url"] to $_SERVER["REQUEST_URI"] and let Phalcon handle the routing
 o mvc: dynamic urls regardless if you have a trailing slash or not (contributed by Max Orelus)
 o mvc: multiselect may allow empty option, no need to give blank item too
 o mvc: add support for application-specific field types
