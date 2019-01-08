@@ -1,4 +1,4 @@
-# Copyright (c) 2015-2016 Franco Fichtner <franco@opnsense.org>
+# Copyright (c) 2015-2019 Franco Fichtner <franco@opnsense.org>
 #
 # Redistribution and use in source and binary forms, with or without
 # modification, are permitted provided that the following conditions
@@ -33,6 +33,7 @@ all:
 lint:
 	@perl -ane '{ if(m/[[:^ascii:]]/) { print } }' ${.CURDIR}/doc/*/*
 	@grep -nr '^@.* [1-9],' ${.CURDIR}/doc || true
+	@grep -inr '[a-z0-9]:  .' ${.CURDIR}/doc || true
 . for DOC in ${DOCS}
 	@head -n1 ${.CURDIR}/${DOC} | grep -v '^@' || true
 . endfor

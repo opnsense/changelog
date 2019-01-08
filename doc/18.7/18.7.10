@@ -53,7 +53,7 @@ o installer: find all possible configs and include them for startup
 o intrusion detection: change default alert level to notice
 o openvpn: allow empty remote subnet in client
 o openvpn: use new network interface retrieval
-o openvpn:  assorted code cleanups
+o openvpn: assorted code cleanups
 o unbound: always add global DNS servers in forwarding mode
 o unbound: restart when crashed even if request came from unassociated interface
 o wizard: sync bogon help text with interfaces GUI counterparts
