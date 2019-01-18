@@ -84,6 +84,12 @@ o ports: suricata 4.1.2[11][12][13]
 o ports: syslogd 11.2
 o ports: unbound 1.8.3[14]
 
+A hotfix release was issued as 18.7.10_3:
+
+o system: fix adding new route when the list was previously empty
+o openvpn: flip client remote networks back to multiple
+o unbound: do not switch off IPv6 when prefer IPv4 is set as Unbound always prefers IPv4
+
 
 Stay safe,
 Your OPNsense team
