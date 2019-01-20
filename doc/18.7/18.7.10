@@ -8,7 +8,7 @@ for P12 certificate export as well as fresh fixes in the FreeBSD base.
 
 A lot of cleanups went into this update to make sure there will be a
 smooth transition to 19.1-RC for you early birds. We expect RC1 in 1-2
-weeks and the final 19.1 on January 29.
+weeks and the final 19.1 on January 31.
 
 Here are the full patch notes:
 
