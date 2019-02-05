@@ -1,0 +1,40 @@
+@ February 05, 2019
+
+Hello,
+
+This is a security and reliability release: WAN DHCP will no longer trust
+the server MTU given. Uncoordinated cross site scripting issues have been
+fixed.  And the Python request library was patched due to CVE 2018-18074.
+
+Here are the full patch notes:
+
+o system: address XSS-prone escaping issues[1]
+o firewall: add port range validation to shaper inputs
+o firewall: drop description validation constraints
+o interfaces: DHCP override MTU option (contributed by Team Rebellion)
+o interfaces: properly configure SIM PIN on custom modems
+o reporting: prevent cleanup from deleting current data when future data exists
+o ipsec: allow same local subnet if used in different phase 1 (contributed by Max Weller)
+o openvpn: multiple client export fixes
+o web proxy: add ESD files to Windows cache option (contributed by R-Adrian)
+o plugins: os-acme-client 1.20[2]
+o plugins: os-dyndns fix for themed colours (contributed by Team Rebellion)
+o plugins: os-etpro-telemetry 1.1 adds random delay to telemetry data send
+o plugins: os-nginx 1.7[3]
+o plugins: os-rspamd reads DKIM keys via Redis (contributed by Garrod Alwood)
+o plugins: os-theme-cicada 1.14 (contributed by Team Rebellion)
+o plugins: os-theme-tukan 1.13 (contributed by Team Rebellion)
+o ports: ca_root_nss 3.42.1
+o ports: lighttpd 1.4.53[4]
+o ports: py-request 2.21.0[5]
+
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] https://packetstormsecurity.com/files/151381/OPNsense-18.7-Cross-Site-Scripting.html
+[2] https://github.com/opnsense/plugins/pull/1157
+[3] https://github.com/opnsense/plugins/blob/master/www/nginx/pkg-descr
+[4] https://www.lighttpd.net/2019/1/27/1.4.53/
+[5] https://vuxml.freebsd.org/freebsd/50ad9a9a-1e28-11e9-98d7-0050562a4d7b.html
