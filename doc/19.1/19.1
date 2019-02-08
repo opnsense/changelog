@@ -76,7 +76,8 @@ o Gateway health graphs may need a manual reset due to the Apinger to Dpinger mi
 o Intrusion detection GeoIP rules are automatically deactivated and need to be manually migrated to firewall alias GeoIP.
 o Quagga plugin has been superseded by FRR plugin.  A binary quagga package has been conserved for the time being.
 o Please read the FRR documentation with regard to the required system tunables[8].
-o Bhyve UEFI boot may fail as a guest.  The problem is being investigated.
+o Bhyve VM boot may fail as a guest.  Use the "-w" parameter[9] to boot.
+o Boot may fail due to Meltdown/Spectre mitigation. A workaround[10] exists.
 o SNMP plugin has been superseded by Net-SNMP plugin.
 
 The public key for the 19.1 series is:
@@ -109,6 +110,8 @@ Your OPNsense team
 [6] https://www.freebsd.org/security/advisories/FreeBSD-EN-19:05.kqueue.asc
 [7] https://bugzilla.sudo.ws/show_bug.cgi?id=869
 [8] https://docs.opnsense.org/manual/dynamic_routing.html
+[9] https://forum.opnsense.org/index.php?topic=11492.0
+[10] https://github.com/opnsense/core/issues/3177
 
 # SHA256 (OPNsense-19.1-OpenSSL-dvd-amd64.iso.bz2) = 0a9e02954da1ddd1f0b7673394bbf81cfa74a1d5378600a87d3a9e6a26d3104d
 # SHA256 (OPNsense-19.1-OpenSSL-nano-amd64.img.bz2) = 2c4b0056ca26053c8d5e4efe196e512af618bad4fa136ba0e2528083a6263528
