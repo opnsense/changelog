@@ -4,14 +4,14 @@ Hi all,
 
 It has been 5 months since 16.1 came out.  Since then, over 1500 commits
 and 18 stable releases have continuously improved and enhanced the
-project.  Since then, thousands of new users have joined. And, since
+project.  Since then, thousands of new users have joined.  And, since
 then, our new documentation has been extended and tweaked with numerous
 guides, explanations and answers to your questions.
 
 The cumulation of these efforts is this announcement of the first release
 candidate for 16.7.  Images are being provided to encourage to try these
 in a fresh setting, but the config import in the installer and the GUI
-work as usual so that migration is simple. Checksums for the images can
+work as usual so that migration is simple.  Checksums for the images can
 be found below.  VGA images have been omitted to permit work on the UEFI
 variant in the meantime.
 

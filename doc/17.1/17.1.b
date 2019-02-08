@@ -13,7 +13,7 @@ that adapt to the media size to name only a few.
 
 These will be the only beta images.  They are not suitable for production
 environments.  Release candidate builds will start in January in order
-to provide production-ready images. Checksums can be found below this
+to provide production-ready images.  Checksums can be found below this
 announcement.  Direct download links from our capable mirror providers
 are as follows:
 

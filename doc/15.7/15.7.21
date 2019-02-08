@@ -14,7 +14,9 @@ feedback, let us know what we can push even further.
 15.7.21 brings updates to some of the most important ports and RRD frontend
 pages have been completely removed.  Unfortunately, we couldn't squeeze in
 OpenSSL and LibreSSL at this point, but will follow up as soon as both of
-them are available. Here are the full patch notes:
+them are available.
+
+Here are the full patch notes:
 
 o ports: phalcon 2.0.9[1]
 o ports: php 5.6.16[2]

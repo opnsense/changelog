@@ -134,9 +134,9 @@ Known issues and limitations:
 
 o Gateway health graphs may need a manual reset due to the Apinger to Dpinger migration.
 o Intrusion detection GeoIP rules are automatically deactivated and need to be manually migrated to firewall alias GeoIP.
-o Monit general settings do not save. A patch exists[12] to remedy this problem: opnsense-patch a2899594
-o Issue with IDS migration code creating a spurious crash report. Patch already done for the final 19.1.
-o Quagga plugin has been superseded by FRR plugin. A binary quagga package has been conserved for the time being.
+o Monit general settings do not save.  A patch exists[12] to remedy this problem: opnsense-patch a2899594
+o Issue with IDS migration code creating a spurious crash report.  Patch already done for the final 19.1.
+o Quagga plugin has been superseded by FRR plugin.  A binary quagga package has been conserved for the time being.
 o Please read the FRR documentation with regard to the required system tunables[13].
 o SNMP plugin has been superseded by Net-SNMP plugin.
 o ZFS guided installation pending.

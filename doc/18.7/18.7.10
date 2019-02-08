@@ -2,12 +2,12 @@
 
 Happy new year everyone,
 
-2019 means 19.1 is almost here. In the meantime accept this small
+2019 means 19.1 is almost here.  In the meantime accept this small
 incremental update with goodies such as Suricata 4.1, custom passwords
 for P12 certificate export as well as fresh fixes in the FreeBSD base.
 
 A lot of cleanups went into this update to make sure there will be a
-smooth transition to 19.1-RC for you early birds. We expect RC1 in 1-2
+smooth transition to 19.1-RC for you early birds.  We expect RC1 in 1-2
 weeks and the final 19.1 on January 31.
 
 Here are the full patch notes:

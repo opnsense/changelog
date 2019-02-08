@@ -31,7 +31,7 @@ know what we can achieve together.  :)
 
 Important notes on the live upgrade:
 
-The recommended way to upgrade is the root shell menu option "12". The box
+The recommended way to upgrade is the root shell menu option "12".  The box
 will require an immediate reboot.  No further steps will be necessary.
 
 The GUI firmware upgrade has never been perfect due to wanting to upgrade
@@ -43,7 +43,7 @@ up the full upgrade cycle, drop to the root shell and type:
 
 # opnsense-update && reboot
 
-But then again, simply use the root shell menu option "12". It works
+But then again, simply use the root shell menu option "12".  It works
 seamlessly via SSH, too.
 
 The full change log of 15.1.10 is as follows:

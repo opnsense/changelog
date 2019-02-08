@@ -2,8 +2,8 @@
 
 What up!
 
-So far so good. Here is another batch of changes for the upcoming 18.7
-release from assorted areas. Also included is the latest Suricata 4.0.5.
+So far so good.  Here is another batch of changes for the upcoming 18.7
+release from assorted areas.  Also included is the latest Suricata 4.0.5.
 
 We have bundled the firewall alias API progress under the hood, but
 it looks like we will miss our initial 18.7 target.  Sorry about that.
