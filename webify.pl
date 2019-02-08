@@ -1,6 +1,6 @@
 #!/usr/bin/env perl
 
-# Copyright (c) 2015-2016 Franco Fichtner <franco@opnsense.org>
+# Copyright (c) 2015-2019 Franco Fichtner <franco@opnsense.org>
 #
 # Redistribution and use in source and binary forms, with or without
 # modification, are permitted provided that the following conditions
@@ -77,7 +77,7 @@ for ( @lines ) {
 	$_ =~ s/(http[s]?:\/\/\S*)/<a target="_blank" href="$1">$1<\/a>/g;
 
         # extra break for our signature line
-	$_ = '<br>' . $_ . '<br>' if $_ =~ /^Stay safe.*,$/;
+	$_ = '<br>' . $_ . '<br>' if $_ =~ /(stay safe|may the force|upgrade responsibly|live long|happy holidays).*,$/i;
 
 	# fixup newline for preformatted block
         $_ .= "\n" if /^#/;
