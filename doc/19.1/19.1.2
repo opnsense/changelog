@@ -1,0 +1,101 @@
+@ February 28, 2019
+
+Good evening,
+
+This update is the sum of a few weeks of intense testing and debugging
+in areas such as WAN DHCP with very short lease times, Suricata IPS not
+working as expected, stacked 6RD setups that have overly long device names
+amongst others.
+
+The update may be a bit bumpy this time since the web GUI session directory
+will be moved to a safer location.  You will be logged out during the update
+and the system will reboot due to the included operating system update.  As
+soon as it is back you will be able to log in as usual.
+
+LibreSSL received a major upgrade from 2.7 to 2.8. If you are using LibreSSL
+and see any issues please do let us know because it sadly looks like third
+party projects such as OpenVPN, Squid, StrongSwan and NTP leave the use of
+LibreSSL to the few users who are able to fix the source code builds on their
+own and we want to ideally avoid having to patch third party software.
+
+Here are the full patch notes:
+
+o system: move session files into their own directory (forces the current sessions to expire)
+o system: add validation check for time period for Dpinger (contributed by Team Rebellion)
+o system: hide "show certificate info" button of pending CSR (contributed by nhirokinet)
+o system: move opnsense-auth to libexec, but keep a symlink in sbin directory
+o system: escaping issue in gateway edit page
+o system: fix ACL for halt and reboot pages
+o firewall: fix alias entry replacement in utility page
+o firewall: prevent new alias creation when adding an address
+o firewall: capture "nat" traffic like we do for "rdr" in live log
+o firewall: escaping issues in schedule edit page
+o interfaces: push dhclient and dhcp6c log messages to system log
+o interfaces: write all nameservers via dhclient-script in multi WAN scenarios
+o interfaces: check for valid alias IP in dhclient-script
+o interfaces: 6RD interface naming back to 18.7 to sidestep character limits on stacked setups
+o interfaces: avoid reading empty interface configurations
+o firmware: bootstrap rework for HTTPS repository URL
+o firmware: patch cache and assorted improvements
+o firmware: minor update utility cleanups
+o firmware: remove compatibility stubs for pre-19.1 version reads
+o firmware: show revoked package mirror error in GUI if applicable
+o firmware: bump RageNetwork mirror to HTTPS
+o firmware: be more careful about parsing version info
+o dhcp: fix behaviour of determining primary/secondary (contributed by Fredrik Ronnvall)
+o intrusion detection: set stream.inline: true as an IPS workaround for a Suricata 4.1 regression[1]
+o intrusion detection: support required rules/files in metadata package
+o intrusion detection: less extensive logging
+o ipsec: fix escaping issue in mobile page
+o monit: fix address validation
+o openvpn: obey verify-x509-name for remote access (user auth)
+o openvpn: proper daemonize instead of background job
+o openvpn: extract full CA chain for setup
+o openvpn: missing "port" in protocol export
+o mvc: fix port validation on whitespace input
+o mvc: fix compare constraint (contributed by Fabian Franz)
+o mvc: fix read-only access on config.xml during locked runs
+o mvc: prevent UserException from being pushed to PHP error log
+o ui: legacy browsers accommodation (contributed by NOYB)
+o ui: update to Tokenize2 1.3 plus additional escaping patches
+o ui: add support for Tokenize2 sortable tag
+o ui: hardening of gettext() invokes in HTML tags
+o ui: fix setFormData() HTML decode
+o plugins: os-bind safe search google domain updates (contributed by Michael Muenz)
+o plugins: os-dnscrypt-proxy 1.2[2]
+o plugins: os-dyndns 1.13 IPv6 device lookup fix
+o plugins: os-etpro-telemetry 1.2 reduces telemetry data collection
+o plugins: os-frr 1.8 adds route summarization via area range (contributed by Michael Muenz)
+o plugins: os-haproxy 2.15[3][4]
+o plugins: os-nginx 1.8[5]
+o plugins: os-ntopng 1.2[6]
+o src: clear callee-preserved registers on amd64 syscall exit[7]
+o ports: cpdup 1.20
+o ports: curl 7.64.0[8]
+o ports: libressl 2.8.3[9]
+o ports: openvpn 2.4.7[10]
+o ports: pam_opnsense manual page addition
+o ports: sqlite 3.27.1[11]
+o ports: squid forgery check avoidance[12]
+o ports: strongswan 5.7.2[13]
+o ports: unbound 1.9.0[14]
+
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] https://redmine.openinfosecfoundation.org/issues/2811
+[2] https://github.com/opnsense/plugins/blob/master/dns/dnscrypt-proxy/pkg-descr
+[3] https://github.com/opnsense/plugins/pull/1167
+[4] https://github.com/opnsense/plugins/pull/1209
+[5] https://github.com/opnsense/plugins/blob/master/www/nginx/pkg-descr
+[6] https://github.com/opnsense/plugins/blob/master/net/ntopng/pkg-descr
+[7] https://www.freebsd.org/security/advisories/FreeBSD-SA-19:01.syscall.asc
+[8] https://curl.haxx.se/changes.html
+[9] https://ftp.openbsd.org/pub/OpenBSD/LibreSSL/libressl-2.8.3-relnotes.txt
+[10] https://community.openvpn.net/openvpn/wiki/ChangesInOpenvpn24
+[11] https://www.sqlite.org/releaselog/3_27_1.html
+[12] https://github.com/opnsense/ports/issues/66
+[13] https://wiki.strongswan.org/versions/72
+[14] https://nlnetlabs.nl/projects/unbound/download/
