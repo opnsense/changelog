@@ -1,0 +1,52 @@
+@ March 12, 2019
+
+Howdy,
+
+An UEFI boot panic scenario was debugged last week with the help of the
+community.  This update includes a fix that will allow the ones affected
+by this 19.1 issue to upgrade or install (and boot of course) correctly.
+We are also including the IPsec VTI support and the latest Suricata 4.1.3
+with stability and compatibility fixes.
+
+Due to the severity of the UEFI boot panic 19.1.4 will be the new initial
+release for all upgrades from 18.7 within a day or two depending on
+additional testing and confirmation.  Last but not least there will be
+new images some time next week to put this fully behind us.  Thank you
+for your patience and understanding.  :)
+
+Special thanks go to the team of Synacktiv for reporting a packet filter
+IPv6 vulnerability for which a patch was included as well.
+
+Here are the full patch notes:
+
+o system: remove erroneously translated hostname example (contributed by nhirokinet)
+o firewall: fix validation regression in outbound NAT introduced in 19.1.3
+o firewall: mock labels for NAT rules in live log as pf does not offer label support
+o interfaces: do not background LAGG ifconfig destroy
+o installer: revert to use network connection to allow CTRL+C and resume
+o ipsec: added Virtual Tunnel Interface (VTI) support
+o unbound: fix nested statistics items read
+o mvc: remove old Phalcon volt template workarounds from when scopes were broken
+o mvc: fix bug in model relation field values merge
+o plugins: os-zabbix4-proxy PSK directory fix (contributed by Michael Muenz)
+o plugins: os-telegraf missed invoke of setup.sh
+o plugins: os-frr adds validator to OSPF prefix lists (contributed by Michael Muenz)
+o plugins: os-dmidecode 1.1 fixes data parsing (contributed by Smart-Soft)
+o plugins: os-nginx 1.9[1]
+o src: do not pass pf(4) IPv6 fragments with malformed extension headers (reported by Synacktiv)
+o src: revert upstream commit "protect the kernel text, data, and BSS" to fix certain UEFI boots
+o ports: monit 5.25.3[2]
+o ports: ntp 4.2.8p13[3]
+o ports: php 7.1.27[4]
+o ports: suricata 4.1.3[5]
+
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] https://github.com/opnsense/plugins/blob/master/www/nginx/pkg-descr
+[2] https://mmonit.com/monit/changes/
+[3] http://support.ntp.org/bin/view/Main/NtpBug3565
+[4] http://php.net/ChangeLog-7.php#7.1.27
+[5] https://suricata-ids.org/2019/03/07/suricata-4-1-3-released/
