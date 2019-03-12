@@ -17,10 +17,9 @@ o www: strengthen CSRF secret generation for legacy pages
 o dhcp: bring back usage of the authoritative directive
 o system: allow periodic backups of RRD and DHCP for non-MFS
 o openvpn: status page would not show the correct process status
-o captive portal: add option for less secure passwords, password
-  and username length
+o captive portal: add option for less secure passwords, password and username length
 o firewall: add GeoIP aliases feature
-o languages: completed Russian translation (contributed by Smart-Soft Ltd.)
+o languages: completed Russian translation (contributed by Smart-Soft)
 o languages: updated French
 
 

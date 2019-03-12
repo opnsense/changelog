@@ -18,18 +18,14 @@ o openvpn: revive windows installer binaries
 o firewall: validate alias url download
 o system: improved config history and backup pages layout
 o system: increased backup count default from 30 to 60
-o system: moved several settings to different pages for better
-  technology alignment
+o system: moved several settings to different pages for better technology alignment
 o system: /var /tmp MFS awareness for crash dumps added
 o trust: add "IP security IKE intermediate" to server key usage
 o firmware: moved reboot, halt and defaults pages to new home
-o proxy: add redirection rule creation link for HTTPS proxy
-  (contributed by Fabian Franz)
-o pptp: prevent service from printing boot messages due to a
-  stale entry in the default config.xml
+o proxy: add redirection rule creation link for HTTPS proxy (contributed by Fabian Franz)
+o pptp: prevent service from printing boot messages due to a stale entry in the default config.xml
 o interfaces: show LAGG protocol in overview page
-o languages: another large batch of Russian, now 83% complete
-  (contributed by Smart-Soft Ltd.)
+o languages: another large batch of Russian, now 83% complete (contributed by Smart-Soft)
 o languages: updated French, German and Japanese
 
 Stay safe,

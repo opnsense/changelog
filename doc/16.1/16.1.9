@@ -9,7 +9,7 @@ keep the spirits high.  :)
 There is tremendous progress in the translations.  It just so
 happens that we now have a comprehensive Russian translation as
 well which is going to be completed in the upcoming weeks.  Many
-thanks to Smart-Soft Ltd. for making this happen.  The contender
+thanks to Smart-Soft for making this happen.  The contender
 is Japanese through the work of Chie Taguchi, who did most of the
 translation that we have had for a year.  It is going to be a
 close race to the finish line for both languages.  Then again,
@@ -25,46 +25,31 @@ Here are the full patch notes:
 
 o src: tzdata updated to 2016c[1]
 o src: prevent kernel panic on ipfw/dummynet module unload
-o src: let ng_ether_attach() only attach to supported types to
-  avoid kernel panics
-o ports: curl 7.48.0[2], strongswan 5.4.0[3],
-  pcre 8.38 (patched CVE-2016-1283)[4], php 5.6.20[5]
-o languages: added Russian to the release, now 60% complete
-  (contributed by Smart-Soft Ltd.)
-o languages: updated Japanese, now 70% complete (contributed
-  by Chie Taguchi)
+o src: let ng_ether_attach() only attach to supported types to avoid kernel panics
+o ports: curl 7.48.0[2], strongswan 5.4.0[3], pcre 8.38 (patched CVE-2016-1283)[4], php 5.6.20[5]
+o languages: added Russian to the release, now 60% complete (contributed by Smart-Soft)
+o languages: updated Japanese, now 70% complete (contributed by Chie Taguchi)
 o languages: updated German, now 81% complete
 o languages: updated French, now 50% complete
 o firewall: allow editing of up to 5000 aliases
-o firewall: remove link to associated filter rule edit as edit
-  is not allowed
+o firewall: remove link to associated filter rule edit as edit is not allowed
 o firewall: add port range check to aliases edit
-o firewall: when alias URL SSL verification is off, do not
-  verify the hostname either
+o firewall: when alias URL SSL verification is off, do not verify the hostname either
 o firewall: condense alias pages into a single view
-o firewall: remember scrolling position to return to the previous
-  position after edit
-o firewall: alias import now supports type selection (network and
-  host types)
+o firewall: remember scrolling position to return to the previous position after edit
+o firewall: alias import now supports type selection (network and host types)
 o firmware: added German-based mirror (contributed by Alexander Lauster)
-o system: load modules before setting tunables to support
-  settings for modules
-o system: fix boot issue that prevented SSH from starting up in
-  some instances
-o interface: do not show wireless parents on the assignment page
-  as it cannot be assigned
+o system: load modules before setting tunables to support settings for modules
+o system: fix boot issue that prevented SSH from starting up in some instances
+o interface: do not show wireless parents on the assignment page as it cannot be assigned
 o ipsec: individual collapse/expand for status page
 o dhcp: allow backwards-compatibility with imported configs
 o captive portal: fix missing busyTimeout on voucher database access
-o openvpn: remember scrolling position to return to the previous
-  position after edit
+o openvpn: remember scrolling position to return to the previous position after edit
 o proxy: HTTPS support added
-o proxy: added ability to change the hostname and admin email
-  (contributed by Frederic Lietart)
-o proxy: avoid race condition on cache dir creation (contributed
-  by Frederic Lietart)
-o development: allow hiding of menu entries using the
-  Visibility="delete" attribute
+o proxy: added ability to change the hostname and admin email (contributed by Frederic Lietart)
+o proxy: avoid race condition on cache dir creation (contributed by Frederic Lietart)
+o development: allow hiding of menu entries using the Visibility="delete" attribute
 
 
 Stay safe,
