@@ -27,30 +27,24 @@ Here are the full patch notes of the initial 17.7.1:
 
 o system: add email and comment field to users
 o system: do not set LC_ALL locale
-o firewall: fix floating rules default for quick parameter (contributed
-  by Frank Wall)
+o firewall: fix floating rules default for quick parameter (contributed by Frank Wall)
 o firewall: support outbound NAT source invert
 o firewall: allow SSH installer anti-lockout on setups with only one interface
 o firewall: add back interface gateway pinning when the protocol is assigned
 o firewall: add optional VHID to support alias IP on CARP
 o firewall: use privilege separation to fetch diagnostic states
 o firmware: revoke 17.1 fingerprint
-o interfaces: better labels for DHCPv6 extended settings (contributed
-  by Fabian Franz)
+o interfaces: better labels for DHCPv6 extended settings (contributed by Fabian Franz)
 o interfaces: fix display of validation error from gateway addition request
 o interfaces: do not write defunct advanced settings
-o interfaces: add ability to lock vital interfaces to prevent reboot
-  network recovery
-o interfaces: split device create and rename ifconfig calls as a single call
-  can be unstable
+o interfaces: add ability to lock vital interfaces to prevent reboot network recovery
+o interfaces: split device create and rename ifconfig calls as a single call can be unstable
 o interfaces: probe VLAN hardware settings before changing
 o reporting: better insight database corruption detection and repair
 o captive portal: better login database corruption detection and repair
 o captive portal: fix startup after unclean shutdown
-o dhcp: fix string offset warnings in leases page (contributed
-  by Elias Werberich)
-o intrusion detection: fix startup after config import if no remote files
-  have been downloaded yet
+o dhcp: fix string offset warnings in leases page (contributed by Elias Werberich)
+o intrusion detection: fix startup after config import if no remote files have been downloaded yet
 o ipsec: portable NAT before IPsec support[1]
 o openvpn: fix Tunnelblick link on export page (contributed by Stefan Husch)
 o openvpn: fix connected timestamp and bytes up/down display
@@ -71,10 +65,8 @@ o plugins: several updates for PHP 7.1 compatibility
 o plugins: os-acme-client 1.9 (contributed by Frank Wall)
 o plugins: os-collectd 1.0 (contributed by Michael Muenz)
 o plugins: os-freeradius 1.0.1 (contributed by Micheal Muenz)
-o plugins: os-dyndns 1.2 removes legacy notification support and adds
-  regfish IPv4 and IPv6 as a provider
-o plugins: os-haproxy 1.17 adds hard stop feature to avoid shutdown
-  stalls (contributed by Frank Wall)
+o plugins: os-dyndns 1.2 removes legacy notification support and adds regfish IPv4 and IPv6 as a provider
+o plugins: os-haproxy 1.17 adds hard stop feature to avoid shutdown stalls (contributed by Frank Wall)
 o plugins: os-rfc2136 1.1 removes legacy notification support
 o plugins: os-zerotier 1.0 (contributed by David Harrigan)
 o src: fix panic in PPPoE session lookup (contributed by Alex Dupre)

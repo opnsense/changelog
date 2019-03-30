@@ -41,8 +41,7 @@ o system: bring back crash reports for all types of kernel crashes
 o system: LDAP server StartTLS connection mode (contributed by Eugen Mayer)
 o system: prevent anonymous binds to AD by rejecting empty passwords
 o console: rewrote the backup restore to fix a possible licensing issue
-o interfaces: instead of renaming new interfaces create them with the
-  target name
+o interfaces: instead of renaming new interfaces create them with the target name
 o interfaces: the IP renewal was redesigned to prevent spurious reloads
 o firewall: gateway code refactored
 o firewall: rule generation code refactored

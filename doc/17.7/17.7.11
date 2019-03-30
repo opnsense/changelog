@@ -26,8 +26,7 @@ o network time: minor cleanups in the backend
 o wizard: properly redirect on input errors in system wizard
 o mvc: ignore client-side anchors in breadcrumb generation
 o ui: do not use a CSRF input element ID
-o plugins: os-freeradius 1.4.1 fixes a warning
-  in clients (contributed by Michael Muenz)
+o plugins: os-freeradius 1.4.1 fixes a warning in clients (contributed by Michael Muenz)
 o ports: libxml 2.4.7[1]
 o ports: py-ipaddress 1.0.19
 

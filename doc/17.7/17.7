@@ -56,15 +56,10 @@ o ports: strongswan 5.5.3[3]
 
 The list of currently known issues with 17.7:
 
-o Users from 17.7-RC2 may have trouble upgrading via the GUI[4].  Run
-  "opnsense-patch 246513c" from the command line to correct this problem
-o A regression in floating rules in 17.7 does not honour the non-quick
-  setting[5].  Run "opnsense-patch f25d8b" from the command line to
-  correct this problem.
-o The dynamic DNS functionality was moved to the "os-dyndns" plugin.  It
-  must be reinstalled after the upgrade if needed.  Its settings are kept.
-o The RFC 2136 functionality was moved to the "os-rfc2136" plugin.  It
-  must be reinstalled after the upgrade if needed.  Its settings are kept.
+o Users from 17.7-RC2 may have trouble upgrading via the GUI[4].  Run "opnsense-patch 246513c" from the command line to correct this problem.
+o A regression in floating rules in 17.7 does not honour the non-quick setting[5].  Run "opnsense-patch f25d8b" from the command line to correct this problem.
+o The dynamic DNS functionality was moved to the "os-dyndns" plugin.  It must be reinstalled after the upgrade if needed.  Its settings are kept.
+o The RFC 2136 functionality was moved to the "os-rfc2136" plugin.  It must be reinstalled after the upgrade if needed.  Its settings are kept.
 
 All images are provided with SHA-256 signatures, which can be verified
 against the distributed public key:

@@ -20,16 +20,12 @@ little family.
 Here are the full patch notes:
 
 o ports: bind 9.10.3-P2[1], python 2.7.11[2], openvpn 2.3.9[3]
-o traffic shaper: page is now properly translated (Contributed by
-  Fabian Franz)
+o traffic shaper: page is now properly translated (contributed by Fabian Franz)
 o system: all remaining pages in this section have been reworked for clarity
-o logs: split up the old VPN multi-log page into their respective parts
-  (L2TP, PPTP, PPPoE)
+o logs: split up the old VPN multi-log page into their respective parts (L2TP, PPTP, PPPoE)
 o logs: added filtering option to all logs that previously missed it
-o certificates: now supports different extensions (Key Usage, Subject
-  Alternative Name) and usage types
-o dhcp: allow commas in advanced DHCP client options (Contributed by
-  Simon van der Linden)
+o certificates: now supports different extensions (Key Usage, Subject Alternative Name) and usage types
+o dhcp: allow commas in advanced DHCP client options (contributed by Simon van der Linden)
 o firewall: add direction indication icon to floating rules
 o firewall: lock port numbers on protocols that are not TCP/UDP
 o firewall: fix apply button on outbound NAT page in translation mode

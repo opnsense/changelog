@@ -30,28 +30,23 @@ o menu: order interfaces by their descriptive name
 o layout: removed several paddings and spurious boarders
 o rrd: removed the graphing frontend to complete our switch to System Health
 o rrd: moved remaining settings to System: Settings: Logs / Reporting
-o logs: can now narrow search using individual keywords separated by
-  whitespace
-o logs: added a raw firewall view as a default page instead of having a
-  setting for it
+o logs: can now narrow search using individual keywords separated by whitespace
+o logs: added a raw firewall view as a default page instead of having a setting for it
 o logs: ppp log messages won't show up in the system messages anymore
 o universal plug and play: reworked settings page for clarity
 o gateways/routes/users: reworked all pages for clarity
 o settings: reworked admin access and general section for clarity
-o settings: password authentication and permit root login settings changes
-  did not trigger an immediate sshd restart
+o settings: password authentication and permit root login settings changes did not trigger an immediate sshd restart
 o ipsec: remove use of reqid in config
 o ipsec: fix ESP/AH options on multiple phase2 entries
 o ipsec: fix algorithm selection in phase1 and phase2
 o ipsec: properly handle status error when ipsec is not enabled
 o ipsec: subnet selection can now extend beyond 24 bits
-o ipsec: make NAT type configurable for phase2 (Contributed by Frank Wall)
+o ipsec: make NAT type configurable for phase2 (contributed by Frank Wall)
 o layout: updated to jQuery Bootgrid v1.3.1
-o language: many translations added (Contributed by Frederic Lietart
-  and Fabian Franz)
+o language: many translations added (contributed by Frederic Lietart and Fabian Franz)
 o config: improve the session handling to ensure a responsive GUI
-o ntp: gps settings now work with translations and properly reselect the
-  configured device
+o ntp: gps settings now work with translations and properly reselect the configured device
 
 
 Stay safe,

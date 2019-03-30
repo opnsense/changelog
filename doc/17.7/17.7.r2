@@ -42,8 +42,7 @@ o installer: now properly advertises itself as version 17.7
 o rc: batch-run bootup command before starting services
 o openvpn: normalise line endings like web GUI does
 o openvpn: fix config read/write on PHP 7.1
-o mvc: squelch a PHP notice on an undefined element in
-  forms (contributed by Evgeny Bevz)
+o mvc: squelch a PHP notice on an undefined element in forms (contributed by Evgeny Bevz)
 o lang: update Chinese, Czech, German, Japanese
 o plugins: enable stable plugins for 17.7
 o plugins: os-dyndns 1.1 fixes menu entry visibility
@@ -55,15 +54,10 @@ o ports: unbound 1.6.4[4]
 
 The list of currently known issues with 17.7-RC2:
 
-o LAGG device destroy may cause a kernel panic.  A fix is scheduled
-  for 17.7.
-o IPsec inbound packet filtering does not work under NAT-T.  A fix is
-  scheduled for 17.7.
-o PPPoE Host-Uniq is still in the test phase and may not be fully
-  operational.
-o Configuration handling of static PHP is not always compatible with
-  PHP 7.1 at this point.  We are downgrading to 7.0 for the release of
-  17.7 to ensure integrity.
+o LAGG device destroy may cause a kernel panic.  A fix is scheduled for 17.7.
+o IPsec inbound packet filtering does not work under NAT-T.  A fix is scheduled for 17.7.
+o PPPoE Host-Uniq is still in the test phase and may not be fully operational.
+o Configuration handling of static PHP is not always compatible with PHP 7.1 at this point.  We are downgrading to 7.0 for the release of 17.7 to ensure integrity.
 
 Users of 17.7-RC1 can upgrade to RC2 via the usual online updates.  Images
 are not provided with this particular release.  As always with our pre-
