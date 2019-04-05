@@ -1,0 +1,84 @@
+@ April 05, 2019
+
+Hi all,
+
+After a longer pause we are back with considerable upgrades for IPsec,
+a new CSR feature for local CAs, PHP 7.2 migration and a number of other
+considerable third party updates.
+
+These are the full patch notes:
+
+o system: improve gateway status return when monitoring is off
+o system: warn user about future deprecation of "user-config-readonly" privilege
+o system: support certificate signing requests (contributed by nhirokinet)
+o system: syslog does not need to do a background startup since it backgrounds itself
+o system: invalidate Nextcloud URL with trailing slash (contributed by Fabian Franz)
+o system: avoid double encoding cert name (contributed by Indrajit Raychaudhuri)
+o interfaces: fix facility for rtsold log about dhcp6c (contributed by Thomas du Boys)
+o interfaces: take all unknown arguments as real interfaces in interfaces_addresses()
+o interfaces: optionally allow interfaces_addresses() to emit subnets instead of addresses
+o interfaces: move mpd.script to new location (may require interface reconfigure)
+o firewall: proper locking of aliases before config action on delete
+o firewall: correctly set outbound NAT destination as network
+o firewall: add support for DSCP in shaper (contributed by Michael Muenz)
+o firewall: add support for IDN in aliases (contributed by Smart-Soft)
+o captive portal: allow access to this host (contributed by Fredrik Ronnvall)
+o firmware: fix parsing of packages in multi-repo env and revoked fingerprint message
+o firmware: add University of Kent to the firmware mirrors
+o ipsec: only use explicit reqid when using route-based interfaces
+o ipsec: correctly set install policy option on newly created phase 1 entries
+o ipsec: improve split DNS and INTERNAL_DNS_DOMAIN configuration
+o ipsec: added IKEv2 DH group 31 / curve 25519 (contributed by Peter Stehlin)
+o ipsec: properly quote UNITY_BANNER for multi-line support
+o ipsec: support for dynamic remote gateways
+o monit: add migration/validation for service/test type dependency (contributed by Frank Brendel)
+o monit: added missing "not on" label
+o openvpn: support static-challenge formatted password
+o openvpn: properly load custom config field in exporter
+o openvpn: cleanups in listening address handling
+o web proxy: IP address not available when address set to none
+o web proxy: add sortable support for PAC proxy lists (contributed by Fabian Franz)
+o web proxy: add dash to allowed characters in description (contributed by Fabian Franz)
+o backend: python 2->3 iteritems() conversion in core templates
+o mvc: migrate  config backup rotation to handle static and MVC pages (contributed by Smart-Soft)
+o mvc: controller cleanups in cron, intrusion detection, routes
+o mvc: obey "user-config-readonly" privilege in mutable controllers
+o mvc: support overlays in setBase() / addBase()
+o ui: remove jquery-bootgrid converters which are now included in the library
+o plugins: os-acmle-client 1.23[1][2][3]
+o plugins: os-dyndns 1.14 supports wildcards for Google Domains
+o plugins: os-etpro-telemetry 1.3 uses HOME_NET to anonymization
+o plugins: os-freeradius 19.1.0[4]
+o plugins: os-frr 1.9[5]
+o plugins: os-nginx 1.10[6]
+o plugins: os-postfix 1.9[7]
+o plugins: os-rspamd 1.5[8]
+o plugins: os-telegraf 1.7.5[9]
+o plugins: os-theme-cicada 1.15 (contributed by Team Rebellion)
+o plugins: os-theme-tukan 1.14 (contributed by Team Rebellion)
+o plugins: os-zabbix-agent 1.5[10]
+o ports: ca_root_nss 3.43
+o ports: curl 7.64.1
+o ports: libucl 0.8.1
+o ports: pcre 8.43
+o ports: php 7.2.16
+o ports: py-cryptography 2.6.1
+o ports: phpseclib 2.0.15
+o ports: python 2.7.16
+o ports: unbound 1.9.1
+
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] https://github.com/opnsense/plugins/pull/1166
+[2] https://github.com/opnsense/plugins/pull/1212
+[3] https://github.com/opnsense/plugins/pull/1263
+[4] https://github.com/opnsense/plugins/blob/master/net/freeradius/pkg-descr
+[5] https://github.com/opnsense/plugins/blob/master/net/frr/pkg-descr
+[6] https://github.com/opnsense/plugins/blob/master/www/nginx/pkg-descr
+[7] https://github.com/opnsense/plugins/blob/master/mail/postfix/pkg-descr
+[8] https://github.com/opnsense/plugins/blob/master/mail/rspamd/pkg-descr
+[9] https://github.com/opnsense/plugins/blob/master/net-mgmt/telegraf/pkg-descr
+[10] https://github.com/opnsense/plugins/pull/1262
