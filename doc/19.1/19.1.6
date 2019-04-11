@@ -1,0 +1,38 @@
+@ April 11, 2019
+
+Hi there,
+
+This update brings a smaller number of fixes and improvements as well as
+the latest PHP version update.
+
+With a heavy heart we disable E_WARNING messages in the PHP error reporting.
+It was been implemented in 2015 to improve code quality and it did just that,
+but with the latest PHP 7.2 jump in 19.1.5 it causes problems around the
+newly added count() usage warning messages.  We plan to bring back E_WARNING
+usage in 19.7.
+
+Here are the full patch notes:
+
+o system: let dashboard only accept its own POST requests
+o system: remove obsolete symlink to opnsense-auth
+o system: skip PHP E_WARNING log level until 19.7
+o system: numerous PHP 7.2 warning fixes
+o dhcp: DHCPD server check in relay only if interface is active
+o dnsmasq: skip empty custom options
+o intrusion prevention: do not drop flowbits:noalert rules
+o unbound: add ACL entries for OpenVPN by default
+o mvc: controller cleanups in firewall shaper, web proxy and captive portal
+o plugins: numerous PHP 7.2 warning fixes
+o plugins: os-freeradius 1.9.2 fixes LDAP group filter and EAP certificates write (contributed by Alexander Harm)
+o plugins: os-nginx 1.11[1]
+o ports: php 7.2.17[2]
+o ports: py-certifi 2019.3.9[3]
+
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] https://github.com/opnsense/plugins/blob/master/www/nginx/pkg-descr
+[2] https://www.php.net/ChangeLog-7.php#7.2.17
+[3] https://pypi.org/project/certifi/2019.3.9/
