@@ -1,0 +1,104 @@
+@ May 02, 2019
+
+Hello, hello!
+
+This update features a number of improvements such as link-local support
+for bridges, HA sync consolidation, adding local CAs to the trusted SSL
+certificates for most of the system download capabilities, plugin-based
+PAM authentication rework for IPsec and the web proxy as well as third
+party fixes for hostapd / wpa_supplicant 2.8 and Suricata 4.1.4.
+
+Python 3 migration is also underway now which requires to pull in both
+Python versions which may be heavy on embedded Nano installs, but we
+cannot see another way for this tedious task which will probably stretch
+into 19.7 to be fully carried out in 20.1.
+
+And speaking of 20.1: This is the first of many reminders that 20.1 will
+discontinue the i386 (Intel 32 Bit) franchise as discussed a number of
+times within the community over the years.  Our hope is that ARM64 will
+make a viable replacement.  But that is for another time.
+
+As you may have noticed the project has not been delivering releases every
+other week and there are a number of reasons for it:
+
+Security-wise we have not had a lot of necessary third-party software
+updates.  Feature-wise we are sitting on a number of improvements for the
+upcoming 19.7 series that will trickle into 19.1.x now, but that have also
+required larger preparations and testing in the meantime.  On the community
+side of the spectrum, sponsored by our partner m.a.x. it, we have started
+to work on better default gateway switching which led to an overall gateway
+integration rework and then quickly to interface handling restructuring,
+which in turn led to improving plugin capabilities of core services
+(OpenVPN, IPsec, Unbound, Dnsmasq, DHCPD, Dpinger).  Looking at it now it
+has been the largest rework so far on code established many years ago and
+only occasionally patched.  We hope this shows our dedication to the code
+base even when things are not always 100% bug free.  If you feel like
+pitching in now is a good time to try the development version and let us
+know about how it performs.
+
+Without further ado, here are the full patch notes:
+
+o system: HA sync cleanup removes opportunistic syncs in random GUI pages (use HA status page to sync and restart remote services)
+o system: support for syncing alias and VHID to the slave
+o system: cleanly rewrite CA root files and add local trusted CAs as well
+o system: disable backup cron job when no backup is enabled
+o system: more reliable load and sync for LDAP attributes (contributed by Indrajit Raychaudhuri)
+o system: migrate health graph scripts to Python 3.6
+o interfaces: properly add and remove IPv6 trackers after interface apply
+o interfaces: validate prefix ID of IPv6 trackers so that each ID is unique
+o interfaces: display "0x" in prefix ID field so that it is clear that value is in hex
+o interfaces: fix passing VLAN name in interface_virtual_create()
+o interfaces: fix group-related bugs and allow digits and underscores in name, but no more than 15 characters
+o interfaces: allow link-local address on bridges via optional setting
+o interfaces: PPP-related code cleanups
+o firewall: prevent double-escaping of text in rules page
+o firewall: handle IDNA encode failures in aliases
+o firewall: alias import / export option
+o captive portal: update to bootstrap 3.4.1
+o captive portal: fix a race in directory creation and listClients()
+o dhcp: fix TFTP boot file name usage (contributed by Bjorn Kalkbrenner)
+o dhcp: merge static mac addresses with leases
+o dhcp: prevent double-escaping of text in leases page
+o firmware: add private log file for major upgrade package install step
+o firmware: use a safer major upgrade package install mode
+o firmware: retain /etc/motd on base updates
+o ipsec: implemented wildcard includes (contributed by Mark Plomer)
+o ipsec: only apply mobile PFS to mobile phase 2
+o ipsec: restyle mobile settings a little
+o ipsec: switch XAuth to PAM
+o ipsec: partial fix for static routes on routed tunnels during boot
+o network time: reload RRD since NTP has a setting for it
+o web proxy: fix PAC weekday match labels (contributed by Mohammed Sadiq)
+o web proxy: switch authentication to PAM
+o backend: treat non existing key as empty string in sortDictList()
+o mvc: pluggable PAM-based authentication framework
+o mvc: add filter closure to searchBase()
+o plugins: introduce plugins_run() for collecting structured data from plugins
+o plugins: os-clamav 1.6[1]
+o plugins: os-dyndns 1.5 fixes CloudFlare zone ID lookup behaviour (contributed by George Johnson)
+o plugins: os-frr 1.10[2]
+o plugins: os-netdata 1.0 (contributed by Michael Muenz)
+o plugins: os-nginx 1.11_2 fixes ACME support (contributed by Frank Wall)
+o plugins: os-rfc2136 1.5 removes unused gateway group related code
+o src: move invoking of callout_stop(&lle->lle_timer) into llentry_free()
+o src: ensure that IP addresses match in ICMP error packets in pf(4)
+o src: add bsdinstall utility for upcoming 19.7 installer replacement
+o ports: dhcp6c v20190419 fixes raw options segfaults (contributed by Franck78)
+o ports: hostapd / wpa_supplicant 2.8[3]
+o ports: perl 5.28.2[4]
+o ports: py-yaml 5.1[5]
+o ports: suricata 4.1.4[6]
+o ports: sqlite 3.27.2[7]
+
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] https://github.com/opnsense/plugins/blob/master/security/clamav/pkg-descr
+[2] https://github.com/opnsense/plugins/blob/master/net/frr/pkg-descr
+[3] https://w1.fi/cgit/hostap/plain/hostapd/ChangeLog
+[4] https://perldoc.pl/5.28.2/perldelta
+[5] https://github.com/yaml/pyyaml/blob/master/CHANGES
+[6] https://suricata-ids.org/2019/04/30/suricata-4-1-4-released/
+[7] https://www.sqlite.org/changes.html
