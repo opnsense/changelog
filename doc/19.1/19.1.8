@@ -1,0 +1,63 @@
+@ May 20, 2019
+
+Good day to you all,
+
+This update addresses several privilege escalation issues in the access
+control implementation and new memory disclosure issues in Intel CPUs.
+We would like to thank Arnaud Cordier and Bill Marquette for the top-notch
+reports and coordination.
+
+Here are the full patch notes:
+
+o system: address CVE-2019-11816 privilege escalation bugs[1] (reported by Arnaud Cordier)
+o system: /etc/hosts generation without interface_has_gateway()
+o system: show correct timestamp in config restore save message (contributed by nhirokinet)
+o system: list the commands for the pluginctl utility when no argument is given
+o system: introduce and use userIsAdmin() helper function instead of checking for 'page-all' privilege directly
+o system: use absolute path in widget ACLs (reported by Netgate)
+o system: RRD-related cleanups for less code exposure
+o interfaces: add EN DUID Generation using OPNsense PEN (contributed by Team Rebellion)
+o interfaces: replace legacy_getall_interface_addresses() usage
+o firewall: fix port validation in aliases with leading / trailing spaces
+o firewall: fix outbound NAT translation display in overview page
+o firewall: prevent CARP outgoing packets from using the configured gateway
+o firewall: use CARP net.inet.carp.demotion to control current demotion in status page
+o firewall: stop live log poller on error result
+o dhcpd: change rule priority to 1 to avoid bogon clash
+o dnsmasq: only admins may edit custom options field
+o firmware: use insecure mode for base and kernel sets when package fingerprints are disabled
+o firmware: add optional device support for base and kernel sets
+o firmware: add Hostcentral mirror (HTTP, Melbourne, Australia)
+o ipsec: always reset rightallowany to default when writing configuration
+o lang: say "hola" to Spanish as the newest available GUI language
+o lang: updates for Chinese, Czech, Japanese, German, French, Russian and Portuguese
+o network time: only admins may edit custom options field
+o openvpn: call openvpn_refresh_crls() indirectly via plugin_configure() for less code exposure
+o openvpn: only admins may edit custom options field to prevent privilege escalation (reported by Bill Marquette)
+o openvpn: remove custom options field from wizard
+o unbound: only admins may edit custom options field
+o wizard: translate typehint as well
+o plugins: os-freeradius 1.9.3 fixes string interpolation in LDAP filters (contributed by theq86)
+o plugins: os-nginx 1.12[2]
+o plugins: os-theme-cicada 1.17 (contributed by Team Rebellion)
+o plugins: os-theme-tukan 1.17 (contributed by Team Rebellion)
+o src: timezone database information update[3]
+o src: install(1) broken with partially matching relative paths[4]
+o src: microarchitectural Data Sampling (MDS) mitigation[5]
+o ports: ca_root_nss 3.44
+o ports: php 7.2.18[6]
+o ports: sqlite 3.28.0[7]
+o ports: strongswan custom XAuth generic patch removed
+
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-11816
+[2] https://github.com/opnsense/plugins/blob/master/www/nginx/pkg-descr
+[3] https://www.freebsd.org/security/advisories/FreeBSD-EN-19:08.tzdata.asc
+[4] https://www.freebsd.org/security/advisories/FreeBSD-EN-19:09.xinstall.asc
+[5] https://www.freebsd.org/security/advisories/FreeBSD-SA-19:07.mds.asc
+[6] https://www.php.net/ChangeLog-7.php#7.2.18
+[7] https://www.sqlite.org/changes.html
