@@ -1,0 +1,69 @@
+@ June 06, 2019
+
+Hi there,
+
+Small 19.1 series update mainly focusing on LDAP group synchronisation
+and assorted OpenVPN improvements.  Two regressions of previous versions
+have been fixed as well.
+
+Here are the full patch notes:
+
+o system: add LDAP group synchronisation feature
+o system: allow an arbitrary group for sudo like ssh login
+o system: stop using a lock around resolv.conf handling
+o system: rename a number of service-related functions
+o system: login not using cache-safe image yet
+o system: add pluginctl -s support
+o system: restyle config backup page
+o system: fix log split view regression of 19.1.8
+o interfaces: remove DHCPv6 on delete and clear config on IPsec assignment
+o interfaces: small VIP restructure and IPv6 alias to IPv6 device
+o interfaces: subtle changes in IPv6 and variable naming
+o interfaces: add missing does_interface_exist() checks
+o firewall: support multiple interfaces per NAT port forward rule
+o captive portal: use "onestop" to stop service
+o intrusion detection: missing header ID in alerts tab
+o ipsec: remove remnants of gateway group interface selection
+o ipsec: use indirect plugin calls in interface code
+o openvpn: add live-search to longer lists in server page
+o openvpn: support --cryptoapicert export (sponsored by m.a.x it)
+o opnevpn: correctly check for translation in get_carp_interface_status()
+o openvpn: use waitforpid() to properly wait for instanes to come up
+o openvpn: translate GUI error values when returning them
+o openvpn: revamp status page
+o unbound: leases watcher file rotation issue
+o web proxy: squid log in readable date format (contributed by nhirokinet)
+o web proxy: fix non-local authentication regression of 19.1.7
+o plugins: os-bind 1.5[1]
+o plugins: os-clamav 1.7[2]
+o plugins: os-dnscrypt-proxy 1.4[3]
+o plugins: os-dyndns clouldflare wildcard domain support
+o plugins: os-nginx 1.13[4]
+o plugins: os-openconnect 1.4.0[5]
+o plugins: os-redis 1.1[6]
+o plugins: os-rspamd 1.6[7]
+o plugins: os-theme-cicada 1.18 (contributed by Team Rebellion)
+o plugins: os-theme-tukan 1.18 (contributed by Team Rebellion)
+o ports: curl 7.65.0[8]
+o ports: lighttpd 1.4.54[9]
+o ports: python 3.7.3[10]
+o ports: openssl 1.0.2s[11]
+o ports: php 7.2.19[12]
+
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] https://github.com/opnsense/plugins/blob/master/dns/bind/pkg-descr
+[2] https://github.com/opnsense/plugins/blob/master/security/clamav/pkg-descr
+[3] https://github.com/opnsense/plugins/blob/master/dns/dnscrypt-proxy/pkg-descr
+[4] https://github.com/opnsense/plugins/blob/master/www/nginx/pkg-descr
+[5] https://github.com/opnsense/plugins/blob/master/security/openconnect/pkg-descr
+[6] https://github.com/opnsense/plugins/blob/master/databases/redis/pkg-descr
+[7] https://github.com/opnsense/plugins/blob/master/mail/rspamd/pkg-descr
+[8] https://curl.haxx.se/changes.html
+[9] https://www.lighttpd.net/2019/5/27/1.4.54/
+[10] https://www.python.org/downloads/release/python-373/
+[11] https://www.openssl.org/news/cl102.txt
+[12] https://www.php.net/ChangeLog-7.php#7.2.19
