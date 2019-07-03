@@ -1,0 +1,53 @@
+@ July 03, 2019
+
+Good morning everyone,
+
+Small update as we are nearing the end of the 19.1 series.  Yes, it is
+that time of the year again with a release candidate only a few days
+away and a final release date set to July 17.
+
+Here are the full patch notes:
+
+o system: change certificate manager actions to POST
+o system: fix account removal with missing "-g" option
+o system: add dashboard widgets to XMLRPC sync
+o firewall: fix live log rule label mismatch caused by optimisation
+o firewall: fix alias import with alias references included
+o firewall: change default sorting of aliases to names
+o firmware: add homelab.no mirror (contributed by Thomas Jensen)
+o intrusion detection: when toggling rules keep the current action
+o intrusion detection: suppress mystery PHP 7.2+ warning in API
+o intrusion detection: show SID in alert view
+o web proxy: add cache reset button
+o web proxy: correct syslog export
+o plugins: os-dyndns 1.6 DigitalOcean support (contributed by Dune Heishman)
+o plugins: os-etpro-telemetry Python 3 support
+o plugins: os-frr 1.11[1]
+o plugins: os-nginx 1.14[2]
+o plugins: os-rspamd 1.7[3]
+o plugins: os-tinc Python 3 support
+o ports: ca_root_nss 3.44.1
+o ports: curl 7.65.1[4]
+o ports: libevent 2.1.10[5]
+o ports: libxml 2.9.9[6]
+o ports: libressl 2.9.2[7][8]
+o ports: phalcon 3.4.4[9]
+o ports: strongswan 5.8.0[10]
+o ports: unbound 1.9.2[11]
+
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] https://github.com/opnsense/plugins/blob/master/net/frr/pkg-descr
+[2] https://github.com/opnsense/plugins/blob/master/www/nginx/pkg-descr
+[3] https://github.com/opnsense/plugins/blob/master/mail/rspamd/pkg-descr
+[4] https://curl.haxx.se/changes.html
+[5] https://github.com/libevent/libevent/releases/tag/release-2.1.10-stable
+[6] https://mail.gnome.org/archives/xml/2019-January/msg00000.html
+[7] https://ftp.openbsd.org/pub/OpenBSD/LibreSSL/libressl-2.9.1-relnotes.txt
+[8] https://ftp.openbsd.org/pub/OpenBSD/LibreSSL/libressl-2.9.2-relnotes.txt
+[9] https://github.com/phalcon/cphalcon/releases/tag/v3.4.4
+[10] https://wiki.strongswan.org/versions/73
+[11] https://nlnetlabs.nl/projects/unbound/download/
