@@ -1,0 +1,129 @@
+@ July 09, 2019
+
+Hi there,
+
+For four and a half years now, OPNsense is driving innovation through
+modularising and hardening the open source firewall, with simple
+and reliable firmware upgrades, multi-language support, HardenedBSD
+security, fast adoption of upstream software updates as well as clear
+and stable 2-Clause BSD licensing.
+
+We thank all of you for helping test, shape and contribute to the project!
+We know it would not be the same without you.
+
+Download links, an installation guide[1] and the checksums for the images
+can be found below as well.
+
+o Europe: https://opnsense.c0urier.net/releases/19.7/
+o US East Coast: http://mirrors.nycbug.org/pub/opnsense/releases/19.7/
+o US West Coast: https://mirror.sfo12.us.leaseweb.net/opnsense/releases/19.7/
+o South America: http://mirror.upb.edu.co/opnsense/releases/19.7/
+o South-East Asia: https://ftp.yzu.edu.tw/opnsense/releases/19.7/
+o Full mirror list: https://opnsense.org/download/
+
+Here are the full changes against version 19.1.10:
+
+o system: new remote syslog setup via Syslog-ng
+o system: gateway handling rewrite
+o system: dpinger ported to plugin framework
+o system: bring back PHP warning log level
+o system: use authentication factory for user import
+o interfaces: VLAN, bridge, LAGG, GRE, GIF setup refactor
+o interfaces: improve load sequence to allow DHCPv6 on bridges
+o interfaces: GIF, GRE, IPsec and OpenVPN will no longer accept IP configuration
+o interfaces: speed up get_real_interface() by assuming interfaces exist
+o interfaces: sort interface groups and require rules apply if necessary (contributed by Robin Schneider)
+o interfaces: background PPPoE connect and disconnect
+o interfaces: only IP-address allowed in PPP gateway (contributed by Smart-Soft)
+o interfaces: simplified linking VIPs to interfaces
+o interfaces: removed interface_has_gateway()
+o interfaces: removed interface_has_gatewayv6()
+o interfaces: removed get_failover_interface()
+o interfaces: removed rc.kill_states
+o firewall: ability to view automatic rules
+o firewall: rule origin locator in live log and automatic rules listing
+o firewall: show statistics for all active rules including automatic ones
+o firewall: optional statistics for alias tables
+o firewall: fix translation of shaper mask "none" value
+o firewall: add ipv6-icmp type selection
+o firewall: rule listing layout update
+o reporting: new NetFlow reader in Python 3
+o reporting: validate that NetFlow WAN interfaces are also added to listening interfaces
+o dhcp: ported to plugin framework
+o dhcp: added failover split to DHCPv4 (contributed by Wolfgang Pedot)
+o dhcp: fix ddnsdomainprimary setting validation
+o dhcp: added advanced options for router advertisements
+o dhcp: removed remove rasend/ranosend checkbox
+o dhcp: simplify DHCPv4 interface lookup on lease page
+o dhcp: use AdvDefaultLifetime 0 when default route shall not be advertised
+o firmware: support reading package repository and origin
+o firmware: warn on third party package installation
+o firmware: synchronise update checks to avoid "not responding" errors
+o firmware: fix empty update list on release type change
+o installer: support password reset in opnsense-importer
+o intrusion detection: allow rule action bulk changes
+o intrusion detection: minor usability improvements
+o intrusion detection: support eve system log output
+o openvpn: removed gateway group listening support
+o openvpn: no longer restart servers on CARP events
+o openvpn: reduced complexity in service handling
+o web proxy: replace proxy login privilege "user-proxy-auth" with group selector
+o backend: ported remaining scripts to Python 3
+o backend: add helpers.glob() to enable template traversal
+o backend: new "monitor" hook for rc.syshook
+o mvc: do not add "none" in AuthGroupField if multiple select
+o mvc: allow sorting JsonKeyValueStoreField by value
+o ui: remember previous selected columns and row count on several MVC pages
+o ui: apply alert reminders for several MVC pages
+o ui: add failed callback to saveFormToEndpoint()
+o ui: core theme color update
+o ui: fix file size suffix (contributed by Fabian Franz)
+o ui: add useRequestHandlerOnGet option
+o ui: bootstrap 3.4.1[2]
+o ports: squid 4.7[3]
+o ports: syslog-ng 3.21.1[4]
+
+Known issues and limitations:
+
+o Filterlog spamming console due to new Syslog-ng integration.  Temporary workaround is stopping filterlog via "pkill filterlog".
+o OpenVPN no longer supports listening on gateway groups.  Use localhost paired with port forwards instead.
+o The web proxy login privilege is no longer available.  Access may be restricted by a group selector instead.
+
+The public key for the 19.7 series is:
+
+# -----BEGIN PUBLIC KEY-----
+# MIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEAv2syLqN/IMuADI42aTXx
+# HRbX3YljURN1dhhjYoqOc/7uZKVc7UJk79q49x8VZmC0edhHiNKfrhj5g3htsPgu
+# N/eFsc1MZv+J2rfSF7L5NV3D5dU9nuBc75wb9SRIXm7XiiiuInMNRBlJsiFeiuJm
+# oaE/zqgr75m+cc7sdNQnQQk9+APr4LdksX0bllRmxfhLjDKgiSVe+Yq9kje/JHyf
+# je5i3MI9WT80o46IZc/oN4q9RG7n6gaIFBVckCwCKsnNZlDCvb1Sr0tdKs58fswj
+# fxMvouMBf+Jk/0dOEZnoIFYb436H2CUfabiPX3Vm4r3MU4dr5m41WlCH/984cBKy
+# QSM8h4nSAs/naj5c5YDe4qmwUBxwPIvJPVC/vuWLusyg1gYbloj3EIc1uv2YCkKw
+# 0ra7Hocln3+7Jf2Yn/yn6yaCNdoJY2Blvo84giuklDqdBIKggDHSxGrLKDBshSR3
+# hapkFRoR7BhnoT14E8DMgD23g9tcwce1AJJ6mZ/DraBx5l11P1ZXLqnyCpvOt5oV
+# HmMZ9/Xu0naPUC8IxVSNew8j3liPbc5oKV0kQ/TRQTevOBLJ8QA7Y5YdPu0cS4qw
+# Jq3fGnsRt/0+i1Vs7q51KJLNECHyhWm6zYAfST22ohTUgo2ByoM8r0aRslmiG6JS
+# +ancHD4lnnHRd+4ybevUft0CAwEAAQ==
+# -----END PUBLIC KEY-----
+
+Please let us know about your experience!
+
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] https://docs.opnsense.org/manual/install.html
+[2] https://blog.getbootstrap.com/2019/02/13/bootstrap-4-3-1-and-3-4-1/
+[3] http://squid.mirror.colo-serv.net/archive/4/squid-4.0.7-RELEASENOTES.html
+[4] https://github.com/balabit/syslog-ng/releases/tag/syslog-ng-3.21.1
+
+# SHA256 (OPNsense-19.7.r1-OpenSSL-dvd-amd64.iso.bz2) = 5014dba896a425d15fbedcb44f2deec7fb5aee6a1b7c95833b819f8d352de6a1
+# SHA256 (OPNsense-19.7.r1-OpenSSL-nano-amd64.img.bz2) = b9d6ccbfdcb88f813a6494efb13647d1715500551c7dc51f632766b19189c6bc
+# SHA256 (OPNsense-19.7.r1-OpenSSL-serial-amd64.img.bz2) = 86050bffa626247cfe0374d28994a52f9e10490b20a81539f5d2784676280c17
+# SHA256 (OPNsense-19.7.r1-OpenSSL-vga-amd64.img.bz2) = 3a7ae31f6429e519060a717b6248d13620a1e5caba43f44afaf4a7dd4e6634e6
+
+# SHA256 (OPNsense-19.7.r1-OpenSSL-dvd-i386.iso.bz2) = 4c0e54982d92279e7273c74cac183290e89219f75b4c1f55a42bad0331bdf321
+# SHA256 (OPNsense-19.7.r1-OpenSSL-nano-i386.img.bz2) = 5db5dfc0bfb15a593dae689b58e65d556e935c326741729ad37507a952a51426
+# SHA256 (OPNsense-19.7.r1-OpenSSL-serial-i386.img.bz2) = a20422c81c62c79264aec2cf83cb8734e2e0c954881200e6bc46d372f2432cf9
+# SHA256 (OPNsense-19.7.r1-OpenSSL-vga-i386.img.bz2) = f6ba92f987c024697e6599b72d905ac9a4fdcfe61c71e3f060dccf1efccd6d82
