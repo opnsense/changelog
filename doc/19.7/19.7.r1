@@ -80,6 +80,7 @@ o ui: core theme color update
 o ui: fix file size suffix (contributed by Fabian Franz)
 o ui: add useRequestHandlerOnGet option
 o ui: bootstrap 3.4.1[2]
+o src: netmap VirtIO, VLAN child and vmxnet support
 o ports: squid 4.7[3]
 o ports: syslog-ng 3.21.1[4]
 
@@ -88,6 +89,7 @@ Known issues and limitations:
 o Filterlog spamming console due to new Syslog-ng integration.  Temporary workaround is stopping filterlog via "pkill filterlog".
 o OpenVPN no longer supports listening on gateway groups.  Use localhost paired with port forwards instead.
 o The web proxy login privilege is no longer available.  Access may be restricted by a group selector instead.
+o Web proxy squid update from version 3 to 4 breaks the cache database.  To repair go to "Services: Web Proxy: Administration" tab "Support" and click "Reset".
 
 The public key for the 19.7 series is:
 
