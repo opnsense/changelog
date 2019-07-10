@@ -81,6 +81,7 @@ o ui: fix file size suffix (contributed by Fabian Franz)
 o ui: add useRequestHandlerOnGet option
 o ui: bootstrap 3.4.1[2]
 o src: netmap VirtIO, VLAN child and vmxnet support
+o src: fix races in tun(4)/tap(4) drivers
 o ports: squid 4.7[3]
 o ports: syslog-ng 3.21.1[4]
 
