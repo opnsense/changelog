@@ -25,6 +25,7 @@ Here are the full changes against version 19.1.10:
 
 o system: new remote syslog setup via Syslog-ng
 o system: gateway handling rewrite
+o system: default gateway switching priority control (sponsored by m.a.x it[2])
 o system: dpinger ported to plugin framework
 o system: bring back PHP warning log level
 o system: use authentication factory for user import
@@ -79,11 +80,11 @@ o ui: add failed callback to saveFormToEndpoint()
 o ui: core theme color update
 o ui: fix file size suffix (contributed by Fabian Franz)
 o ui: add useRequestHandlerOnGet option
-o ui: bootstrap 3.4.1[2]
+o ui: bootstrap 3.4.1[3]
 o src: netmap VirtIO, VLAN child and vmxnet support
 o src: fix races in tun(4)/tap(4) drivers
-o ports: squid 4.7[3]
-o ports: syslog-ng 3.21.1[4]
+o ports: squid 4.7[4]
+o ports: syslog-ng 3.21.1[5]
 
 Known issues and limitations:
 
@@ -117,9 +118,10 @@ Your OPNsense team
 
 --
 [1] https://docs.opnsense.org/manual/install.html
-[2] https://blog.getbootstrap.com/2019/02/13/bootstrap-4-3-1-and-3-4-1/
-[3] http://squid.mirror.colo-serv.net/archive/4/squid-4.0.7-RELEASENOTES.html
-[4] https://github.com/balabit/syslog-ng/releases/tag/syslog-ng-3.21.1
+[2] https://www.max-it.de/
+[3] https://blog.getbootstrap.com/2019/02/13/bootstrap-4-3-1-and-3-4-1/
+[4] http://squid.mirror.colo-serv.net/archive/4/squid-4.0.7-RELEASENOTES.html
+[5] https://github.com/balabit/syslog-ng/releases/tag/syslog-ng-3.21.1
 
 # SHA256 (OPNsense-19.7.r1-OpenSSL-dvd-amd64.iso.bz2) = 5014dba896a425d15fbedcb44f2deec7fb5aee6a1b7c95833b819f8d352de6a1
 # SHA256 (OPNsense-19.7.r1-OpenSSL-nano-amd64.img.bz2) = b9d6ccbfdcb88f813a6494efb13647d1715500551c7dc51f632766b19189c6bc
