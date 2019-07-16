@@ -35,6 +35,10 @@ o ports: phalcon 3.4.4[9]
 o ports: strongswan 5.8.0[10]
 o ports: unbound 1.9.2[11]
 
+A hotfix release was issued as 19.1.10_1:
+
+o firmware: enable upgrade path to 19.7
+
 
 Stay safe,
 Your OPNsense team
