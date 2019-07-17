@@ -25,7 +25,7 @@ Here are the full changes against version 19.1.10:
 
 o system: new remote syslog setup via Syslog-ng
 o system: gateway handling rewrite
-o system: default gateway switching priority control (sponsored by m.a.x it[2])
+o system: default gateway switching priority control (sponsored by m.a.x. it[2])
 o system: dpinger ported to plugin framework
 o system: bring back PHP warning log level
 o system: use authentication factory for user import
