@@ -1,0 +1,139 @@
+@ July 17, 2019
+
+Hi there,
+
+For four and a half years now, OPNsense is driving innovation through
+modularising and hardening the open source firewall, with simple
+and reliable firmware upgrades, multi-language support, HardenedBSD
+security, fast adoption of upstream software updates as well as clear
+and stable 2-Clause BSD licensing.
+
+19.7, nicknamed "Jazzy Jaguar", embodies an iteration of what should be
+considered enjoyable user experience for firewalls in general: improved
+statistics and visibility of rules, reliable and consistent live logging
+and alias utility improvements.  Apart from the usual upgrades of third
+party software to up-to-date releases, OPNsense now also offers built-in
+remote system logging through Syslog-ng, route-based IPsec, updated
+translations with Spanish as a brand new and already fully translated
+language and newer Netmap code with VirtIO, VLAN child and vmxnet support.
+
+Last but not least we would like to thank m.a.x. it for their sponsorship
+of the default gateway priority switching feature and their continued work
+of writing and maintaining plenty of community plugins.  This time around,
+Maltrail, Netdata and WireGuard VPN have been freshly added to the mix.
+
+Download links, an installation guide[1] and the checksums for the images
+can be found below as well.
+
+o Europe: https://opnsense.c0urier.net/releases/19.7/
+o US East Coast: http://mirrors.nycbug.org/pub/opnsense/releases/19.7/
+o US West Coast: https://mirror.sfo12.us.leaseweb.net/opnsense/releases/19.7/
+o South America: http://mirror.upb.edu.co/opnsense/releases/19.7/
+o South-East Asia: https://ftp.yzu.edu.tw/opnsense/releases/19.7/
+o Full mirror list: https://opnsense.org/download/
+
+These are the most prominent changes since version 19.1:
+
+o List automatic firewall rules
+o Statistics for all firewall rules
+o Alias JSON import / export
+o Optional statistics for aliases
+o Firewall rule locator for live log and automatic rules
+o Rewritten gateway handling and switching
+o Remote logging via Syslog-ng
+o LDAP group sync support
+o Support certificate signing requests
+o Route-based IPsec support (VTI)
+o XMLRPC sync support for alias, VHID, widgets
+o Unbound host overrides alias support
+o Web proxy and IPsec authentication using PAM
+o Parent web proxy support
+o Web proxy login privilege via group
+o Improved reliability and utility of opnsense-patch
+o Dpinger and DHCP servers ported to plugin framework
+o Language updates for Chinese, Czech, Japanese, German, French, Russian and Portuguese
+o Spanish as a new language
+o Netdata, WireGuard, Maltrail and Mail-Backup (PGP) plugin
+o Netmap update for VirtIO, VLAN child and vmxnet support
+o Bootstrap 3.4, LibreSSL 2.9, Unbound 1.9, PHP 7.2, Python 3.7, Squid 4
+
+And here are the full changes against version 19.7-RC1:
+
+o system: lower automatic gateway priority for tunnel interfaces
+o system: only show enabled interfaces on gateway edit
+o system: speed up console banner interface print
+o interfaces: typo in default WAN selection for packet capture
+o interfaces: support multiple interfaces for packet capture
+o interfaces: fix ambiguity in get_parent_interface()
+o firewall: restart filterlog with every filter reload
+o firmware: add update syshook
+o ipsec: phase2 IP type selector using the wrong class
+o reporting: fix Insight bug not processing top port and address statistics
+o ui: window_highlight_table_option() fix for Safari
+o wizard: improve logo contrast in welcome message
+o plugins: os-frr redistribute configuration fix (contributed by Cedric Vanet)
+o plugins: os-intrusion-detection-content-et-pro 1.0.1 now uses suricata-4.0 rulesets
+o plugins: os-haproxy 2.17[2][3]
+o plugins: os-mail-backup 1.0 (contributed by Joao Vilaca)
+o plugins: os-maltrail 1.0 (contributed by Michael Muenz)
+o plugins os-smart 2.0 MVC conversion (contributed by Smart-Soft)
+o plugins: os-tinc chroot setup with resolv.conf
+o plugins: os-wireguard 1.0 (contributed by Michael Muenz)
+o plugins: os-wol 2.2 fixes byte conversion
+o src: bump netmap ring size, still too small in FreeBSD
+o src: add FCC6_FCCA regulatory domain to ath_hal(4)
+o src: restore IPV6_NEXTHOP option support
+o src: fix privilege escalation in cd(4) driver[4]
+o src: fix kernel stack disclosure in UFS/FFS[5]
+o src: fix iconv buffer overflow[6]
+o src: import tzdata 2019b
+o ports: ca_root_nss 3.45
+o ports: filterlog 0.3 will not print to console and lowercase IPv6 protocol output
+o ports: postfix update is now non-interactive to prevent stalls
+o ports: rrdtool 1.7.2[7]
+
+Known issues and limitations:
+
+o Web proxy squid update from version 3 to 4 breaks the cache database.  To repair go to "Services: Web Proxy: Administration" tab "Support" and click "Reset".
+o Web proxy login privilege is no longer available.  Access may be restricted by a group selector instead.
+o Nano images require a reinstall using the latest image to avoid inode shortage which makes the system appear to run out of space during recent 19.1.x updates.
+o OpenVPN no longer supports listening on gateway groups.  Use localhost paired with port forwards instead.
+
+The public key for the 19.7 series is:
+
+# -----BEGIN PUBLIC KEY-----
+# MIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEAv2syLqN/IMuADI42aTXx
+# HRbX3YljURN1dhhjYoqOc/7uZKVc7UJk79q49x8VZmC0edhHiNKfrhj5g3htsPgu
+# N/eFsc1MZv+J2rfSF7L5NV3D5dU9nuBc75wb9SRIXm7XiiiuInMNRBlJsiFeiuJm
+# oaE/zqgr75m+cc7sdNQnQQk9+APr4LdksX0bllRmxfhLjDKgiSVe+Yq9kje/JHyf
+# je5i3MI9WT80o46IZc/oN4q9RG7n6gaIFBVckCwCKsnNZlDCvb1Sr0tdKs58fswj
+# fxMvouMBf+Jk/0dOEZnoIFYb436H2CUfabiPX3Vm4r3MU4dr5m41WlCH/984cBKy
+# QSM8h4nSAs/naj5c5YDe4qmwUBxwPIvJPVC/vuWLusyg1gYbloj3EIc1uv2YCkKw
+# 0ra7Hocln3+7Jf2Yn/yn6yaCNdoJY2Blvo84giuklDqdBIKggDHSxGrLKDBshSR3
+# hapkFRoR7BhnoT14E8DMgD23g9tcwce1AJJ6mZ/DraBx5l11P1ZXLqnyCpvOt5oV
+# HmMZ9/Xu0naPUC8IxVSNew8j3liPbc5oKV0kQ/TRQTevOBLJ8QA7Y5YdPu0cS4qw
+# Jq3fGnsRt/0+i1Vs7q51KJLNECHyhWm6zYAfST22ohTUgo2ByoM8r0aRslmiG6JS
+# +ancHD4lnnHRd+4ybevUft0CAwEAAQ==
+# -----END PUBLIC KEY-----
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] https://docs.opnsense.org/manual/install.html
+[2] https://github.com/opnsense/plugins/pull/1347
+[3] https://github.com/opnsense/plugins/pull/1408
+[4] https://www.freebsd.org/security/advisories/FreeBSD-SA-19:11.cd_ioctl.asc
+[5] https://www.freebsd.org/security/advisories/FreeBSD-SA-19:10.ufs.asc
+[6] https://www.freebsd.org/security/advisories/FreeBSD-SA-19:09.iconv.asc
+[7] https://github.com/oetiker/rrdtool-1.x/releases/tag/v1.7.2
+
+# SHA256 (OPNsense-19.7-OpenSSL-dvd-amd64.iso.bz2) = e022217d367abaf4fd1360f83e4664d28b3f37932dfe720974b9d7dc33bf50f7
+# SHA256 (OPNsense-19.7-OpenSSL-nano-amd64.img.bz2) = 6fffefa0b09daea397e83f67bf730392125b720043c455597c05d3d80c2baa29
+# SHA256 (OPNsense-19.7-OpenSSL-serial-amd64.img.bz2) = 98854d5a0a03850273aa2ebdd7e7b095dfec6a1e6b57341817bb5f5ffab2ca7b
+# SHA256 (OPNsense-19.7-OpenSSL-vga-amd64.img.bz2) = 523e924586e431ccd421bb85ba1245ce4c8f3a6141b59623f5083d3e36bac592
+
+# SHA256 (OPNsense-19.7-OpenSSL-dvd-i386.iso.bz2) = 64c4e58966ab373a0aa6a544b020a39c5b86ecb79cb2988ac1f74b382c7d4765
+# SHA256 (OPNsense-19.7-OpenSSL-nano-i386.img.bz2) = 3fa6af965f5996a718982617b5a13199747d237a669867b1ffecc951c3ebe455
+# SHA256 (OPNsense-19.7-OpenSSL-serial-i386.img.bz2) = f0c76142f83b4988defa3fddc7a4cf2d930cbb0aee623d7b064462e25e146297
+# SHA256 (OPNsense-19.7-OpenSSL-vga-i386.img.bz2) = b425882604886a395730abeaa6a26b8805647609712f61c342cee29f58160006
