@@ -1,0 +1,63 @@
+@ July 25, 2019
+
+Dear all,
+
+We do not wish to keep you from enjoying your summer time, but this
+is a recommended security update enriched with reliability fixes for the
+new 19.7 series.  Of special note are performance improvements as well
+as a fix for a longstanding NAT before IPsec limitation.
+
+Here are the full patch notes:
+
+o system: do not create automatic copies of existing gateways
+o system: do not translate empty tunables descriptions
+o system: remove unwanted form action tags
+o system: do not include Syslog-ng in rc.freebsd handler
+o system: fix manual system log stop/start/restart
+o system: scoped IPv6 "%" could confuse mwexecf(), use plain mwexec() instead
+o system: allow curl-based downloads to use both trusted and local authorities
+o system: fix group privilege print and correctly redirect after edit
+o system: use cached address list in referrer check
+o system: fix Syslog-ng search stats
+o firewall: HTML-escape dynamic entries to display aliases
+o firewall: display correct IP version in automatic rules
+o firewall: fix a warning while reading empty outbound rules configuration
+o firewall: skip illegal log lines in live log
+o interfaces: performance improvements for configurations with hundreds of interfaces
+o reporting: performance improvements for Python 3 NetFlow aggregator rewrite
+o dhcp: move advanced router advertisement options to correct config section
+o ipsec: replace global array access with function to ensure side-effect free boot
+o ipsec: change DPD action on start to "dpdaction = restart"
+o ipsec: remove already default "dpdaction = none" if not set
+o ipsec: use interface IP address in local ID when doing NAT before IPsec
+o web proxy: fix database reset for Squid 4 by replacing use of ssl_crtd with security_file_certgen
+o plugins: os-acme-client 1.24[1]
+o plugins: os-bind 1.6[2]
+o plugins: os-dnscrypt-proxy 1.5[3]
+o plugins: os-frr now restricts characters BGP prefix-list and route-maps[4]
+o plugins: os-google-cloud-sdk 1.0[5]
+o ports: curl 7.65.3[6]
+o ports: monit 5.26.0[7]
+o ports: openssh 8.0p1[8]
+o ports: php 7.2.20[9]
+o ports: python 3.7.4[10]
+o ports: sqlite 3.29.0[11]
+o ports: squid 4.8[12]
+
+
+Stay safe and hydrated,
+Your OPNsense team
+
+--
+[1] https://github.com/opnsense/plugins/pull/1399
+[2] https://github.com/opnsense/plugins/blob/master/dns/bind/pkg-descr
+[3] https://github.com/opnsense/plugins/blob/master/dns/dnscrypt-proxy/pkg-descr
+[4] https://github.com/opnsense/plugins/blob/master/net/frr/pkg-descr
+[5] https://github.com/opnsense/plugins/pull/1392
+[6] https://curl.haxx.se/changes.html
+[7] https://mmonit.com/monit/changes/
+[8] https://www.openssh.com/txt/release-8.0
+[9] https://www.php.net/ChangeLog-7.php#7.2.20
+[10] https://www.python.org/downloads/release/python-374/
+[11] https://sqlite.org/releaselog/3_29_0.html
+[12] http://lists.squid-cache.org/pipermail/squid-announce/2019-July/000100.html
