@@ -52,6 +52,9 @@ for ( @lines ) {
 	$_ =~ s/^--.*$//g;
 	# remove trailing noise
 	$_ =~ s/\s+$//g;
+	# webify special characters
+	$_ =~ s/\</&lt;/g;
+	$_ =~ s/\>/&gt;/g;
 }
 
 # extract version info from path
