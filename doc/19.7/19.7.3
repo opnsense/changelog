@@ -1,0 +1,93 @@
+@ August 28, 2019
+
+Hello,
+
+Please enjoy this release with improved CARP utility and a number of
+smaller fixes and updates for the operating system and third party tools.
+You can now also toggle logging directly from the rule overview to make
+debugging easier.
+
+Here is the full list of changes:
+
+o system: try all backups for automatic revert when config.xml is damaged
+o system: do a system reset if all config.xml files are damaged
+o system: only show tunables reboot hint when applying tunables (contributed by Northguy)
+o system: use FQDN in system log remote messages
+o system: add defunct gateways to GUI in disabled state
+o interfaces: only allow VLAN parents that will work as VLAN parents
+o interfaces: optionally promote/demote CARP on service status
+o interfaces: CARP status page report with demotion level to avoid ambiguity
+o firewall: revert problematic 19.7.2 change "unhide automatic interface-based output rules"
+o firewall: restore automatic outbound NAT pre-19.7 behaviour which excludes gateways not configured and not dynamic
+o firewall: add logging toggle to rules overview (contributed by johnaheadley)
+o firewall: DHCPv6 relay would generate rules even if not enabled
+o firmware: only do single-repository fingerprint verify defaulting to our OPNsense repository
+o firmware: fix base and kernel package listing
+o intrusion detection: show change message after toggle or save
+o intrusion detection: rule download fix
+o monit: add parent devices to interface list (contributed by Frank Brendel)
+o monit: fix standard configuration migration (contributed by Frank Brendel)
+o reporting: skip illegal NetFlow records in flow parser
+o opendns: migrate update hook from DynDNS plugin to core to make it fully automatic
+o backend: fix exception message string handling in Python 3
+o backend: add help to pluginctl utility
+o backend: configctl event handler support
+o mvc: log API key when authentication failed
+o ui: more consistent HTML (contributed by gisforgirard)
+o ui: sidebar bug fix (contributed by Team Rebellion)
+o ui: fix initFormAdvancedUI() on initial load
+o plugins: os-acme-client 1.25[1]
+o plugins: os-bind 1.7[2]
+o plugins: os-dyndns 1.17 removes OpenDNS and fixes DyNS
+o plugins: os-haproxy 2.18[3]
+o plugins: os-maltrail 1.1[4]
+o plugins: os-nginx log rotation fix (contributed by Fabian Franz)
+o plugins: os-postfix 1.10[5]
+o plugins: os-smart 2.1 fixes widget status and adds NVMe disk support (contributed by nhirokinet and ATL)
+o plugins: os-theme-cicada 1.19 (contributed by Team Rebellion)
+o plugins: os-theme-tukan 1.19 (contributed by Team Rebellion)
+o plugins: os-wireguard 1.1[6]
+o src: fix incorrect exception handling in libunwind[7]
+o src: fix multiple vulnerabilities in bzip2[8]
+o src: fix ICMPv6 / MLDv2 out-of-bounds memory access[9]
+o src: fix insufficient message length validation in bsnmp library[10]
+o src: fix insufficient validation of guest-supplied data (e1000 device)[11]
+o src: fix IPv6 remote denial of service[12]
+o src: fix kernel memory disclosure from /dev/midistat[13]
+o src: fix reference count overflow in mqueuefs[14]
+o ports: hostapd 2.9[15]
+o ports: nghttp2 1.39.2[16]
+o ports: openldap 2.4.48[17]
+o ports: perl 5.30.0[18]
+o ports: php 7.2.21[19]
+o ports: py-openssl 19.0.0[20]
+o ports: syslog-ng 3.22.1[21]
+o ports: wpa_supplicant 2.9[22]
+
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] https://github.com/opnsense/plugins/pull/1452
+[2] https://github.com/opnsense/plugins/blob/master/dns/bind/pkg-descr
+[3] https://github.com/opnsense/plugins/pull/1453
+[4] https://github.com/opnsense/plugins/blob/master/security/maltrail/pkg-descr
+[5] https://github.com/opnsense/plugins/blob/master/mail/postfix/pkg-descr
+[6] https://github.com/opnsense/plugins/blob/master/net/wireguard/pkg-descr
+[7] https://www.freebsd.org/security/advisories/FreeBSD-EN-19:15.libunwind.asc
+[8] https://www.freebsd.org/security/advisories/FreeBSD-SA-19:18.bzip2.asc
+[9] https://www.freebsd.org/security/advisories/FreeBSD-SA-19:19.mldv2.asc
+[10] https://www.freebsd.org/security/advisories/FreeBSD-SA-19:20.bsnmp.asc
+[11] https://www.freebsd.org/security/advisories/FreeBSD-SA-19:21.bhyve.asc
+[12] https://www.freebsd.org/security/advisories/FreeBSD-SA-19:22.mbuf.asc
+[13] https://www.freebsd.org/security/advisories/FreeBSD-SA-19:23.midi.asc
+[14] https://www.freebsd.org/security/advisories/FreeBSD-SA-19:24.mqueuefs.asc
+[15] https://w1.fi/cgit/hostap/plain/hostapd/ChangeLog
+[16] https://github.com/nghttp2/nghttp2/releases/tag/v1.39.2
+[17] https://www.openldap.org/software/release/announce.html
+[18] https://metacpan.org/pod/release/XSAWYERX/perl-5.30.0/pod/perldelta.pod
+[19] https://www.php.net/ChangeLog-7.php#7.2.21
+[20] https://www.pyopenssl.org/en/stable/changelog.html
+[21] https://github.com/balabit/syslog-ng/releases/tag/syslog-ng-3.22.1
+[22] https://w1.fi/cgit/hostap/plain/wpa_supplicant/ChangeLog
