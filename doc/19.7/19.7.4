@@ -1,0 +1,48 @@
+@ September 11, 2019
+
+A good day to you all,
+
+A wee bit of updates for you... nothing overly exciting.  On the other
+hand, we have updated the roadmap page to include 20.1 if you want to
+take a closer look[1].  More exciting for sure.  :)
+
+Here are the full patch notes:
+
+o system: fix legacy remote logging with custom port
+o system: regenerate CA bundle when modifying trusted authorities
+o system: fix translation order of tunables description
+o system: fix CARP maintenance mode bootup
+o firewall: missing daily refresh on GeoIP type
+o firewall: fix fetch of GeoIP alias if its name is same as its country
+o reporting: auto-load required kernel modules for NetFlow
+o reporting: allow setting NetFlow active/inactive timeout (contributed by Frank Brendel)
+o captive portal: optimise ipfw rule parsing
+o firmware: Homelab.no has been superseded by TerraHost mirror (contributed by Thomas Jensen)
+o unbound: support file-based custom includes
+o unbound: set absolute path to root.hints (contributed by h-town)
+o plugins: os-bind 1.8[2] (contributed by ErikJStaab)
+o plugins: os-dnscrypt-proxy 1.6[3] (contributed by ErikJStaab)
+o plugins: os-etpro-telemetry 1.4[4]
+o plugins: os-theme-cicada 1.20 (contributed by Team Rebellion)
+o plugins: os-theme-tukan 1.20 (contributed by Team Rebellion)
+o ports: ca_root_nss 3.46
+o ports: ldns 1.7.1[5]
+o ports: pcre2 10.33[6]
+o ports: php 7.2.22[7]
+o ports: phpseclib 2.0.21[8]
+o ports: unbound 1.9.3[9]
+
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] https://opnsense.org/about/road-map/
+[2] https://github.com/opnsense/plugins/blob/master/dns/bind/pkg-descr
+[3] https://github.com/opnsense/plugins/blob/master/dns/dnscrypt-proxy/pkg-descr
+[4] https://docs.opnsense.org/manual/etpro_telemetry.html
+[5] https://raw.githubusercontent.com/NLnetLabs/ldns/release-1.7.1/Changelog
+[6] https://www.pcre.org/changelog.txt
+[7] https://www.php.net/ChangeLog-7.php#7.2.22
+[8] https://github.com/phpseclib/phpseclib/releases
+[9] https://nlnetlabs.nl/projects/unbound/download
