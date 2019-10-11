@@ -1,0 +1,81 @@
+@ October 11, 2019
+
+Hello friends and followers,
+
+Lots of plugin and ports updates this time with a few minor improvements
+in all core areas.
+
+Behind the scenes we are starting to migrate the base system to version
+12.1 which is supposed to hit the next 20.1 release.  Stay tuned for more
+infos in the next month or so.
+
+Here are the full patch notes:
+
+o system: show all swap partitions in system information widget
+o system: flatten services_get() in preparation for removal
+o system: pin Syslog-ng version to specific package name
+o system: fix LDAP/StartTLS with user import page
+o system: fix a PHP warning on authentication server page
+o system: replace most subprocess.call use
+o interfaces: fix devd handling of carp devices (contributed by stumbaumr)
+o firewall: improve firewall rules inline toggles
+o firewall: only allow TCP flags on TCP protocol
+o firewall: simplify help text for direction setting
+o firewall: make protocol log summary case insensitive
+o reporting: ignore malformed flow records
+o captive portal: fix type mismatch for timeout read
+o dhcp: add note for static lease limitation with lease registration (contributed by Northguy)
+o ipsec: add margintime and rekeyfuzz options
+o ipsec: clear $dpdline correctly if not set
+o ui: fix tokenizer reorder on multiple saves
+o plugins: os-acme-client 1.26[1]
+o plugins: os-bind will reload bind on record change (contributed by blablup)
+o plugins: os-etpro-telemetry minor subprocess.call replacement
+o plugins: os-freeradius 1.9.4[2]
+o plugins: os-frr 1.12[3]
+o plugins: os-haproxy 2.19[4]
+o plugins: os-mailtrail 1.2[5]
+o plugins: os-postfix 1.11[6]
+o plugins: os-rspamd 1.8[7]
+o plugins: os-sunnyvalley LibreSSL support (contributed by Sunny Valley Networks)
+o plugins: os-telegraf 1.7.6[8]
+o plugins: os-theme-cicada 1.21 (contributed by Team Rebellion)
+o plugins: os-theme-tukan 1.21 (contributed by Team Rebellion)
+o plugins: os-tinc minor subprocess.call replacement
+o plugins: os-tor 1.8 adds dormant mode disable option (contributed by Fabian Franz)
+o plugins: os-virtualbox 1.0 (contributed by andrewhotlab)
+o ports: expat 2.2.8[10]
+o ports: ca_root_nss 3.46.1
+o ports: curl 7.66.0[9]
+o ports: openssl 1.0.2t[11]
+o ports: php 7.2.23[12]
+o ports: pkg 1.12.0[13][14][15]
+o ports: strongswan 5.8.1[16]
+o ports: suricata 4.1.5[17]
+o ports: syslog-ng 3.23.1[18]
+o ports: unbound 1.9.4[19]
+
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] https://github.com/opnsense/plugins/pull/1499
+[2] https://github.com/opnsense/plugins/blob/master/net/freeradius/pkg-descr
+[3] https://github.com/opnsense/plugins/blob/master/net/frr/pkg-descr
+[4] https://github.com/opnsense/plugins/pull/1498
+[5] https://github.com/opnsense/plugins/blob/master/security/maltrail/pkg-descr
+[6] https://github.com/opnsense/plugins/blob/master/mail/postfix/pkg-descr
+[7] https://github.com/opnsense/plugins/blob/master/mail/rspamd/pkg-descr
+[8] https://github.com/opnsense/plugins/blob/master/net-mgmt/telegraf/pkg-descr
+[9] https://curl.haxx.se/changes.html#7_66_0
+[10] https://github.com/libexpat/libexpat/blob/R_2_2_8/expat/Changes
+[11] https://www.openssl.org/news/secadv/20190910.txt
+[12] https://www.php.net/ChangeLog-7.php#7.2.23
+[13] https://github.com/freebsd/freebsd-ports/commit/95ac8ad2
+[14] https://github.com/freebsd/freebsd-ports/commit/5a06e26ff
+[15] https://github.com/freebsd/freebsd-ports/commit/77d4a311e
+[16] https://wiki.strongswan.org/versions/74
+[17] https://suricata-ids.org/2019/09/24/suricata-4-1-5-released/
+[18] https://github.com/syslog-ng/syslog-ng/releases/tag/syslog-ng-3.23.1
+[19] https://nlnetlabs.nl/projects/unbound/download/
