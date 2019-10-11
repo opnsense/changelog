@@ -37,7 +37,7 @@ o core: switched back from bind-tools to the latest full bind 9.10 package
 o src: fix panic in pf(4) in conjunction with ALTQ[3]
 o src: updated to FreeBSD 10.0-RELEASE-p10[4][5]
 o src: reverted two more custom patches to align with FreeBSD
-o ports: updated to ca_root_nss 3.19, sqlite3 3.8.10.1, php56 5.6.9[6],
+o ports: updated to ca_root_nss 3.19, sqlite 3.8.10.1, php 5.6.9[6],
   openssh-portable 6.8p1_7[7]
 o opnsense-update: exclude /etc/tty from the upgrade
 o bsdinstaller: reworked the internals to align to modern port standards

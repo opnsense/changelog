@@ -20,7 +20,7 @@ Here are the full patch notes:
 o src: Multiple integer overflows in expat (libbsdxml) XML parser[1]
 o src: bumped tzdata to 2015f[2]
 o ports: curl 7.44.0[3], ca_root_nss 3.20, openssh-portable 7.1p1_1[4],
-  sqlite3 3.8.11.1[5], phalcon 2.0.7[6], pcre 8.37_4[7]
+  sqlite 3.8.11.1[5], phalcon 2.0.7[6], pcre 8.37_4[7]
 o crash reporter: create custom reports on demand
 o certificates: ca generation issues with recent LibreSSL
 o dns resolver: switched to ports-based Unbound (1.5.4) as per
