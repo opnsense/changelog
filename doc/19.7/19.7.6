@@ -1,0 +1,54 @@
+@ November 01, 2019
+
+Hello from Suricon!
+
+As we are experiencing the Suricata community first hand in Amsterdam
+we though to release this version a bit earlier than planned.  Included
+is the latest Suricata 5.0.0 release in the development version.  That
+means later this November we will releasing version 5 to the production
+version as we finish up tweaking the integration and maybe pick up 5.0.1
+as it becomes available.
+
+LDAP TLS connectivity is now integrated into the system trust store,
+which ensures that all required root and intermediate certificates will
+be seen by the connection setup when they have been added to the authorities
+section.  The same is true for trusting self-signed certificates.  On top
+of this, IPsec now supports public key authentication as contributed by
+Pascal Mathis.
+
+Here are the full patch notes:
+
+o system: hook LDAP TLS support into system-wide trust file
+o system: fix dpinger custom parameters not being honoured
+o system: fix PHP core loop fail in tunables overview
+o system: only allow P12 export if password confirmation matches
+o interfaces: change PCAP download to binary file stream
+o firewall: store reference to outbound NAT address instead of literal address
+o firewall: add log message for scheduled firewall reload
+o firmware: tie pkg dependency to core
+o ipsec: allow EC keys for certificate-based secrets (contributed by Martin Strigl)
+o ipsec: add support for public key authentication (contributed by Pascal Mathis)
+o openvpn: server wizard existing CA use and server cert check (contributed by johnaheadley)
+o backend: add run mode to pluginctl using JSON-based output
+o ui: fix tokenizer reorder on multiple saves, second try
+o plugins: os-acme-client 1.27[1]
+o plugins: os-bind 1.9[2]
+o plugins: os-nginx 1.15[3]
+o plugins: os-relayd 2.4 fixes protocol option migration (contributed by Frank Brendel)
+o plugins: os-theme-cicada 1.22 (contributed by Team Rebellion)
+o ports: ca_root_nss 3.47
+o ports: php 7.2.24[4]
+o ports: python 3.7.5[5]
+o ports: sudo 1.8.29[6]
+
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] https://github.com/opnsense/plugins/pull/1536
+[2] https://github.com/opnsense/plugins/blob/master/dns/bind/pkg-descr
+[3] https://github.com/opnsense/plugins/blob/master/www/nginx/pkg-descr
+[4] https://www.php.net/ChangeLog-7.php#7.2.24
+[5] https://www.python.org/downloads/release/python-375/
+[6] https://www.sudo.ws/stable.html#1.8.29
