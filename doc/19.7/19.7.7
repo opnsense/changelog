@@ -1,0 +1,66 @@
+@ November 21, 2019
+
+Hi there,
+
+Lots of small improvements. Of note are Eve JSON payload syslog export
+now works for 4 kb payload blobs.  The outdated Google API PHP client
+was replaced.  LibreSSL is now at version 3.0.2.  Plus another Intel SA
+advisory via FreeBSD.
+
+Here are the full patch notes:
+
+o system: generate self-signed server certificate for web GUI by default
+o system: let net.local.dgram.maxdgram default to 8192 bytes
+o system: spawn Dpinger process in background to avoid hangs
+o system: switch backup to Google API PHP client v2
+o system: add interface groups to HA sync
+o interfaces: remove the "Directly send SOLICIT" option
+o firewall: fix issue with label parsing when "tag" keyword was involved
+o firewall: skip empty lines in rule statistics parsing
+o firmware: add /etc/remote to whitelist, NTP GPS uses it
+o reporting: empty NetFlow egress default passes validation
+o reporting: show dialog when RRD is disabled
+o dhcp: fix for domain-search option in DHCPv6 (contributed by maurice-w)
+o dnsmasq: fix storing settings when no settings exist yet
+o intrusion detection: lower payload-buffer-size to prevent syslog size limit
+o intrusion detection: fix issue with escaped file name during rules download
+o unbound: exit wrapper when process not running
+o web proxy: added check on SNI field checkbox (contributed by Northguy)
+o mvc: fix forceReload()
+o plugins: os-acme-client 1.28[1]
+o plugins: os-bind 1.10[2]
+o plugins: os-nginx 1.16[3]
+o plugins: os-nut 1.6[4]
+o plugins: os-postfix 1.12[5]
+o src: fix machine check exception on page size change[6]
+o src: bump libc syslog line size to 8k
+o src: import tzdata 2019c[7]
+o ports: curl 7.67.0[8]
+o ports: libressl 3.0.2[9]
+o ports: openvpn 2.4.8[10]
+o ports: perl 5.30.1[11]
+o ports: phalcon 3.4.5[12]
+o ports: sqlite 3.30.1[13]
+o ports: squid 4.9[14]
+o ports: syslog-ng 3.24.1[15]
+
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] https://github.com/opnsense/plugins/pull/1565
+[2] https://github.com/opnsense/plugins/blob/master/dns/bind/pkg-descr
+[3] https://github.com/opnsense/plugins/blob/master/www/nginx/pkg-descr
+[4] https://github.com/opnsense/plugins/blob/master/sysutils/nut/pkg-descr
+[5] https://github.com/opnsense/plugins/blob/master/mail/postfix/pkg-descr
+[6] https://www.freebsd.org/security/advisories/FreeBSD-SA-19:25.mcepsc.asc
+[7] https://www.freebsd.org/security/advisories/FreeBSD-EN-19:18.tzdata.asc
+[8] https://curl.haxx.se/changes.html
+[9] https://ftp.openbsd.org/pub/OpenBSD/LibreSSL/libressl-3.0.2-relnotes.txt
+[10] https://github.com/OpenVPN/openvpn/blob/release/2.4/Changes.rst#version-248
+[11] https://metacpan.org/pod/release/SHAY/perl-5.30.1/pod/perldelta.pod
+[12] https://github.com/phalcon/cphalcon/releases/tag/v3.4.5
+[13] https://sqlite.org/releaselog/3_30_1.html
+[14] https://github.com/squid-cache/squid/blob/master/ChangeLog
+[15] https://github.com/syslog-ng/syslog-ng/releases/tag/syslog-ng-3.24.1
