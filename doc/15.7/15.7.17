@@ -43,5 +43,5 @@ Your OPNsense team
 --
 [1] http://curl.haxx.se/changes.html
 [2] http://ftp.meisei-u.ac.jp/mirror/squid/squid-3.5-ChangeLog.txt
-[3] http://www.unbound.net/download.html
+[3] https://nlnetlabs.nl/projects/unbound/download/
 [4] http://ftp.openbsd.org/pub/OpenBSD/patches/5.8/common/007_obj2txt.patch.sig

@@ -74,4 +74,4 @@ Your OPNsense team
 [1] https://php.net/ChangeLog-7.php#7.0.21
 [2] http://search.cpan.org/dist/perl-5.24.2/pod/perldelta.pod
 [3] https://suricata-ids.org/2017/07/13/suricata-3-2-3-available/
-[4] http://www.unbound.net/download.html
+[4] https://nlnetlabs.nl/projects/unbound/download/
