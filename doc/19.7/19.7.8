@@ -1,0 +1,66 @@
+@ December 18, 2019
+
+Ho ho ho,
+
+A number of updates including security and reliability fixes inside.  Of
+note is the new elliptic curve certificate creation support and better
+firmware health check and recovery methods.
+
+We are almost at the point of a 20.1-BETA release with an isolated images
+for early bird testing as a special present at this time of year.  Stay
+tuned.  :)
+
+Here are the full patch notes:
+
+o system: "Mark Gateway as Down" also means exclude from default gateway selection
+o system: fix PHP warning on gateways list due to wrong variable scope
+o system: support elliptic curve TLS certificate creation (contributed by johnaheadley)
+o system: remove unused current directory PHP include
+o system: fix XSS in backup page and static menu pages
+o firewall: use referential integrity check for model data
+o reporting: improve NetFlow error handling (contributed by Frank Brendel)
+o dhcp: always add dhcp6.domain-search and dhcp6.name-servers (contributed by maurice-w)
+o dhcp: fix range check for advanced router advertisement options (contributed by maurice-w)
+o dhcp: improve help texts for router advertisement modes (contributed by maurice-w)
+o dhcp: replace defunct IPv6 domain name option with domain search list option (contributed by maurice-w)
+o dhcp: fix storing advanced IPv6 options
+o firmware: add "copy to clipboard" button in update text box
+o firmware: use opnsense-revert in GUI reinstall package case
+o firmware: when storing installed plugin names remove their development counterparts
+o firmware: improved health check scope to include direct core package dependencies
+o openvpn: fix Firefox "nowrap" issue in client export page
+o backend: improve error handling while configd is either not active or not functional
+o mvc: route to default page when controller or action not found
+o mvc: field type refactor and unit tests
+o mvc: added opt-in referential integrity check for models
+o mvc: countless PSR12 style updates
+o mvc: add "NetMaskAllowed" option to validate on single addresses in NetworkField
+o plugins: os-bind 1.11[1]
+o plugins: os-dyndns 1.18 adds Linode support (contributed by eAndrew Gunnerson)
+o plugins: os-freeradius 1.9.5[2]
+o plugins: os-frr 1.13[3]
+o plugins: os-ftp-proxy style updates only
+o plugins: os-postfix 1.13[4]
+o plugins: os-rspamd 1.9[5]
+o plugins: os-theme-cicada 1.23 (contributed by Team Rebellion)
+o plugins: os-theme-tukan 1.22 (contributed by Team Rebellion)
+o ports: ca_root_nss 3.48
+o ports: krb5 1.17.1[6]
+o ports: php 7.2.25[7]
+o ports: suricata 4.1.6[8]
+o ports: unbound 1.9.5[9]
+
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] https://github.com/opnsense/plugins/blob/master/dns/bind/pkg-descr
+[2] https://github.com/opnsense/plugins/blob/master/net/freeradius/pkg-descr
+[3] https://github.com/opnsense/plugins/blob/master/net/frr/pkg-descr
+[4] https://github.com/opnsense/plugins/blob/master/mail/postfix/pkg-descr
+[5] https://github.com/opnsense/plugins/blob/master/mail/rspamd/pkg-descr
+[6] https://web.mit.edu/kerberos/krb5-1.17/
+[7] https://www.php.net/ChangeLog-7.php#7.2.25
+[8] https://suricata-ids.org/2019/12/13/suricata-4-1-6-released/
+[9] https://nlnetlabs.nl/projects/unbound/download/
