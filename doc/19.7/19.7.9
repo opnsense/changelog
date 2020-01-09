@@ -1,0 +1,62 @@
+@ January 09, 2020
+
+Hi again,
+
+As 20.1 nears we will be making adjustments to the scope of the release
+with an announcement following shortly.
+
+For now, this update brings you a GeoIP database configuration page for
+aliases which is now required due to upstream database policy changes and
+a number of prominent third-party software updates we are happy to see
+included.
+
+Here are the full patch notes:
+
+o system: use 825 days as the default maximum certificate lifetime
+o system: hide leaking hostname on SSH password auth (contributed by sooslaca)
+o system: remove unused "lifetime" parameter from user manager page
+o firewall: new GeoIP settings page to allow continued use of upstream database[1]
+o firewall: log when alias couldn't resolve a hostname
+o firewall: translate pfInfo page tabs (contributed by Smart-Soft)
+o firmware: add mirror MARWAN (Moroccan Academic & Research Wide Area Network)
+o dhcp: replace killbyname() usage which should not have killed both services
+o dhcp: auto-replace windows DUID dashes (contributed by Team Rebellion)
+o mvc: PSR12 code style updates
+o plugins: os-acme-client 1.29[2]
+o plugins: os-bind 1.12[3]
+o plugins: os-dyndns must use dyndns_failover_interface() to translate gateway group
+o plugins: os-frr 1.14[4]
+o plugins: os-maltrail 1.3[5]
+o plugins: os-nginx 1.17[6]
+o plugins: os-nut fixes validation and snmp-ups selection (contributed by Michael Muenz)
+o plugins: os-theme-cicada 1.24 (contributed by Team Rebellion)
+o plugins: os-zabbix4-proxy 1.1[7]
+o ports: openssh 8.1p1[8]
+o ports: openssl 1.0.2u[9]
+o ports: php 7.2.26[10]
+o ports: phpseclib 2.0.23[11]
+o ports: python 3.7.6[12]
+o ports: strongswan 5.8.2[13]
+o ports: sudo 1.8.30[14]
+o ports: unbound 1.9.6[15]
+
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] https://github.com/opnsense/docs/blob/master/source/manual/how-tos/maxmind_geo_ip.rst
+[2] https://github.com/opnsense/plugins/pull/1638
+[3] https://github.com/opnsense/plugins/blob/master/dns/bind/pkg-descr
+[4] https://github.com/opnsense/plugins/blob/master/net/frr/pkg-descr
+[5] https://github.com/opnsense/plugins/blob/master/security/maltrail/pkg-descr
+[6] https://github.com/opnsense/plugins/blob/master/www/nginx/pkg-descr
+[7] https://github.com/opnsense/plugins/blob/master/net-mgmt/zabbix4-proxy/pkg-descr
+[8] https://www.openssh.com/txt/release-8.1
+[9] https://www.openssl.org/news/openssl-1.0.2-notes.html
+[10] https://www.php.net/ChangeLog-7.php#7.2.26
+[11] https://github.com/phpseclib/phpseclib/releases/tag/2.0.23
+[12] https://www.python.org/downloads/release/python-376/
+[13] https://wiki.strongswan.org/versions/75
+[14] https://www.sudo.ws/stable.html#1.8.30
+[15] https://nlnetlabs.nl/projects/unbound/download/
