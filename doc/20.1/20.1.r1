@@ -1,0 +1,103 @@
+@ January 24, 2020
+
+Hi there,
+
+For over 5 years now, OPNsense is driving innovation through modularising
+and hardening the open source firewall, with simple and reliable firmware
+upgrades, multi-language support, HardenedBSD security, fast adoption of
+upstream software updates as well as clear and stable 2-Clause BSD licensing.
+
+We thank all of you for helping test, shape and contribute to the project!
+We know it would not be the same without you.
+
+Download links, an installation guide[1] and the checksums for the images
+can be found below as well.
+
+o Europe: https://opnsense.c0urier.net/releases/20.1/
+o US East Coast: http://mirrors.nycbug.org/pub/opnsense/releases/20.1/
+o US West Coast: https://mirror.sfo12.us.leaseweb.net/opnsense/releases/20.1/
+o South America: http://mirror.upb.edu.co/opnsense/releases/20.1/
+o South-East Asia: https://ftp.yzu.edu.tw/opnsense/releases/20.1/
+o Full mirror list: https://opnsense.org/download/
+
+Here are the full patch notes against 19.7.9_1:
+
+o system: support for manually removing static route entries
+o system: migrated logging to MVC
+o system: regenerate default DH parameters
+o system: randomize session ID in test cookie
+o system: remove legacy XMLRPC push on changes
+o system: deprecate the use of services.inc
+o system: opt-out on "Allow DNS server list to be overridden by DHCP/PPP on WAN" for selected interfaces
+o system: increase PHP memory limit to 512 MB
+o system: opnsense-auth can now respond with extended properties in JSON on successful authentication
+o interfaces: loopback device support
+o interfaces: VXLAN device support
+o interfaces: first steps toward fully pluggable device infrastructure
+o interfaces: remove default load of netgraph framework on bootup
+o interfaces: interfaces: move description into top block and rename titles
+o interfaces: only trigger newwanip event for affected interfaces
+o firmware: revoke 19.1, trust 20.1 fingerprint
+o firmware: new mirror in Zurich, CH contributed by ServerBase AG
+o firmware: add live search to mirror selection
+o dhcp: add OMAPI configuration support (contributed by Yuri Moens)
+o ipsec: add configurable dpdaction (contributed by  Marcel Menzel)
+o ipsec: refactor tunnel settings page
+o unbound: add options for logging queries and extended statistics (contributed by Flightkick)
+o mvc: BaseListField ignoring empty selected field
+o ui: jQuery 3.4.1
+o plugins: os-dyndns 1.19 adds dynv6 and Azure DNS support (contributed by Ralf Zerres and martgras)
+o plugins: os-haproxy 2.20[2]
+o plugins: os-zabbix-agent 1.7[3][4]
+o ports: ca_root_nss 3.49.1
+o ports: curl 7.68.0[5]
+o ports: openssl 1.1.1d[6]
+
+Known issues and limitations:
+
+o HardenedBSD 12.1 has been postponed to the next major release
+o Nano growfs does not work on this release candidate, but a fix for 20.1 already exists
+o Installer still advertises 19.7, but a fix for 20.1 already exists
+o Legacy MPD5 plugins os-l2tp, os-pppoe and os-pptp have been deprecated and will no longer receive updates
+o i386 has not been deprecated for the time being ;)
+
+The public key for the 20.1 series is:
+
+# -----BEGIN PUBLIC KEY-----
+# MIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEA0oYxXjva1d2TC/jQ/ygT
+# GNB2QM2Flhq1CKwYKioT6kuKCelmG/vDRVYGs2VwBeshl53qnnob3rrCVtuS84VG
+# C8n0i7bWsVWuOCaPzVCOua7MyxQNDItwA5D18SrmDbs07JE9XD30cX36Lvyq8GvZ
+# bjk3AnHHqefR6F7fMGjDNPE3JofyLXEXN7TiH/Wk1MmBm3TXMJ4q63qa/clbY5zT
+# jd2k1dtKWy23CcBKfxplu8HycqdQLCRl4o9+qdq7OQ8v9VT5dPIJcJodCvX9hAf7
+# AUAMqsP3e6AyDM7iQcEkJiwAiytFAawyEIVOECxhEA+NpXHykd4G/00f5jGB259X
+# /A8ARhjyT3zadjgXTIcEEBe5YTmxZrrKvWud4PguBTQOo9+XpI0H8A+IcoZ9AXQT
+# J/IDBZJjsdSLspLPzLiwVQk9JrVylMLeyXCbtGCBZ8FOXyffceNQQl119ubkAZkx
+# +NvioMIYQ+8rX0vn0njJfot+GQh0ezadlzuAmBBsGD8EtMCj92l/7zOyGucG+dCW
+# kIv1yX0IOKeaNBZR3GDJJoyj5hFnoxkj2aNbuWjetg5MvpjBMl/h44brjL93m8PK
+# GUhwcEPqcwu4ngu12O6vEeJW4vAbFlEznvgxmwJhMQf1/R8SUmKmAiprWKnY/w0E
+# VHzlx7aRoGcRnnPs71DeloMCAwEAAQ==
+# -----END PUBLIC KEY-----
+
+Please let us know about your experience!
+
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] https://docs.opnsense.org/manual/install.html
+[2] https://github.com/opnsense/plugins/pull/1646
+[3] https://github.com/opnsense/plugins/pull/1578
+[4] https://github.com/opnsense/plugins/pull/1618
+[5] https://curl.haxx.se/changes.html
+[6] https://www.openssl.org/news/openssl-1.1.1-notes.html
+
+# SHA256 (OPNsense-20.1.r1-OpenSSL-dvd-amd64.iso.bz2) = fed43e5cc5092da5adcfcb2ccdddf51a1cea6a69f06b764fcd9c3d36e0705d4a
+# SHA256 (OPNsense-20.1.r1-OpenSSL-nano-amd64.img.bz2) = bf825455cc09e2a410cbe702a0c1c5b454546c476c7e90ae87ab64fc3eee6a78
+# SHA256 (OPNsense-20.1.r1-OpenSSL-serial-amd64.img.bz2) = 906103fb4cc3e573a9e2d560a6365baa7162077b8933a253bb45fd23a154dd87
+# SHA256 (OPNsense-20.1.r1-OpenSSL-vga-amd64.img.bz2) = 3308412597f5b95f9b9e854ddbeb5f49735109d846af553dbe2553dedf73cb9b
+
+# SHA256 (OPNsense-20.1.r1-OpenSSL-dvd-i386.iso.bz2) = a110e2ed48228d918909daca5d93d8acafccdc4426e3e928d8561f7ad4180289
+# SHA256 (OPNsense-20.1.r1-OpenSSL-nano-i386.img.bz2) = 201b757b0d719e8f3c4aa473b414005a5544a4b1553ca9d79c1743610d67b460
+# SHA256 (OPNsense-20.1.r1-OpenSSL-serial-i386.img.bz2) = 74a8f6bc5cdf885f5ff906ad2dfd05584f8e217212f90cd2e3a3269a5a9b604a
+# SHA256 (OPNsense-20.1.r1-OpenSSL-vga-i386.img.bz2) = 1779ca5aeb37d2d97bd7e053421d64206b27189db74711600b93e458d858caff
