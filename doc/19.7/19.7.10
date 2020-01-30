@@ -27,6 +27,10 @@ o ports: curl 7.68.0[5]
 o ports: urllib3 1.27.7[6]
 o ports: isc-dhcp 4.4.2[7]
 
+A hotfix release was issued as 19.7.10_1:
+
+o firmware: enable upgrade path to 20.1
+
 
 Stay safe,
 Your OPNsense team
