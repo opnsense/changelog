@@ -24,8 +24,8 @@ o plugins: os-vnstat 1.2[3]
 o plugins: zabbix4-proxy 1.2[4]
 o ports: ca_root_nss 3.49.1
 o ports: curl 7.68.0[5]
-o ports: urllib3 1.27.7[6]
-o ports: isc-dhcp 4.4.2[7]
+o ports: isc-dhcp 4.4.2[6]
+o ports: urllib3 1.27.7[7]
 
 A hotfix release was issued as 19.7.10_1:
 
@@ -41,5 +41,5 @@ Your OPNsense team
 [3] https://github.com/opnsense/plugins/blob/master/net/vnstat/pkg-descr
 [4] https://github.com/opnsense/plugins/blob/master/net-mgmt/zabbix4-proxy/pkg-descr
 [5] https://curl.haxx.se/changes.html
-[6] https://github.com/urllib3/urllib3/blob/master/CHANGES.rst#1257-2019-11-11
-[7] https://downloads.isc.org/isc/dhcp/4.4.2/dhcp-4.4.2-RELNOTES
+[6] https://downloads.isc.org/isc/dhcp/4.4.2/dhcp-4.4.2-RELNOTES
+[7] https://github.com/urllib3/urllib3/blob/master/CHANGES.rst#1257-2019-11-11
