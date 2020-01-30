@@ -1,0 +1,108 @@
+@ January 30, 2020
+
+Hi there,
+
+For over 5 years now, OPNsense is driving innovation through modularising
+and hardening the open source firewall, with simple and reliable firmware
+upgrades, multi-language support, HardenedBSD security, fast adoption of
+upstream software updates as well as clear and stable 2-Clause BSD licensing.
+
+20.1, nicknamed "Keen Kingfisher", is a subtle improvement on sustainable
+firewall experience.  This release adds VXLAN and additional loopback device
+support, IPsec public key authentication and elliptic curve TLS certificate
+creation amongst others.  Third party software has been updated to their
+latest versions.  The logging frontend was rewritten for MVC with seamless
+API support.  On the far side the documentation increased in quality as well
+as quantity and now presents itself in a familiar menu layout.
+
+Download links, an installation guide[1] and the checksums for the images
+can be found below as well.
+
+o Europe: https://opnsense.c0urier.net/releases/20.1/
+o US East Coast: http://mirrors.nycbug.org/pub/opnsense/releases/20.1/
+o US West Coast: https://mirror.sfo12.us.leaseweb.net/opnsense/releases/20.1/
+o South America: http://mirror.upb.edu.co/opnsense/releases/20.1/
+o South-East Asia: https://ftp.yzu.edu.tw/opnsense/releases/20.1/
+o Full mirror list: https://opnsense.org/download/
+
+These are the most prominent changes since version 19.7:
+
+o Captive portal performance improvements
+o IPsec public key authentication support
+o Elliptic curve TLS certificate creation
+o CARP service demotion hook
+o VXLAN device support
+o Loopback device support
+o Extended firmware health audit checks
+o Support direction and non-quick on interface rules
+o Logging frontend migrated to MVC / API
+o PSR 12 coding style
+o Documentation for all core components
+o Python 3.7 is now the default Python version
+o LibreSSL 3.0 and OpenSSL 1.1.1
+o Google Backup API 2.4
+o jQuery 3.4.1
+
+And here are the full patch notes against version 20.1.r1:
+
+o installer: welcome users as genuine 20.1 installer
+o rc: revert growfs change since Nano does not grow anymore
+o plugins: os-mail-backup 1.1[2]
+o plugins: os-nrpe 1.0 (contributed by Michael Muenz)
+o plugins: os-theme-rebellion 1.8.3 (contributed by Team Rebellion)
+o plugins: os-vnstat 1.2[3]
+o plugins: zabbix4-proxy 1.2[4]
+o ports: ca_root_nss 3.49.2
+o ports: curl 7.68.0[5]
+o ports: isc-dhcp 4.4.2[6]
+o ports: php 7.2.27[7]
+o ports: urllib3 1.27.7[8]
+
+Known issues and limitations:
+
+o HardenedBSD 12.1 has been postponed to the next major release
+o Legacy MPD5 plugins os-l2tp, os-pppoe and os-pptp have been deprecated and will no longer receive updates
+o To prevent stale configuration files for remote syslog we advise to setup the new targets first[9] and disable the old ones under System: Settings: Logging
+o i386 has not been deprecated for the time being ;)
+
+The public key for the 20.1 series is:
+
+# -----BEGIN PUBLIC KEY-----
+# MIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEA0oYxXjva1d2TC/jQ/ygT
+# GNB2QM2Flhq1CKwYKioT6kuKCelmG/vDRVYGs2VwBeshl53qnnob3rrCVtuS84VG
+# C8n0i7bWsVWuOCaPzVCOua7MyxQNDItwA5D18SrmDbs07JE9XD30cX36Lvyq8GvZ
+# bjk3AnHHqefR6F7fMGjDNPE3JofyLXEXN7TiH/Wk1MmBm3TXMJ4q63qa/clbY5zT
+# jd2k1dtKWy23CcBKfxplu8HycqdQLCRl4o9+qdq7OQ8v9VT5dPIJcJodCvX9hAf7
+# AUAMqsP3e6AyDM7iQcEkJiwAiytFAawyEIVOECxhEA+NpXHykd4G/00f5jGB259X
+# /A8ARhjyT3zadjgXTIcEEBe5YTmxZrrKvWud4PguBTQOo9+XpI0H8A+IcoZ9AXQT
+# J/IDBZJjsdSLspLPzLiwVQk9JrVylMLeyXCbtGCBZ8FOXyffceNQQl119ubkAZkx
+# +NvioMIYQ+8rX0vn0njJfot+GQh0ezadlzuAmBBsGD8EtMCj92l/7zOyGucG+dCW
+# kIv1yX0IOKeaNBZR3GDJJoyj5hFnoxkj2aNbuWjetg5MvpjBMl/h44brjL93m8PK
+# GUhwcEPqcwu4ngu12O6vEeJW4vAbFlEznvgxmwJhMQf1/R8SUmKmAiprWKnY/w0E
+# VHzlx7aRoGcRnnPs71DeloMCAwEAAQ==
+# -----END PUBLIC KEY-----
+
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] https://docs.opnsense.org/manual/install.html
+[2] https://github.com/opnsense/plugins/pull/1671
+[3] https://github.com/opnsense/plugins/blob/master/net/vnstat/pkg-descr
+[4] https://github.com/opnsense/plugins/blob/master/net-mgmt/zabbix4-proxy/pkg-descr
+[5] https://curl.haxx.se/changes.html
+[6] https://downloads.isc.org/isc/dhcp/4.4.2/dhcp-4.4.2-RELNOTES
+[7] https://www.php.net/ChangeLog-7.php#7.2.27
+[8] https://github.com/urllib3/urllib3/blob/master/CHANGES.rst#1257-2019-11-11
+[9] https://docs.opnsense.org/manual/settingsmenu.html#logging-targets
+
+# SHA256 (OPNsense-20.1-OpenSSL-dvd-amd64.iso.bz2) = 4b15e9b3d72732d325c5eaf46ba34575d4de8cdc3e3ac1b10666c7372563be6d
+# SHA256 (OPNsense-20.1-OpenSSL-nano-amd64.img.bz2) = 27544a78ae03d480a483cfd2e7cfa703b60e50938a1ed188ec3ccde6c426fefe
+# SHA256 (OPNsense-20.1-OpenSSL-serial-amd64.img.bz2) = f93bbcbe92059c5de49f22d485da292952b48658a28d1cdaf83191e8c95c03c2
+# SHA256 (OPNsense-20.1-OpenSSL-vga-amd64.img.bz2) = 019a877c4b4cb96cfda62d041774a91c030c5a8ecd58f8c3fd0067c7ac392982
+
+# SHA256 (OPNsense-20.1-OpenSSL-dvd-i386.iso.bz2) = 36146d0a066d9d696433599487e2a538ee5575a6b3d631293ad9e14e5fbbc6e0
+# SHA256 (OPNsense-20.1-OpenSSL-nano-i386.img.bz2) = 0980f49d1b3445505fd1db27ab070886a706388d3aa16d7c8d953f279b7e3b11
+# SHA256 (OPNsense-20.1-OpenSSL-serial-i386.img.bz2) = 322adbafe331ef7232c08d839a6f355ee633f5a662009b1801ebad0edab03d73
+# SHA256 (OPNsense-20.1-OpenSSL-vga-i386.img.bz2) = 8bdd109015d7d54d382c7293bdf8fac6397a6c2e37662b73647c276e98c19d64
