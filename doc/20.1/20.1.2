@@ -1,0 +1,59 @@
+@ March 05, 2020
+
+Good evening,
+
+Today we pick up the recent FreeBSD security advisories as well as
+the usual noise in bugfixes and third party updates.  We are also at
+the brink of a first HardenedBSD 12.1 based image so stay tuned.
+
+Here are the full patch notes:
+
+o system: fix leap year issue in new log reader
+o system: add valid from and to dates to user certs display
+o system: drop unused services.inc and diag_logs_template.inc
+o interfaces: make sure descriptions are properly cleansed
+o interfaces: introduce interfaces_primary_address6()
+o interfaces: validate interface input in packet capture
+o firewall: immediately download GeoIP if not already found
+o firewall: improve performance when working with large number of aliases
+o firewall: fix visibility on internal CARP rules
+o captive portal: fix expiry and validity for vouchers (contributed by xx4h)
+o dhcp: fix DNS registration for DHCPv6 static mappings (contributed by maurice-w)
+o dhcp: add icons next to online/offline lease status (contributed by Tyler Ham)
+o ipsec: allow configuration of inactivity parameter (contributed by Marcel Menzel)
+o unbound: minor changes while scanning ACL subnets
+o web proxy: work around to skip passing additional auth properties
+o backend: allow pluginctl to return config.xml values
+o console: improve type checks in set address function
+o rc: join CARP early startup scripts
+o plugins: os-dnscrypt-proxy fix for setup.sh on reboot
+o plugins: os-dyndns 1.20 fixes verify restrictions, GratisDNS and missing break for Linode (contributed by NOYB, Johan Pramming, Andrew Gunnerson)
+o plugins: os-maltrail 1.4[1]
+o plugins: os-nrpe fix for setup.sh on reboot
+o plugins: os-tinc 1.5 fixes bug in IPv6 support (contributed by vnxme)
+o src: fix imprecise ordering of SSP canary initialization[2]
+o src: fix nmount invalid pointer dereference[3]
+o src: fix libfetch buffer overflow[4]
+o src: fix kernel stack data disclosure[5]
+o ports: ca_root_nss 3.50
+o ports: php 7.2.28[6]
+o ports: squid 4.10[7]
+o ports: suricata 4.1.7[8]
+o ports: syslog-ng 3.25.1[9]
+o ports: unbound 1.10.0[10]
+
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] https://github.com/opnsense/plugins/blob/master/security/maltrail/pkg-descr
+[2] https://www.freebsd.org/security/advisories/FreeBSD-EN-20:01.ssp.asc
+[3] https://www.freebsd.org/security/advisories/FreeBSD-EN-20:02.nmount.asc
+[4] https://www.freebsd.org/security/advisories/FreeBSD-SA-20:01.libfetch.asc
+[5] https://www.freebsd.org/security/advisories/FreeBSD-SA-20:03.thrmisc.asc
+[6] https://www.php.net/ChangeLog-7.php#7.2.28
+[7] http://squid.mirror.colo-serv.net/archive/4/squid-4.10-RELEASENOTES.html
+[8] https://suricata-ids.org/2020/02/13/suricata-4-1-7-released/
+[9] https://github.com/syslog-ng/syslog-ng/releases/tag/syslog-ng-3.25.1
+[10] https://nlnetlabs.nl/projects/unbound/download/
