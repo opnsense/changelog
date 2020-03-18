@@ -1,0 +1,40 @@
+@ March 18, 2020
+
+Hi all,
+
+Quick reliability release for all of you out there doing the impossible
+providing VPN for road warriors and what not.  Keep it up! :)
+
+Here are the full patch notes:
+
+o system: match group CN case-insensitive
+o system: added pluggable log format parsing facility
+o system: update nsComment in OpenSSL config (contributed by vnxme)
+o interfaces: fix missing default gateway switch on linkup event
+o firewall: properly lock alias_util API (contributed by Cedric Deconinck)
+o firewall: flush priority sections to /tmp/rules.debug
+o firewall: do not escape internal URLs
+o firmware: revoke 19.7 fingerprint
+o ipsec: add virtual IPv6 pool for mobile clients (contributed by vnxme)
+o ipsec: add MVC service control API
+o monit: simplify Monit reload
+o openvpn: properly swapped help texts regarding routes
+o unbound: multiple fixes in DHCP watcher
+o mvc: fix CountryField for static options
+o mvc: extend PortField to support multiple items
+o mvc: BaseListField plus PortField now use getValidationMessage() to bootstrap defaults
+o mvc: add NetworkAliasField, ProtocolField and LegacyLinkField types
+o mvc: apply PSR12 style as found on master
+o ui: add jQuery plugin to support a simple service reload/action button
+o ui: hook bootgrid javascript texts
+o plugins: os-munin-node 1.0 (contributed by Michael Muenz)
+o plugins: os-sunnyvalley 1.2 (contributed by Sunny Valley
+o plugins: os-wol: relax MAC address validation (contributed by Mikael Falkvidd)
+o ports: ca_root_nss 3.51
+o ports: ntp 4.2.8p14[1]
+
+Stay safe and healthy,
+Your OPNsense team
+
+--
+[1] https://www.eecis.udel.edu/~ntp/ntp_spool/ntp4/ChangeLog-stable
