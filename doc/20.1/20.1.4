@@ -1,0 +1,87 @@
+@ April 08, 2020
+
+Hello everyone,
+
+It almost looks like business as usual.  But we all know it is not.
+We will get through this together.
+
+Here are the full patch notes:
+
+o system: add missing strtolower() in LDAP sync response
+o system: fix /var/run/legacy_log socket creation race with Syslog-ng
+o system: add info button to display privilege / ACL endpoints
+o system: make IPsec tap tunables overwriteable
+o firewall: floating means either all interfaces or more than one selected
+o firewall: simplify group maintenance by only applying them on filter reload
+o interfaces: use primary IPv6 and support VIP tracking
+o interfaces: multiple changes in radvd.conf setup (contributed by maurice-w)
+o dhcp: fix DDNS support in DHCPv6 (contributed by Wagner Sartori Junior)
+o firmware: mirror opnsense.ieji.de renamed to opn.sense.nz
+o openvpn: improve openvpn_port_used() logic
+o unbound: minor cleanup in /api/unbound/diagnostics/stats endpoint
+o unbound: remove 192.0.0.0/24 from rebinding prevention list (contributed by maurice-w)
+o mvc: simplify reload of captive portal, cron, IDS, alias, loopback, VXLAN, web proxy, routes, syslog and shaper
+o mvc: limit dropdown size to 10 is none specified
+o mvc: support inheritance of the ArrayField type
+o mvc: synchronize backup timestamps with revisions
+o mvc: fixed width for timestamp column in logging
+o mvc: init errorMessage to prevent crash reports
+o shell: use interfaces_primary_address6() for correct IPv6 display
+o shell: append a newline in pluginctl -g mode
+o plugins: os-acme-client 1.30[1]
+o plugins: os-bind 1.13[2]
+o plugins: os-freeradius 1.9.6[3]
+o plugins: os-haproxy 2.21[4]
+o plugins: os-maltrail 1.5[5]
+o plugins: os-nginx 1.19[6]
+o plugins: os-nut 1.7[7]
+o plugins: os-postfix 1.14[8]
+o plugins: os-tayga 1.0 (contributed by Michael Muenz)
+o plugins: os-telegraf 1.7.7[9]
+o plugins: os-unbound-plus 1.0 (contributed by Michael Muenz and Petr Kejval)
+o lang: multiple updates to supported languages
+o lang: new Turkish translation (contributed by Aydin Yakar)
+o src: work around PCI devices which return all zeros for reads of existing MSI-X table VCTRL registers
+o src: fix incorrect checksum calculations with IPv6 extension headers[10]
+o src: fix TCP IPv6 SYN cache kernel information disclosure[11]
+o src: fix insufficient oce(4) ioctl(2) privilege checking[12]
+o src: fix incorrect user-controlled pointer use in epair[13]
+o src: fix kernel memory disclosure with nested jails[14]
+o ports: curl 7.69.1[15]
+o ports: krb5 1.18[16]
+o ports: openssh 8.2p1[17]
+o ports: openssl 1.1.1f[18]
+o ports: perl 5.30.2[19]
+o ports: php 7.2.29[20]
+o ports: python 3.7.7[21]
+o ports: strongswan 5.8.3[22]
+o ports: sudo 1.8.31p1[23]
+
+
+Stay safe and healthy,
+Your OPNsense team
+
+--
+[1] https://github.com/opnsense/plugins/pull/1753
+[2] https://github.com/opnsense/plugins/blob/master/dns/bind/pkg-descr
+[3] https://github.com/opnsense/plugins/blob/master/net/freeradius/pkg-descr
+[4] https://github.com/opnsense/plugins/pull/1755
+[5] https://github.com/opnsense/plugins/blob/master/security/maltrail/pkg-descr
+[6] https://github.com/opnsense/plugins/blob/master/www/nginx/pkg-descr
+[7] https://github.com/opnsense/plugins/blob/master/sysutils/nut/pkg-descr
+[8] https://github.com/opnsense/plugins/blob/master/mail/postfix/pkg-descr
+[9] https://github.com/opnsense/plugins/blob/master/net-mgmt/telegraf/pkg-descr
+[10] https://www.freebsd.org/security/advisories/FreeBSD-EN-20:06.ipv6.asc
+[11] https://www.freebsd.org/security/advisories/FreeBSD-SA-20:04.tcp.asc
+[12] https://www.freebsd.org/security/advisories/FreeBSD-SA-20:05.if_oce_ioctl.asc
+[13] https://www.freebsd.org/security/advisories/FreeBSD-SA-20:07.epair.asc
+[14] https://www.freebsd.org/security/advisories/FreeBSD-SA-20:08.jail.asc
+[15] https://curl.haxx.se/changes.html
+[16] https://web.mit.edu/kerberos/krb5-1.18/
+[17] https://www.openssh.com/txt/release-8.2
+[18] https://www.openssl.org/news/openssl-1.1.1-notes.html
+[19] https://metacpan.org/pod/release/SHAY/perl-5.30.2/pod/perldelta.pod
+[20] https://www.php.net/ChangeLog-7.php#7.2.29
+[21] https://www.python.org/downloads/release/python-377/
+[22] https://wiki.strongswan.org/versions/76
+[23] https://www.sudo.ws/stable.html
