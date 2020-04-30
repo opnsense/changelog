@@ -1,0 +1,40 @@
+@ April 30, 2020
+
+Hi all,
+
+Quick update as planned.  Here are the full patch notes:
+
+o system: add data length option to gateway monitor settings
+o firewall: avoid greedy matching with live log parsing regression from 20.1.5
+o firmware: detect runtime defaults when using "make upgrade" with core.git
+o firmware: clean up packaging code and support ".link" file extension
+o firmware: use CORE_FLAVOUR instead of FLAVOUR when using opnsense-bootstrap
+o firmware: enable to optionally reach master branch when using opnsense-boostrap
+o firmware: allow overriding CORE_ABI when using opnsense-bootstrap
+o firmware: copy make.conf instead of linking when using opnsense-code
+o firmware: always fetch tools.git when using opnsense-code
+o rc: use "onifexists" for VGA TTY instead of "on"
+o rc: missing ntpd user on 20.7 / 12.1
+o plugins: os-unbound-plus DoT validation fix (contributed by Michael Muenz)
+o src: fix ipfw invalid mbuf handling[1]
+o ports: libyaml 0.2.4[2]
+o ports: openssl 1.1.1g[3]
+o ports: py-yaml 5.3.1[4]
+o ports: radvd 2.18[5]
+o ports: sqlite 3.31.1[6]
+o ports: squid 4.11[7]
+o ports: suricata 4.1.8[8]
+
+
+Stay safe and healthy,
+Your OPNsense team
+
+--
+[1] https://www.freebsd.org/security/advisories/FreeBSD-SA-20:10.ipfw.asc
+[2] https://raw.githubusercontent.com/yaml/libyaml/master/Changes
+[3] https://www.openssl.org/news/openssl-1.1.1-notes.html
+[4] https://raw.githubusercontent.com/yaml/pyyaml/master/CHANGES
+[5] http://www.litech.org/radvd/CHANGES.txt
+[6] https://www.sqlite.org/changes.html
+[7] http://ftp.meisei-u.ac.jp/mirror/squid/squid-4.11-RELEASENOTES.html
+[8] https://suricata-ids.org/2020/04/28/suricata-4-1-8-released/
