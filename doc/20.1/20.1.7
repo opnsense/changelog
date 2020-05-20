@@ -1,0 +1,52 @@
+@ May 20, 2020
+
+Hi there,
+
+Today we move to PHP 7.3 in order to be able to complete testing for the
+20.7-BETA online upgrades.  Also included is a patch for the packet filter
+kernel code which could crash with shared forwarding when interfaces
+disappeared due to use after free in the default network stack path.
+
+Here are the full patch notes:
+
+o system: default net.inet.icmp.reply_from_interface to 1
+o system: fix static gateway wizard handing
+o firewall: allow outbound NAT source and destination port ranges
+o interfaces: use interfaces_primary_address6() inside get_interface_ipv6()
+o dhcp: add AdvLinkMTU to router advertisements settings (contributed by Ilteris Eroglu)
+o unbound: prevent wildcard domains for the local system domain
+o backend: suppress inconsequential IDNA warnings for aliases
+o backend: add option to return a key value list for TLS ciphers
+o mvc: reference constraint pointing validation results to the wrong field
+o plugins: os-acme-client 1.32 adds Acmeproxy DNS support (contributed by Maarten den Braber)
+o src: added Novatel Wireless MiFi 8800/8000 support (contributed by rootless4real)
+o src: fix pf shared forwarding on non-existing interfaces
+o src: patch in tty 3wire autologin support
+o src: fix insufficient packet length validation in libalias[1]
+o src: fix memory disclosure vulnerability in libalias[2]
+o src: fix improper checking in SCTP-AUTH shared key update[3]
+o src: fix use after free in cryptodev module[4]
+o src: update to tzdata 2020a[5]
+o ports: ca_root_nss 3.52
+o ports: curl 7.70.0[6]
+o ports: dhcp6c v20200512
+o ports: hyperscan 5.2.1[7]
+o ports: openldap 2.4.50[8]
+o ports: pcre2 10.35[9]
+o ports: php 7.3.18[10]
+
+
+Stay safe and healthy,
+Your OPNsense team
+
+--
+[1] https://www.freebsd.org/security/advisories/FreeBSD-SA-20:12.libalias.asc
+[2] https://www.freebsd.org/security/advisories/FreeBSD-SA-20:13.libalias.asc
+[3] https://www.freebsd.org/security/advisories/FreeBSD-SA-20:14.sctp.asc
+[4] https://www.freebsd.org/security/advisories/FreeBSD-SA-20:15.cryptodev.asc
+[5] https://www.freebsd.org/security/advisories/FreeBSD-EN-20:08.tzdata.asc
+[6] https://curl.haxx.se/changes.html
+[7] https://github.com/intel/hyperscan/releases/tag/v5.2.1
+[8] https://www.openldap.org/software/release/changes.html
+[9] https://www.pcre.org/changelog.txt
+[10] https://www.php.net/ChangeLog-7.php#7.3.18
