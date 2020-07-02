@@ -1,0 +1,75 @@
+@ July 02, 2020
+
+A good day everyone!
+
+Sorry about the delay while we chased a race condition in the updates back
+to an issue with the latest FreeBSD package manager updates.  For now we
+reverted to our current version but all relevant third party packages have
+been updated as updates became available over the last weeks, e.g. cURL and
+Python, and hostapd / wpa_supplicant amongst others.
+
+Here are the full patch notes:
+
+o system: simpler get_interface_ip() usage in IPv4 renewal
+o system: allow HA sync of network time settings
+o system: download all filtered items in log export
+o system: add support for upstream LDAP accounts in Nextcloud backup (contributed by Fabian Franz)
+o interfaces: fix stateless DHCPv6 for track6 interfaces (contributed by Maurice Walker)
+o firewall: fix missing address filter error by moving NAT targets to runtime resolve
+o firewall: prevent gateway protocol mismatch from breaking the ruleset
+o firewall: work around categories typeahead issue with recent jQuery libraries
+o firewall: improve alias help text (contributed by Team Rebellion)
+o firewall: switch from single log filter to one per attribute
+o intrusion detection: when enabling rules prefixed with '# ' consume the extra space (contributed by Tra5is)
+o intrusion detection: less sensitive rule parsing
+o intrusion detection: compress stats.log backups
+o ipsec: valid IPSec Phase 2 hash config warning raises GUI alert (contributed by Brett Merrick)
+o unbound: add DNS64 support (contributed by Maurice Walker)
+o web proxy: fix wrong button label for Download ACLs (contributed by 90er)
+o mvc: add sort_flags optional parameter support (contributed by NOYB)
+o rc: add full PATH to rc.syshook invoke
+o plugins: os-acme-client[1][2]
+o plugins: os-dnscrypt-proxy 1.8[3]
+o plugins: os-dyndns 1.21[4]
+o plugins: os-freeradius 1.9.7[4]
+o plugins: os-haproxy 2.23[5]
+o plugins: os-intrusion-detection-content-snort-vrt 1.1
+o plugins: os-stunnel 1.0[6] (sponsored by Incenter Technology)
+o plugins: os-tayga 1.1[7]
+o plugins: os-theme-rebellion 1.8.4[8]
+o ports: ca_root_nss 3.53
+o ports: curl 7.71.0[9]
+o ports: hostapd / wpa_supplicant UPnP SUBSCRIBE advisory[10]
+o ports: krb5 1.18.2[11]
+o ports: ntp 4.2.8p15[12]
+o ports: pcre 8.44[13]
+o ports: perl 5.30.3[14]
+o ports: php 7.3.19[15]
+o ports: python CVE-2019-18348 and CVE-2020-8492
+o ports: sqlite 3.32.2[16]
+o ports: sudo 1.9.1[17]
+o ports: unbound 1.10.1[18]
+
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] https://github.com/opnsense/plugins/pull/1851
+[2] https://github.com/opnsense/plugins/pull/1880
+[3] https://github.com/opnsense/plugins/blob/master/dns/dnscrypt-proxy/pkg-descr
+[4] https://github.com/opnsense/plugins/pull/1726
+[5] https://github.com/opnsense/plugins/pull/1883
+[6] https://docs.opnsense.org/manual/how-tos/stunnel.html
+[7] https://github.com/opnsense/plugins/pull/1826
+[8] https://github.com/opnsense/plugins/pull/1892
+[9] https://curl.haxx.se/changes.html
+[10] https://w1.fi/security/2020-1/upnp-subscribe-misbehavior-wps-ap.txt
+[11] https://web.mit.edu/kerberos/krb5-1.18/
+[12] http://support.ntp.org/bin/view/Main/SecurityNotice#Recent_Vulnerabilities
+[13] https://www.pcre.org/original/changelog.txt
+[14] https://perldoc.perl.org/5.30.3/perldelta.html
+[15] https://www.php.net/ChangeLog-7.php#7.3.19
+[16] https://www.sqlite.org/changes.html
+[17] https://www.sudo.ws/stable.html#1.9.1
+[18] https://nlnetlabs.nl/projects/unbound/download/#unbound-1-10-1
