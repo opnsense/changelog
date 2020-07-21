@@ -1,0 +1,126 @@
+@ July 21, 2020
+
+Hi there,
+
+For five and a half years, OPNsense is driving innovation through modularising
+and hardening the open source firewall, with simple and reliable firmware
+upgrades, multi-language support, HardenedBSD security, fast adoption of
+upstream software updates as well as clear and stable 2-Clause BSD licensing.
+
+We thank all of you for helping test, shape and contribute to the project!
+We know it would not be the same without you.  <3
+
+Download links, an installation guide[1] and the checksums for the images
+can be found below as well.
+
+o Europe: https://mirrors.dotsrc.org/opnsense/releases/20.7/
+o US East Coast: http://mirrors.nycbug.org/pub/opnsense/releases/20.7/
+o US West Coast: https://mirror.sfo12.us.leaseweb.net/opnsense/releases/20.7/
+o South America: https://mirror.venturasystems.tech/opnsense/releases/20.7/
+o Australia: http://mirror.as24220.net/opnsense/releases/20.7/
+o Full mirror list: https://opnsense.org/download/
+
+Here are the full patch notes against 20.1.8_1:
+
+o system: allow to optionally disable legacy logging (clog)
+o system: do not allow login redirects to visit external pages
+o system: add new "auth user changed" config event and hook it into LDAP updatePolicies()
+o system: adapt to 3wire serial console setting
+o system: figure out which sysctls are writeable before attempting to write them
+o system: Windows-friendly Nextcloud configuration backup file timestamp (contributed by @Alphakilo)
+o system: disable PCRE JIT in PHP config
+o system: clean up start / stop beep handler
+o interfaces: improved VLAN handling and defaults for more stable netmap use on 12.1
+o interfaces: support DHCPv6 multi-WAN (contributed by Team Rebellion)
+o interfaces: show delegated prefix in overview (contributed by Team Rebellion)
+o interfaces: DHCPv4 no-release and debug options moved to global interface settings
+o interfaces: automatically register loopback device lo0
+o firewall: handle new net.pf.request_maxcount system limit accordingly
+o firewall: properly evaluate and execute gateway monitoring kill states feature
+o firewall: add the iplen option to shaper rules (contributed by Maxfield Allison)
+o firewall: show partial alias content in tooltip
+o firewall: translated static log overview page to MVC
+o firewall: aliases now show internal aliases
+o firewall: validate if NAT destination contains a port
+o firewall: prevent config_read_array() from adding an empty lo0
+o firmware: added fingerprint for 20.7 series
+o firmware: hint at missing plugins and request to install or dismiss
+o intrusion detection: extent rule search with metadata and show results on rule info
+o intrusion detection: updated pattern options (contributed by @Xeroxxx)
+o intrusion detection: synchronize suricata.yaml with default template
+o network time: NMEA GPS clock messages latitude and longitude parsing fix (contributed by @mikahe)
+o network time: prevent widget PHP warnings if no GPS fix was returned in NMEA message (contributed by @mikahe)
+o unbound: integrate functionality formerly known as "unbound-plus" plugin (contributed by Michael Muenz)
+o web proxy: support for custom error pages (sponsored by Incenter Technology)
+o web proxy: add connect_timeout (contributed by Michael Muenz)
+o web proxy: allow PURGE on cache (contributed by @sazb)
+o web proxy: add missing IPv6 listener
+o mvc: add "S" option for AllowDynamic in InterfaceField type
+o mvc: LegacyLinkField not allowed to return null in __toString()
+o backend: add safeguard for illegal configd settings leading to overrides on the same command leaf
+o backend: emove undocumented and unused alias support
+o mvc: support virtual nodes in model instances
+o rc: implement inline variables for skip and defer service start
+o ui: unify edit dialog and add onBeforeRenderDialog event deferrable
+o ui: use firewall groups to group interfaces menu accordingly
+o ui: moved virtual IP menu entry to interfaces
+o ui: jQuery 3.5.1
+o plugins: os-dyndns 1.22[2]
+o plugins: os-intrusion-detection-content-et-pro 1.0.2 switches to Suricata 5 rules
+o plugins: os-telegraf 1.8.1[3]
+o plugins: os-theme-rebellion 1.8.6 (contributed by Team Rebellion)
+o plugins: os-tinc fixes switch mode[4]
+o plugins: os-wireguard 1.2[5]
+o src: HardenedBSD 12.1-p7
+o ports: ca_root_nss 3.54
+o ports: curl 7.71.1[6]
+o ports: php 7.3.20[7]
+o ports: python 3.7.8[8]
+o ports: sqlite 3.32.3[9]
+o ports: suricata 5.0.3[10]
+
+Known issues and limitations:
+
+o Legacy MPD5 plugins os-l2tp, os-pppoe and os-pptp will no longer be available
+o i386 architecture builds will no longer be available
+o Installer still advertises 20.1
+
+The public key for the 20.7 series is:
+
+# -----BEGIN PUBLIC KEY-----
+# MIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEAngIbBcRin9AmDSOsjpft
+# 7aK52TLkOzRc94NqKKnn6ALd6poEuFqYl1tfNT6XumBJDsRL1s56UYfjS8zpvFW3
+# HdzKOv4YtIln6qUuC1w8TXYNprasB/laYoBn2xeCGX5L6carlujQ+h0rsj+kpawr
+# E0/d6oRzR69cxQyoDQHD559Wv4nA795M6QGDhhl3dDq/92gzrrq3C5gJ7ldHi13c
+# inM2Fw+oPUfEIWUt/sqUTZheEk0Df3LSiJlgjQDhjh5uujTLgvX8IzfYAb8clgY3
+# DplgOh4ReoFnx6XVERSPa91ZJGeCV4dTGD2hU40rzU1lkQaiVUITLsfjrYUsNMEo
+# jdG+ndGIPTOrwXH4yGRZuUZZ612ALtO6bd4V1kAOLOS07mo4JB4poEbbB0lvZJSG
+# iTmU9od8zutnLkD66Q/qI8e6OcL0yqjwwG9DzCKg23M6cVWfyBTJhKoqQyhNWnzZ
+# bzvgOXfhOA8jn8FPChaU5OiIrv+g56pQrWKcQsvgQMqlyR+/AFSIrrqprCjDkfOG
+# bxFqTGkPb1n32nbnXJOA5Z43G9/PtBV8lvaEzli6Vehh+Zrcuy8yupbiVWSqTOfp
+# E5cYAmrlDkxKyAlZQtH6EhMF1VBQRrlqGhss5XYoE3DQDqWdhUbGv8Qiiv7ROCza
+# SIMuSzc6u35MooDRDZF4Ba0CAwEAAQ==
+# -----END PUBLIC KEY-----
+
+Please let us know about your experience!
+
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] https://docs.opnsense.org/manual/install.html
+[2] https://github.com/opnsense/plugins/pull/1654
+[3] https://github.com/opnsense/plugins/blob/master/net-mgmt/telegraf/pkg-descr
+[4] https://github.com/opnsense/plugins/pull/1733
+[5] https://github.com/opnsense/plugins/pull/1865
+[6] https://curl.haxx.se/changes.html
+[7] https://www.php.net/ChangeLog-7.php#7.3.20
+[8] https://www.python.org/downloads/release/python-378/
+[9] https://www.sqlite.org/changes.html
+[10] https://suricata-ids.org/2020/04/28/suricata-5-0-3-released/
+
+# SHA256 (OPNsense-20.7.r1-OpenSSL-dvd-amd64.iso.bz2) = d54dca6390497d45b831f68f352fccf84881aac78a360247965e5c9b36fbfded
+# SHA256 (OPNsense-20.7.r1-OpenSSL-nano-amd64.img.bz2) = f78d51d53bf663df2d49a3724812893d8c55234ab8d4a9232663fa581496edbe
+# SHA256 (OPNsense-20.7.r1-OpenSSL-serial-amd64.img.bz2) = 984f8c9d63598f061cc8995245dea73703532c1bb688ac87cdb1e510fb53b80e
+# SHA256 (OPNsense-20.7.r1-OpenSSL-vga-amd64.img.bz2) = 711811e0a7d37d323a060c52590daa9f024e77c6da627530c6596367a09b412d
