@@ -1,0 +1,50 @@
+@ July 23, 2020
+
+Dear all,
+
+20.7-RC1 is already available and the final release of 20.7 is scheduled
+for July 30.  A hotfix release for 20.1.9 will enable the upgrade path
+some hours after the initial 20.7 announcement is out, but please note
+that updated 32-bit builds (also known as i386) will no longer be available
+from this day forward.
+
+Here are the full patch notes:
+
+o system: Windows-friendly Nextcloud configuration backup file timestamp (contributed by @Alphakilo)
+o firewall: validate if NAT destination contains a port
+o firewall: prevent config_read_array() from adding an empty lo0
+o network time: NMEA GPS clock messages latitude and longitude parsing fix (contributed by @mikahe)
+o network time: prevent widget PHP warnings if no GPS fix was returned in NMEA message (contributed by @mikahe)
+o mvc: LegacyLinkField not allowed to return null in __toString()
+o plugins: os-collectd 1.3[1]
+o plugins: os-dyndns 1.22[2]
+o plugins: os-telegraf 1.8.1[3]
+o plugins: os-theme-rebellion 1.8.6 (contributed by Team Rebellion)
+o plugins: os-tinc fixes switch mode[4]
+o plugins: os-wireguard 1.2[5]
+o ports: ca_root_nss 3.54
+o ports: curl 7.71.1[6]
+o ports: dnsmasq 2.82[7]
+o ports: monit 5.27.0[8]
+o ports: php 7.3.20[9]
+o ports: python 3.7.8[10]
+o ports: sqlite 3.32.3[11]
+o ports: syslog-ng 3.27.1[12]
+
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] https://github.com/opnsense/plugins/blob/master/net-mgmt/collectd/pkg-descr
+[2] https://github.com/opnsense/plugins/pull/1654
+[3] https://github.com/opnsense/plugins/blob/master/net-mgmt/telegraf/pkg-descr
+[4] https://github.com/opnsense/plugins/pull/1733
+[5] https://github.com/opnsense/plugins/pull/1865
+[6] https://curl.haxx.se/changes.html
+[7] http://www.thekelleys.org.uk/dnsmasq/CHANGELOG
+[8] https://mmonit.com/monit/changes/
+[9] https://www.php.net/ChangeLog-7.php#7.3.20
+[10] https://www.python.org/downloads/release/python-378/
+[11] https://www.sqlite.org/changes.html
+[12] https://github.com/syslog-ng/syslog-ng/releases/tag/syslog-ng-3.27.1
