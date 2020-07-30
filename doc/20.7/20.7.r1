@@ -45,7 +45,7 @@ o firewall: validate if NAT destination contains a port
 o firewall: prevent config_read_array() from adding an empty lo0
 o firmware: added fingerprint for 20.7 series
 o firmware: hint at missing plugins and request to install or dismiss
-o intrusion detection: extent rule search with metadata and show results on rule info
+o intrusion detection: extend rule search with metadata and show results on rule info
 o intrusion detection: updated pattern options (contributed by @Xeroxxx)
 o intrusion detection: synchronize suricata.yaml with default template
 o network time: NMEA GPS clock messages latitude and longitude parsing fix (contributed by @mikahe)
