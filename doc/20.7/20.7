@@ -1,0 +1,77 @@
+@ July 30, 2020
+
+Hi there,
+
+For five and a half years, OPNsense is driving innovation through modularising
+and hardening the open source firewall, with simple and reliable firmware
+upgrades, multi-language support, HardenedBSD security, fast adoption of
+upstream software updates as well as clear and stable 2-Clause BSD licensing.
+
+20.7, nicknamed "Legendary Lion", is a major operating system jump forward on
+a sustainable firewall experience.  This release adds DHCPv6 multi-WAN, custom
+error pages for the web proxy, Suricata 5, HardenedBSD 12.1, netstat tree view,
+basic firewall API support (via plugin) and extended live log filtering amongst
+others.
+
+Download links, an installation guide[1] and the checksums for the images
+can be found below as well.
+
+o Europe: https://mirrors.dotsrc.org/opnsense/releases/20.7/
+o US East Coast: http://mirrors.nycbug.org/pub/opnsense/releases/20.7/
+o US West Coast: https://mirror.sfo12.us.leaseweb.net/opnsense/releases/20.7/
+o South America: https://mirror.venturasystems.tech/opnsense/releases/20.7/
+o Australia: http://mirror.as24220.net/opnsense/releases/20.7/
+o Full mirror list: https://opnsense.org/download/
+
+Here are the full patch notes against version 20.7-RC1:
+
+o system: syslog-ng RFC5424 on FreeBSD 12 needs flags(syslog-protocol)
+o installer: welcome users as genuine 20.7 installer
+o web proxy: do not try to force cachemanager access to use ICAP
+o plugins: os-collectd 1.3[2]
+o plugins: os-zabbix5-proxy 1.3[3]
+o src: prevent netgraph page fault for LTE usage
+o ports: dnsmasq 2.82[4]
+o ports: monit 5.27.0[5]
+o ports: nss 3.55[6]
+o ports: sudo 1.9.2[7]
+
+Known issues and limitations:
+
+o legacy MPD5 plugins os-l2tp, os-pppoe and os-pptp are longer available
+o i386 architecture builds are no longer available
+
+The public key for the 20.7 series is:
+
+# -----BEGIN PUBLIC KEY-----
+# MIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEAngIbBcRin9AmDSOsjpft
+# 7aK52TLkOzRc94NqKKnn6ALd6poEuFqYl1tfNT6XumBJDsRL1s56UYfjS8zpvFW3
+# HdzKOv4YtIln6qUuC1w8TXYNprasB/laYoBn2xeCGX5L6carlujQ+h0rsj+kpawr
+# E0/d6oRzR69cxQyoDQHD559Wv4nA795M6QGDhhl3dDq/92gzrrq3C5gJ7ldHi13c
+# inM2Fw+oPUfEIWUt/sqUTZheEk0Df3LSiJlgjQDhjh5uujTLgvX8IzfYAb8clgY3
+# DplgOh4ReoFnx6XVERSPa91ZJGeCV4dTGD2hU40rzU1lkQaiVUITLsfjrYUsNMEo
+# jdG+ndGIPTOrwXH4yGRZuUZZ612ALtO6bd4V1kAOLOS07mo4JB4poEbbB0lvZJSG
+# iTmU9od8zutnLkD66Q/qI8e6OcL0yqjwwG9DzCKg23M6cVWfyBTJhKoqQyhNWnzZ
+# bzvgOXfhOA8jn8FPChaU5OiIrv+g56pQrWKcQsvgQMqlyR+/AFSIrrqprCjDkfOG
+# bxFqTGkPb1n32nbnXJOA5Z43G9/PtBV8lvaEzli6Vehh+Zrcuy8yupbiVWSqTOfp
+# E5cYAmrlDkxKyAlZQtH6EhMF1VBQRrlqGhss5XYoE3DQDqWdhUbGv8Qiiv7ROCza
+# SIMuSzc6u35MooDRDZF4Ba0CAwEAAQ==
+# -----END PUBLIC KEY-----
+
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] https://docs.opnsense.org/manual/install.html
+[2] https://github.com/opnsense/plugins/blob/master/net-mgmt/collectd/pkg-descr
+[3] https://github.com/opnsense/plugins/blob/master/net-mgmt/zabbix5-proxy/pkg-descr
+[4] http://www.thekelleys.org.uk/dnsmasq/CHANGELOG
+[5] https://mmonit.com/monit/changes/
+[6] https://developer.mozilla.org/en-US/docs/Mozilla/Projects/NSS/NSS_3.55_release_notes
+[7] https://www.sudo.ws/stable.html#1.9.2
+
+# SHA256 (OPNsense-20.7-OpenSSL-dvd-amd64.iso.bz2) = 580070a3a0533418d58eaeb78122f804f2df7081c929288e1dccee34c4bf763a
+# SHA256 (OPNsense-20.7-OpenSSL-nano-amd64.img.bz2) = 6deb370c2a64fa6c60b7f59a4afb31b2dd28b812f5fcd59eaa6d458938d45630
+# SHA256 (OPNsense-20.7-OpenSSL-serial-amd64.img.bz2) = 1276cddd5f7b89aa54fc4a1517cb0686efe94f672627243c5b34d93340441d60
+# SHA256 (OPNsense-20.7-OpenSSL-vga-amd64.img.bz2) = 72cbffe3bba4884586c8ded8dbca4cf30fb34a094602e5f681efde2deea595c6
