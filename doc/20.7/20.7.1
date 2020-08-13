@@ -1,0 +1,52 @@
+@ August 13, 2020
+
+Dear all,
+
+Small update here with security advisories, multicast fixes and logging
+reliability patches amongst others.
+
+Overall, the jump to HardenedBSD 12.1 is looking promising from our end.
+From the reported issues we still have more logging quirks to investigate
+and especially Netmap support (used in IPS and Sensei) is lacking in some
+areas that were previously working. Patches are being worked on already
+so we shall get there soon enough.  Stay tuned.
+
+Here are the full patch notes:
+
+o system: split log process name into separate column
+o system: filter new style log directories accordingly
+o system: add delay to improve syslog-ng startup
+o system: properly switch login page to latest jQuery 3.5.1
+o firewall: add select boxes for static filters in live log
+o firmware: ignore mandoc.db files in health output as the system will regenerate them weekly
+o firmware: bring back Chinese Aivian mirror
+o firmware: remove defunct opn.sense.nz and RageNetwork mirrors
+o web proxy: add JSON output following Elastic Common Schema (sponsored by Incenter Technology)
+o backend: cap log messages to 4000 characters to prevent longer messages from vanishing
+o plugins: os-acme-client 1.35[1]
+o plugins: os-frr 1.15[2]
+o plugins: os-postfix 1.15[3]
+o plugins: os-udpbroadcastrelay 1.0 (contributed by Team Rebellion)
+o src: set the current VNET before calling netisr_dispatch() in ng_iface(4)
+o src: assorted multicast group join/leave corrections
+o src: fix vmx driver packet loss and degraded performance[4]
+o src: fix memory corruption in USB network device driver[5]
+o src: fix multiple vulnerabilities in sqlite3[6]
+o src: fix sendmsg(2) privilege escalation[7]
+o ports: perl 5.32.0[8]
+o ports: squid 4.12[9]
+
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] https://github.com/opnsense/plugins/pull/1950
+[2] https://github.com/opnsense/plugins/blob/master/net/frr/pkg-descr
+[3] https://github.com/opnsense/plugins/blob/master/mail/postfix/pkg-descr
+[4] https://www.freebsd.org/security/advisories/FreeBSD-EN-20:16.vmx.asc
+[5] https://www.freebsd.org/security/advisories/FreeBSD-SA-20:21.usb_net.asc
+[6] https://www.freebsd.org/security/advisories/FreeBSD-SA-20:22.sqlite.asc
+[7] https://www.freebsd.org/security/advisories/FreeBSD-SA-20:23.sendmsg.asc
+[8] https://metacpan.org/changes/release/XSAWYERX/perl-5.32.0
+[9] http://www.squid-cache.org/Versions/v4/squid-4.12-RELEASENOTES.html
