@@ -1,0 +1,74 @@
+@ September 02, 2020
+
+Dear all,
+
+While we are still looking closer at netmap/iflib performance on 12.1 we
+are rolling out a kernel with Intel em/igb updates that should avoid bad
+packet counts in the default installation.  Syslog-ng received a workaround
+for the diagnosed startup issue and alias now supports MAC address content
+similar to how host content works.
+
+Here are the full patch notes:
+
+o system: set REQUESTS_CA_BUNDLE in environments
+o system: improve parsing for temperature sensors
+o system: add "new-password" hint for Chrome on login form
+o system: rename syslog services description and hide legacy mode when not enabled
+o system: force syslog-ng restart after boot sequence
+o system: properly read new style logging directories
+o reporting: replace line endings when sending traceback to syslog in flowd_aggregate
+o reporting: dd traffic graph filter for private IPv4 networks (contributed by kcaj-burr)
+o firewall: add MAC address alias type
+o firewall: be more verbose when fetching alias remote content
+o firewall: prevent pfctl error messages from being suppressed
+o firewall: exclude all reserved pf.conf keywords from alias name
+o firewall: bogons not loaded on initial load
+o firewall: reset damaged bogons files on startup
+o interfaces: add listen-queue-sizes in socket diagnostics
+o firmware: properly report an unsigned repository
+o firmware: revoke 20.1 fingerprint
+o intrusion detection: rule cache parse error on invalid metadata
+o intrusion detection: allow search for status enabled/disabled
+o web proxy: correct template replacement during build time
+o web proxy: bugfix in JSON access log
+o unbound: updated project block lists links (contributed by gap579137)
+o backend: add regex_replace template support
+o plugins: os-acme-client 1.36[1]
+o plugins: os-dyndns 1.23 adds Gandi LiveDNS support (contributed by vizion8-dan)
+o plugins: os-haproxy 2.24[2]
+o plugins: os-stunnel 1.0.1 includes performance tweaks
+o plugins: os-telegraf 1.8.2[3]
+o plugins: os-tinc fixes cipher parsing on 20.7
+o src: remove ACPI workaround for serial console on AMD EPYC
+o src: Make pf.conf ':0' ignore link-local v6 addresses too
+o src: default "show bad packets" tunable to off in e100 driver
+o src: fix unsolicited promisc mode in e1000 driver
+o src: add valectl to the system commands
+o ports: ca_root_nss/nss 3.56[4]
+o ports: curl 7.72.0[5]
+o ports: libressl 3.1.4[6]
+o ports: openldap 2.4.51[7]
+o ports: php 7.3.21[8]
+o ports: python 3.7.9[9]
+o ports: sqlite 3.33.0[10]
+o ports: squid 4.13[11]
+o ports: syslog-ng dlsym() workaround
+o ports: unbound 1.11.0[12]
+
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] https://github.com/opnsense/plugins/pull/1974
+[2] https://github.com/opnsense/plugins/blob/master/net/haproxy/pkg-descr
+[3] https://github.com/opnsense/plugins/blob/master/net-mgmt/telegraf/pkg-descr
+[4] https://developer.mozilla.org/en-US/docs/Mozilla/Projects/NSS/NSS_3.56_release_notes
+[5] https://curl.haxx.se/changes.html#7_72_0
+[6] https://ftp.openbsd.org/pub/OpenBSD/LibreSSL/libressl-3.1.4-relnotes.txt
+[7] https://www.openldap.org/software/release/changes.html
+[8] https://www.php.net/ChangeLog-7.php#7.3.21
+[9] https://www.python.org/downloads/release/python-379/
+[10] https://sqlite.org/changes.html
+[11] http://www.squid-cache.org/Versions/v4/squid-4.13-RELEASENOTES.html
+[12] https://nlnetlabs.nl/projects/unbound/download/#unbound-1-11-0
