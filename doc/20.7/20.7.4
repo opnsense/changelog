@@ -1,0 +1,77 @@
+@ October 22, 2020
+
+Good evening everyone,
+
+This release finally wraps up the recent Netmap kernel changes and tests.
+The Realtek vendor driver was updated as well as third party software cURL,
+libxml2, OpenSSL, PHP, Suricata, Syslog-ng and Unbound just to name a couple
+of them.
+
+We would like to thank Sunny Valley Networks for their relentless efforts
+to bring said Netmap fixes and improvements into FreeBSD.
+
+If you are having trouble with a stuck update try the command sequence below
+from the root shell or simply reboot from the GUI and rerun the update in
+case it was not fully carried out yet.
+
+# pkill syslog-ng
+# service syslog-ng restart
+
+Here are the full patch notes:
+
+o system: switch web GUI address selection to avoid server.bind in IPv6 first case
+o system: fix defunct "use default" button on web GUI listen interfaces
+o system: signal "auth user changed" when a user is modified via web GUI
+o system: replace gateway widget and add proper API endpoint for it
+o system: fix reading displayName attribute on LDAP search (contributed by ServiusHack)
+o interfaces: change maximum MTU value to 65535 in accordance with RFC 791
+o interfaces: update wireless device detection prefixes
+o interfaces: lexical sort interface keys for assignments
+o firewall: add support for network exclusions in network alias type
+o firewall: add NAT information to pfInfo page (contributed by kulikov-a)
+o firewall: associated NAT rules missed state keyword
+o firewall: allow "or" conditions in live log
+o firewall: use pfctl for alias IP check (contributed by kulikov-a)
+o dnsmasq: regenerate resolv.conf on save
+o dnsmasq: log queries option
+o intrusion detection: ignore pkill exit status when performing update
+o ipsec: add description to reconfigure action (contributed by Frank Wall)
+o unbound: rebuild unbound blacklist download
+o unbound: restructure reconfigure so that we always flush config
+o backend: add new "config changed" event using syshook structure (sponsored by Modirum)
+o mvc: add a few missing control widgets from log pages
+o ui: upgrade moment.js to 2.27.0
+o plugins: os-freeradius 1.9.8[1]
+o plugins: os-git-backup 1.0[2] (sponsored by Modirum)
+o plugins: os-haproxy 2.25[3]
+o plugins: os-stunnel 1.0.2 adds service protocol selector (contributed by fhloston)
+o src: extended netmap update and driver fixes
+o src: netmap tun and lagg support (contributed by Sunny Valley Networks)
+o src: update Realtek re driver to upstream version 1.96.04 (contributed by Laurent Dinclaux)
+o ports: curl 7.73.0[3]
+o ports: libxml2 fixes for CVE-2019-20388, CVE-2020-7595 and CVE-2020-24977
+o ports: nss 3.58[4]
+o ports: openssl 1.1.1h[5]
+o ports: php 7.3.23[6]
+o ports: pkg 1.15.10
+o ports: radvd patch for dynamic interface shifting index
+o ports: sudo 1.9.3p1[7]
+o ports: suricata 5.0.4[8]
+o ports: syslog-ng 3.29.1[9]
+o ports: unbound 1.12.0[10]
+
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] https://github.com/opnsense/plugins/blob/master/net/freeradius/pkg-descr
+[2] https://github.com/opnsense/plugins/issues/2049
+[3] https://curl.haxx.se/changes.html
+[4] https://developer.mozilla.org/en-US/docs/Mozilla/Projects/NSS/NSS_3.58_release_notes
+[5] https://www.openssl.org/news/changelog.html#openssl-111
+[6] https://www.php.net/ChangeLog-7.php#7.3.23
+[7] https://www.sudo.ws/stable.html#1.9.3p1
+[8] https://suricata-ids.org/2020/10/08/suricata-4-1-9-and-5-0-4-released/
+[9] https://github.com/syslog-ng/syslog-ng/releases/tag/syslog-ng-3.29.1
+[10] https://nlnetlabs.nl/projects/unbound/download/
