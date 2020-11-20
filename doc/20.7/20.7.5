@@ -1,0 +1,36 @@
+@ November 20, 2020
+
+What's up!
+
+We return briefly for a small patch set and plan to pin the 20.1 upgrade
+path to this particular version to avoid unnecessary stepping stones.  We
+wish you all a healthy Friday.  And of course: patch responsibly!
+
+Here are the full patch notes:
+
+o system: syslog-ng related fixes during package management based restart
+o system: change dpinger syslog message to reflect correct RTT and RTTd unit (contributed by fhloston)
+o web proxy: add toggle for pinger service (contributed by nowyouseeit)
+o web proxy: add missing X-Forwarded-For header option
+o mvc: new Base64Field type
+o mvc: new VirtualIPField type
+o plugins: os-acme-client 2.0[1]
+o plugins: os-bind 1.14[2]
+o plugins: os-chrony 1.1[3]
+o ports: monit 5.27.1[4]
+o ports: php 7.3.24[5]
+o ports: pkg upstream fix for upgrade script hang[6]
+o ports: strongswan 5.9.0[7]
+
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] https://github.com/opnsense/plugins/blob/master/security/acme-client/pkg-descr
+[2] https://github.com/opnsense/plugins/blob/master/dns/bind/pkg-descr
+[3] https://github.com/opnsense/plugins/blob/master/net/chrony/pkg-descr
+[4] https://mmonit.com/monit/changes/
+[5] https://www.php.net/ChangeLog-7.php#7.3.24
+[6] https://github.com/freebsd/pkg/pull/1893
+[7] https://www.strongswan.org/blog/2020/07/29/strongswan-5.9.0-released.html
