@@ -1,0 +1,71 @@
+@ December 08, 2020
+
+Dear all,
+
+This update brings the usual mix of reliability fixes, plugin and third party
+software updates: FreeBSD, HardenedBSD, PHP, OpenSSH, StrongSwan, Suricata and
+Syslog-ng amongst others.
+
+Please note that Let's Encrypt users need to reissue their certificates
+manually after upgrading to this version to fix the embedded certificate chain
+issue with the current signing CA switch going on.
+
+The mail backup plugin is currently not available pending a response from
+the maintainer.  Users are advised to avoid using it for the moment.
+
+Here are the full patch notes:
+
+o system: no longer enforce alias names in gateways
+o system: add "step into" icon on log lines when filtering
+o system: add current CPU load progress bar (contributed by kulikov-a)
+o firewall: allow larger selection in live log
+o firewall: correctly select current IPv6 field in getInterfaceGateway()
+o firewall: add validation for ipv6-icmp combined with inet
+o reporting: traffic graph replacement using iftop
+o openvpn: calculate first network address as gateway address when only ifconfig_local is given
+o web proxy: throw startup error to user
+o plugins: os-acme-client 2.1[1]
+o plugins: os-frr 1.19[2]
+o plugins: os-mail-backup not available due to unaddressed security concerns
+o src: fix parsing of netmap legacy nmr->nr_ringid
+o src: fix mutex double unlock bug in netmap
+o src: minor misc netmap improvements
+o src: improve netmap(4) and vale(4) man pages
+o src: IPV6_PKTINFO support for v4-mapped IPv6 sockets
+o src: zero-initialize variables in HBSD PaX SEGVGUARD
+o src: fix execve/fexecve system call auditing[3]
+o src: fix uninitialized variable in ipfw[4]
+o src: fix race condition in callout CPU migration[5]
+o src: fix ICMPv6 use-after-free in error message handling[6]
+o src: fix multiple vulnerabilities in rtsold[7]
+o src: update timezone database information[8]
+o ports: krb5 1.18.3[9]
+o ports: nss 3.59[10]
+o ports: openldap 2.4.56[11]
+o ports: openssh 8.4p1[12]
+o ports: php 7.3.25[13]
+o ports: strongswan 5.9.1[14]
+o ports: suricata 5.0.5[15]
+o ports: syslog-ng 3.30.1[16]
+
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] https://github.com/opnsense/plugins/blob/master/security/acme-client/pkg-descr
+[2] https://github.com/opnsense/plugins/blob/master/net/frr/pkg-descr
+[3] https://www.freebsd.org/security/advisories/FreeBSD-EN-20:19.audit.asc
+[4] https://www.freebsd.org/security/advisories/FreeBSD-EN-20:21.ipfw.asc
+[5] https://www.freebsd.org/security/advisories/FreeBSD-EN-20:22.callout.asc
+[6] https://www.freebsd.org/security/advisories/FreeBSD-SA-20:31.icmp6.asc
+[7] https://www.freebsd.org/security/advisories/FreeBSD-SA-20:32.rtsold.asc
+[8] https://www.freebsd.org/security/advisories/FreeBSD-EN-20:20.tzdata.asc
+[9] https://web.mit.edu/kerberos/krb5-1.18/
+[10] https://developer.mozilla.org/en-US/docs/Mozilla/Projects/NSS/NSS_3.59_release_notes
+[11] https://www.openldap.org/software/release/changes.html
+[12] https://www.openssh.com/txt/release-8.4
+[13] https://www.php.net/ChangeLog-7.php#7.3.25
+[14] https://wiki.strongswan.org/versions/79
+[15] https://suricata-ids.org/2020/12/04/suricata-6-0-1-5-0-5-and-4-1-10-released/
+[16] https://github.com/syslog-ng/syslog-ng/releases/tag/syslog-ng-3.30.1
