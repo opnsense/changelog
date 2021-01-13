@@ -2,7 +2,7 @@
 
 Good news everyone,
 
-16.7-RC2 is here and brings major additions to amd64 architectures: Intel's
+16.7-RC2 is here and brings major additions to amd64 architectures: Intel
 Hyperscan library to speed up Suricata rule matching and UEFI boot support!
 It also brings language packs to their correct 16.7 state, with Japanese
 already having been completed by the amazing Chie Taguchi.
@@ -45,8 +45,7 @@ o openvpn: refactored scripting in export page
 o firmware: enable trim even for GPT/UFS labeled root file systems
 o firmware: removed / disabled defunct mirrors
 o firmware: removed deprecated status.php page
-o intrusion detection: allow to select pattern matcher, e.g.
-  Intel's Hyperscan
+o intrusion detection: allow to select pattern matcher, e.g. Intel Hyperscan
 o wizard: fix misalignment on page titles and contents
 o firewall: fix missing dependency in alias download script
 o firewall: correctly skip "//" type comments in remote alias files

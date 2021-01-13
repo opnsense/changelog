@@ -48,7 +48,7 @@ o Cron GUI and API
 o Japanese translations 100% completed
 o Dashboard revamp with multi-column support, drag and drop and mini API
 o RFC 6238 (TOTP) support for two-factor authentication
-o HardenedBSD's ASLR implementation
+o HardenedBSD ASLR implementation
 o High availability page for remote service status and start/stop/restart
 o API commands for remote reboot and power off
 o Firmware page resume support and cron-based "nightly" updates
