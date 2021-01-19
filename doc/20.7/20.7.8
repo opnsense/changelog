@@ -1,0 +1,79 @@
+@ January 19, 2021
+
+Hi there,
+
+The particular volume of this stable update foreshadows the end of the 20.7
+series in less than two weeks.
+
+One longstanding issue with radvd on FreeBSD 12.1 has been resolved according
+to multiple user feedback.
+
+The mailing lists have been archived and will no longer be used.
+
+And before there are questions: yes, consumers of the development version are
+now able to upgrade to 21.1-RC1.
+
+Here are the full patch notes:
+
+o system: allow to recover from bad TLS certificate and/or bad settings in console interface assign
+o system: display destination port number in firewall log widget (contributed by Team Rebellion)
+o system: keep compatible TLS 1 defaults for web GUI on 20.7 series
+o system: set default certificate lifetime to 397 days
+o firewall: add type 128 to outgoing IPv6 RFC4890 requirements
+o firewall: add manual refresh button to live log
+o firewall: fix typo in ICMPv6 validation
+o firewall: fix minor regression in maintaining target alias file
+o firewall: fix all state value in pfTop (contributed by Lucas Held)
+o firewall: remove duplicated destination field in live log
+o firewall: add readonly actions to aliases permission (contributed by Manuel Faux)
+o firewall: category selector missing caption
+o reporting: add top talkers to revamped traffic graph page
+o reporting: fix name resolution filter change in insight
+o reporting: persist interface selection on traffic graph page
+o captive portal: disable faulty TLS on HTTP since lighttpd 1.4.56
+o dhcp: fix sorting of IPv6 static mappings (contributed by vnxme)
+o dhcp: fix incorrect parsing of DUID (contributed by Matt Holgate)
+o firmware: opnsense-code now updates the current directory if nothing was specified
+o firmware: opnsense-code now uses flexible make.conf target from tools.git
+o firmware: opnsense-update now supports snapshot access via -z option
+o firmware: opnsense-update now fixes missing dependencies on the fly
+o firmware: fix some issues with missing repository on server
+o firmware: add version output and date to audit logs
+o ipsec: display remote host in status overview (contributed by garlic17)
+o opendns: add standalone mode
+o openssh: honour MAX_LISTEN_SOCKS
+o openvpn: set default certificate lifetime to 397 days in wizard
+o unbound: generate all configuration files in service controller
+o unbound: fix broken lines in large files (contributed by kulikov-a)
+o web proxy: lock ACL download to prevent duplicate execution
+o mvc: allow underscore in filter string (contributed by kulikov-a)
+o plugins: os-haproxy 2.26[1]
+o plugins: os-hw-probe 1.0 (contributed by Michael Muenz)
+o plugins: os-maltrail fixes sensor start without server (contributed by Julio Camargo)
+o plugins: os-nginx 1.20[2]
+o plugins: os-tinc fixes for latest version (contributed by vnxme)
+o src: fix OpenSSL NULL pointer de-reference[3]
+o src: fix partial scrub of multicast packages
+o src: free full mbuf chains in iflib when draining transmit queues
+o src: initialize oifp to avoid bogus results/panics in edge cases
+o src: 10Gigabit Ethernet driver for AMD SoC
+o ports: libressl 3.2.3[4][5]
+o ports: nss 3.60.1
+o ports: php 7.3.26[6]
+o ports: pkg fix for shell keyword by opening root file descriptor
+o ports: radvd 2.19[7]
+o ports: sudo 1.9.5p1[8]
+
+
+Stay safe,
+Your OPNsense team
+--
+
+[1] https://github.com/opnsense/plugins/blob/master/net/haproxy/pkg-descr
+[2] https://github.com/opnsense/plugins/blob/master/www/nginx/pkg-descr
+[3] https://www.freebsd.org/security/advisories/FreeBSD-SA-20:33.openssl.asc
+[4] https://ftp.openbsd.org/pub/OpenBSD/LibreSSL/libressl-3.2.2-relnotes.txt
+[5] https://ftp.openbsd.org/pub/OpenBSD/LibreSSL/libressl-3.2.3-relnotes.txt
+[6] https://www.php.net/ChangeLog-7.php#7.3.26
+[7] https://radvd.litech.org/CHANGES.txt
+[8] https://www.sudo.ws/stable.html#1.9.5p1
