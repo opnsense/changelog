@@ -49,7 +49,7 @@ o firewall: fix minor regression in maintaining target alias file
 o firewall: category selector missing caption
 o firewall: fix all state value in pfTop (contributed by Lucas Held)
 o firewall: remove duplicated destination field in live log
-o firewall: add readonly actions to aliases permission (contributed by Manuel Faux)
+o firewall: add read-only actions to aliases permission (contributed by Manuel Faux)
 o reporting: add top talkers to revamped traffic graphs page
 o dhcp: hostname validation now includes domain
 o dhcp: correct DHCPv6 custom options unsigned integer field (contributed by Team Rebellion)
