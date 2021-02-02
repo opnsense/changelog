@@ -1,4 +1,4 @@
-# Copyright (c) 2015-2019 Franco Fichtner <franco@opnsense.org>
+# Copyright (c) 2015-2021 Franco Fichtner <franco@opnsense.org>
 #
 # Redistribution and use in source and binary forms, with or without
 # modification, are permitted provided that the following conditions
@@ -23,18 +23,20 @@
 # OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
 # SUCH DAMAGE.
 
-DOCS!=	find doc -type f
-WORKDIR=${.CURDIR}/work
-PAGER?=	less
+DOCSDIR?=	community
+PAGER?=		less
+
+DOCS!=		find ${DOCSDIR} -type f
+WORKDIR=	${.CURDIR}/work
 
 all:
 	@cat ${.CURDIR}/README.md | ${PAGER}
 
 lint:
-	@perl -ane '{ if(m/[[:^ascii:]]/) { print } }' ${.CURDIR}/doc/*/*
-	@grep -nr '^@.* [1-9],' ${.CURDIR}/doc || true
-	@grep -nr '[ 	]$$' ${.CURDIR}/doc || true
-	@grep -inr '[a-z0-9]:  .' ${.CURDIR}/doc || true
+	@perl -ane '{ if(m/[[:^ascii:]]/) { print } }' ${.CURDIR}/${DOCSDIR}/*/*
+	@grep -nr '^@.* [1-9],' ${.CURDIR}/${DOCSDIR} || true
+	@grep -nr '[ 	]$$' ${.CURDIR}/${DOCSDIR} || true
+	@grep -inr '[a-z0-9]:  .' ${.CURDIR}/${DOCSDIR} || true
 . for DOC in ${DOCS}
 	@head -n1 ${.CURDIR}/${DOC} | grep -v '^@' || true
 . endfor
