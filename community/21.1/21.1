@@ -59,7 +59,7 @@ o interfaces: read deprecated flag, allow family spec in (-)alias calls
 o interfaces: fix address removal in IPv6 CARP case
 o interfaces: pick proper route for 6RD and 6to4 tunnels
 o interfaces: support 6RD with single /64 prefix (contributed by Marcel Hofer)
-o firewall: support category filters for firewall and NAT rules (sponsored by Modirum)
+o firewall: support category filters for firewall and NAT rules[3] (sponsored by Modirum)
 o firewall: add live log "host", "port" and "not" filters
 o firewall: create an appropriate max-mss scrub rule for IPv6
 o firewall: fix anti-spoof option for separate bridge interfaces
@@ -81,7 +81,7 @@ o firmware: repair display of removed packages during release type transition
 o firmware: add ability to run audits from the console
 o firmware: show repository in package and plugin overviews
 o intrusion detection: replace file-based policy changes with detailed filters
-o ipsec: NAT with multiple phase 2 (sponsored by m.a.x. it)
+o ipsec: NAT with multiple phase 2[4] (sponsored by m.a.x. it)
 o ipsec: prevent VTI interface to hit spurious 32768 limit
 o ipsec: allow mixed IPv4/IPv6 for VTI
 o openvpn: added toggle for block-outside-dns (contributed by Julio Camargo)
@@ -99,10 +99,10 @@ o images: support UEFI boot in serial image
 o ui: add tooltips for service control widget
 o ui: move sidebar stage from session to local storage
 o ui: upgrade Tokenize2 to v1.3.3
-o plugins: os-acme-client 2.3[3]
-o plugins: os-bind 1.16[4]
-o plugins: os-frr 1.21[5]
-o plugins: os-maltrail 1.6[6] (contributed by jkellerer)
+o plugins: os-acme-client 2.3[5]
+o plugins: os-bind 1.16[6]
+o plugins: os-frr 1.21[7]
+o plugins: os-maltrail 1.6[8] (contributed by jkellerer)
 o plugins: os-smart adds cron jobs for useful actions (contributed by Jacek Tomasiak)
 o plugins: os-telegraf 1.8.3 adds ping6 ability (contributed by DasSkelett)
 o src: fix AES-CCM requests with an AAD size smaller than a single block
@@ -112,12 +112,12 @@ o src: assorted upstream fixes for ipfw, iflib, multicast processing and pf
 o src: netmap tun(4) support adds pseudo addresses to ethernet header emulation (contributed by Sunny Valley Networks)
 o src: add a manual page for axp(4) / AMD 10G Ethernet driver
 o src: fix traffic graph not showing bandwidth when IPS is enabled
-o ports: dnsmasq 2.83[7]
-o ports: igmpproxy 0.3[8]
-o ports: nss 3.61[9]
-o ports: openldap 2.4.57[10]
-o ports: py-netaddr 0.8.0[11]
-o ports: sudo 1.9.5p2[12]
+o ports: dnsmasq 2.83[9]
+o ports: igmpproxy 0.3[10]
+o ports: nss 3.61[11]
+o ports: openldap 2.4.57[12]
+o ports: py-netaddr 0.8.0[13]
+o ports: sudo 1.9.5p2[14]
 
 The public key for the 21.1 series is:
 
@@ -143,16 +143,18 @@ Your OPNsense team
 --
 [1] https://docs.opnsense.org/manual/dnsmasq.html
 [2] https://docs.opnsense.org/manual/install.html
-[3] https://github.com/opnsense/plugins/blob/master/security/acme-client/pkg-descr
-[4] https://github.com/opnsense/plugins/blob/master/dns/bind/pkg-descr
-[5] https://github.com/opnsense/plugins/blob/master/net/frr/pkg-descr
-[6] https://github.com/opnsense/plugins/blob/master/security/maltrail/pkg-descr
-[7] https://www.thekelleys.org.uk/dnsmasq/CHANGELOG
-[8] https://github.com/pali/igmpproxy/releases/tag/0.3
-[9] https://developer.mozilla.org/en-US/docs/Mozilla/Projects/NSS/NSS_3.61_release_notes
-[10] https://www.openldap.org/software/release/changes.html
-[11] https://pypi.org/project/netaddr/0.8.0/
-[12] https://www.sudo.ws/stable.html#1.9.5p2
+[3] https://github.com/opnsense/core/issues/4587
+[4] https://github.com/opnsense/core/issues/4460
+[5] https://github.com/opnsense/plugins/blob/master/security/acme-client/pkg-descr
+[6] https://github.com/opnsense/plugins/blob/master/dns/bind/pkg-descr
+[7] https://github.com/opnsense/plugins/blob/master/net/frr/pkg-descr
+[8] https://github.com/opnsense/plugins/blob/master/security/maltrail/pkg-descr
+[9] https://www.thekelleys.org.uk/dnsmasq/CHANGELOG
+[10] https://github.com/pali/igmpproxy/releases/tag/0.3
+[11] https://developer.mozilla.org/en-US/docs/Mozilla/Projects/NSS/NSS_3.61_release_notes
+[12] https://www.openldap.org/software/release/changes.html
+[13] https://pypi.org/project/netaddr/0.8.0/
+[14] https://www.sudo.ws/stable.html#1.9.5p2
 
 # SHA256 (OPNsense-21.1-OpenSSL-dvd-amd64.iso.bz2) = 936301cb53c7c3474171a076594bb00a29827b4aa1c9aa8dac7519e447f7ec81
 # SHA256 (OPNsense-21.1-OpenSSL-nano-amd64.img.bz2) = e5116c5037f4b4bbc68708e8f14ce023508ccf585164b778d6c158f170ea202f
