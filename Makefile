@@ -26,7 +26,7 @@
 DOCSDIR?=	community
 PAGER?=		less
 
-DOCS!=		find ${DOCSDIR} -type f
+DOCS!=		find -L ${DOCSDIR} -type f
 WORKDIR=	${.CURDIR}/work
 
 all:
