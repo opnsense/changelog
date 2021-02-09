@@ -1,0 +1,66 @@
+@ February 09, 2021
+
+Hi everyone,
+
+The 21.1 series debut looks pretty good so far.  Thanks again for your
+input and comments!
+
+We will be spending a lot of time this year improving and adapting the
+code base.  As a first glimpse, the changes of this stable update are a
+mix of security and reliability updates coupled with preparations for the
+update framework revamp we have planned for 21.7.  The roadmap is still
+not final, but will likely contain long-yearned-for features.  Stay tuned.
+
+Here are the full patch notes:
+
+o firewall: change order of shaper delay parameter to prevent parser errors
+o firewall: fix multiple PHP warnings regarding category additions
+o firewall: fix icon toggle for block and reject (contributed by ElJeffe)
+o interfaces: unhide primary IPv6 in overview page
+o interfaces: fix IPv6 misalignment in get_interfaces_info()
+o reporting: fix sidebar menu collapse for NetFlow link (contributed by Maurice Walker)
+o captive portal: validate that static IP address exists when writing the configuration
+o firmware: add product status backend for upcoming firmware page redesign
+o firmware: opnsense-code will now check out the default release branch
+o firmware: opnsense-update adds "-R" option for major release selection
+o firmware: opnsense-update will now update repositories if out of sync
+o firmware: opnsense-update will attempt to recover from fatal pkg behaviour
+o firmware: opnsense-update now correctly redirects stderr on major upgrades
+o firmware: opnsense-update now retains vital flag on faulty release type transition
+o intrusion detection: clean up rule based additions  to prevent collisions with the new policies
+o monit: minor bugfixes and UI changes (contributed by Manuel Faux)
+o unbound: update documentation URL (contributed by xorbital)
+o ui: format packet count with toLocaleString() in interface statistics widget (contributed by bleetsheep)
+o ui: add compatibility for JS replaceAll() function
+o rc: support reading JSON metadata from plugin version files
+o plugins: provide JSON metadata in plugin version files
+o plugins: os-dyndns GratisDNS apex domain fix (contributed by Fredrik Rambris)
+o plugins: os-nginx upstream TLS verification fix (contributed by kulikov-a)
+o plugins: os-theme-cicada 1.26 (contributed by Team Rebellion)
+o plugins: os-theme-vicuna 1.2 (contributed by Team Rebellion)
+o src: panic when destroying VNET and epair simultaneously[1]
+o src: uninitialized file system kernel stack leaks[2]
+o src: Xen guest-triggered out of memory[3]
+o src: update timezone database information[4]
+o ports: dnsmasq 2.84[5]
+o ports: lighttpd 1.4.59[6]
+o ports: krb5 1.19[7]
+o ports: monit 5.27.2[8]
+o ports: perl 5.32.1[9]
+o ports: sqlite 3.34.1[10]
+
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] https://www.freebsd.org/security/advisories/FreeBSD-EN-21:03.vnet.asc
+[2] https://www.freebsd.org/security/advisories/FreeBSD-SA-21:01.fsdisclosure.asc
+[3] https://www.freebsd.org/security/advisories/FreeBSD-SA-21:02.xenoom.asc
+[4] https://www.freebsd.org/security/advisories/FreeBSD-EN-21:01.tzdata.asc
+[5] https://www.thekelleys.org.uk/dnsmasq/CHANGELOG
+[6] http://www.lighttpd.net/2021/2/2/1.4.59/
+[7] https://web.mit.edu/kerberos/krb5-1.19/
+[8] https://mmonit.com/monit/changes/
+[9] https://perldoc.perl.org/5.32.1/perldelta
+[10] https://sqlite.org/releaselog/3_34_1.html
