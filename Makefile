@@ -45,9 +45,10 @@ changelog.txz:
 	@rm -f ${WORKDIR}/*
 	@echo '[' > ${WORKDIR}/index.json
 . for DOC in ${DOCS}
-	@${.CURDIR}/webify.pl ${.CURDIR}/${DOC} > \
+	@${.CURDIR}/webify.pl ${.CURDIR}/${DOC} html > \
 	    ${WORKDIR}/${DOC:C/.*\///1}.htm 2>> ${WORKDIR}/index.json
-	@cp ${.CURDIR}/${DOC} ${WORKDIR}/${DOC:C/.*\///1}.txt
+	@${.CURDIR}/webify.pl ${.CURDIR}/${DOC} text > \
+	    ${WORKDIR}/${DOC:C/.*\///1}.txt 2> /dev/null
 .  if ${DOC} != ${DOCS:[-1]}
 	@echo ',' >> ${WORKDIR}/index.json
 .  endif

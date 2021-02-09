@@ -1,6 +1,6 @@
 #!/usr/bin/env perl
 
-# Copyright (c) 2015-2019 Franco Fichtner <franco@opnsense.org>
+# Copyright (c) 2015-2021 Franco Fichtner <franco@opnsense.org>
 #
 # Redistribution and use in source and binary forms, with or without
 # modification, are permitted provided that the following conditions
@@ -29,9 +29,25 @@ use strict;
 use warnings;
 use autodie;
 
-my $path = shift;
+my $path = shift; $path //= 'uknown'; die "not a file: $path" if not -f $path;
+my $fmt = shift; $fmt //= 'html'; die 'invalid format: $fmt' if $fmt !~ /^(html|text)$/;
+
 my @lines;
+my %links;
 my $doc;
+
+# collect link replacement helpers
+for my $link ( glob './Links/*' ) {
+	open $doc, "<", $link;
+	my $content = <$doc>;
+	chomp $content;
+	close $doc;
+
+	my ($url, $regex) = split /\s/, $content, 2;
+	$link =~ s/.*\///;
+
+	$links{$link} = { url => $url, regex => $regex };
+}
 
 open $doc, "<", $path;
 
@@ -42,6 +58,14 @@ my %refs;
 
 # first pass: sanitise input
 for ( @lines ) {
+	if ( $fmt eq 'text' ) {
+		# only collect links
+		$refs{$1} = $2 if $_ =~ /^\[(\d*?)\]\s*(.*)\s*$/;
+		# and collect date
+		$date = $1 if $_ =~ s/^@\s*(.*)\s*$//g;
+		next;
+	}
+
 	# remove newline
 	chomp;
 	# collect links
@@ -57,6 +81,25 @@ for ( @lines ) {
 	$_ =~ s/\>/&gt;/g;
 }
 
+# replace links so we do not have to
+for my $ref ( keys %refs ) {
+	my ($link, $version) = split /:/, $refs{$ref}, 2;
+
+	next if not exists $links{$link};
+
+        my $rewrite = $links{$link};
+
+	if ( defined $rewrite->{regex} ) {
+		$_ = $version;
+		eval $rewrite->{regex};
+	        $version = $_;
+	}
+	$refs{$ref} = $rewrite->{url};
+	if ( $refs{$ref} =~ /%s/ ) {
+		$refs{$ref} = sprintf $refs{$ref}, $version;
+	}
+}
+
 # extract version info from path
 my @vers = split '/', $path;
 
@@ -70,12 +113,25 @@ my $pp = '<p>';
 my $bl = '';
 # literals
 my $li = '';
+# start of text
+my $start = 0;
 
 # add empty line to flush paragaph
 push @lines, '';
 
 # second pass: webify all the text!
 for ( @lines ) {
+	if ( $fmt eq 'text' ) {
+		if ( $start == 0 and $_ !~ /^$/ ) {
+			$start = 1;
+		}
+		foreach my $key ( keys %refs ) {
+			$_ =~ s/^\[$key\]\s+.*/[$key] $refs{$key}/g;
+		}
+		print STDOUT $_ if $start == 1;
+		next;
+	}
+
 	# transform literal URLs into hyperlinks
 	$_ =~ s/(http[s]?:\/\/\S*)/<a target="_blank" href="$1">$1<\/a>/g;
 
