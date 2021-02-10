@@ -64,7 +64,15 @@ changelog.txz:
 
 set: changelog.txz
 
+links:
+	@rm ${WORKDIR}/links; \
+	for LINK in $$(cat Links/* | sed 's:%s.*::g'); do \
+	    grep -nr "$$LINK" ${DOCSDIR} >> ${WORKDIR}/links; \
+	done; \
+	sort ${WORKDIR}/links; \
+	rm ${WORKDIR}/links
+
 clean:
 	@rm -f changelog.txz ${WORKDIR}/*
 
-.PHONY: all clean lint set
+.PHONY: all clean links lint set
