@@ -127,13 +127,13 @@ Your OPNsense team
 
 --
 [1] https://docs.opnsense.org/manual/install.html
-[2] https://github.com/opnsense/plugins/blob/master/dns/bind/pkg-descr
-[3] https://github.com/opnsense/plugins/blob/master/net/frr/pkg-descr
-[4] https://www.freebsd.org/security/advisories/FreeBSD-SA-20:33.openssl.asc
-[5] https://ftp.openbsd.org/pub/OpenBSD/LibreSSL/libressl-3.2.2-relnotes.txt
-[6] https://ftp.openbsd.org/pub/OpenBSD/LibreSSL/libressl-3.2.3-relnotes.txt
-[7] https://radvd.litech.org/CHANGES.txt
-[8] https://www.sudo.ws/stable.html#1.9.4p2
+[2] PLUGINS:dns/bind
+[3] PLUGINS:net/frr
+[4] FREEBSD:FreeBSD-SA-20:33.openssl
+[5] LIBRESSL:3.2.2
+[6] LIBRESSL:3.2.3
+[7] RADVD:2.19
+[8] SUDO:1.9.4p2
 
 # SHA256 (OPNsense-21.1.r1-OpenSSL-dvd-amd64.iso.bz2) = c6cfdd88227bb58c94634dca01e9108647a83278a4549291a4b772094342c81a
 # SHA256 (OPNsense-21.1.r1-OpenSSL-nano-amd64.img.bz2) = a60c3cb077b56202d3b02637054607f6180121b7da9faaf870f73a814dcfc2c7
