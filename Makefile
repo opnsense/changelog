@@ -39,21 +39,22 @@ lint:
 	@grep -inr '[a-z0-9]:  .' ${.CURDIR}/${DOCSDIR} || true
 . for DOC in ${DOCS}
 	@head -n1 ${.CURDIR}/${DOC} | grep -v '^@' || true
+	@${.CURDIR}/webify.pl ${.CURDIR}/${DOC} text > /dev/null
 . endfor
 
 . for DOC in ${DOCS}
 ${DOC:C/.*\///g}:
-	@${.CURDIR}/webify.pl ${.CURDIR}/${DOC} text 2> /dev/null | ${PAGER}
+	@${.CURDIR}/webify.pl ${.CURDIR}/${DOC} text | ${PAGER}
 . endfor
 
 changelog.txz:
 	@rm -f ${WORKDIR}/*
 	@echo '[' > ${WORKDIR}/index.json
 . for DOC in ${DOCS}
-	@${.CURDIR}/webify.pl ${.CURDIR}/${DOC} html > \
+	@${.CURDIR}/webify.pl ${.CURDIR}/${DOC} > \
 	    ${WORKDIR}/${DOC:C/.*\///1}.htm 2>> ${WORKDIR}/index.json
 	@${.CURDIR}/webify.pl ${.CURDIR}/${DOC} text > \
-	    ${WORKDIR}/${DOC:C/.*\///1}.txt 2> /dev/null
+	    ${WORKDIR}/${DOC:C/.*\///1}.txt
 .  if ${DOC} != ${DOCS:[-1]}
 	@echo ',' >> ${WORKDIR}/index.json
 .  endif

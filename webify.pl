@@ -109,7 +109,7 @@ for my $ref ( keys %refs ) {
 my @vers = split '/', $path;
 
 # print json metadata to standard error
-say STDERR "{\"series\":\"$vers[-2]\",\"version\":\"$vers[-1]\",\"date\":\"$date\"}";
+say STDERR "{\"series\":\"$vers[-2]\",\"version\":\"$vers[-1]\",\"date\":\"$date\"}" if $fmt eq 'html';
 
 # initialise tag states for:
 # paragraph
