@@ -100,6 +100,11 @@ for my $ref ( keys %refs ) {
 	}
 }
 
+# run sanity checks on link replacements
+for my $ref ( keys %refs ) {
+	die 'unknown link ' . $refs{$ref} if $refs{$ref} !~ /^http/i;
+}
+
 # extract version info from path
 my @vers = split '/', $path;
 
