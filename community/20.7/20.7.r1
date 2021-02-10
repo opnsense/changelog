@@ -111,13 +111,13 @@ Your OPNsense team
 --
 [1] https://docs.opnsense.org/manual/install.html
 [2] https://github.com/opnsense/plugins/pull/1654
-[3] https://github.com/opnsense/plugins/blob/master/net-mgmt/telegraf/pkg-descr
+[3] PLUGINS:net-mgmt/telegraf
 [4] https://github.com/opnsense/plugins/pull/1733
 [5] https://github.com/opnsense/plugins/pull/1865
-[6] https://curl.haxx.se/changes.html
-[7] https://www.php.net/ChangeLog-7.php#7.3.20
+[6] CURL:7.71.1
+[7] PHP7:7.3.20
 [8] https://www.python.org/downloads/release/python-378/
-[9] https://sqlite.org/releaselog/3_32_3.html
+[9] SQLITE:3.32.3
 [10] https://suricata-ids.org/2020/04/28/suricata-5-0-3-released/
 
 # SHA256 (OPNsense-20.7.r1-OpenSSL-dvd-amd64.iso.bz2) = d54dca6390497d45b831f68f352fccf84881aac78a360247965e5c9b36fbfded
