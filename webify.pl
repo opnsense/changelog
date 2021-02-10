@@ -122,12 +122,20 @@ push @lines, '';
 # second pass: webify all the text!
 for ( @lines ) {
 	if ( $fmt eq 'text' ) {
-		if ( $start == 0 and $_ !~ /^$/ ) {
-			$start = 1;
-		}
+		# remove blocks as we do not render them
+	        $_ =~ s/^#\s//g;
+
+		# replace reference links now
 		foreach my $key ( keys %refs ) {
 			$_ =~ s/^\[$key\]\s+.*/[$key] $refs{$key}/g;
 		}
+
+		# make sure to skip all leading empty lines
+		if ( $start == 0 and $_ !~ /^$/ ) {
+			$start = 1;
+		}
+
+		# render text now and go to next line
 		print STDOUT $_ if $start == 1;
 		next;
 	}

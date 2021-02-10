@@ -41,6 +41,11 @@ lint:
 	@head -n1 ${.CURDIR}/${DOC} | grep -v '^@' || true
 . endfor
 
+. for DOC in ${DOCS}
+${DOC:C/.*\///g}:
+	@${.CURDIR}/webify.pl ${.CURDIR}/${DOC} text 2> /dev/null | ${PAGER}
+. endfor
+
 changelog.txz:
 	@rm -f ${WORKDIR}/*
 	@echo '[' > ${WORKDIR}/index.json
