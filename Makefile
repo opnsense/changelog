@@ -65,7 +65,7 @@ changelog.txz:
 set: changelog.txz
 
 links:
-	@rm ${WORKDIR}/links; \
+	@: > ${WORKDIR}/links; \
 	for LINK in $$(cat Links/* | sed 's:%s.*::g'); do \
 	    grep -nr "$$LINK" ${DOCSDIR} >> ${WORKDIR}/links; \
 	done; \
