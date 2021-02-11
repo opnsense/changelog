@@ -127,8 +127,8 @@ Your OPNsense team
 
 --
 [1] https://docs.opnsense.org/manual/install.html
-[2] PLUGINS:dns/bind
-[3] PLUGINS:net/frr
+[2] PLUGINS:21.1/dns/bind
+[3] PLUGINS:21.1/net/frr
 [4] FREEBSD:FreeBSD-SA-20:33.openssl
 [5] LIBRESSL:3.2.2
 [6] LIBRESSL:3.2.3

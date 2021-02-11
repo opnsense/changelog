@@ -111,7 +111,7 @@ Your OPNsense team
 --
 [1] https://docs.opnsense.org/manual/install.html
 [2] https://github.com/opnsense/plugins/pull/1654
-[3] PLUGINS:net-mgmt/telegraf
+[3] PLUGINS:20.7/net-mgmt/telegraf
 [4] https://github.com/opnsense/plugins/pull/1733
 [5] https://github.com/opnsense/plugins/pull/1865
 [6] CURL:7.71.1
