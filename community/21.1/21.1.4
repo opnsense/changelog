@@ -1,0 +1,90 @@
+@ March 30, 2021
+
+Hi there,
+
+The third party crypto libraries need patching so here we go!  The number of
+user contributions and interaction regarding stability fixes and improvements
+from the OPNsense side seems to be picking up as well and that is great to see.
+
+The development version includes an update of Suricata to version 6.0.2
+in case any of you want to try it out.  Also, improvements in the DHCP
+static mapping can now deal with IPv6 prefix merge for such deployments
+using Unbound and Dnsmasq host registration.
+
+In the past 3 months we have also been working on a business edition relaunch
+and now feel obligated to quickly present the results of these efforts:
+
+The upcoming release of the business edition will be versioned as 21.4 in
+order to decouple it from the community release cycle.  To that end--and
+to stay true to open source--we have published the release engineering core
+branch for said business release[1].
+
+You will see more distinction between "community" and "business" in
+communication, but the basic approach of a more conservative release
+cycle in volume and timing for the business edition remains the same.
+On top of this, the business edition also offers additional plugins,
+e.g. for central management tasks.
+
+Here are the full patch notes:
+
+o system: add assorted missing configuration sections for high availability sync
+o system: restart web GUI with delay from services to prevent session disconnect
+o system: improve error reporting in LDAP authentication (contributed by kulikov-a)
+o system: changed USB serial option to use "on" instead of problematic "onifconsole"
+o system: ignore garbled data in log lines
+o system: fix single core activity display
+o interfaces: immediately enable SLAAC during IPv6 initiation
+o interfaces: fix a typo in the GIF setup code
+o firewall: allow to select rules with no category set
+o firewall: sort pfTable results before slice (contributed by kulikov-a)
+o firewall: make categories work with numbers only (contributed kulikov-a)
+o reporting: skip damaged NetFlow records
+o dhcp: correct help text for IPv6 ranges (contributed by Team Rebellion)
+o dhcp: remove obsolete subnet validation for static entries
+o firmware: refine missing/invalid signature message during health check (contributed by Erik Inge Bolso)
+o firmware: zap changelog remove description (contributed by Jacek Tomasiak)
+o firmware: make status API endpoint synchronous when using POST
+o openvpn: remove checks for NTP servers 3 and 4 (contributed by Christian Brueffer)
+o unbound: Fix PTR records for DHCP endpoints (contributed by Gareth Owen)
+o ui: use HTTPS everywhere (contributed by Robin Schneider)
+o ui: bootgrid translation compatibility with Internet Explorer 11 (contributed by kulikov-a)
+o plugins: add service annotations to supported plugins
+o plugins: os-freeradius 1.9.10[2]
+o plugins: os-haproxy 3.1[3]
+o plugins: os-stunnel 1.0.3 adds client mode (contributed by Nicola Bonavita)
+o plugins: os-telegraf 1.9.0[4]
+o plugins: os-theme-cicada 1.28 (contributed by Team Rebellion)
+o plugins: os-theme-tukan 1.25 (contributed by Team Rebellion)
+o plugins: os-theme-vicuna 1.4 (contributed by Team Rebellion)
+o plugins: os-wireguard 1.5[5]
+o plugins: os-wol 2.4 fixes dashboard widget (contributed by kulikov-a)
+o src: fix multiple OpenSSL vulnerabilities[6]
+o ports: ca_root_nss / nss 3.63[7]
+o ports: libressl 3.2.5[8]
+o ports: openldap 2.4.58[9]
+o ports: openssh fix for double free in ssh-agent[10]
+o ports: openssl 1.1.1k[11]
+o ports: sudo 1.9.6p1[12]
+o ports: suricata 5.0.6[13]
+o ports: syslog-ng 3.31.2[14]
+o ports: wpa_supplicant p2p vulnerability[15]
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] https://github.com/opnsense/core/commits/stable/21.4
+[2] PLUGINS:21.1/net/freeradius
+[3] PLUGINS:21.1/net/haproxy
+[4] PLUGINS:21.1/net-mgmt/telegraf
+[5] PLUGINS:21.1/net/wireguard
+[6] FREEBSD:FreeBSD-SA-21:07.openssl
+[7] NSS:3.63
+[8] LIBRESSL:3.2.5
+[9] OPENLDAP:2.4.58
+[10] https://ftp.openbsd.org/pub/OpenBSD/patches/6.8/common/015_sshagent.patch.sig
+[11] OPENSSL:1.1.1k
+[12] SUDO:1.9.6p1
+[13] https://suricata-ids.org/2021/03/02/suricata-6-0-2-and-5-0-6-released/
+[14] SYSLOG-NG:3.31.2
+[15] https://w1.fi/security/2021-1/wpa_supplicant-p2p-provision-discovery-processing-vulnerability.txt
