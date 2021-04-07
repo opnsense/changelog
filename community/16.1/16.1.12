@@ -69,6 +69,6 @@ Your OPNsense team
 [1] https://github.com/freebsd/freebsd-ports/commit/aabba637e
 [2] https://github.com/freebsd/freebsd-ports/commit/d3e9dc5ee
 [3] https://github.com/freebsd/freebsd-ports/commit/057fbfc94b
-[4] https://sqlite.org/releaselog/3_12_1.html
+[4] SQLITE:3.12.1
 [5] http://ftp.meisei-u.ac.jp/mirror/squid/squid-3.5-ChangeLog.txt
-[6] https://github.com/opnsense/core/issues/505
+[6] CORE:issues/505

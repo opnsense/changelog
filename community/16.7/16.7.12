@@ -38,6 +38,6 @@ Stay safe,
 Your OPNsense team
 
 --
-[1] https://github.com/opnsense/core/issues/1314
-[2] https://www.sudo.ws/stable.html#1.8.18p1
-[3] https://php.net/ChangeLog-5.php#5.6.29
+[1] CORE:issues/1314
+[2] SUDOLEGACY:1.8.18p1
+[3] PHP5:5.6.29

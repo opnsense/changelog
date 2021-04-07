@@ -38,7 +38,7 @@ Stay safe,
 Your OPNsense team
 
 --
-[1] http://www.sudo.ws/stable.html#1.8.15
-[2] https://sqlite.org/releaselog/3_9_2.html
-[3] https://github.com/opnsense/core/issues/451
+[1] SUDOLEGACY:1.8.15
+[2] SQLITE:3.9.2
+[3] CORE:issues/451
 [4] https://wiki.opnsense.org/index.php/Howto_use_the_API

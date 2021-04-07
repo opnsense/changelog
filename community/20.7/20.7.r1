@@ -116,7 +116,7 @@ Your OPNsense team
 [5] https://github.com/opnsense/plugins/pull/1865
 [6] CURL:7.71.1
 [7] PHP7:7.3.20
-[8] https://www.python.org/downloads/release/python-378/
+[8] PYTHON:3.7.8
 [9] SQLITE:3.32.3
 [10] https://suricata-ids.org/2020/04/28/suricata-5-0-3-released/
 
