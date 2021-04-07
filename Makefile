@@ -27,6 +27,7 @@ DOCSDIR?=	community
 PAGER?=		less
 
 DOCS!=		find -L ${DOCSDIR} -type f
+WEBIFY=		${.CURDIR}/Scripts/webify.pl
 WORKDIR=	${.CURDIR}/work
 
 all:
@@ -40,21 +41,21 @@ lint:
 	@grep -inr '[a-z0-9]:  .' ${.CURDIR}/${DOCSDIR} || true
 . for DOC in ${DOCS}
 	@head -n1 ${.CURDIR}/${DOC} | grep -v '^@' || true
-	@${.CURDIR}/webify.pl ${.CURDIR}/${DOC} text > /dev/null
+	@${WEBIFY} ${.CURDIR}/${DOC} text > /dev/null
 . endfor
 
 . for DOC in ${DOCS}
 ${DOC:C/.*\///g}:
-	@${.CURDIR}/webify.pl ${.CURDIR}/${DOC} text | ${PAGER}
+	@${WEBIFY} ${.CURDIR}/${DOC} text | ${PAGER}
 . endfor
 
 changelog.txz:
 	@rm -f ${WORKDIR}/*
 	@echo '[' > ${WORKDIR}/index.json
 . for DOC in ${DOCS}
-	@${.CURDIR}/webify.pl ${.CURDIR}/${DOC} > \
+	@${WEBIFY} ${.CURDIR}/${DOC} > \
 	    ${WORKDIR}/${DOC:C/.*\///1}.htm 2>> ${WORKDIR}/index.json
-	@${.CURDIR}/webify.pl ${.CURDIR}/${DOC} text > \
+	@${WEBIFY} ${.CURDIR}/${DOC} text > \
 	    ${WORKDIR}/${DOC:C/.*\///1}.txt
 .  if ${DOC} != ${DOCS:[-1]}
 	@echo ',' >> ${WORKDIR}/index.json
