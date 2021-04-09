@@ -89,8 +89,8 @@ Your OPNsense team
 [2] https://github.com/opnsense/plugins/pull/1646
 [3] https://github.com/opnsense/plugins/pull/1578
 [4] https://github.com/opnsense/plugins/pull/1618
-[5] https://curl.haxx.se/changes.html
-[6] https://www.openssl.org/news/openssl-1.1.1-notes.html
+[5] CURL:7.68.0
+[6] OPENSSL:1.1.1d
 
 # SHA256 (OPNsense-20.1.r1-OpenSSL-dvd-amd64.iso.bz2) = fed43e5cc5092da5adcfcb2ccdddf51a1cea6a69f06b764fcd9c3d36e0705d4a
 # SHA256 (OPNsense-20.1.r1-OpenSSL-nano-amd64.img.bz2) = bf825455cc09e2a410cbe702a0c1c5b454546c476c7e90ae87ab64fc3eee6a78
