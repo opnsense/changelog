@@ -1,0 +1,100 @@
+@ April 21, 2021
+
+Good day everyone,
+
+This is mainly a security and reliablility update.  There are several FreeBSD
+security advisories and updates for third party tools such as curl.
+
+The historic bsdinstaller has been replaced by a scriptable alternative
+based on the readily available bsdinstall bundled with the base system.
+And, yes, this brings ZFS installer support into the upcoming 21.7 release.
+
+On the development side the migration to Phalcon 4 framework is now underway
+and brings improved UI/API responsiveness.  One of the remaining road map
+goals is the migration to PHP 7.4 which can be carried out after said
+framework update is complete and released.
+
+Here are the full patch notes:
+
+o system: return authentication errors for RADIUS also
+o system: better logic for serial console options -h and -D
+o system: reorder loader.conf settings to let tunables override all
+o system: lighttpd include directory for configuration (contributed by Greelan)
+o system: remove /dev/crypto GUI support
+o system: add route address family return on dynamic gateway
+o system: allow CPU temperature display in Fahrenheit in widget (contributed by Team Rebellion)
+o system: performance enhancement for local_sync_accounts()
+o system: move extensions out of a certificate DN (contributed by kulikov-a)
+o interfaces: treat deprecated addresses as non-primary
+o interfaces: improve guess_interface_from_ip() (contributed by vnxme)
+o firewall: resolve IP addresses in kernel for force gateway rule
+o firewall: use tables in the shaper to avoid breaking ipfw with too many addresses
+o firewall: clarify help text for firewall rules traffic direction (contributed by Greelan)
+o firewall: sticky filter-rule-association setting for none/pass on copied items
+o firewall: copy and paste for alias content (contributed by kulikov-a)
+o firewall: improve loopack visibility
+o reporting: format 24 hour timestamps in traffic graphs and widget
+o dhcp: add dhcpd_staticmap() and fix DHCPv6 leases page with it
+o dhcp: add "none" option to gateway setting of static mappings
+o firmware: fix bug with subscription read from mirror URL
+o firmware: separate update error for "forbidden"
+o firmware: update error if upstream core package is missing yet installed
+o installer: migrate to scripted solution using bsdinstall
+o ipsec: validation to prevent saving of route-based tunnels with "install policy" set
+o unbound: prefer domain list over host file format (contributed by Gareth Owen)
+o rc: attempt to create /tmp if it does not exist
+o rc: add opensolaris module load for ZFS
+o rc: reverse list on stop action
+o ui: prevent autocomplete in the quick navigation
+o plugins: os-bind 1.17[1]
+o plugins: os-chrony 1.2[2]
+o plugins: os-debug 1.4 changes debugging profile to new version
+o plugins: os-freeradius 1.9.11[3]
+o plugins: os-haproxy 3.2[4]
+o plugins: os-intrusion-detection-content-et-open 1.0
+o plugins: os-maltrail 1.7[5]
+o plugins: os-netdata 1.1[6]
+o plugins: os-nginx 1.22[7]
+o plugins: os-smart 2.2 JSON conversion (contributed by Arnav Singh)
+o plugins: os-telegraf 1.10.0[8]
+o plugins: os-theme-rebellion 1.8.7 (contributed by Team Rebellion)
+o plugins: os-wireguard 1.6[9]
+o plugins: os-zabbix5-proxy 1.4[10]
+o src: axgbe: enable receive all mode to bypass the MAC filter to avoid dropping CARP MAC addresses
+o src: accept_filter: fix filter parameter handling[11]
+o src: vm_fault: shoot down multiply mapped COW source page mappings[12]
+o src: mount: disallow mounting over a jail root[13]
+o src: em: add support for Intel I219 V10 device
+o src: em: fix a null de-reference in em_free_pci_resources
+o src: bsdinstall: switch to OPNsense branding
+o ports: curl 7.76.0[14]
+o ports: dnsmasq 2.85[15]
+o ports: expat 2.3.0
+o ports: hyperscan 5.4.0[16]
+o ports: monit 5.28.0[17]
+o ports: nettle 3.7.2
+o ports: phpseclib 2.0.31[18]
+o ports: pkg 1.16.3
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] PLUGINS:21.1/dns/bind
+[2] PLUGINS:21.1/net/chrony
+[3] PLUGINS:21.1/net/freeradius
+[4] PLUGINS:21.1/net/haproxy
+[5] PLUGINS:21.1/security/maltrail
+[6] PLUGINS:21.1/net-mgmt/netdata
+[7] PLUGINS:21.1/www/nginx
+[8] PLUGINS:21.1/net-mgmt/telegraf
+[9] PLUGINS:21.1/net/wireguard
+[10] PLUGINS:21.1/net-mgmt/zabbix5-proxy
+[11] FREEBSD:FreeBSD-SA-21:09.accept_filter
+[12] FREEBSD:FreeBSD-SA-21:08.vm
+[13] FREEBSD:FreeBSD-SA-21:10.jail_mount
+[14] CURL:7.76.0
+[15] DNSMASQ:2.85
+[16] HYPERSCAN:5.4.0
+[17] MONIT:5.28.0
+[18] PHPSECLIB:2.0.31
