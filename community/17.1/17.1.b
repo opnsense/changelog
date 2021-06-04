@@ -63,7 +63,6 @@ not hesitate to contact us through any of the known channels:
 o Twitter: https://twitter.com/opnsense
 o Forum: https://forum.opnsense.org/
 o GitHub: https://github.com/opnsense
-o IRC: Freenode #OPNsense
 
 
 Stay safe and merry,
