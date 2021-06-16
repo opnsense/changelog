@@ -1,0 +1,76 @@
+@ June 16, 2021
+
+Hello, hello!
+
+Today we move to Phalcon version 4 along with new FreeBSD security
+advisories and fixes for firewall live log as well as new features
+such as shell timeout and TLS remote syslog.
+
+Here are the full patch notes:
+
+o system: add shell inactivity timeout feature for csh/tcsh
+o system: add Syslog-ng TLS transport options
+o system: remove unrelated service restarts from filter_configure_xmlrpc()
+o system: rotate interface statistics widget (contributed by FingerlessGloves)
+o system: delete previous route when changed
+o system: make web GUI restart action usable in cron jobs (contributed by Frank Wall)
+o interfaces: interface_configure() checks for enabled already
+o interfaces: system match for primary address only works with compressed IPv6
+o interfaces: disable legacy CSRF output buffering when downloading a packet capture
+o interfaces: execute OpenVPN device creation earlier during boot
+o firewall: change live log address/port group matcher to correctly flip logic
+o firewall: explicit default for filter rule association in NAT port forwards
+o firewall: prevent controls overlap in live log (contributed by kulikov-a)
+o firewall: let live log use the newly provided rule log label instead of guessing it
+o firewall: calculate wildcard netmasks in aliases
+o captive portal: fix GUI drop session issue
+o dhcp: support ignore-client-uids in DHCPv4 (contributed by Kacper Why)
+o firmware: push automatic flags to firmware frontend
+o firmware: show update pending hint in system widget
+o firmware: allow manual development override on business subscription
+o intrusion detection: add YAML tag to custom.yaml.sample
+o openvpn: return "result" instead of "status" in export
+o unbound: honour space as "domainsearchlist" separator
+o lang: updated available translations
+o mvc: migrated framework to Phalcon 4
+o mvc: return UUID in ApiMutableModelControllerBase::validateAndSave() if applicable
+o rc: unconditionally configure routing on rc.syshook start facility
+o ui: change service restart icons to fa-repeat
+o plugins: added variants support to share plugin code over different third-party software versions
+o plugins: added NO_ABI marker to themes
+o plugins: remove the use of $main_buttons in relevant code
+o plugins: compatibility fixes with Phalcon 4
+o plugins: os-nginx 1.23[1]
+o plugins: os-wireguard 1.7[2]
+o plugins: os-zabbix4-proxy is now a plugin variant
+o src: SMAP bypass[3]
+o src: missing message validation in libradius[4][5]
+o src: pms data corruption [6]
+o ports: curl 7.77.0[7]
+o ports: isc-dhcp 4.4.2-P1[8]
+o ports: nss 3.66[9]
+o ports: openldap 2.4.59[10]
+o ports: pcre2 10.37[11]
+o ports: phalcon 41.2[12]
+o ports: py-certifi 2021.5.30
+o ports: py-yaml 5.4.1
+o ports: squid 4.15[13]
+
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] PLUGINS:21.1/www/nginx
+[2] PLUGINS:21.1/net/wireguard
+[3] FREEBSD:FreeBSD-SA-21:11.smap
+[4] FREEBSD:FreeBSD-SA-21:12.libradius
+[5] FREEBSD:FreeBSD-EN-21:17.libradius
+[6] FREEBSD:FreeBSD-EN-21:14.pms
+[7] CURL:7.77.0
+[8] https://downloads.isc.org/isc/dhcp/4.4.2-P1/dhcp-4.4.2-P1-RELNOTES
+[9] NSS:3.66
+[10] OPENLDAP:2.4.59
+[11] PCRE2:10.37
+[12] PHALCON:4.1.2
+[13] SQUID:4.15
