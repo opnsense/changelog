@@ -17,7 +17,7 @@ o config: fix faulty timezone on factory reset
 o config: improve config migration path for legacy config imports
 o config: new home in system section for the config history and backups
 o config: improved the config history differential view
-o notable port upgrades: bind 9.10.3 [1], squid 3.5.9 [2]
+o notable port upgrades: bind 9.10.3[1], squid 3.5.9[2]
 o firmware: added Supranet Communications mirror (Middleton, US)
 o firewall: reworked rules, schedules, virtual ip, nat and aliases pages
 o users: removed special handling of the "all" group
