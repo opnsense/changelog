@@ -38,6 +38,7 @@ lint:
 	@grep -nr '^@.* [1-9],' ${.CURDIR}/${DOCSDIR} || true
 	@grep -nr '[ 	]$$' ${.CURDIR}/${DOCSDIR} || true
 	@grep -nr ' \[' ${.CURDIR}/${DOCSDIR} || true
+	@grep -nr '[^.?\!]  ' ${.CURDIR}/${DOCSDIR} || true
 	@grep -nr 'XXX' ${.CURDIR}/${DOCSDIR} || true
 	@grep -inr '[a-z0-9]:  .' ${.CURDIR}/${DOCSDIR} || true
 . for DOC in ${DOCS}
