@@ -14,7 +14,7 @@ Here are the full patch notes:
 
 o firewall: fix a typo in CARP validation
 o firmware: revoke 19.1 fingerprint
-o ipsec: add configurable dpdaction (contributed by  Marcel Menzel)
+o ipsec: add configurable dpdaction (contributed by Marcel Menzel)
 o mvc: BaseListField ignoring empty selected field
 o plugins: os-haproxy 2.20[1]
 o plugins: os-mail-backup 1.1[2]
