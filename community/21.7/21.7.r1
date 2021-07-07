@@ -43,7 +43,6 @@ o interfaces: remove non-tunnel restriction from address collection
 o interfaces: set tunnel flag for IPv4 tunnel plus cleanups
 o interfaces: allow interface-based overrides of hardware checksum settings
 o interfaces: refactor DNS lookup and add PTR to output (contributed by Maurice Walker)
-o firewall: possibility to filter nat/rdr action in live log
 o firewall: set label for obsolete rule in live log (contributed by kulikov-a)
 o firewall: MVC rewrite of the states diagnostics pages under "States"
 o firewall: renamed "pfTables" diagnostics to "Aliases"
