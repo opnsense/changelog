@@ -1,0 +1,147 @@
+@ July 07, 2021
+
+Hi there,
+
+For more than 6 and a half years, OPNsense is driving innovation through
+modularising and hardening the open source firewall, with simple and reliable
+firmware upgrades, multi-language support, fast adoption of upstream software
+updates as well as clear and stable 2-Clause BSD licensing.
+
+We thank all of you for helping test, shape and contribute to the project!
+We know it would not be the same without you.  <3
+
+Download links, an installation guide[1] and the checksums for the images
+can be found below as well.
+
+o Europe: https://opnsense.c0urier.net/releases/21.7/
+o US East Coast: https://mirror.wdc1.us.leaseweb.net/opnsense/releases/21.7/
+o US West Coast: https://mirror.sfo12.us.leaseweb.net/opnsense/releases/21.7/
+o South America: https://mirror.venturasystems.tech/opnsense/releases/21.7/
+o Australia: http://mirror.as24220.net/opnsense/releases/21.7/
+o Full mirror list: https://opnsense.org/download/
+
+Here are the full patch notes against 21.1.7:
+
+o system: Norwegian translation (contributed by Stein-Aksel Basma)
+o system: correctly enforce "Disable writing log files to the local disk" when circular logs are not used
+o system: allow to edit gateway entries with non-conforming names
+o system: add HA sync entry for live log templates
+o system: lock config writes during HA merges
+o system: raised PHP memory limit to 1G
+o system: raised encryption standard for encrypted config.xml export
+o system: removed NextCloud backup from core functionality
+o system: allow more characters in the certificate/authority organization fields (contributed by Jan De Luyck)
+o system: default gateway failure state killing is now disabled by default
+o system: circular logs are now disabled by default
+o system: removed unused traffic API dashboard feed
+o interfaces: improve GRE/GIF configuration handling and dynamic reload behaviour
+o interfaces: remove duplicated handling of PPP IPv6 interface detection
+o interfaces: refactored address removal into interfaces_addresses_flush()
+o interfaces: flush IPv6 addresses on the correct IPv6 interface when it differs from the IPv4 interface
+o interfaces: do not check for existing CARP interfaces midstream
+o interfaces: remove non-tunnel restriction from address collection
+o interfaces: set tunnel flag for IPv4 tunnel plus cleanups
+o interfaces: allow interface-based overrides of hardware checksum settings
+o interfaces: refactor DNS lookup and add PTR to output (contributed by Maurice Walker)
+o firewall: possibility to filter nat/rdr action in live log
+o firewall: set label for obsolete rule in live log (contributed by kulikov-a)
+o firewall: MVC rewrite of the states diagnostics pages under "States"
+o firewall: renamed "pfTables" diagnostics to "Aliases"
+o firewall: add quick link to states counter from firewall rule inspection
+o firewall: add manual reply-to configuration to rules
+o firewall: delete related rules when an interface group is removed
+o firewall: rename source/destination networks when group name changes
+o dhcp: remove ::/0 route from router advertisements (contributed by Maurice Walker)
+o dhcp: always deprecate prefixes in automatic router advertisements
+o dhcp: fix table header sorting in lease pages (contributed by vnxme)
+o dhcp: lock access to settings pages when interface is not suitable for running a DHCP server
+o firmware: introduced connectivity check
+o firmware: confirm plugin removal dialog
+o intrusion detection: fix alert reads from eve.json
+o ipsec: adhere to system defaults for route-to and reply-to when creating automatic VPN rules
+o ipsec: switched to explicit type selection for identities
+o network time: added NTPD client mode
+o openvpn: offer the ability to export a user without a certificate
+o openvpn: increase consistency between export types
+o unbound: fix domain overrides for private address reverse lookup zones (contributed by Maurice Walker)
+o console: throw error when opnsense-importer encounters an encrypted config.xml
+o mvc: reduce differentials in config.xml when saving models
+o ui: work on unification of add buttons by minifying them and adding primary color markup
+o ui: prevent translation line breaks from breaking JS
+o ui: switch firewall category icon for clarity
+o ui: inject default tooltips into bootgrid formatters
+o ui: removed $main_buttons magic handler
+o ui: improved JS hook_ipv4v6() to jump to /64 on IPv6 and back to /32 on IPv4
+o plugins: os-etpro-telemetry 1.5 exclude stale data from telemetry upload
+o plugins: os-fetchmail 1.0 (contributed by Michael Muenz)
+o plugins: os-freeradius 1.9.14[2]
+o plugins: os-maltrail 1.8[3]
+o plugins: os-nut 1.8[4]
+o plugins: os-telegraf 1.11.0[5]
+o plugins: os-zabbix5-proxy is now a plugin variant
+o plugins: os-postfix 1.9
+o plugins: os-net-snmp 1.5
+o plugins: os-frr 1.22
+o src: dhclient support for VLAN 0 decapsulation
+o src: FreeBSD updates for the pf(4) and iflib(4) subsystems
+o src: FreeBSD updates for Intel e1000, ixgbe and ixl drivers
+o src: compatibility shim for upcoming rtsold "-M" command line option
+o ports: drop hardening options to ease migration to FreeBSD ports tree
+o ports: libxml 2.9.12[6]
+o ports: nettle 3.7.3
+o ports: nss 3.67[7]
+o ports: openvpn 2.5.3[8]
+o ports: php 7.4.20[9]
+o ports: phpseclib 2.0.32[10]
+o ports: python 3.8.10[11]
+o ports: sudo 1.9.7p1[12]
+
+Known issues and limitations:
+
+o NextCloud backup plugin removed from core, but not yet available as stable plugin via GUI.  Install manually from console as follows: pkg install os-nextcloud-backup-devel
+o IPsec identities are now set using their explicit type. See StrongSwan documentation[13] for the old automatic defaults.
+o CLOG creating garbage logs when used.  Fix scheduled for 21.7-RC2.
+o Unbound advanced configuration not yet replaced.
+
+The public key for the 21.7 series is:
+
+# -----BEGIN PUBLIC KEY-----
+# MIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEA1Cc2Mw+t6NAgU5Ts8feU
+# +vJSn4N8Ex1afuZ/tyXnRwxQ7w0+Hr0Bs8Ygy2X67KQi/7pi5FQ/hIJyEnf5Tm/7
+# 7sS6O6XPvu2fg7UN1RBi5VgFJh4vajwhVGUg+EpuMNIgZw7AkWNlULvQSLBHOX7S
+# FAthJQQ957OU2RARQA+LVT3wyiLpEhQp0S9h/YAO1tITQKlsPjlU4+0Iv58JZuAG
+# lek+FaZyBLqCUF4ItLxGjqO3L4cx5iy3yD7qIOR3dN7tncdEYxQweut8cA80hFUe
+# Wy8DgPUKVZRRZnVWSZp9QXzoo9ACLebAv6DOzN17DrVdO0iH6iYr6s/7tDoxtN0G
+# +r6huk0tTKQ0UJX7O9l5GAQe+HWFH1WxTU37Pb79BbxXW+9LCUtAZ35HKLmIaQyb
+# 6t3Jr0FTX+LtJBMUpWtYIAYjQIH2dlBGbwFRbljsibbSTsi/E+1WW3ob1r5O5fML
+# b734CktIXm3HFvQ0qZ4DyIQDZS0J8zoVO2wHjlh9MsxCJdDvDXe6Dbj/Y93SBXVr
+# Az8T8YrEwjK0fPt8dB1p+Ue49eYXPs5lJPmB5iaiXlp1VTqUwH2Lm3BZG5bUKded
+# zOjHavmTeTXuSKWEYh/UP7mLGeY1FQF0o7VHJfdiJLt/4s2ybM9DNUssjSDBqBRV
+# CPvKwujGiI0N2BPJHP21g1ECAwEAAQ==
+# -----END PUBLIC KEY-----
+
+Please let us know about your experience!
+
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] https://docs.opnsense.org/manual/install.html
+[2] PLUGINS:21.1/net/freeradius
+[3] PLUGINS:21.1/security/maltrail
+[4] PLUGINS:21.1/sysutils/nut
+[5] PLUGINS:21.1/net-mgmt/telegraf
+[6] http://www.xmlsoft.org/news.html
+[7] NSS:3.67
+[8] OPENVPN:2.5.3
+[9] PHP7:7.4.20
+[10] PHPSECLIB:2.0.32
+[11] PYTHON:3.8.10
+[12] SUDO:1.9.7p1
+[13] https://wiki.strongswan.org/projects/strongswan/wiki/IdentityParsing
+
+# SHA256 (OPNsense-21.7.r1-OpenSSL-dvd-amd64.iso.bz2) = e1a9cd3296352a99f8a5ac7c7edd5f7161361fde4688115186292bed91252a1Gc
+# SHA256 (OPNsense-21.7.r1-OpenSSL-nano-amd64.img.bz2) = 94478b919bca3850f3afd213b15df6ad08904ac505e3ecc3d979b9cd33276afc
+# SHA256 (OPNsense-21.7.r1-OpenSSL-serial-amd64.img.bz2) = a72ef31a6e97644db8091cb9fa5cd7c785671da88c587ebbe417ac2fcb180202
+# SHA256 (OPNsense-21.7.r1-OpenSSL-vga-amd64.img.bz2) = bc7f9a3b36cf4b52b630ee5ff28b31044db4aabfdcb73f54177307d6fc5623ba
