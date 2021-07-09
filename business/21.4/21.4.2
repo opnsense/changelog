@@ -1,0 +1,115 @@
+@ July 09, 2021
+
+This business release is based on the OPNsense 21.1.6 community version
+with additional reliability improvements.
+
+The OpenVPN advisory tracked as CVE-2020-15078 does not affect the provided
+version 2.4.11, but the security audit will falsely flag it as vulnerable
+because the source of the audit is FreeBSD where OpenVPN was migrated to 2.5
+series already.
+
+Here are the full patch notes:
+
+o system: add audit log target and move related syslog messages there
+o system: allow to edit gateway entries with non-conforming names
+o system: correctly enforce "Disable writing log files to the local disk" when circular logs are not used
+o system: delete previous route when changed
+o system: fix PHP 7.4 deprecated warning in IPv6 library
+o system: lock config writes during HA merges
+o system: make web GUI restart action usable in cron jobs (contributed by Frank Wall)
+o system: set HSTS max-age to 1 year (contributed by Maurice Walker)
+o interfaces: add policy-based routing support for "dynamic" interface gateways
+o interfaces: disable legacy CSRF output buffering when downloading a packet capture
+o interfaces: execute OpenVPN device creation earlier during boot
+o interfaces: remove non-tunnel restriction from address collection
+o interfaces: return scoped link-local in get_configured_ip_addresses()
+o interfaces: revise approach to clear states when WAN address changes
+o interfaces: system match for primary address only works with compressed IPv6
+o firewall: NPTv6 configuration clean-up (contributed by Maurice Walker)
+o firewall: add live log filter templates feature (contributed by kulikov-a)
+o firewall: change live log address/port group matcher to correctly flip logic
+o firewall: explicit default for filter rule association in NAT port forwards
+o firewall: live log widget multiple interfaces and inspect feature (contributed by kulikov-a)
+o firewall: possibility to filter nat/rdr action in live log
+o firewall: prevent controls overlap in live log (contributed by kulikov-a)
+o firewall: remove redundant NPTv6 binat rule (contributed by Maurice Walker)
+o captive portal: fix GUI drop session issue
+o dhcp: compress expanded IPv6 lease addresses for clean match with system
+o dhcp: on the GUI pages avoid the use of dhcpd_dhcp_configure()
+o dnsmasq: use dhcpd_staticmap() for lease registration
+o firmware: allow manual development override on business subscription
+o firmware: push automatic flags to firmware frontend
+o intrusion detection: add YAML tag to custom.yaml.sample
+o intrusion detection: fix alert reads from eve.json
+o ipsec: add "keyingtries" phase 1 configuration option
+o lang: updated available translations
+o openvpn: remove now defunct OpenSSL engine support
+o openvpn: return "result" instead of "status" in export
+o unbound: cleanse blacklist domain input
+o unbound: honour space as "domainsearchlist" separator
+o unbound: match whole entry in blacklists (contributed by kulikov-a)
+o unbound: use dhcpd_staticmap() for lease registration
+o rc: unconditionally configure routing on rc.syshook start facility
+o ui: change service restart icons to fa-repeat
+o ui: order interfaces in groups
+o ui: prevent translation line breaks from breaking JS
+o ui: sidebar menu fix for long listings (contributed by Team Rebellion)
+o ui: switch firewall category icon for clarity
+o ui: update chartjs-plugin-streaming to 1.9.0
+o ui: upgrade chart.js to 2.9.4
+o plugins: os-acme-client 2.5[1]
+o plugins: os-chrony 1.3[2]
+o plugins: os-dyndns 1.24[3]
+o plugins: os-fetchmail 1.0 (contributed by Michael Muenz)
+o plugins: os-freeradius 1.9.12[4]
+o plugins: os-haproxy 3.3[5]
+o plugins: os-intrusion-detection-content-et-open 1.0.1 adds emerging-inappropriate ruleset
+o plugins: os-OPNcentral 1.1 adds compatibility for new firmware API
+o plugins: os-qemu-guest-agent 1.0 (contributed by Frank Wall)
+o plugins: os-relayd 2.5[6] (sponsored by Modirum)
+o plugins: os-telegraf 1.10.1[7]
+o plugins: os-zabbix4-proxy 1.3[8]
+o plugins: os-zabbix5-proxy 1.5[9]
+o src: SMAP bypass[10]
+o src: missing message validation in libradius[11][12]
+o src: pms data corruption[13]
+o src: libcasper: fix descriptors numbers[14]
+o src: linux: Prevent integer overflow in futex_requeue[15]
+o ports: filterlog 0.4 adds label support to output if applicable
+o ports: libxml2 fix for CVE-2021-3541
+o ports: nss 3.65[16]
+o ports: openssh-portable 8.6p1[17]
+o ports: php 7.3.28[18]
+o ports: py-yaml 5.4.1
+o ports: sqlite 3.35.5[19]
+o ports: squid 4.15[20]
+o ports: sudo 1.9.7[21]
+o ports: syslog-ng 3.32.1[22]
+
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] PLUGINS:21.1/security/acme-client
+[2] PLUGINS:21.1/net/chrony
+[3] PLUGINS:21.1/dns/dyndns
+[4] PLUGINS:21.1/net/freeradius
+[5] PLUGINS:21.1/net/haproxy
+[6] https://github.com/opnsense/plugins/issues/2232
+[7] PLUGINS:21.1/net-mgmt/telegraf
+[8] PLUGINS:21.1/net-mgmt/zabbix4-proxy
+[9] PLUGINS:21.1/net-mgmt/zabbix5-proxy
+[10] FREEBSD:FreeBSD-SA-21:11.smap
+[11] FREEBSD:FreeBSD-SA-21:12.libradius
+[12] FREEBSD:FreeBSD-EN-21:17.libradius
+[13] FREEBSD:FreeBSD-EN-21:14.pms
+[14] FREEBSD:EN-21:19.libcasper
+[15] FREEBSD:EN-21:22.linux_futex
+[16] NSS:3.65
+[17] OPENSSH:8.6p1
+[18] PHP7:7.3.28
+[19] SQLITE:3.35.5
+[20] SQUID:4.15
+[21] SUDO:1.9.7
+[22] SYSLOG-NG:3.32.1
