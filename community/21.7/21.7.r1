@@ -98,7 +98,7 @@ o ports: sudo 1.9.7p1[12]
 Known issues and limitations:
 
 o NextCloud backup plugin removed from core, but not yet available as stable plugin via GUI.  Install manually from console as follows: pkg install os-nextcloud-backup-devel
-o IPsec identities are now set using their explicit type. See StrongSwan documentation[13] for the old automatic defaults.
+o IPsec identities are now set using their explicit type.  See StrongSwan documentation[13] for the old automatic defaults.
 o CLOG creating garbage logs when used.  Fix scheduled for 21.7-RC2.
 o Unbound advanced configuration not yet replaced.
 
@@ -127,10 +127,10 @@ Your OPNsense team
 
 --
 [1] https://docs.opnsense.org/manual/install.html
-[2] PLUGINS:21.1/net/freeradius
-[3] PLUGINS:21.1/security/maltrail
-[4] PLUGINS:21.1/sysutils/nut
-[5] PLUGINS:21.1/net-mgmt/telegraf
+[2] PLUGINS:21.7/net/freeradius
+[3] PLUGINS:21.7/security/maltrail
+[4] PLUGINS:21.7/sysutils/nut
+[5] PLUGINS:21.7/net-mgmt/telegraf
 [6] http://www.xmlsoft.org/news.html
 [7] NSS:3.67
 [8] OPENVPN:2.5.3
