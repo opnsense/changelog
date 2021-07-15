@@ -29,7 +29,7 @@ o shell: fix IPv4 /31 assignment
 o unbound: add "unbound check" backend action
 o unbound: allow to retain cache on service reload
 o unbound: fix /var MFS dilemma for DNSBL after boot
-o unbound: remove custom configuration support
+o unbound: remove deprecated custom options setting
 o rc: opnsense-beep melody database directory
 o plugins: os-acme-client 2.6[1]
 o plugins: os-freeradius 1.9.15[2]
@@ -50,7 +50,7 @@ Known issues and limitations:
 
 o NextCloud backup feature moved from core to plugins.  Please reinstall if needed.
 o IPsec identities are now set using their explicit type.  See StrongSwan documentation[9] for the old automatic defaults.
-o Unbound advanced configuration has been removed.  Local override directory /usr/local/etc/unbound.opnsense.d exists.
+o Unbound custom options setting has been discontinued.  Local override directory /usr/local/etc/unbound.opnsense.d exists.
 
 Please let us know about your experience!
 
