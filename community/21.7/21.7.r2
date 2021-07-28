@@ -18,7 +18,7 @@ o system: hide far gateway option for IPv6
 o system: isvalidpid() is not required for a single killbypid()
 o system: fix PHP 7.4 deprecated warning in IPv6 library
 o system: do not split XMLRPC password into multiple pieces
-o system: enable group sync for LDAP servers that do not return memberOf
+o system: enable group sync for LDAP servers that do not return memberOf (contributed by rdd2)
 o interfaces: deprecate SLAAC addresses on linkdown
 o firewall: possibility to filter nat/rdr action in live log
 o firewall: use permanent promiscuous mode for pflog0
