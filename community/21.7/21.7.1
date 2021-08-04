@@ -1,0 +1,57 @@
+@ August 04, 2021
+
+Hello,
+
+After some initial trouble with particular Intel network card instability
+and two installer shortcomings this brings the first round of stable
+updates, general improvements and even new features.
+
+The OpenVPN integration required a few more changes for the 2.5 series
+and Unbound would stall when the new cache restore feature was caching
+an empty response.
+
+We will be issuing images later this week after running them through QA.
+
+Here are the full patch notes:
+
+o system: relax server certificate check for web GUI validation
+o system: use ifinfo counters instead of pfctl in interface widget
+o interfaces: packet capture quick select for all interfaces
+o firewall: make sure net.pf.request_maxcount and table-entries are always aligned
+o firewall: only set state options on rules when state is being tracked
+o firmware: fix opnsense-code pull when ABI configuration is no longer there
+o firmware: fix upgrade with multiple repositories enabled
+o firmware: sync plugins in console update
+o firmware: revoke 21.1 fingerprint
+o installer: fix possible hang when scanning for disks
+o installer: fix multiple disk selection
+o openvpn: fix genkey format on 2.5
+o openvpn: improve the cipher parsing
+o openvpn: untie server-ipv6 from server directive
+o openvpn: return empty list when /api/openvpn/export/accounts/ is called without parameters
+o unbound: reject invalid cache data
+o unbound: automatically add "do-not-query-localhost: no" on DoT when needed
+o unbound: support insecure-domain directive
+o mvc: bring back bind_textdomain_codeset() to fix possible faulty page rendering
+o ui: fix regression in subnet selector
+o plugins: os-bind 1.18[1]
+o plugins: os-dnscrypt-proxy 1.9[2]
+o plugins: os-postfix 1.20[3]
+o plugins: os-telegraf 1.12.0[4]
+o src: revert upstream commit "e1000: Rework em_msi_link interrupt filter"
+o ports: switched to FreeBSD ports tree
+o ports: filterlog print "0" instead of "(null)" label
+o ports: krb5 1.19.2[5]
+o ports: php 7.4.22[6]
+
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] PLUGINS:21.7/dns/bind
+[2] PLUGINS:21.7/dns/dnscrypt-proxy
+[3] PLUGINS:21.7/mail/postfix
+[4] PLUGINS:21.7/net-mgmt/telegraf
+[5] KRB5:1.19
+[6] PHP7:7.4.22
