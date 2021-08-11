@@ -13,7 +13,6 @@ We know it would not be the same without you.  <3
 Here are the full patch notes:
 
 o system: prevent use of client certificates in web GUI
-o system: lock config writes during HA merges
 o system: hide far gateway option for IPv6
 o system: isvalidpid() is not required for a single killbypid()
 o system: fix PHP 7.4 deprecated warning in IPv6 library
