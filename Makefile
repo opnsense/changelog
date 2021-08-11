@@ -45,6 +45,11 @@ lint:
 	@head -n1 ${.CURDIR}/${DOC} | grep -v '^@' || true
 	@${WEBIFY} ${.CURDIR}/${DOC} text > /dev/null
 . endfor
+	@for DIR in $$(find -s community -type d -depth 1); do \
+		echo ">>> Scanning $${DIR} for duplicates..."; \
+		grep -ho '^o [^\[]*' $$(find $${DIR} -type f | grep -iv '\.[a-z]') | \
+		    grep -iv '\.[a-z]' | sort | uniq -ic | grep -v '^ *1 o ' || true; \
+	done
 
 . for DOC in ${DOCS}
 ${DOC:C/.*\///g}:
