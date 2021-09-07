@@ -1,0 +1,98 @@
+@ September 07, 2021
+
+Good morning,
+
+Today the following CVEs are being addressed:
+
+CVE-2021-3711, CVE-2021-3712, CVE-2021-23840, CVE-2021-23841
+
+Please note that the Let's Encrypt client plugin is now called
+ACME client since acme.sh version 3 does support multiple providers.
+
+Apart from the usual batch of fixes the work on RSS (receive side
+scaling) is progressing and groundwork has already made it to the
+kernel along with the libnetmap library for allowing better scaling
+in netmap mode along with it.  At this point, however, RSS is not
+yet enabled and there is no impact on existing setups.  That will
+likely change with one of the next stable versions in this series.
+
+On the other hand, the work for FreeBSD 13 migration in 22.1 is
+ongoing as well to be able to test this rather sooner than later.
+In this iteration we will take the time to look at shared forwarding
+edge cases and have already upstreamed a number of patches that
+have been accumulated over the last couple of years to keep our
+code base light and tidy.
+
+Here are the full patch notes:
+
+o system: default RSS widget feed to forum announcements
+o system: add missing ACL for Syslog targets page
+o system: fix unescaped source field used for password in backup plugins
+o system: reload FreeBSD services when reloading all services from console
+o interfaces: use -M option in rtosold invoke in preparation for 22.1
+o interfaces: correct indent in dhclient configuration
+o firewall: allow to specify port ranges for outgoing NAT (contributed by Nikolay Denev)
+o firewall: fix long comment preventing IPFW reload (contributed by Robin Schneider)
+o firewall: fix compare interfaces (contributed by Smart-Soft)
+o firmware: opnsense-patch can now patch installer and updater files
+o firmware: opnsense-update -c option now honours the -f option
+o firmware: opnsense-update improvements for mirror manipulation options
+o firmware: undo masking vulnerability URLs in FreeBSD due to UUID use
+o firmware: also check plugins sync for up to date core package
+o firmware: fix visibility issue on console when syncing plugins
+o firmware: replace php version_compare() call with pkg-version shell command
+o firmware: correctly announce major upgrade reboot in status return
+o firmware: do not fetch GeoIP database from business mirrors without a subscription
+o firmware: backend now supports reinstall like opnsense-bootstrap -q
+o intrusion detection: skip ruleset empty metadata (contributed by kulikov-a)
+o ipsec: fix a regression in rightsubnets for non-mobile phase 2
+o ipsec: fix a regression in VTI handling
+o ipsec: identity quoting for ASN1DN and FQDN types with "#" characters
+o ipsec: add auto type for identities
+o openvpn: fix client-config-dir regression
+o openvpn: check IPv4 tunnel prefix (contributed by kulikov-a)
+o openvpn: simplify CIDR validation and remove trim() usage
+o web proxy: adding additional memory cache options (contributed by Xeroxxx)
+o plugins: os-acme-client 3.0[1]
+o plugins: os-haproxy 3.5[2]
+o src: runtime RSS code preparations and assorted related upstream patches
+o src: axgbe: remove unneccesary packet length check
+o src: iflib: fix partial length accounting error in netmap mode
+o src: lib: add libnetmap and related patches
+o src: dhclient: skip_to_semi() consumes semicolon already
+o src: rtsold: slighty change address read
+o src: fix missing error handling in bhyve(8) device models[3]
+o src: fix remote code execution in ggatec(8)[4]
+o src: fix libfetch out of bounds read[5]
+o src: fix multiple OpenSSL vulnerabilities[6][7]
+o ports: ifinfo 13.0
+o ports: libressl 3.3.4[8]
+o ports: nss 3.69[9]
+o ports: monit 5.29.0[10]
+o ports: mpd5 adds L2TP interoperability fix from upstream
+o ports: openssl 1.1.1l[11]
+o ports: php 7.4.23[12]
+o ports: strongswan 5.9.3[13]
+o ports: sudo 1.9.7p2[14]
+o ports: unbound 1.13.2[15]
+
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] PLUGINS:21.7/security/acme-client
+[2] PLUGINS:21.7/net/haproxy
+[3] FREEBSD:FreeBSD-SA-21:13.bhyve
+[4] FREEBSD:FreeBSD-SA-21:14.ggatec
+[5] FREEBSD:FreeBSD-SA-21:15.libfetch
+[6] FREEBSD:FreeBSD-SA-21:16.openssl
+[7] FREEBSD:FreeBSD-SA-21:17.openssl
+[8] LIBRESSL:3.3.4
+[9] NSS:3.69
+[10] MONIT:5.29.0
+[11] OPENSSL:1.1.1l
+[12] PHP7:7.4.23
+[13] STRONGSWAN:5.9.3
+[14] SUDO:1.9.7p2
+[15] UNBOUND:1.13.2
