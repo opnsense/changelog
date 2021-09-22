@@ -1,0 +1,64 @@
+@ September 22, 2021
+
+Hi there,
+
+This release finally brings in Suricata version 6 as well as OpenVPN tls-crypt
+support, automatic user creation on LDAP-based logins and more.
+
+As a general note the Realtek vendor driver currently bundled with the base
+system will be moved to a plugin-based kernel module in version 22.1 and the
+original re(4) driver inside FreeBSD 13 will be restored.  To ease migration
+and because the version maintained in FreeBSD ports actually offers additional
+fixes we have inlcuded the new plugin into this build.
+
+Here are the full patch notes:
+
+o system: allow automatic user creation on LDAP-based logins
+o interfaces: add and use unified function is_interface_assigned() to prevent deleting assigned interfaces
+o interfaces: sync firewall groups after internal create/destroy operations
+o interfaces: add netstat tree search and improve page layout
+o interfaces: replace opportunistic diagnostics IP address lookups with more robust variants
+o firewall: clarify match/set priority in rules
+o firewall: improve alias description/preview
+o firewall: aliases maximum entries progress bar
+o dhcp: add shared dhcpd_leases() reader and use it in both lease pages
+o openvpn: use is_interface_assigned() to prevent deletion of assigned instances
+o openvpn: CARP status read cleanups (contributed by vnxme)
+o openvpn: tls-crypt support (contributed by vnxme)
+o openvpn: do not create empty router file
+o router advertisements: remove AdvRDNSSLifetime / AdvDNSSLLifetime bounds (contributed by Maurice Walker)
+o unbound: register DHCP leases with their matching IP range configured DHCP domain
+o plugins: os-acme-client 3.1[1]
+o plugins: os-chrony 1.4[2]
+o plugins: os-collectd 1.4[3]
+o plugins: os-fetchmail 1.1[4]
+o plugins: os-freeradius 1.9.16[5]
+o plugins: os-realtek-re 1.0 adds Realtek vendor NIC driver module
+o plugins: os-telegraf 1.12.1[6]
+o ports: dnsmasq 2.86[7]
+o ports: filterlog 0.5 removes unused IPv6 options support
+o ports: nss 3.70[8]
+o ports: pcre 8.45[9]
+o ports: python 3.8.12[10]
+o ports: sudo 1.9.8p1[11]
+o ports: suricata 6.0.3[12]
+o ports: syslog-ng 3.34.1[13]
+
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] PLUGINS:21.7/security/acme-client
+[2] PLUGINS:21.7/net/chrony
+[3] PLUGINS:21.7/net-mgmt/collectd
+[4] PLUGINS:21.7/mail/fetchmail
+[5] PLUGINS:21.7/net/freeradius
+[6] PLUGINS:21.7/net-mgmt/telegraf
+[7] DNSMASQ:2.86
+[8] NSS:3.70
+[9] PCRE1:8.45
+[10] PYTHON:3.8.12
+[11] SUDO:1.9.8p1
+[12] https://suricata.io/2021/06/30/new-suricata-6-0-3-and-5-0-7-releases/
+[13] SYSLOG-NG:3.34.1
