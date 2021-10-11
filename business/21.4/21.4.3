@@ -88,6 +88,17 @@ o ports: php 7.4.20[16]
 o ports: sudo 1.9.7p1[17]
 o ports: suricata 5.0.7[18]
 
+A hotfix release was issued as 21.4.3_8:
+
+o system: prevent expired or intermediate CA certificates from being added to trust store by default
+o system: fix unescaped source field used for password in backup plugins
+o firewall: fix long comment preventing IPFW reload (contributed by Robin Schneider)
+o firmware: enable upgrade path to 21.10
+o firmware: undo masking vulnerability URLs in FreeBSD due to UUID use
+o firmware: correctly announce major upgrade reboot in status return
+o firmware: do not fetch GeoIP database from business mirrors without a subscription
+o backend: catch broken pipe on event handler (contributed by kulikov-a)
+
 
 Stay safe,
 Your OPNsense team
