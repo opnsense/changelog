@@ -1,0 +1,101 @@
+@ October 27, 2021
+
+Howdy,
+
+This update features three new major things: optional receive side scaling
+(RSS) support in the kernel, asynchronous DNS resolving for aliases and
+configuration support for advanced LAGG settings.
+
+RSS is disabled by default but may be switched on by adding a tunable
+"net.inet.rss.enabled" with value "1" and rebooting the system.  While
+RSS can improve performance for certain hardware it should be used with
+care at this point and is not generally recommended yet!  The Suricata
+version bundled with the development release offers the upcoming API
+bindings to take advantage of the RSS-based multithreading.  Also please
+note that PPPoE cannot take advantage of RSS.
+
+On the side we are almost ready for our 22.1-BETA preview with rolling
+releases for the development release type which is something new to look
+forward to also.
+
+Here are the full patch notes:
+
+o system: prevent expired or intermediate CA certificates from being added to trust store by default
+o system: prevent XSS in LDAP attribute return in authentication tester (reported by Orange CERT-CC)
+o system: add product title to auth pages
+o system: fix log search ignoring first character
+o system: add xc0 entry video console entry if node exists
+o system: add automatic outbound NAT logging option
+o interfaces: let guess_interface_from_ip() find the best match on overlapping subnets (contributed by Jason Crowley)
+o interfaces: improve configurability with LAGG devices
+o firewall: fix non-sticky rule association in port forward
+o firewall: switch failover peer address acquire away from deprecated function
+o firewall: specify overload table on maximum new connections
+o firewall: add loaded item count and last update to aliases page
+o firewall: refactor getInterfaceGateway() to eliminate edge cases with IPsec route-to behaviour
+o firewall: allow alias to skip entry on EmptyLabel (contributed by James Golovich)
+o firewall: improve resolve performance by implementing asynchronous DNS lookups
+o dhcp: show static leases without IP address assignments in the lease pages
+o firmware: do not remove obsolete base files on major upgrades
+o firmware: support ABI hints in the file "firmware-upgrade"
+o firmware: opnsense-code utility now supports "-u" mode for automatic upgrade after fetch
+o firmware: opnsense-code utility fix for "-d" option (contributed by Patrick M. Hausen)
+o firmware: opnsense-update utility is now able to bootstrap its own configuration in "-d" mode
+o firmware: opnsense-update utility now supports "-ct package-name" check for type change
+o firmware: opnsense-update utility no longer assumes "-bkp" by default
+o firmware: opnsense-update utility adds separate clean option for obsolete base files
+o firmware: opnsense-update utility assorted cleanups
+o ipsec: add charon.max_ikev1_exchanges parameter
+o ipsec: add closeaction parameter (contributed by Patrick M. Hausen)
+o ipsec: rewrite netmask calculation for VTI tunnel setup
+o monit: add link event to alert settings (contributed by Frank Brendel)
+o openvpn: remove obsolete remnants of tun-ipv6
+o unbound: add Abuse.ch ThreatFox list
+o unbound: make so-reuseport conditional upon RSS status
+o backend: static parameters ignored when no dynamic ones exist
+o mvc: replace __toString() calls with string casts
+o plugins: os-acme-client 3.4[1]
+o plugins: os-c-icap log file fix (contributed by Michael Muenz)
+o plugins: os-dyndns 1.25[2]
+o plugins: os-haproxy 3.6[3]
+o plugins: os-lldpd will now identify itself as Network Connectivity Device (contributed by Xeroxxx)
+o plugins: os-puppet-agent 1.0[4]
+o plugins: os-qemu-guest-agent 1.1[5]
+o plugins: os-theme-rebellion 1.8.8 (contributed by Team Rebellion)
+o src: include RSS kernel support defaulting to off
+o src: axgbe: properly multiplex on reading module signals
+o src: libnetmap: reset errno in nmreq_register_decode()
+o src: pf: remove side effect from nat logging patch
+o src: dummynet: fix mbuf tag allocation failure handling
+o src: aesni: avoid a potential out-of-bounds load in aes_encrypt_icm()
+o ports: curl 7.79.1[6]
+o ports: dnspython 2.1.0[7]
+o ports: jinja 3.0.1[8]
+o ports: libressl 3.3.5[9]
+o ports: lighttpd 1.4.60[10]
+o ports: nss 3.71[11]
+o ports: openvpn 2.5.4[12]
+o ports: php 7.4.24[13]
+o ports: strongswan 5.9.4[14]
+o ports: sudo 1.9.8p2[15]
+
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] PLUGINS:21.7/security/acme-client
+[2] PLUGINS:21.7/dns/dyndns
+[3] PLUGINS:21.7/net/haproxy
+[4] PLUGINS:21.7/sysutils/puppet-agent
+[5] PLUGINS:21.7/emulators/qemu-guest-agent
+[6] CURL:7.79.1
+[7] https://dnspython.readthedocs.io/en/stable/whatsnew.html
+[8] https://jinja.palletsprojects.com/en/3.0.x/changes/#version-3-0-1
+[9] LIBRESSL:3.3.5
+[10] https://www.lighttpd.net/2021/10/3/1.4.60/
+[11] NSS:3.71
+[12] OPENVPN:2.5.4
+[13] PHP7:7.4.24
+[14] STRONGSWAN:5.9.4
+[15] SUDO:1.9.8p2
