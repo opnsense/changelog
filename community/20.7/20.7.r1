@@ -27,7 +27,7 @@ o system: do not allow login redirects to visit external pages
 o system: add new "auth user changed" config event and hook it into LDAP updatePolicies()
 o system: adapt to 3wire serial console setting
 o system: figure out which sysctls are writeable before attempting to write them
-o system: Windows-friendly Nextcloud configuration backup file timestamp (contributed by @Alphakilo)
+o system: Windows-friendly Nextcloud configuration backup file timestamp (contributed by Alphakilo)
 o system: disable PCRE JIT in PHP config
 o system: clean up start / stop beep handler
 o interfaces: improved VLAN handling and defaults for more stable netmap use on 12.1
@@ -46,14 +46,14 @@ o firewall: prevent config_read_array() from adding an empty lo0
 o firmware: added fingerprint for 20.7 series
 o firmware: hint at missing plugins and request to install or dismiss
 o intrusion detection: extend rule search with metadata and show results on rule info
-o intrusion detection: updated pattern options (contributed by @Xeroxxx)
+o intrusion detection: updated pattern options (contributed by Xeroxxx)
 o intrusion detection: synchronize suricata.yaml with default template
-o network time: NMEA GPS clock messages latitude and longitude parsing fix (contributed by @mikahe)
-o network time: prevent widget PHP warnings if no GPS fix was returned in NMEA message (contributed by @mikahe)
+o network time: NMEA GPS clock messages latitude and longitude parsing fix (contributed by mikahe)
+o network time: prevent widget PHP warnings if no GPS fix was returned in NMEA message (contributed by mikahe)
 o unbound: integrate functionality formerly known as "unbound-plus" plugin (contributed by Michael Muenz)
 o web proxy: support for custom error pages (sponsored by Incenter Technology)
 o web proxy: add connect_timeout (contributed by Michael Muenz)
-o web proxy: allow PURGE on cache (contributed by @sazb)
+o web proxy: allow PURGE on cache (contributed by sazb)
 o web proxy: add missing IPv6 listener
 o mvc: add "S" option for AllowDynamic in InterfaceField type
 o mvc: LegacyLinkField not allowed to return null in __toString()
