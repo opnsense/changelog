@@ -33,17 +33,14 @@ Here is the change log for 15.1.9:
 
 o tools: install media live images now use the more flexible tmpfs(5)
 o tools: cxgbe(4) is now compiled into the kernel
-o ports: strongswan 5.3.0[1], openssh-portable 6.8p1[2], ntp 4.2.8p2[3]
-o src: reverted inconsistent carp(4) and pfsync(4) patches to retain
-  standard FreeBSD behaviour
+o ports: strongswan 5.3.0[1], openssh 6.8p1[2], ntp 4.2.8p2[3]
+o src: reverted inconsistent carp(4) and pfsync(4) patches to retain standard FreeBSD behaviour
 o src: fix multiple vulnerabilities of ntp[4]
 o src: fix denial of service with IPv6 router advertisements[5]
 o core: console upgrade now also triggers the unused package removal
-o core: fix regression that caused a faulty config.xml when applying limiter
-  settings
+o core: fix regression that caused a faulty config.xml when applying limiter settings
 o core: refactored the configd command structure for clarity
-o core: fix for SMTP notifications that broke due to PHP 5.6's new default
-  SSL behaviour
+o core: fix for SMTP notifications that broke due to PHP 5.6's new default SSL behaviour
 o core: thorough unused java script purge under the hood
 o upnp: fix redeclaration error on main page shortcut click
 o user manager: consolidated the labels of all privileges, especially OpenVPN

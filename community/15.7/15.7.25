@@ -23,15 +23,12 @@ o src: Insecure default snmpd.config permissions[6]
 o src: OpenSSH client information leak[7]
 o src: Invalid TCP checksums with pf(4)[8]
 o src: YP/NIS client library critical bug[9]
-o ports: sqlite 3.10.0[10], easy-rsa 3.0.1[11], openssh-portable 7.1p2[12]
+o ports: sqlite 3.10.0[10], easy-rsa 3.0.1[11], openssh 7.1p2[12]
 o traffic graphs: fix truncation of IP address to 14 characters
-o firmware: EOL announcement for 15.7 added, ready for upgrading to
-  16.1 on January 28
+o firmware: EOL announcement for 15.7 added, ready for upgrading to 16.1 on January 28
 o firmware: added mirror provided by RageNetwork (Munich, DE)
-o menu: fix navigation after editing IPsec mobile clients (contributed
-  by Manuel Faux)
-o trust: properly reference CA in intermediate CAs (contributed by
-  Manuel Faux)
+o menu: fix navigation after editing IPsec mobile clients (contributed by Manuel Faux)
+o trust: properly reference CA in intermediate CAs (contributed by Manuel Faux)
 
 
 Stay safe,

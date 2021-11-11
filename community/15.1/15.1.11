@@ -30,15 +30,12 @@ out tomorrow including wary tweaks related to Logjam.
 
 Here is the full list of changes for 15.1.11:
 
-o core: removed unused package dependencies b42-fwcutter, bwi-firmware-kmod,
-  dmidecode, ifstated, pecl-ssh2
-o core: switched back from bind-tools to the latest full bind 9.10 package
-  due to various requests
+o core: removed unused package dependencies b42-fwcutter, bwi-firmware-kmod, dmidecode, ifstated, pecl-ssh2
+o core: switched back from bind-tools to the latest full bind 9.10 package due to various requests
 o src: fix panic in pf(4) in conjunction with ALTQ[3]
 o src: updated to FreeBSD 10.0-RELEASE-p10[4][5]
 o src: reverted two more custom patches to align with FreeBSD
-o ports: updated to ca_root_nss 3.19, sqlite 3.8.10.1, php 5.6.9[6],
-  openssh-portable 6.8p1_7[7]
+o ports: updated to ca_root_nss 3.19, sqlite 3.8.10.1, php 5.6.9[6], openssh 6.8p1_7[7]
 o opnsense-update: exclude /etc/tty from the upgrade
 o bsdinstaller: reworked the internals to align to modern port standards
 o captive portal: switched rules generation to new template engine
@@ -47,9 +44,7 @@ o menu: remove collapse/expand inconsistencies
 o dashboard: fix disabled widgets dialog
 o nat: fixed delete of multiple item
 o nat: fix display of disabled rules
-o queues: the legacy ALTQ traffic shaper is now found under
-  "Firewall: Queues" to make room for the upcoming traffic shaper
-  reimplementation based on IPFW/dummynet
+o queues: the legacy ALTQ traffic shaper is now found under "Firewall: Queues" to make room for the upcoming traffic shaper reimplementation based on IPFW/dummynet
 o core: fix faulty read of /var/log/dmesg.boot
 
 The live upgrades are up for both LibreSSL and OpenSSL.  Images will follow
