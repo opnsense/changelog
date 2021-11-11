@@ -1,0 +1,112 @@
+@ November 11, 2021
+
+Hello,
+
+FreeBSD security advisories and an issue with Intel-based ixgbe driver
+with "ifconfig -v" stalls keep this release rolling.  Also note that
+OpenSSH was updated to version 8.8 which deprecates ssh-rsa usage which
+is mainly an issue for client access from the OPNsense system to the
+outside and can be amended as per the suggestions in the respective
+release notes.
+
+And as promised the development version includes the upgrade path to
+the 22.1-BETA1 release.  This will be an online-beta with a few iterations
+over the FreeBSD 13 stable branch and eventually move to FreeBSD 13.1
+release as that becomes available.
+
+Highlights for 22.1 already include:
+
+o Suricata Netmap v14 support for multi-gigabit speed in IPS mode with RSS enabled
+o Separate VLAN MAC spoofing and permanent promiscuous mode setting
+o Tunable analytics provide automatic descriptions and type
+o IPsec tunnel overview ported to MVC with pagination
+o Proofpoint Emerging Threats rules for Suricata 5.0
+o Removed opportunistic interface address read functions
+o Console-based LAGG configuration support
+o Removed state killing on gateway failure feature
+o Improved firmware update capabilities
+o No-bind service awareness for virtual IPs
+o FreeBSD 13 stable branch
+o RFC 5424 and severity support in logs
+o Clog support has been removed
+o And more...
+
+Please note that the beta version will always be available for upgrade when
+switching to the development version.  At this point no stable packages
+are provided and this includes plugins.  These will become available as
+the release candidate is released in early January 2022.
+
+All feedback is welcome but keep in mind that there are still a number of
+moving parts ahead.  Upgrade responsibly.
+
+Here are the full patch notes for version 21.7.5:
+
+o system: remove support for obsolete "local" syslog socket plugin request
+o system: prevent setup wizard error in WAN-only configuration
+o system: properly extract keyid string (contributed by kulikov-a)
+o system: show all threads and correct WCPU in activity (contributed by kulikov-a)
+o system: fix display and sorting in activity (contributed by kulikov-a)
+o interfaces: remove obsolete link_interface_to_vlans() function
+o interfaces: inline legacy_interface_rename() function
+o interfaces: verbose output on test port (contributed by kulikov-a)
+o firewall: add live view templates page to respective ACL (contributed by kulikov-a)
+o firewall: replace pfInfo with statistics page
+o firewall: add rules to statistics page (contributed by kulikov-a)
+o firewall: remove defunct "block carp from self" CARP rule
+o dhcp: automatically set AdvRASrcAddress for link-local CARP address
+o dhcp: exclude link-local subnet router advertisements
+o firmware: remove unavailable Hostcentral mirror
+o firmware: opnsense-update: replace -A before -M and handle single directory -M independently
+o firmware: opnsense-verify: disable verification for repositories without signatures
+o firmware: opnsense-verify: let -l option properly discard duplicate repositories
+o firmware: opnsense-version: support -x effective ABI probing
+o ipsec: add sha256_96 flag (contributed by Patrick M. Hausen)
+o monit: add polltime to service settings (contributed by Frank Brendel)
+o ui: prevent event propagation to avoid click() events being forwarded
+o plugins: os-bind 1.19[1]
+o plugins: os-dnscrypt-proxy 1.10[2]
+o plugins: os-dyndns 1.26[3]
+o plugins: os-freeradius 1.9.17[4]
+o plugins: os-frr 1.23[5]
+o plugins: os-haproxy 3.7[6]
+o plugins: os-nut 1.8.1[7]
+o plugins: os-openconnect 1.4.1[8]
+o plugins: os-relayd 2.6[9]
+o plugins: os-telegraf 1.12.2[10]
+o plugins: os-vnstat 1.3[11]
+o plugins: os-wireguard 1.8[12]
+o src: axgbe: correctly enable RSS driver support by default
+o src: ixgbe: prevent subsequent I2C bus read timeouts
+o src: fix kernel panic in vmci driver initialization[13]
+o src: timezone database information update[14]
+o ports: lighttpd 1.4.61[15]
+o ports: nss 3.72[16]
+o ports: openssh 8.8p1[17]
+o ports: pcre2 10.39[18]
+o ports: php 7.4.25[19]
+o ports: phpseclib 2.0.34[20]
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] PLUGINS:21.7/dns/bind
+[2] PLUGINS:21.7/dns/dnscrypt-proxy
+[3] PLUGINS:21.7/dns/dyndns
+[4] PLUGINS:21.7/net/freeradius
+[5] PLUGINS:21.7/net/frr
+[6] PLUGINS:21.7/net/haproxy
+[7] PLUGINS:21.7/sysutils/nut
+[8] PLUGINS:21.7/security/openconnect
+[9] https://github.com/opnsense/plugins/pull/2391
+[10] PLUGINS:21.7/net-mgmt/telegraf
+[11] PLUGINS:21.7/net/vnstat
+[12] PLUGINS:21.7/net/wireguard
+[13] FREEBSD:FreeBSD-EN-21:28.vmci
+[14] FREEBSD:FreeBSD-EN-21:29.tzdata
+[15] https://www.lighttpd.net/2021/10/28/1.4.61/
+[16] NSS:3.72
+[17] OPENSSH:8.8p1
+[18] PCRE2:10.39
+[19] PHP7:7.4.25
+[20] PHPSECLIB:2.0.34
