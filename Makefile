@@ -69,7 +69,7 @@ changelog.txz:
 .  endif
 . endfor
 	@echo ']' >> ${WORKDIR}/index.json
-	@tar -C ${WORKDIR} -cJf changelog.txz .
+	@tar -C ${WORKDIR} --exclude="^.gitignore" -cJf changelog.txz .
 
 set: changelog.txz
 
