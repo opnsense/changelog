@@ -1,0 +1,54 @@
+@ November 25, 2021
+
+Hello there,
+
+This smallish update introduces Suricata 5-based versions for Emerging Threats
+rulesets as well as shipping the latest Suricata 6.0.4 with an additional
+change for the Netmap API version 14.  Please do let us know how that impacts
+your IPS performance numbers via the forum if you notice anything.
+
+The upgrade to 22.1-BETA2 is also included in the bundled development version.
+
+Here are the full patch notes:
+
+o system: move logging remnants of Relayd/HAProxy to plugin code
+o system: support XMLRPC authentication using API keys
+o system: escape shell parameters in cron jobs
+o system: system log widget auto-refresh (contributed by kulikov-a)
+o interfaces: make is_linklocal() properly detect all link-local addresses (contributed by Per von Zweigbergk)
+o firewall: properly translate "any" port to upper or lower port bound
+o firewall: support any-to-X ranges for rules port input (contributed by kulikov-a)
+o firewall: drop policy based routing validation on interface rules
+o captive portal: missing tooltip in session window
+o captive portal: "connected since" malformed due to datetime already being converted
+o dhcp: ass current IPv4 address to static lease creation (contributed by Taneli Leppa)
+o intrusion detection: switch to ET-Open Suricata 5 rulesets
+o intrusion detection: support multiple policy property in metadata
+o ipsec: inline only caller of get_configured_vips_list()
+o ipsec: avoid VTI device recreation when using hostnames
+o backend: add configctl "-d" and "-q" options for future use
+o plugins: os-acme-client 3.5[1]
+o plugins: os-dyndns 1.27[2]
+o plugins: os-etpro-telemetry 1.6 switches to Suricata 5 rulesets
+o plugins: os-frr 1.24[3]
+o plugins: os-nginx 1.24[4]
+o plugins: os-telegraf 1.12.3[5]
+o plugins: os-wireguard 1.9[6]
+o plugins: os-zabbix-agent 1.10[7]
+o plugins: os-zabbix-proxy 1.6[8]
+o ports: suricata 6.0.4[9] with Netmap API version 14 enabled
+
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] PLUGINS:21.7/security/acme-client
+[2] PLUGINS:21.7/dns/dyndns
+[3] PLUGINS:21.7/net/frr
+[4] PLUGINS:21.7/www/nginx
+[5] PLUGINS:21.7/net-mgmt/telegraf
+[6] PLUGINS:21.7/net/wireguard
+[7] PLUGINS:21.7/net-mgmt/zabbix-agent
+[8] PLUGINS:21.7/net-mgmt/zabbix-proxy
+[9] https://forum.suricata.io/t/suricata-6-0-4-and-5-0-8-released/1942
