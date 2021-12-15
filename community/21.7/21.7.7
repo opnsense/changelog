@@ -1,0 +1,53 @@
+@ December 15, 2021
+
+Hi folks,
+
+End-of-the-year security and reliability update coming right up!
+
+Due to inconclusive reports we are disabling the Netmap API version 14
+support in Suricata to get a better understanding of the situation.
+The plan still is to keep it for the 22.1 upgrade and it has in fact been
+enabled on the development versions since September without any obvious
+issues.
+
+The upgrade to 22.1-BETA3 is also included in the bundled development version.
+
+Here are the full patch notes:
+
+o system: fix /etc/ssl/cert.pem permission on backend call
+o firewall: typo in direction for session diagnostics (contributed by kulikov-a)
+o firewall: fix address direction for states diagnostics (contributed by kulikov-a)
+o firmware: added generic configuration support via opnsense-update.conf
+o firmware: modify the launcher to support -r and -s options
+o firmware: fix upgrade prompt hint
+o firmware: simplify repo file flush
+o intrusion detection: update severity of ruleset download skipped log message (contributed by kulikov-a)
+o intrusion detection: update embedded classification.config
+o backend: configd profiler call fix
+o ui: prevent browser auto-fill for username/password (contributed by NOYB)
+o plugins: os-acme-client 3.6[1]
+o plugins: os-fetchmail removed since fetchmail author does not permit LibreSSL on FreeBSD
+o plugins: os-firewall 1.1 adds "Do not NAT" option
+o plugins: os-haproxy 3.8[2]
+o plugins: os-stunnel is now available for LibreSSL using an embedded OpenSSL build
+o src: axgbe: fix I2C timeouts by reissuing command on errors
+o src: axgbe: fix possbile link instabilities
+o src: axgbe: log GPIO signals on EEPROM read fails
+o ports: curl 7.80.0[3]
+o ports: dnsmasq fixes multiple regressions
+o ports: nss 3.73[4]
+o ports: php 7.4.26[5]
+o ports: phpseclib 2.0.35[6]
+o ports: suricata disables Netmap API version 14 introduced in 21.7.6
+
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] PLUGINS:21.7/security/acme-client
+[2] PLUGINS:21.7/net/haproxy
+[3] CURL:7.80.0
+[4] NSS:3.73
+[5] PHP7:7.4.26
+[6] PHPSECLIB:2.0.35
