@@ -50,7 +50,7 @@ lint:
 		FILES=$$(find $${DIR} -type f | grep -iv '\.[a-z]'); \
 		if [ -n "$${FILES}" ]; then \
 			grep -ho '^o [^\[]*' $${FILES} | sort | uniq -ic | \
-			    grep -v '^ *1 o ' || true; \
+			    grep -v -e '^ *1 o ' -e https: -e http: || true; \
 		fi; \
 	done
 
