@@ -47,8 +47,11 @@ lint:
 . endfor
 	@for DIR in $$(find -s ${DOCSDIR} -type d -depth 1); do \
 		echo ">>> Scanning $${DIR} for duplicates..."; \
-		grep -ho '^o [^\[]*' $$(find $${DIR} -type f | grep -iv '\.[a-z]') | \
-		    grep -iv '\.[a-z]' | sort | uniq -ic | grep -v '^ *1 o ' || true; \
+		FILES=$$(find $${DIR} -type f | grep -iv '\.[a-z]'); \
+		if [ -n "$${FILES}" ]; then \
+			grep -ho '^o [^\[]*' $${FILES} | sort | uniq -ic | \
+			    grep -v '^ *1 o ' || true; \
+		fi; \
 	done
 
 . for DOC in ${DOCS}
