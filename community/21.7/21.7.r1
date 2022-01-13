@@ -126,7 +126,7 @@ Stay safe,
 Your OPNsense team
 
 --
-[1] https://docs.opnsense.org/manual/install.html
+[1] DOCS:manual/install
 [2] PLUGINS:21.7/net/freeradius
 [3] PLUGINS:21.7/security/maltrail
 [4] PLUGINS:21.7/sysutils/nut
