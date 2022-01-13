@@ -1,0 +1,80 @@
+@ January 13, 2022
+
+This business release is based on the OPNsense 21.7.7 community version
+with additional reliability improvements.
+
+A new plugin called OPNWAF[1] is being added to this release to offer Apache
+web server for simple setup of load balancing and reverse proxy scenarios.
+It also offers ACME protocol support for Let's Encrypt with a single click.
+
+Here are the full patch notes:
+
+o system: move logging remnants of Relayd/HAProxy to plugin code
+o system: support XMLRPC authentication using API keys
+o system: system log widget auto-refresh (contributed by kulikov-a)
+o system: fix /etc/ssl/cert.pem permission on backend call
+o interfaces: make is_linklocal() properly detect all link-local addresses (contributed by Per von Zweigbergk)
+o firewall: properly translate "any" port to upper or lower port bound
+o firewall: support any-to-X ranges for rules port input (contributed by kulikov-a)
+o firewall: drop policy based routing validation on interface rules
+o firewall: typo in direction for session diagnostics (contributed by kulikov-a)
+o firewall: fix address direction for states diagnostics (contributed by kulikov-a)
+o firmware: added generic configuration support via opnsense-update.conf
+o firmware: modify the launcher to support -r and -s options
+o firmware: fix upgrade prompt hint
+o firmware: simplify repo file flush
+o captive portal: missing tooltip in session window
+o captive portal: "connected since" malformed due to datetime already being converted
+o dhcp: add current IPv4 address to static lease creation (contributed by Taneli Leppa)
+o intrusion detection: switch to ET-Open Suricata 5 rulesets
+o intrusion detection: support multiple policy property in metadata
+o intrusion detection: update severity of ruleset download skipped log message (contributed by kulikov-a)
+o intrusion detection: update embedded classification.config
+o ipsec: inline only caller of get_configured_vips_list()
+o ipsec: avoid VTI device recreation when using hostnames
+o backend: add configctl "-d" and "-q" options for future use
+o backend: configd profiler call fix
+o ui: prevent browser auto-fill for username/password (contributed by NOYB)
+o src: axgbe: fix I2C timeouts by reissuing command on errors
+o src: axgbe: fix possbile link instabilities
+o src: axgbe: log GPIO signals on EEPROM read fails
+o plugins: os-OPNWAF 1.0[1]
+o plugins: os-acme-client 3.6[2]
+o plugins: os-dyndns 1.27[3]
+o plugins: os-etpro-telemetry 1.6 switches to Suricata 5 rulesets
+o plugins: os-fetchmail removed due to licensing restrictions
+o plugins: os-firewall 1.1 adds "Do not NAT" option
+o plugins: os-frr 1.24[4]
+o plugins: os-haproxy 3.8[5]
+o plugins: os-nginx 1.24[6]
+o plugins: os-telegraf 1.12.3[7]
+o plugins: os-wireguard 1.9[8]
+o plugins: os-zabbix-agent 1.10[9]
+o plugins: os-zabbix-proxy 1.6[10]
+o ports: curl 7.80.0[11]
+o ports: dnsmasq fixes multiple regressions
+o ports: nss 3.73[12]
+o ports: php 7.4.26[13]
+o ports: phpseclib 2.0.35[14]
+o ports: suricata 6.0.4[15]
+
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] DOCS:vendor/deciso/opnwaf
+[2] PLUGINS:21.7/security/acme-client
+[3] PLUGINS:21.7/dns/dyndns
+[4] PLUGINS:21.7/net/frr
+[5] PLUGINS:21.7/net/haproxy
+[6] PLUGINS:21.7/www/nginx
+[7] PLUGINS:21.7/net-mgmt/telegraf
+[8] PLUGINS:21.7/net/wireguard
+[9] PLUGINS:21.7/net-mgmt/zabbix-agent
+[10] PLUGINS:21.7/net-mgmt/zabbix-proxy
+[11] CURL:7.80.0
+[12] NSS:3.73
+[13] PHP7:7.4.26
+[14] PHPSECLIB:2.0.35
+[15] https://forum.suricata.io/t/suricata-6-0-4-and-5-0-8-released/1942
