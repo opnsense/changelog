@@ -30,7 +30,7 @@ o interfaces: align GIF configuration with base system options
 o interfaces: allow bridges to attach to VXLAN on boot
 o interfaces: repair get_interface_list() for console use
 o interfaces: improve LAGG/VLAN assignments via console option
-o firewall: live log default logging severity selection is now "informational"
+o firewall: plain log default logging severity selection is now "informational"
 o firewall: improve maximum shaper value validation and add Gbit/s support
 o dhcp: rework router advertisement "static" mode flags to separate advanced options
 o dnsmasq: no-hosts option (contributed by agh1467)
