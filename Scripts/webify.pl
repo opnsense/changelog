@@ -72,7 +72,7 @@ for ( @lines ) {
 	# remove newline
 	chomp;
 	# collect links
-	if ( $_ =~ /^\[(\d*?)\]\s*(.*)\s*$/ ) {
+	if ( $_ =~ s/^\[(\d*?)\]\s*(.*)\s*$//g ) {
 		die 'reusing link ' . $1 if exists $refs{$1};
 		$refs{$1} = $2;
 	}
