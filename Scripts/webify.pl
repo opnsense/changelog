@@ -1,6 +1,6 @@
 #!/usr/bin/env perl
 
-# Copyright (c) 2015-2021 Franco Fichtner <franco@opnsense.org>
+# Copyright (c) 2015-2022 Franco Fichtner <franco@opnsense.org>
 #
 # Redistribution and use in source and binary forms, with or without
 # modification, are permitted provided that the following conditions
@@ -60,7 +60,10 @@ my %refs;
 for ( @lines ) {
 	if ( $fmt eq 'text' ) {
 		# only collect links
-		$refs{$1} = $2 if $_ =~ /^\[(\d*?)\]\s*(.*)\s*$/;
+		if ( $_ =~ /^\[(\d*?)\]\s*(.*)\s*$/ ) {
+			die 'reusing link ' . $1 if exists $refs{$1};
+			$refs{$1} = $2;
+		}
 		# and collect date
 		$date = $1 if $_ =~ s/^@\s*(.*)\s*$//g;
 		next;
@@ -69,7 +72,10 @@ for ( @lines ) {
 	# remove newline
 	chomp;
 	# collect links
-	$refs{$1} = $2 if $_ =~ s/^\[(\d*?)\]\s*(.*)\s*$//g;
+	if ( $_ =~ /^\[(\d*?)\]\s*(.*)\s*$/ ) {
+		die 'reusing link ' . $1 if exists $refs{$1};
+		$refs{$1} = $2;
+	}
 	# collect date
 	$date = $1 if $_ =~ s/^@\s*(.*)\s*$//g;
 	# remove comment lines
@@ -103,6 +109,13 @@ for my $ref ( keys %refs ) {
 # run sanity checks on link replacements
 for my $ref ( keys %refs ) {
 	die 'unknown link ' . $refs{$ref} if $refs{$ref} !~ /^http/i;
+}
+
+my @ref_sort = sort { $a <=> $b } keys %refs;
+my @ref_ok = ( 1 .. scalar @ref_sort );
+
+for (my $i = 0; $i < scalar @ref_sort; $i++) {
+	die 'enumeration mismatch' if $ref_sort[$i] ne $ref_ok[$i];
 }
 
 # extract version info from path
