@@ -1,0 +1,75 @@
+@ February 10, 2022
+
+This business release is based on the OPNsense 21.7.8 community version
+with additional reliability improvements.
+
+Here are the full patch notes:
+
+o system: remove spurious XML validation that cannot cope with attributes from backup restore
+o system: prevent syslog-ng from crashing after update due to "syslog-ng-ctl reload" use
+o system: changing interface gateway was ignored during route reconfiguration
+o system: cron command drop down size was extending below screen
+o reporting: fix display of total in/out traffic values
+o firewall: removed the $aliastable cache
+o firewall: correctly handle IPv6 NAT in states view
+o firewall: skip rule ID for NAT type log entries (contributed by kulikov-a)
+o firewall: support "no scrub" option in normalisation rules
+o firewall: exclude external alias for nesting
+o network time: remove PID file use as it can be unreliable
+o intrusion detection: update to ET-Open to version 6
+o intrusion detection: prevent config migration from crashing
+o lang: update translations for Chinese, French, German, Italian, Japanese, Norwegian, Spanish, and Turkish
+o captive portal: prevent session removal crashing when no IP address was registered
+o mvc: add getInterfaceConfig endpoint to interface API (contributed by Paolo Asperti)
+o mvc: fix logging of configd errors (contributed by kulikov-a)
+o plugins: os-acme-client 3.8[1]
+o plugins: os-frr 1.26[2]
+o plugins: os-openconnect 1.4.2[3]
+o plugins: os-postfix 1.21[4]
+o plugins: os-telegraf 1.12.4[5]
+o plugins: os-wireguard 1.10[6]
+o src: axgbe: validate contents of gpio expander
+o src: incorrect XSAVE state size[7]
+o src: vPCI compatibility improvements with certain Hyper-V releases[8]
+o src: vt console buffer overflow[9]
+o ports: expat 2.4.2[10]
+o ports: filterlog 0.6[11]
+o ports: flock 2.37.2
+o ports: hostapd 2.10[12]
+o ports: lighttpd 1.4.63[13]
+o ports: nss 3.74[14]
+o ports: openssl 1.1.1m[15]
+o ports: openvpn 2.5.5[16]
+o ports: php 7.4.27[17]
+o ports: sqlite 3.37.2[18]
+o ports: strongswan 5.9.5[19]
+o ports: syslog-ng 3.35.1[20]
+o ports: unbound 1.14.0[21]
+o ports: wpa_supplicant 2.10[22]
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] PLUGINS:21.7/security/acme-client
+[2] PLUGINS:21.7/net/frr
+[3] PLUGINS:21.7/security/openconnect
+[4] PLUGINS:21.7/mail/postfix
+[5] PLUGINS:21.7/net-mgmt/telegraf
+[6] PLUGINS:21.7/net/wireguard
+[7] FREEBSD:FreeBSD-EN-22:02.xsave
+[8] FREEBSD:FreeBSD-EN-22:03.hyperv
+[9] FREEBSD:FreeBSD-SA-22:01.vt
+[10] https://github.com/libexpat/libexpat/blob/R_2_4_2/expat/Changes
+[11] https://github.com/opnsense/ports/commit/2e27655d84
+[12] https://w1.fi/cgit/hostap/plain/hostapd/ChangeLog
+[13] https://www.lighttpd.net/2021/12/4/1.4.63/
+[14] NSS:3.74
+[15] OPENSSL:1.1.1m
+[16] OPENVPN:2.5.5
+[17] PHP7:7.4.27
+[18] SQLITE:3.37.2
+[19] STRONGSWAN:5.9.5
+[20] SYSLOG-NG:3.35.1
+[21] UNBOUND:1.14.0
+[22] https://w1.fi/cgit/hostap/plain/wpa_supplicant/ChangeLog
