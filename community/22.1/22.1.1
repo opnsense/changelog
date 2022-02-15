@@ -1,0 +1,87 @@
+@ February 16, 2022
+
+Good morning/afternoon/evening,
+
+The first stable release brings in minor fixes from FreeBSD and instant
+log file visibility for files without severity written which can happen
+for individual plugins.
+
+We have also gone ahead to restructure the interface code further to resolve
+dependencies between configured devices and interfaces automatically and
+the bundled development version is worth a try for everyone having issues
+with GIF/GRE not coming up after boot.
+
+Here are the full patch notes:
+
+o system: changing interface gateway was ignored during route reconfiguration
+o system: allow to configure SSH setting PubkeyAcceptedAlgorithms (contributed by Manuel Faux)
+o system: add backward compatibility for reading logs without severity by default (contributed by kulikov-a)
+o system: fix typo causing PHP warning on IPv6 login (contributed by ppascher)
+o system: cron command drop down size was extending below screen
+o system: add a sysctl cache to improve tuneable overview load time
+o system: replace obsolete find_interface_network*() use in GUI
+o system: allow severity levels in PHP log messages and mark authentication success messages as notice
+o interfaces: fix default handling for VIP nobind option
+o interfaces: allow VIP nobind feature on CARP addresses
+o interfaces: stop mpd5 daemon before starting
+o interfaces: always show interface in GIF and GRE overview even on VIP use
+o interfaces: fix GIF and GRE VIP use loading order in IP alias cases
+o interfaces: remove device creation side effect from bridge, LAGG, GIF, GRE and VLAN GUI pages
+o interfaces: prevent DHCP from installing name servers when not allowed
+o interfaces: get_interface_list() must exclude OpenVPN
+o interfaces: replace obsolete find_interface_network*() use in GUI
+o firewall: remove ruleset optimization support which did not work since rule labels are mandatory for live log
+o firewall: exclude external alias for nesting
+o firewall: encode rules names in aliases (contributed by kulikov-a)
+o firewall: check state before selecting categories (contributed by kulikov-a)
+o firewall: synchronise "disabled" flag on linked firewall rule of port forward
+o firewall: local file corruption might prevent alias to be loaded
+o firewall: default pass all loopback without state tracking
+o dhcp: change prefix watcher to work without circular logging now that it is gone
+o dhcp: replace obsolete find_interface_network*() use in GUI
+o dhcp: fix implode() call (contributed by Clement Moulin)
+o ipsec: replace obsolete find_interface_network*() use in GUI
+o firmware: opnsense-version: support reading lock files operated by opnsense-update
+o firmware: patch version / date header in consistently for backend scripts
+o mvc: overload __isset() magic method
+o plugins: os-bind 1.21[1]
+o plugins: os-ddclient 1.1[2]
+o plugins: os-dnscrypt-proxy 1.11[3]
+o plugins: os-dyndns menu compatibility with os-ddclient
+o plugins: os-frr 1.27[4]
+o plugins: os-mdns-repeater 1.1[5]
+o plugins: os-rspamd 1.12[6]
+o plugins: os-zabbix-agent 1.11[7]
+o src: pf: set_prio was not set after nvlist conversion
+o src: if_vtnet: Restore the ability to set promisc mode
+o src: hn: disable Hyper-V vSwitch RSC support
+o ports: curl 7.81.0[8]
+o ports: expat 2.4.4[9]
+o ports: lighttpd 1.4.64[10]
+o ports: monit 5.30.0[11]
+o ports: nss 3.75[12]
+o ports: pcre / pcre2 enable JIT support
+o ports: phpseclib 2.0.36[13]
+o ports: strongswan 5.9.5[14]
+o ports: sudo 1.9.9[15]
+
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] PLUGINS:22.1/dns/bind
+[2] PLUGINS:22.1/dns/ddclient
+[3] PLUGINS:22.1/dns/dnscrypt-proxy
+[4] PLUGINS:22.1/net/frr
+[5] PLUGINS:22.1/net/mdns-repeater
+[6] PLUGINS:22.1/mail/rspamd
+[7] PLUGINS:22.1/net-mgmt/zabbix-agent
+[8] CURL:7.81.0
+[9] https://github.com/libexpat/libexpat/blob/R_2_4_4/expat/Changes
+[10] https://www.lighttpd.net/2022/1/19/1.4.64/
+[11] MONIT:5.30.0
+[12] NSS:3.75
+[13] PHPSECLIB:2.0.36
+[14] STRONGSWAN:5.9.5
+[15] SUDO:1.9.9
