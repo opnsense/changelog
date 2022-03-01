@@ -1,0 +1,82 @@
+@ March 01, 2022
+
+Hello,
+
+This release adds GUI support for Intel QuickAssist Technology (QAT) and
+SYN cookies as per virtue of the FreeBSD 13 operating system.  The work
+to modernise the interfaces subsystem and improve the new ddclient dynamic
+DNS plugin are also progressing.
+
+Due to signs of decay in the build infrastructure, license nitpicking
+in FreeBSD ports and the upcoming OpenSSL 3 release (which will complicate
+things most likely) we have decided to discontinue LibreSSL at the end of
+this year meaning there will be no more LibreSSL flavour starting with
+version 23.1.  Non-essential software will no longer be manually fixed and
+provided as binary packages if broken by upstream from this point on.
+
+Since 2015 we have been working on functional LibreSSL support with steady
+means, but 7 years later and OpenSSL making an effort through numerous
+ways we are sad to give up this alternative since we do not see LibreSSL
+being used and properly integrated in software projects as often anymore.
+It has been a slow but steady decline for the past 2 years that also has
+to do with a LibreSSL release cycle tailored for OpenBSD in particular and
+OpenSSL library integration quality, which is almost impossible to improve
+upon in complex third-party software projects.  We simply cannot afford the
+time for it any longer.
+
+All users are able to update to the OpenSSL flavour without issues now or
+at any later given point.
+
+Here are the full patch notes:
+
+o system: Intel QuickAssist Technology (QAT) crypto module selection and support multiple selection
+o system: AESNI crypto module is a kernel-builtin since 22.1 and no longer needs to be selected to work
+o system: enable library support of PCRE JIT included since 21.1.1
+o system: limit rowCount in log viewer (contributed by kulikov-a)
+o system: unify system tunables handling and tweak UX of the respective GUI page
+o system: no longer default to hw.uart.console use in factory configuration
+o system: remove console mute use from boot sequence
+o reporting: fill missing insight data with zeros
+o interfaces: assignments should take OpenVPN into account
+o interfaces: only ever store nobind for ipalias/carp
+o interfaces: align IPv4 address statistics read with IPv6
+o interfaces: simplify device destroy code
+o interfaces: avoid use legacy_get_interface_addresses() in MAC address read
+o interfaces: remove unused opportunistic interface address functions
+o firewall: exclude localhost stateless traffic from default logging (contributed by kulikov-a)
+o firewall: using port type aliases the "enable" flag was ignored when not enabled
+o firewall: add support for SYN cookies
+o firmware: opnsense-code: support "-z" snapshot mode
+o firmware: opnsense-revert: support "-z" snapshot mode
+o firmware: opnsense-update: support version print for sets
+o firmware: check repository and plugin state in health audit
+o ipsec: pass protocol when resolving via ipsec_resolve() (contributed by FloMeyer)
+o ipsec: fix mobile property passing when creating a new phase 2 entry
+o ipsec: rename "My Certificate Authority" to "Remote Certificate Authority" to avoid ambiguity
+o openvpn: avoid use of find_interface_network() et al
+o openvpn: stop removing name server-related files never written
+o openvpn: improve gateway detection in topology mode
+o ipsec: avoid use of find_interface_network() et al
+o dhcp: avoid use of find_interface_network() et al
+o console: move console mite calls into port setting function
+o ui: sidebar 2nd submenu view fix (contributed by Team Rebellion)
+o mvc: refactor and extend HostnameField to add options to validate partial hostnames and root zones
+o plugins: os-bind 1.22[1]
+o plugins: os-ddclient 1.2[2]
+o plugins: os-freeradius 1.9.19[3]
+o plugins: os-stunnel 1.0.4 fix connect format for IPv6 (contributed by Johnny S. Lee)
+o src: stand: add EFI support for MMIO serial consoles
+o src: apei: make sure event data fit into the buffer
+o ports: php 7.4.28[4]
+o ports: unbound 1.15.0[5]
+
+
+Stay safe especially in darker times,
+Your OPNsense team
+
+--
+[1] PLUGINS:22.1/dns/bind
+[2] PLUGINS:22.1/dns/ddclient
+[3] PLUGINS:22.1/net/freeradius
+[4] PHP7:7.4.28
+[5] UNBOUND:1.15.0
