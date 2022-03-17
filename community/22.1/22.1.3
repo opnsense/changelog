@@ -1,0 +1,54 @@
+@ March 17, 2022
+
+Hi all,
+
+This update includes groundwork for interface handling improvements
+making the boot more flexible in complex interface assignment scenarios
+involving GIF, GRE and bridge devices.
+
+Please note this update does not include the current OpenSSL security
+advisory due to overlapping time schedules.  22.1.4 will include these
+and will likely be released next week.
+
+Here are the full patch notes:
+
+o system: remove "all" group handling code forgotten in 2015
+o interfaces: resolve device/interface interdependency on boot
+o interfaces: do not update VIPs on dynamic address changes
+o interfaces: remove unused reference and return value from interface_carp_configure()
+o interfaces: remove unused reference from interface_ipalias_configure()
+o interfaces: stop IPv6 from reacting to simple stop/detach/down events via rc.linkup
+o interfaces: introduce ifctl helper for future use
+o firewall: allow per-rule adaptive timeouts (contributed by kulikov-a)
+o dhcp: stream-read log and leases files for "dhcpd update prefixes" action
+o firmware: use opnsense-update for version info in update checks
+o firmware: independently check for available upgrade sets
+o firmware: separate the "needs_reboot" and "upgrade_needs_reboot" check flags
+o firmware: add URL return feature to changelog script
+o firmware: improve the connectivity audit
+o ipsec: clean up stale CA certificates on reconfigure
+o plugins: os-ddclient 1.3[1]
+o plugins: os-freeradius templating generation fix
+o ports: dnspython 2.2.1[2]
+o ports: dpinger 3.2[3]
+o ports: expat 2.4.7[4]
+o ports: krb5 1.19.3[5]
+o ports: nss 3.76[6]
+o ports: openssh 8.9p1[7]
+o ports: sudo 1.9.10[8]
+o ports: syslog-ng 3.36.1[9]
+
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] PLUGINS:22.1/dns/ddclient
+[2] https://dnspython.readthedocs.io/en/stable/whatsnew.html
+[3] https://github.com/dennypage/dpinger/releases/tag/v3.2
+[4] EXPAT:2.4.7
+[5] KRB5:1.19
+[6] NSS:3.76
+[7] OPENSSH:8.9p1
+[8] SUDO:1.9.10
+[9] SYSLOG-NG:3.36.1
