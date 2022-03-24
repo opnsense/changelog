@@ -1,0 +1,55 @@
+@ March 24, 2022
+
+Howdy-hello there,
+
+QinQ support based on the FreeBSD 13 VLAN base functionality is finally
+here!  To make the best use of it a MVC conversion of the GUI pages was
+carried out meaning these are now fully API-enabled as well.  Two bugs
+in the previous GIF/GRE rework have also been reported and fixed.
+
+Note while this does fix CVE-2022-0778 even for LibreSSL the security
+audit database by FreeBSD will falsely flag the 3.3.6 release as vulnerable
+when in fact it is not.  Since build issues arise on LibreSSL 3.4 that involve
+plugin dependencies in all likelihood we will be refraining from updating to
+version 3.4 altogether and do not have much hope for the upcoming 3.5 either.
+
+Here are the full patch notes:
+
+o system: prefer configured IP address family use earlier on boot
+o system: allow boot to perform generic UFS/ZFS grow using the /.probe.for.growfs marker file
+o system: import ZFS pools before mounting ZFS datasets
+o reporting: use asynchronous DNS resolver for reverse lookups on traffic page
+o interfaces: loopback "lo0" exists for VIPs
+o interfaces: only strip addresses on configured IP types
+o interfaces: use new ifctl utility for DHCPv6 IP type and add manual page
+o interfaces: adjust MTU configuration when parent also requires MTU changes
+o interfaces: VLAN MVC conversion with API and QinQ support
+o interfaces: cleanup surrounding LAGG function use
+o firewall: constrain default CARP allow rules to those defined in RFC 5798
+o firewall: make sure that rule use of gateways (route-to) and reply-to are mutually exclusive
+o firewall: tighten alias FQDN validation to avoid accepting mistypes such as "192.168.01.1"
+o firmware: revoke the 21.7 fingerprint
+o intrusion detection: improve row count on alerts page
+o backend: consolidate configctl utility into one location and add manual page
+o plugins: os-ddclient 1.4[1]
+o plugins: os-theme-cicada 1.29
+o plugins: os-theme-vicuna 1.41
+o src: openssl: fix a bug in BN_mod_sqrt() that can cause it to loop forever[2]
+o src: zfs: fix handling of errors from dmu_write_uio_dbuf()[3]
+o src: debugnet: remove spurious message on boot
+o ports: ca_root_nss fix for faulty upstream file linking
+o ports: libressl 3.3.6[4]
+o ports: openssl 1.1.1n[5]
+o ports: openvpn 2.5.6[6]
+
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] PLUGINS:22.1/dns/ddclient
+[2] FREEBSD:FreeBSD-SA-22:03.openssl
+[3] FREEBSD:FreeBSD-EN-22:10.zfs
+[4] LIBRESSL:3.3.6
+[5] OPENSSL:1.1.1n
+[6] OPENVPN:2.5.6
