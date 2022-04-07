@@ -20,11 +20,9 @@ o ports: strongswan 5.3.4[4]
 o ports: choparp 20150613[5]
 o ports: libxml 2.9.3[6]
 o ports: pkg 1.6.2[7]
-o ports: opnsense-bootstrap, the infamous installer that works on stock
-  FreeBSD[8]
+o ports: opnsense-bootstrap, the infamous installer that works on stock FreeBSD[8]
 o intrusion detection: ignore json parse errors in eve log file
-o intrusion prevention (development): added Suricata 2.1beta4 in inline
-  mode[9]
+o intrusion prevention (development): added Suricata 2.1beta4 in inline mode[9]
 o interfaces: reverted cache removal due to multiple speed regressions reports
 o backend: send timeouts with proper description to syslog
 o openvpn: fix auth server selection for translations
@@ -43,7 +41,7 @@ Your OPNsense team
 [3] http://ftp.meisei-u.ac.jp/mirror/squid/squid-3.5-ChangeLog.txt
 [4] https://www.strongswan.org/blog/2015/11/16/strongswan-5.3.4-released.html
 [5] https://github.com/quinot/choparp
-[6] http://www.xmlsoft.org/news.html
+[6] LIBXML:2.9.3
 [7] https://github.com/freebsd/freebsd-ports/commit/0466b08981bf9c714
 [8] https://github.com/opnsense/update/commit/e3f63ecdb1149a8cc30e3
 [9] https://forum.opnsense.org/index.php?topic=1740

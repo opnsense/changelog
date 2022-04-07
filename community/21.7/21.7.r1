@@ -131,7 +131,7 @@ Your OPNsense team
 [3] PLUGINS:21.7/security/maltrail
 [4] PLUGINS:21.7/sysutils/nut
 [5] PLUGINS:21.7/net-mgmt/telegraf
-[6] http://www.xmlsoft.org/news.html
+[6] LIBXML:2.9.12
 [7] NSS:3.67
 [8] OPENVPN:2.5.3
 [9] PHP7:7.4.20
