@@ -1,0 +1,60 @@
+@ April 07, 2022
+
+Hi there,
+
+Due to popular demand the user experience for the revamped VLAN handling
+was improved in several areas.  Also incuded are a larger Unbound MVC
+rework and DNS system route apply changes from one single spot.  Last but
+not least the zlib vulnerability was fixed in FreeBSD amongst others.
+
+Here are the full patch notes:
+
+o system: set up all DNS system routes from system_resolvconf_generate()
+o system: properly clear legacy files when clearing log files
+o reporting: add ACPI and ARM temperature support to health data
+o interfaces: do not assume exclusive use of router file in IPv6 PPPoE case
+o interfaces: for symmetry with PPPoE do not reload WAN when address disappears
+o interfaces: VLAN UX changes include better tag and parent visibility and handling
+o interfaces: improve VLAN parent selection for batch changes to allow for a single apply
+o interfaces: hint at missing apply when trying to add a new interface in assignment page
+o captive portal: prevent cleansing password field
+o dhcp: give a hint on why an interface was ignored in radvd
+o firmware: exclude revision matching from latest changelog version check
+o unbound: add custom forwarding and overrides MVC pages
+o ui: omit total entries display for log grids
+o plugins: os-acme-client 3.9[1]
+o plugins: os-chrony 1.5[2]
+o plugins: os-ddclient 1.5[3]
+o src: pf(4) tables may fail to load[4]
+o src: potential jail escape vulnerabilities in netmap[5]
+o src: bhyve e82545 device emulation out-of-bounds write[6]
+o src: mpr/mps/mpt driver ioctl heap out-of-bounds write[7]
+o src: 802.11 heap buffer overflow[8]
+o src: zlib compression out-of-bounds write[9]
+o ports: curl 7.82.0[10]
+o ports: expat 2.4.8[11]
+o ports libxml 2.9.13[12]
+o ports: monit 5.32.0[13]
+o ports: nss 3.77[14]
+o ports: python 3.8.13[15]
+
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] PLUGINS:22.1/security/acme-client
+[2] PLUGINS:22.1/net/chrony
+[3] PLUGINS:22.1/dns/ddclient
+[4] FREEBSD:FreeBSD-EN-22:15.pf
+[5] FREEBSD:FreeBSD-SA-22:04.netmap
+[6] FREEBSD:FreeBSD-SA-22:05.bhyve
+[7] FREEBSD:FreeBSD-SA-22:06.ioctl
+[8] FREEBSD:FreeBSD-SA-22:07.wifi_meshid
+[9] FREEBSD:FreeBSD-SA-22:08.zlib
+[10] CURL:7.82.0
+[11] EXPAT:2.4.8
+[12] LIBXML:2.9.13
+[13] MONIT:5.32.0
+[14] NSS:3.77
+[15] PYTHON:3.8.13
