@@ -1,0 +1,37 @@
+@ April 13, 2022
+
+Hi,
+
+Since the Unbound migration for overrides surfaced a number of issues
+in the new code this is a follow-up release to ensure interoperability.
+Thank you for the honest feedback, bug reports and code submissions.
+
+Here are the full patch notes:
+
+o system: obsolete plugins calling missing functions shall not produce fatal errors
+o system: added the correct content-type for the dashboard plugins feed (contributed by Bo Frederiksen)
+o reporting: do not rely on /var/run/booting test in system health backend code
+o firewall: adjust default deny label to include mention of possible state violation
+o firewall: fix sessions page ACL
+o interfaces: bring back strict reordering of VIPs during dynamic address acquire
+o dhcp: added reload action for cron use
+o dhcp: support supplying iPXE filename
+o firmware: use isolated directory for database update check
+o firmware: cross-version check was not using correct information
+o firmware: cross-version update should indicate base/kernel reinstall
+o unbound: domain override IP may contain port information
+o unbound: show combined hostname.domain description in new alias popup
+o unbound: properly support "_msdcs" domain override prefix
+o unbound: add missing alias description
+o unbound: fix overrides case sort order (contributed by NYOB)
+o unbound: fix ACL for overrides
+o unbound: fix handling of wildcard aliases (contributed by devin122)
+o mvc: add generic searchRecordsetBase() to match existing searchBase()
+o ports: phpseclib 2.0.37[1]
+
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] PHPSECLIB:2.0.37
