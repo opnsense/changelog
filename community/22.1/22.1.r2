@@ -40,7 +40,7 @@ o intrusion detection: update to ET-Open to version 6
 o network time: detach "limited" from "kod" option (contributed by Zsolt Zsiros)
 o network time: remove PID file use as it can be unreliable
 o mvc: fix logging of configd errors
-o mvc: Add BlankDesc to ModelRelationField (contributed by agh1467)
+o mvc: add BlankDesc to ModelRelationField (contributed by agh1467)
 o ui: move storing jQuery Bootgrid settings in browser from core to bootgrid (contributed by Manuel Faux)
 o plugins: os-ddclient 1.0 as an eventual replacement for os-dyndns
 o plugins: os-dyndns adds local copy of get_dyndns_ip()
