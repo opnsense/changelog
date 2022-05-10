@@ -1,0 +1,63 @@
+@ May 10, 2022
+
+Hi there,
+
+This is a small maintenance release which fixes known vulnerabilities in
+OpenSSL et al.  Note that we are preparing for upgrade of Phalcon 5 framework
+and PHP 8.0 inclusion on our way to 22.7.
+
+Here are the full patch notes:
+
+o system: tunables without hierarchy are just "environment" variables
+o system: use PHP random_bytes() builtin (contributed by oittaa)
+o system: support cd9660 file system in opnsense-importer
+o reporting: fix validation in NetFlow settings
+o interfaces: interface_ppps_configure() remove boot-time side effect
+o interfaces: include VIPS for primary IPv4 detection
+o interfaces: DHCPv6 advanced has a different flag to disable NA
+o firewall: add missing range validation to alias host type
+o firewall: make rule parsing more consistent as x:any and any:y are valid port options
+o captive portal: simplify the voucher generation code (contributed by oittaa)
+o firmware: list locked packages in health audit
+o ipsec: mark non-sortable columns
+o openvpn: change filetype of export to text/ovpn
+o unbound: updated no coin list (contributed by Luis Nachtigall)
+o unbound: change overrides grid label when no results are returned
+o unbound: restore duplicate domain behaviour in overrides
+o mvc: safeguard multi_sort in searchRecordsetBase()
+o mvc: prevent silent crashes in legacy XML attribute emulation
+o mvc: Phalcon 5 migration layer to reduce dependencies on Phalcon builtins
+o mvc: fix two regressions and deprecate __items
+o plugins: os-acme-client 3.10[1]
+o plugins: os-bind 1.23[2]
+o plugins: os-dnscrypt-proxy 1.12[3]
+o plugins: os-frr 1.28[4]
+o plugins: os-relayd 2.7 adds listen address and port range to virtual servers
+o plugins: os-zabbix-agent 1.12[5]
+o plugins: os-zabbix-proxy 1.8[6]
+o ports: curl 7.83.0[7]
+o ports: nss 3.78[8]
+o ports: openssl 1.1.1o[9]
+o ports: pcre2 10.40[10]
+o ports: php 7.4.29[11]
+o ports: pkg 1.17.5[12]
+o ports: suricata 6.0.5[13]
+
+
+Stay safe,
+Your OPNsense team
+--
+
+[1] PLUGINS:22.1/security/acme-client
+[2] PLUGINS:22.1/dns/bind
+[3] PLUGINS:22.1/dns/dnscrypt-proxy
+[4] PLUGINS:22.1/net/frr
+[5] PLUGINS:22.1/net-mgmt/zabbix-agent
+[6] PLUGINS:22.1/net-mgmt/zabbix-proxy
+[7] CURL:7.83.0
+[8] NSS:3.78
+[9] OPENSSL:1.1.1o
+[10] PCRE2:10.40
+[11] PHP7:7.4.29
+[12] https://github.com/freebsd/freebsd-ports/commit/18793d10585f
+[13] https://forum.suricata.io/t/suricata-6-0-5-and-5-0-9-released/2415
