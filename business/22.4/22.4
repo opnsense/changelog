@@ -290,10 +290,17 @@ o ports: sudo 1.9.10[38]
 o ports: syslog-ng 3.36.1[39]
 o ports: unbound 1.15.0[40]
 
+A hotfix release was issued as 22.4_2:
+
+o interfaces: include VIPS for primary IPv4 detection
+o mvc: prevent silent crashes in legacy XML attribute emulation
+o ports: curl 7.83.0[41]
+o ports: openssl 1.1.1o[42]
+
 Known issues and limitations:
 
-o This release contains a new major operating system version and should be carried out with the necessary care.  Despite extended test coverage changes made by FreeBSD may still affect operation without our knowledge.  Except for ZFS boot environments rollbacks between major operating system versions are extremely fragile and a reinstall of an older version should be attempted in the worst case.  For more information please consult the FreeBSD 13.0 release notes[41].
-o IPsec hash and cipher removals in FreeBSD 13 can affect existing setups as insecure cryptographic options have been removed upstream.  If you are using MD5, Blowfish, DES, 3DES, or CAST128 in your phase 2 please move to more secure settings prior to the upgrade.  Note that phase 1 settings are unaffected, but insecure settings should still be avoided.  For more information see the FreeBSD commit in question[42].
+o This release contains a new major operating system version and should be carried out with the necessary care.  Despite extended test coverage changes made by FreeBSD may still affect operation without our knowledge.  Except for ZFS boot environments rollbacks between major operating system versions are extremely fragile and a reinstall of an older version should be attempted in the worst case.  For more information please consult the FreeBSD 13.0 release notes[43].
+o IPsec hash and cipher removals in FreeBSD 13 can affect existing setups as insecure cryptographic options have been removed upstream.  If you are using MD5, Blowfish, DES, 3DES, or CAST128 in your phase 2 please move to more secure settings prior to the upgrade.  Note that phase 1 settings are unaffected, but insecure settings should still be avoided.  For more information see the FreeBSD commit in question[44].
 o The Realtek vendor driver is no longer bundled with the updated FreeBSD kernel.  If unsure whether FreeBSD 13 supports your Realtek NIC please install the os-realtek-re plugin prior to upgrading to retain operability of your NICs.
 o MAC spoofing now only pertains to the configured interface and not the VLAN siblings or parent interface.  This can introduce unwanted configuration due to previous side effects in the code.  Make sure to assign and set the spoofed MAC for all interfaces that require a spoofed MAC or simply spoof the MAC on the parent and leave the VLAN sibling settings empty to let them follow the parent MAC automatically.  If in doubt the parent interface can be set into promiscuous mode now to allow for mixed MAC address use across VLANs too.
 o Media and hardware offload settings are no longer shown for non-parent interfaces and need to be set individually on the parent interface to take effect.  This can introduce unwanted configuration due to previous side effects in the code.  If the parent interface was not previously assigned please assign it to reapply the required settings.
@@ -369,5 +376,7 @@ Your OPNsense team
 [38] SUDO:1.9.10
 [39] SYSLOG-NG:3.36.1
 [40] UNBOUND:1.15.0
-[41] https://www.freebsd.org/releases/13.0R/relnotes/
-[42] SRC:commit/16aabb761c0a
+[41] CURL:7.83.0
+[42] OPENSSL:1.1.1o
+[43] https://www.freebsd.org/releases/13.0R/relnotes/
+[44] SRC:commit/16aabb761c0a
