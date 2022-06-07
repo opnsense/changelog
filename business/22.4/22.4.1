@@ -1,0 +1,98 @@
+@ June 07, 2022
+
+This business release is based on the OPNsense 22.1.7 community version
+with additional reliability improvements.
+
+Here are the full patch notes:
+
+o system: set up all DNS system routes from system_resolvconf_generate()
+o system: tunables without hierarchy are just "environment" variables
+o system: use PHP random_bytes() builtin (contributed by oittaa)
+o system: support cd9660 file system in opnsense-importer
+o system: prevent gateway monitoring from entering a "filter reload" loop
+o system: only restore missing or zero size ACL files
+o reporting: add ACPI and ARM temperature support to health data
+o reporting: do not rely on /var/run/booting test in system health backend code
+o reporting: fix validation in NetFlow settings
+o interfaces: interface_ppps_configure() remove boot-time side effect
+o interfaces: DHCPv6 advanced has a different flag to disable NA
+o interfaces: add technical interface ID display to assignments page
+o firewall: make rule parsing more consistent as x:any and any:y are valid port options
+o captive portal: simplify the voucher generation code (contributed by oittaa)
+o dhcp: support supplying iPXE filename
+o firmware: exclude revision matching from latest changelog version check
+o firmware: list locked packages in health audit
+o firmware: bypass cache with timestamp in "upgradestatus" call (contributed by gibwar)
+o firmware: lowercase search in plugins/packages
+o intrusion detection: fix log file ACL mismatch
+o ipsec: squelch spurious errors on stderr for backend status action
+o ipsec: mark non-sortable columns
+o openvpn: change filetype of export to text/ovpn
+o unbound: add custom forwarding and overrides MVC pages
+o unbound: add missing alias description
+o unbound: change overrides grid label when no results are returned
+o unbound: domain override IP may contain port information
+o unbound: fix ACL for overrides
+o unbound: fix handling of wildcard aliases (contributed by devin122)
+o unbound: fix overrides case sort order (contributed by NYOB)
+o unbound: properly support "_msdcs" domain override prefix
+o unbound: restore duplicate domain behaviour in overrides
+o unbound: show combined hostname.domain description in new alias popup
+o unbound: updated no coin list (contributed by Luis Nachtigall)
+o unbound: disabling the first DNS override entry invalides config
+o mvc: Phalcon 5 migration layer to reduce dependencies on Phalcon builtins
+o mvc: add generic searchRecordsetBase() to match existing searchBase()
+o mvc: safeguard multi_sort in searchRecordsetBase()
+o mvc: fix two regressions and deprecate __items
+o plugins: os-OPNBEcore 1.0.2 cleans up LDAP sync task
+o plugins: os-OPNProxy 1.0.2 fixes newline issue in template
+o plugins: os-OPNcentral 1.5[1]
+o plugins: os-acme-client 3.10[2]
+o plugins: os-bind 1.23[3]
+o plugins: os-chrony 1.5[4]
+o plugins: os-ddclient 1.5[5]
+o plugins: os-dnscrypt-proxy 1.12[6]
+o plugins: os-frr 1.28[7]
+o plugins: os-relayd 2.7 adds listen address and port range to virtual servers
+o plugins: os-zabbix-agent 1.12[8]
+o plugins: os-zabbix-proxy 1.8[9]
+o src: tcp: rewind erroneous RTO only while performing RTO retransmissions
+o src: bnxt: Allow bnxt interfaces to use VLANs
+o src: rc: use _pidcmd to determine pid for protect
+o ports: curl 7.83.1[10]
+o ports: expat 2.4.8[11]
+o ports: libxml 2.9.13[12]
+o ports: monit 5.32.0[13]
+o ports: nss 3.78[14]
+o ports: pcre2 10.40[15]
+o ports: php 7.4.29[16]
+o ports: phpseclib 2.0.37[17]
+o ports: pkg 1.17.5[18]
+o ports: python 3.8.13[19]
+o ports: suricata 6.0.5[20]
+
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] https://docs.opnsense.org/vendor/deciso/opncentral.html?highlight=opncentral#multi-tenancy-using-host-groups
+[2] PLUGINS:22.1/security/acme-client
+[3] PLUGINS:22.1/dns/bind
+[4] PLUGINS:22.1/net/chrony
+[5] PLUGINS:22.1/dns/ddclient
+[6] PLUGINS:22.1/dns/dnscrypt-proxy
+[7] PLUGINS:22.1/net/frr
+[8] PLUGINS:22.1/net-mgmt/zabbix-agent
+[9] PLUGINS:22.1/net-mgmt/zabbix-proxy
+[10] CURL:7.83.1
+[11] EXPAT:2.4.8
+[12] LIBXML:2.9.13
+[13] MONIT:5.32.0
+[14] NSS:3.78
+[15] PCRE2:10.40
+[16] PHP7:7.4.29
+[17] PHPSECLIB:2.0.37
+[18] https://github.com/freebsd/freebsd-ports/commit/18793d10585f
+[19] PYTHON:3.8.13
+[20] https://forum.suricata.io/t/suricata-6-0-5-and-5-0-9-released/2415
