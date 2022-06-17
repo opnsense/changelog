@@ -41,7 +41,7 @@ o interfaces: assignments should take OpenVPN into account
 o interfaces: only ever store nobind for ipalias/carp
 o interfaces: align IPv4 address statistics read with IPv6
 o interfaces: simplify device destroy code
-o interfaces: avoid use legacy_get_interface_addresses() in MAC address read
+o interfaces: no longer use legacy_get_interface_addresses() in MAC address read
 o interfaces: remove unused opportunistic interface address functions
 o firewall: exclude localhost stateless traffic from default logging (contributed by kulikov-a)
 o firewall: using port type aliases the "enable" flag was ignored when not enabled
@@ -58,7 +58,7 @@ o openvpn: stop removing name server-related files never written
 o openvpn: improve gateway detection in topology mode
 o ipsec: avoid use of find_interface_network() et al
 o dhcp: avoid use of find_interface_network() et al
-o console: move console mite calls into port setting function
+o console: move console mute calls into port setting function
 o ui: sidebar 2nd submenu view fix (contributed by Team Rebellion)
 o mvc: refactor and extend HostnameField to add options to validate partial hostnames and root zones
 o plugins: os-bind 1.22[1]

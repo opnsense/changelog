@@ -101,7 +101,7 @@ o interfaces: assignments should take OpenVPN into account
 o interfaces: only ever store nobind for ipalias/carp
 o interfaces: align IPv4 address statistics read with IPv6
 o interfaces: simplify device destroy code
-o interfaces: avoid use legacy_get_interface_addresses() in MAC address read
+o interfaces: no longer use legacy_get_interface_addresses() in MAC address read
 o interfaces: remove unused opportunistic interface address functions
 o interfaces: resolve device/interface interdependency on boot
 o interfaces: do not update VIPs on dynamic address changes
@@ -215,7 +215,7 @@ o update: opnsense-verify: synced shared code with FreeBSD 13
 o web proxy: fix a typo in extended logging parser (contributed by kulikov-a)
 o backend: consolidate configctl utility into one location and add manual page
 o backend: unify use of configctl utility
-o console: move console mite calls into port setting function
+o console: move console mute calls into port setting function
 o images: removed deprecated os-dyndns plugin from default installation
 o mvc: add BlankDesc to ModelRelationField (contributed by agh1467)
 o mvc: add hint support for text fields (contributed by agh1467)
