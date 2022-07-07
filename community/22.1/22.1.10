@@ -1,0 +1,62 @@
+@ July 07, 2022
+
+Good morning,
+
+Today we are shipping small reliability improvements and a few security
+updates for bundled packages.  Of special note is the upgrade of Phalcon 5,
+Python 3.9 and move of the StrongSwan vici library into a separate package.
+
+This release will be the last of the 22.1 series.  The release candidate
+for 22.7 will be available next week and the release date for the final
+version is July 28.  Users wishing to try the release candidate can reach
+it from the development version or reinstall from the provided images.
+
+A hotfix will be issued on the 28th to enable the upgrade path, but depending
+on testing and mirror availability this might be up to 24 hours after the
+intial image release of 22.7.
+
+Here are the full patch notes:
+
+o system: properly shut down removed interfaces in console port assignment
+o system: if no temperature sysctls are exposed do nothing
+o system: fix firmware command shortcut in opnsense-shell utility
+o system: log hard limit results in 9999 entries for grid output
+o system: move add_user script out of shell scripts
+o interfaces: move lo0 interface registration to loopback
+o interfaces: simplify bridge destroy on deletion
+o firmware: update repository silently on remote list if needed
+o firmware: add python version to crash report header
+o ipsec: move vici library from core to ports
+o opendns: update OpenDNS IPv6 servers (contributed by Johan Rylander)
+o backend: except configparser read (contributed by agh1467)
+o mvc: AutoNumberField: set minimum value to 1
+o mvc: IntegerFieldType: fix for negative numbers (contributed by xbb)
+o plugins: os-ddclient 1.8[1]
+o plugins: os-firewall 1.2 fixes internal backup restore
+o plugins: os-postfix 1.23[2]
+o plugins: os-stunnel 1.0.5 adds intermediates to server chain (contributed by Johnny S. Lee)
+o plugins: os-telegraf 1.12.5[3]
+o ports: curl 7.84.0[4]
+o ports: nss: 3.80[5]
+o ports: openssl 1.1.1q[6]
+o ports: phalcon 5.0.0RC2[7]
+o ports: py-vici 5.9.3
+o ports: python 3.9.13[8]
+o ports: sudo 1.9.11p3[9]
+o ports: syslog-ng 3.37.1[10]
+
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] PLUGINS:22.1/dns/ddclient
+[2] PLUGINS:22.1/mail/postfix
+[3] PLUGINS:22.1/net-mgmt/telegraf
+[4] CURL:7.84.0
+[5] NSS:3.80
+[6] OPENSSL:1.1.1q
+[7] PHALCON:5.0.0RC2
+[8] PYTHON:3.9.13
+[9] SUDO:1.9.11p3
+[10] SYSLOG-NG:3.37.1
