@@ -83,6 +83,18 @@ o src: FreeBSD 13.1-RELEASE[5]
 o ports: sqlite 3.39.0[6]
 o ports: php 8.0.20[7]
 
+A hotfix release was issued as 22.7.r1_8:
+
+o system: disable RRD and NetFlow shutdown backups by default
+o system: render interfaces in convert_config()
+o interfaces: fix unable to bring up multiple loopback (contributed Johnny S. Lee)
+o interfaces: fix unable to bring up multiple VXLAN
+o interfaces: check if int before passing to convert_seconds_to_hms()
+o ipsec: small UX tweaks in status page
+o mvc: fix rowCount when all is selected in searchRecordsetBase()
+o plugins: os-nginx fix for missing DH parameter file
+o plugins: os-postfix fix for missing DH parameter file
+
 Known issues and limitations:
 
 o The DH parameter is no longer available in OpenVPN server configuration and now fixed to the RFC 7919 4096 bit key.  The only downside may be lower performance on older machines.
