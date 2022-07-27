@@ -1,0 +1,182 @@
+@ July 28, 2022
+
+Hi there,
+
+For more than 7 and a half years now, OPNsense is driving innovation through
+modularising and hardening the open source firewall, with simple
+and reliable firmware upgrades, multi-language support, fast adoption
+of upstream software updates as well as clear and stable 2-Clause BSD
+licensing.
+
+22.7, nicknamed "Powerful Panther", features the upgrade to FreeBSD 13.1,
+PHP 8.0, Phalcon 5, stacked VLAN and Intel QuickAssist (QAT) support,
+DDoS protection using SYN cookies, MVC/API pages for IPsec status and
+Unbound overrides, new APCUPSD and CrowdSec plugins plus much more.
+
+LibreSSL flavour is scheduled for removal at the end of this series
+and will likely receive no further maintenance.  Software failing to
+work properly starting with Tor will have its plugin removed from the
+flavour from now on to be able to keep updating the software to their
+latest versions in the OpenSSL flavour.  The next major upgrade will
+automatically transition to the OpenSSL flavour, but we would encourage
+everyone to switch between 22.7.x for the least amount of possible impact.
+
+Download links, an installation guide[1] and the checksums for the images
+can be found below as well.
+
+o Europe: https://opnsense.c0urier.net/releases/22.7/
+o US East Coast: https://mirror.wdc1.us.leaseweb.net/opnsense/releases/22.7/
+o US West Coast: https://mirror.sfo12.us.leaseweb.net/opnsense/releases/22.7/
+o South America: http://mirror.ueb.edu.ec/opnsense/releases/22.7/
+o East Asia: https://mirror.ntct.edu.tw/opnsense/releases/22.7/
+o Full mirror list: https://opnsense.org/download/
+
+Here are the full patch notes against 22.1.10:
+
+o system: changed certificate revocation to use the phpseclib library
+o system: performance improvement for set_single_sysctl()
+o system: restart syslog fully and only once after all services have been started
+o system: new setting for deployment mode to control PHP error flow
+o system: /tmp MFS now uses a maximum of 50% of RAM by default and can be adjusted
+o system: /var MFS becomes /var/log MFS and uses a maximum of 50% of RAM by default and can be adjusted
+o system: previous special /var MFS content is now permanently stored under /var to ensure full operability
+o system: flush all core Python pyc files on updates
+o system: protect syslog-ng against out of memory kills
+o system: add filter to system log widget (contributed by kulikov-a)
+o system: disable RRD and NetFlow shutdown backups by default
+o system: render interfaces in convert_config()
+o system: apply default firewall policy before interface configuration
+o system: move remote backup script to proper file system location
+o system: disable flag was not removing static route
+o system: Net_IPv6::compress() should not compress "::" to ""
+o system: fix RADIUS config validation for port requirement (contributed by Josh Soref)
+o system: remove last bits of circular logging (CLOG) support
+o system: removed legacy Diffie-Hellman parameter handling
+o interfaces: refactored LAGG, wireless and static ARP handling
+o interfaces: provide automatic startup of Loopback, IPsec, OpenVPN, VXLAN devices
+o interfaces: removed the side effect reliance on /var/run/booting file
+o interfaces: add dynamic reload of required devices
+o interfaces: add WPA enterprise configuration for infrastructure mode (contributed by Manuel Faux)
+o interfaces: fix "Allow service binding" for multiple aliases per interface (contributed by Adam Dawidowski)
+o interfaces: auto-detect far gateway requirement for default route
+o interfaces: switch to MVC/API variant for DNS lookup page
+o interfaces: refactor DHCP and PPPoE scripts to use ifctl exclusively
+o interfaces: prevent the removal of default routes in dhclient-script
+o interfaces: fix inconsistencies in wireless handling
+o interfaces: fix unable to bring up multiple loopback (contributed Johnny S. Lee)
+o interfaces: fix unable to bring up multiple VXLAN
+o interfaces: check if int before passing to convert_seconds_to_hms()
+o interfaces: disable IPv6 inside 4in6 and 4in4 GIF tunnels (contributed by Maurice Walker)
+o interfaces: ping diagnostics tool must explicitly set IP version (contributed by Maurice Walker)
+o interfaces: remove other inconsistencies regarding ping utility changes in FreeBSD 13
+o interfaces: correct regex validation for dhcp6c expire statement (contributed by Josh Soref)
+o interfaces: add missing scope to link-local GIF host route
+o interfaces: add iwlwiwi(4) to wireless devices
+o firewall: improved port alias performance
+o firewall: obsoleted notices inside the synchronization code
+o firewall: support logging in NPT rules
+o firewall: append missing link-local to inet6 :network selector
+o firewall: move inspect action into its own async API action to prevent long page loads
+o firewall: internal aliases cannot be disabled
+o firewall: performance improvement for reading live log
+o firewall: ignore age/expire when not provided or empty in sessions page
+o firewall: add general firewall log for alias and filter system log messages
+o dhcp: no longer automatically add a link-local address to bridges if IPv6 service is running on it
+o dhcp: allow running relay service on bridges
+o dhcp: clean up IPv6 prefixes script
+o dhcp: include ddns-hostname and other cleanups (contributed by Sascha Buxhofer)
+o dhcp: remove duplicated ddnsupdate static mapping switch
+o dhcp: remove print_content_box() use
+o dhcp: switch to shell-based DHCPv6 lease watcher
+o dhcp: rewrite prefix merge for dynamic IPv6 tracking to support bitwise selection
+o dnsmasq: switch to a Python-based DHCP lease watcher
+o firmware: console script can now show changelog using "less" before update
+o firmware: disable crash reporter in development deployment mode
+o firmware: limit changelog-based update check on dashboard to release version
+o firmware: provide an upgrade log audit
+o intrusion detection: remove dead link to McAfee rule references
+o ipsec: add "IPv4+6" protocol for mobile phase 1 entries (contributed by vnxme)
+o ipsec: mobile property boolean duplication in phase 2
+o ipsec: remember phase 1 setting for next action
+o ipsec: switch to MVC/API variants of SPD, SAD and connection pages
+o ipsec: small UX tweaks in status page
+o openvpn: pinned Diffie-Hellman parameter to RFC 7919 4096 bit key
+o unbound: prevent crash of DHCP lease watcher due to unhandled CalledProcessError exception
+o lang: bring back Italian and update all languages to latest available translations
+o mvc: bugfix search and sort issues for searchRecordsetBase()
+o mvc: add support for non-persistent (memory) models
+o mvc: throw when no mount found in model (contributed by agh1467)
+o mvc: fix rowCount when all is selected in searchRecordsetBase()
+o mvc: fix two regressions in BaseField for Phalcon 5
+o mvc: store configuration changes only when actual changes exist
+o ui: removed Internet Explorer support
+o ui: boostrap-select ignored header height
+o ui: merge option objects instead of replacing them in bootgrid (contributed by agh1467)
+o ui: correct required API for command-info in bootgrid (contributed by agh1467)
+o ui: add catch undefined TypeError in SimpleActionButton (contributed by agh1467)
+o ui: fix assorted typos in the code base (contributed by Josh Soref)
+o ui: handle HTTP 500 error gracefully in MVC pages
+o plugins: os-apcupsd 1.0[2] (contributed by David Berry, Dan Lundqvist and Nicola Pellegrini)
+o plugins: os-boot-delay is no longer available[3]
+o plugins: os-crowdsec 1.0[4]
+o plugins: os-nginx fix for missing DH parameter file
+o plugins: os-postfix fix for missing DH parameter file
+o plugins: os-tayga 1.2[5]
+o plugins: os-tor no longer available on LibreSSL due to incompatibilities with newer Tor versions
+o plugins: os-web-proxy-useracl is no longer available, no updates since 2017
+o src: FreeBSD 13.1-RELEASE[6]
+o src: axgbe: also validate configuration register in GPIO expander
+o src: pf: ensure that pfiio_name is always nul terminated
+o src: pf: make sure that pfi_update_status() always zeros counters
+o src: igc: change default duplex setting
+o src: e1000: try auto-negotiation for fixed 100 or 10 configuration
+o ports: php 8.0.20[7]
+o ports: sqlite 3.39.0[8]
+o ports: suricata 6.0.6[9]
+o ports: unbound 1.16.1[10]
+
+Known issues and limitations:
+
+o The DH parameter is no longer available in OpenVPN server configuration and now fixed to the RFC 7919 4096 bit key.  The only downside may be lower performance on older machines.
+o The infamous /var MFS feature was reduced to the /var/log scope in order to avoid future issues with plugins requiring persistent storage under /var.  In practice people who used /var MFS had no benefit over it with software that required persistent storage under /var to operate in the first place.  Periodic configuration file writes to /var are negligible on SSD-based systems.
+o The os-dyndns plugin is still available due to the fact that ddclient did not release a non-development release so far since we started os-ddclient.  Availability thereof might change later in 22.7.x.
+o The console firmware update will now display text-based changelogs for the update to be installed if available.  Use the arrow keys to scroll the changelog and type "q" to resume the update process.
+o The manual DHCPv6 tracking mode now requires a proper prefix range given like its counterpart with a static address.  If a previous prefix ID type input is detected only setting the lower 64 bits of an IPv6 address, a warning is emitted and the ID is treated as the upper 64 bits of an IPv6 address instead.  If your DHCPv6 server does not start please properly fix the given range.
+
+The public key for the 22.7 series is:
+
+# -----BEGIN PUBLIC KEY-----
+# MIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEAs9U1NFG2420gDDQO97iU
+# S72sRdCaYCMoY2K8PpjrPGOkgDFN79YB+BYyUDZiO6aHJvy07yuDwhJcTiMWzuyF
+# Ub6BqdB2ehjP0+/Sh2z9eOWecI6s7rDxJVwaZRSagA3f5pDYj2LKtAqIPnv3Avs1
+# GTSHUZPR+V09UzUq/j0gRCNA+5hJrRwbyebaUGcp8QetUirmewAU5ArfXIBXvhn9
+# L9i8+r0/M/QbueSA7mOA4v2BDZVMAo1X72O6GZmpt+SY6A2fA9uvgYU/19hlCJQY
+# 6eL16U4TG2Z1tyR6TIsjGZ973UDAFdZqDO4nqPeW/Dm20fnY/X6ZJcU1McbeDftZ
+# 10lquuZBrFgxVDB6zBYX5319p1ASeYnSdhvFlK02P8a6OJS6JWmCx5j1VRAU8Zh1
+# W5xZRJJi6HmbX2b1ef2cy3ijtT/jviSNXEPR9V2otz9B+lc0g8P/hPwd7hpmdYj0
+# +KYcPaa1kmR4/xf++hb5XbOLt2Wc4mbyBph4VPeXiLYUfYlpYNwfvuP56zdylk+p
+# Mzw3XM1M36vA9oMXM9hLrrG67/UH6s4td//w4zdFPQ+A/rlVeF8EHsHICi6Salki
+# Z+R9FCNM61wU9HdAPOSpDn1aPQdW3HPNVmeI0iHPg42jIT1n1T0720XgHRTfntyh
+# E2+jioeukrqqEg1fzmszseMCAwEAAQ==
+# -----END PUBLIC KEY-----
+
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] DOCS:manual/install
+[2] PLUGINS:22.7/sysutils/apcupsd
+[3] https://github.com/opnsense/plugins/blob/b31bcb92106/sysutils/boot-delay/Makefile#L6
+[4] PLUGINS:22.7/security/crowdsec
+[5] PLUGINS:22.7/net/tayga
+[6] https://www.freebsd.org/releases/13.1R/relnotes/
+[7] PHP8:8.0.20
+[8] SQLITE:3.39.0
+[9] https://redmine.openinfosecfoundation.org/versions/176
+[10] UNBOUND:1.16.1
+
+# SHA256 (OPNsense-22.7-OpenSSL-dvd-amd64.iso.bz2) = 9345057e993cd55dfa5280beefd33f1dc2243681defff3c5f11b84fa2c7910f8
+# SHA256 (OPNsense-22.7-OpenSSL-nano-amd64.img.bz2) = 061ea4ca261bcd8397ae1a4acf2fb32f0fbbb6ac00d617e1f4151318f66cc77d
+# SHA256 (OPNsense-22.7-OpenSSL-serial-amd64.img.bz2) = cf1603e20d4268d917b40344ddadd2f147c3e167dbe1f6cd254a2afcb586fb4d
+# SHA256 (OPNsense-22.7-OpenSSL-vga-amd64.img.bz2) = 2537f37247d98e27634c34cdf23f30f95d0ed00ac0af01c2d9675580a790f8fb
