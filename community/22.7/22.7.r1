@@ -30,7 +30,7 @@ o system: restart syslog fully and only once after all services have been starte
 o system: new setting for deployment mode to control PHP error flow
 o system: /tmp MFS now uses a maximum of 50% of RAM by default and can be adjusted
 o system: /var MFS becomes /var/log MFS and uses a maximum of 50% of RAM by default and can be adjusted
-o system: previous special /var MFS content is now permanently stored under /var to avoid service operability
+o system: previous special /var MFS content is now permanently stored under /var to ensure full operability
 o system: flush all core Python pyc files on updates
 o system: protect syslog-ng against out of memory kills
 o system: add filter to system log widget (contributed by kulikov-a)
