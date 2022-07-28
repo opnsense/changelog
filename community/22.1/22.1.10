@@ -45,6 +45,13 @@ o ports: python 3.9.13[8]
 o ports: sudo 1.9.11p3[9]
 o ports: syslog-ng 3.37.1[10]
 
+A hotfix release was issued as 22.1.10_4:
+
+o system: disable flag was not removing static route
+o firmware: added 22.7 series fingerprint
+o unbound: prevent crash of DHCP lease watcher due to unhandled CalledProcessError exception
+o mvc: fix two regressions in BaseField for Phalcon 5
+
 
 Stay safe,
 Your OPNsense team
