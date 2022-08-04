@@ -37,7 +37,7 @@ o plugins: os-postfix 1.23[2]
 o plugins: os-stunnel 1.0.5 adds intermediates to server chain (contributed by Johnny S. Lee)
 o plugins: os-telegraf 1.12.5[3]
 o ports: curl 7.84.0[4]
-o ports: nss: 3.80[5]
+o ports: nss 3.80[5]
 o ports: openssl 1.1.1q[6]
 o ports: phalcon 5.0.0RC2[7]
 o ports: py-vici 5.9.3
