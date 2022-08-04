@@ -1,0 +1,53 @@
+@ August 04, 2022
+
+This business release is based on the OPNsense 22.1.10 community version
+with additional reliability improvements.
+
+Here are the full patch notes:
+
+o system: properly shut down removed interfaces in console port assignment
+o system: log hard limit results in 9999 entries for grid output
+o system: move add_user script out of shell scripts
+o system: disable flag was not removing static route
+o system: fix RADIUS config validation for port requirement (contributed by Josh Soref)
+o system: properly cleanse user input in Monit dashboard widget
+o system: flush all core Python pyc files on updates
+o system: apply default firewall policy before interface configuration
+o interfaces: move lo0 interface registration to loopback
+o interfaces: simplify bridge destroy on deletion
+o interfaces: add missing scope to link-local GIF host route
+o interfaces: fix "Allow service binding" for multiple aliases per interface (contributed by Adam Dawidowski)
+o firewall: ignore age/expire when not provided or empty in sessions page
+o firewall: internal aliases cannot be disabled
+o firmware: update repository silently on remote list if needed
+o intrusion detection: remove dead link to McAfee rule references
+o ipsec: move vici library from core to ports
+o unbound: prevent crash of DHCP lease watcher due to unhandled CalledProcessError exception
+o backend: except configparser read (contributed by agh1467)
+o mvc: AutoNumberField: set minimum value to 1
+o mvc: IntegerFieldType: fix for negative numbers (contributed by xbb)
+o mvc: fix two regressions in BaseField for Phalcon 5
+o mvc: fix rowCount when all is selected in searchRecordsetBase()
+o plugins: os-ddclient 1.8[1]
+o plugins: os-firewall 1.2 fixes internal backup restore
+o plugins: os-postfix 1.23[2]
+o plugins: os-stunnel 1.0.5 adds intermediates to server chain (contributed by Johnny S. Lee)
+o plugins: os-telegraf 1.12.5[3]
+o ports: nss 3.80[4]
+o ports: py-vici 5.9.3
+o ports: python 3.9.13[5]
+o ports: sudo 1.9.11p3[6]
+o ports: syslog-ng 3.37.1[7]
+
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] PLUGINS:22.1/dns/ddclient
+[2] PLUGINS:22.1/mail/postfix
+[3] PLUGINS:22.1/net-mgmt/telegraf
+[4] NSS:3.80
+[5] PYTHON:3.9.13
+[6] SUDO:1.9.11p3
+[7] SYSLOG-NG:3.37.1
