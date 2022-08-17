@@ -1,0 +1,63 @@
+@ August 17, 2022
+
+Hello,
+
+This update comes a little earlier than expected due to FreeBSD security
+advisories.  Of special interest is the new firewall alias BGP ASN type
+and notices system which can also be implemented from plugins in the future.
+
+Here are the full patch notes:
+
+o system: replace static notices system with a shared one based on MVC/API code
+o system: use new _setup script feature where setup.sh exists
+o system: PHP 8 issue when ldap_get_entries() returns false
+o system: wrong variable in scope addition on manual DNS server via link-local gateway
+o system: "passwordarea" support for sensitive backup values
+o interfaces: fix wireless clone assignment regression in 22.7.1
+o interfaces: update ifctl utility to latest version
+o firewall: add BGP ASN type to aliases[1]
+o dhcp: extend search list pull from DHCPv6 in router advertisements DNS option
+o dhcp: improve UI for disabling DNS part of router advertisements (contributed by Patrick M. Hausen)
+o dhcp: pushed wrong server to zone definition on local DNS selection
+o firmware: opnsense-patch: only remove ".sh" suffix for installer and update repos
+o firmware: opnsense-update: only set packages marker after successful upgrade
+o firmware: opnsense-bootstrap: set correct packages marker
+o firmware: revoke 22.1 fingerprint
+o plugins: os-radsecproxy is no longer available on LibreSSL due to upstream build issues
+o plugins: os-acme-client 3.13[2]
+o plugins: os-bind 1.24[3]
+o plugins: os-haproxy 3.11[4]
+o plugins: os-git-backup hides SSH keys by default
+o plugins: os-postfix disables GSSAPI for the time being[5]
+o src: lib9p: Remove potential buffer overwrite in l9p_puqids()[6]
+o src: vm_fault: Shoot down shared mappings in vm_fault_copy_entry()[7]
+o src: elf_note_prpsinfo: handle more failures from proc_getargv()[8]
+o src: pam_exec: fix segfault when authtok is null[9]
+o src: kevent: Fix an off-by-one in filt_timerexpire_l()[10]
+o src: cam: leep periph_links when restoring CCB in camperiphdone()[11]
+o src: pfctl: fix FOM_ICMP/POM_STICKYADDRESS clash
+o src: restrict default /root permissions to 750
+o src: rc: add ${name}_setup script support
+o ports: lighttpd 1.4.66[12]
+o ports: phalcon 5.0.0RC4[13]
+o ports: php 8.0.22[14]
+
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] https://docs.opnsense.org/manual/aliases.html#bgp-asn
+[2] PLUGINS:22.7/security/acme-client
+[3] PLUGINS:22.7/dns/bind
+[4] PLUGINS:22.7/net/haproxy
+[5] PLUGINS:22.7/mail/postfix
+[6] FREEBSD:FreeBSD-SA-22:12.lib9p
+[7] FREEBSD:FreeBSD-SA-22:11.vm
+[8] FREEBSD:FreeBSD-SA-22:09.elf
+[9] FREEBSD:FreeBSD-EN-22:19.pam_exec
+[10] FREEBSD:FreeBSD-EN-22:16.kqueue
+[11] FREEBSD:FreeBSD-EN-22:17.cam
+[12] https://www.lighttpd.net/2022/8/7/1.4.66/
+[13] PHALCON:5.0.0RC4
+[14] PHP8:8.0.22
