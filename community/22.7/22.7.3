@@ -1,0 +1,72 @@
+@ September 01, 2022
+
+Good day everyone,
+
+Pick up the new FreeBSD security advisories while also introducing assorted
+reliability improvements.  CRL now works again for elliptic curve with the
+adoption of version 3 of phpseclib.  Wireless handling was improved due to
+PHP 8 errors and coding style issues.  It is also the subject of further work
+for 23.1.
+
+Here are the full patch notes:
+
+o system: migrate CRL handling to phpseclib version 3
+o system: run monitor reload inside system_routing_configure()
+o system: fix IPv6 link-local HTTP_REFERER check (contributed by Maurice Walker)
+o system: fix assorted PHP 8 warnings in the codebase
+o system: extend nameservers script return for debugging purposes, i.e. "configctl system list nameservers debug"
+o system: lighttpd obsoletion of server listing directive, disabled by default
+o system: decode stored CRL data before display (contributed by kulikov-a)
+o interfaces: update link-local matching pattern
+o interfaces: PPP is an exception, only created after interface configuration
+o interfaces: only remove known primary addresses in interface_bring_down()
+o interfaces: improve shell banner address return in prefix-only IPv6 case
+o interfaces: improve problematic <wireless/> node handling
+o interfaces: DHCP does not signal RELEASE
+o interfaces: web GUI locale sorts files differently when invoking ifctl
+o interfaces: improve legacy_interface_listget()
+o interfaces: only parse actual options in legacy_interfaces_details(), not nd6 options
+o firewall: implement a router file read fallback for new ifctl :slaac suffix
+o firewall: stick-address only in effect with pool option and multiple routers
+o firewall: remove dead pptpd server code
+o captive portal: lighttpd deprecation of legacy SSL options, disabled by default
+o dhcp: allow rapid-commit message exchange in IPv6 server (contributed by Maurice Walker)
+o firmware: major upgrade "pkgs" set was still unknown to plugin sync
+o intrusion detection: fix enable rule button and present active detail overwrite if present
+o ipsec: fixed widget link (contributed by Patrik Kernstock)
+o unbound: improve FQDN handling when address is moving in DHCP watcher
+o unbound: prevent DNS rebinding check and DNSSEC validation on explicit forwarded domains
+o unbound: restrict creation of PTR records for both the system domain and host overrides
+o unbound: add AAAA-only mode (contributed by Maurice Walker)
+o lang: fix syntax errors in French translation (contributed by kulikov-a)
+o ui: fix type cast issue in Bootgrid
+o plugins: os-ddclient relaxes validation
+o plugins: os-frr 1.30[1]
+o plugins: os-nginx now uses simplified NAME_setup service handling
+o plugins: os-wireguard 1.12[2]
+o plugins: os-zabbix-agent 1.13[3]
+o plugins: os-zabbix-proxy 1.9[4]
+o src: rc: improve NAME_setup integration
+o src: zlib: fix a bug when getting a gzip header extra field with inflate()[5]
+o src: tzdata: import tzdata 2022b and 2022c[6]
+o ports: ldns 1.8.3[7]
+o ports: liblz4 1.9.4
+o ports: libxml 2.10.1[8]
+o ports: nss 3.82[9]
+o ports: phpseclib 3.0.14[10]
+
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] PLUGINS:22.7/net/frr
+[2] PLUGINS:22.7/net/wireguard
+[3] PLUGINS:22.7/net-mgmt/zabbix-agent
+[4] PLUGINS:22.7/net-mgmt/zabbix-proxy
+[5] FREEBSD:FreeBSD-SA-22:13.zlib
+[6] FREEBSD:FreeBSD-EN-22:20.tzdata
+[7] https://raw.githubusercontent.com/NLnetLabs/ldns/1.8.3/Changelog
+[8] LIBXML:2.10.1
+[9] NSS:3.82
+[10] PHPSECLIB:3.0.14
