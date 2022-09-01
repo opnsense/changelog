@@ -10,7 +10,7 @@ for 23.1.
 
 Here are the full patch notes:
 
-o system: migrate CRL handling to phpseclib version 3
+o system: migrate CRL handling to phpseclib 3
 o system: run monitor reload inside system_routing_configure()
 o system: fix IPv6 link-local HTTP_REFERER check (contributed by Maurice Walker)
 o system: fix assorted PHP 8 warnings in the codebase
@@ -54,6 +54,10 @@ o ports: liblz4 1.9.4
 o ports: libxml 2.10.1[8]
 o ports: nss 3.82[9]
 o ports: phpseclib 3.0.14[10]
+
+A hotfix release was issued as 22.7.3_1:
+
+o system: work around phpseclib 3 flagging RSA-PSS as an invalid key alogrithm
 
 
 Stay safe,
