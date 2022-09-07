@@ -1,0 +1,42 @@
+@ September 07, 2022
+
+Hello,
+
+This update addresses more issues with the somewhat unfortunate phpseclib 3
+migration.  WAN IPv6 SLAAC mode now works more reliably and TLS 1.3 web GUI
+configurations will enforce the expectations by software clients regarding
+interoperability.
+
+Last but not least the "assign VLAN parent and enable" migration note from
+22.1 is no longer required as the boot will attempt to configure all existing
+hardware devices once with the selected defaults.
+
+Here are the full patch notes:
+
+o system: enforce RFC 8446 by requiring TLS_AES_128_GCM_SHA256 for TLS 1.3
+o system: consider CRL end dates after 2050 as "lifetime" in GeneralizedTime format
+o system: revert the default CRL hashing back to what it was in phpseclib 2
+o system: match TLS cipher suites and commands in web GUI settings (contributed by kulikov-a)
+o system: improve error message of CRL validation failure (contributed by kulikov-a)
+o system: fix phpseclib 3 use for CSR parsing on certificates page
+o system: add the default "-c" option to backend pluginctl invokes for consistency
+o system: rework console port assignment regarding wireless handling
+o interfaces: configure all hardware features for present devices
+o interfaces: bring up IPv6 device manually since SLAAC will not do that automatically
+o interfaces: merge DHCPv4 / DHCPv6 buttons on overview page (contributed by Maurice Walker)
+o interfaces: add support for requesting DNS info via stateless DHCPv6 (contributed by Maurice Walker)
+o dnsmasq: restart during "newwanip" event
+o ports: curl 7.85.0[1]
+o ports: libxml 2.10.2[2]
+o ports: sqlite 3.39.2[3]
+o ports: syslog-ng 3.38.1[4]
+
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] CURL:7.85.0
+[2] LIBXML:2.10.2
+[3] SQLITE:3.39.2
+[4] SYSLOG-NG:3.38.1
