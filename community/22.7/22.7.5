@@ -1,0 +1,102 @@
+@ October 05, 2022
+
+Good morning,
+
+Today we are fixing a security issue involving the "installer" user and
+kernel-based TCP panics that some have been fighting with since FreeBSD 13.
+Some ports and plugins have also been updated now that the holiday season
+is coming to its inevitable end.
+
+The security issue arises on fresh 22.7 installs only due to a boot-time
+optimization of user account handling since 22.1.8.  Users are not reset
+on each boot anymore which improved boot times with many users but also made
+the "installer" user stick with the default password in this situation.
+Physical access to the console with this user was possible under these
+conditions even after installation and updates were completed.  SSH access
+was also possible when both not restricting login to keys and allowing root
+login manually.  The mandatory reboot after the update to 22.7.5 or higher
+remedies this problem.
+
+In a default install the issue could only be exploited by manual console
+access.  In general we want to advise users not to yield shell/console
+access to non-administrators, restrict physical access if applicable, and
+not offer SSH access based on user accounts, especially when SSH is accessible
+from the WAN side without a VPN.
+
+In any case we recommend all users of 22.7.x to update immediately or
+take the necessary precautions to avoid the "installer" user from being
+accessed in an unauthorized fashion.
+
+Here are the full patch notes:
+
+o system: remove stray installer account from fresh 22.7 installations
+o system: only use withPadding() for RSA based public keys in CRL code
+o system: remove unnecessary crl_update() calls in CRL code
+o system: extend pool options support in gateway groups
+o system: move get_searchdomains() to ifctl use and allow FQDN
+o system: add replacement hook for rc.resolv_conf_generate script
+o system: replace "dns reload" backend call with portable alternative
+o system: remove obsolete rc.resolv_conf_generate script
+o system: bring back the buttons action in OpenVPN dashboard widget (contributed by kulikov-a)
+o system: assorted cleanups for IXR library used for XMLRPC
+o system: catch errors in RSS dashboard widget
+o system: stop reading product info from global $g variable in system information dashboard widget
+o system: structurally improve boot sequence with regard to hosts/resolv.conf generation
+o system: add keyUsage extension and follow RFC on basicConstraints in CA config (contributed by kulikov-a)
+o interfaces: migrate wireless creation to legacy_interface_listget()
+o firewall: support TOS/DSCP matching in firewall rules
+o firewall: add os-firewall alias paths in getAliasSource() to prevent removal when being used
+o firewall: get lockout interface from get_primary_interface_from_list()
+o firewall: fix PHP 8 error in port forwarding page
+o firewall: fix PHP 8 error in aliases (contributed by kulikov-a)
+o firewall: parse pftop internal data conversion (contributed by kulikov-a)
+o firmware: opnsense-update: return subscription key via -K if it exists
+o ipsec: allow to set rightca in mobile phase 1 with EAP-TLS
+o ipsec: fix multiple phase 2 IP addresses on the same interface (contributed by Wagner Sartori Junior)
+o unbound: account for hostname during PTR creation
+o unbound: maintain a consistent dnsbl cache state
+o unbound: reduce blocklist read timeout (contributed by kulikov-a)
+o web proxy: update pattern to zst for the Arch packages (contributed by gacekjk)
+o plugins: os-crowdsec 1.0.1[1]
+o plugins: os-ddclient 1.9[2]
+o plugins: os-freeradius 1.9.21[3]
+o plugins: os-nginx 1.30[4]
+o src: ifconfig: print interface name on SIOCIFCREATE2 error
+o src: igc: do not start in promiscuous mode by default
+o src: tcp: correctly compute the retransmit length for all 64-bit platforms
+o src: tcp: fix cwnd restricted SACK retransmission loop
+o src: tcp: fix computation of offset
+o src: tcp: send ACKs when requested
+o ports: dnsmasq 2.87[5]
+o ports: expat 2.4.9[6]
+o ports: lighttpd 1.4.67[7]
+o ports: nss 3.83[8]
+o ports: phalcon 5.0.2[9]
+o ports: php 8.0.23[10]
+o ports: phpseclib 3.0.16[11]
+o ports: python 3.9.14[12]
+o ports: sqlite 3.39.3[13]
+o ports: squid 5.7[14]
+o ports: suricata 6.0.8[15]
+o ports: unbound 1.16.3[16]
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] PLUGINS:22.7/security/crowdsec
+[2] PLUGINS:22.7/dns/ddclient
+[3] PLUGINS:22.7/net/freeradius
+[4] PLUGINS:22.7/www/nginx
+[5] DNSMASQ:2.87
+[6] EXPAT:2.4.9
+[7] https://www.lighttpd.net/2022/9/17/1.4.67/
+[8] NSS:3.83
+[9] PHALCON:5.0.2
+[10] PHP8:8.0.23
+[11] PHPSECLIB:3.0.16
+[12] PYTHON:3.9.14
+[13] SQLITE:3.39.3
+[14] SQUID5:5.7
+[15] https://suricata.io/2022/09/27/suricata-6-0-7-released/
+[16] UNBOUND:1.16.3
