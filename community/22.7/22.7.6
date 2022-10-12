@@ -1,0 +1,60 @@
+@ October 12, 2022
+
+Dear all,
+
+This update fixes CRL code handling with third party software and sandboxes
+the code to avoid dealing with boot-time issues ever again.  However, due to
+the nature of the sandboxing no automatic fix can be made for the following
+case:
+
+Creating and using an empty CRL in OpenVPN broke in 22.7.5 due to an ancient
+bug not populating the empty CRL in binary format: the side effect "correcting"
+this at runtime was removed.  22.7.6 will now correctly populate the binary
+format of the empty CRL upon creation in the config.xml as originally intended.
+
+The options to manually fix existing empty CRLs are as follows:
+
+o Remove the CRL from OpenVPN as it is unused anyway, or
+o Add a dummy certificate to it to populate the CRL properly, or
+o Add and remove a random existing certificate to populate an empty CRL.
+
+These fixes can be carried out on older installation without a problem as well
+prior to upgrading to avoid OpenVPN from not working post-upgrade.
+
+Here are the full patch notes:
+
+o system: fix inconsistent is_crl_internal() implementation
+o system: make sure we always generate a CRL when saved
+o system: sandbox code handling CRL manipulation in the CRL manager page
+o system: wrap global product information handling into a singleton
+o system: move get_nameservers() to ifctl use
+o reporting: traffic graph polling interval selection and UX tweaks
+o interfaces: port 6RD/6to4 to ifctl use
+o interfaces: optionally use reverse DNS resolution for ARP table hostnames (contributed by soif)
+o interfaces: allow user-configurable VLAN device names with certain restrictions[1]
+o interfaces: small cleanup on get_real_interface()
+o firewall: simplify port forward rule logic for delete and toggle and make sure to toggle firewall rule as well
+o firewall: various performance and usability improvements in live log
+o firewall: extend all firewall rules with a UUID to align with MVC code upon edit
+o firmware: display license validity when applicable in business edition
+o ipsec: ACL fix for sessions users
+o unbound: support setting type value for DNS over TLS/Query Forwarding API (contributed by kulikov-a)
+o unbound: convert advanced settings to MVC/API
+o mvc: remove "clear all", "copy" and "paste" options when only a single entry is allowed
+o mvc: fix typo in searchRecordsetBase()
+o ports: isc-dhcp 4.4.3P1[2]
+o ports: phalcon 5.0.3[3]
+o ports: php 8.0.24[4]
+o ports: squid no-forgery patch fix
+o ports: strongswan 5.9.8[5]
+
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] https://github.com/opnsense/core/issues/6038
+[2] https://downloads.isc.org/isc/dhcp/4.4.3-P1/dhcp-4.4.3-P1-RELNOTES
+[3] PHALCON:5.0.3
+[4] PHP8:8.0.24
+[5] STRONGSWAN:5.9.8
