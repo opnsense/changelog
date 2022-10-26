@@ -277,7 +277,7 @@ o ports: squid 5.7[45]
 o ports: strongswan 5.9.8[46]
 o ports: suricata 6.0.8[47]
 o ports: syslog-ng 3.38.1[48]
-o ports: unbound 1.16.1[49]
+o ports: unbound 1.16.3[49]
 
 Known issues and limitations:
 
