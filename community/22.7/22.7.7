@@ -1,0 +1,105 @@
+@ November 03, 2022
+
+Hello,
+
+We replaced the packet capture tool with a MVC/API rewrite and
+updated most plugins to use the new setup script facility when
+doing a start/restart/reload through the RC system.
+
+A number of FreeBSD kernel improvements have been included as well.
+
+Although OpenSSL is being updated keep in mind that the current
+popular vulnerability only exists in version 3 and we still use
+1.1.1.
+
+Here are the full patch notes:
+
+o system: fix getOID() call for phpseclib 3 while processing CSR
+o system: avoid error on installer user creation
+o system: show booting banner on dashboard
+o interfaces: show attached interface for VLAN device in overview
+o interfaces: packet capture MVC/API replacement
+o interfaces: fix ARP table name resolve backend issue (contributed by soif)
+o firewall: off-by-one in regex for target port range parse
+o firewall: support Maxmind unclassified "EU" as selectable country
+o firewall: fix possible race condition when changing limit in live log
+o firewall: fix sorting bug in aliases list
+o firewall: allow the use of "dynamic" interface types in shaper, e.g. IPsec devices
+o dnsmasq: remove expired root trust anchor (contributed by Johnny S. Lee)
+o firmware: always fetch the signature file to avoid signature issues after upgrades
+o firmware: use effective ABI in changelog fetch
+o firmware: ignore automatic business plugin and license hint
+o intrusion detection: missing OPNsense categories
+o ipsec: missing return in controller
+o openvpn: use ifctl in link up/down scripts
+o unbound: move the removal of pluggable files above the configuration check
+o unbound: remove 127/8 from private-address block when rebind protection is enabled
+o unbound: make the default private-address items configurable via the advanced page
+o unbound: fix possible error while opening DoT page
+o mvc: when multiple validation messages are returned wrap each message in a div tag
+o mvc: prevent UserExceptions to end up in the crash reporter
+o mvc: translate a base field error
+o backend: wait 1 second for configd socket to become available
+o console: store UUID for VLAN device
+o rc: remove obsolete NAME_var_script and NAME_var_mfs support
+o plugins: migrate all plugins to NAME_setup script use
+o plugins: $verbose argument in plugins_run() is spurious
+o plugins: os-acme-client 3.14[1]
+o plugins: os-apcupsd 1.1[2]
+o plugins: os-frr 1.31[3]
+o plugins: os-haproxy 3.12[4]
+o plugins: os-maltrail 1.10[5]
+o plugins: os-openconnect 1.4.3[6]
+o plugins: os-telegraf 1.12.6[7]
+o plugins: os-tor 1.9 enables hardware acceleration (contributed by haarp)
+o plugins: os-wireguard 1.13[8]
+o src: revert "e1000: try auto-negotiation for fixed 100 or 10 configuration"
+o src: vxlan: check the size of data available in mbuf before using them
+o src: vm_page: fix a logic error in the handling of PQ_ACTIVE operations[9]
+o src: cam: provide compatibility for CAMGETPASSTHRU for periph drivers[10]
+o src: loader: fix elf lookup_symbol type filtering[11]
+o src: zfs: fix a pair of bugs in zfs_fhtovp()[12]
+o src: zfs: fix use-after-free in btree code[13]
+o src: tcp: finish SACK loss recovery on sudden lack of SACK blocks[14]
+o src: igc: remove unnecessary PHY ID checks
+o src: ixl: add support for I710 devices and remove non-inclusive language
+o src: ixl: fix SR-IOV panics
+o src: rc: run NAME_setup before RC_ARG_precmd
+o src: u3g: add more USB IDs
+o ports: libxml 2.10.3[15]
+o ports: nss 3.84[16]
+o ports: openssl 1.1.1s[17]
+o ports: openvpn 2.5.8[18]
+o ports: phalcon 5.1.0[19]
+o ports: php 8.0.25[20]
+o ports: python 3.9.15[21]
+o ports: sudo 1.9.12[22]
+o ports: unbound 1.17.0[23]
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] PLUGINS:22.7/security/acme-client
+[2] PLUGINS:22.7/sysutils/apcupsd
+[3] PLUGINS:22.7/net/frr
+[4] PLUGINS:22.7/net/haproxy
+[5] PLUGINS:22.7/security/maltrail
+[6] PLUGINS:22.7/security/openconnect
+[7] PLUGINS:22.7/net-mgmt/telegraf
+[8] PLUGINS:22.7/net/wireguard
+[9] FREEBSD:FreeBSD-EN-22:23.vm
+[10] FREEBSD:FreeBSD-EN-22:26.cam
+[11] FREEBSD:FreeBSD-EN-22:27.loader
+[12] FREEBSD:FreeBSD-EN-22:24.zfs
+[13] FREEBSD:FreeBSD-EN-22:21.zfs
+[14] FREEBSD:FreeBSD-EN-22:25.tcp
+[15] LIBXML:2.10.3
+[16] NSS:3.84
+[17] OPENSSL:1.1.1s
+[18] OPENVPN:2.5.8
+[19] PHALCON:5.1.0
+[20] PHP8:8.0.25
+[21] PYTHON:3.9.15
+[22] SUDO:1.9.12
+[23] UNBOUND:1.17.0
