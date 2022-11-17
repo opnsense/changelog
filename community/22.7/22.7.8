@@ -1,0 +1,58 @@
+@ November 17, 2022
+
+A belated happy patch day to everyone,
+
+This is a small maintenance and security update.  You will notice that
+LibreSSL no longer works with FreeRADIUS software due to hiding library
+internals that are used by the software.  Your current install will
+continue to work, but we would recommend switching to OpenSSL to receive
+FreeRADIUS updates as they become available.
+
+Also, the infamous log_error() message is being phased out in the development
+version to end the questions of "Why is this log message an error?" and so
+with log_msg() each log line receives a more appropriate log level between
+error, warning and notice.
+
+Here are the full patch notes:
+
+o system: add statistics tree view containing vmstat memory characteristics
+o system: explicitly reopen main log file in case another log file was used and closed
+o system: tweak log_msg() to prepare log level adjustments migration away from log_error()
+o system: enforce config reload to fetch group membership in authentication tester
+o system: separate interface type icon from name column in interface widget
+o system: change system log default to "Notice"
+o system: UX tweaks on activity page
+o system: revised backend daemon startup delay
+o system: drop empty plugins_run() result
+o interfaces: migrate main clearing of interface data to ifctl
+o interfaces: fix display of special HTML characters in packet capture
+o interfaces: retain existing PPP settings on saving interface settings
+o interfaces: delete the correct lock of PPP device
+o interfaces: fix variable use in interface_proxyarp_configure()
+o firewall: wrap user rule registration in new function filter_core_rules_user()
+o firewall: simplify rule lookup by using filter_core_rules_user()
+o firewall: allow external dynamic address in NPT
+o firewall: remove extended VIP expansion from NAT rules
+o firewall: fix live view hostname lookup may result in HTTP 431 error
+o ipsec: remove side effect host route removal from Phase 1 page
+o unbound: do not stop on potential errors in start script
+o plugins: os-freeradius is no longer available for LibreSSL to allow updates of FreeRADIUS software
+o plugins: os-nginx 1.31[1]
+o plugins: os-wireguard now skips invalid peers for dashboard widget (contributed by jkellerer)
+o ports: expat 2.5.0[2]
+o ports: krb5 1.20.1[3]
+o ports: nss 3.85[4]
+o ports: phalcon 5.1.1[5]
+o ports: sudo 1.9.12p1[6]
+
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] PLUGINS:22.7/www/nginx
+[2] EXPAT:2.5.0
+[3] KRB5:1.20
+[4] NSS:3.85
+[5] PHALCON:5.1.1
+[6] SUDO:1.9.12p1
