@@ -270,14 +270,15 @@ o ports: nss 3.83[38]
 o ports: phalcon 5.0.3[39]
 o ports: php 8.0.24[40]
 o ports: phpseclib 3.0.16[41]
-o ports: python 3.9.14[42]
+o ports: python 3.9.15[42]
 o ports: rrdtool 1.8.0[43]
 o ports: sqlite 3.39.3[44]
 o ports: squid 5.7[45]
 o ports: strongswan 5.9.8[46]
-o ports: suricata 6.0.8[47]
-o ports: syslog-ng 3.38.1[48]
-o ports: unbound 1.16.3[49]
+o ports: sudo 1.9.12p1[47]
+o ports: suricata 6.0.8[48]
+o ports: syslog-ng 3.38.1[49]
+o ports: unbound 1.16.3[50]
 
 Known issues and limitations:
 
@@ -356,11 +357,12 @@ Your OPNsense team
 [39] PHALCON:5.0.3
 [40] PHP8:8.0.24
 [41] PHPSECLIB:3.0.16
-[42] PYTHON:3.9.14
+[42] PYTHON:3.9.15
 [43] https://github.com/oetiker/rrdtool-1.x/blob/master/CHANGES
 [44] SQLITE:3.39.3
 [45] SQUID5:5.7
 [46] STRONGSWAN:5.9.8
-[47] https://suricata.io/2022/09/27/suricata-6-0-7-released/
-[48] SYSLOG-NG:3.38.1
-[49] UNBOUND:1.16.3
+[47] SUDO:1.9.12p1
+[48] https://suricata.io/2022/09/27/suricata-6-0-7-released/
+[49] SYSLOG-NG:3.38.1
+[50] UNBOUND:1.16.3
