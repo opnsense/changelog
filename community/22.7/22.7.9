@@ -1,0 +1,43 @@
+@ December 01, 2022
+
+Hi!
+
+A quick update to address the new FreeBSD security advisory for ping utility
+as well as Suricata.  The DNS block list was rewritten in Python and there
+will be a couple of cool additions for it in the foreseeable future.  :)
+
+Here are the full patch notes:
+
+o system: fix internal CRL check (contributed by kulikov-a)
+o system: fix a few minor Coverty Scan reports[1]
+o interfaces: use get_interface_list() to identify hardware devices
+o interfaces: fix single ACL use for MVC/API interface pages
+o firewall: add category selection to aliases
+o unbound: rework DNSBL implementation to Python module
+o backend: clean up scripts/systemheath location
+o backend: moved log format definitions to new location for core and several plugins
+o mvc: change default sorting to case-insensitive
+o mvc: move JavaScript and CSS imports to base controller
+o mvc: make sure HostnameField with ZoneRootAllowed accepts "@." prefix
+o plugins: os-telegraf 1.12.7[2]
+o plugins: os-theme-cicada 1.30 (contributed by Team Rebellion)
+o plugins: os-theme-vicuna 1.42 (contributed by Team Rebellion)
+o plugins: os-wireguard now attempts to start tunnels again when all DNS is configured
+o src: ixgbe: workaround errata about UDP frames with zero checksum
+o src: hpet: Allow a MMIO window smaller than 1K
+o src: ping: fix handling of IP packet sizes[3]
+o ports: php 8.0.26[4]
+o ports: sqlite 3.40.0[5]
+o ports: suricata 6.0.9[6]
+
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] https://scan.coverity.com/projects/opnsense-core
+[2] PLUGINS:22.7/net-mgmt/telegraf
+[3] FREEBSD:FreeBSD-SA-22:15.ping
+[4] PHP8:8.0.26
+[5] SQLITE:3.40.0
+[6] https://suricata.io/2022/11/29/suricata-6-0-9-released/
