@@ -30,6 +30,13 @@ o ports: php 8.0.26[4]
 o ports: sqlite 3.40.0[5]
 o ports: suricata 6.0.9[6]
 
+A hotfix release was issued as 22.7.9_3:
+
+o unbound: fix blocklist use with DNS64 mode (contributed by kulikov-a)
+o unbound: change working directory before checking configuration
+o web proxy: fix broken " Google GSuite restricted" option
+o ports: suricata backs out new V14 netmap API changes for now[7]
+
 
 Stay safe,
 Your OPNsense team
@@ -41,3 +48,4 @@ Your OPNsense team
 [4] PHP8:8.0.26
 [5] SQLITE:3.40.0
 [6] https://suricata.io/2022/11/29/suricata-6-0-9-released/
+[7] https://redmine.openinfosecfoundation.org/issues/5744
