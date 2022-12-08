@@ -280,6 +280,23 @@ o ports: suricata 6.0.8[48]
 o ports: syslog-ng 3.38.1[49]
 o ports: unbound 1.16.3[50]
 
+The following operating system hotfix was issued:
+
+o src: vxlan: check the size of data available in mbuf before using them
+o src: vm_page: fix a logic error in the handling of PQ_ACTIVE operations[51]
+o src: cam: provide compatibility for CAMGETPASSTHRU for periph drivers[52]
+o src: loader: fix elf lookup_symbol type filtering[53]
+o src: zfs: fix a pair of bugs in zfs_fhtovp()[54]
+o src: zfs: fix use-after-free in btree code[55]
+o src: tcp: finish SACK loss recovery on sudden lack of SACK blocks[56]
+o src: igc: remove unnecessary PHY ID checks
+o src: ixl: add support for I710 devices and remove non-inclusive language
+o src: ixl: fix SR-IOV panics
+o src: u3g: add more USB IDs
+o src: ixgbe: workaround errata about UDP frames with zero checksum
+o src: hpet: Allow a MMIO window smaller than 1K
+o src: ping: fix handling of IP packet sizes[57]
+
 Known issues and limitations:
 
 o The DH parameter is no longer available in OpenVPN server configuration and now fixed to the RFC 7919 4096 bit key.  The only downside may be lower performance on older machines.
@@ -366,3 +383,10 @@ Your OPNsense team
 [48] https://suricata.io/2022/09/27/suricata-6-0-7-released/
 [49] SYSLOG-NG:3.38.1
 [50] UNBOUND:1.16.3
+[51] FREEBSD:FreeBSD-EN-22:23.vm
+[52] FREEBSD:FreeBSD-EN-22:26.cam
+[53] FREEBSD:FreeBSD-EN-22:27.loader
+[54] FREEBSD:FreeBSD-EN-22:24.zfs
+[55] FREEBSD:FreeBSD-EN-22:21.zfs
+[56] FREEBSD:FreeBSD-EN-22:25.tcp
+[57] FREEBSD:FreeBSD-SA-22:15.ping
