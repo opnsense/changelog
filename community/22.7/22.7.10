@@ -1,0 +1,49 @@
+@ December 21, 2022
+
+Hi there,
+
+Another small reliability update with additional RADIUS user creation
+support included.  23.1 is just around the corner now and most work
+for it has already been done.  The major release is scheduled for
+January 26 with a release candidate coming out 2 weeks earlier.
+
+Here are the full patch notes:
+
+o system: add group (class) sync and user creation for RADIUS authentication
+o system: show and search ACL endpoints in privilege selector
+o system: replace a number of log_error() calls with log_msg() equivalent
+o system: improve SSH lockout behaviour
+o firewall: sates page performance improvements and better address parsing in search
+o firewall: reuse "hostid" on filter reload events
+o ipsec: allow to search all phase 2 entries via API call
+o openvpn: remove unused "pool_enable" attribute
+o unbound: introduce blocklist module changes for upcoming 23.1
+o unbound: fix log message blocklist item count (contributed by kulikov-a)
+o unbound: also change working dir for unbound-checkconf in start script (contributed by kulikov-a)
+o ui: unicode content for tokenizer (contributed by kulikov-a)
+o plugins: os-clamav 1.8[1]
+o plugins: os-ddclient IPv6 parsing fix[2]
+o plugins: os-rfc2136 1.7 fixes key format issue with latest bind-tools update
+o plugins: os-theme-cicada 1.31 (contributed by Team Rebellion)
+o plugins: os-theme-vicuna 1.43 (contributed by Team Rebellion)
+o plugins: os-wireguard post-start hook improvement for interface grouping
+o ports: curl 7.86.0[3]
+o ports: dnsmasq 2.88[4]
+o ports: nss 3.86[5]
+o ports: phalcon 5.1.2[6]
+o ports: phpseclib 3.0.18[7]
+o ports: phyton 3.9.16[8]
+
+
+Stay safe and happy holidays,
+Your OPNsense team
+
+--
+[1] PLUGINS:22.7/security/clamav
+[2] PLUGINS:22.7/dns/ddclient
+[3] CURL:7.86.0
+[4] DNSMASQ:2.88
+[5] NSS:3.86
+[6] PHALCON:5.1.2
+[7] PHPSECLIB:3.0.18
+[8] PYTHON:3.9.16
