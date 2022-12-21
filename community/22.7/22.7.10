@@ -34,6 +34,11 @@ o ports: phalcon 5.1.2[6]
 o ports: phpseclib 3.0.18[7]
 o ports: phyton 3.9.16[8]
 
+A hotfix release was issued as 22.7.10_2:
+
+o ipsec: default log should be set to "basic" but PHP 8 disagreed
+o unbound: fix missing query_reply property leading to an AttributeError
+
 
 Stay safe and happy holidays,
 Your OPNsense team
