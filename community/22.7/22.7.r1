@@ -80,8 +80,8 @@ o plugins: os-tayga 1.2[4]
 o plugins: os-tor no longer available on LibreSSL due to incompatibilities with newer Tor versions
 o plugins: os-web-proxy-useracl is no longer available, no updates since 2017
 o src: FreeBSD 13.1-RELEASE[5]
-o ports: sqlite 3.39.0[6]
-o ports: php 8.0.20[7]
+o ports: php 8.0.20[6]
+o ports: sqlite 3.39.0[7]
 
 A hotfix release was issued as 22.7.r1_8:
 
@@ -129,8 +129,8 @@ Your OPNsense team
 [3] https://github.com/opnsense/plugins/blob/b31bcb92106/sysutils/boot-delay/Makefile#L6
 [4] PLUGINS:22.7/net/tayga
 [5] https://www.freebsd.org/releases/13.1R/relnotes/
-[6] SQLITE:3.39.0
-[7] PHP8:8.0.20
+[6] PHP8:8.0.20
+[7] SQLITE:3.39.0
 
 # SHA256 (OPNsense-22.7.r1-OpenSSL-dvd-amd64.iso.bz2) = 4c4a58de86b112e62721d53667e21745b85e4d6ba696ec0f52ab7bf7edcb21e4
 # SHA256 (OPNsense-22.7.r1-OpenSSL-nano-amd64.img.bz2) = 325fd29d4ca191b6dd90845e4ddfeb96fff2ebcc03b2b675ac656660e8d58b0d
