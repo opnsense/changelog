@@ -1,0 +1,48 @@
+@ January 18, 2023
+
+Hello there,
+
+This will be the end of life release for the 22.7 series with only a small
+number of reliability updates.  Upgrades to 23.1-RC1 are possible from the
+development version of this release.  We do expect an online update for RC2
+next week.
+
+The final 23.1 release will be on January 26.  As always the upgrade path
+from the community version will be added as a hotfix shortly after the final
+release annoucement is published.  However, this time around LibreSSL will
+no longer update and must be switched to the OpenSSL flavour prior to the
+upgrade.
+
+Here are the full patch notes:
+
+o system: fix a few minor Coverity Scan reports in Python code[1]
+o firewall: show automated "port 0" rule as actual port "0" on PHP 8
+o reporting: fix incompatible regex syntax in FreeBSD 13.1 for firewall state health statistics
+o unbound: safeguard retrieval of blocklist shortcode
+o mvc: fix IntegerField minimum value (contributed by xbb)
+o plugins: acme-client 3.15[2]
+o plugins: os-stunnel fixes missing include in certificate script
+o ports: curl 7.87.0[3]
+o ports: nss 3.87[4]
+o ports: pcre 10.42[5]
+o ports: phalcon 5.1.4[6]
+o ports: php 8.0.27[7]
+o ports: sqlite 3.40.1[8]
+o ports: strongswan 5.9.9[9]
+o ports: unbound 1.17.1[10]
+
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] https://scan.coverity.com/projects/opnsense-core
+[2] PLUGINS:22.7/security/acme-client
+[3] CURL:7.87.0
+[4] NSS:3.87
+[5] PCRE2:10.42
+[6] PHALCON:5.1.4
+[7] PHP8:8.0.27
+[8] SQLITE:3.40.1
+[9] STRONGSWAN:5.9.9
+[10] UNBOUND:1.17.1
