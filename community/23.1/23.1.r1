@@ -93,7 +93,7 @@ Migration notes, known issues and limitations:
 
 o LibreSSL flavour has been discontinued.  Switch to OpenSSL flavour to proceed with the upgrade.
 o StrongSwan IPsec configuration now uses the preferred swanctl.conf instead of the deprecated ipsec.conf which could lead to connectivity issues in ambiguous cases.  Subtle bugs cannot be ruled out as well so please raise an issue on GitHub to be able to investigate each case.
-o The new IPsec connections pages and API create an idependent set of connections following the design of swanctl.conf.  Legacy tunnel settings cannot be managed from the API and are not migrated.
+o The new IPsec connections pages and API create an independent set of connections following the design of swanctl.conf.  Legacy tunnel settings cannot be managed from the API and are not migrated.
 
 The public key for the 23.1 series is:
 
