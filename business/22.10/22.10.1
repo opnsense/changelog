@@ -1,0 +1,158 @@
+@ February 01, 2023
+
+This business release is based on the OPNsense 22.7.11 community version
+with additional reliability improvements.
+
+Here are the full patch notes:
+
+o system: fix getOID() call for phpseclib 3 while processing CSR
+o system: avoid error on installer user creation
+o system: show booting banner on dashboard
+o system: add statistics tree view containing vmstat memory characteristics
+o system: explicitly reopen main log file in case another log file was used and closed
+o system: tweak log_msg() to prepare log level adjustments migration away from log_error()
+o system: enforce config reload to fetch group membership in authentication tester
+o system: separate interface type icon from name column in interface widget
+o system: change system log default to "Notice"
+o system: UX tweaks on activity page
+o system: revised backend daemon startup delay
+o system: drop empty plugins_run() result
+o system: fix internal CRL check (contributed by kulikov-a)
+o system: add group (class) sync and user creation for RADIUS authentication
+o system: show and search ACL endpoints in privilege selector
+o system: replace a number of log_error() calls with log_msg() equivalent
+o system: improve SSH lockout behaviour
+o system: fix a few minor Coverity Scan reports in PHP and Python[1]
+o interfaces: show attached interface for VLAN device in overview
+o interfaces: packet capture MVC/API replacement
+o interfaces: fix ARP table name resolve backend issue (contributed by soif)
+o interfaces: migrate main clearing of interface data to ifctl
+o interfaces: fix display of special HTML characters in packet capture
+o interfaces: retain existing PPP settings on saving interface settings
+o interfaces: delete the correct lock of PPP device
+o interfaces: fix variable use in interface_proxyarp_configure()
+o interfaces: use get_interface_list() to identify hardware devices
+o interfaces: fix single ACL use for MVC/API interface pages
+o firewall: off-by-one in regex for target port range parse
+o firewall: support Maxmind unclassified "EU" as selectable country
+o firewall: fix possible race condition when changing limit in live log
+o firewall: fix sorting bug in aliases list
+o firewall: allow the use of "dynamic" interface types in shaper, e.g. IPsec devices
+o firewall: wrap user rule registration in new function filter_core_rules_user()
+o firewall: simplify rule lookup by using filter_core_rules_user()
+o firewall: allow external dynamic address in NPT
+o firewall: remove extended VIP expansion from NAT rules
+o firewall: fix live view hostname lookup may result in HTTP 431 error
+o firewall: add category selection to aliases
+o firewall: sates page performance improvements and better address parsing in search
+o firewall: reuse "hostid" on filter reload events
+o firewall: show automated "port 0" rule as actual port "0" on PHP 8
+o reporting: fix incompatible regex syntax in FreeBSD 13.1 for firewall state health statistics
+o reporting: bail DNS resolve in traffic graphs when resolver is not configured
+o captive portal: for static MAC assignments make sure that the IP address actually changed before updating it
+o dnsmasq: remove expired root trust anchor (contributed by Johnny S. Lee)
+o firmware: always fetch the signature file to avoid signature issues after upgrades
+o firmware: use effective ABI in changelog fetch
+o firmware: ignore automatic business plugin and license hint
+o ipsec: missing return in controller
+o ipsec: remove side effect host route removal from Phase 1 page
+o ipsec: allow to search all phase 2 entries via API call
+o ipsec: default log should be set to "basic" but PHP 8 disagreed
+o openvpn: use ifctl in link up/down scripts
+o openvpn: remove unused "pool_enable" attribute
+o unbound: move the removal of pluggable files above the configuration check
+o unbound: remove 127/8 from private-address block when rebind protection is enabled
+o unbound: make the default private-address items configurable via the advanced page
+o unbound: fix possible error while opening DoT page
+o unbound: do not stop on potential errors in start script
+o unbound: rework DNSBL implementation to Python module
+o unbound: fix blocklist use with DNS64 mode (contributed by kulikov-a)
+o unbound: change working directory before checking configuration
+o unbound: introduce blocklist module changes for upcoming 23.1
+o unbound: fix log message blocklist item count (contributed by kulikov-a)
+o unbound: also change working dir for unbound-checkconf in start script (contributed by kulikov-a)
+o unbound: fix missing query_reply property leading to an AttributeError
+o unbound: safeguard retrieval of blocklist shortcode
+o web proxy: fix broken "Google GSuite restricted" option
+o backend: wait 1 second for configd socket to become available
+o backend: clean up scripts/systemheath location
+o backend: moved log format definitions to new location for core and several plugins
+o mvc: when multiple validation messages are returned wrap each message in a div tag
+o mvc: translate a base field error
+o mvc: change default sorting to case-insensitive
+o mvc: move JavaScript and CSS imports to base controller
+o mvc: make sure HostnameField with ZoneRootAllowed accepts "@." prefix
+o mvc: fix IntegerField minimum value (contributed by xbb)
+o rc: remove obsolete NAME_var_script and NAME_var_mfs support
+o ui: unicode content for tokenizer (contributed by kulikov-a)
+o plugins: migrate all plugins to NAME_setup script use
+o plugins: $verbose argument in plugins_run() is spurious
+o plugins: os-acme-client 3.15[2]
+o plugins: os-apcupsd 1.1[3]
+o plugins: os-clamav 1.8[4]
+o plugins: os-ddclient IPv6 parsing fix[5]
+o plugins: os-freeradius is no longer available for LibreSSL to allow updates of FreeRADIUS software
+o plugins: os-frr 1.31[6]
+o plugins: os-haproxy 3.12[7]
+o plugins: os-maltrail 1.10[8]
+o plugins: os-nginx 1.31[9]
+o plugins: os-openconnect 1.4.3[10]
+o plugins: os-rfc2136 1.7 fixes key format issue with latest bind-tools update
+o plugins: os-stunnel fixes missing include in certificate script
+o plugins: os-telegraf 1.12.7[11]
+o plugins: os-theme-cicada 1.31 (contributed by Team Rebellion)
+o plugins: os-theme-vicuna 1.43 (contributed by Team Rebellion)
+o plugins: os-tor 1.9 enables hardware acceleration (contributed by haarp)
+o plugins: os-wireguard 1.13[12]
+o ports: curl 7.87.0[13]
+o ports: dnsmasq 2.88[14]
+o ports: expat 2.5.0[15]
+o ports: krb5 1.20.1[16]
+o ports: libxml 2.10.3[17]
+o ports: nss 3.87[18]
+o ports: openssl 1.1.1s[19]
+o ports: openvpn 2.5.8[20]
+o ports: pcre 10.42[21]
+o ports: phalcon 5.1.4[22]
+o ports: php 8.0.27[23]
+o ports: phpseclib 3.0.18[24]
+o ports: python 3.9.16[25]
+o ports: sqlite 3.40.1[26]
+o ports: strongswan 5.9.9[27]
+o ports: suricata 6.0.9[28]
+o ports: unbound 1.17.1[29]
+
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] https://scan.coverity.com/projects/opnsense-core
+[2] PLUGINS:22.7/security/acme-client
+[3] PLUGINS:22.7/sysutils/apcupsd
+[4] PLUGINS:22.7/security/clamav
+[5] PLUGINS:22.7/dns/ddclient
+[6] PLUGINS:22.7/net/frr
+[7] PLUGINS:22.7/net/haproxy
+[8] PLUGINS:22.7/security/maltrail
+[9] PLUGINS:22.7/www/nginx
+[10] PLUGINS:22.7/security/openconnect
+[11] PLUGINS:22.7/net-mgmt/telegraf
+[12] PLUGINS:22.7/net/wireguard
+[13] CURL:7.87.0
+[14] DNSMASQ:2.88
+[15] EXPAT:2.5.0
+[16] KRB5:1.20
+[17] LIBXML:2.10.3
+[18] NSS:3.87
+[19] OPENSSL:1.1.1s
+[20] OPENVPN:2.5.8
+[21] PCRE2:10.42
+[22] PHALCON:5.1.4
+[23] PHP8:8.0.27
+[24] PHPSECLIB:3.0.18
+[25] PYTHON:3.9.16
+[26] SQLITE:3.40.1
+[27] STRONGSWAN:5.9.9
+[28] https://suricata.io/2022/11/29/suricata-6-0-9-released/
+[29] UNBOUND:1.17.1
