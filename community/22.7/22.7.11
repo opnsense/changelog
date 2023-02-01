@@ -20,7 +20,7 @@ o firewall: show automated "port 0" rule as actual port "0" on PHP 8
 o reporting: fix incompatible regex syntax in FreeBSD 13.1 for firewall state health statistics
 o unbound: safeguard retrieval of blocklist shortcode
 o mvc: fix IntegerField minimum value (contributed by xbb)
-o plugins: acme-client 3.15[2]
+o plugins: os-acme-client 3.15[2]
 o plugins: os-stunnel fixes missing include in certificate script
 o ports: curl 7.87.0[3]
 o ports: nss 3.87[4]

@@ -76,7 +76,7 @@ o mvc: fix IntegerField minimum value (contributed by xbb)
 o mvc: add TextField tests (contributed by agh1467)
 o ui: assorted improvements in bootgrid and form controls
 o ui: switch to pure JSON data in bootgrids
-o plugins: acme-client 3.15[2]
+o plugins: os-acme-client 3.15[2]
 o plugins: os-bind 1.25[3]
 o plugins: os-ddclient 1.11[4]
 o plugins: os-dyndns end of life note moves to 23.7
