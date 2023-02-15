@@ -1,0 +1,108 @@
+@ February 15, 2023
+
+Hello,
+
+Apart from security updates for operating system and third party software
+this mainly fixes issues with the initial 23.1 release.  IPsec and Unbound
+components in particular receive a number of improvements being the more
+prominent areas of work for this series.  Unbound also gained a SafeSearch
+option and the new reporting database CPU usage should be much lower and
+easier to use.
+
+Overall we are happy with how the major release turned out and look forward
+to further fixes in e.g. Netmap framework including Suricata changes for
+multi-threading support which has been in the works for a long time.  OpenVPN
+2.6 update and related changes are also pending at the moment.
+
+The roadmap for 23.7 will be published soon and will again include a number
+of MVC/API conversions for static components.  Statistics do indicate that we
+are over 60% done with converting the code base to a modern framework as
+compared to early 2015 which is now already over 8 years ago!
+
+Here are the full patch notes:
+
+o system: replace single exec_command() with new shell_safe() wrapper
+o system: fix assorted PHP 8.2 deprecation notes
+o system: remove overreaching "Reconfigure a plugin facility" cron job and backend command that has no visible users
+o interfaces: fix VLAN rename after protocol addition in 23.1
+o interfaces: fix VLAN missing a config lock on delete
+o interfaces: make description field show for all types of VIP (contributed by FingerlessGloves)
+o interfaces: allow VHID reuse as it was before 23.1
+o firewall: prevent possible infinite loop in alias parsing (contributed by kulikov-a)
+o firewall: do not calculate local port range for alias (contributed by kulikov-a)
+o firewall: update validation of alias names to be slightly more restrictive
+o firewall: safeguard download_geolite() and log errors
+o firewall: do not switch gateway on bootup
+o captive portal: enforce a database repair during operation if necessary
+o firmware: move single-call function reporter page
+o intrusion detection: properly reset metdata response when no metadata is found
+o ipsec: allow "@" character in eap_id fields for new connections
+o ipsec: missing remapping pool UUID to name for new connections
+o ipsec: change status column sizing and hide local/remote auth by default
+o ipsec: fix username parsing in lease status
+o ipsec: refactor widget to use new data format
+o ipsec: migrate duplicated cron job
+o ipsec: faulty unique constraint in pre-shared keys
+o ipsec: fix eap_id placement for eap-mschapv2
+o unbound: simplify logger logic for required queries
+o unbound: add SafeSearch option to blocklists
+o unbound: match white/blocklist action exactly from reporting page
+o unbound: always prioritize whitelists over blocklists
+o unbound: various UX improvements in reporting page
+o unbound: add serve-expired, log-servfail, log-local-actions and val-log-level advanced settings
+o unbound: drop unnecessary index from reporting database and other optimizations to lower CPU usage
+o unbound: add HTTPS record type to reporting
+o unbound: remember reporting page logarithmic setting
+o unbound: missing global so that cache is never flushed when requested
+o mvc: cleanse $record input in searchRecordsetBase() before usage
+o plugins: os-haproxy 4.1[1]
+o plugins: os-openconnect 1.4.4[2]
+o plugins: os-qemu-guest-agent 1.2[3]
+o plugins: os-tayga fixes MVC interface registration
+o plugins: os-wireguard fixes MVC interface registration
+o src: geli: split the initalization of HMAC[4]
+o src: fix ena driver crash after reset in 7th gen AWS instance types[5]
+o src: fix sdhci broken write-protect settings[6]
+o src: import tzdata 2022g[7]
+o src: ipsec: clear pad bytes in PF_KEY messages
+o src: fib_algo: set vnet when destroying algo instance
+o src: if_ipsec: handle situations where there are no policy or SADB entry for if
+o src: if_ipsec: protect against user supplying unknown address family
+o src: if_me: use dedicated network privilege
+o src: vxlan: add support for socket ioctls SIOC[SG]TUNFIB
+o src: introduce and use the NET_EPOCH_DRAIN_CALLBACKS() macro
+o src: iflib: Add null check to iflib_stop()
+o src: x86: ignore stepping for APL30 errata
+o src: pfctl: rule.label is a two-dimensional array
+o src: pf: fix syncookies in conjunction with tcp fast port reuse
+o src: pf: fix panic on deferred packets
+o src: ipfw: Add missing 'va' code point name
+o src: netmap: try to count packet drops in emulated mode
+o src: netmap: fix a queue length check in the generic port rx path
+o src: netmap: tell the compiler to avoid reloading ring indices
+o ports: remove GnuTLS workarounds from ports previously required for LibreSSL
+o ports: dnsmasq 2.89[8]
+o ports: dpinger 3.3[9]
+o ports: lighttpd 1.4.68[10]
+o ports: openssh-portable 9.1p1[11]
+o ports: openssl 1.1.1t[12]
+o ports: php 8.1.15[13]
+
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] PLUGINS:23.1/net/haproxy
+[2] PLUGINS:23.1/security/openconnect
+[3] PLUGINS:23.1/emulators/qemu-guest-agent
+[4] FREEBSD:FreeBSD-SA-23:01.geli
+[5] FREEBSD:FreeBSD-EN-23:03.ena
+[6] FREEBSD:FreeBSD-EN-23:02.sdhci
+[7] FREEBSD:FreeBSD-EN-23:01.tzdata
+[8] DNSMASQ:2.89
+[9] DPINGER:3.3
+[10] https://www.lighttpd.net/2023/1/3/1.4.68/
+[11] OPENSSH:9.1p1
+[12] OPENSSL:1.1.1t
+[13] PHP8:8.1.15
