@@ -88,6 +88,16 @@ o ports: openssh-portable 9.1p1[11]
 o ports: openssl 1.1.1t[12]
 o ports: php 8.1.15[13]
 
+A hotfix release was issued as 23.1.1_2:
+
+o captive portal: remove mod_evasion use which was discontinued by lighttpd
+o unbound: wait for pipe in logger (contributed by kulikov-a)
+
+Rate limiting was removed from the captive portal which was set to 250
+connections by the same IP to the captive portal itself.  This can be
+easily replaced by a manual firewall rule with advanced options set, e.g.
+"Max established" set to 250 with destination "This Firewall".
+
 
 Stay safe,
 Your OPNsense team
