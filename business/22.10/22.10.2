@@ -1,0 +1,31 @@
+@ February 20, 2023
+
+This business release is based on the OPNsense 22.7.11 community version
+with additional reliability improvements.
+
+Here are the full patch notes:
+
+o interfaces: fix VLAN missing a config lock on delete
+o firewall: do not switch gateway on bootup
+o intrusion detection: properly reset metadata response when no metadata is found
+o unbound: missing global so that cache is never flushed when requested
+o mvc: cleanse $record input in searchRecordsetBase() before usage
+o src: fix multiple OpenSSL vulnerabilities[1]
+o src: geli: split the initalization of HMAC[2]
+o src: fix ena driver crash after reset in 7th gen AWS instance types[3]
+o src: fix sdhci broken write-protect settings[4]
+o src: import tzdata 2022g[5]
+o src: x86: ignore stepping for APL30 errata
+o ports: openssl 1.1.1t[6]
+
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] FREEBSD:FreeBSD-SA-23:03.openssl
+[2] FREEBSD:FreeBSD-SA-23:01.geli
+[3] FREEBSD:FreeBSD-EN-23:03.ena
+[4] FREEBSD:FreeBSD-EN-23:02.sdhci
+[5] FREEBSD:FreeBSD-EN-23:01.tzdata
+[6] OPENSSL:1.1.1t
