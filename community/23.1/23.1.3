@@ -1,0 +1,25 @@
+@ March 09, 2023
+
+Hello again,
+
+This update was not planned as such, but an Sqlite compile change in FreeBSD
+ports required a clean rebuild so instead of a hotfix we are shipping this tiny
+stable update.
+
+Here are the full patch notes:
+
+o firewall: fix mismatch of options in new automatic listing of floating rules in interface rules
+o ipsec: "Allow any remote gateway to connect" should suffix all in order to connect to the other end
+o ipsec: store proper log values in advanced settings
+o ipsec: add a routing hook and execute it for all VTI devices during reconfiguration
+o ports: sqlite backs out disabling DQS option which broke software on multiple ends
+o ports: phpseclib 3.0.19[1]
+o ports: sudo 1.9.13p3[2]
+
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] PHPSECLIB:3.0.19
+[2] SUDO:1.9.13p3
