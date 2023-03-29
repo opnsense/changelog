@@ -1,0 +1,44 @@
+@ March 29, 2023
+
+Hi there,
+
+This moves MVC/API migration a bit further and fixes the radvd restart
+behaviour using SIGHUP which caused issues with the initial 23.1.4.
+Unbound gained wildcard domain blocking and its backend was further
+refactored and improved upon.
+
+Here are the full patch notes:
+
+o system: timezone parsing issue for zones west of UTC using "-"
+o system: migrate services page and widget to MVC/API
+o system: move web GUI service definition to correct file
+o system: add service_by_filter() service search extension
+o system: pin down the auto-far gateway selection and routing log adjustments
+o system: prevent applying tunables which are already set
+o firewall: refactor alias update scripts
+o dhcp: bring back the SIGHUP handling of radvd due to fix upstream
+o ipsec: replace status call with portable alternative
+o network time: migrate service status to PID file
+o openvpn: fix client output for widget (contributed by kulikov-a)
+o openvpn: migrate connection status page and widget to MVC/API
+o unbound: replace status call with portable alternative
+o unbound: bring back missing advanced page ACL entry
+o unbound: implement wildcard blocking and refactor DNSBL module
+o unbound: account for CNAME redirection in DNSBL module
+o unbound: prevent logging SERVFAIL twice in DNSBL module
+o unbound: allow scripts to extend blocklist functionality
+o mvc: add MaskPerItem toggle to allow regex validation per entry in CSVListField
+o ui: add a fail() handler to disable action button spinner
+o plugins: os-frr 1.33[1]
+o src: pfsync: fix pfsync_undefer_state() locking
+o src: pfsync: add missing unlock in pfsync_defer_tmo()
+o src: epair: merged assorted fixes
+o ports: openssl fix for CVE-2023-0464
+o ports: radvd fix for SIGHUP behaviour
+
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] PLUGINS:23.1/net/frr
