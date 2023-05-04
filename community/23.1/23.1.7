@@ -1,0 +1,67 @@
+@ May 04, 2023
+
+Hi there,
+
+Today we switch to OpenVPN 2.6 including deferred authentication which we
+know some people have been waiting for.  The routing subsystem received a
+refactor to integrate default gateway switching into the actual routing
+code.
+
+Suricata was finally updated to a newer release since the Netmap (IPS) stall
+bug inside their code had been found and fixed while we were still using an
+older code base that did not have the error.
+
+Please also note that OpenVPN does no longer support the XOR feature due to
+FreeBSD ports blocking these types of out-of-project contributions and OpenVPN
+itself was never interested in supporting it natively.  We have been keeping
+this alive since 2015, but several alternatives exist now that were not
+available back then.
+
+Here are the full patch notes:
+
+o system: restructure routing to carry out default gateway switching and address family specific reconfig
+o system: prevent PHP session garbage collection from running early (contributed by lin-xianming)
+o system: finish simplifying plugins_run()
+o firewall: add missing scrub rules in dependency check for alias use
+o firewall: usability improvements and cleanups in scheduler pages (contributed by kuya1284)
+o interfaces: ensure single PPP netgraph node has the proper name
+o interfaces: reject invalid self-assignments in VLAN parent
+o interfaces: migrate trace route page to MVC/API
+o interfaces: migrate port probe page to MVC/API
+o interfaces: remove indirection in PPP ports handling
+o interfaces: exclude a few cases from PPPoEv6 negotiation
+o reporting: fix incorrect interface index in NetFlow init (contributed by Nicolas Thumann)
+o dhcp: restart radvd on config changes, otherwise keep SIGHUP
+o dhcp: when cleaning up static leases do not remove entries where only a MAC address is set
+o firmware: update size requirements for major upgrades from command line
+o firmware: embed build metadata into package annotations for use in runtime remote queries
+o firmware: fix execution of version queries when not possible
+o firmware: revoke 22.7 fingerprint
+o openvpn: fix two widget display issues
+o openvpn: use CARP INIT state the same way as BACKUP state for client start/stop
+o openvpn: enable deferred authentication (sponsored by m.a.x. it)
+o unbound: minor improvements to handle "Dot" endpoints ambiguity
+o web proxy: allow more signs for username and password (contributed by Bi0T1N)
+o mvc: change Phalcon logging to omit type and date
+o mvc: add strict option to NetworkField
+o ui: prevent crashing out when endpoint does not return data for SimpleActionButton
+o plugins: os-ddclient 1.13[1]
+o plugins: os-stunnel fix for missing OpenSSL CRL functions
+o plugins: os-smart fix for highlighting result (contributed by Justin Horton)
+o ports: libxml 2.10.4[2]
+o ports: openvpn 2.6.3[3]
+o ports: sqlite 3.41.2[4]
+o ports: suricata 6.0.11[5]
+o ports: syslog-ng 4.1.1[6]
+
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] PLUGINS:23.1/dns/ddclient
+[2] LIBXML:2.10.4
+[3] OPENVPN26:2.6.3
+[4] SQLITE:3.41.2
+[5] https://suricata.io/2023/04/13/suricata-6-0-11-released/
+[6] SYSLOG-NG:4.1.1
