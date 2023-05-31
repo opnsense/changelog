@@ -1,0 +1,43 @@
+@ May 31, 2023
+
+Hey,
+
+A small update to improve stability with multiple delegated prefixes from
+DHCPv6 connectivity as well as proper "no binding" handling in the DHCPv6
+client itself.  Internally, the backend service has been refactored to allow
+for future additions, but no visible functionality changes have been done.
+
+Still pretty happy with the IPsec connections MVC pages introduced in 23.1 so
+we would like to apply the same approach to OpenVPN for 23.7 and it is going
+to land in the next development version most likely for a sneak preview.
+
+Here are the full patch notes:
+
+o system: fix MFC service page with ID-based reload like OpenVPN
+o system: fix issue with route add command for far gateway static route (contributed by Daniel Mason)
+o system: improve static routes error handling
+o system: fix a typo and align "attribute" use in gateway edit page
+o system: pluginctl: service mode can now batch-reload services when existing ID is omitted
+o firewall: simplify rule edit layout slightly and fix unused element ID
+o dhcp: remove ::/64 magic as it uses AdvRouterAddr yes
+o interfaces: deal with RENEW and REBIND only reporting partial PDINFO
+o ipsec: support the default selector ([dynamic]) when local_ts or remote_ts are left empty in connections
+o backend: improved nested command support, reorganise action types, use ActionFactory to offer the requested type
+o backend: add "getUtcTime" template helper function
+o ports: curl 8.1.1[1]
+o ports: dhcp6c 20230530
+o ports: lighttpd 1.4.71[2]
+o ports: openssh 9.3p1[3]
+o ports: sqlite 3.42.0[4]
+o ports: syslog-ng 4.2.0[5]
+
+
+Stay Safe,
+Your OPNsense team
+
+--
+[1] CURL:8.1.1
+[2] https://www.lighttpd.net/2023/5/27/1.4.71/
+[3] OPENSSH:9.3p1
+[4] SQLITE:3.42.0
+[5] SYSLOG-NG:4.2.0
