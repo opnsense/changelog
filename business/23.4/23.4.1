@@ -1,0 +1,150 @@
+@ June 14, 2023
+
+This business release is based on the OPNsense 23.1.9 community version
+with additional reliability improvements.
+
+Here are the full patch notes:
+
+o system: register DNS service ports for unified use across core and plugins
+o system: serialize deferred requests for web GUI restart
+o system: relocate API messages to backend log target as they currently end up in captive portal logs
+o system: allow non-system group delete after faulty PHP 8 warning fix (contributed by kulikov-a)
+o system: restructure routing to carry out default gateway switching and address family specific reconfig
+o system: prevent PHP session garbage collection from running early (contributed by lin-xianming)
+o system: finish simplifying plugins_run()
+o system: calling return_down_gateways() depends on default gateway switch setting
+o system: open new session if missing to prevent spurious CRSF errors in static pages
+o system: add device hint to empty interface address message in case of mismatch during default route attempt
+o system: add kernel messages to the general system log
+o system: make sure routing log messages all use "ROUTING:" prefix
+o system: print warning for duplicated gateway name
+o system: prefix API key filename with FQDN of this host
+o system: fix MVC service page with ID-based reload like OpenVPN
+o system: fix issue with route add command for far gateway static route (contributed by Daniel Mason)
+o system: improve static routes error handling
+o system: fix a typo and align "attribute" use in gateway edit page
+o system: pluginctl: service mode can now batch-reload services when existing ID is omitted
+o system: do not delete dpinger PID file
+o reporting: sort interfaces by description in health graphs
+o reporting: fix incorrect interface index in NetFlow init (contributed by Nicolas Thumann)
+o interfaces: ping diagnostic tool was rewritten using MVC/API
+o interfaces: ensure single PPP netgraph node has the proper name
+o interfaces: reject invalid self-assignments in VLAN parent
+o interfaces: migrate trace route page to MVC/API
+o interfaces: migrate port probe page to MVC/API
+o interfaces: remove indirection in PPP ports handling
+o interfaces: exclude a few cases from PPPoEv6 negotiation
+o interfaces: deal with "prefixv6" as an array
+o interfaces: improve address cleanup when handling VIP modifications
+o interfaces: explicitly report current IP address during renewal avoidance
+o interfaces: patch in appropriate rebind/renew DHCPv6 handling
+o interfaces: for static "Use IPv4 connectivity" on PPPoE bring up IPv6 routes as well
+o interfaces: ifctl: fix typo causing content to be printed while adding it
+o interfaces: ifctl: avoid null route on fragile /64 prefix delegation
+o interfaces: ifctl: do not flush name server routes
+o interfaces: deal with RENEW and REBIND only reporting partial PDINFO
+o firewall: allow to create aliases for logged-in OpenVPN users[1]
+o firewall: leave out fractional seconds from timestamps in aliases
+o firewall: add missing scrub rules in dependency check for alias use
+o firewall: usability improvements and cleanups in scheduler pages (contributed by kuya1284)
+o firewall: add "set debug" and "set keepcounters" options to advanced options
+o firewall: simplify rule edit layout slightly and fix unused element ID
+o dhcp: fix too many addresses issue in radvd RDNSS setting
+o dhcp: restart radvd on config changes, otherwise keep SIGHUP
+o dhcp: when cleaning up static leases do not remove entries where only a MAC address is set
+o dhcp: provide run task "static_mapping" to avoid polluting unrelated plugins
+o dhcp: remove ::/64 magic as it uses AdvRouterAddr yes
+o dnsmasq: use new run task "static_mapping" to collect static mappings from DHCP
+o firmware: now that we have a full data model do not overdo cleanup during plugin registration
+o firmware: remove flavouring support from update tools
+o firmware: update size requirements for major upgrades from command line
+o firmware: embed build metadata into package annotations for use in runtime remote queries
+o firmware: fix execution of version queries when not possible
+o firmware: revoke 22.7 fingerprint
+o firmware: show support tiers in plugin list
+o intrusion detection: minor performance improvements when parsing metadata from rules
+o ipsec: pull data for dashboard widget exclusively from backend
+o ipsec: move XAuth out of "IKE Extensions" block
+o ipsec: add connection child as option for manual SPDs
+o ipsec: another small GUI fix for basic log option in advanced settings
+o ipsec: support the default selector ([dynamic]) when local_ts or remote_ts are left empty in connections
+o monit: fix "not on" validation
+o openvpn: fix dashboard widget and add missing byte data to status call
+o openvpn: fix two widget display issues
+o openvpn: use CARP INIT state the same way as BACKUP state for client start/stop
+o openvpn: enable deferred authentication (sponsored by m.a.x. it)
+o openvpn: fix a warning by passing a desirable empty input containing a slash
+o unbound: minor improvements to handle "Dot" endpoints ambiguity
+o unbound: fix migration edge case in model version 1.0.3
+o unbound: remove DNS blocklist start syshook causing an unnecessary download during bootup
+o unbound: when called via GET during override creation encode using URLSearchParams()
+o web proxy: allow more signs for username and password (contributed by Bi0T1N)
+o web proxy: syslog parsing cleanup
+o wizard: do not end up duplicating WAN_GW entry
+o backend: improved nested command support, reorganise action types, use ActionFactory to offer the requested type
+o backend: add "getUtcTime" template helper function
+o mvc: change Phalcon logging to omit type and date
+o mvc: add CIDRToMask() to utilities
+o mvc: prevent config restore when writer has flushed or partly written the file
+o mvc: format BaseModel logger to avoid duplicate timestamps
+o ui: prevent crashing out when endpoint does not return data for SimpleActionButton
+o plugins: os-OPNBEcore minor fixes and additions
+o plugins: os-OPNcentral minor fixes and additions
+o plugins: os-acme-client 3.17[2]
+o plugins: os-bind 1.26[3]
+o plugins: os-crowdsec 1.0.5[4]
+o plugins: os-ddclient 1.13[5]
+o plugins: os-dnscrypt-proxy 1.13[6]
+o plugins: os-nginx 1.32[7]
+o plugins: os-smart fix for highlighting result (contributed by Justin Horton)
+o plugins: os-stunnel fix for missing OpenSSL CRL functions
+o plugins: os-upnp now allows subnet mask 0 in rules (contributed by Reiko Asakura)
+o src: bridge: add support for emulated netmap mode[8]
+o src: epair: also remove vlan metadata from mbufs
+o src: ifconfig: fix configuring if_bridge with additional operating parameters
+o src: netmap: fix queue stalls with generic interfaces[9]
+o src: netmap: assorted upstream stable patches
+o src: sched_ule: assorted fixes to address issues on newer AMD platforms
+o src: axgbe: fix link issues for gigabit external SFP PHYs and 100/1000 fiber modules
+o src: axgbe: apply RRC to miibus attached PHYs and add support for variable bitrate 25G SFP+ DACs
+o src: axgbe: properly release resource in error case
+o src: ifconfig: improve VLAN identifier parsing
+o src: pfsync: hold b_mtx for callout_stop(pd_tmo)
+o src: pf: remove pd_refs from pfsync
+o src: pf: deal with KPI change bug on stable/13 by redirecting otherwise crashing traffic through ip6_output()
+o ports: curl 8.1.1[10]
+o ports: dhcp6c 20230530
+o ports: ifinfo now also prints interface index (contributed by Nicolas Thumann)
+o ports: libxml 2.10.4[11]
+o ports: lighttpd 1.4.71[12]
+o ports: nss 3.89.1[13]
+o ports: openssh 9.3p1[14]
+o ports: openvpn 2.6.4[15]
+o ports: php 8.1.19[16]
+o ports: sqlite 3.42.0[17]
+o ports: suricata 6.0.12[18]
+o ports: syslog-ng 4.2.0[19]
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] https://docs.opnsense.org/manual/aliases.html#openvpn-group
+[2] PLUGINS:23.1/security/acme-client
+[3] PLUGINS:23.1/dns/bind
+[4] PLUGINS:23.1/security/crowdsec
+[5] PLUGINS:23.1/dns/ddclient
+[6] PLUGINS:23.1/dns/dnscrypt-proxy
+[7] PLUGINS:23.1/www/nginx
+[8] https://github.com/opnsense/src/commit/eebd4b140f
+[9] https://github.com/opnsense/src/commit/cc92d78fa5
+[10] CURL:8.1.1
+[11] LIBXML:2.10.4
+[12] https://www.lighttpd.net/2023/5/27/1.4.71/
+[13] NSS:3.89.1
+[14] OPENSSH:9.3p1
+[15] OPENVPN26:2.6.4
+[16] PHP8:8.1.19
+[17] SQLITE:3.42.0
+[18] https://suricata.io/2023/05/09/suricata-6-0-12-released/
+[19] SYSLOG-NG:4.2.0
