@@ -53,6 +53,11 @@ o ports: squid 5.9[12]
 o ports: strongswan upstream fix for VICI stalls[13]
 o ports: suricata 6.0.13[14]
 
+A hotfix release was issued as 23.1.10_1:
+
+o firewall: align rule validation with port forward validation
+o plugins: os-nginx fix for missing load_module directive after nginx update to 1.24
+
 
 Stay safe,
 Your OPNsense team
