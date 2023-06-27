@@ -39,7 +39,6 @@ o web proxy: syslog parsing cleanup
 o ui: remove noodp and noydir from HTML meta robots tag (contributed by William Desportes)
 o plugins: os-crowdsec 1.0.6[1]
 o plugins: os-nginx 1.32.1[2]
-o plugins: os-zabbix-proxy plugin variant for Zabbix 6.4
 o ports: curl 8.1.2[3]
 o ports: krb5 1.21[4]
 o ports: nss 3.90[5]
