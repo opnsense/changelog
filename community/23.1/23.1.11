@@ -1,0 +1,45 @@
+@ June 28, 2023
+
+Hey,
+
+So this is the end of life release for the 23.1 series which includes the
+recent FreeBSD advisories as well as plugin support for Zabbix 6.4.
+
+We have finished the OpenVPN MVC "instances" for anyone who is interested in
+a preview using the current development release.  FreeBSD 13.2 side looks
+ready so we will be releasing 23.7-RC1 some time in the second half of July.
+The final 23.7 release is scheduled for July 31.  The upgrade path from 23.1
+will be enabled shortly after the new major release, but can take up to 24
+hours due to testing and mirror propagation.  Please do not despair.  ;)
+
+Here are the full patch notes:
+
+o system: add RADIUS authentication support for MSCHAPv2 using Crypt_CHAP_MSv2()
+o system: propagate error in rc.syshook scripts
+o dhcp: validate client hostnames in Dnsmasq/Unbound lease watchers
+o firmware: automatic kernel upgrade after reboot like base and package stages
+o firmware: sticky advanced mode if flavour is set to non-default
+o intrusion detection: add missing typecast in getAlertLogsAction()
+o mvc: fix locking regression that caused bulk changes to not being rendered correctly
+o plugins: os-zabbix-agent plugin variant for Zabbix 6.4
+o plugins: os-zabbix-proxy plugin variant for Zabbix 6.4
+o src: axgbe: account for 4 SFP ports during GPIO expander check
+o src: ipsec: make algorithm tables read-only
+o src: mpr: fix copying of event_mask[1]
+o src: pam_krb5: fix spoofing vulnerability[2]
+o src: loader: comconsole: do not unconditionally wipe out hw.uart.console[3]
+o src: contrib/tzdata: import tzdata 2023c[4]
+o src: ixgbe: change if condition for RSS and rxcsum
+o src: pf: fix pf_nv##_array() size check
+o src: e1000: fix VLAN 0
+o ports: py-setuptools fix for CVE-2022-40897
+
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] FREEBSD:FreeBSD-EN-23:07.mpr
+[2] FREEBSD:FreeBSD-SA-23:04.pam_krb5
+[3] FREEBSD:FreeBSD-EN-23:06.loader
+[4] FREEBSD:FreeBSD-EN-23:05.tzdata
