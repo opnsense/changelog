@@ -1,0 +1,143 @@
+@ July 20, 2023
+
+Hi there,
+
+For more than 8 and a half years now, OPNsense is driving innovation
+through modularising and hardening the open source firewall, with simple
+and reliable firmware upgrades, multi-language support, fast adoption
+of upstream software updates as well as clear and stable 2-Clause BSD
+licensing.
+
+We thank all of you for helping test, shape and contribute to the project!
+We know it would not be the same without you.  <3
+
+Download links, an installation guide[1] and the checksums for the images
+can be found below as well.
+
+o Europe: https://opnsense.c0urier.net/releases/23.7/
+o US East Coast: https://mirror.wdc1.us.leaseweb.net/opnsense/releases/23.7/
+o US West Coast: https://mirror.sfo12.us.leaseweb.net/opnsense/releases/23.7/
+o South America: http://mirror.ueb.edu.ec/opnsense/releases/23.7/
+o East Asia: https://mirror.ntct.edu.tw/opnsense/releases/23.7/
+o Full mirror list: https://opnsense.org/download/
+
+Here are the full patch notes against 23.1.11:
+
+o system: use parse_url() to validate if the provided login redirect string is actually parseable to prevent redirect
+o system: fix assorted PHP 8.2 deprecation notes
+o system: fix assorted permission-after-write problems
+o system: introduce a gateway watcher service and fix issue with unhandled "loss" trigger when "delay" is also reported
+o system: enabled web GUI compression (contributed by kulikov-a)
+o system: disable PHP deprecation notes due to Phalcon emitting such messages breaking the API responses
+o system: allow "." DNS search domain override
+o system: on boot let template generation wait for configd socket for up to 10 seconds
+o system: do not allow state modification on GET for power off and reboot actions
+o system: better validation and escaping for cron commands
+o system: better validation for logging user input
+o system: improve configuration import when interfaces or console settings do not match
+o system: name unknown tunables as "environment" as they could still be supported by e.g. the boot loader
+o system: sanitize $act parameter in trust pages
+o system: add severity filter in system log widget (contributed by kulikov-a)
+o interfaces: extend/modify IPv6 primary address behaviour
+o interfaces: fix bug with reported number of flapping LAGG ports (contributed by Neil Greatorex)
+o interfaces: introduce a lock and DAD timer into newwanip for IPv6
+o firewall: move all automatic rules for interface connectivity to priority 1
+o firewall: rewrote group handling using MVC/API
+o firewall: clean up AliasField to use new getStaticChildren()
+o firewall: "kill states in selection" button was hidden when selecting only a rule for state search
+o firewall: cleanup port forward page and only show the associated filter rule for this entry
+o captive portal: safeguard template overlay distribution
+o dhcp: rewrote both IPv4 and IPv6 lease pages using MVC/API
+o dhcp: allow underscores in DNS names from DHCP leases in Dnsmasq and Unbound watchers (contributed by bugfixin)
+o dhcp: align router advertisements VIP code and exclude /128
+o dhcp: allow "." for DNSSL in router advertisements
+o firmware: opnsense-version: remove obsolete "-f" option stub
+o firmware: properly escape crash reports shown
+o ipsec: add missing config section for HA sync
+o ipsec: add RADIUS server selection for "Connections" when RADIUS is not defined in legacy tunnel configuration
+o ipsec: only write /var/db/ipsecpinghosts if not empty
+o ipsec: check IPsec config exists before use (contributed by agh1467)
+o ipsec: fix RSA key pair generation with size other than 2048
+o ipsec: deprecating tunnel configuration in favour of new connections GUI
+o ipsec: clean up SPDField and VTIField types to use new getStaticChildren()
+o openvpn: rewrote OpenVPN configuration as "Instances" using MVC/API available as a separate configuration option[2]
+o openvpn: rewrote client specific overrides using MVC/API
+o unbound: rewrote general settings and ACL handling using MVC/API
+o unbound: add forward-tcp-upstream in advanced settings
+o unbound: move unbound-blocklists.conf to configuration location
+o unbound: add database import/export functions for when DuckDB version changes on upgrades
+o unbound: add cache-max-negative-ttl setting (contributed by hp197)
+o backend: minor regression in deeper nested command structures in configd
+o mvc: fill missing keys when sorting in searchRecordsetBase()
+o mvc: properly support multi clause search phrases
+o mvc: allow legacy services to hook into ApiMutableServiceController
+o mvc: implement new Trust class usage in OpenVPN client export, captive portal and Syslog-ng
+o mvc: add generic static record definition for ArrayField
+o ui: introduce collapsible table headers for MVC forms
+o plugins: os-acme-client 3.18[3]
+o plugins: os-dnscrypt-proxy 1.14[4]
+o plugins: os-dyndns removed due to unmaintained code base
+o plugins: os-frr 1.34[5]
+o plugins: os-telegraf 1.12.8[6]
+o plugins: os-zabbix62-agent removed due to Zabbix 6.2 EoL
+o plugins: os-zabbix62-proxy removed due to Zabbix 6.2 EoL
+o src: axgbe: enable RSF to prevent zero-length packets while in Netmap mode
+o src: axgbe: only set CSUM_DONE when IFCAP_RXCSUM enabled
+o src: ipsec: add PMTUD support
+o src: FreeBSD 13.2-RELEASE[7]
+o ports: krb 1.21.1[8]
+o ports: nss 3.91[9]
+o ports: php 8.2.8[10]
+o ports: py-duckdb 0.8.1
+o ports: py-vici 5.9.11
+o ports: sudo 1.9.14p2[11]
+o ports: suricata now enables Netmap V14 API
+
+Migration notes, known issues and limitations:
+
+o The Unbound ACL now defaults to accept all traffic and no longer generates automatic entries.  This was done to avoid connectivity issues on dynamic address setups -- especially with VPN interfaces.  If this is undesirable you can set it to default to block instead and add your manual entries to pass.
+o Dpinger no longer triggers alarms on its own as its mechanism is too simplistic for loss and delay detection as provided by apinger a long time ago.  Delay and loss triggers have been fixed and logging was improved.  The rc.syshook facility "monitor" still exists but is only provided for compatibility reasons with existing user scripts.
+o IPsec "tunnel settings" GUI is now deprecated and manual migration to the "connections" GUI is recommended.  An appropriate EoL annoucement will be made next year.
+o The new OpenVPN instances pages and API create an independent set of instances more closely following the upstream documentation of OpenVPN.  Legacy client/server settings cannot be managed from the API and are not migrated, but will continue to work independently.
+o The old DynDNS plugin was removed in favor of the newer MVC/API plugin for ddclient.  We are aware of the EoL state of ddclient which was unfortunately announced only one year after we started working on the new plugin.  We will try to add upstream fixes that have not been released yet and already offer our own ddclient-less Python backend in the same plugin as an alternative.
+
+The public key for the 23.7 series is:
+
+# -----BEGIN PUBLIC KEY-----
+# MIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEAu90d9OlhEEqfPTRC5tVp
+# XK1KAtvzKPVf2jvmTtWgFRFCB3fuYQcO7oNefXJoK0LaHNQgiOsBTvepVMicl2aI
+# zrehgdbljjNFmp6KzEM55x05zOfZV8Gi8AEaJzEbb3rkWLkiXHnANfhHGvtHOrGr
+# Hct84NMCcfCZZerwaQMqi+SAjgUzA+asmhAvjN0fbdH2SLx/ZMNzDcyPRFGtGiC7
+# RQCzgCGz39ppJP4qordzRSy5YiwCxNe/SL/4ZG04eMVti47BPTCtioBzuASHqALJ
+# BVOFzZpr1WZ89PT/T5W6xYzoyWemOyv9Rh+rhaTAhnq+OO4yudaytpPCAtXBULr/
+# VOlDOX//qaZR8qbQOC9y9kIETH8Iivis5tonBAQmYPIJiqcxfjM4/R7yP2Q7mEsr
+# PLNyP6HNe77JGoW1axNZlB/OL1XUI3r+Kksc2woIqTQ5sq95tHbddNqGIDg4cEOX
+# FM5Y7tdvVEwl/nutaAzP07sqEyF8uNScLGsQwpBxHwV/qGGc+PbGqmbmWg3+Kt+e
+# UeNcMvrgayhRt+lpVCAorVVjUTp0Y2+1x+V/IpukOaS2oldPIF0iXLZsQ90KYP3X
+# QtmuxbiC2Em+eGHB6nSg1UZgUEaAb3xP1fpuLbi9McoUPxMXxVdfihSfSfUFXJTH
+# SmqdO1BdG7VSwiQq9Ekbu5UCAwEAAQ==
+# -----END PUBLIC KEY-----
+
+Please let us know about your experience!
+
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] DOCS:manual/install
+[2] DOCS:manual/vpnet
+[3] PLUGINS:23.7/security/acme-client
+[4] PLUGINS:23.7/dns/dnscrypt-proxy
+[5] PLUGINS:23.7/net/frr
+[6] PLUGINS:23.7/net-mgmt/telegraf
+[7] https://www.freebsd.org/releases/13.2R/relnotes/
+[8] KRB5:1.21
+[9] NSS:3.91
+[10] PHP8:8.2.8
+[11] SUDO:1.9.14p2
+
+# SHA256 (OPNsense-23.7.r1-dvd-amd64.iso.bz2) = ffc2fe24b16bf45b84223ccf78780e94715e695d6ef50bbb041dc1697dcd7862
+# SHA256 (OPNsense-23.7.r1-nano-amd64.img.bz2) = d2e3de7d7919b0aaafe80c92ec944b94ebb005220e46ed71d8f816236bf4feab
+# SHA256 (OPNsense-23.7.r1-serial-amd64.img.bz2) = 61b594799c1ab9c2daab9adcff93793bf54f875067a7ddec070ade1d67db3689
+# SHA256 (OPNsense-23.7.r1-vga-amd64.img.bz2) = 5e90b9fd076a206409474d3667ee11439ecb86f44dbcb1bc339e96b5a83c5a28
