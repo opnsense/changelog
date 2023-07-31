@@ -97,7 +97,7 @@ Migration notes, known issues and limitations:
 
 o The Unbound ACL now defaults to accept all traffic and no longer generates automatic entries.  This was done to avoid connectivity issues on dynamic address setups -- especially with VPN interfaces.  If this is undesirable you can set it to default to block instead and add your manual entries to pass.
 o Dpinger no longer triggers alarms on its own as its mechanism is too simplistic for loss and delay detection as provided by apinger a long time ago.  Delay and loss triggers have been fixed and logging was improved.  The rc.syshook facility "monitor" still exists but is only provided for compatibility reasons with existing user scripts.
-o IPsec "tunnel settings" GUI is now deprecated and manual migration to the "connections" GUI is recommended.  An appropriate EoL annoucement will be made next year.
+o IPsec "tunnel settings" GUI is now deprecated and manual migration to the "connections" GUI is recommended.  An appropriate EoL announcement will be made next year.
 o The new OpenVPN instances pages and API create an independent set of instances more closely following the upstream documentation of OpenVPN.  Legacy client/server settings cannot be managed from the API and are not migrated, but will continue to work independently.
 o The old DynDNS plugin was removed in favor of the newer MVC/API plugin for ddclient.  We are aware of the EoL state of ddclient which was unfortunately announced only one year after we started working on the new plugin.  We will try to add upstream fixes that have not been released yet and already offer our own ddclient-less Python backend in the same plugin as an alternative.
 

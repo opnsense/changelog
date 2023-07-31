@@ -18,7 +18,7 @@ The format is as follows:
 
 File name is the release name
 
-"@" line is the date of the annoucement: "Month Day, Year"
+"@" line is the date of the announcement: "Month Day, Year"
 
 Single line skips are ignored, double line skips are paragraphs
 
