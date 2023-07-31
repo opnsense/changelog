@@ -34,6 +34,11 @@ o src: pf: fix pf_nv##_array() size check
 o src: e1000: fix VLAN 0
 o ports: py-setuptools fix for CVE-2022-40897
 
+A hotfix release was issued as 23.1.11_1:
+
+o firmware: enable upgrade path to 23.7
+o ports: openssh 9.3p2[5]
+
 
 Stay safe,
 Your OPNsense team
@@ -43,3 +48,4 @@ Your OPNsense team
 [2] FREEBSD:FreeBSD-SA-23:04.pam_krb5
 [3] FREEBSD:FreeBSD-EN-23:06.loader
 [4] FREEBSD:FreeBSD-EN-23:05.tzdata
+[5] OPENSSH:9.3p2
