@@ -21,7 +21,7 @@ o system: automatically create core dump with installed debug kernel
 o interfaces: minor fixes in IP address status read
 o interfaces: additions for legacy_interface_stats()
 o interfaces: use interfaces_primary_address() during IPv4 renewal
-o firewall: remove duplicate table defintions
+o firewall: remove duplicate table definitions
 o firewall: prevent VIP address adding /32 on IPv6 rule selection
 o dhcp: fix IPv6 lease page undefined vars and other issues
 o dhcp: share DUID parsing code via dhcpd_parse_duid()
