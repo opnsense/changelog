@@ -23,6 +23,9 @@ o interfaces: additions for legacy_interface_stats()
 o interfaces: use interfaces_primary_address() during IPv4 renewal
 o firewall: remove duplicate table defintions
 o firewall: prevent VIP address adding /32 on IPv6 rule selection
+o dhcp: fix IPv6 lease page undefined vars and other issues
+o dhcp: share DUID parsing code via dhcpd_parse_duid()
+o dhcp: revamp the prefix route handling also adding support for statically mapped downstream routers
 o firmware: opnsense-update: move -K option to -x
 o firmware: opnsense-update: support deferred kernel set install
 o firmware: opnsense-update: use -w option with -a option in fetch(1)
@@ -30,9 +33,6 @@ o firmware: opnsense-update: ensure kernel directory consistency
 o firmware: shift subscription key extract to "-x" option
 o firmware: use post-upgrade hook and stage kernel as well for clean abort
 o firmware: sort plugins before store
-o dhcp: fix IPv6 lease page undefined vars and other issues
-o dhcp: share DUID parsing code via dhcpd_parse_duid()
-o dhcp: revamp the prefix route handling also adding support for statically mapped downstream routers
 o monit: fix "not on" validation
 o openvpn: fix typo in widget for client timestamp display
 o web proxy: syslog parsing cleanup
@@ -45,8 +45,8 @@ o ports: nss 3.90[5]
 o ports: ntp 4.2.8p17[6]
 o ports: openssl 1.1.1u[7]
 o ports: openvpn 2.6.5[8]
-o ports: php 8.1.20[9]
-o ports: phalcon 5.2.2[10]
+o ports: phalcon 5.2.2[9]
+o ports: php 8.1.20[10]
 o ports: python 3.9.17[11]
 o ports: squid 5.9[12]
 o ports: strongswan upstream fix for VICI stalls[13]
@@ -70,8 +70,8 @@ Your OPNsense team
 [6] https://www.ntp.org/support/securitynotice/
 [7] OPENSSL:1.1.1u
 [8] OPENVPN26:2.6.5
-[9] PHP8:8.1.20
-[10] PHALCON:5.2.2
+[9] PHALCON:5.2.2
+[10] PHP8:8.1.20
 [11] PYTHON:3.9.17
 [12] SQUID5:5.9
 [13] https://github.com/opnsense/core/issues/6308
