@@ -1,0 +1,68 @@
+@ August 23, 2023
+
+Hey,
+
+Assorted improvements are being shipped with this release.  Of special
+note is the proper monitoring of down gateways which allows the new
+gateway watcher to see the gateway come back online when plugging a
+cable.  A Wazuh agent plugin was added and the ddclient plugin received
+new protocol support including AWS Route53 amongst others.
+
+Here are the full patch notes:
+
+o system: improve monitoring of down gateways
+o system: clear all /var/run directories on bootup
+o system: put lock()/unlock() back for legacy plugin compatibility
+o interfaces: fix special device name chars used in shell variables
+o interfaces: prevent IPv6 mismatches when using compressed format in VIP
+o interfaces: remove descriptive name from newwanip logging
+o interfaces: typo in MRU handling for PPP
+o interfaces: improve PPPoE MTU handling
+o interfaces: switch rtsold to -A mode
+o firewall: missing interface group registration on group creation
+o dhcp: improve UX of the new MVC lease pages
+o firmware: remove defunct mirror "Dept. of CSE, Yuan Ze University"
+o intrusion detection: fix events originating from "int^" due to IPS mode use
+o ipsec: add colon to supported character list for pre-shared key IDs
+o ipsec: reqid should not stick when copying a phase 1
+o monit: fix empty timeout value (contributed by Michael Muenz)
+o openvpn: properly map user groups for authentication
+o openvpn: bring instances into server field
+o openvpn: fix separator for redirect-gateway attribute in instances and CSO
+o unbound: fixed configuration when custom blocks are used (contributed by Evgeny Grin)
+o plugins: os-ddclient 1.15[1]
+o plugins: os-iperf adds rubygem-rexml dependency (contributed by Hannah Kiekens)
+o plugins: os-relayd 2.7 now supports newer upstream release of relayd
+o plugins: os-wazuh-agent 1.0[2]
+o src: remove if_wg from kernel modules to unbreak current wireguard-go use
+o src: axgbe: LED control for A30 platform
+o src: gif: revert in{,6}_gif_output() misalignment handling
+o src: igc: sync srrctl buffer sizing with e1000
+o src: ip_output: ensure that mbufs are mapped if ipsec is enabled
+o src: ixgbe: warn once for unsupported SFPs
+o src: ixgbe: add support for 82599 LS
+o src: ixl: add link state polling
+o src: ixl: port ice's atomic API to ixl
+o src: rss: set pin_default_swi to 0 by default
+o src: rtsol: introduce an 'always' script
+o ports: krb5 1.21.2[3]
+o ports: openldap 2.6.6[4]
+o ports: openvpn 2.6.6[5]
+o ports: php 8.2.9[6]
+o ports: phalcon 5.3.0[7]
+o ports: phpseclib 3.0.21[8]
+o ports: py-dnspython 2.4.2
+
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] PLUGINS:23.7/dns/ddclient
+[2] DOCS:manual/wazuh-agent
+[3] KRB5:1.21
+[4] OPENLDAP:2.6.6
+[5] OPENVPN26:2.6.6
+[6] PHP8:8.2.9
+[7] PHALCON:5.3.0
+[8] PHPSECLIB:3.0.21
