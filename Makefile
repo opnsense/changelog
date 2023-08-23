@@ -1,4 +1,4 @@
-# Copyright (c) 2015-2021 Franco Fichtner <franco@opnsense.org>
+# Copyright (c) 2015-2023 Franco Fichtner <franco@opnsense.org>
 #
 # Redistribution and use in source and binary forms, with or without
 # modification, are permitted provided that the following conditions
@@ -25,8 +25,9 @@
 
 DOCSDIR?=	community
 PAGER?=		less
+DOCGLOB?=	2*
 
-DOCS!=		find -L ${DOCSDIR} -type f
+DOCS!=		find -L ${DOCSDIR} -type f -name "${DOCGLOB}"
 WEBIFY=		${.CURDIR}/Scripts/webify.pl
 WORKDIR=	${.CURDIR}/work
 
