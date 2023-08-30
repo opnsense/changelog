@@ -1,0 +1,53 @@
+@ August 30, 2023
+
+Good day to you all,
+
+Recently we improved the workflow for bringing language updates to the
+release so here we are with an updated translation package including
+added support for Korean.  Thanks a lot to all contributors for keeping
+this going strong!
+
+If you would like to help with translations you can sign up via:
+
+https://poeditor.com/projects/view?id=179921
+
+Of note is also the largely rewritten backend for the WireGuard kernel
+module plugin which offers separate services for each instance much
+like OpenVPN offers it.  The requirement of the wireguard-tools and bash
+packages were removed.  This also means the plugin will be moved to the
+core for 24.1 along with Wireguard go plugin being removed completely
+since on FreeBSD 13.2 no external package is needed to enjoy WireGuard
+and the permanent existence of a kernel module renders the Go fallback
+defunct through wireguard-tools/wg-quick implementation quirks.
+
+Here are the full patch notes:
+
+o system: fix missing config save when RRD data is supplied during backup import
+o system: defer config reload to SIGHUP in gateway watcher
+o system: handle "force_down" state correctly in gateway watcher
+o system: make Gateways class argument optional
+o interfaces: tweak UX of interface settings page
+o interfaces: further improve PPP MTU handling
+o interfaces: remove workaround to re-reload the routing during bootup for edge case that no longer exist
+o firewall: fix group priority handling regression
+o firewall: improve filter functionality to combine multiple network clauses in states page
+o dhcp: map interfaces to interface names instead of devices
+o dhcp: fix iaid_duid parsing in IPv6 lease page
+o intrusion detection: support "bypass" keyword in user-defined rules (contributed by Monviech)
+o openvpn: fix mismatch issue when pinning a CSO to a specific instance
+o openvpn: add advanced option for optional CA selection
+o unbound: fix concurrent session closing the handle while still writing data in Python module
+o web proxy: remove long deprecated "dns_v4_first" setting from GUI
+o mvc: extend PortField to optionally allow port type aliases
+o lang: update all languages and add Korean
+o plugins: os-firewall 1.4 adds port alias support
+o plugins: os-frr 1.35[1]
+o plugins: os-wireguard 2.0[2]
+o ports: filterlog fix to prevent crash on default rule number -1
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] PLUGINS:23.7/net/frr
+[2] PLUGINS:23.7/net/wireguard
