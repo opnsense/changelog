@@ -1,0 +1,75 @@
+@ September 14, 2023
+
+Hello,
+
+The usual amount of improvements go out today with FreeBSD security
+advisories on top.  The new Python version was also picked up.
+
+Note that the WireGuard plugin improvement effort is still going on
+and this time we refreshed the dashboard widget as that was being
+requested a number of times.  The Polish language has been added to
+the GUI as well.
+
+Here are the full patch notes:
+
+o system: correctly set RFC 5424 on remote TLS system logging
+o system: remove hasGateways() and write DHCP router option unconditionally
+o system: avoid plugin system for gateways monitor status fetch
+o system: remove passing unused ifconfig data to Gateways class on static pages
+o system: remove passing unused ifconfig data on gateway monitor status fetch
+o system: remove the unused "alert interval" option from the gateway configuration
+o interfaces: calculate_ipv6_delegation_length() should take advanced and custom dhcp6c into account
+o interfaces: teach ifctl to dump all files and its data for an interface
+o interfaces: remove dead link/hint in GIF table
+o interfaces: avoid duplicating $vfaces array
+o interfaces: introduce interfaces_restart_by_device()
+o firewall: remove old __empty__ options trick from shaper model
+o firewall: update models for clarity
+o firmware: update model for clarity
+o ipsec: omit conditional authentication properties when not applicable on connections
+o ipsec: fix key pair generator for secp256k1 EC and add properer naming to GUI (contributed by Manuel Faux)
+o ipsec: allow the use of eap_id = %any in instances
+o openvpn: fix certificate list for client export when optional CA specified (contributed by Manuel Faux)
+o openvpn: add CARP VHID tracking for client instances
+o openvpn: add tun-mtu/fragment/mssfix combo for instances
+o openvpn: add "route-gateway" advanced option to CSO
+o openvpn: use new File::file_put_contents() wrapper for instances
+o openvpn: updated model and clarified "auth" default option
+o mvc: remove "non-functional" hints from form input elements
+o mvc: uppercase default label in BaseListField is more likely
+o ui: add bytes format to standard formatters list
+o plugins: os-ddclient 1.16[1]
+o plugins: os-frr 1.36[2]
+o plugins: os-wireguard 2.1[3]
+o plugins: os-tinc 1.7 adds support for "StrictSubnets" variable (contributed by andrewhotlab)
+o lang: update translations and add Polish
+o src: bring back netmap tun(4) ethernet header emulation (contributed by Sunny Valley Networks)
+o src: axgbe: gracefully handle i2c bus failures
+o src: bnxt: do not restart on VLAN changes
+o src: ice: do not restart on VLAN changes
+o src: net: do not overwrite VLAN PCP
+o src: net: remove VLAN metadata on PCP / VLAN encapsulation
+o src: if_vlan: always default to 802.1
+o src: iflib: fix panic during driver reload stress test
+o src: iflib: fix white space and reduce some line lengths
+o src: ixgbe: define IXGBE_LE32_TO_CPUS
+o src: ixgbe: check for fw_recovery
+o src: net80211: fail for unicast traffic without unicast key[4]
+o src: pcib: allocate the memory BAR with the MSI-X table[5]
+o ports: php 8.2.10[6]
+o ports: python 3.9.18[7]
+o ports: unbound 1.18.0[8]
+
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] PLUGINS:23.7/dns/ddclient
+[2] PLUGINS:23.7/net/frr
+[3] PLUGINS:23.7/net/wireguard
+[4] FREEBSD:FreeBSD-SA-23:11.wifi
+[5] FREEBSD:FreeBSD-EN-23:10.pci
+[6] PHP8:8.2.10
+[7] PYTHON:3.9.18
+[8] UNBOUND:1.18.0
