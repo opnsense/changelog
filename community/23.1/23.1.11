@@ -39,6 +39,10 @@ A hotfix release was issued as 23.1.11_1:
 o firmware: enable upgrade path to 23.7
 o ports: openssh 9.3p2[5]
 
+A hotfix release was issued as 23.1.11_2:
+
+o unbound: enable migration of Unbound DNS reports
+
 
 Stay safe,
 Your OPNsense team
