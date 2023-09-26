@@ -1,6 +1,6 @@
 #!/usr/bin/env perl
 
-# Copyright (c) 2015-2022 Franco Fichtner <franco@opnsense.org>
+# Copyright (c) 2015-2023 Franco Fichtner <franco@opnsense.org>
 #
 # Redistribution and use in source and binary forms, with or without
 # modification, are permitted provided that the following conditions
@@ -30,7 +30,7 @@ use warnings;
 use autodie;
 
 my $path = shift; $path //= 'uknown'; die "not a file: $path" if not -f $path;
-my $fmt = shift; $fmt //= 'html'; die 'invalid format: $fmt' if $fmt !~ /^(html|text)$/;
+my $fmt = shift; $fmt //= 'text'; die 'invalid format: $fmt' if $fmt !~ /^(html|markup|text)$/;
 
 my @lines;
 my %links;
@@ -66,6 +66,9 @@ for ( @lines ) {
 		}
 		# and collect date
 		$date = $1 if $_ =~ s/^@\s*(.*)\s*$//g;
+		next;
+	} elsif ( $fmt eq 'markup') {
+		# simple processing
 		next;
 	}
 
@@ -143,6 +146,7 @@ for ( @lines ) {
 		# remove blocks as we do not render them
 	        $_ =~ s/^#\s//g;
 
+
 		# replace reference links now
 		foreach my $key ( keys %refs ) {
 			$_ =~ s/^\[$key\]\s+.*/[$key] $refs{$key}/g;
@@ -155,6 +159,15 @@ for ( @lines ) {
 
 		# render text now and go to next line
 		print STDOUT $_ if $start == 1;
+		next;
+	} elsif ( $fmt eq 'markup' ) {
+                # only translate bullet points and remove trailing links
+                next if $_ !~ /^o /;
+		$_ =~ s/^o /* /g;
+		$_ =~ s/\[\d+\]$//g;
+
+		# render text now and go to next line
+		print STDOUT $_;
 		next;
 	}
 
