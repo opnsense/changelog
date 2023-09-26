@@ -1,0 +1,85 @@
+@ September 26, 2023
+
+Howdy,
+
+Today introduces a change in MTU handling for parent interfaces mostly
+noticed by PPPoE use where the respective MTU values need to fit the
+parent plus the additional header of the VLAN or PPPoE.  Should the
+MTU already be misconfigured to a smaller value it will be used as
+configured so check your configuration and clear the MTU value if you
+want the system to decide about the effective parent MTU size.
+
+Another change in far gateway handling is also included which prevents
+a monitoring failure if that particular gateway was not being designated
+as default during boot which made the routing table miss the essential
+interface route and monitoring would always report it as down.  Now the
+interface route is ensured but not only when applying the default gateway
+so that it works all the time.
+
+Also fixed was the problematic migration of the Unbound interfaces settings
+which now clears the possibly unknown interfaces in order to proceed and
+have Unbound up and running post update which was not the case for some
+users previously.
+
+Other reliability improvements and third party security updates are
+included as well.  We also continue our effort to clean up the interface
+handling code and audit the MVC model files for consistency.  A missing
+change for out of the box DS-Lite support is also being tested on the
+development version now and will likely hit in 23.7.6.
+
+Here are the full patch notes:
+
+o system: pluginctl: allow -f mode to drop config properties
+o system: switch to /usr/sbin/nologin as authoritative command location
+o system: remove remaining spurious ifconfig data pass to Gateways class
+o system: fix data cleansing issue in "column_count" and "sequence" values on dashboard
+o system: start gateway monitors after firewall rules are in place (contributed by Daggolin)
+o system: refactor far gateway handling out of default route handling
+o interfaces: use interfaces_restart_by_device() where appropriate
+o interfaces: allow get_interface_ipv6() to return in all three IPv6 variants
+o interfaces: add GRE/GIF/bridge/wlan return values
+o interfaces: signal wlan device creation success/failure
+o interfaces: update link functions for GIF/GRE
+o interfaces: remove the ancient OpenVPN-tap-on-a-bridge magic on IPv4 reload
+o interfaces: update read-only bridge member code
+o interfaces: redirect after successful interface add
+o interfaces: add interface return feature for use on bridges/assignment page
+o interfaces: VIP model style update
+o interfaces: implement interface_configure_mtu()
+o firewall: fix cleanup issue when renaming an alias
+o dhcp: make dhcrelay code use the Gateways class
+o ipsec: add local_port and remote_port to connections (contributed by Monviech)
+o openvpn: force instance interface down before handing it over to daemon
+o openvpn: add missing up and down scripts to instances (contributed by Daggolin)
+o unbound: properly set a default value for private address configuration
+o unbound: allow disabled interfaces in interface field
+o unbound: migrate active/outgoing interfaces discarding invalid values
+o unbound: UX improvements on several pages
+o unbound: update model
+o mvc: update diagnostics models
+o mvc: add isLinkLocal()
+o interfaces: allow clean MVC access to primary IPv4 address (pluginctl -4 mode)
+o plugins: os-upnp replaces calls to obsolete get_interface_ip()
+o plugins: os-rfc2136 replaces calls to obsolete get_interface_ip[v6]()
+o plugins: os-sunnyvalley 1.3 changes repository URL (contributed by Sunnyvalley)
+o plugins: os-tinc adds missing subnet-down script (contributed by andrewhotlab)
+o ports: curl 8.3.0[1]
+o ports: nss 3.93[2]
+o ports: openssl 1.1.1w[3]
+o ports: phalcon 5.3.1[4]
+o ports: phpseclib 3.0.23[5]
+o ports: sqlite 3.43.1[6]
+o ports: suricata 6.0.14[7]
+
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] CURL:8.3.0
+[2] NSS:3.93
+[3] OPENSSL:1.1.1w
+[4] PHALCON:5.3.1
+[5] PHPSECLIB:3.0.23
+[6] SQLITE:3.43.1
+[7] https://suricata.io/2023/09/14/suricata-6-0-14-released/
