@@ -28,6 +28,7 @@ PAGER?=		less
 DOCGLOB?=	2*
 
 DOCS!=		find -L ${DOCSDIR} -type f -name "${DOCGLOB}"
+MODE?=		text
 WEBIFY=		${.CURDIR}/Scripts/webify.pl
 WORKDIR=	${.CURDIR}/work
 
@@ -57,14 +58,14 @@ lint:
 
 . for DOC in ${DOCS}
 ${DOC:C/.*\///g}:
-	@${WEBIFY} ${.CURDIR}/${DOC} text | ${PAGER}
+	@${WEBIFY} ${.CURDIR}/${DOC} ${MODE} | ${PAGER}
 . endfor
 
 changelog.txz:
 	@rm -f ${WORKDIR}/*
 	@echo '[' > ${WORKDIR}/index.json
 . for DOC in ${DOCS}
-	@${WEBIFY} ${.CURDIR}/${DOC} > \
+	@${WEBIFY} ${.CURDIR}/${DOC} html > \
 	    ${WORKDIR}/${DOC:C/.*\///1}.htm 2>> ${WORKDIR}/index.json
 	@${WEBIFY} ${.CURDIR}/${DOC} text > \
 	    ${WORKDIR}/${DOC:C/.*\///1}.txt
