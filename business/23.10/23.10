@@ -307,19 +307,10 @@ Stay safe,
 Your OPNsense team
 
 --
-
-
 # SHA256 (OPNsense-business-23.10-dvd-amd64.iso.bz2) = a021526f48239f13b954b51b2e4537f43923ed29e7ad85be72266a0887d8be32
 # SHA256 (OPNsense-business-23.10-nano-amd64.img.bz2) = 0daa99954c17259f4edb25a58ab8d867670363385211e4d641403f7f3f4b6554
 # SHA256 (OPNsense-business-23.10-serial-amd64.img.bz2) = 4f4b320cd2aa2833661ba64d6c8ec31e5f60f0040426cb2a6df729c00a247f8a
 # SHA256 (OPNsense-business-23.10-vga-amd64.img.bz2) = f3e672e1e3c7b0fba1bc265688a81cd65ced5053e7751cebce27282dd480c227
-
-
-
-Stay safe,
-Your OPNsense team
-
---
 
 [1] DOCS:manual/install
 [2] DOCS:manual/vpnet
