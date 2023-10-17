@@ -1,0 +1,354 @@
+@ October 17, 2023
+
+The OPNsense business edition transitions to this 23.10 release including
+numerous MVC/API conversions, the new OpenVPN "instances" configuration
+option, OpenVPN group alias support, deferred authentication for OpenVPN,
+FreeBSD 13.2, PHP 8.2, rewritten WireGuard kernel plugin plus much more.
+
+Please make sure to read the migration notes before upgrading.
+
+Download link is as follows.  An installation guide[1] and the checksums for
+the images can be found below as well.
+
+https://downloads.opnsense.com/
+
+This business release is based on the OPNsense 23.7.6 community version
+with additional reliability improvements.
+
+Here are the full patch notes:
+
+o system: introduce a gateway watcher service and fix issue with unhandled "loss" trigger when "delay" is also reported
+o system: disable PHP deprecation notes due to Phalcon emitting such messages breaking the API responses
+o system: allow "." DNS search domain override
+o system: on boot let template generation wait for configd socket for up to 10 seconds
+o system: improve configuration import when interfaces or console settings do not match
+o system: add severity filter in system log widget (contributed by kulikov-a)
+o system: enabled web GUI compression (contributed by kulikov-a)
+o system: close boot file after probing to avoid lock inheritance
+o system: fix lock() inheriting the lock state
+o system: give more context in process kill error case since we operate PID numbers only
+o system: improve monitoring of down gateways
+o system: clear all /var/run directories on bootup
+o system: fix missing config save when RRD data is supplied during backup import
+o system: defer config reload to SIGHUP in gateway watcher
+o system: handle "force_down" state correctly in gateway watcher
+o system: make Gateways class argument optional
+o system: correctly set RFC 5424 on remote TLS system logging
+o system: remove hasGateways() and write DHCP router option unconditionally
+o system: avoid plugin system for gateways monitor status fetch
+o system: remove passing unused ifconfig data to Gateways class on static pages
+o system: remove passing unused ifconfig data on gateway monitor status fetch
+o system: remove the unused "alert interval" option from the gateway configuration
+o system: pluginctl: allow -f mode to drop config properties
+o system: switch to /usr/sbin/nologin as authoritative command location
+o system: remove remaining spurious ifconfig data pass to Gateways class
+o system: start gateway monitors after firewall rules are in place (contributed by Daggolin)
+o system: refactor far gateway handling out of default route handling
+o system: do not mark "defunct" gateway as "disabled" as well
+o system: skip all unusable gateways for monitoring
+o system: simplify the code in dpinger_status()
+o system: rewrite configuration history using MVC/API
+o system: fix assorted PHP 8.2 deprecation notes
+o interfaces: rewrite LAGG pages via MVC/API
+o interfaces: extend/modify IPv6 primary address behaviour
+o interfaces: allow primary address function to emit device used
+o interfaces: fix special device name chars used in shell variables
+o interfaces: prevent IPv6 mismatches when using compressed format in VIP
+o interfaces: remove descriptive name from newwanip logging
+o interfaces: typo in MRU handling for PPP
+o interfaces: improve PPPoE MTU handling
+o interfaces: switch rtsold to -A mode
+o interfaces: tweak UX of interface settings page
+o interfaces: remove workaround to re-reload the routing during bootup for edge case that no longer exist
+o interfaces: calculate_ipv6_delegation_length() should take advanced and custom dhcp6c into account
+o interfaces: teach ifctl to dump all files and its data for an interface
+o interfaces: remove dead link/hint in GIF table
+o interfaces: introduce interfaces_restart_by_device()
+o interfaces: use interfaces_restart_by_device() where appropriate
+o interfaces: allow get_interface_ipv6() to return in all three IPv6 variants
+o interfaces: add GRE/GIF/bridge/wlan return values
+o interfaces: signal wlan device creation success/failure
+o interfaces: update link functions for GIF/GRE
+o interfaces: remove the ancient OpenVPN-tap-on-a-bridge magic on IPv4 reload
+o interfaces: update read-only bridge member code
+o interfaces: redirect after successful interface add
+o interfaces: add interface return feature for use on bridges/assignment page
+o interfaces: VIP model style update
+o interfaces: implement interface_configure_mtu()
+o interfaces: allow clean MVC access to primary IPv4 address (pluginctl -4 mode)
+o interfaces: drop obsolete PPP default route handling
+o interfaces: change GRE/GIF to split reload per address family on dynamic connectivity
+o interfaces: prevent reading stale configuration data in interfaces_has_prefix_only()
+o interfaces: for consistency bootstrap the implicit 'none' value of the IP address modes
+o interfaces: prevent extended array data from being passed in interface_bring_down()
+o interfaces: fix warning due to use of an unassigned variable
+o firewall: rewrote group handling using MVC/API
+o firewall: clean up AliasField to use new getStaticChildren()
+o firewall: cleanup port forward page and only show the associated filter rule for this entry
+o firewall: groups were not correctly parsed for menu post-migration
+o firewall: hide row command buttons for internal groups
+o firewall: add "ipv6-icmp" to protocol list in shaper
+o firewall: fix PHP warnings on the rules pages
+o firewall: do not clone "associated-rule-id"
+o firewall: missing interface group registration on group creation
+o firewall: fix group priority handling regression
+o firewall: improve filter functionality to combine multiple network clauses in states page
+o firewall: remove old __empty__ options trick from shaper model
+o firewall: update models for clarity
+o firewall: fix cleanup issue when renaming an alias
+o firewall: quote "a/n" protocol in pf.conf to avoid a syntax error
+o firewall: fix wrong link to virtual IP page
+o firewall: add "Interface / Invert" rule toggle
+o firewall: fix help button in dialog for categories
+o firewall: update alias and shaper models
+o firewall: sort auto-generated rules by priority set
+o captive portal: update model
+o dhcp: rewrote both IPv4 and IPv6 lease pages using MVC/API
+o dhcp: allow underscores in DNS names from DHCP leases in Dnsmasq and Unbound watchers (contributed by bugfixin)
+o dhcp: align router advertisements VIP code and exclude /128
+o dhcp: allow "." for DNSSL in router advertisements
+o dhcp: print interface identifier and underlying device in "found no suitable address" warnings
+o dhcp: check if manufacturer exists for IPv4 lease page to prevent error
+o dhcp: use base16 for iaid_duid decode for IPv6 lease page to prevent error
+o dhcp: make dhcrelay code use the Gateways class
+o dhcp: add scope to link-local DHCPv6 static mapping when creating route for delegated prefix (contributed by Maurice Walker)
+o dhcp: merge_ipv6_address() was too intrusive
+o firmware: opnsense-version: remove obsolete "-f" option stub
+o firmware: fetch bogons/changelogs from amd64 ABI only
+o firmware: revoke 23.4 fingerprint
+o firmware: update model for clarity
+o intrusion detection: fix events originating from "int^" due to IPS mode use
+o intrusion detection: support "bypass" keyword in user-defined rules (contributed by Monviech)
+o intrusion detection: update model and persist values for transparency
+o intrusion detection: improve locking during sqlite database creation
+o ipsec: only write /var/db/ipsecpinghosts if not empty
+o ipsec: check IPsec config exists before use (contributed by agh1467)
+o ipsec: deprecating tunnel configuration in favour of new connections GUI
+o ipsec: clean up SPDField and VTIField types to use new getStaticChildren()
+o ipsec: add colon to supported character list for pre-shared key IDs
+o ipsec: reqid should not stick when copying a phase 1
+o ipsec: omit conditional authentication properties when not applicable on connections
+o ipsec: fix key pair generator for secp256k1 EC and add properer naming to GUI (contributed by Manuel Faux)
+o ipsec: allow the use of eap_id = %any in instances
+o ipsec: add local_port and remote_port to connections (contributed by Monviech)
+o ipsec: add IP4_DNS and IP6_DNS configuration payloads to connection pools (contributed by Monviech)
+o ipsec: require setting a connection pool name
+o ipsec: update models
+o monit: fix alert script includes
+o monit: fix empty timeout value (contributed by Michael Muenz)
+o monit: update model
+o network time: support pool directive and maxclock (contributed by Kevin Fason)
+o network time: fix "Soliciting pool server" regression (contributed by Allan Que)
+o openvpn: rewrote OpenVPN configuration as "Instances" using MVC/API available as a separate configuration option[2]
+o openvpn: rewrote client specific overrides using MVC/API
+o openvpn: fix static key delete
+o openvpn: fix "mode" typo and push auth "digest" into export config
+o openvpn: fix race condition when using CRLs in instances
+o openvpn: remove arbitrary upper bounds on some integer values in instances
+o openvpn: properly map user groups for authentication
+o openvpn: bring instances into server field
+o openvpn: fix separator for redirect-gateway attribute in instances and CSO
+o openvpn: fix mismatch issue when pinning a CSO to a specific instance
+o openvpn: add advanced option for optional CA selection
+o openvpn: fix certificate list for client export when optional CA specified (contributed by Manuel Faux)
+o openvpn: add CARP VHID tracking for client instances
+o openvpn: add tun-mtu/fragment/mssfix combo for instances
+o openvpn: add "route-gateway" advanced option to CSO
+o openvpn: use new File::file_put_contents() wrapper for instances
+o openvpn: updated model and clarified "auth" default option
+o openvpn: force instance interface down before handing it over to daemon
+o openvpn: add missing up and down scripts to instances (contributed by Daggolin)
+o openvpn: allow instances authentication without certificates when verify_client_cert is set to none
+o openvpn: add role to "proto" for TCP sessions as required for TAP type tunnels
+o openvpn: update model
+o unbound: rewrote general settings and ACL handling using MVC/API
+o unbound: add forward-tcp-upstream in advanced settings
+o unbound: add database import/export functions for when DuckDB version changes on upgrades
+o unbound: add cache-max-negative-ttl setting (contributed by hp197)
+o unbound: minor endpoint cleanups for DNS reporting page
+o unbound: migration of empty nodes failed from 23.1.11 to 23.7
+o unbound: fix regression when disabling first domain override
+o unbound: fixed configuration when custom blocks are used (contributed by Evgeny Grin)
+o unbound: fix concurrent session closing the handle while still writing data in Python module
+o unbound: properly set a default value for private address configuration
+o unbound: allow disabled interfaces in interface field
+o unbound: migrate active/outgoing interfaces discarding invalid values
+o unbound: UX improvements on several pages
+o unbound: update model
+o unbound: avoid dynamic reloads on newwanip events when possible
+o unbound: add support for wildcard domain lists
+o web proxy: remove long deprecated "dns_v4_first" setting from GUI
+o wizard: restrict to validating only IPv4 addresses
+o backend: template reload wildcard was returning "OK" on partial failures
+o lang: update translations and add Korean, Polish
+o mvc: allow legacy services to hook into ApiMutableServiceController
+o mvc: implement new Trust class usage in OpenVPN client export, captive portal and Syslog-ng
+o mvc: add generic static record definition for ArrayField
+o mvc: extend PortField to optionally allow port type aliases
+o mvc: remove "non-functional" hints from form input elements
+o mvc: uppercase default label in BaseListField is more likely
+o mvc: update diagnostics models
+o mvc: add isLinkLocal()
+o mvc: emit correct message on required validation in BaseField
+o mvc: throw on template reload issues in mutable service controller
+o mvc: inline one time use of $parentKey
+o mvc: set Required=Y for GroupNameField
+o mvc: remove special validation messages likely never seen
+o mvc: introduce isVolatile() for BaseModel
+o mvc: propagate isFieldChanged() from connected children in ArrayField
+o mvc: add hasChanged() to detect changes to the config file from other processes
+o ui: introduce collapsible table headers for MVC forms
+o ui: add bytes format to standard formatters list
+o ui: remove the bootstrap-select version from the provided file in the default theme
+o plugins: remove the bootstrap-select version from the provided file in all themes
+o plugins: os-OPNBEcore 1.2 (see firmware plugin info)
+o plugins: os-OPNProxy 1.0.3 bugfixes connect requests and improves logging
+o plugins: os-OPNWAF 1.0.1 (see firmware plugin info)
+o plugins: os-OPNcentral 1.7 (see firmware plugin info)
+o plugins: os-acme-client 3.19[3]
+o plugins: os-bind 1.27[4]
+o plugins: os-crowdsec 1.0.7[5]
+o plugins: os-ddclient 1.16[6]
+o plugins: os-dnscrypt-proxy 1.14[7]
+o plugins: os-dyndns removed due to unmaintained code base
+o plugins: os-firewall 1.4 adds port alias support / allows floating rules without interface set (contributed by Michael Muenz)
+o plugins: os-frr 1.36[8]
+o plugins: os-iperf adds rubygem-rexml dependency (contributed by Hannah Kiekens)
+o plugins: os-relayd 2.7 now supports newer upstream release of relayd
+o plugins: os-rfc2136 replaces calls to obsolete get_interface_ip[v6]()
+o plugins: os-smart reverts the use of smartctl to gather disks
+o plugins: os-sunnyvalley 1.3 changes repository URL (contributed by Sunnyvalley)
+o plugins: os-telegraf 1.12.9[9]
+o plugins: os-theme-rebellion 1.8.9 fixes Unbound DNS reporting page
+o plugins: os-tinc 1.7 adds support for "StrictSubnets" variable (contributed by andrewhotlab)
+o plugins: os-upnp replaces calls to obsolete get_interface_ip()
+o plugins: os-wazuh-agent 1.0[10]
+o plugins: os-wireguard 2.3[11]
+o plugins: os-zabbix62-agent removed due to Zabbix 6.2 EoL
+o plugins: os-zabbix62-proxy removed due to Zabbix 6.2 EoL
+o src: FreeBSD 13.2-RELEASE[12]
+o src: amdtemp: Fix missing 49 degree offset on current EPYC CPUs
+o src: axgbe: LED control for A30 platform
+o src: axgbe: enable RSF to prevent zero-length packets while in Netmap mode
+o src: axgbe: gracefully handle i2c bus failures
+o src: axgbe: only set CSUM_DONE when IFCAP_RXCSUM enabled
+o src: bhyve: fully reset the fwctl state machine if the guest requests a reset[13]
+o src: bnxt: do not restart on VLAN changes
+o src: frag6: avoid a possible integer overflow in fragment handling[14]
+o src: gif: revert in{,6}_gif_output() misalignment handling
+o src: ice: do not restart on VLAN changes
+o src: if_vlan: always default to 802.1
+o src: iflib: fix panic during driver reload stress test
+o src: iflib: fix white space and reduce some line lengths
+o src: igc: sync srrctl buffer sizing with e1000
+o src: ip_output: ensure that mbufs are mapped if ipsec is enabled
+o src: ipsec: add PMTUD support
+o src: ixgbe: add support for 82599 LS
+o src: ixgbe: check for fw_recovery
+o src: ixgbe: define IXGBE_LE32_TO_CPUS
+o src: ixgbe: warn once for unsupported SFPs
+o src: ixl: add link state polling
+o src: ixl: port ice's atomic API to ixl
+o src: libpfctl: ensure the initial allocation is large enough
+o src: net80211: fail for unicast traffic without unicast key[15]
+o src: net: do not overwrite VLAN PCP
+o src: net: remove VLAN metadata on PCP / VLAN encapsulation
+o src: pcib: allocate the memory BAR with the MSI-X table[16]
+o src: pf: handle multiple IPv6 fragment headers
+o src: rss: set pin_default_swi to 0 by default
+o src: rtsol: introduce an 'always' script
+o ports: curl 8.3.0[17]
+o ports: filterlog fix to prevent crash on default rule number -1
+o ports: nss 3.93[18]
+o ports: openldap 2.6.6[19]
+o ports: openssl 1.1.1w[20]
+o ports: openvpn 2.6.6[21]
+o ports: perl 5.34.1[22]
+o ports: phalcon 5.3.1[23]
+o ports: php 8.2.11[24]
+o ports: phpseclib 3.0.23[25]
+o ports: py-dnspython 2.4.2
+o ports: py-duckdb 0.8.1
+o ports: py-vici 5.9.11
+o ports: sqlite 3.43.1[26]
+o ports: strongswan 5.9.11[27]
+o ports: sudo 1.9.14p3[28]
+o ports: suricata 6.0.14 with Netmmap V14 API support[29]
+o ports: syslog-ng 4.4.0[30]
+o ports: unbound 1.18.0[31]
+
+Migration notes, known issues and limitations:
+
+o The Unbound ACL now defaults to accept all traffic and no longer generates automatic entries.  This was done to avoid connectivity issues on dynamic address setups -- especially with VPN interfaces.  If this is undesirable you can set it to default to block instead and add your manual entries to pass.
+o Dpinger no longer triggers alarms on its own as its mechanism is too simplistic for loss and delay detection as provided by apinger a long time ago.  Delay and loss triggers have been fixed and logging was improved.  The rc.syshook facility "monitor" still exists but is only provided for compatibility reasons with existing user scripts.
+o IPsec "tunnel settings" GUI is now deprecated and manual migration to the "connections" GUI is possible.  There are currently no plans to remove the deprecated legacy component so it can be used without restriction.
+o The new OpenVPN instances pages and API create an independent set of instances more closely following the upstream documentation of OpenVPN. Legacy client/server settings cannot be managed from the API and are not migrated, but will continue to work independently.
+o The old DynDNS plugin was removed in favor of the newer MVC/API plugin for ddclient.  Ddclient used to be EoL for a few months this year but currently a new release is being prepared.  We have since maintained a copy of the software and fixed bugs and shipped upstream patches as they became available in the development version.  Also, a native Python backend is available in the same plugin which covers the Dyndns2 protocol, AWS Route 53, Azure, Cloudflare and DuckDNS.
+
+The public key for the 23.10 series is:
+
+# -----BEGIN PUBLIC KEY-----
+# MIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEAu90d9OlhEEqfPTRC5tVp
+# XK1KAtvzKPVf2jvmTtWgFRFCB3fuYQcO7oNefXJoK0LaHNQgiOsBTvepVMicl2aI
+# zrehgdbljjNFmp6KzEM55x05zOfZV8Gi8AEaJzEbb3rkWLkiXHnANfhHGvtHOrGr
+# Hct84NMCcfCZZerwaQMqi+SAjgUzA+asmhAvjN0fbdH2SLx/ZMNzDcyPRFGtGiC7
+# RQCzgCGz39ppJP4qordzRSy5YiwCxNe/SL/4ZG04eMVti47BPTCtioBzuASHqALJ
+# BVOFzZpr1WZ89PT/T5W6xYzoyWemOyv9Rh+rhaTAhnq+OO4yudaytpPCAtXBULr/
+# VOlDOX//qaZR8qbQOC9y9kIETH8Iivis5tonBAQmYPIJiqcxfjM4/R7yP2Q7mEsr
+# PLNyP6HNe77JGoW1axNZlB/OL1XUI3r+Kksc2woIqTQ5sq95tHbddNqGIDg4cEOX
+# FM5Y7tdvVEwl/nutaAzP07sqEyF8uNScLGsQwpBxHwV/qGGc+PbGqmbmWg3+Kt+e
+# UeNcMvrgayhRt+lpVCAorVVjUTp0Y2+1x+V/IpukOaS2oldPIF0iXLZsQ90KYP3X
+# QtmuxbiC2Em+eGHB6nSg1UZgUEaAb3xP1fpuLbi9McoUPxMXxVdfihSfSfUFXJTH
+# SmqdO1BdG7VSwiQq9Ekbu5UCAwEAAQ==
+# -----END PUBLIC KEY-----
+
+
+Stay safe,
+Your OPNsense team
+
+--
+
+
+# SHA256 (OPNsense-business-23.10-dvd-amd64.iso.bz2) = a021526f48239f13b954b51b2e4537f43923ed29e7ad85be72266a0887d8be32
+# SHA256 (OPNsense-business-23.10-nano-amd64.img.bz2) = 0daa99954c17259f4edb25a58ab8d867670363385211e4d641403f7f3f4b6554
+# SHA256 (OPNsense-business-23.10-serial-amd64.img.bz2) = 4f4b320cd2aa2833661ba64d6c8ec31e5f60f0040426cb2a6df729c00a247f8a
+# SHA256 (OPNsense-business-23.10-vga-amd64.img.bz2) = f3e672e1e3c7b0fba1bc265688a81cd65ced5053e7751cebce27282dd480c227
+
+
+
+Stay safe,
+Your OPNsense team
+
+--
+
+[1] DOCS:manual/install
+[2] DOCS:manual/vpnet
+[3] PLUGINS:23.7/security/acme-client
+[4] PLUGINS:23.7/dns/bind
+[5] PLUGINS:23.7/security/crowdsec
+[6] PLUGINS:23.7/dns/ddclient
+[7] PLUGINS:23.7/dns/dnscrypt-proxy
+[8] PLUGINS:23.7/net/frr
+[9] PLUGINS:23.7/net-mgmt/telegraf
+[10] DOCS:manual/wazuh-agent
+[11] PLUGINS:23.7/net/wireguard
+[12] https://www.freebsd.org/releases/13.2R/relnotes/
+[13] FREEBSD:FreeBSD-SA-23:07.bhyve
+[14] FREEBSD:FreeBSD-SA-23:06.ipv6
+[15] FREEBSD:FreeBSD-SA-23:11.wifi
+[16] FREEBSD:FreeBSD-EN-23:10.pci
+[17] CURL:8.3.0
+[18] NSS:3.93
+[19] OPENLDAP:2.6.6
+[20] OPENSSL:1.1.1w
+[21] OPENVPN26:2.6.6
+[22] PERL:5.34.1
+[23] PHALCON:5.3.1
+[24] PHP8:8.2.11
+[25] PHPSECLIB:3.0.23
+[26] SQLITE:3.43.1
+[27] STRONGSWAN:5.9.11
+[28] SUDO:1.9.14p3
+[29] https://suricata.io/2023/09/14/suricata-6-0-14-released/
+[30] SYSLOG-NG:4.4.0
+[31] UNBOUND:1.18.0
