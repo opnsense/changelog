@@ -85,7 +85,7 @@ o src: axgbe: enable RSF to prevent zero-length packets while in Netmap mode
 o src: axgbe: only set CSUM_DONE when IFCAP_RXCSUM enabled
 o src: ipsec: add PMTUD support
 o src: FreeBSD 13.2-RELEASE[7]
-o ports: krb 1.21.1[8]
+o ports: krb5 1.21.1[8]
 o ports: nss 3.91[9]
 o ports: php 8.2.8[10]
 o ports: py-duckdb 0.8.1
