@@ -1,0 +1,77 @@
+@ November 09, 2023
+
+Hey,
+
+The configuration restore GUI has been improved in a number of ways due to
+recent demand and Squid was updated to the new major release version 6.
+
+A number of reliability improvements were also added to the WireGuard
+kernel plugin which from our perspective is now ready for core inclusion.
+The documentation is being updated accordingly, but will take a bit more
+time to ensure consistency following up on the GUI changes it received.
+
+This update also includes FreeBSD security advisories and assorted fixes.
+We are aware of OpenSSL 1.1.1 CVE-2023-5678 and we are already testing
+builds based on OpenSSL 3 which can be available in 24.1 when it does not
+negatively impact overall operation.  We also expect fixes for version
+1 to be available sooner, but without OpenSSL providing such fixes directly
+the roundtrip time is likely going to increase for them.
+
+Here are the full patch notes:
+
+o system: minor changes related to recent Gateway class refactoring
+o system: use unified style for "return preg_match" idiom so the caller receives a boolean
+o system: provide mismatching interface logic without reboot on configuration restore
+o system: allow new backup API to download latest configuration directly via /api/core/backup/download/this
+o system: extend restore to be able to migrate older configurations cleanly
+o system: make trust store reload conditional
+o interfaces: assorted bridge handling improvements
+o interfaces: ignore ULAs for primary IPv6 detection
+o interfaces: improve wireless channel parsing
+o firewall: keep filtered items available longer in live log
+o firewall: when migrating aliases make sure that nesting does not fail
+o firewall: port can be zero in automatic rule so render it accordingly
+o firewall: minor update to shaper model
+o firmware: invalidate GUI caches earlier since certctl blocks this longer now
+o firmware: add root file system to health audit
+o monit: minor update to model
+o lang: update Chinese, Czech, Italian, Korean, Polish and Spanish
+o openvpn: host bits must not be set for IPv4 server directive in instances
+o unbound: minor update to model
+o unbound: remove localhost from automatically created ACL
+o web proxy: handle the major update to version 6 and update model
+o mvc: enforce uniqueness and remove validation message in UnqiueIdField
+o mvc: config should be locked before calling checkAndThrowSafeDelete()
+o ui: prevent form submit for MVC pages
+o ui: improve default modal padding
+o plugins: os-bind 1.28[1]
+o plugins: os-openconnect 1.4.5[2]
+o plugins: os-wireguard 2.5[3]
+o src: pfctl: fix incorrect mask on dynamic address
+o src: libpfctl: assorted improvements
+o src: msdosfs: zero partially valid extended cluster[4]
+o src: copy_file_range: require CAP_SEEK capability[5]
+o src: fflush: correct buffer handling in __sflush[6]
+o src: cap_net: correct capability name from addr2name to name2addr[7]
+o src: regcomp: use unsigned char when testing for escapes[8]
+o ports: lighttpd 1.4.73[9]
+o ports: php 8.2.12[10]
+o ports: squid 6.4[11]
+o ports: sudo 1.9.15[12]
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] PLUGINS:23.7/dns/bind
+[2] PLUGINS:23.7/security/openconnect
+[3] PLUGINS:23.7/net/wireguard
+[4] FREEBSD:FreeBSD-SA-23:12.msdosfs
+[5] FREEBSD:FreeBSD-SA-23:13.capsicum
+[6] FREEBSD:FreeBSD-SA-23:15.stdio
+[7] FREEBSD:FreeBSD-SA-23:16.cap_net
+[8] FREEBSD:FreeBSD-EN-23:14.regcomp
+[9] https://www.lighttpd.net/2023/10/30/1.4.73/
+[10] PHP8:8.2.12
+[11] SQUID6:6.4
+[12] SUDO:1.9.15
