@@ -1,0 +1,78 @@
+@ November 23, 2023
+
+A good day to you all,
+
+As the end of the year inches closer the changes published today are naturally
+smaller additions and cleanups, notably changes for IPsec VTI connection for
+IPv6 and dual-stack operation, a possible OpenVPN CSO mismatch bug and optional
+support for SHA-512 password hashing.
+
+Note that the HTTPS bump for the firmware mirrors updates the published URLs
+in the firmware selection, but if you already use LeaseWeb or NYC BUG you need
+to reselect them in order to move from HTTP to HTTPS connectivity.
+
+Of further note is that the Squid web proxy will be moved to a plugin in
+version 24.1 but for everyone using it the upgrade procedure will make sure
+to install it automatically when enabled.  A meta package was added to the
+plugins already in order for this to work just in case there are questions
+about what it is supposed to be doing... apart from providing dependencies
+it does not do anything at the moment.  ;)
+
+Last but not least, we have been successfully testing and ironing out OpenSSL
+3 ports builds in the past week and inclusion in 24.1 seems very likely at this
+point.  The effort continues and we will also be looking into backport material
+from FreeBSD 13 stable branches for further preparation.
+
+Here are the full patch notes:
+
+o system: add SHA-512 password hash compliance option
+o system: allow special selector for plugins_configure()
+o system: handle broken menu XML files more gracefully
+o system: fix PHP warnings and SSH fail on empty "ssh" XML node
+o system: fix a couple of PHP warnings in auth server pages
+o system: add support for Google Shared drives backup (contributed by Jeremy Huylebroeck)
+o system: change wait time to 1 second per round, total of 7 in console prompts
+o system: update syslog model
+o interfaces: mark WireGuard devices as virtual
+o interfaces: update LAGG and loopback models
+o interfaces: improve VIP validation, fix broadcast generation
+o firewall: make sure firewall log reading always emits a label
+o firewall: fix business bogons set fetch
+o firewall: add section for automatic rules being added at the end of the ruleset
+o firewall: allow multiple networks given to wrap in the GUI
+o captive portal: fix log target
+o firmware: stop manually adjusting firmware config structure during factory reset
+o firmware: clear stray "pkgsave" and "pkgtemp" pkg-upgrade leftovers
+o firmware: changed LeaseWeb and NYC BUG mirrors to use HTTPS (contributed by jeremiah-rs)
+o firmware: opnsense-update: new "-X" mode for canonical bogons/changelog set fetch URL
+o firmware: opnsense-version: support base/kernel hash info
+o ipsec: mute ipsec.conf related load errors
+o ipsec: fix typo in VTI protocol family parsing
+o ipsec: add secondary tunnel address pair for VTI dual-stack purposes
+o ipsec: add "aes256-sha256" proposal option (no PFS)
+o openvpn: obey username_as_common_name setting
+o backend: add physical_interface and physical_interfaces as template helper function
+o backend: add file_exists as template helper function
+o mvc: instead of failing invalidate a non-match in CSVListField
+o mvc: split tree-view template and javascript and hook via controllers
+o ui: upgrade bootstrap-select to v1.13.18
+o ui: improve saveFormToEndpoint() UX
+o plugins: os-ddclient 1.17[1]
+o plugins: os-frr 1.37[2]
+o plugins: os-squid adds a meta package for web proxy core removal in 24.1
+o ports: openvpn 2.6.8[3]
+o ports: sqlite 3.44.0[4]
+o ports: sudo 1.9.15p2[5]
+o ports: unbound 1.19.0[6]
+
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] PLUGINS:23.7/dns/ddclient
+[2] PLUGINS:23.7/net/frr
+[3] OPENVPN26:2.6.8
+[4] SQLITE:3.44.0
+[5] SUDO:1.9.15p2
+[6] UNBOUND:1.19.0
