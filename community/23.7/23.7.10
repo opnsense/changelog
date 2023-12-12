@@ -1,0 +1,67 @@
+@ December 12, 2023
+
+Hi!
+
+A number of FreeBSD source code changes accumulated so it is better
+to have them delivered to your doorstep before the holidays are in
+full swing.
+
+Here are the full patch notes:
+
+o system: improve config revision audit ability
+o system: cleanse system_get_language_code() output
+o system: safeguard /tmp/PHP_errors.log file before usage
+o system: add an optional random delay before executing remote backups
+o system: fix regression in log viewer level selector
+o reporting: OpenVPN server instances were missing from respective health graph
+o interfaces: move interface list widget link to assignments page
+o interfaces: add new backend jobs and extend with optional parameter
+o interfaces: add validation for proxy ARP strict subnet use
+o firewall: improve alias write behaviour by checking for changes beforehand
+o firewall: fix preg_replace() to avoid truncated network display in rules listing
+o firewall: add an ifconfig.debug file
+o firmware: switch bogons/changelog set base URL to portable "opnsense-update -X" call
+o ipsec: move save button on mobile page into its own container
+o ipsec: add support for RADIUS class groups in instances
+o unbound: use tls-system-cert instead of tls-cert-bundle
+o web proxy: fix setting unknown language directory
+o ui: upgrade jqTree to version 1.7.5
+o plugins: os-ddclient 1.18[1]
+o plugins: os-dec-hw 1.0 is a Deciso hardware specific dashboard widget
+o plugins: os-net-snmp fix for directory setup (contributed by doktornotor)
+o plugins: os-telegraf 1.12.10[2]
+o plugins: os-upnp now reloads on newwanip event
+o plugins: os-wireguard fix for missing firewall reload
+o plugins: os-wireguard-go fix for device registration
+o src: clang: sanitizer failure with ASLR enabled[3]
+o src: dhclient: do not add 0.0.0.0 interface alias
+o src: ice: match irdma interface changes
+o src: ixv: separate VFTA table for each interface
+o src: libnetmap: better fix for port parsing failure
+o src: pf: expose more syncookie state information to userspace
+o src: pf: fix mem leaks upon vnet destroy
+o src: pf: remove incorrect fragmentation check[4]
+o src: rc: fix restart _precmd issue with _setup
+o src: re: add support for 8168FP HW rev
+o src: zfs: check dnode and its data for dirtiness in dnode_is_dirty()[5]
+o ports: perl 5.36.3[6]
+o ports: php 8.2.13[7]
+o ports: phpseclib 3.0.34[8]
+o ports: squid update fixes parent proxy crash[9]
+o ports: strongswan 5.9.13[10]
+
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] PLUGINS:23.7/dns/ddclient
+[2] PLUGINS:23.7/net-mgmt/telegraf
+[3] FREEBSD:FreeBSD-EN-23:15.sanitizer
+[4] FREEBSD:FreeBSD-SA-23:17.pf
+[5] FREEBSD:FreeBSD-EN-23:16.openzfs
+[6] PERL:5.36.3
+[7] PHP8:8.3.13
+[8] PHPSECLIB:3.0.34
+[9] https://github.com/squid-cache/squid/commit/b6c01a2
+[10] STRONGSWAN:5.9.13
