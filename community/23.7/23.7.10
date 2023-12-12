@@ -50,6 +50,10 @@ o ports: phpseclib 3.0.34[8]
 o ports: squid update fixes parent proxy crash[9]
 o ports: strongswan 5.9.13[10]
 
+A hotfix release was issued as 23.7.10_1:
+
+o mvc: provide iterateRecursiveItems() in BaseModel required by IPsec RADIUS support
+
 
 Stay safe,
 Your OPNsense team
