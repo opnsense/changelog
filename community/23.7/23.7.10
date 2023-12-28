@@ -53,6 +53,7 @@ o ports: strongswan 5.9.13[10]
 A hotfix release was issued as 23.7.10_1:
 
 o mvc: provide iterateRecursiveItems() in BaseModel required by IPsec RADIUS support
+o ports: openssh 9.6p1[11]
 
 
 Stay safe,
@@ -69,3 +70,4 @@ Your OPNsense team
 [8] PHPSECLIB:3.0.34
 [9] https://github.com/squid-cache/squid/commit/b6c01a2
 [10] STRONGSWAN:5.9.13
+[11] OPENSSH:6.9p1
