@@ -1,0 +1,59 @@
+@ January 04, 2024
+
+Happy new year!
+
+The final test phase for 24.1 is starting just as 23.7 strechtes towards
+its inevitable end of life.  At the moment it is unlcear if this release
+will be the last one or not so we shall refrain from stating something that
+may not be true in the coming weeks.  ;)
+
+Of special note is the Python rewrite of the relevant FreeBSD certctl tool
+bits that are needed to register certificates in the system.  It should be
+about 30 times faster now than it was before.
+
+Here are the full patch notes:
+
+o system: implement relevant certctl tool functionality in Python to increase performance
+o system: fix log severity selector (contributed by kulikov-a)
+o system: include IPv6 link-local interface addresses for web GUI and OpenSSH (contributed by Maurice Walker)
+o system: update cron and gateways model
+o interfaces: obey menu group sequence when specified
+o firewall: fix traceback in OpenVPN group alias due to wrong return type
+o firewall: fix missing physical_interface() in shaper template
+o dhcp: cache backend action "interface list macdb" to increase responsiveness
+o dhcp: allow saving with invalid range when IPv4 server is disabled
+o dhcp: do not clobber $range_to / $range_from with the legacy test for lower 64 bit only input
+o firmware: opnsense-update: avoid rewriting .cshrc and .profile files on base set updates
+o firmware: add audit messages for relevant API actions
+o firmware: implement "always reboot" option
+o firmware: add unlocked mode to launcher script
+o firmware: use pluggable package repository scripts
+o lang: assorted language updates
+o network time: prevent the service from listening on a wildcard when selecting specific interfaces (contributed by doktornotor)
+o openvpn: add virtual IPv6 address to widget and status page (contributed by cs-1)
+o openvpn: consider clients missing CARP VHID as disabled
+o unbound: replace JustDomains with Firebog blocklists (contributed by Amy Nagle)
+o unbound: update root hints
+o plugins: os-acme-client 3.20[1]
+o plugins: os-ddclient 1.19[2]
+o plugins: os-wireguard 2.6[3]
+o ports: curl 8.5.0[4]
+o ports: nss 3.95[5]
+o ports: php 8.2.14[6]
+o ports: py-netaddr 0.10.0[7]
+o ports: squid 6.6[8]
+o ports: sudo 1.9.15p4[9]
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] PLUGINS:23.7/security/acme-client
+[2] PLUGINS:23.7/dns/ddclient
+[3] PLUGINS:23.7/net/wireguard
+[4] CURL:8.5.0
+[5] NSS:3.95
+[6] PHP8:8.2.14
+[7] NETADDR:0.10.0
+[8] SQUID6:6.6
+[9] SUDO:1.9.15p4
