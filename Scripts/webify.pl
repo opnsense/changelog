@@ -30,7 +30,7 @@ use warnings;
 use autodie;
 
 my $path = shift; $path //= 'uknown'; die "not a file: $path" if not -f $path;
-my $fmt = shift; $fmt //= 'text'; die 'invalid format: $fmt' if $fmt !~ /^(html|markup|text)$/;
+my $fmt = shift; $fmt //= 'text'; die 'invalid format: $fmt' if $fmt !~ /^(html|markdown|text)$/;
 
 my @lines;
 my %links;
@@ -67,7 +67,7 @@ for ( @lines ) {
 		# and collect date
 		$date = $1 if $_ =~ s/^@\s*(.*)\s*$//g;
 		next;
-	} elsif ( $fmt eq 'markup') {
+	} elsif ( $fmt eq 'markdown') {
 		# simple processing
 		next;
 	}
@@ -160,7 +160,7 @@ for ( @lines ) {
 		# render text now and go to next line
 		print STDOUT $_ if $start == 1;
 		next;
-	} elsif ( $fmt eq 'markup' ) {
+	} elsif ( $fmt eq 'markdown' ) {
                 # only translate bullet points and remove trailing links
                 next if $_ !~ /^o /;
 		$_ =~ s/^o /* /g;
