@@ -1,0 +1,54 @@
+@ January 16, 2024
+
+Hi there,
+
+One more release it was indeed.  We have added considerable backend work
+for improving security and adding a streaming function to avoid memory
+exhaustion for data-intense data exchanges.  Note this is in preparation
+for 24.1 where these will be used, but direct use in 23.7 is avoided to
+lower the possibility for regressions.
+
+The release date for 24.1 is January 30 and we approaching this differently
+this time with release candidates only being available from the development
+version meaning there will be no installation media before the final release.
+
+While RC1 is mostly ready the publication is currently on hold due to chasing
+down a kernel panic.  Watch out for the release notes of the RC1.  It should
+be available this week with a follow-up RC2 in the following week.
+
+Here are the full patch notes:
+
+o system: change ZFS transaction group defaults to avoid excessive disk wear[1]
+o firewall: validate if GeoIP and BGP ASN targets contain at least 1 kb of data before assuming timestamp is correct
+o firmware: automatically install os-squid plugin install when web proxy is enabled before major upgrade
+o firmware: refactor export and scrub Unbound DNS database before major upgrade
+o firmware: disallow TLS lower than 1.3 on business mirror
+o openvpn: add validation for netmask greater than 29 exactly as specified in the OpenVPN source code
+o backend: support streaming output using the "stream_output" handler
+o backend: implement optional trust model and add extended logging
+o backend: support optional configd configuration files
+o mvc: add an IPPortField type
+o mvc: split configdRun() in order to return a resource which the controller can stream with minimal memory consumption
+o ui: fix the missing dialog padding in some modals
+o ui: set a default data-size for increased readability in selectpickers
+o ui: show tooltip when grid td content does not fit
+o plugins: os-bind 1.29[2]
+o plugins: os-ddclient 1.20[3]
+o plugins: os-frr 1.38[4
+o plugins: os-node_exporter 1.2[5]
+o plugins: os-sunnyvalley 1.4 switches to new repository layout
+o ports: py-netaddr 0.10.1
+o ports: sudo 1.9.15p5
+
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] CORE:commit/269b9fbaf
+[2] PLUGINS:23.7/dns/bind
+[3] PLUGINS:23.7/dns/ddclient
+[4] PLUGINS:23.7/net/frr
+[5] PLUGINS:23.7/sysutils/node_exporter
+[6] NETADDR:0.10.1
+[7] SUDO:1.9.15p5
