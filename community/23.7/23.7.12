@@ -40,6 +40,12 @@ o plugins: os-sunnyvalley 1.4 switches to new repository layout
 o ports: py-netaddr 0.10.1
 o ports: sudo 1.9.15p5
 
+A hotfix release was issued as 23.7.12_5:
+
+o reporting: print status message when Unbound DNS database was not found during firmware upgrade
+o firmware: enable upgrade path to 24.1
+o backend: only parse stream results when configd socket could be opened
+
 
 Stay safe,
 Your OPNsense team
