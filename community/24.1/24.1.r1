@@ -85,7 +85,7 @@ Migration notes, known issues and limitations:
 o Audits and certifications are requiring us to restrict system accounts for non-administrators (without wheel group in particular).  It will no longer be able to use non-adminstrator accounts with shell access and permissions for sensitive files have been tightened to not be world-readable.  This may cause custom tooling to stop working, but can easily be fixed by giving these required accounts the full administration rights.
 o ISC DHCP functionality is slowly being deprecated with the introduction of Kea as an alternative.  The work to replace the tooling of ISC DHCP is ongoing, but feature sets will likely differ for a long time therefore.
 o The move to the FreeBSD ports version of OpenSSL 3.0 is included and may disrupt third party repository use until those have been fixed and rebuilt accordingly.  Please note that we do not vet third party repositories and do not have control over them so their response time may vary.
-o The Squid web proxy functionality moves to a plugin and will no longer be installed by default for new installations. However, if you have Squid enabled the plugin will automatically be installed during the upgrade.  There is no code difference in the implementation and integation of the plugin compared to the core version.
+o The Squid web proxy functionality moves to a plugin and will no longer be installed by default for new installations. However, if you have Squid enabled the plugin will automatically be installed during the upgrade.  There is no code difference in the implementation and integration of the plugin compared to the core version.
 
 The public key for the 24.1 series is:
 
