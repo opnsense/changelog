@@ -34,7 +34,7 @@ o ui: set a default data-size for increased readability in selectpickers
 o ui: show tooltip when grid td content does not fit
 o plugins: os-bind 1.29[2]
 o plugins: os-ddclient 1.20[3]
-o plugins: os-frr 1.38[4
+o plugins: os-frr 1.38[4]
 o plugins: os-node_exporter 1.2[5]
 o plugins: os-sunnyvalley 1.4 switches to new repository layout
 o ports: py-netaddr 0.10.1
