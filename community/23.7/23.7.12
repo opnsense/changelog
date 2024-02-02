@@ -37,8 +37,8 @@ o plugins: os-ddclient 1.20[3]
 o plugins: os-frr 1.38[4]
 o plugins: os-node_exporter 1.2[5]
 o plugins: os-sunnyvalley 1.4 switches to new repository layout
-o ports: py-netaddr 0.10.1
-o ports: sudo 1.9.15p5
+o ports: py-netaddr 0.10.1[6]
+o ports: sudo 1.9.15p5[7]
 
 A hotfix release was issued as 23.7.12_5:
 
