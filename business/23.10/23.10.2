@@ -1,0 +1,105 @@
+@ February 02, 2024
+
+This business release is based on the OPNsense 23.7.12 community version
+with additional reliability improvements.
+
+Here are the full patch notes:
+
+o system: add an optional random delay before executing remote backups
+o system: fix regression in log viewer level selector
+o system: implement relevant certctl tool functionality in Python to increase performance
+o system: fix log severity selector (contributed by kulikov-a)
+o system: include IPv6 link-local interface addresses for web GUI and OpenSSH (contributed by Maurice Walker)
+o system: update cron and gateways model
+o system: change ZFS transaction group defaults to avoid excessive disk wear[1]
+o system: handle case insensitivity while reading groups
+o system: shuffle authentication templates to the end of login configuration
+o system: add "maxfilesize" option to enforce a log rotate when files exceed their limit
+o reporting: OpenVPN server instances were missing from respective health graph
+o reporting: assorted tweaks for the firmware upgrade script handling Unbound DNS database migration
+o interfaces: add new backend jobs and extend with optional parameter
+o interfaces: obey menu group sequence when specified
+o firewall: improve alias write behaviour by checking for changes beforehand
+o firewall: fix preg_replace() to avoid truncated network display in rules listing
+o firewall: validate if GeoIP and BGP ASN targets contain at least 1 kb of data before assuming timestamp is correct
+o firewall: align GeoIP file check with documentation
+o firewall: add an ifconfig.debug file
+o captive portal: fix integer validation in vouchers
+o dhcp: cache backend action "interface list macdb" to increase responsiveness
+o dhcp: allow saving with invalid range when IPv4 server is disabled
+o dhcp: do not clobber $range_to / $range_from with the legacy test for lower 64 bit only input
+o dhcp: improve the parsing code of IPv6 leases
+o firmware: switch bogons/changelog set base URL to portable "opnsense-update -X" call
+o firmware: opnsense-update: avoid rewriting .cshrc and .profile files on base set updates
+o firmware: add audit messages for relevant API actions
+o firmware: implement "always reboot" option
+o firmware: add unlocked mode to launcher script
+o firmware: use pluggable package repository scripts
+o firmware: automatically install os-squid plugin install when web proxy is enabled before major upgrade
+o firmware: refactor export and scrub Unbound DNS database before major upgrade
+o firmware: disallow TLS lower than 1.3 on business mirror
+o intrusion detection: show rule origin in rule adjustments grid
+o ipsec: add support for RADIUS class groups in instances
+o ipsec: extend connection proposals tooltip to children and fix tooltip style issue
+o lang: assorted language updates
+o network time: prevent the service from listening on a wildcard when selecting specific interfaces (contributed by doktornotor)
+o openvpn: add virtual IPv6 address to widget and status page (contributed by cs-1)
+o openvpn: consider clients missing CARP VHID as disabled
+o openvpn: add validation for netmask greater than 29 exactly as specified in the OpenVPN source code
+o openvpn: add workaround for net30/p2p smaller than /29 networks
+o unbound: use tls-system-cert instead of tls-cert-bundle
+o unbound: replace JustDomains with Firebog blocklists (contributed by Amy Nagle)
+o unbound: update root hints
+o backend: support streaming output using the "stream_output" handler
+o backend: implement optional trust model and add extended logging
+o backend: support optional configd configuration files
+o backend: only parse stream results when configd socket could be opened
+o mvc: add an IPPortField type
+o mvc: split configdRun() in order to return a resource which the controller can stream with minimal memory consumption
+o ui: fix the missing dialog padding in some modals
+o ui: set a default data-size for increased readability in selectpickers
+o ui: show tooltip when grid td content does not fit
+o ui: add double click event to tree view to render a grid dialog
+o ui: upgrade jqTree to version 1.7.5
+o plugins: os-OPNBEcore 1.3 adds "any interface" floating rule support
+o plugins: os-OPNcentral 1.9 adds "any interface" floating rule support and fixes memory consumption with downloads
+o plugins: os-acme-client 3.20[2]
+o plugins: os-bind 1.29[3]
+o plugins: os-ddclient 1.20[4]
+o plugins: os-dec-hw 1.0 is a Deciso hardware specific dashboard widget
+o plugins: os-frr 1.38[5]
+o plugins: os-node_exporter 1.2[6]
+o plugins: os-sunnyvalley 1.4 switches to new repository layout
+o plugins: os-telegraf 1.12.10[7]
+o plugins: os-upnp now reloads on newwanip event
+o plugins: os-wireguard 2.6[8]
+o ports: curl 8.5.0[9]
+o ports: nss 3.95[10]
+o ports: perl 5.36.3[11]
+o ports: php 8.2.14[12]
+o ports: phpseclib 3.0.34[13]
+o ports: py-netaddr 0.10.1[14]
+o ports: squid 6.6[15]
+o ports: sudo 1.9.15p5[16]
+
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] CORE:commit/269b9fbaf
+[2] PLUGINS:23.7/security/acme-client
+[3] PLUGINS:23.7/dns/bind
+[4] PLUGINS:23.7/dns/ddclient
+[5] PLUGINS:23.7/net/frr
+[6] PLUGINS:23.7/sysutils/node_exporter
+[7] PLUGINS:23.7/net-mgmt/telegraf
+[8] PLUGINS:23.7/net/wireguard
+[9] CURL:8.5.0
+[10] NSS:3.95
+[11] PERL:5.36.3
+[12] PHP8:8.2.14
+[13] PHPSECLIB:3.0.34
+[14] NETADDR:0.10.1
+[15] SQUID6:6.6
+[16] SUDO:1.9.15p5
