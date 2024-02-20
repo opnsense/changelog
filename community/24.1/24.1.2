@@ -1,0 +1,80 @@
+@ February 20, 2024
+
+Hello world,
+
+It is time to move back to Suricata version 7 after identifying the relevant
+default option changes in order to keep IPS/Netmap happy when running it.
+Kea also received a number of tweaks and updates as well as our VPN service
+integrations.
+
+Last but not least this includes FreeBSD 13.2-p10 and the recent DNS denial
+of service attack mitigation.
+
+Here are the full patch notes:
+
+o system: accept colon character in log queries
+o system: add issuer and logo to OTP link
+o system: fix gateway migration issue causing individual items to be skipped
+o reporting: update traffic graph colors to be contrast and consistent (contributed by brotherla)
+o interfaces: fix strpos() deprecation null haystack
+o interfaces: add missing ACL entries for ARP/NDP tables
+o interfaces: fix VXLAN validation
+o firewall: change default traffic normalization behavior and choose "in" as standard direction for manual rules
+o firewall: make select width more consistent on alias diagnostics table selection
+o dhcp: set RemoveAdvOnExit to off in CARP mode for router advertisements
+o dhcp: make sure the register DNS leases options reflect that this is only supported for ISC DHCP
+o dhcp: make option_data_autocollect option more explicit in Kea
+o dhcp: gather missing Kea leases another way since the logs are unreliable
+o dhcp: add address constraint to Kea reservations
+o dhcp: add unique constraint for MAC address + subnet in Kea
+o dhcp: add domain-name to client configuration in Kea
+o dhcp: loosen constraints for TFTP boot in Kea
+o intrusion detection: adjust for default behaviour changes in Suricata 7
+o ipsec: improve enable button placement on connections page
+o ipsec: show EAP-RADIUS settings only when legacy tunnels are being used
+o ipsec: allow % to support %any in ID for connections
+o openvpn: when "cert_depth" is left empty it should ignore the value
+o openvpn: data-ciphers-fallback should be a single option
+o openvpn: fix support for /30 p2p/net30 instances
+o openvpn: add "various_push_flags" field for simple boolean server push options in connections
+o unbound: prevent os.write() on None when another thread closed the pipe in Python module
+o wireguard: key constraints should only apply on peers and not instances
+o wireguard: peer uniqueness should depend on pubkey + endpoint
+o wireguard: skip attached instance address routes
+o wireguard: remove duplicate ID columns
+o mvc: fix Phalcon 5.4 and up
+o src: jail: fix information leak[1]
+o src: bhyveload: use a dirfd to support -h[2]
+o src: EVFILT_SIGNAL: do not use target process pointer on detach[3]
+o src: setusercontext(): apply personal settings only on matching effective UID[4]
+o src: re: generate an address if there is none in the EEPROM
+o src: wg: detect loops in netmap mode
+o src: wg: detach bpf upon destroy as well
+o src: wg: fix access to noise_local->l_has_identity and l_private
+o src: wg: fix erroneous calculation in calculate_padding() for p_mtu == 0
+o plugins: os-acme-client 4.1[5]
+o plugins: os-ddclient 1.21[6]
+o plugins: os-dnscrypt-proxy 1.15[7]
+o ports: dnsmasq 2.90[8]
+o ports: openvpn 2.6.9[9]
+o ports: phalcon 5.6.1[10]
+o ports: radvd adds upstream patch for RemoveAdvOnExit option
+o ports: suricata 7.0.3[11]
+o ports: unbound 1.19.1[12]
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] FREEBSD:FreeBSD-SA-24:02.tty
+[2] FREEBSD:FreeBSD-SA-24:01.bhyveload
+[3] FREEBSD:FreeBSD-EN-24:03.kqueue
+[4] FREEBSD:FreeBSD-EN-24:02.libutil
+[5] PLUGINS:24.1/security/acme-client
+[6] PLUGINS:24.1/dns/ddclient
+[7] PLUGINS:24.1/dns/dnscrypt-proxy
+[8] DNSMASQ:2.90
+[9] OPENVPN26:2.6.9
+[10] PHALCON:5.6.1
+[11] https://suricata.io/2024/02/08/suricata-7-0-3-and-6-0-16-released/
+[12] UNBOUND:1.19.1
