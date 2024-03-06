@@ -1,0 +1,50 @@
+@ March 06, 2024
+
+Good day to you all,
+
+This update fixes minor issues in the software and adds a CSV import/export
+to the Kea DHCP reservations to make bulk edits much easier.  It also fixes
+defaults in Suricata 7 that would negatively impact the IPS mode usage and
+updates the curl package to its current latest version.
+
+Here are the full patch notes:
+
+o system: prevent gateway removal when it is currently bound to an interface
+o system: fix assorted PHP deprecation warnings
+o firewall: add optional advanced property "State policy" to influence state creation on a per rule base
+o firewall: fix floating rule display (contributed by lin-xianming)
+o firewall: fix display of ICMP tooltip (contributed by lin-xianming)
+o firmware: fix missing space in audit message
+o kea-dhcp: add import/export as CSV on reservations
+o intrusion detection: set exception-policy and app-layer.error-policy to their advertised defaults
+o unbound: make atomic copies of root.hints file to hopefully appease Unbound startup problems
+o unbound: fix missing /lib nullfs mount in chroot
+o unbound: add aggressive-nsec option toggle (contributed by kulikov-a)
+o wireguard: remove duplicate "pubkey" field, remove required tag and validate on Base64 in model
+o wireguard: address assorted interface configuration inconsistencies during configuration
+o mvc: fix model cloning when array items contain nested containers
+o ui: fix epoch support as number in bootgrid
+o ui: replace all &gt; and &lt; occurrences in treeview (contributed by lin-xianming)
+o wizard: reorder storage sequence to fix hostname/domain change bug
+o plugins: os-theme-cicada 1.35 (contributed by Team Rebellion)
+o plugins: os-theme-rebellion 1.8.10 (contributed by Team Rebellion)
+o ports: curl 8.6.0[1]
+o ports: dnspython 2.6.1
+o ports: expat 2.6.0[2]
+o ports: libpfctl 0.9
+o ports: libxml 2.11.7[3]
+o ports: lighttpd 1.4.74[4]
+o ports: pcre2 10.43[5]
+o ports: php 8.2.16[6]
+
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] CURL:8.6.0
+[2] EXPAT:2.6.0
+[3] LIBXML:2.11.7
+[4] https://www.lighttpd.net/2024/2/19/1.4.74/
+[5] PCRE2:10.43
+[6] PHP8:8.2.16
