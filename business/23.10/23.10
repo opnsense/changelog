@@ -258,6 +258,7 @@ o src: pf: handle multiple IPv6 fragment headers
 o src: rss: set pin_default_swi to 0 by default
 o src: rtsol: introduce an 'always' script
 o ports: curl 8.3.0[17]
+o ports: dnspython 2.4.2
 o ports: filterlog fix to prevent crash on default rule number -1
 o ports: nss 3.93[18]
 o ports: openldap 2.6.6[19]
@@ -267,7 +268,6 @@ o ports: perl 5.34.1[22]
 o ports: phalcon 5.3.1[23]
 o ports: php 8.2.11[24]
 o ports: phpseclib 3.0.23[25]
-o ports: py-dnspython 2.4.2
 o ports: py-duckdb 0.8.1
 o ports: py-vici 5.9.11
 o ports: sqlite 3.43.1[26]
