@@ -1,0 +1,67 @@
+@ March 20, 2024
+
+Hi there,
+
+Suricata and Unbound have been updated to their latest versions.
+Support for dynamic DNS VTI connections has also been added
+amongst other things.
+
+We would like to thank Cedrik Pischem (Monviech) for upstreaming his
+Caddy plugin to the official packages.  If you already have this plugin
+installed no further action has to be taken and updates should proceed
+through the standard firmware channel from now on.  Documentation for it
+was added to the manual as well.
+
+For 24.7, we are currently working on a DHCP-Relay replacement,
+a rewrite of the trust section in MVC as well as a new dashboard
+implementation.  It has been busy and we will keep it that way.  :)
+
+Here are the full patch notes:
+
+o system: allow 0 length voucher passwords in authentication server
+o system: merge static logging settings into existing MVC page
+o system: fix handling of empty "serialusb" node set during import
+o system: prevent empty "user" node to crash during boot
+o interfaces: prevent modal x-axis overflow on packet capture page
+o firewall: refactor schedule matching and fix an end-of-the-month bug
+o firewall: fix incorrect packet counters statistics collection
+o intrusion detection: align performValidation()->count() to use count() instead
+o ipsec: optionally hook VTI tunnel configuration to connection up event to support dynamic DNS
+o isc-dhcp: do not add interfaces for non-Ethernet types to relaying
+o kea-dhcp: add domain-search, time-servers and static-routes client options to subnet configuration
+o openvpn: various improvements for TAP servers
+o wireguard: migrate non-netmask allowed IP entries and enforce them in validation
+o wireguard: show proper names when public keys overlap between instances
+o mvc: fix PHP_FLOAT_MIN being unreliable
+o mvc: Add simple Message class and remove the previous Phalcon dependency
+o mvc: refactor HostnameField, remove HostValidator dependency and add unit test
+o mvc: add new static Autoconf class to access information collected by ifctl
+o mvc: fix rewind() stream not supporting seeking error
+o mvc: add copy of our html_safe() and use it in the translator
+o ui: adjust margin of hr elements to match __mX helpers
+o ui: add a button to allow textarea style edits of free-form tokenizers
+o ui: when an error is raised make sure it is always visible
+o ui: fix copy/paste buttons not showing for tokenizers in some situations
+o plugins: os-bind 1.30[1]
+o plugins: os-caddy 1.5.2[2] (contributed by Monviech)
+o ports: expat 2.6.1[3]
+o ports: libpfctl 0.10
+o ports: nss 3.98[4]
+o ports: phalcon 5.6.2[5]
+o ports: sqlite 3.45.1[6]
+o ports: suricata 7.0.4[7]
+o ports: unbound 1.19.3[8]
+
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] PLUGINS:24.1/dns/bind
+[2] PLUGINS:24.1/www/caddy
+[3] EXPAT:2.6.1
+[4] NSS:3.98
+[5] PHALCON:5.6.2
+[6] SQLITE:3.45.1
+[7] https://suricata.io/2024/03/19/suricata-7-0-4-and-6-0-17-released/
+[8] UNBOUND:1.9.3
