@@ -1,0 +1,76 @@
+@ April 04, 2024
+
+Good time-of-your-day,
+
+Today the kernel receives a number of minor updates that have accumulated
+since 24.1.2 was released.  The primary focus for the time being is adding
+fixes and MVC improvements for upcoming feature backports into the next
+24.1.x versions.
+
+The update presents itself as a hotfix 24.1.5_1 but that is only due to
+catching an issue during the last QA stage with an update of the gettext
+library.
+
+Here are the full patch notes:
+
+o system: fix PHP warnings and spurious validation in route model
+o system: fix translation of static PHP pages with newer gettext
+o interfaces: support a primary interface in LAGG failover mode
+o interfaces: stop caching IPv6 address to decide if reload is required
+o firmware: opnsense-revert: fix issue with downloaded package install
+o ipsec: fix typo in config generation for AH proposals
+o unbound: duckduckgo.com blocklist fix
+o wireguard: add a peer configuration generator with QR code capability
+o wireguard: improve overall configuration UX
+o mvc: add "safe" filter in Phalcon volt templates
+o mvc: feed current language into view to replace hardcoded "en-US"
+o mvc: fix minor regression with "allownew" not having a default
+o mvc: extend model implementation to support volatile fields
+o mvc: add setBaseHook() to ApiMutableModelControllerBase
+o rc: fix wrong order in service startup (contributed by Frank Wall)
+o ui: move cache_safe() functions to appropriate include
+o ui: add a "statusled" formatter to bootgrid
+o ui: add a "grid-reload" helper to SimpleActionButton
+o plugins: os-bind 1.21[1]
+o plugins: os-caddy 1.5.3[2]
+o src: wg: fix handling of errors in wg_transmit()
+o src: wg: use proper barriers around pkt->p_state
+o src: kern: fix panic with disabled ttys
+o src: opencrypto: advance the correct pointer in crypto_cursor_copydata()
+o src: opencrypto: handle end-of-cursor conditions in crypto_cursor_segment()
+o src: opencrypto: respect alignment constraints in xor_and_encrypt()
+o src: ccr,ccp: fix argument order to sglist_append_vmpages
+o src: ossl: add missing labels to bsaes-armv7.S
+o src: ipsec esp: avoid dereferencing freed secasindex
+o src: irdma: upgrade to 1.2.36-k
+o src: irdma: remove artificial completion generator
+o src: tcp: cubic - restart epoch after RTO
+o src: tcp: prevent div by zero in cc_htcp
+o src: net80211: adjust more VHT structures/fields
+o ports: curl 8.7.1[3]
+o ports: expat 2.6.2[4]
+o ports: libucl 0.9.1
+o ports: lighttpd 1.4.75[5]
+o ports: nss 3.99[6]
+o ports: openssh-portable 9.7p1[7]
+o ports: openvpn 2.6.10[8]
+o ports: php 8.2.17[9]
+o ports: py-duckdb 0.10.1[10]
+o ports: py-netaddr 1.2.1[11]
+
+
+Stay safe,
+Your OPNsense team
+--
+
+[1] PLUGINS:24.1/dns/bind
+[2] PLUGINS:24.1/www/caddy
+[3] CURL:8.7.1
+[4] EXPAT:2.6.2
+[5] https://www.lighttpd.net/2024/3/13/1.4.75/
+[6] NSS:3.99
+[7] OPENSSH:9.7p1
+[8] OPENVPN26:2.6.10
+[9] PHP8:8.2.17
+[10] DUCKDB:0.10.1
+[11] NETADDR:1.2.1
