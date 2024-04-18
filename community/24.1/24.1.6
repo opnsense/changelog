@@ -1,0 +1,60 @@
+@ April 18, 2024
+
+Howdy,
+
+Today we are happy to announce another milestone regarding ISC DHCP removal:
+the arrival of a DHCRelay replacement based on code forked and maintained
+by OpenBSD.  While here the whole DHCP relay section was moved to MVC/API
+for the usual reasons and now offers a combined GUI for both DHCPv4 and
+DHCPv6 relay.  As a special treat this also includes being able to run
+ISC DHCP as well as any desired relay at the same time.
+
+The feedback for the WireGuard peer generator was quite extensive so a few
+more tweaks and fixes have been done in that area.  Thank you for all the
+responses regarding that feature addition!
+
+Otherwise this update simply moves ahead with security-related third
+party updates in OpenSSL and PHP.
+
+Last but not least we are releasing the OPNProxy (formerly business) plugin
+to the community version for fine-grained access control using Squid with
+Redis as a database backend.  For more details please consult the available
+documentation linked below.
+
+Here are the full patch notes:
+
+o firewall: show automation rules in their own section
+o firewall: keep permissions to standard for filter.lock file
+o firewall: replace searchNoCategoryItemAction() with new searchBase() extension
+o firewall: add gateway to the states diagnostics output
+o firewall: fix visible rows quantity off-by-one (contributed by NYOB)
+o intrusion detection: query all fields for searchBase() actions
+o dhcrelay: functional MVC/API replacement using the OpenBSD dhcrelay(6) fork
+o isc-dhcp: fix log file location
+o wireguard: add DNS field to peer generator and store previous used values in instance
+o wireguard: add address field to peer generator which auto-calculates the next available address in the pool
+o wireguard: add restart action to available cron tasks (contributed by Michael Muenz)
+o wireguard: unlink instance on peer delete
+o mvc: extend searchBase() to return all fields when no list is provided
+o mvc: fix config locking issue when already owning the lock
+o plugins: add globbing for plugin run tasks as well
+o plugins: os-OPNProxy 1.0.5 business plugin released to community version[1]
+o plugins: os-acme-client 4.2[2]
+o plugins: os-caddy 1.5.4[3]
+o plugins: os-zabbix-proxy 1.10[4]
+o ports: dhcrelay 0.4[5]
+o ports: openssl fix for CVE-2024-2511[6]
+o ports: php 8.2.18[7]
+
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] DOCS:vendor/deciso/opnproxy
+[2] PLUGINS:24.1/security/acme-client
+[3] PLUGINS:24.1/www/caddy
+[4] PLUGINS:24.1/net-mgmt/zabbix-proxy
+[5] https://github.com/opnsense/dhcrelay
+[6] https://github.com/freebsd/freebsd-ports/commit/3d9fc064b7
+[7] PHP8:8.2.18
