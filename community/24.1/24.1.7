@@ -1,0 +1,78 @@
+@ May 16, 2024
+
+Hey,
+
+Python was updated to version 3.11 along with the usual reliability patches
+in the core, plugins and third party software.
+
+At the moment we are working on removing most of the Phalcon framework
+dependencies which have the side effect of speeding up the MVC/API bits.
+The new dashboard is also taking shape.  Try it on the development version
+if you can and let us know what you think.
+
+Here are the full patch notes:
+
+o system: fix maximum log file size being ignored when there is only one file
+o system: make log rotate action available to Cron
+o system: remove get_current_theme() and improve static page templating
+o system: move radvd and rtsold to system log where they belong
+o system: deny access to .core files from web GUI and disable core dumps by default
+o system: adjust log levels in Google Drive backup
+o system: prevent out of memory on gateways migrations
+o interfaces: give DAD another second of delay to finish for the IPv6 renew
+o interfaces: reword the gateway selector default and help text to describe its function more accurately
+o ipsec: allow the equal sign for identity parsing in connections
+o isc-dhcp: make private consumers actually private where it matters
+o kea-dhcp: generate JSON payload from model
+o kea-dhcp: fix field separator for subnet domain search (contributed by KitKat31337)
+o openvpn: fix "attempt to read property..." in status page
+o openvpn: safeguard config access in updown_event.py
+o wireguard: pass endpoint to validator to avoid invalid QR code errors on mobile app
+o wireguard: add MTU when set on the instance
+o backend: allow to query multiple sysctl queries at once
+o mvc: pass isFieldChanged() to children in ContainerField
+o mvc: replace \Phalcon\Filter\Validation\Exception with \OPNsense\Base\ValidationException wrapper
+o mvc: extend model implementation to ease legacy migrations
+o mvc: change exception handling in runMigrations() to avoid mismatches in attributes being silently ignored
+o mvc: refactor grid search to fetch descriptive values from the model instead of trying to reconstruct them
+o mvc: replace array_map+strval for loop with cast to preserve execution time in BaseListField
+o ui: fix bootgrid parsing of timestamp
+o ui: improve tokenizer paste behaviour
+o plugins: os-acme-client 4.3[1]
+o plugins: os-caddy 1.5.5[2]
+o plugins: os-crowdsec 1.0.8[3]
+o plugins: os-freeradius 1.9.23[4]
+o plugins: os-frr 1.40[5]
+o plugins: os-relayd 2.9 moves validation to model where it belongs
+o plugins: os-shadowsocks 1.1 adds transport mode option (contributed by xabbok255)
+o plugins: os-squid workaround for broken OpenSSL legacy provider handling
+o plugins: os-telegraf 1.12.11[6]
+o ports: libpfctl 0.11
+o ports: libucl 0.9.2
+o ports: lighttpd 1.4.76[7]
+o ports: php 8.2.19[8]gg
+o ports: pecl-mcrypt 1.0.7
+o ports: python 3.11.9[9]
+o ports: strongswan 5.9.14[10]
+o ports: suricata 7.0.5[11]
+o ports: syslog-ng 4.7.1[12]
+o ports: unbound 1.20.0[13]
+
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] PLUGINS:24.1/security/acme-client
+[2] PLUGINS:24.1/www/caddy
+[3] PLUGINS:24.1/security/crowdsec
+[4] PLUGINS:24.1/net/freeradius
+[5] PLUGINS:24.1/net/frr
+[6] PLUGINS:24.1/net-mgmt/telegraf
+[7] https://www.lighttpd.net/2024/4/12/1.4.76/
+[8] PHP8:8.2.19
+[9] PYTHON:3.11.9
+[10] STRONGSWAN:5.9.14
+[11] https://suricata.io/2024/04/23/suricata-7-0-5-and-6-0-19-released/
+[12] SYSLOG-NG:4.7.1
+[13] UNBOUND:1.20.0
