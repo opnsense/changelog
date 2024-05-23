@@ -243,6 +243,12 @@ o system: adjust log levels in Google Drive backup
 o ipsec: allow the equal sign for identity parsing in connections
 o plugins: os-OPNBEcore fix for rule sync behaviour
 
+A hotfix release was issued as 24.4_7:
+
+o system: work around fatal password_hash() change in PHP 8.2.18
+o monit: fix referential constraint issue when dependency is removed
+o ports: openssl fix for CVE-2024-4603
+
 Migration notes, known issues and limitations:
 
 o Audits and certifications are requiring us to restrict system accounts for non-administrators (without wheel group in particular).  It will no longer be possible to use non-adminstrator accounts with shell access and permissions for sensitive files have been tightened to not be world-readable.  This may cause custom tooling to stop working, but can easily be fixed by giving these required accounts the full administration rights.
