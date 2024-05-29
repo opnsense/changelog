@@ -1,0 +1,64 @@
+@ May 29, 2024
+
+Hello, hello,
+
+The endless loop packet read in the new dhcrelay daemon has been fixed.
+A new kernel is included in this release bringing the latest stable/13
+state in the relevant networking areas.  A number of small changes have
+also been made.  Thanks for all the reports and support!
+
+To spread the news...  24.7 will be based on FreeBSD 14.1.  Stay tuned.
+
+Here are the full patch notes:
+
+o system: fix regression in gateways migration causing far gateway option to be set incorrectly
+o system: work around fatal password_hash() change in PHP 8.2.18
+o system: move net.inet.icmp.drop_redirect sysctl to automatic mode
+o system: add Google Drive configuration as an XMLRPC sync target
+o interfaces: detect and ignore "detached" state for IPv6
+o interfaces: remove unused imports from sockstat list
+o firewall: use the new $.replaceInputWithSelector() for source/destination networks in MVC filter pages
+o firewall: fix empty rule label rendered as "null" on sessions page
+o ipsec: fix faulty "-" usage in URIs
+o isc-dhcp: take into account that multple ia-pd can be delegated
+o kea-dhcp: simplified the controller code
+o unbound: change blocklist processing in _blocklist_reader()
+o unbound: allow RFC 2181 compatible names in query forwarding
+o mvc: silence spurious validation message when explicitly asked to ignore them
+o ui: prevent vertical modal overflows and instead present a scrollbar
+o ui: add $.replaceInputWithSelector() action
+o ui: handle static page CSRF without Phalcon
+o plugins: os-caddy 1.5.6[1]
+o src: pfsync: fix use of invalidated stack variable
+o src: pfsync: cope with multiple pending plus messages
+o src: ipfw: skip to the start of the loop when following a keep-state rule
+o src: bridge: use IF_MINMTU
+o src: bridge: change MTU for new members
+o src: ethernet: support ARP for 802 networks
+o src: ethernet: fix logging of frame length
+o src: debugnet: fix logging of frame length
+o src: wg: use ENETUNREACH when transmitting to a non-existent peer
+o src: fib_algo: lower level of algorithm switching messages to LOG_INFO
+o src: libpfctl: fix incorrect pcounters array size
+o src: pf: always mark states as unlinked before detaching them
+o src: vxlan: add checking for loops and nesting of tunnels
+o src: igc: increase default per-queue interrupt rate to 20000
+o ports: dhcrelay 0.5 fixes endless loop on packet read
+o ports: hyperscan 5.4.2[2]
+o ports: libxml 2.11.8[3]
+o ports: ntp 4.2.8p18[4]
+o ports: openssl fix for CVE-2024-4603
+o ports: phalcon 5.7.0[5]
+o ports: py-duckdb 0.10.3[6]
+
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] PLUGINS:24.1/www/caddy
+[2] HYPERSCAN:5.4.2
+[3] LIBXML:2.11.8
+[4] https://www.ntp.org/support/securitynotice/4_2_8-series-changelog/#428p18
+[5] PHALCON:5.7.0
+[6] DUCKDB:0.10.3
