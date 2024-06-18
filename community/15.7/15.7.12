@@ -18,7 +18,7 @@ Here is the full list of changes:
 o src: local privilege escalation in IRET handler[1]
 o src: disable ixgbe(4) flow-director support[2]
 o src: insufficient check of unsupported pkg(7) signature methods[3]
-o ports: libressl 2.2.3[4], bind 9.10.2P4[5], openldap24-client 2.4.42[6]
+o ports: libressl 2.2.3[4], bind 9.10.2P4[5], openldap 2.4.42[6]
 o ports: radvd 1.15[7], lighttpd 1.4.37[8], squid 3.5.8[9]
 o ports: php 5.6.13[10], php-suhosin 0.9.38[11]
 o dhcp: use reverse mask instead of reverse address in config
