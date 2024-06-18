@@ -1,0 +1,52 @@
+@ June 18, 2024
+
+Hello,
+
+This is the last bit of preparation for the upcoming 24.7 series reimplementing
+one-to-one NAT using MVC/API and a number of plumbing changes.  IPv6 has also
+been improved with the dhcp6c client having received a number of new fixes
+and features.
+
+Here are the full patch notes:
+
+o system: do not create an interface route without an address
+o system: add pluginctl -x/-X modes for digesting XMLRPC options
+o system: replace rand() with random_int() in remote backup script
+o firewall: migrate one-to-one NAT to MVC/API
+o interfaces: make SLAAC flush a feature of ifctl for incoming reuse
+o interfaces: in SLAAC tracking prevent accepting our own radvd configuration
+o interfaces: move SLAAC tunables to system requirements
+o interfaces: disable IPv6 interface modes when IPv6 is disabled globally
+o interfaces: avoid pluginctl giving out IPv4 info for non-interfaces
+o dhcrelay: add logging into its own space
+o firmware: change default fetch of changelog to 30 seconds
+o firmware: dump TLS information for firmware server(s) in use
+o isc-dhcp: allow root domain input as "." (contributed by Skyler Mantysaari)
+o kea-dhcp: support static DNS mappings (contributed by Markus Reiter)
+o mvc: refactored and improved checkAndThrowSafeDelete() as checkAndThrowValueInUse()
+o ui: prevent word break for top level menu items
+o plugins: os-caddy 1.5.7[1]
+o curl 8.8.0[2]
+o dhcp6c v20240607 additions for WAN tracking, interface ID specification, etc.
+o nss 3.100[3]
+o openldap 2.6.8[4]
+o openssl 3.0.14[5]
+o php 8.2.20[6]
+o py-duckdb 1.0.0[7]
+o py-netaddr 1.3.0[8]
+o sqlite 3.46.0[9]
+
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] PLUGINS:24.1/www/caddy
+[2] CURL:8.8.0
+[3] NSS:3.100
+[4] OPENLDAP:2.6.8
+[5] OPENSSL30:3.0.14
+[6] PHP8:8.2.20
+[7] DUCKDB:1.0.0
+[8] NETADDR:1.3.0
+[9] SQLITE:3.46.0
