@@ -1,0 +1,115 @@
+@ June 20, 2024
+
+This business release is based on the OPNsense 24.1.8 community version
+with additional reliability improvements.
+
+Here are the full patch notes:
+
+o system: fix maximum log file size being ignored when there is only one file
+o system: make log rotate action available to Cron
+o system: remove get_current_theme() and improve static page templating
+o system: move radvd and rtsold to system log where they belong
+o system: deny access to .core files from web GUI and disable core dumps by default
+o system: move net.inet.icmp.drop_redirect sysctl to automatic mode
+o system: add Google Drive configuration as an XMLRPC sync target
+o system: do not create an interface route without an address
+o firewall: use the new $.replaceInputWithSelector() for source/destination networks in MVC filter pages
+o firewall: fix empty rule label rendered as "null" on sessions page
+o interfaces: give DAD another second of delay to finish for the IPv6 renew
+o interfaces: reword the gateway selector default and help text to describe its function more accurately
+o interfaces: detect and ignore "detached" state for IPv6
+o interfaces: remove unused imports from sockstat list
+o interfaces: in SLAAC tracking prevent accepting our own radvd configuration
+o firmware: change default fetch of changelog to 30 seconds
+o firmware: dump TLS information for firmware server(s) in use
+o ipsec: fix faulty "-" usage in URIs
+o kea-dhcp: simplified the controller code
+o kea-dhcp: generate JSON payload from model
+o kea-dhcp: fix field separator for subnet domain search (contributed by KitKat31337)
+o isc-dhcp: make private consumers actually private where it matters
+o isc-dhcp: take into account that multiple ia-pd can be delegated
+o openvpn: fix "attempt to read property..." in status page
+o openvpn: safeguard config access in updown_event.py
+o wireguard: pass endpoint to validator to avoid invalid QR code errors on mobile app
+o wireguard: add MTU when set on the instance
+o wireguard: move validation to correct spot when no instance address and peer address was provided
+o wireguard: also validate hostnames correctly in peer generator endpoint
+o unbound: change blocklist processing in _blocklist_reader()
+o unbound: allow RFC 2181 compatible names in query forwarding
+o backend: allow to query multiple sysctl queries at once
+o backend: resolve deprecation warnings for sre_constants (contributed by MaxXor)
+o mvc: pass isFieldChanged() to children in ContainerField
+o mvc: replace \Phalcon\Filter\Validation\Exception with \OPNsense\Base\ValidationException wrapper
+o mvc: extend model implementation to ease legacy migrations
+o mvc: change exception handling in runMigrations() to avoid mismatches in attributes being silently ignored
+o mvc: refactor grid search to fetch descriptive values from the model instead of trying to reconstruct them
+o mvc: replace array_map+strval for loop with cast to preserve execution time in BaseListField
+o mvc: silence spurious validation message when explicitly asked to ignore them
+o ui: fix bootgrid parsing of timestamp
+o ui: improve tokenizer paste behaviour
+o ui: prevent vertical modal overflows and instead present a scrollbar
+o ui: add $.replaceInputWithSelector() action
+o ui: handle static page CSRF without Phalcon
+o ui: prevent word break for top level menu items
+o plugins: os-acme-client 4.3[1]
+o plugins: os-caddy 1.5.6[2]
+o plugins: os-crowdsec 1.0.8[3]
+o plugins: os-freeradius 1.9.23[4]
+o plugins: os-frr 1.40[5]
+o plugins: os-relayd 2.9 moves validation to model where it belongs
+o plugins: os-shadowsocks 1.1 adds transport mode option (contributed by xabbok255)
+o plugins: os-squid workaround for broken OpenSSL legacy provider handling
+o plugins: os-telegraf 1.12.11[6]
+o src: pfsync: fix use of invalidated stack variable
+o src: pfsync: cope with multiple pending plus messages
+o src: ipfw: skip to the start of the loop when following a keep-state rule
+o src: bridge: use IF_MINMTU
+o src: bridge: change MTU for new members
+o src: ethernet: support ARP for 802 networks
+o src: ethernet: fix logging of frame length
+o src: debugnet: fix logging of frame length
+o src: wg: use ENETUNREACH when transmitting to a non-existent peer
+o src: fib_algo: lower level of algorithm switching messages to LOG_INFO
+o src: libpfctl: fix incorrect pcounters array size
+o src: pf: always mark states as unlinked before detaching them
+o src: vxlan: add checking for loops and nesting of tunnels
+o src: igc: increase default per-queue interrupt rate to 20000
+o ports: hyperscan 5.4.2[7]
+o ports: libpfctl 0.11
+o ports: libucl 0.9.2
+o ports: libxml 2.11.8[8]
+o ports: lighttpd 1.4.76[9]
+o ports: ntp 4.2.8p18[10]
+o ports: pecl-mcrypt 1.0.7
+o ports: phalcon 5.7.0[11]
+o ports: php 8.2.19[12]
+o ports: py-duckdb 0.10.3[13]
+o ports: python 3.11.9[14]
+o ports: strongswan 5.9.14[15]
+o ports: suricata 7.0.5[16]
+o ports: syslog-ng 4.7.1[17]
+o ports: unbound 1.20.0[18]
+
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] PLUGINS:24.1/security/acme-client
+[2] PLUGINS:24.1/www/caddy
+[3] PLUGINS:24.1/security/crowdsec
+[4] PLUGINS:24.1/net/freeradius
+[5] PLUGINS:24.1/net/frr
+[6] PLUGINS:24.1/net-mgmt/telegraf
+[7] HYPERSCAN:5.4.2
+[8] LIBXML:2.11.8
+[9] https://www.lighttpd.net/2024/4/12/1.4.76/
+[10] https://www.ntp.org/support/securitynotice/4_2_8-series-changelog/#428p18
+[11] PHALCON:5.7.0
+[12] PHP8:8.2.19
+[13] DUCKDB:0.10.3
+[14] PYTHON:3.11.9
+[15] STRONGSWAN:5.9.14
+[16] https://suricata.io/2024/04/23/suricata-7-0-5-and-6-0-19-released/
+[17] SYSLOG-NG:4.7.1
+[18] UNBOUND:1.20.0
