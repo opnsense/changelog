@@ -1,0 +1,50 @@
+@ July 11, 2024
+
+Hi,
+
+Today a number of security advisories in third party software are being
+addressed.  Also, a bad dhcp6c patch has been reverted which requires
+a manual reboot to take full effect.
+
+Here are the full patch notes:
+
+o interfaces: improve DHCPv6 requirement rules on WAN interface
+o interfaces: support reading more attributes in ifconfig output parser
+o interfaces: correct logic of resolve flag in ARP table (contributed by Kevin Pelzel)
+o reporting: add NetFlow IPv6 support for destinations
+o kea-dhcp: add description field to subnets
+o kea-dhcp: add next-server option to subnets (contributed by Harm Kroon)
+o wireguard: fix IP protocol detection for manual gateway
+o ui: remove aria-hidden from dialogs (contributed by Jason Fayre)
+o ui: properly break out selectpicker options in modals
+o plugins: os-bind 1.32[1]
+o plugins: os-caddy 1.6.0[2]
+o plugins: os-ddclient 1.22[3]
+o plugins: os-nginx 1.33[4]
+o plugins: os-theme-cicada 1.36 (contributed by Team Rebellion)
+o plugins: os-theme-vicuna 1.46 (contributed by Team Rebellion)
+o plugins: os-zabbix-agent 1.14[5]
+o plugins: os-zabbix-proxy 1.11[6]
+o ports: dhcp6c 20240710 reverts faulty Debian patch
+o ports: krb5 1.21.3[7]
+o ports: nss 3.101[8]
+o ports: openssh 9.8p1[9]
+o ports: openvpn 2.6.11[10]
+o ports: suricata 7.0.6[11]
+
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] PLUGINS:24.1/dns/bind
+[2] PLUGINS:24.1/www/caddy
+[3] PLUGINS:24.1/dns/ddclient
+[4] PLUGINS:24.1/www/nginx
+[5] PLUGINS:24.1/net-mgmt/zabbix-agent
+[6] PLUGINS:24.1/net-mgmt/zabbix-proxy
+[7] KRB5:1.21
+[8] NSS:3.101
+[9] OPENSSH:9.8p1
+[10] OPENVPN26:2.6.11
+[11] https://suricata.io/2024/06/27/suricata-7-0-6-and-6-0-20-released/
