@@ -36,6 +36,9 @@ A hotfix release was issued as 24.1.10_1:
 
 o interfaces: allow DHCPv6 server answer from a GUA
 
+A hotfix release was issued as 24.1.10_2:
+
+o interfaces: allow DHCPv6 multicast as well
 
 Stay safe,
 Your OPNsense team
