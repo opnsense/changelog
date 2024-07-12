@@ -32,6 +32,10 @@ o ports: openssh 9.8p1[9]
 o ports: openvpn 2.6.11[10]
 o ports: suricata 7.0.6[11]
 
+A hotfix release was issued as 24.1.10_1:
+
+o interfaces: allow DHCPv6 server answer from a GUA
+
 
 Stay safe,
 Your OPNsense team
