@@ -40,6 +40,11 @@ A hotfix release was issued as 24.1.10_2:
 
 o interfaces: allow DHCPv6 multicast as well
 
+A hotfix release was issued as 24.1.10_3:
+
+o firewall: fix regression in GeoIP aliases selector
+
+
 Stay safe,
 Your OPNsense team
 
