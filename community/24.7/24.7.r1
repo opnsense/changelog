@@ -1,0 +1,68 @@
+@ July 16, 2024
+
+Hello there,
+
+If you have not heard: 24.7-RC1 is an online update. You can update
+from the 24.7-BETA and switch to the community release type for the
+stable track which leads into 24.7.x.  The development version of the
+upcoming 24.1.11 release will also be able to update to the RC. An RC2
+will follow up with the relevant images and additional information at
+the end of the week.
+
+Here are the full changes against version 24.1.10:
+
+o system: remove "load_balancer" configuration remnants from core
+o system: replace usage of mt_rand() with random_int()
+o system: rewrote Trust configuration using MVC/API
+o system: add XMLRPC option for OpenDNS
+o system: rewrote the high availability settings page using MVC/API
+o system: remove obsolete SSH DSA key handling
+o system: replaced the dashboard with a modern alternative with streaming widgets
+o system: harden a number of PHP settings according to best practices
+o system: support streaming of log files for the new dashboard widget
+o interfaces: rewrote GRE configuration using MVC/API
+o interfaces: rewrote GIF configuration using MVC/API
+o interfaces: temporary flush SLAAC addresses in DHCPv6 WAN mode to avoid using them primarily
+o interfaces: add peer/peer6 options to CARP VIPs
+o interfaces: allow to assign a prefix ID to WAN interface in DHCPv6 as well
+o interfaces: allow to set manual interface ID in DHCPv6 and tracking modes
+o firewall: performance improvements in alias handling
+o firewall: refactor pftop output, move search to controller layer and implement cache for sessions page
+o firewall: support streaming of filter logs for the new dashboard widget
+o captive portal: add "Allow inbound" option to select interfaces which may enter the zone
+o captive portal: remove defunct transparent proxy settings
+o captive portal: clean up the codebase
+o ipsec: prevent gateway when remote gateway family does not match selected protocol in legacy tunnel configuration
+o isc-dhcp: do not reload DNS services when editing static mappings to match behaviour with Kea
+o monit: expose HTTPD username and password settings to GUI
+o openvpn: optionally support DCO devices for instances
+o openvpn: remove duplicate and irrelevant data for the client session in question
+o openvpn: add "remote_cert_tls" option to instances
+o backend: add "cache_ttl" parameter to allow for generic caching of actions
+o backend: run default action "configd actions" when none was specified
+o backend: extended support for streaming actions
+o ui: assorted improvements for screen readers (contributed by Jason Fayre)
+o ui: add "select all" to standard form selectors and remove dialog on "clear all" for tokenizers
+o ui: lock save button while in progress to prevent duplicate input on Bootgrid
+o ui: backport accessibility fix in Bootstrap
+o mvc: replaced most of the Phalcon MVC use with a native band compatible implementation
+o mvc: improve searchRecordsetBase() filtering capabilities
+o mvc: improve container field cloning
+o plugins: os-acme-client 4.4[1]
+o plugins: os-etpro-telemetry 1.7 replaces dashboard widget
+o src: FreeBSD 14.1-RELEASE[2]
+o ports: phalcon 5.8.0[3]
+
+Migration notes, known issues and limitations:
+
+o The dashboard has been replaced. Widgets from the old format are no longer supported and need to be rewritten by the respective authors.
+o ISC DHCP will no longer reload DNS services on static mapping edits. This is for feature parity with Kea DHCP and avoiding cross-service complications. If you expect your static mappings to show up in a DNS service please restart it manually.
+
+
+Stay safe,
+Your OPNsense team
+
+--
+[1]PLUGINS:24.
+[2] https://www.freebsd.org/releases/14.1R/relnotes/
+[3] PHALCON:5.8.0
