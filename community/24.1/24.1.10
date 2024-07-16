@@ -6,6 +6,10 @@ Today a number of security advisories in third party software are being
 addressed.  Also, a bad dhcp6c patch has been reverted which requires
 a manual reboot to take full effect.
 
+CAUTION: The OpenSSH update prevents SSH sessions from being established.
+You need to restart OpenSSH from the GUI or run the console command
+"pluginctl -s openssh restart" or reboot the system in order to unbreak it.
+
 Here are the full patch notes:
 
 o interfaces: improve DHCPv6 requirement rules on WAN interface
