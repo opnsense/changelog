@@ -30,7 +30,7 @@ o mvc: remove obsolete getParams() usage in ApiControllerBase
 o mvc: hook default index action in API handler
 o src: assorted backports from FreeBSD stable/14 branch
 o plugins: os-caddy 1.6.1[2]
-o plugins: os-dec-hw 1.1 replaces new dashboard widget
+o plugins: os-dec-hw 1.1 replaces the dashboard widget
 o plugins: os-nginx 1.34[3]
 o plugins: os-theme-cicada 1.37 fixes dropdown element style (contributed by Team Rebellion)
 o plugins: os-theme-vicuna 1.47 fixes dropdown element style (contributed by Team Rebellion)
