@@ -48,6 +48,14 @@ A hotfix release was issued as 24.1.10_3:
 
 o firewall: fix regression in GeoIP aliases selector
 
+A hotfix release was issued as 24.1.10_8:
+
+o firewall: fix one-to-one NAT migration with external address without a subnet set
+o firmware: add fingerprint and upgrade hint for 24.7
+o firmware: prefer ZFS over UFS in upgrade message
+o firmware: remove unneeded Unbound DNS database upgrade script
+o firmware: remove stale Squid plugin upgrade script
+
 
 Stay safe,
 Your OPNsense team
