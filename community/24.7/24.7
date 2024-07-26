@@ -89,6 +89,15 @@ o ports: phalcon 5.8.0[8]
 o ports: openvpn 2.6.12[9]
 o ports: wpa_supplicant 2.11[10]
 
+A hotfix release was issued as 24.7_5:
+
+o system: fix disk widget byte unit "B" parsing crashing the whole widget
+o interfaces: improve apply of the new peer/peer6 options to avoid unneeded reset
+o firewall: fix one-to-one NAT migration with external address without a subnet set
+o openvpn: disable DCO permanently in legacy client/server configuration
+o mvc: fix API regression due to getParams() removal
+o plugins: os-udpbroadcastrelay API error fixes (contributed by Team Rebellion)
+
 Migration notes, known issues and limitations:
 
 o The dashboard has been replaced. Widgets from the old format are no longer supported and need to be rewritten by the respective authors.
