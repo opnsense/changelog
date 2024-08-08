@@ -375,7 +375,7 @@ Your OPNsense team
 [40] PHP8:8.0.24
 [41] PHPSECLIB:3.0.16
 [42] PYTHON:3.9.15
-[43] https://github.com/oetiker/rrdtool-1.x/blob/master/CHANGES
+[43] RRDTOOL:1.8.0
 [44] SQLITE:3.39.3
 [45] SQUID5:5.7
 [46] STRONGSWAN:5.9.8
