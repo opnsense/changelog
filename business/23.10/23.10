@@ -217,7 +217,7 @@ o plugins: os-iperf adds rubygem-rexml dependency (contributed by Hannah Kiekens
 o plugins: os-relayd 2.7 now supports newer upstream release of relayd
 o plugins: os-rfc2136 replaces calls to obsolete get_interface_ip[v6]()
 o plugins: os-smart reverts the use of smartctl to gather disks
-o plugins: os-sunnyvalley 1.3 changes repository URL (contributed by Sunnyvalley)
+o plugins: os-sunnyvalley 1.3 changes repository URL (contributed by Sunny Valley Networks)
 o plugins: os-telegraf 1.12.9[9]
 o plugins: os-theme-rebellion 1.8.9 fixes Unbound DNS reporting page
 o plugins: os-tinc 1.7 adds support for "StrictSubnets" variable (contributed by andrewhotlab)
