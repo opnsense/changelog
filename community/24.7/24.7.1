@@ -1,0 +1,97 @@
+@ August 08, 2024
+
+A good day to you all,
+
+This release includes a batch of dashboard changes due to the reliable
+feedback we have received from you all so far.  There will be more dashboard
+changes in the future mostly relating to UX and sane default behaviour
+so just know we are aware.
+
+A few smaller regressions due to the Phalcon module replacement efforts
+have been fixed as well.  IPv6 behaviour has been adjusted for SLAAC and
+the web GUI.
+
+Last but not least we found and fixed a number of issues with FreeBSD 14.1
+and are including its security advisories from yesterday while at it.
+
+MVC/API conversions are already being carried out in the development version
+and it seems that PPP-related connectivity will get a bigger makeover too.
+The roadmap for 25.1 will be discussed and likely published later this month.
+
+Here are the full patch notes:
+
+o system: guard destroy on traffic widget
+o system: adjust address display in interfaces widget
+o system: fix display of multiple sources in thermal sensor widget
+o system: add load average back to system info widget
+o system: remove dots from traffic widget graphs
+o system: add publication date to announcement widget
+o system: fix monit widget status code handling
+o system: allow and persist vertical resize in widgets
+o system: improve formatting of byte values in widgets
+o system: update OpenVPN widget server status color
+o system: add aggregated traffic information about connected children in IPsec widget
+o system: remove animated transition from row hover for table widgets
+o system: improve the styling of the widget lock button
+o system: apply locked state to newly added widgets as well
+o system: account for removal of rows in non-rotated widget tables with top headers
+o system: use "importmap" to force cache safe imports of base classes for widgets
+o system: allow custom fonts in the widgets with gauges (contributed by Jaka Prasnika)
+o system: add monitor IP to gateway API result (contributed by Herman Bonnes)
+o system: better define "in use" flag and safety guards in certificates section
+o system: export p12 resulted in mangled binary blob in certificates section
+o system: when using debug kernels prevent them from triggering unrelated panics on assertions
+o system: switch Twitter to Reddit URL in message of the day
+o system: fix API exception on empty CA selection
+o system: skip tentative IPv6 addresses for binding in the web GUI (contributed by tionu)
+o interfaces: avoid deprecating SLAAC address for now
+o firewall: show inspect button on "xs" size screen
+o firewall: fix parsing port alias names in /etc/services
+o captive portal: fix client disconnect (contributed by Vivek Panchal)
+o firmware: revoke old fingerprints
+o ipsec: add aggregated traffic totals to phase 1 view
+o kea-dhcp: ignore invalid hostnames in static mappings to prevent DNS services crashes
+o openvpn: use new trust model to link users by common_name in exporter
+o openvpn: DCO mode only supports UDP on FreeBSD
+o openvpn: add "float" option to instances (contributed by Christian Kohlstedde)
+o backend: patch -6 address support into pluginctl
+o mvc: fix API endpoint sending data without giving the Response object the chance to flush its headers
+o plugins: os-acme-client 4.5[1]
+o plugins: os-apcupsd 1.2[2]
+o plugins: os-caddy 1.6.2[3]
+o plugins: os-ddclient 1.23[4]
+o plugins: os-theme-rebellion 1.9.1 fixes more compatibility issues with new dashboard (contributed by Team Rebellion)
+o src: pf incorrectly matches different ICMPv6 states in the state table[5]
+o src: ktrace(2) fails to detach when executing a setuid binary[6]
+o src: NFS client accepts file names containing path separators[7]
+o src: xen/netfront: Decouple XENNET tags from mbuf lifetimes
+o src: dummynet: fix fq_pie traffic stall
+o src: mcast: fix leaked igmp packets on multicast cleanup
+o src: wg: change dhost to something other than a broadcast address (contributed by Sunny Valley Networks)
+o ports: curl 8.9.1[8]
+o ports: dhcrelay 0.6[9]
+o ports: kea 2.6.1[10]
+o ports: nss 3.102[11]
+o ports: php 8.2.22[12]
+o ports: rrdtool 1.9.0[13]
+o ports: syslog-ng 4.8.0[14]
+
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] PLUGINS:24.7/security/acme-client
+[2] PLUGINS:24.7/sysutils/apcuspd
+[3] PLUGINS:24.7/www/caddy
+[4] PLUGINS:24.7/dns/ddclient
+[5] FREEBSD:FreeBSD-SA-24:05.pf
+[6] FREEBSD:FreeBSD-SA-24:06.ktrace
+[7] FREEBSD:FreeBSD-SA-24:07.nfsclient
+[8] CURL:8.9.1
+[9] https://github.com/opnsense/dhcrelay/issues/2
+[10] https://downloads.isc.org/isc/kea/2.6.1/Kea-2.6.1-ReleaseNotes.txt
+[11] NSS:3.102
+[12] PHP8:8.2.22
+[13] RRDTOOL:1.9.0
+[14] SYSLOG-NG:4.8.0
