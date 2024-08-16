@@ -1,0 +1,67 @@
+@ August 16, 2024
+
+This business release is based on the OPNsense 24.1.10 community version
+with additional reliability improvements.
+
+Here are the full patch notes:
+
+o system: add pluginctl -x/-X modes for digesting XMLRPC options
+o system: replace rand() with random_int() in remote backup script
+o system: skip tentative IPv6 addresses for binding in the web GUI (contributed by tionu)
+o firewall: migrate one-to-one NAT to MVC/API
+o firewall: show inspect button on "xs" size screen
+o interfaces: make SLAAC flush a feature of ifctl for incoming reuse
+o interfaces: move SLAAC tunables to system requirements
+o interfaces: disable IPv6 interface modes when IPv6 is disabled globally
+o interfaces: avoid pluginctl giving out IPv4 info for non-interfaces
+o interfaces: improve DHCPv6 requirement rules on WAN interface
+o interfaces: support reading more attributes in ifconfig output parser
+o interfaces: correct logic of resolve flag in ARP table (contributed by Kevin Pelzel)
+o reporting: add NetFlow IPv6 support for destinations
+o dhcrelay: add logging into its own space
+o firmware: prefer ZFS over UFS in upgrade message
+o firmware: remove unneeded Unbound DNS database upgrade script
+o firmware: remove stale Squid plugin upgrade script
+o isc-dhcp: allow root domain input as "." (contributed by Skyler Mantysaari)
+o kea-dhcp: support static DNS mappings (contributed by Markus Reiter)
+o kea-dhcp: add description field to subnets
+o kea-dhcp: add next-server option to subnets (contributed by Harm Kroon)
+o kea-dhcp: fix privileges for page ACL
+o openvpn: add "float" option to instances (contributed by Christian Kohlstedde)
+o mvc: refactored and improved checkAndThrowSafeDelete() as checkAndThrowValueInUse()
+o ui: remove aria-hidden from dialogs (contributed by Jason Fayre)
+o plugins: os-OPNcentral 1.10
+o plugins: os-OPNWAF 1.5
+o plugins: os-bind 1.32[1]
+o plugins: os-caddy 1.6.0[2]
+o plugins: os-ddclient 1.22[3]
+o plugins: os-nginx 1.33[4]
+o plugins: os-theme-cicada 1.36 (contributed by Team Rebellion)
+o plugins: os-theme-vicuna 1.46 (contributed by Team Rebellion)
+o plugins: os-zabbix-agent 1.14[5]
+o plugins: os-zabbix-proxy 1.11[6]
+o ports: curl 8.8.0[7]
+o ports: dhcp6c 20240710 additions for WAN tracking, interface ID specification, etc.
+o ports: openldap 2.6.8[8]
+o ports: php 8.2.20[9]
+o ports: py-duckdb 1.0.0[10]
+o ports: py-netaddr 1.3.0[11]
+o ports: sqlite 3.46.0[12]
+
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] PLUGINS:24.1/dns/bind
+[2] PLUGINS:24.1/www/caddy
+[3] PLUGINS:24.1/dns/ddclient
+[4] PLUGINS:24.1/www/nginx
+[5] PLUGINS:24.1/net-mgmt/zabbix-agent
+[6] PLUGINS:24.1/net-mgmt/zabbix-proxy
+[7] CURL:8.8.0
+[8] OPENLDAP:2.6.8
+[9] PHP8:8.2.20
+[10] DUCKDB:1.0.0
+[11] NETADDR:1.3.0
+[12] SQLITE:3.46.0
