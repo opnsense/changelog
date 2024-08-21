@@ -1,0 +1,79 @@
+@ August 21, 2024
+
+Howdy,
+
+Today a follow-up for the FreeBSD security advisory for pf/ICMP
+ships that addresses the undesired traceroute behaviour.  A few
+dashboard improvements are included as well as better IPv6 recovery
+for dhcp6c and assorted stability fixes.
+
+As a special note we now have native CPU microcode update plugins
+for either AMD or Intel to install from the GUI.  Apart from a reboot
+these plugins require no further user interaction and will keep the
+applicable microcode at the latest known version as shipped in the
+packages repository.
+
+We are currently working on making PPP capable of running in
+IPv6-only deployments; additionally ZFS snapshots (a.k.a boot environments)
+are coming to the next stable release and can already be previewed in
+the bundled development version.
+
+Last but not least, an "importmap" free dashboard version is also
+ready for testing in the development release.  We hereby ask for
+feedback so that it can be included in a subsequent stable release.
+
+Here are the full patch notes:
+
+o system: CRL import ignored text input and triggered unrelated validations
+o system: improve the locking during web GUI restart
+o system: improve WireGuard and IPsec widgets
+o system: add CPU widget graph selection
+o system: reformat traffic graphs to bps
+o system: add gateway widget item selection
+o system: add table view to interface statistics widget on expansion
+o system: improve widget error recovery
+o system: fix wrong variable assignment in system log search backend
+o system: add missing delAction() for proper CRL removal
+o interfaces: require PPP interface to be in up state (contributed by Nicolai Scheer)
+o interfaces: lock down PPP modes when editing interfaces
+o interfaces: backport required interface_ppps_capable()
+o interfaces: retire interfaces_bring_up()
+o reporting: start using cron for RRD collection
+o firmware: remove inactive mirrors from the list
+o firmware: introduce sanity checks prior to upgrades
+o firmware: cleanup package manager temporary files prior to upgrades
+o kea-dhcp: fix privileges for page ACL
+o ipsec: advanced settings MVC/API conversion
+o ipsec: add retransmission settings in charon section in advanced settings
+o openvpn: unhide server fields for DCO instances
+o mvc: remove setJsonContent() and make sure Response->send() handles array types properly
+o mvc: FileObject write() should sync by default
+o rc: export default ZPOOL_IMPORT_PATH
+o ui: sidebar submenu expand fix (contributed by Team Rebellion)
+o plugins: os-caddy 1.6.3[1]
+o plugins: os-cpu-microcode-amd 1.0
+o plugins: os-cpu-microcode-intel 1.0
+o plugins: os-freeradius 1.9.25[2]
+o plugins: os-intrusion-detection-content-snort-vrt 1.2 switch to newer ruleset snapshot (contributed by Jim McKibben)
+o plugins: os-theme-tukan 1.28 (contributed by Dr. Uwe Meyer-Gruhl)
+o src: axgbe: implement ifdi_i2c_req for diagnostics information
+o src: if_clone: allow maxunit to be zero
+o src: if_pflog: limit the maximum unit via the new KPI
+o src: pf: invert direction for inner icmp state lookups
+o src: pf: fix icmp-in-icmp state lookup
+o src: pf: vnet-ify pf_hashsize, pf_hashmask, pf_srchashsize and V_pf_srchashmask
+o ports: dhcp6c 20240820 fixes two renewal edge cases
+o ports: nss 3.103[3]
+o ports: phpseclib 3.0.41[4]
+o ports: unbound 1.21.0[5]
+
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] PLUGINS:24.7/www/caddy
+[2] PLUGINS:24.7/net/freeradius
+[3] NSS:3.103
+[4] PHPSECLIB:3.0.41
+[5] UNBOUND:1.12.0
