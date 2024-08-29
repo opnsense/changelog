@@ -1,0 +1,62 @@
+@ August 29, 2024
+
+Dear all,
+
+Today we are switching pf stateful tracking of ICMPv6 neighbour discoveries
+off in order to fix the previous instability with the FreeBSD security
+advisory first shipped in 24.7.1.  We do this in order to provide the same
+reliable IPv6 functionality that was on all previous versions prior to
+24.7.1 at the cost of resurfacing CVE-2024-6640 until a better solution
+has been devised.  A link to the long and difficult upstream bug report is
+included below.
+
+But that is not all.  The GUI gains snapshot support on ZFS installations by
+implementing what is called "boot environments" which allows one to move
+seamlessly from one snapshot to another via reboot.  This functionality can
+also be accessed from the boot loader menu option "8" for a quick recovery
+ensuring that at least one other snapshot was created to boot into.  A very
+special thank you to Sheridan Computers for contributing this feature.
+
+Here are the full patch notes:
+
+o system: add snapshots (boot environments) support via MVC/API (contributed by Sheridan Computers)
+o system: remove obsolete dashboard sync
+o system: compact services widget on dashboard
+o system: convert lock mode to edit mode on dashboard
+o system: link certificates by subject on import
+o system: unify how log search clauses work and add a search time constraint
+o system: move to static imports for widget base classes on dashboard
+o system: fix ACL check on dashboard restore and add safety check for save action
+o system: change dashboard modify buttons to a bootstrap group (contributed by Jaka Prašnikar)
+o interfaces: add "newwanip_map" event and deprecate old "newwanip" one
+o interfaces: keep 24.7 backwards compatibility by allowing 6RD and 6to4 on PPP
+o interfaces: add logging to PPP link scripts to check for overlap
+o interfaces: return correct uppercase interface name in getArp()
+o interfaces: fix issue with PPP port not being posted
+o dhcrelay: start on "newwanip_map" event as well
+o intrusion detection: update the default suricata.yaml (contributed by Jim McKibben)
+o ipsec: move two logging settings to correct location misplaced in previous version
+o ipsec: fix migration and regression during handling of "disablevpnrules" setting
+o wireguard: support CARP VHID reuse on different interfaces
+o mvc: when a hint is provided, also show them for selectpickers
+o rc: fix banner HTTPS fingerprint
+o plugins: os-ddclient 1.24[1]
+o plugins: os-theme-advanced 1.0 based on AdvancedTomato (contributed by Jaka Prašnikar)
+o plugins: os-theme-cicada 1.38 (contributed by Team Rebellion)
+o plugins: os-theme-vicuna 1.48 (contributed by Team Rebellion)
+o plugins: os-upnp 1.6[2]
+o plugins: os-wol 2.5 adds widget for new dashboard (contributed by Michał Brzeziński)
+o src: pf: fully annotated patch of disabling ND state tracking and issues for ICMPv6[3]
+o src: u3g: add SIERRA AC340U
+o ports: dhcrelay 1.0 switches to official release numbering, but otherwise equal to 0.6
+o ports: sqlite 3.46.1[4]
+
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] PLUGINS:24.7/dns/ddclient
+[2] PLUGINS:24.7/net/upnp
+[3] https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=280701
+[4] SQLITE:3.46.1
