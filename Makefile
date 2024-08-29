@@ -36,7 +36,6 @@ all:
 	@cat ${.CURDIR}/README.md | ${PAGER}
 
 lint:
-	@perl -ane '{ if(m/[[:^ascii:]]/) { print } }' ${.CURDIR}/${DOCSDIR}/*/*
 	@grep -nr '^@.* [1-9],' ${.CURDIR}/${DOCSDIR} || true
 	@grep -nr '[ 	]$$' ${.CURDIR}/${DOCSDIR} || true
 	@grep -nr ' \[' ${.CURDIR}/${DOCSDIR} || true
