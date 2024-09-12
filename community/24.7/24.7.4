@@ -1,0 +1,87 @@
+@ September 12, 2024
+
+Hey,
+
+Since we are currently having a vivid discussion about what constitutes
+a downstream or upstream issue in the FreeBSD scope we will revert the
+FreeBSD-SA-24:05.pf advisory until further notice.  As confirmed by many
+users this brings ICMPv6 and therefore IPv6 back to an uneventful stable
+state.  We will be trying to work with FreeBSD on the issue as it seems
+unavoidable that we meet it again when working on FreeBSD 14.2 inclusion.
+
+In other IPv6 news we found a strange regression in dhcp6c introduced in
+24.7.2 and reverted the offending commits for now.  What this tells us,
+though, is that we did uncover an inherent issue with the timeout value
+generation that may be present since two decades in the code at least.
+
+Apart from smaller fixes for the dashboard, trust pages, this update
+also ships the first backwards-compatible PPP rework patch.  The ultimate
+goal here is to offer IPv6-only connectivity which requires untangling
+old code to be IP family agnostic.  Should you note any change in behaviour
+please do not hesitate to contact us.
+
+BTW, the roadmap for 25.1 has been decided and will be published soon.
+
+Here are the full patch notes:
+
+o system: recover stuck monitors and offer a cron job
+o system: use built-in controller logic for JSON decoding on dashboard
+o system: map derivative field cert_type to expose purpose to the UI
+o system: handle stale "pfsyncinterfaces" and improve workflow
+o system: tweak the boot detection for code minimalism
+o system: do not save x/y widget coordinates on smaller screens
+o system: fix CARP widget on invalid CARP configuration
+o system: fix storing private key when creating a CSR
+o reporting: remove nonexistent 3G statistics
+o interfaces: force regeneration of link-local on spoofed MAC
+o interfaces: add proper validation for 6RD and 6to4
+o interfaces: add new "vpn_map" event to deprecate "vpn"
+o interfaces: unify PPP linkup/linkdown scripting
+o interfaces: replace "newwanip" from interface apply with "early"
+o interfaces: move IPv6 over IPv4 connectivity to a separate script
+o interfaces: port VXLAN to newwanip_map event
+o firewall: replace filter_(un)lock() with a FileObject lock
+o isc-dhcp: allow to disable a DHCPv6 server with faulty settings
+o firmware: remove auto-retry from fetch invokes
+o firmware: allow auto-configure patching via full URL
+o firmware: automatically handle most plugin conflicts
+o openssh: convert to newwanip_map and rework the code
+o openvpn: add username field to the status page
+o openvpn: add close-on-exec flag to service lock file
+o unbound: add discard-timeout (contributed by Nigel Jones)
+o wireguard: fix widget display with public key reuse
+o wireguard: add close-on-exec flag to service lock file
+o ui: allow style tag on headers
+o plugins: os-helloworld 1.4
+o plugins: os-caddy 1.7.0[1]
+o src: revert FreeBSD-SA-24:05.pf until further notice to restore proper IPv6 behaviour[2]
+o src: agp: Set the driver-specific field correctly
+o src: cron(8) / periodic(8) session login[3]
+o src: multiple vulnerabilities in libnv[4]
+o src: bhyve(8) privileged guest escape via TPM device passthrough[5]
+o src: multiple issues in ctl(4) CAM target layer[6]
+o src: bhyve(8) privileged guest escape via USB controller[7]
+o src: possible DoS in X.509 name checks in OpenSSL[8]
+o src: umtx kernel panic or use-after-free[9]
+o src: revert "ixl: fix multicast filters handling"[10]
+o ports: dhcp6c 20240907 for now reverts instability regression in random number handling
+o ports: openssl 3.0.15[11]
+o ports: php 8.2.23[12]
+
+
+Stay safe and take a snapshot,
+Your OPNsense team
+
+--
+[1] PLUGINS:24.7/www/caddy
+[2] https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=280701
+[3] FREEBSD:FreeBSD-EN-24:15.calendar
+[4] FREEBSD:FreeBSD-SA-24:09.libnv
+[5] FREEBSD:FreeBSD-SA-24:10.bhyve
+[6] FREEBSD:FreeBSD-SA-24:11.ctl
+[7] FREEBSD:FreeBSD-SA-24:12.bhyve
+[8] FREEBSD:FreeBSD-SA-24:13.openssl
+[9] FREEBSD:FreeBSD-SA-24:14.umtx
+[10] https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=281125
+[11] OPENSSL:3.0.15
+[12] PHP8:8.2.23
