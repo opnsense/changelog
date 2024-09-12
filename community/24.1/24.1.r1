@@ -113,5 +113,5 @@ Your OPNsense team
 --
 [1] FREEBSD:FreeBSD-SA-23:18.nfsclient
 [2] LIBXML:2.11.6
-[3] OPENSSL30:3.0.12
+[3] OPENSSL:3.0.12
 [4] https://forum.suricata.io/t/suricata-7-0-2-released/4069
