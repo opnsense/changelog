@@ -1,0 +1,87 @@
+@ October 09, 2024
+
+Hello there!
+
+A few security and reliability issues this week.  Most notably Suricata
+and Unbound.  The dashboard rework seems to be concluded now as the
+ACL behaviour was aligned and should match the user expectation on
+the "Lobby" section privileges.  Note not all widgets have separate
+ACLs as it aims to provide a minimal safe selection of system widgets
+associated with the access to the dashboard page in general.
+
+We will, however, continue to improve the dashboard further while we
+also tackle other interesting areas for 25.1.  That being said have
+a look at the new roadmap[1] we published recently.
+
+You may notice the increased activity on the trust store side due to
+our LINCE certification efforts.  Valuable feedback and code changes
+have come from this process that will also find their way into other
+related projects in the near future.
+
+Here are the full patch notes:
+
+o system: do not render non-reachable dashboard widget links
+o system: handle picture deletion via hidden input on general settings page
+o system: straighten out API ACL entries for several components
+o system: remove unreachable "page-getstats" ACL entry
+o system: adjust "page-system-login-logout" ACL entry to be used as a minimal dashboard privilege
+o system: deprecate the "page-dashboard-all" ACL entry as it will be removed in 25.1
+o system: add descriptions on CA and certificate downloads file names
+o system: show user icon when certificate is not otherwise used (in case CN matches any of our registered users)
+o system: add proper validation when certificates are being imported via CSR
+o system: add missing CRL changed event when CRLs are saved in the GUI
+o system: add a trust settings page and move existing trust settings there as well
+o system: optionally fetch and store CRLs attached to trusted authorities
+o system: improve and extend certctl.py script doing the trust store rehashing
+o system: enforce CRL behaviour for existing revocations in the trust store when doing remove syslog sending over TLS
+o interfaces: simplify and clarify pfsync reconfiguration hooks
+o interfaces: non-functional refactors in PPP configuration
+o interfaces: send IPv6 solicit immediately on WAN interfaces
+o firewall: add gateway groups to the list of gateways in automation rules
+o src: pf: revert part of 39282ef3 to properly log the drop due to state limits
+o src: pflog: pass the action to pflog directly
+o src: various check removals for malloc(M_WAITOK) driver calls
+o src: libpfctl: ensure we return useful error codes
+o src: x86/ucode: add support for early loading of CPU ucode on AMD
+o src: libfetch: improve optional CRL verification
+o src: fetch: fix "--crl" option not working
+o dhcrelay: refactor for plugins_argument_map() use
+o firmware: opnsense-verify now lists repository priorities
+o ipsec: add "make_before_break" option to settings
+o firmware: opnsense-verify now also lists repository priorities
+o kea-dhcp: add configurable "max-unacked-clients" parameter and change its default to 2
+o kea-dhcp: add missing constraint on IP address for reservations
+o openvpn: register OpenVPN group immediately when setting up instances
+o openvpn: push "data-ciphers-fallback" in client export when configured to align with legacy setup
+o unbound: port to newwanip_map / plugins_interface_map()
+o ui: remove bold text from tab headers for consistency
+o plugins: os-acme-client 4.6[2]
+o plugins: os-caddy 1.7.2[3]
+o plugins: os-frr 1.41[4]
+o plugins: os-smart 2.3 adds new dashboard widget (contributed by Francisco Dimattia)
+o ports: curl 8.10.1[5]
+o ports: crowdsec fix for stuck service handling[6]
+o ports: dhcp6c 20241008 properly handle NoAddrAvail status code
+o ports: monit 5.34.1[7]
+o ports: php 8.2.24[8]
+o ports: dnspython 2.7.0
+o ports: py-duckdb 1.1.1[9]
+o ports: suricata 7.0.7[10]
+o ports: unbound 1.21.1[11]
+
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] https://opnsense.org/about/road-map/
+[2] PLUGINS:24.7/security/acme-client
+[3] PLUGINS:24.7/www/caddy
+[4] PLUGINS:24.7/net/frr
+[5] CURL:8.10.1
+[6] https://discourse.crowdsec.net/t/bug-opnsense-24-7-5-crowdsec-1-6-3/2057
+[7] MONIT:5.34.1
+[8] PHP8:8.2.24
+[9] DUCKDB:1.1.1
+[10] https://suricata.io/2024/10/01/suricata-7-0-7-released/
+[11] UNBOUND:1.21.1
