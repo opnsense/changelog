@@ -321,6 +321,10 @@ o ports: syslog-ng 4.8.0[41]
 o ports: unbound 1.21.1[42]
 o ports: wpa_supplicant 2.11[43]
 
+A hotfix release was issued as 24.10_1:
+
+o firmware: fix timeout in update CRL fetcher
+
 Migration notes, known issues and limitations:
 
 o The dashboard has been replaced. Widgets from the old format are no longer supported and need to be rewritten by the respective authors.
