@@ -325,6 +325,15 @@ A hotfix release was issued as 24.10_1:
 
 o firmware: fix timeout in update CRL fetcher
 
+A hotfix release was issued as 24.10_7:
+
+o system: fix certificate condition in setCRL() (contributed by richierg)
+o firewall: throttle live logging on dashboard widget
+o mvc: fix config.xml file open mode in overwrite()
+o mvc: add missing request->hasQuery()
+o mvc: add missing request->getScheme()
+o mvc: add missing request->getURI()
+
 Migration notes, known issues and limitations:
 
 o The dashboard has been replaced. Widgets from the old format are no longer supported and need to be rewritten by the respective authors.
