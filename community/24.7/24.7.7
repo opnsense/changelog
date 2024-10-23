@@ -1,0 +1,70 @@
+@ October 23, 2024
+
+Hello,
+
+A small update to keep things moving forward while things are quietening
+down a little bit.  Still working on improving the trust store integration
+and already tackling new MVC/API conversions on the development end.
+
+Here are the full patch notes:
+
+o system: add OpenSSH "RekeyLimit" with a limited set of choices
+o system: fix certificate condition in setCRL() (contributed by richierg)
+o system: untrusted directory changed in FreeBSD 14
+o system: remove obsolete banners from static pages
+o system: address CRL/cert subject hash mismatch during trust store rehash
+o reporting: refactor existing RRD backend code
+o firewall: throttle live logging on dashboard widget
+o interfaces: fix VXLAN interface being busy when vxlanlocal or vxlanremote is changed
+o interfaces: 6RD/6to4 route creation should be limited to IPv6
+o firmware: remove escaped slashes workaround on mirror/flavour write
+o firmware: CRL checking for business update mirror
+o firmware: introduce config.sh and use it in launcher.sh and connection.sh
+o firmware: restart cron on updates
+o intrusion detection: reorganise settings page with headers
+o intrusion detection: support configuration of eve-log for HTTP and TLS (contributed by Toby Chen)
+o ipsec: fix advanced option "max_ikev1_exchanges"
+o backend: cache file cleanup when TTL is reached
+o backend: correct template helper exists() return type (contributed by kumy)
+o mvc: fix config.xml file open mode in overwrite()
+o mvc: add missing request->hasQuery()
+o mvc: add missing request->getScheme()
+o mvc: add missing request->getURI()
+o mvc: extend sanity checks in isIPInCIDR()
+o ui: fix tree view style targeting elements outside this view
+o plugins: enforce defaults on devices
+o plugins: os-caddy 1.7.3[1]
+o plugins: os-ddclient 1.25[2]
+o plugins: os-freeradius 1.9.26[3]
+o plugins: os-frr 1.42[4]
+o plugins: os-lldpd 1.2[5]
+o plugins: os-net-snmp 1.6[6]
+o plugins: os-upnp 1.7[7]
+o plugins: os-wazuh-agent 1.1[8]
+o ports: monit 5.34.2[9]
+o ports: nss 3.105[10]
+o ports: openssh 9.9.p1[11]
+o ports: pkg fix for for embedded libfetch when doing CRL verification
+o ports: py-duckdb 1.1.2[12]
+o ports: syslog-ng 4.8.1[13]
+o ports: unbound 1.22.0[14]
+
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] PLUGINS:24.7/www/caddy
+[2] PLUGINS:24.7/dns/ddclient
+[3] PLUGINS:24.7/net/freeradius
+[4] PLUGINS:24.7/net/frr
+[5] PLUGINS:24.7/net-mgmt/lldpd
+[6] PLUGINS:24.7/net-mgmt/net-snmp
+[7] PLUGINS:24.7/net/upnp
+[8] PLUGINS:24.7/security/wazuh-agent
+[9] MONIT:5.34.2
+[10] NSS:3.105
+[11] OPENSSH:9.9p1
+[12] DUCKDB:1.1.2
+[13] SYSLOG-NG:4.8.1
+[14] UNBOUND:1.22.0
