@@ -1,0 +1,45 @@
+@ November 20, 2024
+
+Dear all,
+
+This is a minor update that further tweaks the trust store integration
+and firmware updates tying into it although in practice it does not
+change the current behaviour from a user perspective.  If something is
+not behaving as usual afterwards please let us know.
+
+A new plugin has been added to finally allow proxying ND messages for
+those people stuck on a single /64 prefix delegation.  Otherwise it
+has been pretty quiet as you can see.  But we will be back soon.  ;)
+
+Here are the full patch notes:
+
+o system: revert CRLs in bundles as the default bundles will be removed in 25.1
+o system: migrate authoritative bundle location to /usr/local/etc/ssl/cert.pem
+o system: flush the global OpenSSL configuration to /etc/ssl/openssl.cnf as well
+o system: ignore gateway monitor status on boot when setting up routes
+o system: fix IP address validation not being displayed in the gateway form
+o system: add a "time-loop" around authentication for failed attempts
+o reporting: ISO dates and logical ranges in health graphs (contributed by Roy Orbitson)
+o interfaces: kill defunct route-to states with the stale gateway IP
+o firewall: make loopback traffic stateful again to fix its use with syncookie option
+o firewall: add 'Action' property to list of retrieved rules
+o firewall: use UUIDs as rule labels to ease tracking
+o firmware: refactor for generic config.sh use and related code audit
+o firmware: move the bogons update script to the firmware scripts, improve logging messages and use config.sh
+o firmware: opnsense-version: restored pre-2019 default output format (contributed by TotalGriffLock)
+o openvpn: add Require Client Provisioning option for instances
+o backend: add 'configd environment' debug action
+o mvc: always do stop/start on forced restart
+o mvc: remove obsolete sessionClose() use in Base, Firmware, Unbound and WireGuard controllers
+o plugins: os-debug 1.6
+o plugins: os-ndproxy 1.0 adds an IPv6 Neighbour Discovery proxy
+o plugins: os-wazuh-agent 1.2[1]
+o ports: py-duckdb 1.1.3[2]
+
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] PLUGINS:24.7/security/wazuh-agent
+[2] DUCKDB:1.1.3
