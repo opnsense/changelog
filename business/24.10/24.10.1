@@ -1,0 +1,114 @@
+@ November 27, 2024
+
+This business release is based on the OPNsense 24.7.9 community version
+with additional reliability improvements.
+
+Here are the full patch notes:
+
+o system: remove obsolete banners from static pages
+o system: address CRL/cert subject hash mismatch during trust store rehash
+o system: add missing MinProtocol in OpenSSL config template from trust settings
+o system: add SignatureAlgorithms option and fix minor form glitch in trust settings
+o system: sync certctl to FreeBSD 14.1 base code et al
+o system: migrate authoritative bundle location to /usr/local/etc/ssl/cert.pem
+o system: flush the global OpenSSL configuration to /etc/ssl/openssl.cnf as well
+o system: ignore gateway monitor status on boot when setting up routes
+o system: fix IP address validation not being displayed in the gateway form
+o reporting: refactor existing RRD backend code
+o reporting: isset() vs. empty() on RRD enable
+o reporting: fix regression in RRD temperature readings
+o reporting: ISO dates and logical ranges in health graphs (contributed by Roy Orbitson)
+o interfaces: fix VXLAN interface being busy when vxlanlocal or vxlanremote is changed
+o interfaces: 6RD/6to4 route creation should be limited to IPv6
+o interfaces: parse part of SFP module information in legacy_interfaces_details()
+o interfaces: kill defunct route-to states with the stale gateway IP
+o firewall: add a note about stateless TCP during syncookie use
+o firewall: enhance validation that group name can not start or end with a digit
+o firewall: make loopback traffic stateful again to fix its use with syncookie option
+o firewall: add 'Action' property to list of retrieved rules
+o firewall: use UUIDs as rule labels to ease tracking
+o firmware: remove escaped slashes workaround on mirror/flavour write
+o firmware: introduce config.sh and use it in launcher.sh and connection.sh
+o firmware: restart cron on updates
+o firmware: improve health script and use config.sh
+o firmware: rework CRL check in config.sh
+o firmware: use the trust store for CRL verification
+o firmware: refactor for generic config.sh use and related code audit
+o firmware: move the bogons update script to the firmware scripts, improve logging messages and use config.sh
+o firmware: opnsense-version: restored pre-2019 default output format (contributed by TotalGriffLock)
+o firmware: use REQUEST to print a TLS/CRL usage hint
+o firmware: force CRL check on development deployment
+o intrusion detection: reorganise settings page with headers
+o intrusion detection: support configuration of eve-log for HTTP and TLS (contributed by Toby Chen)
+o ipsec: add swanctl.conf download button to settings page
+o ipsec: add description field to pre-shared-keys
+o isc-dhcp: safeguard output type for json_decode() in leases page
+o openvpn: add Require Client Provisioning option for instances
+o unbound: allow RFC 2181 compatible names in overrides
+o backend: correct template helper exists() return type (contributed by kumy)
+o backend: add 'configd environment' debug action
+o lang: update available translations
+o mvc: extend sanity checks in isIPInCIDR()
+o mvc: fix UpdateOnlyTextField incompatibility with DependConstraint (contributed by kumy)
+o mvc: always do stop/start on forced restart
+o mvc: remove obsolete sessionClose() use in Base, Firmware, Unbound and WireGuard controllers
+o ui: fix tree view style targeting elements outside this view
+o plugins: enforce defaults on devices
+o plugins: os-bind 1.33[1]
+o plugins: os-caddy 1.7.4[2]
+o plugins: os-ddclient 1.25[3]
+o plugins: os-debug 1.6
+o plugins: os-etpro-telemetry lowers log level of collection invoke (contributed by doktornotor)
+o plugins: os-freeradius 1.9.26[4]
+o plugins: os-frr 1.42[5]
+o plugins: os-iperf fixes JS TypeError when parsing result (contributed by Leo Huang)
+o plugins: os-lldpd 1.2[6]
+o plugins: os-ndproxy 1.0 adds an IPv6 Neighbour Discovery proxy
+o plugins: os-net-snmp 1.6[7]
+o plugins: os-tinc removes "pipes" Python module dependency (contributed by andrewhotlab)
+o plugins: os-upnp 1.7[8]
+o plugins: os-wazuh-agent 1.2[9]
+o src: multiple issues in the bhyve hypervisor[10]
+o src: unbounded allocation in ctl(4) CAM Target Layer[11]
+o src: XDG runtime directory file descriptor leak at login[12]
+o src: assorted FreeBSD stable patches for Intel ixgbe, igb, igc and e1000 drivers
+o src: cxgb: register ifmedia callbacks before ether_ifattach
+o src: enc: use new KPI to create enc interface
+o src: ifconfig: fix wrong indentation for the status of pfsync
+o src: iflib: simplify iflib_legacy_setup
+o src: iflib: use if_alloc_dev() to allocate the ifnet
+o src: netmap: make memory pools NUMA-aware
+o src: vlan: handle VID conflicts
+o ports: libpfctl 0.14
+o ports: monit 5.34.2[13]
+o ports: nss 3.106[14]
+o ports: openssh 9.9.p1[15]
+o ports: php 8.2.25[16]
+o ports: py-duckdb 1.1.3[17]
+o ports: syslog-ng 4.8.1[18]
+o ports: unbound 1.22.0[19]
+
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] PLUGINS:24.7/dns/bind
+[2] PLUGINS:24.7/www/caddy
+[3] PLUGINS:24.7/dns/ddclient
+[4] PLUGINS:24.7/net/freeradius
+[5] PLUGINS:24.7/net/frr
+[6] PLUGINS:24.7/net-mgmt/lldpd
+[7] PLUGINS:24.7/net-mgmt/net-snmp
+[8] PLUGINS:24.7/net/upnp
+[9] PLUGINS:24.7/security/wazuh-agent
+[10] FREEBSD:FreeBSD-SA-24:17.bhyve
+[11] FREEBSD:FreeBSD-SA-24:18.ctl
+[12] FREEBSD:FreeBSD-EN-24:17.pam_xdg
+[13] MONIT:5.34.2
+[14] NSS:3.105
+[15] OPENSSH:9.9p1
+[16] PHP8:8.2.25
+[17] DUCKDB:1.1.3
+[18] SYSLOG-NG:4.8.1
+[19] UNBOUND:1.22.0
