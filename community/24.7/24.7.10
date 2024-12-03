@@ -66,6 +66,10 @@ o ports: openldap 2.6.9[6]
 o ports: php 8.2.26[7]
 o ports: sudo 1.9.16p2[8]
 
+A hotfix release was issued as 24.7.10_1:
+
+o unbound: use tls-cert-bundle to point to remaining valid bundle
+
 
 Stay safe,
 Your OPNsense team
