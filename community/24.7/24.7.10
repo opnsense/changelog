@@ -1,0 +1,81 @@
+@ December 03, 2024
+
+Hi there,
+
+This ships a number of base system changes, kernel fixes and driver
+updates.  The time-loop authentication change is back with the fixed
+TOTP case and the Unbound domain overrides are now found in query
+forwarding since this offers the same functionality anyway.
+
+With the year almost over we are shifting focus to finishing the items
+on the roadmap and it is nice to note that the MVC/API conversions are
+already over 75% complete.  That means it will not take another decade
+to migrate the other 25%.  ;)
+
+Here are the full patch notes:
+
+o system: readd a "time-loop" around authentication for failed attempts
+o system: remove the SSL bundles in default locations
+o system: prevent JS crashing out when dashboard widget title is not set
+o system: use system instead of sample defaults when reverting tunables
+o system: report actual LAN address being used after factory reset
+o interfaces: use Autoconf class to avoid raw ifctl file access
+o interfaces: remove ancient MAC address trickery to unbreak hostapd
+o interfaces: add missing neighbor and DNS lookup page ACL entries
+o interfaces: PPP device page ACL missed getserviceproviders.php
+o firmware: force CRL check on development deployment
+o firmware: use REQUEST to print a TLS/CRL usage hint
+o firmware: improved output helpers and associated cleanup in audit scripts
+o firmware: opnsense-update: add support for regression tests set
+o intrusion detection: limit stats.log logging (contributed by doktornotor)
+o kea-dhcp: add dhcp-socket-type option (contributed by Till Niederauer)
+o kea-dhcp: add MAC formatter to leases page (contributed by cpalv)
+o openvpn: support case-insensitive strict user CN matching for instances
+o unbound: move domain overrides to query forwarding
+o mvc: let JsonKeyValueStoreField cache configd call for the duration of the session
+o mvc: another batch of sessionClose() cleanups in controllers
+o mvc: cleanup in ApiMutableServiceControllerBase
+o mvc: fix hint display for "0"
+o ui: restore right tab border in standard theme
+o plugins: os-caddy 1.7.5[1]
+o plugins: os-debug 1.7[2]
+o src: atf/kyua: ship regression tests runtime support
+o src: if_bridge: mask MEXTPG if some members do not support it
+o src: if_tuntap: enable MEXTPG support
+o src: ice: update to 1.43.2-k et al
+o src: ipsec: fix IPv6 over IPv4 tunneling
+o src: ixgbe: add support for 1Gbit (active) DAC links
+o src: ixgbe: sysctl for TCP flag handling during TSO
+o src: jail: expose children.max and children.cur via sysctl
+o src: libfetch: add the error number to verify callback failure case
+o src: netlink: assorted stable backports
+o src: pf: prevent SCTP-based NULL dereference in pfi_kkif_match()
+o src: pf: let rdr rules modify the src port if doing so would avoid a conflict
+o src: pf: make pf_get_translation() more expressive
+o src: pf: let pf_state_insert() handle redirect state conflicts
+o src: pf: fix wrong pflog action in NAT rule
+o src: pf: fix potential state key leak
+o src: rc: ignore INSYDE BIOS placeholder UUID for /etc/hostid
+o src: route: fix failure to add an interface prefix route when route with the same prefix is already presented in the routing table
+o src: route: route: avoid overlapping strcpy
+o src: sfxge: defer ether_ifattach to when ifmedia_init is done
+o ports: curl 8.11.0[3]
+o ports: expat 2.6.4[4]
+o ports: nss 3.107[5]
+o ports: openldap 2.6.9[6]
+o ports: php 8.2.26[7]
+o ports: sudo 1.9.16p2[8]
+
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] PLUGINS:24.7/www/caddy
+[2] PLUGINS:24.7/devel/debug
+[3] CURL:8.11.0
+[4] EXPAT:2.6.4
+[5] NSS:3.107
+[6] OPENLDAP:2.6.9
+[7] PHP8:8.2.26
+[8] SUDO:1.9.16p2
