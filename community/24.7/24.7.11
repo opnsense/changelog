@@ -1,0 +1,58 @@
+@ December 17, 2024
+
+A happy holiday season to you all,
+
+This is a minor update all things considered, but it does bring you
+the long sought after Tailscale plugin courtesy of Sheridan Computers.
+Suricata is also updated to its latest version to fix a couple of CVEs.
+
+In other news, 25.1 will contain FreeBSD 14.2 which will be available
+for BETA preview using images later this week as well.  The 25.1-BETA
+will also include a rewritten theme (light and dark) using the new
+OPNsense logo already being used in the documentation.  It also has
+MVC/API support for the user and group management plus more you can
+always find on the roadmap[1] in detail.
+
+Here are the full patch notes:
+
+o system: show multiple SAN entries when supplied by the certificate
+o system: traffic dashboard widget should persist interface identifiers
+o system: reset dashboard widget options to the default if none of the options match
+o system: mismatch in returned "change" attribute for route toggle
+o system: suppress XML parse errors in announcement widget when forum is unreachable
+o system: catch PHP errors for Google Drive backups
+o system: ignore plugins_interfaces() errors in write_config()
+o system: fix snapshot ACL
+o interfaces: reload GUI in the background
+o firewall: remove faulty PPP exclusion in scrubbing rule creation
+o dhcp: allow radvd to use /128 CARP VIP as source
+o firmware: add "configctl firmware changelog current" backend command
+o firmware: refactor lock/unlock scripts using new output helpers
+o firmware: opnsense-code: support for origin selection during upgrade mode
+o firmware: opnsense-patch: improve patch behaviour for non-default account/repositories combinations
+o ipsec: remove hashing algorithm from null cipher
+o unbound: make OpenSSL bundle workaround permanent
+o mvc: last batch of sessionClose() cleanups in controllers
+o mvc: call initialize() after authentication
+o mvc: normalize multiple slashes in paths
+o plugins: os-caddy 1.7.6[2]
+o plugins: os-ddclient 1.26[3]
+o plugins: os-nut 1.9[4]
+o plugins: os-qemu-guest-agent 1.3[5]
+o plugins: os-tailscale 1.0 (contributed by Sheridan Computers)
+o plugins: os-telegraf 1.12.12[6]
+o ports: monit 5.34.3[7]
+o ports: suricata 7.0.8[8]
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] https://opnsense.org/about/road-map/
+[2] PLUGINS:24.7/www/caddy
+[3] PLUGINS:24.7/dns/ddclient
+[4] PLUGINS:24.7/sysutils/nut
+[5] PLUGINS:24.7/emulators/qemu-guest-agent
+[6] PLUGINS:24.7/net-mgmt/telegraf
+[7] MONIT:5.34.3
+[8] https://suricata.io/2024/12/12/suricata-7-0-8-released/
