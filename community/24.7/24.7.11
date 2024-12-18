@@ -44,6 +44,12 @@ o plugins: os-telegraf 1.12.12[6]
 o ports: monit 5.34.3[7]
 o ports: suricata 7.0.8[8]
 
+A hotfix release was issued as 24.7.11_2:
+
+o firmware: fix the return value handling in the firmware option of the console menu
+o mvc: fix a regression in "normalize multiple slashes in paths"
+
+
 Stay safe,
 Your OPNsense team
 
