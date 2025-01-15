@@ -1,0 +1,58 @@
+@ January 15, 2025
+
+Howdy!
+
+One last stable update before the switch to the 25.1 series.
+Security-wise it has bee rather quiet over the past few weeks.
+A new kernel is included with a number of smaller reliability
+fixes and amendments.
+
+The 25.1-RC1 images follow next week based on a full build
+using FreeBSD 14.2.  Thanks all for testing the beta version so
+far!  The release date for the final 25.1 version is January 29.
+
+Here are the full patch notes:
+
+o system: re-enable support for subjectAltName when creating CSRs
+o system: remove spurious backup() during config revert
+o reporting: add daemon -f parameter to close file descriptors for NetFlow local capture (contributed by Ben Smithurst)
+o firmware: use output_cmd/output_txt helpers in remaining scripts
+o ipsec: fix mobile clients reload missing system.inc
+o isc-dhcp: IPv6 prefixes script can fail to restart (contributed by Ben Smithurst)
+o kea-dhcp: align hostname validation with manual host entries
+o mvc: add serialNumber and issuer in Store::parseX509()
+o mvc: restore support for JSON input data without configd callout in JsonKeyValueStoreField
+o ui: add classes to system history diff content so themes can override the defaults
+o ui: load CSV as text to prevent encoding issues in SimpleFileUploadDlg()
+o plugins: os-acme-client 4.7[1]
+o plugins: os-caddy 1.8.0[2]
+o plugins: os-freeradius 1.9.27[3]
+o plugins: os-haproxy 4.4[4]
+o plugins: os-mdns-repeater 1.2[5]
+o plugins: os-squid 1.1[6]
+o plugins: os-tailscale 1.1[7]
+o plugins: os-theme-rebellion 1.9.2 (contributed by Team Rebellion)
+o src: if_ovpn: improve reconnect handling
+o src: iflib: set the NUMA domain in receive packet headers
+o src: ip: defer checks for an unspecified dstaddr until after pfil hooks
+o src: ice_ddp: update to 1.3.41.0
+o ports: curl 8.11.1[8]
+o ports: libpfctl 0.15
+o ports: php 8.2.27[9]
+o ports: python 3.11.11[10]
+
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] PLUGINS:24.7/security/acme-client
+[2] PLUGINS:24.7/www/caddy
+[3] PLUGINS:24.7/net/freeradius
+[4] PLUGINS:24.7/net/haproxy
+[5] PLUGINS:24.7/net/mdns-repeater
+[6] PLUGINS:24.7/www/squid
+[7] PLUGINS:24.7/security/tailscale
+[8] CURL:8.11.1
+[9] PHP8:8.2.27
+[10] PYTHON:3.11.11
