@@ -33,7 +33,7 @@ o interfaces: remove non-functional features from bridges
 o interfaces: remove PPP edit in interfaces settings
 o interfaces: batched device type creation under "devices" submenu
 o interfaces: move PPP and wireless logs to system log
-o interfaces: remove "Use IPv4 connectivity" setting
+o interfaces: remove "Use IPv4 connectivity" setting as it will be set by default
 o firewall: use "skip lo0" instead of policing lo0 explicitly following OpenBSD best practice
 o firewall: remove duplicate table definition and make sure bogonsv6 table always exists
 o firewall: cleanup of CARP and IPv6 rules behaviour
