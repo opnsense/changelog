@@ -1,0 +1,118 @@
+@ January 22, 2025
+
+Hey all,
+
+The 25.1 series is nigh!  This offers images based on an RC1 state with
+stable packages and online upgrades for the development version of 24.7.
+We will likely release a small RC2 online update in the near future.
+The final release date for 25.1 is January 29.
+
+https://pkg.opnsense.org/releases/25.1/
+
+Here are the full patch notes against version 24.7.12:
+
+o system: migrate user, group and privilege management to MVC/API
+o system: remove the "disable integrated authentication" feature
+o system: add "Default groups" option to add standard groups when a LDAP/RADIUS user logs in
+o system: remove the old manual LDAP importer
+o system: migrate HA status page to MVC/API
+o system: allow custom additions to sshd_config (contributed by Neil Greatorex)
+o system: increase max-request-field-size for web GUI
+o system: set tunable default for checksum offloading of the vtnet(4) driver to disabled (contributed by Patrick M. Hausen)
+o system: add support for RFC 5549 routes and refactor static route creation code
+o system: improve notification support to also allow persistent notifications and static banners
+o system: add notifications for low disk space and OpenSSH file override use
+o system: migrate tunables page to MVC/API
+o system: switch to temperature sensor caching
+o system: add certificate widget to track expiration dates and allow quick renewal
+o system: remove deprecated "page-getserviceprovider", "page-dashboard-all" and "page-system-groupmanager-addprivs" privileges
+o system: replace file_get_contents() with curl implementation in XMLRPC sync and add verifypeer option
+o system: add item edit links to several dashboard widgets
+o interfaces: adhere to DAD during VIP recreation in rc.newwanipv6
+o interfaces: remove non-functional features from bridges
+o interfaces: remove PPP edit in interfaces settings
+o interfaces: batched device type creation under "devices" submenu
+o interfaces: move PPP and wireless logs to system log
+o interfaces: remove "Use IPv4 connectivity" setting
+o firewall: use "skip lo0" instead of policing lo0 explicitly following OpenBSD best practice
+o firewall: remove duplicate table definition and make sure bogonsv6 table always exists
+o firewall: cleanup of CARP and IPv6 rules behaviour
+o firewall: filter feature parity in automation rules
+o firewall: experimental dummynet support in rules
+o firewall: offer multi-select on source and destination addresses
+o dnsmasq: update ICANN Trust Anchor (contributed by Loganaden Velvindron)
+o ipsec: add log search button in sessions
+o kea-dhcp: add 'match-client-id' in subnet definitions
+o lang: update available translations
+o monit: wrap exec in double quotes to allow arguments (contributed by Nikita Uvarov)
+o network time: take IPv6 addresses into account
+o network time: remove support for explicit VIP selection
+o unbound: fix root.hits permission on copy
+o backend: -m option is unused so remove its complication
+o mvc: implement reusable grid template using form definitions
+o mvc: add Default() method to reset a model to its factory defaults
+o mvc: fix LegacyMapper when the mount point is not the XML root
+o mvc: move explicit cast in BaseModel when calling field->setValue()
+o mvc: fields should implement getCurrentValue() rather than __toString()
+o mvc: fix value lookup in LinkAddressField
+o mvc: memory preservation fix in BaseListField
+o mvc: support lazy loading on alias models and use it in NetworkAliasField
+o ui: upgrade Font Awesome icons to version 6
+o ui: push search/edit logic towards bootgrid implementation
+o ui: improved links with automatic edit and/or search
+o ui: rewritten default theme for a light look and new logo
+o ui: added default theme variant with a dark look
+o plugins: os-acme-client 4.8[1]
+o plugins: os-cpu-microcode 1.1 removes unneeded late loading code
+o plugins: os-haproxy 4.5[2]
+o src: FreeBSD 14.2-RELEASE[3]
+o src: p9fs: add an implementation of the 9P filesystem
+o ports: lighttpd 1.4.77[4]
+o ports: openvpn 2.6.13[5]
+o ports: php 8.3.15[6]
+o ports: radvd 2.20[7]
+
+Migration notes, known issues and limitations:
+
+o The access management was rewritten in MVC and contains behavioural changes including not rendering UNIX accounts for non-shell users. The integrated authentication via PAM has been the default for a long time so the option to disable it has been removed. The manual LDAP importer is no longer available since LDAP/RADIUS authenticators support on-demand creation and default group setup option. The "page-system-groupmanager-addprivs" privilege was removed since the page does not exist anymore. A multi-purpose privilege editor has been added under the existing "page-system-usermanager-addprivs" instead.
+o PPP devices can no longer be configured on the interface settings page. To edit the device settings use the native PPP device edit page instead.
+o FreeBSD 14.2 comes with the stock pf(4) behaviour regarding ICMPv6 neighbour discovery state tracking which was avoided so far in 24.7.x.
+o Instead of using stateful tracking on lo0 the system changes to not filter lo0 anymore as is considered best practice. The change is equivalent in concept, but may interfere with local connectivity in edge cases.
+o Let's Encrypt ends support for the OCSP Must Staple extension on 30.01.2025. Issuance requests will fail if this option is still enabled past this date.
+
+The public key for the 25.1 series is:
+
+# -----BEGIN PUBLIC KEY-----
+# MIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEAsnbyFjWXvUcUC4BqnQ9w
+# uH3yiaG7AY8UzwepXf2TqqOYt5Y0USbse3OBjxYnRs0iW5EHtdKSRcmelup374Hp
+# XDDeQ/mjmhhnvXryfQL57gyVpYeL5gRVhf/2DwEZELLCFUFhMNh52QPaJ5zTvdws
+# m1Q+OwI1WfTDR7ytm+0Too2tVerG3mM3XataZ+XOKwHp2xP0Mr8E4F+PZdR4hWbb
+# yC2elIzICXDWWpcEEg4JT48TIYZJPGnE2IJAzWRntrqVU2eLcEn5MffwTawXNoCZ
+# mvLYqguYskmeR/dAL7ZmZcPeMeibXMtld8xIZp49g7DPq7PqxCY1wxcgeuZPFOHv
+# kbYzL3BHbyni3K/qdLXKzy8oZeUUvlbUgaj8Xx14DSiNzJDknNf0Xg/eby7MkzgP
+# eUXgtB0MRQMih85BfaiH5r+uQMgPKnjutVWR8qUWglxDKIc4s69b8PXylfu2FwiP
+# iKMBdO8xnVvNFKOkuaUtI31cqxauw2hBAlILFvltM+adUz2rfB3Ch0bjfjDE5Hxq
+# En4fEUVHgQCu+Ojyyy3/8RwUpsRZq05fObypyeL3E/MvlwpaOVjwvw2ozVPGi2zi
+# xmXemn5CbgjD3vPR9XERXrFkHTwPnIiqz53znqn34P+NGEgD1veMhZPE6OGZRu/h
+# IfceSaxJ/An5SUh0zr7YgOsCAwEAAQ==
+# -----END PUBLIC KEY-----
+
+Please let us know about your experience!
+
+
+Stay safe,
+Your OPNsense team
+
+--
+# SHA256 (OPNsense-25.1.r1-dvd-amd64.iso.bz2) = dbd65194b02dfda2abe0542c8660c5a8d5311719448fbacf8e7e08b260c90e15
+# SHA256 (OPNsense-25.1.r1-nano-amd64.img.bz2) = 1600a1b26114aec1e99653efed1dddf1869bddfa422d8e85ad34a1acf2e3e4fc
+# SHA256 (OPNsense-25.1.r1-serial-amd64.img.bz2) = ff709c926bd097bb52726944cde2c3363386d5062765bd4a75cce9009353f853
+# SHA256 (OPNsense-25.1.r1-vga-amd64.img.bz2) = 9cdb74c9f43f9ee6eb66fbe3ad8b4050938273e053872e063b1bc73cedcd6410
+
+[1] PLUGINS:25.1/security/acme-client
+[2] PLUGINS:25.1/net/haproxy
+[3] https://www.freebsd.org/releases/14.2R/relnotes/
+[4] https://www.lighttpd.net/2025/1/10/1.4.77/
+[5] OPENVPN26:2.6.13
+[6] PHP8:8.3.15
+[7] RADVD:2.20
