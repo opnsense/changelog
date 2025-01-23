@@ -41,6 +41,12 @@ o ports: libpfctl 0.15
 o ports: php 8.2.27[9]
 o ports: python 3.11.11[10]
 
+A hotfix release was issued as 24.7.12_2:
+
+o plugins: turning binary data into JSON may fail globally
+o unbound: fixup permission on copy
+o ports: openvpn 2.6.13[11]
+
 
 Stay safe,
 Your OPNsense team
@@ -56,3 +62,4 @@ Your OPNsense team
 [8] CURL:8.11.1
 [9] PHP8:8.2.27
 [10] PYTHON:3.11.11
+[11] OPENVPN26:2.6.13
