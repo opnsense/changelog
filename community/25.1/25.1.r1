@@ -77,7 +77,6 @@ Migration notes, known issues and limitations:
 o The access management was rewritten in MVC and contains behavioural changes including not rendering UNIX accounts for non-shell users. The integrated authentication via PAM has been the default for a long time so the option to disable it has been removed. The manual LDAP importer is no longer available since LDAP/RADIUS authenticators support on-demand creation and default group setup option. The "page-system-groupmanager-addprivs" privilege was removed since the page does not exist anymore. A multi-purpose privilege editor has been added under the existing "page-system-usermanager-addprivs" instead.
 o PPP devices can no longer be configured on the interface settings page. To edit the device settings use the native PPP device edit page instead.
 o FreeBSD 14.2 comes with the stock pf(4) behaviour regarding ICMPv6 neighbour discovery state tracking which was avoided so far in 24.7.x.
-o Instead of using stateful tracking on lo0 the system changes to not filter lo0 anymore as is considered best practice. The change is equivalent in concept, but may interfere with local connectivity in edge cases.
 o Let's Encrypt ends support for the OCSP Must Staple extension on 30.01.2025. Issuance requests will fail if this option is still enabled past this date.
 
 The public key for the 25.1 series is:
