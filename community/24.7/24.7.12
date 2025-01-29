@@ -47,6 +47,11 @@ o plugins: turning binary data into JSON may fail globally
 o unbound: fixup permission on copy
 o ports: openvpn 2.6.13[11]
 
+A hotfix release was issued as 24.7.12_4:
+
+o firmware: add fingerprint and upgrade hint for 25.1
+o firmware: disable duckdb migration for stable transition again
+
 
 Stay safe,
 Your OPNsense team
