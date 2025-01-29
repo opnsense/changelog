@@ -42,7 +42,7 @@ o firewall: experimental dummynet support in rules
 o firewall: offer multi-select on source and destination addresses
 o dnsmasq: update ICANN Trust Anchor (contributed by Loganaden Velvindron)
 o ipsec: add log search button in sessions
-o kea-dhcp: add 'match-client-id' in subnet definitions
+o kea-dhcp: add "match-client-id" in subnet definitions
 o lang: update available translations
 o monit: wrap exec in double quotes to allow arguments (contributed by Nikita Uvarov)
 o network time: take IPv6 addresses into account
