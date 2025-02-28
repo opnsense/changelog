@@ -1,0 +1,87 @@
+@ February 28, 2025
+
+Hey all,
+
+This was supposed to hit earlier this week, but some weeks are like this
+one now where QA takes more time than usual.  Of note is the move of Dnsmasq
+to MVC and the ChartJS update to version 4 which is bundled with nice updates
+for widgets and the system health graphs.
+
+The roadmap for 25.7 was also published[1].  The IPsec and OpenVPN legacy
+parts will move to the plugins so that the functionality can live there
+in community support tier.  Since Kea remains a bit of an odd choice we will
+be offering DHCP support via Dnsmasq as a new standard feature which also
+offers seamless DHCP lease registration some people keep looking for.
+
+Here are the full patch notes:
+
+o system: adjust gateway widget to use the intended caching mechanism
+o system: thermal sensors widget can now select individual sensors to display plus UX changes
+o system: handle dev.pchtherm temperatures in the thermal dashboard widget (contributed by Joe Roback)
+o system: use new apply button partial in tunables page
+o system: move high availability option "disable preempt" to advanced mode
+o system: straighten out syslog-ng rc.d scripting
+o reporting: switch health graphs to ChartJS
+o interfaces: add "nosync" option to VIPs and fix sync conditional
+o interfaces: exclude automatic radvd like we do for manual
+o firewall: properly unpack multiple source/destination items in the rules page
+o firewall: hide internal aliases to align with previous legacy_list_aliases() function
+o firewall: add missing "persist" on bogonsv6
+o captive portal: urlencode() selector items in voucher group list
+o dhcrelay: integrate layout_partials bootgrid/apply
+o dnsmasq: migrate existing frontend to MVC/API
+o ipsec: add deprecation notices for legacy components (will move to plugins)
+o kea-dhcp: add "v6-only-preferred" option (contributed by darses)
+o openvpn: add deprecation notices for legacy components (will move to plugins)
+o openvpn: support "password first" for static-challenges
+o unbound: add support for forward-first when configuring forwarders (contributed by Nigel Jones)
+o wireguard: change tracking of peer status, improve widget and diagnostic
+o backend: add an "import" rc.syshook facility
+o backend: change the "monitor" rc.syshook facility and de-deprecate its use
+o backend: remove unused functions and move once-used functions to their call script
+o mvc: wrap locks around updates and perform some minor cleanups in ApiMutableModelControllerBase
+o mvc: move "lazy loading" option to base model implementation and force usage on run_migrations.php
+o mvc: safeguard checkToken() to prevent fetching an non existing POST item
+o ui: upgrade ChartJS to v4
+o ui: change backdrop background color to black in dark theme
+o ui: create a unified layout partial for the apply button
+o plugins: adjust all themes for ChartJS 4 use
+o plugins: treat empty string like null on argument map
+o plugins: os-acme-client 4.9[2]
+o src: ipfw: make 'ipfw show' output compatible with 'ipfw add' command
+o src: pf: stop using net_epoch to synchronize access to eth rules
+o src: e1000: fix vlan PCP/DEI on lem(4)
+o src: igc: remove unused register IGC_RXD_SPC_VLAN_MASK
+o src: ifnet: detach BPF descriptors on interface vmove event
+o src: libkern: add ilog2 macro et al
+o src: ipfw: add missing initializer for 'limit' table value
+o src: pf: add extra SCTP multihoming probe points
+o src: pf: verify SCTP v_tag before updating connection state
+o src: pf: verify that ABORT chunks are not mixed with DATA chunks
+o src: pf: allow ICMP messages related to an SCTP state to pass
+o src: pf: add 'allow-related' to always allow SCTP multihome extra connections
+o src: bpf: fix potential race conditions
+o src: net: if_media for 100BASE-BX
+o src: rtw89: update Realtek rtw88/rtw89 driver et al
+o src: net80211: 11ac: add options to manage VHT STBC
+o src: ifconfig: make -vht work
+o src: iwlwifi: update Intel iwlwifi/mvm driver et al
+o src: ixgbe: Add ixgbe_dev_from_hw() back
+o ports: ca_root_nss / nss 3.108[3]
+o ports: curl 8.12.1[4]
+o ports: openssh-portable 9.9p2[5]
+o ports: php83 8.3.17[6]
+o ports: py-duckdb 1.2.0[7]
+
+
+Stay safe,
+Your OPNsense team
+--
+
+[1] https://opnsense.org/about/road-map/
+[2] PLUGINS:25.1/security/acme-client
+[3] NSS:3.108
+[4] CURL:8.12.1
+[5] OPENSSH:9.9p2
+[6] PHP8:8.3.17
+[7] DUCKDB:1.2.0
