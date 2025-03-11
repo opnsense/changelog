@@ -58,7 +58,7 @@ Known issues and limitations:
 o HardenedBSD 12.1 has been postponed to the next major release
 o Nano growfs does not work on this release candidate, but a fix for 20.1 already exists
 o Installer still advertises 19.7, but a fix for 20.1 already exists
-o Legacy MPD5 plugins os-l2tp, os-pppoe and os-pptp have been deprecated and will no longer receive updates
+o Legacy MPD plugins os-l2tp, os-pppoe and os-pptp have been deprecated and will no longer receive updates
 o i386 has not been deprecated for the time being ;)
 
 The public key for the 20.1 series is:

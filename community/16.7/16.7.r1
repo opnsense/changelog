@@ -40,7 +40,7 @@ o HTTPS proxy support
 o Russian translations 100% completed
 o NetFlow export to multiple remote destinations
 o NetFlow local reporting frontend
-o PPTP, L2TP and PPPoE Servers ported to MPD5
+o PPTP, L2TP and PPPoE Servers ported to MPD version 5
 o HAProxy plugin
 o Traffic shaping with CoDel / FQ-CoDel
 o Firewall alias geolocation support

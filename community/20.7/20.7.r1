@@ -81,7 +81,7 @@ o ports: suricata 5.0.3[10]
 
 Known issues and limitations:
 
-o Legacy MPD5 plugins os-l2tp, os-pppoe and os-pptp will no longer be available
+o Legacy MPD plugins os-l2tp, os-pppoe and os-pptp will no longer be available
 o i386 architecture builds will no longer be available
 o Installer still advertises 20.1
 

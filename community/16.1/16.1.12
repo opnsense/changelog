@@ -46,7 +46,7 @@ o netflow: finished local reporting frontend on top of collected
   NetFlow data
 o interfaces: polling mode has been deprecated and will be phased
   out soon
-o vpn: L2TP, PPTP and PPPoE servers have been ported to use MPD5
+o vpn: L2TP, PPTP and PPPoE servers have been ported to use MPD version 5
 o vpn: legacy servers have been prepared to be moved from base
   install to plugins
 o cron: code preparations for opening up the MVC cron API

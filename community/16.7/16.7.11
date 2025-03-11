@@ -36,7 +36,7 @@ o firewall: added alias selection to missing NAT elements
 o openvpn: add reneg-sec option to client exports
 o dnsmasq: fix 16.7.10 regression in host file handling
 o web proxy: make backend config plugin-friendly
-o plugins: fix a potential error in MPD5 plugins (contributed by Evgeny Bevz)
+o plugins: fix a potential error in MPD plugins (contributed by Evgeny Bevz)
 o src: fix possible login(1) argument injection in telnetd(8)[2]
 o src: fix link_ntoa(3) buffer overflow in libc[3]
 o src: fix possible escape from bhyve(8) virtual machine[4]

@@ -148,7 +148,7 @@ o ports: filterlog 0.5 removes unused IPv6 options support
 o ports: ifinfo 13.0
 o ports: krb5 1.19.2[20]
 o ports: monit 5.29.0[21]
-o ports: mpd5 adds L2TP interoperability fix from upstream
+o ports: mpd adds L2TP interoperability fix from upstream
 o ports: nettle 3.7.3
 o ports: nss 3.70[22]
 o ports: openvpn 2.5.3[23]
