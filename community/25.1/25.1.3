@@ -1,0 +1,60 @@
+@ March 11, 2025
+
+Here are the full patch notes:
+
+o system: implement user CSV export/import functionality (sponsored by: m.a.x. it)
+o system: switch boot logo and MOTD to the new-style logo (contributed by Gavin Chappell)
+o system: migrate 'default' tunable value to empty one and improve UX
+o system: bring back user/group audit messages lost in MVC conversion
+o system: replace legacy service widget hook with a proper configd call
+o interface: use shared base_bootgrid_table and base_apply_button where possible
+o interfaces: remove obsolete code in get_real_interfaces() to match getRealInterface()
+o interfaces: improve validation for CARP/proxy ARP VIP
+o interfaces: remove defunct "other" VIP type
+o interfaces: skip "nosync" processing on VIPs
+o firewall: support partial alias exports
+o kea-dhcp: use shared base_bootgrid_table and base_apply_button
+o network time: move XMLRPC definition to correct file
+o openvpn: add DCO validation for fragment size
+o unbound: use shared base_bootgrid_table and base_apply_button
+o unbound: fix model migration pertaining to "dots" model changes
+o wireguard: use shared base_bootgrid_table and base_apply_button
+o backend: allow pluginctl to filter on -x/-X option
+o mvc: decode HTML tags in menu items
+o mvc: fix unit tests for model relation fields
+o plugins: os-caddy 1.8.3[1]
+o plugins: os-dmidecode 1.2 adds new dashboard widget (contributed by Neil Merchant)
+o plugins: os-frr 1.43[2]
+o plugins: os-intrusion-detection-content-pt-open 1.0 (contributed by kulikov-a)
+o plugins: os-sftp-backup 1.0 allows configuration backups over SFTP
+o plugins: os-zabbix-agent 1.15[3]
+o plugins: os-zabbix-proxy 1.12[4]
+o src: carp: fix checking IPv4 multicast address
+o src: icmp: use per rate limit randomized jitter
+o src: ixgbe: Fix a logic error in ixgbe_read_mailbox_vf()
+o src: netinet6: do not forward to the unspecified address
+o src: netinet: do not forward or ICMP response to INADDR_ANY
+o src: netinet: ipsec and ktls cannot coexists
+o src: pf: align sanity checks for pfrw_free
+o src: pf: allow all forms of neighbor advertisements in either direction
+o src: pf: cleanup leftover PF_ICMP_MULTI_* code that is not needed anymore
+o src: pf: do not keep state when dropping overlapping IPv6 fragments
+o src: pf: drop IPv6 packets built from overlapping fragments in pf reassembly
+o src: pf: fix fragment hole count
+o src: sysctl: enable vnet sysctl variables to be loader tunable
+o ports: mpd default logging level increased to LOG_NOTICE
+o ports: nss 3.109[5]
+o ports: pftop 0.12
+o ports: py-jinja 3.1.6[6]
+
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] PLUGINS:25.1/www/caddy
+[2] PLUGINS:25.1/net/frr
+[3] PLUGINS:25.1/net-mgmt/zabbix-agent
+[4] PLUGINS:25.1/net-mgmt/zabbix-proxy
+[5] NSS:3.109
+[6] JINJA:3.1.6
