@@ -122,6 +122,17 @@ o ports: python 3.11.11[20]
 o ports: sudo 1.9.16p2[21]
 o ports: suricata 7.0.8[22]
 
+A hotfix release was issued as 24.10.2_6:
+
+o interfaces: exclude automatic radvd like we do for manual
+o firewall: fix unassociated rule creation
+o intrusion detection: cleanse metadata for brackets
+o openvpn: support "password first" for static-challenges
+o unbound: fix model migration pertaining to "dots" model changes
+o plugins: treat empty string like null on argument map
+o ports: openssh 9.9p2[23]
+o ports: py-jinja 3.1.6[24]
+
 
 Stay safe,
 Your OPNsense team
@@ -149,4 +160,5 @@ Your OPNsense team
 [20] PYTHON:3.11.11
 [21] SUDO:1.9.16p2
 [22] https://suricata.io/2024/12/12/suricata-7-0-8-released/
-
+[23] OPENSSH:9.9p2
+[24] JINJA:3.1.6
