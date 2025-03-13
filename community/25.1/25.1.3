@@ -1,8 +1,23 @@
 @ March 11, 2025
 
+Short time no see!
+
+This time around a patch from OpenBSD has been added that fixes the
+state tracking for ICMPv6 neighbour discovery packets through pf.  The
+user management gained a CSV import/export.  Also, the bug of the missing
+PPP logs has been fixed in the upstream MPD package.
+
+Please note that the FRR plugin now uses the new configuration file
+layout mandated by upstream and also gained reload support.
+
+Since Google Drive is being phased out by Google, a new plugin now
+covers backups via SFTP.  The old Google Drive backup functionality
+will move to plugins in 25.7 since it will only be useful for existing
+installs.
+
 Here are the full patch notes:
 
-o system: implement user CSV export/import functionality (sponsored by: m.a.x. it)
+o system: implement user CSV import/export functionality (sponsored by: m.a.x. it)
 o system: switch boot logo and MOTD to the new-style logo (contributed by Gavin Chappell)
 o system: migrate 'default' tunable value to empty one and improve UX
 o system: bring back user/group audit messages lost in MVC conversion
