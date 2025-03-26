@@ -1,0 +1,73 @@
+@ March 26, 2025
+
+Hi there,
+
+This update offers support for "jq" syntax in JSON-based URL table
+aliases, new OpenVPN instance features and the mandatory batch of
+stability improvements in numerous parts of the GUI and backend.
+
+Upcoming in 25.1.5 are better RADIUS integration and enabling message
+authentication.  We are also replacing the captive portal implementation
+by moving from ipfw(4) to pf(4).  Last but not least the firewall automation
+filter rules GUI received a generous revamp for a far better UX than before.
+You can preview these changes by switching to the development release type
+and let us know about any remaining bug that you may encounter.
+
+Here are the full patch notes:
+
+o system: add "Kill states when down" option to gatways
+o system: stop pushing "nextuid" and "nextgid" during XMLRPC
+o system: migrate tunables to implicit defaults
+o system: secure access to sysctl configuration node
+o system: fix RADIUS error check
+o system: add "pwd_changed_at" field previously missing in user model
+o system: rewire system_usermanager_passwordmg.php to /ui/user_portal for cooperation with the next business edition
+o system: default "net.inet.carp.senderr_demotion_factor" tunable to "0"
+o system: opnsense-beep: serialize access to /dev/speaker (contributed by Leonid Evdokimov)
+o reporting: minor code cleanups in insight backend
+o interfaces: move "(de)select all" button to the same row on packet capture page
+o interfaces: add ARP address family option to packet capture
+o interfaces: fix advanced mode visibility in VIPs
+o firewall: performance improvement by using pf overall table stats instead of dumping each table
+o firewall: offer better plug-ability for dynamic alias type
+o firewall: alias rename action ignored due to missing lock
+o firewall: support "jq" processing syntax for JSON-based URL table aliases
+o openvpn: use shared base_bootgrid_table and base_apply_button
+o openvpn: add support for assorted options[1] (contributed by Marius Halden)
+o openvpn: add basic HTTP client option
+o router advertisements: move plugin code to its own space
+o unbound: move whitelist (passlist) handling to Unbound plugin
+o mvc: merge NetworkValidator into NetworkField to ease extensibility and add unit test
+o mvc: send audit messages emitted in the authentication sequence to proper channel
+o mvc: BooleanField now defaults to "0" on creation
+o plugins: os-caddy 1.8.4[2]
+o plugins: os-frr 1.44[3]
+o plugins: os-theme-cicada 1.39 (contributed by Team Rebellion)
+o plugins: os-theme-tukan 1.29 (contributed by Team Rebellion)
+o plugins: os-theme-vicuna 1.49 (contributed by Team Rebellion)
+o ports: dnsmasq 2.91[4]
+o ports: expat 2.7.0[5]
+o ports: lighttpd 1.4.78[6]
+o ports: pecl-radius now offers message authenticator support (scheduled to be enabled with 25.1.5)
+o ports: phalcon 5.9.0[7]
+o ports: php 8.3.19[8]
+o ports: py-duckdb 1.2.1[9]
+o ports: py-jq 1.8.0[10]
+o ports: suricata 7.0.10[11]
+
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] https://github.com/opnsense/core/pull/8396
+[2] PLUGINS:25.1/www/caddy
+[3] PLUGINS:25.1/net/frr
+[4] DNSMASQ:2.91
+[5] EXPAT:2.7.0
+[6] https://www.lighttpd.net/2025/3/22/1.4.78/
+[7] PHALCON:5.9.0
+[8] PHP8:8.3.19
+[9] DUCKDB:1.2.1
+[10] https://github.com/mwilliamson/jq.py/blob/master/CHANGELOG.rst
+[11] https://suricata.io/2025/03/25/suricata-7-0-10-released/
