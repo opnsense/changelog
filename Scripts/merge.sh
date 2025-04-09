@@ -72,7 +72,7 @@ for FROMFILE in ${FROMFILES}; do
 	done
 
 	# mark end of output for each file to better trace manual intervention
-	echo "=========== DONE $(basename ${FROMFILE}) ============" >> ${TEMPOUT}
+	echo "=========== XXX $(basename ${FROMFILE}) ============" >> ${TEMPOUT}
 done
 
 cat ${TEMPOUT}
