@@ -1,6 +1,6 @@
 #!/usr/bin/env perl
 
-# Copyright (c) 2015-2024 Franco Fichtner <franco@opnsense.org>
+# Copyright (c) 2015-2025 Franco Fichtner <franco@opnsense.org>
 #
 # Redistribution and use in source and binary forms, with or without
 # modification, are permitted provided that the following conditions
@@ -162,7 +162,7 @@ for ( @lines ) {
 		next;
 	} elsif ( $fmt eq 'markdown' ) {
                 # only translate bullet points and remove trailing links
-                next if $_ !~ /^o /;
+                next if $_ !~ /^o [a-z]/;
 		$_ =~ s/^o /* /g;
 		$_ =~ s/\[\d+\]$//g;
 
