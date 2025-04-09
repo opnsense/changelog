@@ -167,7 +167,7 @@ o firmware: provide an upgrade log audit
 o firmware: opnsense-patch: only remove ".sh" suffix for installer and update repos
 o firmware: opnsense-update: only set packages marker after successful upgrade
 o firmware: opnsense-bootstrap: set correct packages marker
-o firmware: revoke 22.1 fingerprint
+o firmware: revoke 22.4 fingerprint
 o firmware: major upgrade "pkgs" set was still unknown to plugin sync
 o firmware: opnsense-update: return subscription key via -K if it exists
 o firmware: display license validity when applicable in business edition

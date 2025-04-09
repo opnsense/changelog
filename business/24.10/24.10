@@ -159,7 +159,7 @@ o captive portal: clean up the codebase
 o captive portal: fix client disconnect (contributed by Vivek Panchal)
 o dhcrelay: start on "newwanip_map" event as well
 o dhcrelay: refactor for plugins_argument_map() use
-o firmware: revoke old fingerprints
+o firmware: revoke 24.4 fingerprint
 o firmware: remove inactive mirrors from the list
 o firmware: introduce sanity checks prior to upgrades
 o firmware: cleanup package manager temporary files prior to upgrades

@@ -68,7 +68,7 @@ o firmware: opnsense-patch can now patch installer and updater files
 o firmware: opnsense-update -c option now honours the -f option
 o firmware: opnsense-update improvements for mirror manipulation options
 o firmware: replace php version_compare() call with pkg-version shell command
-o firmware: revoke 21.1 fingerprint
+o firmware: revoke 21.4 fingerprint
 o firmware: static template for firmware upgrade message
 o firmware: sync plugins in console update
 o ipsec: add auto type for identities
