@@ -31,7 +31,7 @@ o system: add item edit links to several dashboard widgets
 o interfaces: adhere to DAD during VIP recreation in rc.newwanipv6
 o interfaces: remove non-functional features from bridges
 o interfaces: remove PPP edit in interfaces settings
-o interfaces: batched device type creation under "devices" submenu
+o interfaces: batched device type creation under "Devices" submenu
 o interfaces: move PPP and wireless logs to system log
 o interfaces: remove "Use IPv4 connectivity" setting as it will be set by default
 o firewall: use "skip lo0" instead of policing lo0 explicitly following OpenBSD best practice
