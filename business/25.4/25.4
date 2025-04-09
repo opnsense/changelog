@@ -1,0 +1,316 @@
+@ April 09, 2025
+
+The OPNsense business edition transitions to this 25.4 release including
+numerous MVC/API conversions, a new user self-service portal, user CSV
+import/export, improved security zones support and documentation, a new UI
+look with a light and dark theme, PHP 8.3, FreeBSD 14.2 plus much more.
+
+Please make sure to read the migration notes before upgrading.
+
+Download link is as follows.  An installation guide[1] and the checksums for
+the images can be found below as well.
+
+https://downloads.opnsense.com/
+
+This business release is based on the OPNsense 25.1.4 community version
+with additional reliability improvements.
+
+Here are the full patch notes against version 24.10.2:
+
+o system: migrate user, group and privilege management to MVC/API
+o system: remove the "disable integrated authentication" feature
+o system: add "Default groups" option to add standard groups when a LDAP/RADIUS user logs in
+o system: remove the old manual LDAP importer
+o system: migrate HA status page to MVC/API
+o system: allow custom additions to sshd_config (contributed by Neil Greatorex)
+o system: increase max-request-field-size for web GUI
+o system: set tunable default for checksum offloading of the vtnet(4) driver to disabled (contributed by Patrick M. Hausen)
+o system: add support for RFC 5549 routes and refactor static route creation code
+o system: improve notification support to also allow persistent notifications and static banners
+o system: add notifications for low disk space and OpenSSH file override use
+o system: migrate tunables page to MVC/API
+o system: switch to temperature sensor caching
+o system: add certificate widget to track expiration dates and allow quick renewal
+o system: remove deprecated "page-getserviceprovider", "page-dashboard-all" and "page-system-groupmanager-addprivs" privileges
+o system: replace file_get_contents() with curl implementation in XMLRPC sync and add verifypeer option
+o system: add item edit links to several dashboard widgets
+o system: prioritize index page and prevent redirection to a /api page on login
+o system: mute disk space status in case of live install media
+o system: optimize system status collection
+o system: exclude pchtherm thresholds temperature thresholds
+o system: update button wording on new HA status page
+o system: adjust gateway widget to use the intended caching mechanism
+o system: thermal sensors widget can now select individual sensors to display plus UX changes
+o system: handle dev.pchtherm temperatures in the thermal dashboard widget (contributed by Joe Roback)
+o system: use new apply button partial in tunables page
+o system: move high availability option "disable preempt" to advanced mode
+o system: straighten out syslog-ng rc.d scripting
+o system: implement user CSV import/export functionality (sponsored by: m.a.x. it)
+o system: switch boot logo and MOTD to the new-style logo (contributed by Gavin Chappell)
+o system: migrate "default" tunable value to empty one and improve UX
+o system: replace legacy service widget hook with a proper configd call
+o system: add "Kill states when down" option to gatways
+o system: stop pushing "nextuid" and "nextgid" during XMLRPC
+o system: migrate tunables to implicit defaults
+o system: secure access to sysctl configuration node
+o system: fix RADIUS error check
+o system: rewire system_usermanager_passwordmg.php to /ui/user_portal for cooperation with the next business edition
+o system: default "net.inet.carp.senderr_demotion_factor" tunable to "0"
+o system: opnsense-beep: serialize access to /dev/speaker (contributed by Leonid Evdokimov)
+o system: fix URL hash in certificate link so redirection shows the correct menu path
+o system: add a user portal for self-servicing OTP and OpenVPN profiles[2]
+o reporting: fix missing typecast in epoch range for DNS statistics
+o reporting: switch health graphs to ChartJS
+o reporting: minor code cleanups in insight backend
+o interfaces: adhere to DAD during VIP recreation in rc.newwanipv6
+o interfaces: remove non-functional features from bridges
+o interfaces: remove PPP edit in interfaces settings
+o interfaces: batched device type creation under "Devices" submenu
+o interfaces: move PPP and wireless logs to system log
+o interfaces: remove "Use IPv4 connectivity" setting as it will be set by default
+o interfaces: fix undefined array key warnings in DHCP client setup (contributed by Ben Smithurst)
+o interfaces: add "nosync" option to VIPs and fix sync conditional
+o interfaces: use shared base_bootgrid_table and base_apply_button where possible
+o interfaces: remove obsolete code in get_real_interfaces() to match getRealInterface()
+o interfaces: improve validation for CARP/proxy ARP VIP
+o interfaces: remove defunct "other" VIP type
+o interfaces: skip "nosync" processing on VIPs
+o interfaces: move "(de)select all" button to the same row on packet capture page
+o interfaces: add ARP address family option to packet capture
+o interfaces: fix advanced mode visibility in VIPs
+o firewall: use "skip lo0" instead of policing lo0 explicitly following OpenBSD best practice
+o firewall: remove duplicate table definition and make sure bogonsv6 table always exists
+o firewall: cleanup of CARP and IPv6 rules behaviour
+o firewall: filter feature parity in automation rules
+o firewall: offer multi-select on source and destination addresses
+o firewall: add experimental inline shaper support to filter rules
+o firewall: add missing columns on one-to-one NAT page
+o firewall: fix anti-lockout and "allow access to DHCP failover" automatic rules
+o firewall: add optional authorization for URL type aliases
+o firewall: add "URL Table in JSON format (IPs)" alias type
+o firewall: properly unpack multiple source/destination items in the rules page
+o firewall: hide internal aliases to align with previous legacy_list_aliases() function
+o firewall: support partial alias exports
+o firewall: performance improvement by using pf overall table stats instead of dumping each table
+o firewall: offer better plug-ability for dynamic alias type
+o firewall: alias rename action ignored due to missing lock
+o firewall: support "jq" processing syntax for JSON-based URL table aliases
+o firewall: fix presentation when alias name overlaps group name
+o captive portal: fix missing class import
+o captive portal: partially revert new lighttpd TLS defaults
+o captive portal: urlencode() selector items in voucher group list
+o dhcrelay: integrate layout_partials bootgrid/apply
+o dnsmasq: migrate existing frontend to MVC/API
+o firmware: fix "r" abbreviation vs. version_compare();
+o firmware: opnsense-update: fix failure to clean up the working directory
+o firmware: opnsense-update: support -B and -K with -c option check
+o firmware: opnsense-update: let -u skip already installed packages set
+o firmware: kernel may not be pending so be sure to check on upgrade attempt
+o firmware: add an upgrade test for wrong pkg repository
+o firmware: revoke 24.7 fingerprint
+o installer: fixed missing prompt and help text in ZFS disk selection
+o installer: warn on low RAM for ZFS as well
+o installer: added a power off option
+o intrusion detection: policy content dropdown missing data-container
+o ipsec: add log search button in sessions
+o ipsec: add banner message when using custom configuration files
+o ipsec: fix glob pattern for advanced configuration banner
+o ipsec: add deprecation notices for legacy components (will move to plugins)
+o ipsec: pre-shared key permission fix
+o kea-dhcp: add "v6-only-preferred" option (contributed by darses)
+o kea-dhcp: use shared base_bootgrid_table and base_apply_button
+o kea-dhcp: add missing ACL privileges
+o lang: update available translations
+o monit: flag file overwrites when they exist
+o network time: take IPv6 addresses into account
+o network time: remove support for explicit VIP selection
+o network time: move XMLRPC definition to correct file
+o openvpn: add validation pertaining to auth-gen-token and reneg-sec combinations
+o openvpn: add deprecation notices for legacy components (will move to plugins)
+o openvpn: add DCO validation for fragment size
+o openvpn: use shared base_bootgrid_table and base_apply_button
+o openvpn: add support for assorted options[3] (contributed by Marius Halden)
+o openvpn: add basic HTTP client option
+o openvpn: add "Enable static challenge (OTP)" option in client export
+o router advertisements: move plugin code to its own space
+o unbound: cleanup available blocklists and add hagezi blocklists
+o unbound: fix root.hits permission on copy
+o unbound: flag file overwrites when they exist
+o unbound: add support for forward-first when configuring forwarders (contributed by Nigel Jones)
+o unbound: use shared base_bootgrid_table and base_apply_button
+o unbound: move whitelist (passlist) handling to Unbound plugin
+o unbound: drop "exclude" phrase from plugin log entry
+o wireguard: change tracking of peer status, improve widget and diagnostic
+o wireguard: use shared base_bootgrid_table and base_apply_button
+o backend: -m option is unused so remove its complication
+o backend: add an "import" rc.syshook facility
+o backend: change the "monitor" rc.syshook facility and de-deprecate its use
+o backend: remove unused functions and move once-used functions to their call script
+o backend: allow pluginctl to filter on -x/-X option
+o mvc: implement reusable grid template using form definitions
+o mvc: add Default() method to reset a model to its factory defaults
+o mvc: fix LegacyMapper when the mount point is not the XML root
+o mvc: move explicit cast in BaseModel when calling field->setValue()
+o mvc: fields should implement getCurrentValue() rather than __toString()
+o mvc: fix value lookup in LinkAddressField
+o mvc: memory preservation fix in BaseListField
+o mvc: support lazy loading on alias models and use it in NetworkAliasField
+o mvc: wrap locks around updates and perform some minor cleanups in ApiMutableModelControllerBase
+o mvc: move "lazy loading" option to base model implementation and force usage on run_migrations.php
+o mvc: safeguard checkToken() to prevent fetching an non existing POST item
+o mvc: decode HTML tags in menu items
+o mvc: fix unit tests for model relation fields
+o mvc: merge NetworkValidator into NetworkField to ease extensibility and add unit test
+o mvc: send audit messages emitted in the authentication sequence to proper channel
+o ui: upgrade Font Awesome icons to version 6
+o ui: push search/edit logic towards bootgrid implementation
+o ui: improved links with automatic edit and/or search
+o ui: rewritten default theme for a light look and new logo
+o ui: added default theme variant with a dark look
+o ui: header image scaling fixes in default light theme
+o ui: remove right border from "aside" element in default dark theme
+o ui: upgrade ChartJS to v4
+o ui: change backdrop background color to black in dark theme
+o ui: create a unified layout partial for the apply button
+o plugins: adjust all themes for ChartJS 4 use
+o plugins: os-OPNBEcore 1.5
+o plugins: os-OPNWAF 1.8
+o plugins: os-OPNcentral 1.11
+o plugins: os-acme-client 4.9[4]
+o plugins: os-caddy 1.8.4[5]
+o plugins: os-cpu-microcode 1.1 removes unneeded late loading code
+o plugins: os-crowdsec 1.0.9[6]
+o plugins: os-ddclient 1.27[7]
+o plugins: os-dmidecode 1.2 adds new dashboard widget (contributed by Neil Merchant)
+o plugins: os-frr 1.44[8]
+o plugins: os-haproxy 4.5[9]
+o plugins: os-intrusion-detection-content-pt-open 1.0 (contributed by kulikov-a)
+o plugins: os-sftp-backup 1.0 allows configuration backups over SFTP
+o plugins: os-tailscale 1.2[10]
+o plugins: os-theme-cicada 1.39 (contributed by Team Rebellion)
+o plugins: os-theme-tukan 1.29 (contributed by Team Rebellion)
+o plugins: os-theme-vicuna 1.49 (contributed by Team Rebellion)
+o plugins: os-zabbix-agent 1.15[11]
+o plugins: os-zabbix-proxy 1.12[12]
+o src: FreeBSD 14.2-RELEASE[13]
+o src: bpf: fix potential race conditions
+o src: carp: fix checking IPv4 multicast address
+o src: e1000: fix vlan PCP/DEI on lem(4)
+o src: icmp: use per rate limit randomized jitter
+o src: if_vxlan: invoke vxlan_stop event handler only when the interface is configured
+o src: if_vxlan: prefer SYSCTL_INT over TUNABLE_INT
+o src: if_vxlan: use static initializers
+o src: ifconfig: make -vht work
+o src: ifnet: detach BPF descriptors on interface vmove event
+o src: igc: remove unused register IGC_RXD_SPC_VLAN_MASK
+o src: ipfw: add missing initializer for 'limit' table value
+o src: ipfw: make 'ipfw show' output compatible with 'ipfw add' command
+o src: iwlwifi: update Intel iwlwifi/mvm driver et al
+o src: ixgbe: add ixgbe_dev_from_hw() back
+o src: ixgbe: fix a logic error in ixgbe_read_mailbox_vf()
+o src: ktrace: fix uninitialized memory disclosure]
+o src: libkern: add ilog2 macro et al
+o src: net80211: 11ac: add options to manage VHT STBC
+o src: net: if_media for 100BASE-BX
+o src: netinet6: do not forward to the unspecified address
+o src: netinet: do not forward or ICMP response to INADDR_ANY
+o src: netinet: ipsec and ktls cannot coexists
+o src: pf: add 'allow-related' to always allow SCTP multihome extra connections
+o src: pf: add extra SCTP multihoming probe points
+o src: pf: align sanity checks for pfrw_free
+o src: pf: allow ICMP messages related to an SCTP state to pass
+o src: pf: allow all forms of neighbor advertisements in either direction
+o src: pf: cleanup leftover PF_ICMP_MULTI_* code that is not needed anymore
+o src: pf: do not keep state when dropping overlapping IPv6 fragments
+o src: pf: drop IPv6 packets built from overlapping fragments in pf reassembly
+o src: pf: fix fragment hole count
+o src: pf: force logging if pf_create_state() fails
+o src: pf: only force state failure logging if logging was requested
+o src: pf: send ICMP destination unreachable fragmentation needed when appropriate
+o src: pf: stop using net_epoch to synchronize access to eth rules
+o src: pf: verify SCTP v_tag before updating connection state
+o src: pf: verify that ABORT chunks are not mixed with DATA chunks
+o src: pfil: set PFIL_FWD for IPv4 forwarding
+o src: rtw89: update Realtek rtw88/rtw89 driver et al
+o src: sysctl: enable vnet sysctl variables to be loader tunable
+o src: tzdata: import tzdata 2025a
+o ports: ca_root_nss 3.108[14]
+o ports: curl 8.12.1[15]
+o ports: dnsmasq 2.91[16]
+o ports: expat 2.7.0[17]
+o ports: lighttpd 1.4.78[18]
+o ports: monit 5.34.4[19]
+o ports: nss 3.109[20]
+o ports: openssl 3.0.16[21]
+o ports: openvpn 2.6.14[22]
+o ports: pcre2 10.45[23]
+o ports: pecl-radius now offers message authenticator support (scheduled to be enabled with 25.4.2)
+o ports: pftop 0.12
+o ports: phalcon 5.9.0[24]
+o ports: php 8.3.19[25]
+o ports: py-duckdb 1.2.1[26]
+o ports: py-jq 1.8.0[27]
+o ports: radvd 2.20[28]
+o ports: suricata 7.0.10[29]
+
+Migration notes, known issues and limitations:
+
+o The access management was rewritten in MVC and contains behavioural changes including not rendering UNIX accounts for non-shell users. The integrated authentication via PAM has been the default for a long time so the option to disable it has been removed. The manual LDAP importer is no longer available since LDAP/RADIUS authenticators support on-demand creation and default group setup option. The "page-system-groupmanager-addprivs" privilege was removed since the page does not exist anymore. A multi-purpose privilege editor has been added under the existing "page-system-usermanager-addprivs" instead.
+o PPP devices can no longer be configured on the interface settings page. To edit the device settings use the native PPP device edit page instead.
+
+The public key for the 25.4 series is:
+
+# -----BEGIN PUBLIC KEY-----
+# MIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEAsnbyFjWXvUcUC4BqnQ9w
+# uH3yiaG7AY8UzwepXf2TqqOYt5Y0USbse3OBjxYnRs0iW5EHtdKSRcmelup374Hp
+# XDDeQ/mjmhhnvXryfQL57gyVpYeL5gRVhf/2DwEZELLCFUFhMNh52QPaJ5zTvdws
+# m1Q+OwI1WfTDR7ytm+0Too2tVerG3mM3XataZ+XOKwHp2xP0Mr8E4F+PZdR4hWbb
+# yC2elIzICXDWWpcEEg4JT48TIYZJPGnE2IJAzWRntrqVU2eLcEn5MffwTawXNoCZ
+# mvLYqguYskmeR/dAL7ZmZcPeMeibXMtld8xIZp49g7DPq7PqxCY1wxcgeuZPFOHv
+# kbYzL3BHbyni3K/qdLXKzy8oZeUUvlbUgaj8Xx14DSiNzJDknNf0Xg/eby7MkzgP
+# eUXgtB0MRQMih85BfaiH5r+uQMgPKnjutVWR8qUWglxDKIc4s69b8PXylfu2FwiP
+# iKMBdO8xnVvNFKOkuaUtI31cqxauw2hBAlILFvltM+adUz2rfB3Ch0bjfjDE5Hxq
+# En4fEUVHgQCu+Ojyyy3/8RwUpsRZq05fObypyeL3E/MvlwpaOVjwvw2ozVPGi2zi
+# xmXemn5CbgjD3vPR9XERXrFkHTwPnIiqz53znqn34P+NGEgD1veMhZPE6OGZRu/h
+# IfceSaxJ/An5SUh0zr7YgOsCAwEAAQ==
+# -----END PUBLIC KEY-----
+
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] DOCS:manual/install
+[2] DOCS:vendor/deciso/userportal
+[3] https://github.com/opnsense/core/pull/8396
+[4] PLUGINS:25.1/security/acme-client
+[5] PLUGINS:25.1/www/caddy
+[6] PLUGINS:25.1/security/crowdsec
+[7] PLUGINS:25.1/dns/ddclient
+[8] PLUGINS:25.1/net/frr
+[9] PLUGINS:25.1/net/haproxy
+[10] PLUGINS:25.1/security/tailscale
+[11] PLUGINS:25.1/net-mgmt/zabbix-agent
+[12] PLUGINS:25.1/net-mgmt/zabbix-proxy
+[13] https://www.freebsd.org/releases/14.2R/relnotes/
+[14] NSS:3.108
+[15] CURL:8.12.1
+[16] DNSMASQ:2.91
+[17] EXPAT:2.7.0
+[18] https://www.lighttpd.net/2025/3/22/1.4.78/
+[19] MONIT:5.34.4
+[20] NSS:3.109
+[21] OPENSSL:3.0.16
+[22] OPENVPN26:2.6.14
+[23] PCRE2:10.45
+[24] PHALCON:5.9.0
+[25] PHP8:8.3.19
+[26] DUCKDB:1.2.1
+[27] https://github.com/mwilliamson/jq.py/blob/master/CHANGELOG.rst
+[28] RADVD:2.20
+[29] https://suricata.io/2025/03/25/suricata-7-0-10-released/
+
+# SHA256 (OPNsense-business-25.4-dvd-amd64.iso.bz2) = 6b99523d8b8f166ea6fc1e30de3206da8f5184fc36f646d3cefd3b2409930f49
+# SHA256 (OPNsense-business-25.4-nano-amd64.img.bz2) = 1aa61b516ea61491c3b5c438c7d003d6f0812cc4638ddd767f4fe0e2f89ad0ea
+# SHA256 (OPNsense-business-25.4-serial-amd64.img.bz2) = d54c59bbfb89282cc5dc7a40b1c0b42b0c616e23f70700c2d2aeb32ab9474509
+# SHA256 (OPNsense-business-25.4-vga-amd64.img.bz2) = cb95d7cc0ef9c8875173bbaf4bd852c477ff1e1d529387fdb6f08be38041eda6
