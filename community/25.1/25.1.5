@@ -1,0 +1,87 @@
+@ April 10, 2025
+
+Howdy,
+
+This release improves overall RADIUS support, moves the captive portal
+from IPFW to PF, creates visibility of external certificate sources in
+the system and offers a glimpse into the filter automation GUI revamp
+which could one day replace the remaining static firewall rules edit pages.
+
+Speaking of static pages: MVC/API conversions are almost 80% complete now
+and we would really like to continue that trend.  Also brace for impact
+as we crash-land Dnsmasq DHCP support in a stable release within the next
+90 days!
+
+Here are the full patch notes:
+
+o system: extend XMLRPC "nosync" support to keep backup items for new cases
+o system: improved RADIUS RFC alignment and use Message Authenticator by default
+o system: prevent recursion loop when CAs are cross-referencing each other
+o system: fix URL hash in certificate link so redirection shows the correct menu path
+o system: fix off by one error due to line ending at the end of a log file
+o system: offer config directory to store locations for external certificates and support it in the certificates widget
+o system: allow multiple manual DNS search domains
+o system: fix gateway watcher backoff
+o system: minor code cleanups in auth.inc
+o reporting: move NetFlow backend single_pass to command line parameters for easier debugging
+o reporting: use client time in traffic dashboard widget
+o firewall: automation filter UI revamp
+o firewall: fix presentation when alias name overlaps group name
+o firewall: fix regression in alias table in JSON format
+o firewall: move pipe and queue configuration to "dnctl" service
+o firewall: replace update_params for argparse in filter log reader
+o captive portal: migrate backend from IPFW to PF
+o firmware: ignore dashboard check for updates link automation if user clicks check for updates too
+o firmware: fix reboot flag handling due to changed BooleanField default in 25.1.4
+o firmware: add cleanup audit script
+o ipsec: move mobile clients charon attributes to "Advanced settings"
+o ipsec: pre-shared key permission fix
+o kea-dhcp: add missing ACL privileges
+o kea-dhcp: allow manual configuration for advanced scenarios
+o openvpn: add "Enable static challenge (OTP)" option in client export
+o openvpn: display virtual IPv6 addresses for clients in dashboard widget (contributed by cs-1 and lucaspalomodevelop)
+o router advertisements: fix list of source addresses on overlapping link-locals (contributed by Robin Müller)
+o unbound: drop "exclude" phrase from plugin log entry
+o unbound: add optional TTL field
+o mvc: prefer ui/user_portal above system_usermanager_passwordmg.php in ACLs
+o mvc: implement "ignore" field type in forms
+o ui: include "all" instead of only "solid" and "brands" Font Awesome styles
+o ui: ensure fields stay aligned relatively to another when headers are used in forms
+o ui: add fetch_options() which can build grouped selectpickers
+o ui: improve and extend Bootgrid behaviour
+o plugins: os-caddy 1.8.5[1]
+o plugins: os-sftp-backup 1.1 adds hostname prefix and filedrop-only support (contributed by beposec)
+o src: ifconfig: fix reporting optics on most 100g interfaces
+o src: igc: fix attach for I226-K and LMVP devices
+o src: inpcb: assorted changes for upcoming FIB support
+o src: ipfw: fix dump_soptcodes() handler
+o src: ixgbe: add support for 1000BASE-BX SFP modules
+o src: ixgbe: fix mailbox ack handling
+o src: netinet6: add the missing lock acquire to nd6_get_llentry
+o src: netinet: fix getcred sysctl handlers to do nothing if no input is given
+o src: netinet: if mb_unmapped_to_ext() failed, return directly
+o src: netlink: fix getting route scope of interface IPv4 addresses
+o src: ovpn: fix use-after-free of mbuf
+o src: pf: improve pf_state_key_attach() error handling
+o src: pf: only force state failure logging if logging was requested
+o src: pfkey2: use correct value for a key length
+o src: routing: do not allow PINNED routes to be overriden
+o src: sctp: fix double unlock in case adding a remote address fails
+o src: tcp: clear sendfile logging struct
+o src: udp: do not recursively enter net epoch
+o src: wg: remove overly-restrictive address family check
+o ports: lighttpd 1.4.79[2]
+o ports: openvpn 2.6.14[3]
+o ports: phalcon 5.9.2[4]
+o ports: py-duckdb 1.2.2[5]
+
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] PLUGINS:25.1/www/caddy
+[2] https://www.lighttpd.net/2025/4/4/1.4.79/
+[3] OPENVPN26:2.6.14
+[4] PHALCON:5.9.2
+[5] DUCKDB:1.2.2
