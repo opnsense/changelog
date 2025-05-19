@@ -1,0 +1,74 @@
+@ May 19, 2025
+
+Hello there,
+
+Dnsmasq DHCP is here and now it is going to be even better with multiple
+fixes thanks to the swift feedback we received.  We are aware of the
+complex topic of DHCP in the recent years so keep in mind we added Dnsmasq
+to fill a specific need for smaller installations that other services cannot
+offer.  There are still areas where Kea shines so having both options is
+the best way forward.
+
+Here are the full patch notes:
+
+o system: safeguard local_group_set() since users may not exist for valid reasons
+o interfaces: emulate device name return in ifconfig edge case for legacy_interface_create()
+o interfaces: cleanup spurious functions regarding VIP access
+o interfaces: interfaces: improve private and bogon network filters (contributed by Maurice Walker)
+o interfaces: consider tracked interfaces linked devices on reload
+o firewall: add ability to specify IPv6 pipe and queue masking using the src-ip6/dst-ipv6 specifiers (contributed by Daniel Tang)
+o firewall: use shared base_bootgrid_table and base_apply_button in shaper
+o captive portal: restore the logging of drop reasons
+o captive portal: fix last_accessed being cached from previous entries if N/A
+o captive portal: mark alias as type external for use in rules
+o dnsmasq: offer all DHCP options via IANA specification
+o dnsmasq: allow "static" setting on IPv6 ranges
+o dnsmasq: do not create entries in dnsmasq-hosts file for dhcp-host entries
+o dnsmasq: prefix length is required when a lease-time is set due to the parsing order
+o dnsmasq: split up "hwaddr" and "iaid" for DHCPv6 leases and expose them in the leases overview
+o dnsmasq: add missing dhcp-boot to template
+o dnsmasq: add interface tag to dhcp-boot options
+o dnsmasq: reverse rebind check
+o dnsmasq: remove superfluous escape in conf-dir directive
+o dnsmasq: allow lease time 0 to set "infinite"
+o dnsmasq: add protocol selectpicker to leases view
+o dnsmasq: domain to host migration for hosts
+o dnsmasq: allow multiple tags per dhcp-boot
+o kea-dhcp: fix parsing both address families in static mappings
+o kea-dhcp: translate reservation MAC address when dash is used
+o kea-dhcp: add advanced options (pd-)allocator in DHCPv6
+o ipsec: attr 28673 previously rendered as 1 instead of strongswan default "yes"/"no" for a boolean
+o openvpn: add port-share as advanced feature
+o openvpn: add (push) block-ipv6 option
+o backend: use the new errors:no instead of "exit 0" in actions
+o mvc: add contribDir to app config (contributed by Freddie Sackur)
+o mvc: show versions on migration failure for clarity
+o mvc: saveguard JsonKeyValueStoreField->setSourceField()
+o mvc: add static $internalStaticChildren in classes extending ArrayField
+o plugins: os-beats 1.0 (contributed by Maxime Thiebaut)
+o plugins: os-c-icap 1.8[1]
+o plugins: os-caddy 2.0.0[2]
+o plugins: os-postfix 1.24[3]
+o plugins: os-radsecproxy 1.1[4]
+o ports: dhcp6c 20250513 fixes spawning multiple instances
+o ports: monit 5.35.2[5]
+o ports: nss 3.111[6]
+o ports: perl 5.40.2[7]
+o ports: pftop 0.13
+o ports: php 8.3.21[8]
+o ports: syslog-ng 4.8.2[9]
+
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] PLUGINS:25.1/www/c-icap
+[2] PLUGINS:25.1/www/caddy
+[3] PLUGINS:25.1/mail/postfix
+[4] PLUGINS:25.1/net/radsecproxy
+[5] MONIT:5.35.2
+[6] NSS:3.111
+[7] PERL:5.40.2
+[8] PHP8:8.3.21
+[9] SYSLOG-NG:4.8.2
