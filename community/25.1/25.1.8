@@ -1,0 +1,94 @@
+@ June 12, 2025
+
+Hi!
+
+This update addresses a few security issues in third party software,
+but take note that libxml2 is currently stuck in an old release in
+FreeBSD ports that was decided not to be fixed there for the time being.
+
+Dnsmasq receives more improvements as you all explore the limits of the
+current implementation and what the software can still offer beyond that.
+Thank you for all the good feedback on this front!
+
+The FreeBSD kernel was updated with a number of upstream stable commits
+while we get closer to evaulating the jump to a newer FreeBSD release for
+25.7.
+
+Lastly, we are preparing for a historic moment: offering privilege separation
+for the GUI meaning the web server can stop running as a root user.  This
+may still be optional in the next major version, but it makes fixing the
+remaining incompatibilities much easier.
+
+Here are the full patch notes:
+
+o system: fix regression in setGroupMembership()
+o system: add "Source Networks" option to groups to restrict connectivity to web GUI
+o system: remove defunct "sshlogingroup" OpenSSH option because non-admins are no longer permitted shell access
+o system: reduce font size in thermal sensors widget tooltip (contributed by indeed-a-genius)
+o system: allow access to cached watcher gateway status
+o system: implement "force_down" failover support
+o system: implement base_bootgrid_table in user, group and priv templates
+o system: balance fastcgi servers a bit better
+o system: check private key matches provided certificate data
+o system: introduce a "wwwonly" user and group and related privilege separation preparations
+o interfaces: convert bridge configuration to MVC/API
+o interfaces: remove unused is_interface_assigned()
+o firewall: use CIDR notation for specifying masks to dnctl (contributed by Daniel Tang)
+o firewall: improve dummynet_stats.py parsing of mask descriptor lines (contributed by Daniel Tang)
+o firewall: exclude interfaces with local links only when generating force gateway rules
+o firewall: fix missing lock while refactoring config for group changes
+o firewall: properly synchronize load order for shaper when reloading configuration
+o firewall: add toggle log command in automation
+o firewall: since bogons source writes a comment first prefix our exclusions too
+o firewall: tighten address / range validation for aliases
+o firewall: align alias tokenizer options with the ones in our base template
+o captive portal: align accounting session timeout with API
+o captive portal: balance fastcgi servers a bit better
+o captive portal: do not share a fastcgi socket with web GUI
+o dnsmasq: add missing constraint and fix template for boot options
+o dnsmasq: reload filter on service reload
+o dnsmasq: add command in leases view to create DHCP reservations
+o dnsmasq: hide static mode in DHCP range in advanced mode
+o dnsmasq: set default to empty lease time for DHCP hosts to allow for defaults
+o dnsmasq: add "no-resolv" option to prevent use of system defined DNS servers
+o dnsmasq: validate IP address usage for DHCP registrations
+o dnsmasq: add validation preventing end address to be empty for IPV4 non-static ranges
+o dnsmasq: when "dhcp-fqdn" is active, set all DHCP domains as local
+o dnsmasq: add checkbox to hosts that can set domains as local
+o dnsmasq: allow either empty IP or empty hostname for DHCP hosts
+o dnsmasq: fix wildcard host handling
+o dnsmasq: add overlay to conditionally remove values based on DHCP option type
+o ipsec: add "cacert" option in remote auth section and allow spaces and wildcards in id fields
+o ipsec: be more verbose when modifying SPDs
+o isc-dhcp: show tracking interfaces when enabled and offer an explicit disable
+o kea-dhcp: add static_routes validation (contributed by Dr. Uwe Meyer-Gruhl)
+o openvpn: remove deprecated use of is_interface_assigned() in legacy client/server
+o unbound: remove "inplace" in chained assignment (contributed by dstapa)
+o mvc: deny whitespaces, asterisks and slashes in HostnameField
+o mvc: support array response type in session->get()
+o plugins: os-caddy 2.0.1[1]
+o plugins: os-crowdsec 1.0.10[2]
+o plugins: os-sunnyvalley 1.5 switches mirror domain
+o src: pf: explicitly NULL state key pointers
+o src: pf: fix panic in pf_return()
+o src: pf: do not use state keys after pf_state_insert()
+o src: netlink, socket, sctp, tcp, udp: assorted upstream stable changes
+o src: in6_control_ioctl: correctly report errors from SIOCAIFADDR_IN6
+o src: axgbe: add support for Yellow Carp Ethernet device
+o src: dhclient: keep two clocks
+o src: rtw88, rtw89: merge Realtek driver based on Linux v6.14
+o src: iwlwififw: remove Intel iwlwifi firmware from src.git
+o ports: curl 8.14.0[3]
+o ports: kea 2.6.3[4]
+o ports: python fix for CVE-2025-4516[5]
+
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] PLUGINS:25.1/www/caddy
+[2] PLUGINS:25.1/security/crowdsec
+[3] CURL:8.14.0
+[4] https://downloads.isc.org/isc/kea/2.6.3/Kea-2.6.3-ReleaseNotes.txt
+[5] https://github.com/python/cpython/pull/134341
