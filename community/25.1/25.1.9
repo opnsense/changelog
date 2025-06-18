@@ -1,0 +1,44 @@
+@ June 18, 2025
+
+Howdy,
+
+This smallish update brings in more preparation for future features
+and reworks and fixes a couple of bugs reported over the last weeks.
+
+The patch size for 25.1.x will likely not increase in future updates
+as 25.7 is near: July 23.  Save the date!
+
+Here are the full patch notes:
+
+o system: add minimalistic interface to support SSO authentication
+o system: refactor a couple of existing empty() tests to isEmpty()
+o system: refactor cache flush into system_cache_flush()
+o system: add backend call for returning timezones
+o system: fix "weight" default fallback causing non-string return in gateway status
+o interfaces: refactor newwanip IPv4/v6 scripts to reduce differences between them
+o interfaces: do not call a description a "dmesg"
+o interfaces: relax regex for dmesg probing to seamlessly support dmesg timestamps
+o firewall: improve address family validation for rule source and destination
+o firewall: fix faulty ICMP type evaluation on NAT rules
+o dnsmasq: allow AliasesField values to be cleared
+o dnsmasq: allow host wildcards in domain overrides again
+o ipsec: add aes256-sha1 ESP proposal
+o ui: backwards-compatible merge of Tabulator grid replacement changes
+o plugins: os-haproxy 4.6[1]
+o ports: curl 8.14.1[2]
+o ports: nss 3.112[3]
+o ports: openldap 2.6.10[4]
+o ports: php 8.3.22[5]
+o ports: python 3.11.13[6]
+
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] PLUGINS:net/haproxy
+[2] CURL:8.14.1
+[3] NSS:3.112
+[4] OPENLDAP:2.6.10
+[5] PHP8:8.3.22
+[6] PYTHON:3.11.13
