@@ -1,0 +1,76 @@
+@ July 14, 2025
+
+Hey all,
+
+After a small struggle to finish the release candidate last week, it is
+here now with FreeBSD 14.3 and lots of other highlights.  We will promise
+to deliver full release notes once 25.7 is released, but for now we need
+to get this going.
+
+Keep in mind this is mostly an image-based pre-production test release.
+Upgrades from 25.1.11's development version will be available as soon as
+that is out later this week.  An online-only RC2 will probably follow as
+well.  The final release date for 25.7 is July 23.
+
+https://pkg.opnsense.org/releases/25.7/
+
+Here are the development highlights since version 25.1 came out:
+
+o Replace the setup wizard with a modern MVC/API variant
+o Switch to reusable frontend code
+o ChartJS 4 update and related functionality migrations
+o User manager CSV export and import option
+o New plugin for SFTP configuration backups
+o Move frontend grid from Bootgrid to Tabulator
+o Optional privilege separation for the web GUI (running as non-root)
+o User/group manager adds optional source network constraint
+o JSON container support for aliases
+o Firewall automation GUI revamp
+o Performance improvements when using large amounts of aliases
+o Dnsmasq DHCP support for small and medium sized setups
+o Support advanced (manual) configurations in Kea
+o Add IPv6 support (including prefix delegation) to Kea
+o Bridges MVC migration
+o Migrate IPsec mobile page to MVC
+o Greek as a new language
+o FreeBSD 14.3
+
+A more detailed change log will follow!
+
+Migration notes, known issues and limitations:
+
+o Deprecated Google Drive backups due to upstream policy changes and moved to plugins for existing users.
+o API URLs registered in the default ACLs have been switched from "camleCase" to "snake_case".
+o Reverted tunables "hw.ibrs_disable" and "vm.pmap.pti" to FreeBSD defaults.
+o The new wizard still has bugs relating to diabling LAN configuration.
+o Moved OpenVPN legacy to plugins as a first step to deprecation.
+o Moved IPsec legacy to plugins as a first step to deprecation.
+
+The public key for the 25.7 series is:
+
+# -----BEGIN PUBLIC KEY-----
+# MIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEAn9lXekbm5KcktbiWpmQf
+# drRC8LmAOTV9Cbdd3em6iDFFcw8vmRS7Rbo2/exxYiPCqEPxxPtUsW+g/a6fqPJp
+# pof5D1EHWqzPfkjRQV6ipQjm+ocJGkfbeHsp5I77L+w7om5TbPYBkOjg+iMd442d
+# VYxgqXmMZy+6v78ofVM+wyba0GkRymFt0qf5k5uk3Auztcfanc2Ymsc+PDdjGHQd
+# c9H8T0T6To8Z0xrbEXzY00IqSRkLto9Cl+xEmEAz/AiEu2WtEadOqSpDy9dsJfQg
+# HpBQVlGQdphj5zmkqG6JSL1Uw+02OeIXOfFWRtqgW7vMyU0IbER3hLpvh6BlsqNJ
+# LCPfD7F/dzDPU5LniDRRb4MrTlVpJk2h8pk7GbmJCqAyWJJZ6n3a+InPtUfl9gP5
+# T0d15N7myh8RLssP+TIy8hiBHtc/yK89dUahGei1xDuh0HdytRLLLWVXqgWwgXhd
+# 9it8l8AJ/D2BtuyExpJOWx3sYvmhJiPN8phCaR2G2E+QRA2X5nHGyUw5jYpKI8Om
+# Q2khz1PBYcA/T5lKhM3HRFCu2HZsPKT5CEevZfUuPDXIqwx+LMFs6qqbzbGrdn1F
+# H6ZSlG0BWuokeyjhN2mB0Fr6kdLobmfVgZHUS7KOwcI9BdftSDbEk8kMxrQlwugh
+# 4I1hTrAycMERbjeUKg1plx8CAwEAAQ==
+# -----END PUBLIC KEY-----
+
+Please let us know about your experience!
+
+
+Stay safe,
+Your OPNsense team
+
+--
+# SHA256 (OPNsense-25.7.r1-dvd-amd64.iso.bz2) = 1e8e874942f6b7293f345e854afcae62baa0b699b09c0dd49d1942f34eadfbfe
+# SHA256 (OPNsense-25.7.r1-nano-amd64.img.bz2) = f93eacc72c7f75ccfdd2189e4d414fff523f2204c5e11f6ad9c57c55a6c60568
+# SHA256 (OPNsense-25.7.r1-serial-amd64.img.bz2) = 89602b42f7631dff10cef4303753f9377c0995a0ac3966ef8564fe0414ac6cff
+# SHA256 (OPNsense-25.7.r1-vga-amd64.img.bz2) = 77e2aeb3acacd7d9d252e30d09463c793ae641cf2938ddd90819529043b5e3e8
