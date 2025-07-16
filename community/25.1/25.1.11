@@ -1,0 +1,61 @@
+@ July 16, 2025
+
+Oh, hi!
+
+This maintenance release will also be the EoL version for the 25.1 series.
+It ships the latest FreeBSD SA/EN patches plus other third party security
+updates and a few minor fixes.
+
+We did see issues with the "e2fsprogs-libuuid" dependency lately obsoleted
+by FreeBSD ports and while packages such as "netdata" may refuse updating
+in the first update it should eventually reinstall correctly using the new
+"libuuid" package.  If you see related issues make sure you are not using
+multi-repo setups that still provide the obsoleted dependency.
+
+That being said, 25.7-RC1 is already out, but RC2 likely follows tomorrow.
+We are still set for a final release date of July 23.  See you on the other
+side!
+
+Here are the full patch notes:
+
+o system: fix passing "arguments" as parameters for cron jobs
+o dnsmasq: fix DomainIPField to allow IP address to be emptied
+o dnsmasq: register DHCPv6 firewall rules as well
+o dnsmasq: fix empty dhcp option value spawning stray comma
+o firmware: remove unbound/duckdb migration script
+o lang: further updates
+o openvpn: validate group membership after authentication
+o unbound: ignore TXT records for wildcard host entries
+o plugins: os-stunnel 1.0.6 adds LDAP and NNTP to supported STARTTLS protocols (contributed by Patrick M. Hausen)
+o plugins: os-zabbix-agent 1.16[1]
+o plugins: os-zabbix-proxy1.13[2]
+o src: ifconfig: optimise non-listing case with netlink
+o src: xz: fix use-after-free in multi-threaded xz decoder[3]
+o src: ena: fix misconfiguration when requesting regular LLQ[4]
+o src: zfs: fix corruption in ZFS replication streams from encrypted datasets[5]
+o src: libc: allow __cxa_atexit handlers to be added during __cxa_finalize[6]
+o ports: libxml 2.14.4[7]
+o ports: nss 3.113.1[8]
+o ports: openssl 3.0.17[9]
+o ports: php 8.3.23[10]
+o ports: sqlite 3.50.2[11]
+o ports: sudo 1.9.17p1[12]
+o ports: suricata 7.0.11[13]
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] PLUGINS:25.1/net-mgmt/zabbix-agent
+[2] PLUGINS:25.1/net-mgmt/zabbix-proxy
+[3] FREEBSD:FreeBSD-SA-25:06.xz
+[4] FREEBSD:FreeBSD-EN-25:11.ena
+[5] FREEBSD:FreeBSD-EN-25:10.zfs
+[6] FREEBSD:FreeBSD-EN-25:09.libc
+[7] LIBXML:2.14.4
+[8] NSS:3.113.1
+[9] OPENSSL:3.0.17
+[10] PHP8:8.3.23
+[11] SQLITE:3.50.2
+[12] SUDO:1.9.17p1
+[13] https://suricata.io/2025/07/08/suricata-7-0-11-released/
