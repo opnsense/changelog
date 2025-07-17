@@ -21,7 +21,7 @@ Here are the full patch notes:
 o system: fix passing "arguments" as parameters for cron jobs
 o dnsmasq: fix DomainIPField to allow IP address to be emptied
 o dnsmasq: register DHCPv6 firewall rules as well
-o dnsmasq: fix empty dhcp option value spawning stray comma
+o dnsmasq: fix empty DHCP option value spawning stray comma
 o firmware: remove unbound/duckdb migration script
 o lang: further updates
 o openvpn: validate group membership after authentication
