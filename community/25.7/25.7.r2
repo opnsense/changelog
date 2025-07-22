@@ -1,4 +1,4 @@
-@ Juli 17, 2025
+@ July 17, 2025
 
 How are you doing?
 
