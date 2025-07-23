@@ -107,7 +107,7 @@ o src: FreeBSD 14.3-RELEASE-p1 plus assorted stable/14 networking commits[7]
 Migration notes, known issues and limitations:
 
 o Deprecated Google Drive backups due to upstream policy changes and moved to plugins for existing users.
-o API URLs registered in the default ACLs have been switched from "camleCase" to "snake_case".
+o API URLs registered in the default ACLs have been switched from "camelCase" to "snake_case".
 o API grid return values now offer "%field" for a value description when available.  "field" will now always be the literal value from the configuration. The API previously returned a display value for some field types, but not all.
 o Reverted tunables "hw.ibrs_disable" and "vm.pmap.pti" to FreeBSD defaults.  If you want these set differently, then add them with an explicit value.
 o While the mirror dns-root.de has been removed it will not be stripped from a running configuration and may keep working for a while longer.  To ensure updates, however, please choose a different mirror at your own convenience.
