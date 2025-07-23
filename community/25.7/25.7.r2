@@ -52,7 +52,7 @@ o src: pf: fix ICMP ECHO handling of ID conflicts
 Migration notes, known issues and limitations:
 
 o Deprecated Google Drive backups due to upstream policy changes and moved to plugins for existing users.
-o API URLs registered in the default ACLs have been switched from "camleCase" to "snake_case".
+o API URLs registered in the default ACLs have been switched from "camelCase" to "snake_case".
 o API grid return values now offer "%field" for a value description when available. "field" will now always be the literal value from the configuration. The API previously returned a display value for some field types, but not all.
 o Reverted tunables "hw.ibrs_disable" and "vm.pmap.pti" to FreeBSD defaults.
 o The new wizard still has bugs relating to disabling LAN configuration.

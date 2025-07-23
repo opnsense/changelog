@@ -40,7 +40,7 @@ A more detailed change log will follow!
 Migration notes, known issues and limitations:
 
 o Deprecated Google Drive backups due to upstream policy changes and moved to plugins for existing users.
-o API URLs registered in the default ACLs have been switched from "camleCase" to "snake_case".
+o API URLs registered in the default ACLs have been switched from "camelCase" to "snake_case".
 o Reverted tunables "hw.ibrs_disable" and "vm.pmap.pti" to FreeBSD defaults.
 o The new wizard still has bugs relating to disabling LAN configuration.
 o Moved OpenVPN legacy to plugins as a first step to deprecation.
