@@ -79,7 +79,7 @@ o interfaces: allow clean MVC access to primary IPv4 address (pluginctl -4 mode)
 o interfaces: drop obsolete PPP default route handling
 o interfaces: change GRE/GIF to split reload per address family on dynamic connectivity
 o interfaces: prevent reading stale configuration data in interfaces_has_prefix_only()
-o interfaces: for consistency bootstrap the implicit 'none' value of the IP address modes
+o interfaces: for consistency bootstrap the implicit "none" value of the IP address modes
 o interfaces: prevent extended array data from being passed in interface_bring_down()
 o interfaces: fix warning due to use of an unassigned variable
 o firewall: rewrote group handling using MVC/API
@@ -256,7 +256,7 @@ o src: net: remove VLAN metadata on PCP / VLAN encapsulation
 o src: pcib: allocate the memory BAR with the MSI-X table[16]
 o src: pf: handle multiple IPv6 fragment headers
 o src: rss: set pin_default_swi to 0 by default
-o src: rtsol: introduce an 'always' script
+o src: rtsol: introduce an "always" script
 o ports: curl 8.3.0[17]
 o ports: dnspython 2.4.2
 o ports: filterlog fix to prevent crash on default rule number -1
