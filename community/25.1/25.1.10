@@ -25,12 +25,12 @@ o dnsmasq: dhcp-host are allowed to have duplicate partial IPv6 addresses
 o unbound: improve the chroot mounting code to avoid excessive (un)mount calls
 o lang: update language translations to their latest state
 o mvc: eventually phase out getCurrentValue() in favour of getValue()
-o plugins: os-caddy 2.0.2
+o plugins: os-caddy 2.0.2[1]
 o ports: libxml2 fixes for recent CVEs
-o ports: nss 3.113
+o ports: nss 3.113[2]
 o ports: phpseclib 3.0.46
-o ports: py-duckdb 1.3.1
-o ports: sudo 1.9.17
+o ports: py-duckdb 1.3.1[3]
+o ports: sudo 1.9.17[4]
 
 Stay safe and cool,
 Your OPNsense team

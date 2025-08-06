@@ -28,7 +28,7 @@ o openvpn: validate group membership after authentication
 o unbound: ignore TXT records for wildcard host entries
 o plugins: os-stunnel 1.0.6 adds LDAP and NNTP to supported STARTTLS protocols (contributed by Patrick M. Hausen)
 o plugins: os-zabbix-agent 1.16[1]
-o plugins: os-zabbix-proxy1.13[2]
+o plugins: os-zabbix-proxy 1.13[2]
 o src: ifconfig: optimise non-listing case with netlink
 o src: xz: fix use-after-free in multi-threaded xz decoder[3]
 o src: ena: fix misconfiguration when requesting regular LLQ[4]
