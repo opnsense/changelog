@@ -1,0 +1,92 @@
+@ August 21, 2025
+
+Good day,
+
+This stable update has the look and feel of a typical update across all
+corners of the project: FreeBSD advisories and errata, fixes and quality
+of life improvements in core, several plugin and third party software
+updates.
+
+We are also compiling the roadmap for 26.1 at the moment.  Stay tuned.
+
+Here are the full patch notes:
+
+o system: increase log file download timeout to prevent exit before data has returned
+o system: HTML decode entities when generating new QR code for user
+o system: add missing timestamp formatter in snapshots
+o system: prevent the root user from changing its name
+o interfaces: capture netmap ring when listening on interfaces in netmap mode
+o firewall: skip reply-to for inversion rules
+o firewall: remove unused "set loginterface" clause
+o firewall: additional statistics for alias grid
+o firewall: fix shaper reset button
+o captive portal: preparations for SSO identification support
+o dnsmasq: swap hosts and domains tab for consistency reasons
+o dnsmasq: allow disabling local for DHCP domains
+o firmware: abort on what appear to be partial updates due to obscure file errors
+o firmware: store update and upgrade logs in edge cases
+o firmware: opnsense-version: support file based -R option
+o firmware: opnsense-update: support -g for update log view
+o firmware: remove tier 2 workaround for Zenarmor plugins
+o firmware: add date to modal header
+o kea-dhcp: ignore encoding errors in lease parser
+o intrusion detection: fix and simplify grid search in download tab
+o ipsec: passthrough networks setting missed "allow new" flag
+o ipsec: add firewall rules skip option for VTIs
+o ipsec: deprecate legacy stroke and implement swanctl for overview
+o isc-dhcp: allow static mapping export for disabled entries
+o openvpn: add nopool directive
+o unbound: configurable top domain list length in reporting view (contributed by sopex)
+o unbound: remove unknown model reference and protect/simplify remaining one
+o wireguard: move backend scripts to proper location
+o backend: added IPv6 bracket helper for templates (contributed by BPplays)
+o lang: updates for Chinese, Czech, German and Greek
+o mvc: improve resilience of VPNIdField and LinkAddressField
+o mvc: repair side affect of getDescription() change causing performance regressions
+o mvc: modify existing and add missing descriptions in models
+o mvc: set default validation message for CertificateField
+o rc: make changes to php,var,tmp bootstrap
+o ui: fix language selection for low vertical resolution screens (contributed by sopex)
+o ui: hide header of the picture widget on the dashboard (contributed by sopex)
+o plugins: os-clamav 1.8.1[1]
+o plugins: os-crowdsec 1.0.12[2]
+o plugins: os-frr 1.46[3]
+o plugins: os-shadowsocks 1.2 switches to shadowsocks-rust
+o plugins: os-smart 2.4 adds extended info option (contributed by poisonbl)
+o plugins: os-telegraf 1.12.13[4]
+o plugins: os-theme-advanced updates logos (contributed by Raushan Patel)
+o src: route: fix "route -n monitor" when its output is redirected[5]
+o src: add a new sysctl in order to differentiate UEFI architectures[6]
+o src: libarchive: merge version 3.8.1[7]
+o src: lagg: fix if_hw_tsomax_update() not being called
+o src: wg: add support for removing allowed-ip entries and assorted cleanups
+o src: ovpn: support multihomed server configurations and assorted cleanups
+o src: netlink: fully clear parser state between messages
+o src: udp: fix a inpcb refcount leak in the tunnel receive path
+o src: p9fs: assorted fixes
+o ports: ca_root_nss / nss 3.115[8]
+o ports: krb5 1.22[9]
+o ports: libpfctl 0.16
+o ports: lighttpd 1.4.81[10]
+o ports: perl 5.40.3[11]
+o ports: php 8.3.24[12]
+o ports: py-jq 1.10.0[13]
+
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] PLUGINS:25.7/security/clamav
+[2] PLUGINS:25.7/security/crowdsec
+[3] PLUGINS:25.7/net/frr
+[4] PLUGINS:25.7/net-mgmt/telegraf
+[5] FREEBSD:FreeBSD-EN-25:14.route
+[6] FREEBSD:FreeBSD-EN-25:12.efi
+[7] FREEBSD:FreeBSD-SA-25:07.libarchive
+[8] NSS:3.115
+[9] KRB5:1.22
+[10] https://www.lighttpd.net/2025/8/17/1.4.81/
+[11] PERL:5.40.3
+[12] PHP8:8.3.24
+[13] https://github.com/mwilliamson/jq.py/blob/master/CHANGELOG.rst
