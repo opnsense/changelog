@@ -1,0 +1,92 @@
+@ September 09, 2025
+
+Howdy!
+
+The Tabulator introduction into MVC grid views was a major success with
+virtually no complaints.  Did you notice?  Maybe you will now that more
+features have been unlocked: Dnsmasq grids group by interfaces, firewall
+automation rules now can show folders using categories and row count default
+and selections have been increased.  A few performance and UX tweaks were
+carried out as well while at it.
+
+StrongSwan moves to version 6.0.1 now after elaborate testing.  The
+"make_before_break" value was flipped from off to on in their version
+jump, but the settings will still default to off for everyone unless
+already otherwise configured.
+
+Here are the full patch notes:
+
+o system: properly check request type on HA status page in restartAllAction() (reported by Stanislav Fort of Aisle Research)
+o system: prevent misconfigurations with the automatic user creation option
+o system: add pluginctl hook for cache_flush
+o system: rewrite wwwonly bootstrap procedure
+o system: allow authentication events from wwwonly user
+o interfaces: moved get_real_interface() to util.inc
+o firewall: add "quick" mode in alias update to skip table size comparison during schedules
+o firewall: adjust firewall_rule_lookup to open correct interface and rule from firewall live log
+o firewall: add port alias selection to source_port and destination_port
+o firewall: implement alias description tooltip and other UX tweaks
+o firewall: add optional Tabulator tree view to show categories as rule folders in automation
+o firewall: put sequence and sort_order in advanced mode of automation rules
+o firewall: front-end table rendering performance improvement for alias diagnostics
+o firewall: also set groups for special IPv6 interfaces
+o firewall: ignore empty lines for pf table counting
+o firewall: support tags in source NAT automation rules
+o firewall: allow alias nesting for URL tables
+o captive portal: move backend scripts directory
+o captive portal: various style cleanups
+o captive portal: restyle default login template
+o dnsmasq: add Tabulator "groupBy" functionality to group by interfaces
+o dnsmasq: add leases widget that shows latest leases
+o firmware: add US east coast mirror for business edition
+o firmware: opnsense-patch: fix cache flush using new hook
+o firmware: add vuxml.freebsd.org to CRL handling hostnames
+o intrusion detection: fix downloads tab not loading with Tabulator
+o ipsec: add default value to "make_before_break" that retains disabled default
+o monit: move backend scripts directory
+o mvc: BaseModel: minor non-functional cleanups
+o mvc: ModelRelationField: keep array structure in memory to avoid reinitiating object construction
+o mvc: tweaked model definitions, especially descriptions and validation message style
+o mvc: slightly adjust two getOption() calls in constraints
+o mvc: BaseListField: always map values in getDescription()
+o mvc: BaseListField: account for option container and passthrough value
+o mvc: remove getCurrentValue() compatibility wrapper
+o mvc: Backend: always return strings in configdRun() and configdpRun()
+o mvc: improve replaceInputWithSelector() to support an empty placeholder
+o mvc: stream output not properly cleansed when used in widget (reported by Stanislav Fort of Aisle Research)
+o ui: bootgrid: add tabulatorOptions to translateCompatOptions()
+o ui: bootgrid: raise rowCount default to 50 and adjust selections accordingly for most pages
+o ui: bootgrid: simplify custom grid command additions
+o plugins: os-caddy 2.0.3[1]
+o plugins: os-frr 1.47[2]
+o plugins: os-netbird 1.0 (contributed by Gauss23 and Bethuel Mmbaga)
+o plugins: os-nginx 1.35[3]
+o plugins: os-squid 1.3[4]
+o src: libfetch: ignore leaf certificates missing CRL which in practice is not offered by most authorities
+o src: assorted network stack fixes via stable/14
+o src: if_ovpn: support IPv6 link-local addresses
+o src: if_ovpn: support floating clients
+o src: if_ovpn: fill out sin_len/sin6_len
+o src: if_ovpn: destroy cloned interfaces via a prison removal callback
+o src: ifconfig: support VLAN ID in static/deladdr
+o ports: krb5 1.22.1[5]
+o ports: nss 3.115.1[6]
+o ports: perl 5.42.0[7]
+o ports: php 8.3.25[8]
+o ports: strongswan 6.0.1[9][10]
+
+
+Stay safe and proud,
+Your OPNsense team
+
+--
+[1] PLUGINS:25.7/www/caddy
+[2] PLUGINS:25.7/net/frr
+[3] PLUGINS:25.7/www/nginx
+[4] PLUGINS:25.7/www/squid
+[5] KRB5:1.22
+[6] NSS:3.115.1
+[7] PERL:5.42.0
+[8] PHP8:8.3.25
+[9] STRONGSWAN:6.0.0
+[10] STRONGSWAN:6.0.1
