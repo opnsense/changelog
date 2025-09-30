@@ -1,0 +1,65 @@
+@ September 30, 2025
+
+Hey everyone,
+
+Updates are slower than usual at the moment, but it is also relatively
+calm out there security-wise.  While this finally ships Kea version 3
+we are still working on the package manager version 2 and Suricata 8
+with good results.  Stay tuned!
+
+Here are the full patch notes:
+
+o system: fix reconfigure control on HA status page for small viewports
+o system: add pluginctl -m and -v options for model migrations and validations calls
+o system: add "power off" backend action to GUI cron options
+o interfaces: replace MAC vendor database from py-netaddr with a simple local implementation
+o interfaces: refactor getting both devices from interface in settings page
+o interfaces: get both devices of interface in one call
+o interfaces: fix flags display in interface overview detail
+o firewall: treat "skip" protocol as a string to avoid syntax error
+o firewall: improve alias parsing performance in diagnostics page
+o intrusion detection: make grids virtual to fix performance issues
+o kea-dhcp: honour IPv4 client specific reservation domain name option (contributed by NOYB)
+o lang: new Ukrainian language and assorted updates
+o monit: fix migration weirdness with run/post use
+o unbound: add support for TXT records in host overrides
+o backend: add "!" operator to execute and flush cache when it exists
+o mvc: remove empty string fallbacks for backend invokes that are no longer needed
+o mvc: more style changes on existing core models
+o mvc: disable Dnsmasq/Unbound template generation
+o mvc: remove getDescription() overlay in ModelRelationField
+o ui: legacy_html_escape_form_data() was not escaping keys only data elements (reported by Alex Williams from Pellera Technologies)
+o ui: do not add an empty option into an empty option group
+o ui: add datetime-local to field types
+o plugins: os-caddy 2.0.4[1]
+o plugins: os-netbird 1.1 fixes service startup and switches to syslog (contributed by Bethuel Mmbaga)
+o plugins: os-theme-advanced 1.1 fixes styling issues on 25.7 (contributed by Jaka Prašnikar)
+o plugins: os-zabbix-agent 1.17[2]
+o plugins: os-zabbix-proxy 1.14[3]
+o ports: dnspython 2.8.0[4]
+o ports: kea 3.0.1[5]
+o ports: libpfctl 0.17
+o ports: lighttpd 1.4.82[6]
+o ports: nss 3.116[7]
+o ports: openvpn 2.6.15[8]
+o ports: php 8.3.26[9]
+o ports: py-requests 2.32.5
+o ports: suricata 7.0.12[10]
+o ports: unbound 1.24.0[11]
+
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] PLUGINS:25.7/www/caddy
+[2] PLUGINS:25.7/net-mgmt/zabbix-agent
+[3] PLUGINS:25.7/net-mgmt/zabbix-proxy
+[4] https://dnspython.readthedocs.io/en/stable/whatsnew.html
+[5] https://downloads.isc.org/isc/kea/3.0.1/Kea-3.0.1-ReleaseNotes.txt
+[6] https://www.lighttpd.net/2025/9/12/1.4.82/
+[7] NSS:3.116
+[8] OPENVPN26:2.6.15
+[9] PHP8:8.3.26
+[10] https://suricata.io/2025/09/16/suricata-8-0-1-and-7-0-12-released/
+[11] UNBOUND:1.24.0
