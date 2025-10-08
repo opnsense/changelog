@@ -1,0 +1,58 @@
+@ October 08, 2025
+
+A fantastic day to you all,
+
+This updates provides for a new GeoIP database source by IPinfo, stability
+fixes for several network drivers and the recent OpenSSL security update
+amongst others.
+
+Here are the full patch notes:
+
+o system: add the pfsync "defer" option to high availability
+o system: return both interfaces in a single call for get_nameservers()
+o system: safeguard legacy local_sync_accounts() against malformed user entries
+o firewall: support IPinfo format for GeoIP[1]
+o firewall: adapt default table size calculation
+o firewall: fix flags not showing on GeoIP selection
+o captive portal: case insensitive MAC parsing
+o captive portal: remove stale dir-listing.activate from web server
+o dnsmasq: refine the selection of automatic DHCP rules for eligible interfaces
+o firmware: switch business mirror layout
+o ipsec: dots are not allowed in pool names
+o kea-dhcp: expose lease expiration settings to the GUI (contributed by Konstantinos Spartalis)
+o kea-dhcp: support DHCP option 121 (classless static routes)
+o mvc: protect JSON response against UFT-8 encoding failures
+o mvc: HTML-decode select element values
+o plugins: os-etpro-telemetry 1.8 now shows more status responses in widget
+o plugins: os-shadowsocks 1.3[2]
+o src: bnxt: fix the request length in bnxt_hwrm_func_backing_store_cfg()
+o src: iflib: set the get counter routine prior to attaching the interface
+o src: ifnet: defer detaching address family dependent data
+o src: ixgbe: fix incomplete speed coverage in link status logging
+o src: ixl: fix queue MSI and legacy IRQ rearming
+o src: openssl: fix multiple vulnerabilities[3]
+o src: re: add PNP info for module
+o src: re: make sure re_rxeof() is called in net epoch context
+o src: vfs: fix copy_file_range() failing to set output parameters[4]
+o ports: curl 8.16.0[5]
+o ports: expat 2.7.3[6]
+o ports: nss 3.117[7]
+o ports: openssl 3.0.18[8]
+o ports: pcre2 10.46[9]
+o ports: phpseclib 3.0.47[10]
+
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] DOCS:manual/how-tos/ipinfo_geo_ip
+[2] PLUGINS:25.7/net/shadowsocks
+[3] FREEBSD:FreeBSD-SA-25:08.openssl
+[4] FREEBSD:FreeBSD-EN-25:16.vfs
+[5] CURL:8.16.0
+[6] EXPAT:2.7.3
+[7] NSS:3.117
+[8] OPENSSL:3.0.18
+[9] PCRE2:10.46
+[10] PHPSECLIB:3.0.47
