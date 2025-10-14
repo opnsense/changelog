@@ -133,7 +133,7 @@ Your OPNsense team
 [5] PLUGINS:21.7/net-mgmt/telegraf
 [6] LIBXML:2.9.12
 [7] NSS:3.67
-[8] OPENVPN:2.5.3
+[8] OPENVPN25:2.5.3
 [9] PHP7:7.4.20
 [10] PHPSECLIB:2.0.32
 [11] PYTHON:3.8.10
