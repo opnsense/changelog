@@ -28,6 +28,13 @@ o src: libfetch: ignore leaf certificates missing CRL which in practice is not o
 o src: libarchive: update to 3.8.1 to fix integer overflow leading to double free[1]
 o src: route: fix "route -n monitor" when its output is redirected[2]
 
+Here are the full patch notes:
+
+o system: properly check request type on HA status page in restartAllAction() (reported by Stanislav Fort of Aisle Research)
+o firmware: add fingerprint, migration notes and upgrade hint for 25.10
+o mvc: stream output not properly cleansed when used in widget (reported by Stanislav Fort of Aisle Research)
+o ui: legacy_html_escape_form_data() was not escaping keys only data elements[3] (reported by Alex Williams from Pellera Technologies)
+
 
 Stay safe,
 Your OPNsense team
@@ -35,3 +42,4 @@ Your OPNsense team
 --
 [1] FREEBSD:FreeBSD-SA-25:07.libarchive
 [2] FREEBSD:FreeBSD-EN-25:14.route
+[3] CVE:CVE-2025-34182
