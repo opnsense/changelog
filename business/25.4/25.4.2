@@ -29,7 +29,6 @@ o system: fix audit message strings
 o system: add missing "kernel" application for remote logging
 o interfaces: emulate device name return in ifconfig edge case for legacy_interface_create()
 o interfaces: cleanup spurious functions regarding VIP access
-o interfaces: interfaces: improve private and bogon network filters (contributed by Maurice Walker)
 o interfaces: consider tracked interfaces linked devices on reload
 o interfaces: convert bridge configuration to MVC/API
 o interfaces: remove unused is_interface_assigned()
@@ -47,7 +46,6 @@ o firewall: exclude interfaces with local links only when generating force gatew
 o firewall: fix missing lock while refactoring config for group changes
 o firewall: properly synchronize load order for shaper when reloading configuration
 o firewall: add toggle log command in automation
-o firewall: since bogons source writes a comment first prefix our exclusions too
 o firewall: tighten address / range validation for aliases
 o firewall: align alias tokenizer options with the ones in our base template
 o firewall: improve address family validation for rule source and destination
