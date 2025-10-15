@@ -164,7 +164,7 @@ for ( @lines ) {
                 # only translate bullet points and remove trailing links
                 next if $_ !~ /^o [a-z]/;
 		$_ =~ s/^o /* /g;
-		$_ =~ s/\[\d+\]$//g;
+		$_ =~ s/(\[\d+\])+$//g;
 
 		# render text now and go to next line
 		print STDOUT $_;
