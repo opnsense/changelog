@@ -1,0 +1,73 @@
+@ October 22, 2025
+
+Hi there,
+
+The usual round of additions and reliability fixes is being rounded off with
+Suricata version 8 and a new package manager version 2 almost two years in the
+making -- at least for our project.
+
+Please be aware that during the update check the new package manager will be
+installed, but will fail to report the update status like it always had before
+and so you will end up with an error that will require checking for updates
+again.  The fix is in is update, but impossible to install without upgrading
+the package manager first.  We hope this will only be a minor inconvenience
+during the process.
+
+Syslog-ng is also being updated and includes a fix that previously prevented
+2.9.x from shipping since it would hang the boot during daemonize.  Many
+thanks to the authors for quickly picking this up and shipping a fixed version!
+
+Here are the full patch notes:
+
+o system: safeguard config history delete and revert by requiring POST
+o system: change atrun interval to every minute
+o system: use new file_safe() in two instances
+o system: improve the HA VIP sync code
+o interfaces: fix permission of packet capture file in strict security mode
+o firewall: refactor live log using a ring buffer
+o firewall: add toggles to disable selected automatic rules
+o firewall: enable "safe delete" for categories
+o firewall: improved stats rendering on automation rules
+o firewall: allow searching aliases in automation rules inspect mode by IP address
+o dnsmasq: strict hostname and domain validation plus improved ipset validations
+o firmware: package manager upgrade changes for pkg 2.x
+o intrusion detection: remove obsolete "ac-bs" pattern matcher algorithm
+o ipsec: allow underscores in PSK identifiers
+o openvpn: add support for pushing excluded routes via net_gateway (contributed by Patrice Damezin)
+o openvpn: allow multiple domains settings for client connection (contributed by Krisztian Ivancso)
+o unbound: use file_safe() for root hint creation
+o unbound: deprecate unmaintained AdAway blocklist (contributed by Maurice Walker)
+o wireguard: add debug option to instances
+o backend: add file_safe() helper for atomic file creation
+o mvc: add RegexField to properly validate PCRE2 syntax
+o mvc: support arrays in search clauses
+o rc: make sure /var/lib/php/tmp can be accessed by "other" users
+o rc: do not clear /tmp on a diskless install
+o ui: assorted adjustments for dark theme
+o ui: always show bootgrid reset button
+o plugins: os-ddclient 1.28[1]
+o plugins: os-git-backup 1.1[2]
+o plugins: q-feeds-connector 1.2[3][4]
+o plugins: os-squid 1.4 works around CVE-2025-62168 (contributed by m.a.x. it)
+o plugins: os-zabbix-proxy 1.15[5]
+o ports: openssh 10.2p1[6]
+o ports: pkg 2.3.1
+o ports: python 3.11.14[7]
+o ports: suricata 8.0.1[8][9]
+o ports: syslog-ng 4.10.2[10]
+
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] PLUGINS:25.7/dns/ddclient
+[2] PLUGINS:25.7/sysutils/git-backup
+[3] DOCS:manual/qfeeds
+[4] PLUGINS:25.7/security/q-feeds-connector
+[5] PLUGINS:25.7/net-mgmt/zabbix-proxy
+[6] OPENSSH:10.2p1
+[7] PYTHON:3.11.14
+[8] https://suricata.io/2025/07/08/suricata-8-0-0-released/
+[9] https://suricata.io/2025/09/16/suricata-8-0-1-and-7-0-12-released/
+[10] SYSLOG-NG:4.10.2
