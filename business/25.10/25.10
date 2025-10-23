@@ -290,9 +290,18 @@ o ports: sudo 1.9.17p2[40]
 o ports: suricata 7.0.12[41]
 o ports: unbound 1.24.0[42]
 
+A hotfix release was issued as 25.10_2:
+
+o system: safeguard config history delete and revert by requiring HTTP POST method
+o rc: make sure /var/lib/php/tmp can be accessed by "other" users
+o plugins: os-OPNBEcore 1.7
+o plugins: os-OPNcentral 1.12
+o plugins: os-q-feeds-connector 1.2[43][44]
+o plugins: os-squid 1.4 works around CVE-2025-62168 (contributed by m.a.x. it)
+
 Migration notes, known issues and limitations:
 
-o The captive portal implementation moves from IPFW to PF.  Check the technical details first, especially regarding the new ruleset behaviours.[43]
+o The captive portal implementation moves from IPFW to PF.  Check the technical details first, especially regarding the new ruleset behaviours.[45]
 o Deprecated Google Drive backups due to upstream policy changes and moved to plugins for existing users.
 o API URLs registered in the default ACLs have been switched from "camelCase" to "snake_case".
 o API grid return values now offer "%field" for a value description when available.  "field" will now always be the literal value from the configuration.  The API previously returned a display value for some field types, but not all.
@@ -369,4 +378,6 @@ Your OPNsense team
 [40] SUDO:1.9.17p2
 [41] https://suricata.io/2025/09/16/suricata-8-0-1-and-7-0-12-released/
 [42] UNBOUND:1.24.0
-[43] DOCS:manual/captiveportal.html#migration-notes-technical-details
+[43] DOCS:manual/qfeeds
+[44] PLUGINS:25.7/security/q-feeds-connector
+[45] DOCS:manual/captiveportal.html#migration-notes-technical-details
