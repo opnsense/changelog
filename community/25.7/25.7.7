@@ -13,7 +13,7 @@ NDP proxy plugin and a community theme.  Stay tuned.  :)
 
 Here are the full patch notes:
 
-o system: simplify RRD backup code and remove exec() usage (reported by Alex Williams from Pellera Technologies working with Trend Zero Day Initiative)
+o system: simplify RRD backup code and remove exec() usage[1] (reported by Alex Williams from Pellera Technologies working with Trend Zero Day Initiative)
 o system: move valid_from search criteria to log_matcher for faster end of search
 o system: use file_safe() in gateway monitor watcher
 o system: refactor factory reset page to MVC and add a reset per component operating on models
@@ -66,12 +66,13 @@ Stay safe,
 Your OPNsense team
 
 --
-[1] PLUGINS:25.7/net/frr
-[2] PLUGINS:25.7/net/tayga
-[3] https://downloads.isc.org/isc/kea/3.0.2/Kea-3.0.2-ReleaseNotes.txt
-[4] LIBXML:2.14.6
-[5] PHP8:8.3.27
-[6] SQLITE:3.50.4
-[7] STRONGSWAN:6.0.3
-[8] https://suricata.io/2025/11/06/suricata-8-0-2-and-7-0-13-released/
-[9] UNBOUND:1.24.1
+[1] CVE:CVE-2025-13698
+[2] PLUGINS:25.7/net/frr
+[3] PLUGINS:25.7/net/tayga
+[4] https://downloads.isc.org/isc/kea/3.0.2/Kea-3.0.2-ReleaseNotes.txt
+[5] LIBXML:2.14.6
+[6] PHP8:8.3.27
+[7] SQLITE:3.50.4
+[8] STRONGSWAN:6.0.3
+[9] https://suricata.io/2025/11/06/suricata-8-0-2-and-7-0-13-released/
+[10] UNBOUND:1.24.1
