@@ -18,7 +18,7 @@ o mvc: implement required getRealInterface() variant
 o plugins: os-haproxy 4.0[1]
 o ports: curl 7.87.0[2]
 o ports: nss 3.87[3]
-o ports: pcre 10.42[4]
+o ports: pcre2 10.42[4]
 o ports: phalcon 5.1.4[5]
 o ports: php 8.1.14[6]
 o ports: strongswan 5.9.9[7]

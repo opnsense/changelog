@@ -24,7 +24,7 @@ o plugins: os-acme-client 3.15[2]
 o plugins: os-stunnel fixes missing include in certificate script
 o ports: curl 7.87.0[3]
 o ports: nss 3.87[4]
-o ports: pcre 10.42[5]
+o ports: pcre2 10.42[5]
 o ports: phalcon 5.1.4[6]
 o ports: php 8.0.27[7]
 o ports: sqlite 3.40.1[8]
