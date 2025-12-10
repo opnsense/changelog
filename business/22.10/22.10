@@ -334,8 +334,8 @@ Your OPNsense team
 # SHA256 (OPNsense-business-22.10-OpenSSL-vga-amd64.img.bz2) = de9527abb2831f09baf476b2c1db5ba8d4f39655cef37447b72fb2a34b341915
 
 [1] DOCS:manual/install
-[2] https://github.com/opnsense/core/issues/6038
-[3] https://docs.opnsense.org/manual/aliases.html#bgp-asn
+[2] CORE:issues/6038
+[3] DOCS:manual/aliases
 [4] PLUGINS:22.7/security/acme-client
 [5] PLUGINS:22.7/sysutils/apcupsd
 [6] PLUGINS:22.7/dns/bind
