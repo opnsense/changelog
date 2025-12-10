@@ -29,6 +29,7 @@ PAGER?=		less
 DOCGLOB?=	2*
 
 DOCS!=		find ${DOCSDIRS} -type f -name "${DOCGLOB}"
+CDOCS=		${DOCS:M${DOCSDIR}/*}
 MODE?=		text
 WEBIFY=		${.CURDIR}/Scripts/webify.pl
 WORKDIR=	${.CURDIR}/work
@@ -66,12 +67,12 @@ ${DOC:C/.*\///g}:
 changelog.txz:
 	@rm -f ${WORKDIR}/*
 	@echo '[' > ${WORKDIR}/index.json
-. for DOC in ${DOCS:M${DOCSDIR}/*}
+. for DOC in ${CDOCS}
 	@${WEBIFY} ${.CURDIR}/${DOC} html > \
 	    ${WORKDIR}/${DOC:C/.*\///1}.htm 2>> ${WORKDIR}/index.json
 	@${WEBIFY} ${.CURDIR}/${DOC} text > \
 	    ${WORKDIR}/${DOC:C/.*\///1}.txt
-.  if ${DOC} != ${DOCS:[-1]}
+.  if ${DOC} != ${CDOCS:[-1]}
 	@echo ',' >> ${WORKDIR}/index.json
 .  endif
 . endfor
