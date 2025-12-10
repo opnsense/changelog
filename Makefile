@@ -1,4 +1,4 @@
-# Copyright (c) 2015-2023 Franco Fichtner <franco@opnsense.org>
+# Copyright (c) 2015-2025 Franco Fichtner <franco@opnsense.org>
 #
 # Redistribution and use in source and binary forms, with or without
 # modification, are permitted provided that the following conditions
@@ -23,11 +23,12 @@
 # OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
 # SUCH DAMAGE.
 
-DOCSDIR?=	community
+DOCSDIRS?=	community business
+DOCSDIR?=	${DOCSDIRS:[1]}
 PAGER?=		less
 DOCGLOB?=	2*
 
-DOCS!=		find -L ${DOCSDIR} -type f -name "${DOCGLOB}"
+DOCS!=		find ${DOCSDIRS} -type f -name "${DOCGLOB}"
 MODE?=		text
 WEBIFY=		${.CURDIR}/Scripts/webify.pl
 WORKDIR=	${.CURDIR}/work
@@ -36,17 +37,19 @@ all:
 	@cat ${.CURDIR}/README.md | ${PAGER}
 
 lint:
-	@grep -nr '^@.* [1-9],' ${.CURDIR}/${DOCSDIR} || true
-	@grep -nr '[ 	]$$' ${.CURDIR}/${DOCSDIR} || true
-	@grep -nr ' \[' ${.CURDIR}/${DOCSDIR} || true
-	@grep -nr '[^.?\!]  ' ${.CURDIR}/${DOCSDIR} || true
-	@grep -nr 'XXX' ${.CURDIR}/${DOCSDIR} || true
-	@grep -inr '[a-z0-9]:  .' ${.CURDIR}/${DOCSDIR} || true
+. for _DOCSDIR in ${DOCSDIRS}
+	@grep -nr '^@.* [1-9],' ${.CURDIR}/${_DOCSDIR} || true
+	@grep -nr '[ 	]$$' ${.CURDIR}/${_DOCSDIR} || true
+	@grep -nr ' \[' ${.CURDIR}/${_DOCSDIR} || true
+	@grep -nr '[^.?\!]  ' ${.CURDIR}/${_DOCSDIR} || true
+	@grep -nr 'XXX' ${.CURDIR}/${_DOCSDIR} || true
+	@grep -inr '[a-z0-9]:  .' ${.CURDIR}/${_DOCSDIR} || true
+. endfor
 . for DOC in ${DOCS}
 	@head -n1 ${.CURDIR}/${DOC} | grep -v '^@' || true
 	@${WEBIFY} ${.CURDIR}/${DOC} text > /dev/null
 . endfor
-	@for DIR in $$(find -s ${DOCSDIR} -type d -depth 1); do \
+	@for DIR in $$(find -s ${DOCSDIRS} -type d -name "${DOCGLOB}" -depth 1); do \
 		echo ">>> Scanning $${DIR} for duplicates..."; \
 		FILES=$$(find $${DIR} -type f | grep -iv '\.[a-z]'); \
 		if [ -n "$${FILES}" ]; then \
@@ -63,7 +66,7 @@ ${DOC:C/.*\///g}:
 changelog.txz:
 	@rm -f ${WORKDIR}/*
 	@echo '[' > ${WORKDIR}/index.json
-. for DOC in ${DOCS}
+. for DOC in ${DOCS:M${DOCSDIR}/*}
 	@${WEBIFY} ${.CURDIR}/${DOC} html > \
 	    ${WORKDIR}/${DOC:C/.*\///1}.htm 2>> ${WORKDIR}/index.json
 	@${WEBIFY} ${.CURDIR}/${DOC} text > \
@@ -80,7 +83,7 @@ set: changelog.txz
 links:
 	@: > ${WORKDIR}/links; \
 	for LINK in $$(cat Links/* | sed 's:%s.*::g'); do \
-	    grep -nr "$$LINK" ${DOCSDIR} >> ${WORKDIR}/links; \
+	    grep -nr "$$LINK" ${DOCSDIRS} >> ${WORKDIR}/links; \
 	done; \
 	sort ${WORKDIR}/links; \
 	rm ${WORKDIR}/links
