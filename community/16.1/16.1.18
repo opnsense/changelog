@@ -19,7 +19,7 @@ o system: added missing ACL entry for LDAP user import page
 o system: reworked log page layout and dependencies
 o firmware: detach / reattach support for upgrade page
 o firmware: mirror and flavour selection moved to respective page
-o interfaces: improvements for 4G devices (sponsored by OSNet.eu[1])
+o interfaces: improvements for 4G devices[1] (sponsored by OSNet)
 o interfaces: debug mode and logging for rtsold in DHCPv6 mode
 o dhcp: separate pages for router advertisements and service control
 o dhcp: IPv6 server as a stand-alone process for service control

@@ -22,7 +22,7 @@ o ports: libxml 2.9.3[6]
 o ports: pkg 1.6.2[7]
 o ports: opnsense-bootstrap, the infamous installer that works on stock FreeBSD[8]
 o intrusion detection: ignore json parse errors in eve log file
-o intrusion prevention (development): added Suricata 2.1beta4 in inline mode[9]
+o intrusion prevention/development: added Suricata 2.1beta4 in inline mode[9]
 o interfaces: reverted cache removal due to multiple speed regressions reports
 o backend: send timeouts with proper description to syslog
 o openvpn: fix auth server selection for translations
