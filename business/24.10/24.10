@@ -380,7 +380,7 @@ Your OPNsense team
 [17] FREEBSD-SA:24:12.bhyve
 [18] FREEBSD-SA:24:13.openssl
 [19] FREEBSD-SA:24:14.umtx
-[20] https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=281125
+[20] FREEBSD-BZ:281125
 [21] FREEBSD-SA:24:15.bhyve
 [22] FREEBSD-SA:24:16.libnv
 [23] CURL:8.10.1

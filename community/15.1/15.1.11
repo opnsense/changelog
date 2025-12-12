@@ -59,7 +59,7 @@ Your OPNsense team
 --
 [1] https://opnsense.org/about/road-map/
 [2] https://weakdh.org/
-[3] https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=200222
+[3] FREEBSD-BZ:200222
 [4] FREEBSD-EN:15:04.freebsd-update
 [5] FREEBSD-EN:15:05.ufs
 [6] https://php.net/ChangeLog-5.php#5.6.9
