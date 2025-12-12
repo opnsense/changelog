@@ -82,7 +82,7 @@ Your OPNsense team
 [3] FREEBSD-SA:16:21.43bsd
 [4] FREEBSD-SA:16:22.libarchive
 [5] LIBRESSL:2.3.5
-[6] https://github.com/phalcon/cphalcon/releases/tag/phalcon-v2.0.13
+[6] PHALCON2:2.0.13
 [7] DNSMASQ:2.76
 [8] https://github.com/opnsense/apinger/blob/master/NEWS
 [9] https://curl.haxx.se/changes.html
