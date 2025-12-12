@@ -16,31 +16,21 @@ refresh the page and look for new updates.
 
 Here is the full list of changes:
 
-o notable ports updates: pcre 8.37_1[1], phalcon 2.0.2[2],
-  strongswan 5.3.2[3], sqlite 3.8.10.2[4]
-o more notable ports: openvpn 2.3.7[5], openssl 1.0.2b[6],
-  libressl 2.1.7[7], pkg 1.5.4[8]
+o notable ports updates: pcre 8.37_1[1], phalcon 2.0.2[2], strongswan 5.3.2[3], sqlite 3.8.10.2[4]
+o more notable ports: openvpn 2.3.7[5], openssl 1.0.2b[6], libressl 2.1.7[7], pkg 1.5.4[8]
 o opnsense-update: has gained the ability to do package updates as well
-o core: removed unused ssh_tunnel_shell and 3gstats utilities, added sudo
-  to the default utilities
+o core: removed unused ssh_tunnel_shell and 3gstats utilities, added sudo to the default utilities
 o captiveportal/traffic shaper: better fix for localhost skip
-o traffic shaper: added ICMP, IGMP, ESP, AH and GRE protocols to
-  selectable protocols
-o core: fixed a bug that prevented our API from working properly with
-  Phalcon 2.0.1 and above
-o backend: added configctl command utility launcher and improved its
-  logging capabilities
-o backend: worked around a performance degradation bug in Python 2.7
-  on FreeBSD
-o gateways: monitoring via `apinger' is now turned off by default for
-  all new gateways created (opt-out flipped to opt-in for privacy reasons)
+o traffic shaper: added ICMP, IGMP, ESP, AH and GRE protocols to selectable protocols
+o core: fixed a bug that prevented our API from working properly with Phalcon 2.0.1 and above
+o backend: added configctl command utility launcher and improved its logging capabilities
+o backend: worked around a performance degradation bug in Python 2.7 on FreeBSD
+o gateways: monitoring via `apinger' is now turned off by default for all new gateways created (opt-out flipped to opt-in for privacy reasons)
 o firmware: refactored firmware code to use opnsense-update's new capabilities
 o firmware: fix parsing of packages to be upgraded in fringe cases
 o firmware: fix overzealous caching of available package upgrades
-o users: user with group admins now have `wheel' group associated with them,
-  allowing them to use `su' or `sudo' (if configured)
-o users: do not copy root's hidden files while creating a new user
-  home directory
+o users: user with group admins now have `wheel' group associated with them, allowing them to use `su' or `sudo' (if configured)
+o users: do not copy root's hidden files while creating a new user home directory
 
 
 Stay safe,
@@ -48,7 +38,7 @@ Your OPNsense team
 
 --
 [1] FREEBSD-GH:freebsd-ports/commit/030adcf1d
-[2] https://github.com/phalcon/cphalcon/releases
+[2] PHALCON2:2.0.2
 [3] https://wiki.strongswan.org/projects/strongswan/wiki/Changelog53
 [4] SQLITE:3.8.10.2
 [5] https://community.openvpn.net/openvpn/wiki/ChangesInOpenvpn23#OpenVPN2.3.7
