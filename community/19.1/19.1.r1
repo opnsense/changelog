@@ -173,7 +173,7 @@ Your OPNsense team
 [6] FREEBSD-RN:11.2
 [7] https://web.mit.edu/kerberos/krb5-1.17/
 [8] PHP7:7.1.26
-[9] https://www.sudo.ws/stable.html#1.8.27
+[9] SUDOLEGACY:1.8.27
 [10] PERL:5.28.1
 [11] https://github.com/opnsense/core/commit/a2899594
 [12] https://docs.opnsense.org/manual/dynamic_routing.html
