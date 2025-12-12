@@ -33,7 +33,7 @@ Your OPNsense team
 [2] https://deepthought.isc.org/article/AA-01447/0/BIND-9.10.4-P5-Release-Notes.html
 [3] PERL:5.24.1
 [4] SQLITE:3.16.2
-[5] https://www.openssh.com/txt/release-7.4
+[5] OPENSSH:7.4
 [6] SUDOLEGACY:1.8.19p2
 [7] https://www.lighttpd.net/2017/1/14/1.4.45/
 [8] PHP5:5.6.30
