@@ -77,7 +77,7 @@ Your OPNsense team
 [7] FREEBSD-GH:freebsd-ports/commit/4cee57325035cc6
 [8] SQLITE:3.9.1
 [9] http://suricata-ids.org/2015/09/25/suricata-2-0-9-available/
-[10] https://php.net/ChangeLog-5.php#5.6.15
+[10] PHP5:5.6.15
 
 # SHA256 (OPNsense-15.7.18-OpenSSL-cdrom-amd64.iso.bz2) = f193e04ce0f0d2b1eab54b246f5b4931cdd50ed0a97015a363e8ece24449825d
 # SHA256 (OPNsense-15.7.18-OpenSSL-nano-amd64.img.bz2) = f1cfa7ff9f2fe30361f92773aa6fe416ac5bb3e27bd98c1b470f32ceea9ee4eb

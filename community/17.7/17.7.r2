@@ -71,7 +71,7 @@ Stay safe,
 Your OPNsense team
 
 --
-[1] https://php.net/ChangeLog-7.php#7.0.21
+[1] PHP7:7.0.21
 [2] PERL:5.24.2
 [3] https://suricata-ids.org/2017/07/13/suricata-3-2-3-available/
 [4] https://nlnetlabs.nl/projects/unbound/download/
