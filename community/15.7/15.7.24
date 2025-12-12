@@ -94,7 +94,7 @@ Your OPNsense team
 --
 [1] https://github.com/opnsense/update#opnsense-sign--opnsense-verify
 [2] http://suricata-ids.org/2015/12/21/suricata-2-0-11-available/
-[3] https://github.com/freebsd/freebsd-ports/commit/7f6883d1dd
+[3] FREEBSD-GH:freebsd-ports/commit/7f6883d1dd
 [4] https://www.lighttpd.net/2016/1/2/1.4.39/
 [5] http://mpd.sourceforge.net/doc5/mpd4.html#4
 [6] https://reviews.freebsd.org/D4813

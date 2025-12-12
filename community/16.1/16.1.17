@@ -41,5 +41,5 @@ Your OPNsense team
 --
 [1] https://kb.isc.org/article/AA-01364/82/DHCP-4.3.4-Release-Notes.html
 [2] http://ftp.openbsd.org/pub/OpenBSD/LibreSSL/libressl-2.3.6-relnotes.txt
-[3] https://github.com/freebsd/freebsd-ports/commit/5ae24c9c91bd
+[3] FREEBSD-GH:freebsd-ports/commit/5ae24c9c91bd
 [4] https://forum.opnsense.org/index.php?topic=3044

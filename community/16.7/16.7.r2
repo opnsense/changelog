@@ -60,7 +60,7 @@ Your OPNsense team
 --
 [1] https://hg.python.org/cpython/raw-file/v2.7.12/Misc/NEWS
 [2] http://ftp.meisei-u.ac.jp/mirror/squid/squid-3.5-ChangeLog.txt
-[3] https://github.com/freebsd/freebsd-ports/commit/06593f2394
+[3] FREEBSD-GH:freebsd-ports/commit/06593f2394
 [4] https://01.org/hyperscan
 
 # SHA256 (OPNsense-16.7.r2-OpenSSL-cdrom-amd64.iso.bz2) = ebf55f742bf096a14702726f4a959bec40092e41fc718481b6ed6c1a0d173233

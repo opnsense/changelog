@@ -73,8 +73,8 @@ Your OPNsense team
 [3] FREEBSD-EN:15:20.vm
 [4] http://mm.icann.org/pipermail/tz-announce/2015-October/000034.html
 [5] https://www.eecis.udel.edu/~ntp/ntp_spool/ntp4/ChangeLog-dev
-[6] https://github.com/freebsd/freebsd-ports/commit/233063d86be930
-[7] https://github.com/freebsd/freebsd-ports/commit/4cee57325035cc6
+[6] FREEBSD-GH:freebsd-ports/commit/233063d86be930
+[7] FREEBSD-GH:freebsd-ports/commit/4cee57325035cc6
 [8] https://sqlite.org/releaselog/3_9_1.html
 [9] http://suricata-ids.org/2015/09/25/suricata-2-0-9-available/
 [10] https://php.net/ChangeLog-5.php#5.6.15
