@@ -44,6 +44,7 @@ lint:
 	@grep -nr ' \[' ${.CURDIR}/${_DOCSDIR} || true
 	@grep -nr '[^.?\!]  ' ${.CURDIR}/${_DOCSDIR} || true
 	@grep -nr 'XXX' ${.CURDIR}/${_DOCSDIR} || true
+	@grep -nr '^ ' ${.CURDIR}/${_DOCSDIR} || true
 	@grep -inr '[a-z0-9]:  .' ${.CURDIR}/${_DOCSDIR} || true
 . endfor
 . for DOC in ${DOCS}
