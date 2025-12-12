@@ -78,9 +78,9 @@ Your OPNsense team
 
 --
 [1] https://github.com/opnsense/src/commit/e13c0d42ebbd4
-[2] https://www.freebsd.org/security/advisories/FreeBSD-SA-16:20.linux.asc
-[3] https://www.freebsd.org/security/advisories/FreeBSD-SA-16:21.43bsd.asc
-[4] https://www.freebsd.org/security/advisories/FreeBSD-SA-16:22.libarchive.asc
+[2] FREEBSD-SA:16:20.linux
+[3] FREEBSD-SA:16:21.43bsd
+[4] FREEBSD-SA:16:22.libarchive
 [5] http://ftp.openbsd.org/pub/OpenBSD/LibreSSL/libressl-2.3.5-relnotes.txt
 [6] https://github.com/phalcon/cphalcon/releases/tag/phalcon-v2.0.13
 [7] DNSMASQ:2.76

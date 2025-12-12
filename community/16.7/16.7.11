@@ -57,9 +57,9 @@ Your OPNsense team
 
 --
 [1] https://www.osnet.eu/en/content/tutoriels/passwords-opnsense
-[2] https://www.freebsd.org/security/advisories/FreeBSD-SA-16:36.telnetd.asc
-[3] https://www.freebsd.org/security/advisories/FreeBSD-SA-16:37.libc.asc
-[4] https://www.freebsd.org/security/advisories/FreeBSD-SA-16:38.bhyve.asc
+[2] FREEBSD-SA:16:36.telnetd
+[3] FREEBSD-SA:16:37.libc
+[4] FREEBSD-SA:16:38.bhyve
 [5] https://community.openvpn.net/openvpn/wiki/ChangesInOpenvpn23
 [6] https://github.com/phalcon/cphalcon/releases/tag/v3.0.2
 [7] https://suricata-ids.org/2016/12/01/suricata-3-2-available/

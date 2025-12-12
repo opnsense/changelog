@@ -72,9 +72,9 @@ Stay safe,
 Your OPNsense team
 
 --
-[1] https://www.freebsd.org/security/advisories/FreeBSD-SA-15:10.openssl.asc
-[2] https://www.freebsd.org/security/advisories/FreeBSD-EN-15:07.zfs.asc
-[3] https://www.freebsd.org/security/advisories/FreeBSD-EN-15:06.file.asc
+[1] FREEBSD-SA:15:10.openssl
+[2] FREEBSD-EN:15:07.zfs
+[3] FREEBSD-EN:15:06.file
 [4] http://mm.icann.org/pipermail/tz-announce/2015-June/000032.html
 [5] https://www.openssl.org/news/openssl-1.0.2-notes.html
 [6] http://ftp.openbsd.org/pub/OpenBSD/LibreSSL/libressl-2.2.0-relnotes.txt

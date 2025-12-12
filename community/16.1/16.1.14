@@ -62,11 +62,11 @@ Your OPNsense team
 --
 [1] http://mm.icann.org/pipermail/tz-announce/2016-April/000038.html
 [2] http://caia.swin.edu.au/freebsd/aqm/patches/ChangeLog-0.2.1.txt
-[3] https://www.freebsd.org/security/advisories/FreeBSD-SA-16:17.openssl.asc
-[4] https://www.freebsd.org/security/advisories/FreeBSD-EN-16:07.ipi.asc
-[5] https://www.freebsd.org/security/advisories/FreeBSD-EN-16:08.zfs.asc
-[6] https://www.freebsd.org/security/advisories/FreeBSD-SA-16:18.atkbd.asc
-[7] https://www.freebsd.org/security/advisories/FreeBSD-SA-16:19.sendmsg.asc
+[3] FREEBSD-SA:16:17.openssl
+[4] FREEBSD-EN:16:07.ipi
+[5] FREEBSD-EN:16:08.zfs
+[6] FREEBSD-SA:16:18.atkbd
+[7] FREEBSD-SA:16:19.sendmsg
 [8] https://sqlite.org/releaselog/3_12_2.html
 [9] https://community.openvpn.net/openvpn/wiki/ChangesInOpenvpn23#OpenVPN2.3.11
 [10] http://ftp.meisei-u.ac.jp/mirror/squid/squid-3.5-ChangeLog.txt

@@ -68,9 +68,9 @@ Stay safe,
 Your OPNsense team
 
 --
-[1] https://www.freebsd.org/security/advisories/FreeBSD-EN-15:18.pkg.asc
-[2] https://www.freebsd.org/security/advisories/FreeBSD-SA-15:24.rpcbind.asc
-[3] https://www.freebsd.org/security/advisories/FreeBSD-EN-15:20.vm.asc
+[1] FREEBSD-EN:15:18.pkg
+[2] FREEBSD-SA:15:24.rpcbind
+[3] FREEBSD-EN:15:20.vm
 [4] http://mm.icann.org/pipermail/tz-announce/2015-October/000034.html
 [5] https://www.eecis.udel.edu/~ntp/ntp_spool/ntp4/ChangeLog-dev
 [6] https://github.com/freebsd/freebsd-ports/commit/233063d86be930

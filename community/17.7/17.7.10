@@ -39,8 +39,8 @@ Stay safe,
 Your OPNsense team
 
 --
-[1] https://www.freebsd.org/security/advisories/FreeBSD-SA-17:11.openssl.asc
-[2] https://www.freebsd.org/security/advisories/FreeBSD-SA-17:12.openssl.asc
+[1] FREEBSD-SA:17:11.openssl
+[2] FREEBSD-SA:17:12.openssl
 [3] https://github.com/intel/hyperscan/blob/master/CHANGELOG.md#460-2017-09-22
 [4] https://www.openssl.org/news/secadv/20171207.txt
 [5] https://suricata-ids.org/2017/12/06/suricata-4-0-3-available/

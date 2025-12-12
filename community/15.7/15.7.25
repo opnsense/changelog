@@ -35,15 +35,15 @@ Stay safe,
 Your OPNsense team
 
 --
-[1] https://www.freebsd.org/security/advisories/FreeBSD-SA-16:01.sctp.asc
-[2] https://www.freebsd.org/security/advisories/FreeBSD-SA-16:02.ntp.asc
-[3] https://www.freebsd.org/security/advisories/FreeBSD-SA-16:03.linux.asc
-[4] https://www.freebsd.org/security/advisories/FreeBSD-SA-16:04.linux.asc
-[5] https://www.freebsd.org/security/advisories/FreeBSD-SA-16:05.tcp.asc
-[6] https://www.freebsd.org/security/advisories/FreeBSD-SA-16:06.bsnmpd.asc
-[7] https://www.freebsd.org/security/advisories/FreeBSD-SA-16:07.openssh.asc
-[8] https://www.freebsd.org/security/advisories/FreeBSD-EN-16:02.pf.asc
-[9] https://www.freebsd.org/security/advisories/FreeBSD-EN-16:03.yplib.asc
+[1] FREEBSD-SA:16:01.sctp
+[2] FREEBSD-SA:16:02.ntp
+[3] FREEBSD-SA:16:03.linux
+[4] FREEBSD-SA:16:04.linux
+[5] FREEBSD-SA:16:05.tcp
+[6] FREEBSD-SA:16:06.bsnmpd
+[7] FREEBSD-SA:16:07.openssh
+[8] FREEBSD-EN:16:02.pf
+[9] FREEBSD-EN:16:03.yplib
 [10] https://sqlite.org/releaselog/3_10_0.html
 [11] https://github.com/OpenVPN/easy-rsa/releases
 [12] http://www.openssh.com/txt/release-7.1p2
