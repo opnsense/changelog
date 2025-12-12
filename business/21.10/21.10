@@ -206,9 +206,9 @@ Your OPNsense team
 [12] PLUGINS:21.7/net-mgmt/net-snmp
 [13] PLUGINS:21.7/mail/postfix
 [14] PLUGINS:21.7/net-mgmt/telegraf
-[15] FREEBSD:FreeBSD-SA-21:15.libfetch
-[16] FREEBSD:FreeBSD-SA-21:13.bhyve
-[17] FREEBSD:FreeBSD-SA-21:14.ggatec
+[15] FREEBSD-SA:21:15.libfetch
+[16] FREEBSD-SA:21:13.bhyve
+[17] FREEBSD-SA:21:14.ggatec
 [18] CURL:7.79.1
 [19] DNSMASQ:2.86
 [20] KRB5:1.19

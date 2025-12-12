@@ -48,10 +48,10 @@ Your OPNsense team
 --
 [1] PLUGINS:25.1/net-mgmt/zabbix-agent
 [2] PLUGINS:25.1/net-mgmt/zabbix-proxy
-[3] FREEBSD:FreeBSD-SA-25:06.xz
-[4] FREEBSD:FreeBSD-EN-25:11.ena
-[5] FREEBSD:FreeBSD-EN-25:10.zfs
-[6] FREEBSD:FreeBSD-EN-25:09.libc
+[3] FREEBSD-SA:25:06.xz
+[4] FREEBSD-EN:25:11.ena
+[5] FREEBSD-EN:25:10.zfs
+[6] FREEBSD-EN:25:09.libc
 [7] LIBXML:2.14.4
 [8] NSS:3.113.1
 [9] OPENSSL:3.0.17

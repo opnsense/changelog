@@ -62,8 +62,8 @@ Your OPNsense team
 [2] PLUGINS:21.7/net/freeradius
 [3] PLUGINS:21.7/net/haproxy
 [4] PLUGINS:21.7/net-mgmt/zabbix-agent
-[5] FREEBSD:EN-21:19.libcasper
-[6] FREEBSD:EN-21:22.linux_futex
+[5] FREEBSD-EN:21:19.libcasper
+[6] FREEBSD-EN:21:22.linux_futex
 [7] PHP7:7.4.21
 [8] https://redmine.openinfosecfoundation.org/versions/166
 [9] https://wiki.strongswan.org/projects/strongswan/wiki/IdentityParsing

@@ -62,9 +62,9 @@ Your OPNsense team
 --
 [1] PLUGINS:23.7/dns/ddclient
 [2] PLUGINS:23.7/net-mgmt/telegraf
-[3] FREEBSD:FreeBSD-EN-23:15.sanitizer
-[4] FREEBSD:FreeBSD-SA-23:17.pf
-[5] FREEBSD:FreeBSD-EN-23:16.openzfs
+[3] FREEBSD-EN:23:15.sanitizer
+[4] FREEBSD-SA:23:17.pf
+[5] FREEBSD-EN:23:16.openzfs
 [6] PERL:5.36.3
 [7] PHP8:8.3.13
 [8] PHPSECLIB:3.0.34
