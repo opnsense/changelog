@@ -41,6 +41,6 @@ Your OPNsense team
 --
 [1] FREEBSD-SA:17:11.openssl
 [2] FREEBSD-SA:17:12.openssl
-[3] https://github.com/intel/hyperscan/blob/master/CHANGELOG.md#460-2017-09-22
+[3] HYPERSCAN:4.6.0
 [4] https://www.openssl.org/news/secadv/20171207.txt
 [5] https://suricata-ids.org/2017/12/06/suricata-4-0-3-available/

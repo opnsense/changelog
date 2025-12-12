@@ -27,16 +27,14 @@ o system: deprecate DSA keys as per OpenSSH recommendation
 o system: reworked config import / export for consistency
 o system: reboot after config import is now selectable
 o system: fix improper escape of HTML entities in log file filter
-o system: handle legal boolean return result from searchUsers()
-  (contributed by Evgeny Bevz)
+o system: handle legal boolean return result from searchUsers() (contributed by Evgeny Bevz)
 o system: add dynamic DNS update to cron
 o system: fix race in php.ini setup
 o system: always keep repository configurations on core package deinstall
 o system: properly trigger filter reload on HA peer
 o system: add ordering to rc.syshook scripting facility
 o system: add missing parameter for LDAPS authentication server
-o firewall: change CARP to operate using BSD standards to fix several
-  edge cases and reported issues
+o firewall: change CARP to operate using BSD standards to fix several edge cases and reported issues
 o firewall: fix validation of redirection in NAT
 o firewall: redirect target IP selection can now use aliases
 o firewall: simplify empty rules message in interface rules tabs
@@ -47,14 +45,11 @@ o services: DHCP lease pages show MAC manufacturers without Nmap install
 o services: improve cleanup of multiple captive portal zones
 o services: fix writing empty DNS resolver ACL
 o reporting: automatic database repair added
-o lang: translation improvements (contributed by Simon Brunet,
-  Antonio Prado and Fabian Franz)
+o lang: translation improvements (contributed by Simon Brunet, Antonio Prado and Fabian Franz)
 o lang: updates for French, German, Italian and Spanish
-o plugins: add stock Intel e1000 driver version 7.6.2 a "os-intel-em"
-  (requires a reboot)
+o plugins: add stock Intel e1000 driver version 7.6.2 a "os-intel-em" (requires a reboot)
 o plugins: lower early start priorities of VMware and Xen plugins
-o ports: haproxy 1.6.9[1], hyperscan 4.3.1[2], suricata 3.1.2[3],
-  phalcon 3.0.1[4], samplicator 1.3.8rc1
+o ports: haproxy 1.6.9[1], hyperscan 4.3.1[2], suricata 3.1.2[3], phalcon 3.0.1[4], samplicator 1.3.8rc1
 
 
 Stay safe,
@@ -62,6 +57,6 @@ Your OPNsense team
 
 --
 [1] http://www.haproxy.org/download/1.6/src/CHANGELOG
-[2] https://github.com/01org/hyperscan/blob/master/CHANGELOG.md
+[2] HYPERSCAN:4.3.1
 [3] https://suricata-ids.org/2016/09/07/suricata-3-1-2-released/
 [4] https://github.com/phalcon/cphalcon/releases

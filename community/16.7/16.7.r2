@@ -25,21 +25,17 @@ Here is the list of all changes since 16.7-RC1:
 o vga: UEFI boot support on amd64
 o cdrom: UEFI boot support on amd64
 o nano: firmware is now always fetched to persistent storage
-o ports: python 2.7.12[1], squid 3.5.20[2], pkg 1.8.7[3],
-  hyperscan 4.2.0[4]
+o ports: python 2.7.12[1], squid 3.5.20[2], pkg 1.8.7[3], hyperscan 4.2.0[4]
 o installer: allow installation on /dev/raid devices
 o installer: added a welcome message
 o installer: added GPT/UEFI mode on amd64
 o lang: only allow to select stable languages
-o lang: first update for 16.7 with full Japanese translation
-  (contributed by Chie Taguchi)
+o lang: first update for 16.7 with full Japanese translation (contributed by Chie Taguchi)
 o lang: numerous cleanups in translations (contributed by Fabian Franz)
-o interfaces: correctly restart all running DNS services on interface
-  reload
+o interfaces: correctly restart all running DNS services on interface reload
 o interfaces: properly configure OpenVPN interfaces on bootup
 o interfaces: fix iteration over empty interface array
-o interfaces: do not show dhcpd6 service when prefix delegation is
-  not enabled
+o interfaces: do not show dhcpd6 service when prefix delegation is not enabled
 o openvpn: repaired status page to show service status
 o openvpn: refactored scripting in export page
 o firmware: enable trim even for GPT/UFS labeled root file systems
@@ -61,7 +57,7 @@ Your OPNsense team
 [1] https://hg.python.org/cpython/raw-file/v2.7.12/Misc/NEWS
 [2] http://ftp.meisei-u.ac.jp/mirror/squid/squid-3.5-ChangeLog.txt
 [3] FREEBSD-GH:freebsd-ports/commit/06593f2394
-[4] https://01.org/hyperscan
+[4] HYPERSCAN:4.2.0
 
 # SHA256 (OPNsense-16.7.r2-OpenSSL-cdrom-amd64.iso.bz2) = ebf55f742bf096a14702726f4a959bec40092e41fc718481b6ed6c1a0d173233
 # SHA256 (OPNsense-16.7.r2-OpenSSL-nano-amd64.img.bz2) = 95bc2671d97937f03492a46f7eae1ff3f18e9ccbae4b50016d0566025e1fbfea
