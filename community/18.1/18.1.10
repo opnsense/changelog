@@ -64,6 +64,6 @@ Your OPNsense team
 [2] LIBRESSL:2.6.5
 [3] FREEBSD-GH:freebsd-ports/commit/c5a81698
 [4] PHALCON:3.4.0
-[5] https://sqlite.org/releaselog/3_24_0.html
+[5] SQLITE:3.24.0
 [6] https://wiki.strongswan.org/versions/69
 [7] https://nlnetlabs.nl/projects/unbound/download/

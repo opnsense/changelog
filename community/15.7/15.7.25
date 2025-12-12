@@ -44,6 +44,6 @@ Your OPNsense team
 [7] FREEBSD-SA:16:07.openssh
 [8] FREEBSD-EN:16:02.pf
 [9] FREEBSD-EN:16:03.yplib
-[10] https://sqlite.org/releaselog/3_10_0.html
+[10] SQLITE:3.10.0
 [11] https://github.com/OpenVPN/easy-rsa/releases
 [12] http://www.openssh.com/txt/release-7.1p2
