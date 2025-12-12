@@ -35,5 +35,5 @@ Your OPNsense team
 
 --
 [1] LIBXML:2.14.5
-[2] https://cgit.freebsd.org/ports/commit/?id=25ef3857b8
+[2] FREEBSD-GH:freebsd-ports/commit/25ef3857b8
 [3] UNBOUND:1.23.1

@@ -131,7 +131,7 @@ Your OPNsense team
 [4] PLUGINS:23.7/dns/dnscrypt-proxy
 [5] PLUGINS:23.7/net/frr
 [6] PLUGINS:23.7/net-mgmt/telegraf
-[7] https://www.freebsd.org/releases/13.2R/relnotes/
+[7] FREEBSD-RN:13.2
 [8] KRB5:1.21
 [9] NSS:3.91
 [10] PHP8:8.2.8

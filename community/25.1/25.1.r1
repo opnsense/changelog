@@ -110,7 +110,7 @@ Your OPNsense team
 
 [1] PLUGINS:25.1/security/acme-client
 [2] PLUGINS:25.1/net/haproxy
-[3] https://www.freebsd.org/releases/14.2R/relnotes/
+[3] FREEBSD-RN:14.2
 [4] https://www.lighttpd.net/2025/1/10/1.4.77/
 [5] OPENVPN26:2.6.13
 [6] PHP8:8.3.15

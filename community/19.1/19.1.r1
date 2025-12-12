@@ -116,7 +116,7 @@ o plugins: os-snmp removed, please use os-net-snmp instead
 o plugins: os-theme-cicada 1.13
 o plugins: os-theme-tukan 1.12
 o plugins: os-wol 2.1 fixes widget link (contributed by Fabian Franz)
-o src: HardenedBSD 11.2-RELEASE-p7[5][6][7]
+o src: HardenedBSD 11.2-RELEASE-p7[5][6]
 o src: fix missing transmit visibility for BPF-based listeners in native netmap mode
 o src: limit the maximum number of fragments per packet in pf
 o src: replace rwlock on PF_RULES_LOCK with rmlock in pf
@@ -124,10 +124,10 @@ o src: do not discard UDP6 traffic in Hyper-V adaptors
 o src: fix state sync during initial bulk update in pfsync
 o src: unbreak dhclient(8) option 26 processing
 o src: import APU 1-3 LED kernel module
-o ports: krb5 1.17[8]
-o ports: php 7.1.26[9]
-o ports: sudo 1.8.27[10]
-o ports: perl 5.28.1[11]
+o ports: krb5 1.17[7]
+o ports: php 7.1.26[8]
+o ports: sudo 1.8.27[9]
+o ports: perl 5.28.1[10]
 o ports: suricata netmap forward-compatibility patch (contributed by Sunny Valley Networks)
 
 Known issues and limitations:
@@ -170,14 +170,13 @@ Your OPNsense team
 [3] https://github.com/opnsense/plugins/blob/master/security/openconnect/pkg-descr
 [4] https://github.com/opnsense/plugins/blob/master/www/nginx/pkg-descr
 [5] https://hardenedbsd.org/content/easy-feature-comparison
-[6] https://www.freebsd.org/releases/11.2R/relnotes.html
-[7] https://www.freebsd.org/releases/11.2R/errata.html
-[8] https://web.mit.edu/kerberos/krb5-1.17/
-[9] https://php.net/ChangeLog-7.php#7.1.26
-[10] https://www.sudo.ws/stable.html#1.8.27
-[11] PERL:5.28.1
-[12] https://github.com/opnsense/core/commit/a2899594
-[13] https://docs.opnsense.org/manual/dynamic_routing.html
+[6] FREEBSD-RN:11.2
+[7] https://web.mit.edu/kerberos/krb5-1.17/
+[8] https://php.net/ChangeLog-7.php#7.1.26
+[9] https://www.sudo.ws/stable.html#1.8.27
+[10] PERL:5.28.1
+[11] https://github.com/opnsense/core/commit/a2899594
+[12] https://docs.opnsense.org/manual/dynamic_routing.html
 
 # SHA256 (OPNsense-19.1.r1-OpenSSL-dvd-amd64.iso.bz2) = 7c0c6cf529cb2f8aa9c29b3645b4ec1e218c292f722941ae9880b009c93e6364
 # SHA256 (OPNsense-19.1.r1-OpenSSL-nano-amd64.img.bz2) = b355355fc6d10475af2b1c22daa2fd5f5ab78bb375aaf8100a51f087d2447289

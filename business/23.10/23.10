@@ -330,11 +330,11 @@ Your OPNsense team
 [9] PLUGINS:23.7/net-mgmt/telegraf
 [10] DOCS:manual/wazuh-agent
 [11] PLUGINS:23.7/net/wireguard
-[12] https://www.freebsd.org/releases/13.2R/relnotes/
-[13] FREEBSD:FreeBSD-SA-23:07.bhyve
-[14] FREEBSD:FreeBSD-SA-23:06.ipv6
-[15] FREEBSD:FreeBSD-SA-23:11.wifi
-[16] FREEBSD:FreeBSD-EN-23:10.pci
+[12] FREEBSD-RN:13.2
+[13] FREEBSD-SA:23:07.bhyve
+[14] FREEBSD-SA:23:06.ipv6
+[15] FREEBSD-SA:23:11.wifi
+[16] FREEBSD-EN:23:10.pci
 [17] CURL:8.3.0
 [18] NSS:3.93
 [19] OPENLDAP:2.6.6

@@ -64,5 +64,5 @@ Your OPNsense team
 
 --
 [1] PLUGINS:24.7/security/acme-client
-[2] https://www.freebsd.org/releases/14.1R/relnotes/
+[2] FREEBSD-RN:14.1
 [3] PHALCON:5.8.0

@@ -370,7 +370,7 @@ Your OPNsense team
 [7] PLUGINS:24.7/net/frr
 [8] PLUGINS:24.7/www/nginx
 [9] PLUGINS:24.7/net/upnp
-[10] https://www.freebsd.org/releases/14.1R/relnotes/
+[10] FREEBSD-RN:14.1
 [11] FREEBSD:FreeBSD-SA-24:06.ktrace
 [12] FREEBSD:FreeBSD-SA-24:07.nfsclient
 [13] FREEBSD:FreeBSD-EN-24:15.calendar
@@ -381,8 +381,8 @@ Your OPNsense team
 [18] FREEBSD:FreeBSD-SA-24:13.openssl
 [19] FREEBSD:FreeBSD-SA-24:14.umtx
 [20] https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=281125
-[21] FREEBSD:FreeBSD-SA-24:15.bhyve
-[22] FREEBSD:FreeBSD-SA-24:16.libnv
+[21] FREEBSD-SA:24:15.bhyve
+[22] FREEBSD-SA:24:16.libnv
 [23] CURL:8.10.1
 [24] https://github.com/opnsense/dhcrelay/issues/2
 [25] EXPAT:2.6.3

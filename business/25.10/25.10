@@ -353,11 +353,11 @@ Your OPNsense team
 [15] PLUGINS:25.7/net-mgmt/telegraf
 [16] PLUGINS:25.7/net-mgmt/zabbix-agent
 [17] PLUGINS:25.7/net-mgmt/zabbix-proxy
-[18] https://www.freebsd.org/releases/14.3R/relnotes/
-[19] FREEBSD:FreeBSD-EN-25:12.efi
-[20] FREEBSD:FreeBSD-SA-25:07.libarchive
-[21] FREEBSD:FreeBSD-SA-25:08.openssl
-[22] FREEBSD:FreeBSD-EN-25:16.vfs
+[18] FREEBSD-RN:14.3
+[19] FREEBSD-EN:25:12.efi
+[20] FREEBSD-SA:25:07.libarchive
+[21] FREEBSD-SA:25:08.openssl
+[22] FREEBSD-EN:25:16.vfs
 [23] CURL:8.16.0
 [24] DNSPYTHON:2.8.0
 [25] EXPAT:2.7.3

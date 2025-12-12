@@ -68,7 +68,7 @@ Your OPNsense team
 [3] https://w1.fi/cgit/hostap/plain/hostapd/ChangeLog
 [4] NSS:3.74
 [5] https://pecl.php.net/package-changelog.php?package=psr&release=1.2.0
-[6] https://cgit.freebsd.org/ports/commit/?id=08342c9812d
+[6] FREEBSD-GH:freebsd-ports/commit/08342c9812d
 [7] SQLITE:3.37.2
 [8] SYSLOG-NG:3.35.1
 [9] https://w1.fi/cgit/hostap/plain/wpa_supplicant/ChangeLog

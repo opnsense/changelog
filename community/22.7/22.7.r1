@@ -128,7 +128,7 @@ Your OPNsense team
 [2] PLUGINS:22.7/sysutils/apcupsd
 [3] https://github.com/opnsense/plugins/blob/b31bcb92106/sysutils/boot-delay/Makefile#L6
 [4] PLUGINS:22.7/net/tayga
-[5] https://www.freebsd.org/releases/13.1R/relnotes/
+[5] FREEBSD-RN:13.1
 [6] PHP8:8.0.20
 [7] SQLITE:3.39.0
 
