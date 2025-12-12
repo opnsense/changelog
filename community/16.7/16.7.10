@@ -17,8 +17,7 @@ Here are the full patch notes:
 o system: revamped message of the day on console login
 o system: validate passed arguments instead of $_POST or $_REQUEST
 o system: merged VPN servers into get_possible_listen_ips()
-o system: repair French translation for user manager
-  (contributed by Valentin Deville)
+o system: repair French translation for user manager (contributed by Valentin Deville)
 o dashboard: do not arbitrarily split descriptions in services
 o firewall: added maximum fragments setting
 o dhcp: interface column for leases
@@ -32,8 +31,7 @@ o radvd: mark interface used in case of interface tracking
 o radvd: do not inject local DNS server when there is no IP
 o radvd: match service running metric with how it works
 o captive portal: validate input of voucher validity and quantity
-o captive portal: add error message on failed validation
-  (contributed by Fabian Franz)
+o captive portal: add error message on failed validation (contributed by Fabian Franz)
 o netflow: added service control
 o ntp: use plugin framework
 o intrusion detection: rotate eve-log every 500 MB

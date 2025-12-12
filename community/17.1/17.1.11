@@ -13,8 +13,7 @@ Here are the full patch notes:
 
 o firmware: added major GUI upgrade code for upcoming 17.7 release
 o firmware: added major GUI cron upgrade parameter "ALLOW_RISKY_MAJOR_UPGRADE"
-o interfaces: dhcp6c can now properly reload without leaking its
-  listening socket to e.g. OpenVPN
+o interfaces: dhcp6c can now properly reload without leaking its listening socket to e.g. OpenVPN
 o rc: allow to optionally prevent launch of configd via rc.conf variable
 o openvpn: normalise line endings of used certificates
 o openvpn: fix config handling in GUI pages for PHP 7.1

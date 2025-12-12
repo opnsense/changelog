@@ -41,44 +41,30 @@ blank, which is your queue to refresh the page.  The login window will
 reappear.  After login, the GUI update will already be finished.  To wrap
 up the full upgrade cycle, drop to the root shell and type:
 
-# opnsense-update && reboot
+# # opnsense-update && reboot
 
 But then again, simply use the root shell menu option "12".  It works
 seamlessly via SSH, too.
 
 The full change log of 15.1.10 is as follows:
 
-o kernel: cleaned up the custom legacy patches to move the underlying
-  FreeBSD back to more standard behaviour
-o kernel: removed dysfunctional dummynet patches and traffic shaper / limiter
-  GUI feature (ETA for a replacement is 15.7)
-o kernel: stripped FAIRQ and CODELQ disciplines as they are no longer
-  supported by FreeBSD
-o kernel: isolated MPD (Multi-link PPP daemon) alteration patches
-  (will be dropped in a future release)
+o kernel: cleaned up the custom legacy patches to move the underlying FreeBSD back to more standard behaviour
+o kernel: removed dysfunctional dummynet patches and traffic shaper / limiter GUI feature (ETA for a replacement is 15.7)
+o kernel: stripped FAIRQ and CODELQ disciplines as they are no longer supported by FreeBSD
+o kernel: isolated MPD (Multi-link PPP daemon) alteration patches (will be dropped in a future release)
 o kernel: fixed IPSec dropping connections in some scenarios
-o images: a new NanoBSD-based image has been added to the release
-  bundle (directly written to SD or HD)
+o images: a new NanoBSD-based image has been added to the release bundle (directly written to SD or HD)
 o notable ports updates: curl 7.42.1, ca_root_nss 3.18.1
-o installer: omit swap and add noatime to root partition in quick/easy
-  install when available space is under 30GB, fixed faulty exit on
-  importer cancel
+o installer: omit swap and add noatime to root partition in quick/easy install when available space is under 30GB, fixed faulty exit on importer cancel
 o development: the ports tree is now kept fully in sync with FreeBSD
-o development: improved the ports build script in terms of error reporting
-  and rebuilding speed
-o development: simplified file system path handling in most files to make
-  the code easier to maintain
+o development: improved the ports build script in terms of error reporting and rebuilding speed
+o development: simplified file system path handling in most files to make the code easier to maintain
 o development: fixed a bug that prevented extracting our packages on ZFS
-o core: replaced most of the legacy PHP module usage with more portable
-  (and maintainable) scripting code
-o dashboard: fixed the main link to always land on the dashboard to not
-  confuse a restricted ACL setup
-o traffic shaper: layer 7 filter removed as the project has been abandoned
-  (ETA for a replacement is 16.1)
-o system/settings: added an FTP proxy feature for clients trying to do
-  active transfers
-o menu: replaced the old one with the new MVC equivalent plus assorted
-  improvements
+o core: replaced most of the legacy PHP module usage with more portable (and maintainable) scripting code
+o dashboard: fixed the main link to always land on the dashboard to not confuse a restricted ACL setup
+o traffic shaper: layer 7 filter removed as the project has been abandoned (ETA for a replacement is 16.1)
+o system/settings: added an FTP proxy feature for clients trying to do active transfers
+o menu: replaced the old one with the new MVC equivalent plus assorted improvements
 o ACL: replaced the old one with the new MVC equivalent
 o login: polished the login screen behaviour
 o backend: don't try to send a signal to non-existing process

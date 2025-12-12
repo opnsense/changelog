@@ -19,14 +19,13 @@ and restart the update to continue.  Note this does not affect
 upgrades via GUI or SSH.  Should problems arise, force a reinstall
 of the core package from the shell with the following command:
 
-# opnsense-revert opnsense
+# # opnsense-revert opnsense
 
 Here are the full patch notes:
 
 o system: early installer switched for simpler config importer
 o system: no longer set shell privileges on password reset
-o system: avoid misinterpreting obsoleted options use_mfs_tmp_size
-  and use_mfs_var_size
+o system: avoid misinterpreting obsoleted options use_mfs_tmp_size and use_mfs_var_size
 o system: do not prompt for password on user edit
 o system: modernise console/tty settings
 o interfaces: always wait for dhclient exit
@@ -44,8 +43,7 @@ o unbound: configure exclusively via plugin calls
 o web proxy: harden SSL ciphers (contributed by Fabian Franz)
 o mvc: fix multiple scoping issues in base volt templates
 o lang: updates for Chinese, Czech, French, German, Portuguese
-o plugins: Let's Encrypt 1.4[1][2] (contributed by Felix Kling
-  and Frank Wall)
+o plugins: Let's Encrypt 1.4[1][2] (contributed by Felix Kling and Frank Wall)
 o plugins: HAproxy 1.13[3] (contributed by Frank Wall)
 o src: tzdata version 2017b[4]
 o src: HardenedBSD SafeStack for base applications[5]

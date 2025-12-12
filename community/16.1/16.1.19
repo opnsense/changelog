@@ -14,33 +14,26 @@ one of our awesome forum members helped to debug.
 
 Here are the full patch notes:
 
-o ports: suricata 3.0.2[1], squid 3.5.20[1], expat 2.2.0[3],
-  haproxy 1.6.7[4], bind 9.10.4-P2[5]
-o firewall: hide previously selected nested aliases from the
-  autocompletion on alias edit
+o ports: suricata 3.0.2[1], squid 3.5.20[1], expat 2.2.0[3], haproxy 1.6.7[4], bind 9.10.4-P2[5]
+o firewall: hide previously selected nested aliases from the autocompletion on alias edit
 o firewall: fix log view to properly render all of its html
 o firewall: fix link to IPv6 disable setting on rules screen
 o firewall: remove CARP restriction of matching interface subnet
 o interfaces: fix IPv6 subnet bits count on interface status
 o interfaces: traffic graphs now show more device types
 o gateways: prevent spurious dynamic default gateways from showing up
-o gateways: change the creation order of dynamic gateways to allow
-  overriding their settings correctly
+o gateways: change the creation order of dynamic gateways to allow overriding their settings correctly
 o firmware: refine ignore of temporary error 500 in GUI during upgrades
-o firmware: default config has been adapted to set up new style
-  dashboard entries during e.g. factory reset
+o firmware: default config has been adapted to set up new style dashboard entries during e.g. factory reset
 o firmware: validate source and destination entries in NPT
 o firmware: audited mirror list and disabled non-working entries
-o services: do not show disabled DHCPv6 server when prefix delegation
-  is not used
-o services: do not run boot-up routines for proxy server and intrusion
-  detection when disabled
+o services: do not show disabled DHCPv6 server when prefix delegation is not used
+o services: do not run boot-up routines for proxy server and intrusion detection when disabled
 o services: fix router advertisements subnet bits save
 o intrusion detection: improved alert browsing with action filter
 o proxy server: ACL setup can now include manual pre and post hooks
 o wizard: fixed alignment of page titles and contents
-o captive portal: ignore incomplete MAC entries to avoid premature
-  logout of active user
+o captive portal: ignore incomplete MAC entries to avoid premature logout of active user
 o openvpn: fix display of selected CRL in server settings
 
 

@@ -25,22 +25,16 @@ o src: fix OpenSSL multiple vulnerabilities[1]
 o src: update base system file(1) to 5.22[2]
 o src: improve reliability of ZFS[3]
 o src: updated to tzdata2015e[4]
-o ports: openssl 1.0.2c[5], libressl 2.2.0[6], php 5.6.10[7],
-  dnsmasq 2.73[8], smartmontools 6.4[9]
+o ports: openssl 1.0.2c[5], libressl 2.2.0[6], php 5.6.10[7], dnsmasq 2.73[8], smartmontools 6.4[9]
 o syslogd: disable unmaintained and unused ZMQ patches
-o opnsense-update: gained independent awareness of kernel and
-  base system version
+o opnsense-update: gained independent awareness of kernel and base system version
 o opnsense-update: improved the manual page to include all recent changes
-o firmware: bring back /etc/shells support to avoid the unknown shell
-  warning on bootup
-o firmware: always schedule next poll while upgrade is running to
-  accommodate for web server restart delay
+o firmware: bring back /etc/shells support to avoid the unknown shell warning on bootup
+o firmware: always schedule next poll while upgrade is running to accommodate for web server restart delay
 o logs: fix DHCP reverse ordering and update layout
 o wizard: remove false statement about using "dhcp" for LAN setup
 o menu: order interfaces by name
-o captive portal: fix database creation query by avoiding SQL injection
-  syntax that broke due to a recent upstream hardening of the database
-  adapter underneath
+o captive portal: fix database creation query by avoiding SQL injection syntax that broke due to a recent upstream hardening of the database adapter underneath
 
 The images can be obtained via any of our mirrors, given a bit of delay
 for them to pull in the latest images:

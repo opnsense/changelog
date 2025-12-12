@@ -7,12 +7,9 @@ before we push out new images, we've wrapped up 15.7.11 just now.
 
 Here are the full patch notes:
 
-o dns resolver: switch unbound to use libevent to address "too many fds"
-  log message
-o firmware: os-update package was renamed to opnsense-update so "os-" can
-  be our plugin prefix
-o firewall: fix alias page not being available due to a dirty config.xml
-  sample entry
+o dns resolver: switch unbound to use libevent to address "too many fds" log message
+o firmware: os-update package was renamed to opnsense-update so "os-" can be our plugin prefix
+o firewall: fix alias page not being available due to a dirty config.xml sample entry
 o ipsec: fix pages throwing warnings due to a dirty config.xml sample entry
 o ipsec: fix hash algorithm and protocol settings behaviour
 o openvpn: honour TLS authentication disable

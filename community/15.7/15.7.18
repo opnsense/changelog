@@ -26,8 +26,7 @@ release.
 
 Here are the full patch notes:
 
-o plugins: updated the VMware plugin to support early boot for persistent
-  vmx(4) device access
+o plugins: updated the VMware plugin to support early boot for persistent vmx(4) device access
 o plugins: added the Xen plugin for automatic guest support
 o openvpn: fix server not saving interface without IP
 o crash reporter: remember email for continuous feedback
@@ -47,15 +46,12 @@ o proxy: fix error on saving special URL characters
 o aliases: fix missing url table items
 o aliases: hide minus when not applicable
 o ntp: don't trigger set_gps_default on page load
-o captive portal (development): clean rewrite of RADIUS
-  authentication/accounting
+o captive portal (development): clean rewrite of RADIUS authentication/accounting
 o captive portal (development): added a session overview feature to the new
-o captive portal (development): fixed template download file name in Google
-  Chrome
+o captive portal (development): fixed template download file name in Google Chrome
 o src: Implement pubkey support for pkg(7) bootstrap[1]
 o src: rpcbind remote denial of service[2]
-o src: Applications exiting due to segmentation violation on a correct
-  memory address[3]
+o src: Applications exiting due to segmentation violation on a correct memory address[3]
 o src: tzdata updated to 2015g[4]
 o ports: ntp 4.2.8p4[5]
 o ports: pkg 1.6.1[6][7]

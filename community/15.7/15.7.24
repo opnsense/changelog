@@ -21,71 +21,51 @@ o ports: syslogd 10.2, mpd 5.8[5], ca_root_nss 3.21, dnsmasq 2.75_1[6]
 o ports: ntp 4.2.8p5[7], php 5.6.17[8], python 2.7.11_1[9]
 o ports: miniupnpd 1.9.20151212, openvpn 2.3.10[10]
 o opnsense-update: add opnsense-verify and opnsense-sign
-o opnsense-update: improve verification of signatures of kernel
-  and base upgrades
+o opnsense-update: improve verification of signatures of kernel and base upgrades
 o menu: bring back dashboard entry due to popular demand
 o menu: fix interface listing error when its description is empty
 o menu: moved license file to lobby section for visibility
-o menu: order VPN services for icon adjustment (contributed by
-  Fabian Franz)
-o menu: renamed "config manager" to "configuration" and "certificate
-  manager" to "trust"
-o language: multiple translation improvements (contributed by
-  Fabian Franz and Andreas Martin)
-o language: fix behaviour of numerous apply buttons when using a
-  non-English translation
-o dashboard: don't display widget headers when the actual widgets are
-  no longer installed
+o menu: order VPN services for icon adjustment (contributed by Fabian Franz)
+o menu: renamed "config manager" to "configuration" and "certificate manager" to "trust"
+o language: multiple translation improvements (contributed by Fabian Franz and Andreas Martin)
+o language: fix behaviour of numerous apply buttons when using a non-English translation
+o dashboard: don't display widget headers when the actual widgets are no longer installed
 o backend: fix issue when configd target pattern cannot be found
 o carp: fix support for OpenVPN clients
-o system: remove the old FTP proxy implementation (use proxy server
-  service instead)
+o system: remove the old FTP proxy implementation (use proxy server service instead)
 o system: pin down listbox size to unhide the search field
-o health: tidy up the layout by removing visual blockers and general
-  bumpiness
+o health: tidy up the layout by removing visual blockers and general bumpiness
 o access: fix setting of default values for new users
 o access: fix padding on user listing page
-o access: adjusted file type of API credentials to fix Chrome's
-  download blues (contributed by Fabian Franz)
+o access: adjusted file type of API credentials to fix Chrome's download blues (contributed by Fabian Franz)
 o configuration: fix replay of configuration backups
 o interfaces: fix redirect after applying an interface's configuration
-o trust: properly set certificate digest algorithm in form after
-  creation error
+o trust: properly set certificate digest algorithm in form after creation error
 o gateways: bring back display of descriptions (contributed by Frank Wall)
-o load balancer: bring back display of descriptions (contributed by
-  Frank Wall)
+o load balancer: bring back display of descriptions (contributed by Frank Wall)
 o ipsec: fix RSA authentication method check
 o ipsec: finally brought back lease display in widgets and status page
 o proxy: add configurable cache_mem setting
-o unbound: honour the "register DHCP leases in DNS" option (contributed
-  by Manuel Faux)
+o unbound: honour the "register DHCP leases in DNS" option (contributed by Manuel Faux)
 o unbound: reorder advanced features inclusion
-o dynamic dns: allow custom entries to set hostname to be used in e.g.
-  OpenVPN exports
+o dynamic dns: allow custom entries to set hostname to be used in e.g. OpenVPN exports
 o dynamic dns: updated cloudflare service binding
 o firewall: fix saving of zero values on virtual IP page
-o firewall: fix label for option source/invert in rules edit page
-  (contributed by Frank Wall)
-o firewall: show warning banner on related pages when firewall is
-  globally disabled (contributed by Manuel Faux)
+o firewall: fix label for option source/invert in rules edit page (contributed by Frank Wall)
+o firewall: show warning banner on related pages when firewall is globally disabled (contributed by Manuel Faux)
 o firewall: add interface groups to firewall rules and port forwarding
-o firewall: add matching behaviour indicator for floating rules
-  (contributed by Fabian Franz)
+o firewall: add matching behaviour indicator for floating rules (contributed by Fabian Franz)
 o firewall: make quick matching behaviour the default for floating rules
-o firewall: fix spurious error when migrating alias from one interface
-  to the next
+o firewall: fix spurious error when migrating alias from one interface to the next
 o firewall: sort alias listing for better overview
 o firewall: fix header alignment for schedule repeat section
 o firmware: added display of major announcements on the firmware page
 o firmware: added reinstall / (un)lock buttons for installed packages
 o firmware: added plugin listing to page with install / remove buttons
 o firmware: restructured the backend and improved its resilience
-o firmware: show the download size of the pending update in the update
-  check response
-o firmware: added update verification signature for the upcoming 16.1
-  release series
-o captive portal (devel): fix text of two help messages (contributed by
-  Fabian Franz)
+o firmware: show the download size of the pending update in the update check response
+o firmware: added update verification signature for the upcoming 16.1 release series
+o captive portal (devel): fix text of two help messages (contributed by Fabian Franz)
 
 
 Stay safe,

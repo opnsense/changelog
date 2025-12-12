@@ -13,41 +13,28 @@ likely be available tomorrow.
 
 Here are the full patch notes:
 
-o bsdinstaller: work towards embedded installations, e.g. Quick/Easy disk
-  selection
-o opnsense-update: added command line switches and a manual page for
-  usability's sake
+o bsdinstaller: work towards embedded installations, e.g. Quick/Easy disk selection
+o opnsense-update: added command line switches and a manual page for usability's sake
 o opnsense-update: will now remember that the base system is up to date
 o ports: updated to LibreSSL 2.1.4 (for our experimental LibreSSL flavour only)
-o directory layout: collapsed the /conf -> /cf/conf magic into a simple /conf
-  directory (needs a reboot to take effect)
+o directory layout: collapsed the /conf -> /cf/conf magic into a simple /conf directory (needs a reboot to take effect)
 o certificates: consistently lowered the default lifetime to 1 year
-o captive portal: fixed an issue that prevented traffic forwarding in some
-  cases
+o captive portal: fixed an issue that prevented traffic forwarding in some cases
 o nat: do not resolve aliases on display to stay consistent with rules page
-o console menu: rebuilt the firmware upgrade option 12 to work on top of our
-  new pkgng/opnsense-update system
-o crash reporter: can now be found under Diagnostics and was extended to show
-  all parsing errors.  The send button is currently disabled but feel free to
-  copy+paste the messages to push them through the usual channels.
-o rc: fixed numerous parse errors in files previously missed by the regression
-  test
-o rc: DHCP lease and RRD graph persistency after reboot, halt and config
-  import (reinstall)
+o console menu: rebuilt the firmware upgrade option 12 to work on top of our new pkgng/opnsense-update system
+o crash reporter: can now be found under Diagnostics and was extended to show all parsing errors.  The send button is currently disabled but feel free to copy+paste the messages to push them through the usual channels.
+o rc: fixed numerous parse errors in files previously missed by the regression test
+o rc: DHCP lease and RRD graph persistency after reboot, halt and config import (reinstall)
 o upnp: the shortcuts menu has been reintroduced
 o login: redirect after login now brings up the previously selected page
-o dynamic dns: fixed validation for custom entries that do not require a
-  hostname
+o dynamic dns: fixed validation for custom entries that do not require a hostname
 o dynamic dns: added support for Duck DNS
 o firewall log widget: fixed multiple bugs and updated style
 o pptp: brought back missing PHP includes
-o core: removed thousands of lines of unused code, style consolidation and
-  path unwinding
+o core: removed thousands of lines of unused code, style consolidation and path unwinding
 o core: multiple image to glyphicon conversions
-o development: moved pkgng config files out of the src/ directory to avoid
-  tainting the system on core.git live mount
-o development: steady progress on the first MVC framework implementation of
-  the upcoming proxy support
+o development: moved pkgng config files out of the src/ directory to avoid tainting the system on core.git live mount
+o development: steady progress on the first MVC framework implementation of the upcoming proxy support
 
 If you are new to the show, you want to grab the latest image from Sourceforge
 and apply this update afterwards using the firmware update in the GUI:

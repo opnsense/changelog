@@ -29,21 +29,16 @@ o src: updated to tzdata2015b[2]
 o src: add missing max-packets parsing for pf(4)
 o src: OPNsense branding for boot loader
 o bsdinstaller: speed up SD card writes using async mode and assorted cleanups
-o opnsense-update: don't trigger a spurious update after a fresh install when
-  invoked for the first time
-o notable port updates: isc-dhcp42 4.2.8, libressl 2.1.6 (hopefully builds
-  will be available on Friday), openssl 1.0.1m, ca_root_nss 3.18
+o opnsense-update: don't trigger a spurious update after a fresh install when invoked for the first time
+o notable port updates: isc-dhcp42 4.2.8, libressl 2.1.6 (hopefully builds will be available on Friday), openssl 1.0.1m, ca_root_nss 3.18
 o core: removed obsolete conf_mount_ro() and conf_mount_rw() usage
-o core: removed platform awareness with a more appropriate probe for install
-  media
+o core: removed platform awareness with a more appropriate probe for install media
 o core: removed all remnants of the old firmware update code
-o core: completely rewrote the config.xml handling to unify old and new GUI
-  components
+o core: completely rewrote the config.xml handling to unify old and new GUI components
 o core: added support for config backup to Google Drive[3]
 o core: fixed a few config handling issues with the new system via 15.1.8.1
 o core: fixed missing aliases in new config system via 15.1.8.2
-o core: removed php-fpm remnants that would e.g. prevent automatic IP
-  assignment in DHCP mode via 15.1.8.2
+o core: removed php-fpm remnants that would e.g. prevent automatic IP assignment in DHCP mode via 15.1.8.2
 o packages: removed the legacy package system
 o upnp: transformed the preinstalled package into a standard feature
 o openvpn: added the client export package as a standard feature

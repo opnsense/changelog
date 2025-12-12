@@ -41,9 +41,7 @@ o stand-alone frontend UI development tools
 o language updates for Czech, French, German, Portuguese (Brazil)
 o UI header security and SSL cipher hardening
 o extensive UI cleanups and menu consolidation
-o new and rewritten plugins: os-cache, os-lcdproc-sdeclcd, os-net-snmp,
-  os-nut, os-openconnect, os-relayd 2.0, os-shadowsocks, os-theme-cicada,
-  os-theme-rebellion, os-theme-tukan, os-wol 2.0
+o new and rewritten plugins: os-cache, os-lcdproc-sdeclcd, os-net-snmp, os-nut, os-openconnect, os-relayd 2.0, os-shadowsocks, os-theme-cicada, os-theme-rebellion, os-theme-tukan, os-wol 2.0
 
 We thank all of you for helping test, shape and contribute to the project!
 We know it would not be the same without you.
@@ -87,35 +85,13 @@ o ports: php 7.1.20[2]
 
 Migration notes and minor incomatibilities to look out for:
 
-o SSH access is now bound to the "wheel" group which is automatically
-  added to "admins" group, which "root" is a member of.  "root" is the
-  only user that has a default shell, namely opnsense-shell, which is the
-  root console menu.
-o SSH access can be set for an arbitrary group as well under System:
-  Administration for non-members of "admins" group.  However, in both
-  cases only SCP works due to a request in the forum to be more proactive
-  regarding yielding of shell access rights.  If you want a user to gain
-  true SSH access you need to change their shell from "nologin" to an
-  installed shell in their respective settings.
-o Web GUI HTTPS ciphers have been hardened.  To gain access please use a
-  recent browser.
-o The authentication fallback for the GUI/system has been removed in
-  favour of selecting multiple authentication servers at once.  Reassign
-  your fallback as a primary authentication method or now use more than
-  two methods.
-o It has been found that although WAN interfaces require gateways to
-  function, they do not necessarily have to be assigned in single-WAN
-  scenarios to avoid interfering with WAN reply behaviour.  The "none"
-  selection was therefore changed to "auto-detect" to reflect this and
-  now is the recommended setting unless multi-WAN is used.
-o In preparation for the firewall alias API the per-item descriptions have
-  been removed along with support for the deprecated types urltable_ports
-  and url_ports.
-o OpenVPN /31 tunnel network calculation changed to use the first and last
-  address as network address and broadcast address do not exist.  If you
-  are affected, adjust your clients or export their configuration again
-  which includes the configuration fix.  Additionally, /32 tunnel networks
-  are now prohibited.
+o SSH access is now bound to the "wheel" group which is automatically added to "admins" group, which "root" is a member of.  "root" is the only user that has a default shell, namely opnsense-shell, which is the root console menu.
+o SSH access can be set for an arbitrary group as well under System: Administration for non-members of "admins" group.  However, in both cases only SCP works due to a request in the forum to be more proactive regarding yielding of shell access rights.  If you want a user to gain true SSH access you need to change their shell from "nologin" to an installed shell in their respective settings.
+o Web GUI HTTPS ciphers have been hardened.  To gain access please use a recent browser.
+o The authentication fallback for the GUI/system has been removed in favour of selecting multiple authentication servers at once.  Reassign your fallback as a primary authentication method or now use more than two methods.
+o It has been found that although WAN interfaces require gateways to function, they do not necessarily have to be assigned in single-WAN scenarios to avoid interfering with WAN reply behaviour.  The "none" selection was therefore changed to "auto-detect" to reflect this and now is the recommended setting unless multi-WAN is used.
+o In preparation for the firewall alias API the per-item descriptions have been removed along with support for the deprecated types urltable_ports and url_ports.
+o OpenVPN /31 tunnel network calculation changed to use the first and last address as network address and broadcast address do not exist.  If you are affected, adjust your clients or export their configuration again which includes the configuration fix.  Additionally, /32 tunnel networks are now prohibited.
 
 All images are provided with SHA-256 signatures, which can be verified
 against the distributed public key:

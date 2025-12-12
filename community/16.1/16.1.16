@@ -27,8 +27,7 @@ o src: directory traversal in cpio[4]
 o ports: libressl 2.3.5[5], phalcon 2.0.13[6], dnsmasq 2.76[7]
 o ports: apinger 0.7[8], curl 7.49[9], bind 9.10.4-p1[10]
 o ports: php 5.6.22[11], sqlite 3.13.0[12], ntp 4.2.8p8[13]
-o dashboard: movable widgets, multi-column support and improved
-  look and feel
+o dashboard: movable widgets, multi-column support and improved look and feel
 o system: improved CSRF handling
 o system: allow far gateway support for non-subnet gateways
 o system: fix null routes add / delete
@@ -58,18 +57,12 @@ o firmware: allow resume for update page
 o firmware: dump / restore package database on shutdown / boot
 o firewall: removed proxy NAT reflection mode
 o firewall: properly start/stop proxy APR daemons
-o firewall: implement flexible scrub / normalisation config pages to
-  zap hidden scrubbing code
-o firewall: removed "match" action from floating rules, no FreeBSD
-  support
-o firewall: removed negate rules that would magically prevent load-
-  balancing VPN links
-o system: migrated new cron handling to do privilege separation where
-  possible
-o system: better branding support for boot loader on package install /
-  remove
-o system: remove single forward GUI item for RFC 2893, can be set in
-  NAT just as well
+o firewall: implement flexible scrub / normalisation config pages to zap hidden scrubbing code
+o firewall: removed "match" action from floating rules, no FreeBSD support
+o firewall: removed negate rules that would magically prevent load- balancing VPN links
+o system: migrated new cron handling to do privilege separation where possible
+o system: better branding support for boot loader on package install / remove
+o system: remove single forward GUI item for RFC 2893, can be set in NAT just as well
 o router advertisements: allow to set mode and min / max intervals
 
 

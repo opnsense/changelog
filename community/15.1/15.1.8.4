@@ -18,31 +18,20 @@ Here is the full list of changes:
 
 o core: removed numerous unused function from the code base
 o core: fixed numerous `Illegal string offset' warnings
-o core: fixed numerous `Cannot create references to/from string offsets
-  nor overloaded objects' errors related to 15.1.8's config system switch
-o captive portal: properly redirect to original page after entering a
-  valid voucher
-o xmlrcp: replaced the whole legacy implementation due to issues with the
-  latest PHP version to unbreak the feature
-o core: fixed an ancient background execution bug that prevented the spawned
-  process from fully detaching from its parent
-o firmware: completely detached the firmware upgrade from the GUI to make
-  it more reliable and hide empty update tables
-o dashboard: polish the version information print and also show
-  OpenSSL/LibreSSL version for better awareness
+o core: fixed numerous `Cannot create references to/from string offsets nor overloaded objects' errors related to 15.1.8's config system switch
+o captive portal: properly redirect to original page after entering a valid voucher
+o xmlrcp: replaced the whole legacy implementation due to issues with the latest PHP version to unbreak the feature
+o core: fixed an ancient background execution bug that prevented the spawned process from fully detaching from its parent
+o firmware: completely detached the firmware upgrade from the GUI to make it more reliable and hide empty update tables
+o dashboard: polish the version information print and also show OpenSSL/LibreSSL version for better awareness
 o xmlrpc: removed dangerous PHP and shell execution hooks
-o core: removed the backwards compatibility code for base OpenSSL as we
-  don't want to use it anymore
+o core: removed the backwards compatibility code for base OpenSSL as we don't want to use it anymore
 o core: fixed unstable GUI and console factory reset
-o system settings: finally flipped the SSH key only checkbox to properly
-  align with the underlying settings name of `PasswordAuthentication'
-o core: removed usage of numerous legacy PHP plugins in favour of more
-  portable approaches
+o system settings: finally flipped the SSH key only checkbox to properly align with the underlying settings name of `PasswordAuthentication'
+o core: removed usage of numerous legacy PHP plugins in favour of more portable approaches
 o logs: captive portal logs now have the proper layout
-o logs: fixed firewall log parsing to unhide log entries for IP protocols
-  that were not TCP/UDP/ICMP
-o crash reporter: revamp the crash report layout and add appropriate feedback
-  messages (note that the send button isn't enabled but we'll get there)
+o logs: fixed firewall log parsing to unhide log entries for IP protocols that were not TCP/UDP/ICMP
+o crash reporter: revamp the crash report layout and add appropriate feedback messages (note that the send button isn't enabled but we'll get there)
 o interfaces: fixed WAN PPPOE edit
 o configd: do not emit an error on shutdown
 o configd: gained a background execution feature

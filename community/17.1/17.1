@@ -34,8 +34,7 @@ https://opnsense.org/download/ (full mirror list)
 Here is the list of major features that have been worked on since 16.7 was
 released 6 months ago:
 
-o cooperative firewall forwarding to allow traffic shaper/captive portal
-  with multi-WAN
+o cooperative firewall forwarding to allow traffic shaper/captive portal with multi-WAN
 o install media now boots up with SSH for headless remote installation
 o HardenedBSD ASLR and PIE compilation for most binaries
 o HardenedBSD SEGVGUARD to prevent ASLR brute force attacks
@@ -63,12 +62,9 @@ Minor changes made since 16.7.14/17.1.r1:
 
 o system: always restore native /var layout on boot
 o system: make vt/sc configurable
-o web proxy: improve validation for SSL bump URL input
-  (contributed by Fabian Franz)
-o web proxy: add plugin-capable pre/post authentication directories
-  (contributed by Evgeny Bevz)
-o mvc: use empty string instead of "##Unlinked" in missing elements
-  (contributed by Frank Wall)
+o web proxy: improve validation for SSL bump URL input (contributed by Fabian Franz)
+o web proxy: add plugin-capable pre/post authentication directories (contributed by Evgeny Bevz)
+o mvc: use empty string instead of "##Unlinked" in missing elements (contributed by Frank Wall)
 o www: replace CSRF implementation of static PHP pages
 o src: convert result of hash_packet6() into host byte order
 o src: correctly initialise subrulenr in pflog
@@ -77,37 +73,16 @@ o ports: php 7.0.15[3]
 
 Additionally, these migration caveats should be heeded before upgrading:
 
-o The integrated authentication framework is now used as a system-wide
-  default including login(1), su(1) and sudo(8).  This means that e.g. when
-  2FA is enabled for the GUI it will be used for low-level password prompts
-  as well and plain passwords are disabled by default.  If this behaviour is
-  undesired, set the "Disable integrated authentication" option under System:
-  Settings: Administration.
-o Disabled Gateway entries are now always honoured instead of being set up
-  as a default gateway.
-o The console settings received a non-backwards compatible change.  If the
-  VGA console is not working, simply reconfigure it from System: Settings:
-  Administration as it was likely set to "Serial" due to a wrong GUI default.
-o FreeBSD 11.0 switched to the vt(4) console driver, but we are keeping sc(4)
-  as the default.  You can change this after installation by enabling the
-  virtual terminal driver under System: Settings: Administration.
-o EFI boots may not yield a console anymore, the setting for VGA is wrong
-  now and should be switched to "EFI" under System: Settings: Administration.
-o The access privileges for "Lobby: Login / Logout / Dashboard" and
-  "Diagnostics: Backup / Restore" have been remapped internally and
-  need to be reapplied when they have been assigned explicitly.
-o The inherited 6rd kernel patches are not included in standard FreeBSD 11.0.
-  The state of 6rd is possibly broken.  We ask for volunteers to pick up the
-  work if 6rd is still a requirement, as we do not have access to such setups.
-o Fundamental WiFi stack changes in FreeBSD 11.0 could still affect overall
-  operability.  Please let us know about these right away.
-o The following services moved to individual plugins and need to be reinstalled
-  in order to be used: SNMP, Load Balancer, Wake on LAN, Universal Plug and
-  Play, IGMP Proxy.  Their respective configurations will be preserved by the
-  system even if these plugins are not installed.
-o The Intel e1000 driver plugin has been removed due to an incompatibility
-  with FreeBSD 11.0.  All previously known bugs of the FreeBSD 11.0 e1000
-  driver have been fixed in OPNsense 17.1 and reported to FreeBSD.
+o The integrated authentication framework is now used as a system-wide default including login(1), su(1) and sudo(8).  This means that e.g. when 2FA is enabled for the GUI it will be used for low-level password prompts as well and plain passwords are disabled by default.  If this behaviour is undesired, set the "Disable integrated authentication" option under System: Settings: Administration.
+o Disabled Gateway entries are now always honoured instead of being set up as a default gateway.
+o The console settings received a non-backwards compatible change.  If the VGA console is not working, simply reconfigure it from System: Settings: Administration as it was likely set to "Serial" due to a wrong GUI default.
+o FreeBSD 11.0 switched to the vt(4) console driver, but we are keeping sc(4) as the default.  You can change this after installation by enabling the virtual terminal driver under System: Settings: Administration.
+o EFI boots may not yield a console anymore, the setting for VGA is wrong now and should be switched to "EFI" under System: Settings: Administration.
+o The access privileges for "Lobby: Login / Logout / Dashboard" and "Diagnostics: Backup / Restore" have been remapped internally and need to be reapplied when they have been assigned explicitly.
+o The inherited 6rd kernel patches are not included in standard FreeBSD 11.0.  The state of 6rd is possibly broken.  We ask for volunteers to pick up the work if 6rd is still a requirement, as we do not have access to such setups.
+o Fundamental WiFi stack changes in FreeBSD 11.0 could still affect overall operability.  Please let us know about these right away.
+o The following services moved to individual plugins and need to be reinstalled in order to be used: SNMP, Load Balancer, Wake on LAN, Universal Plug and Play, IGMP Proxy.  Their respective configurations will be preserved by the system even if these plugins are not installed.
+o The Intel e1000 driver plugin has been removed due to an incompatibility with FreeBSD 11.0.  All previously known bugs of the FreeBSD 11.0 e1000 driver have been fixed in OPNsense 17.1 and reported to FreeBSD.
 
 We would love to hear your feedback!  As we want OPNsense the best it can
 be for you, please do not hesitate to contact us through any of the known

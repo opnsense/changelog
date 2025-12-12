@@ -47,12 +47,9 @@ o FreeBSD 11.0
 
 Known issues in this version:
 
-o The inherited 6rd kernel patches are not included in standard
-  FreeBSD 11.0.  The impact on 6rd setups is currently unknown.
-o The installer character set is not entirely correct due to the
-  default console switch to vt(4).
-o Fundamental WiFi stack changes in FreeBDS 11.0 may still affect
-  overall operability.
+o The inherited 6rd kernel patches are not included in standard FreeBSD 11.0.  The impact on 6rd setups is currently unknown.
+o The installer character set is not entirely correct due to the default console switch to vt(4).
+o Fundamental WiFi stack changes in FreeBDS 11.0 may still affect overall operability.
 o Insight and Health statistics import from the early installer do not work.
 o The LibreSSL version will not be available until the final release.
 

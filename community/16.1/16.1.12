@@ -40,15 +40,11 @@ o smart: removed from base, can be installed as plugin "os-smart"
 
 And this is the change log for 16.7 BETA:
 
-o netflow: finished exporter capable of sending NetFlow to multiple
-  remote destinations
-o netflow: finished local reporting frontend on top of collected
-  NetFlow data
-o interfaces: polling mode has been deprecated and will be phased
-  out soon
+o netflow: finished exporter capable of sending NetFlow to multiple remote destinations
+o netflow: finished local reporting frontend on top of collected NetFlow data
+o interfaces: polling mode has been deprecated and will be phased out soon
 o vpn: L2TP, PPTP and PPPoE servers have been ported to use MPD version 5
-o vpn: legacy servers have been prepared to be moved from base
-  install to plugins
+o vpn: legacy servers have been prepared to be moved from base install to plugins
 o cron: code preparations for opening up the MVC cron API
 o tests: added a unit test framework and several tests
 o backup: reworked the RRD and DHCP leases backup strategies

@@ -22,25 +22,17 @@ headless/remote workflow.
 Here is the full list of changes:
 
 o bsdinstaller: fixed the package database wipe on custom install
-o bsdinstaller: install progress bar is now more responsive with regard to
-  individual directories in /usr
-o firmware: removed obsoleted upgrade code and tools following our
-  pkgng/opnsense-update approach
+o bsdinstaller: install progress bar is now more responsive with regard to individual directories in /usr
+o firmware: removed obsoleted upgrade code and tools following our pkgng/opnsense-update approach
 o miniupnpd: now properly links to the OpenSSL/LibreSSL port
 o ipmitool: now properly links to the OpenSSL/LibreSSL port
-o core: extensive cleanups for PHP shebang usage, wiped numerous unused
-  scripts and unreachable web pages, removed PBI remnants, removed 'tmp_path'
-  softcoding to improve readability and git-grep(1) experience, removed stale
-  debug statement that were only marginally useful while bumping the
-  statements to default that indicate real errors
+o core: extensive cleanups for PHP shebang usage, wiped numerous unused scripts and unreachable web pages, removed PBI remnants, removed 'tmp_path' softcoding to improve readability and git-grep(1) experience, removed stale debug statement that were only marginally useful while bumping the statements to default that indicate real errors
 o console: fixed halt script permissions and switched to synchronous mode
 o sysctl: added net.inet6.ip6.rfc6204w3 to improve the DHCPv6 experience
-o nat: remove target IP hardcoding in automatic rules (props to pfSense for
-  pointing that out to us)
+o nat: remove target IP hardcoding in automatic rules (props to pfSense for pointing that out to us)
 o rc: fixed missing package database when using the MFS option for /var
 o configd: added a standard rc.d script for easy daemon control
-o mvc: a lot of new code to support general infrastructure for upcoming
-  porting of features, e.g. proxy feature
+o mvc: a lot of new code to support general infrastructure for upcoming porting of features, e.g. proxy feature
 o help: adjusted links in the help menu to use HTTPS and improved targeting
 
 If you are new to OPNsense, the 15.1.7 images can be found here and are easily

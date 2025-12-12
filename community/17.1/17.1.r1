@@ -50,8 +50,7 @@ o core: move bogon rules to fix DHCPv6 WAN scenarios
 o web proxy: allow to disable caching by zeroing cache_mem
 o plugins: the os-intel-em driver has been removed
 o plugins: configuration additions for os-tinc
-o plugins: exported several base features to plugins (os-snmp,
-  os-igmp-proxy, os-wol, os-upnp, os-relayd)
+o plugins: exported several base features to plugins (os-snmp, os-igmp-proxy, os-wol, os-upnp, os-relayd)
 o lang: added Portuguese/Portugal (contributed by Carlos Meireles)
 o lang: added Portuguese/Brazil (contributed by Thiago Basilio)
 o src: wireless firmware now only available via kernel modules
@@ -67,19 +66,12 @@ o src: multiple fixes for netmap to repair emulation panics
 
 Known issues in this version:
 
-o The inherited 6rd kernel patches are not included in standard
-  FreeBSD 11.0.  The impact on 6rd setups is currently unknown.
-o Fundamental WiFi stack changes in FreeBDS 11.0 could still
-  affect operability.
+o The inherited 6rd kernel patches are not included in standard FreeBSD 11.0.  The impact on 6rd setups is currently unknown.
+o Fundamental WiFi stack changes in FreeBDS 11.0 could still affect operability.
 o Insight and Health statistics import from the early installer may not work.
-o Due to a Python 2.7.13 incompatibility the NetFlow connector
-  may not work.  A workaround is to revert to the Python 2.7.12
-  release.  See the forum for details[1].
+o Due to a Python 2.7.13 incompatibility the NetFlow connector may not work.  A workaround is to revert to the Python 2.7.12 release.  See the forum for details[1].
 o The LibreSSL version will not be available until the final release.
-o The console settings received a non-backwards compatible change.
-  If the VGA console is not working, simply reconfigure it from
-  System: Settings: Administration as it was likely set to Serial
-  due to a wrong GUI default.
+o The console settings received a non-backwards compatible change.  If the VGA console is not working, simply reconfigure it from System: Settings: Administration as it was likely set to Serial due to a wrong GUI default.
 
 Any help in making 17.1 the best it could possibly be for its final
 release January 31 is highly appreciated.  Please do not hesitate to

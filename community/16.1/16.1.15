@@ -29,10 +29,8 @@ o firewall: moved settings page and rearranged settings accordingly
 o interfaces: unhook all but the last custom PHP module functions
 o interfaces: moved settings page and rearranged settings accordingly
 o dhcp: do not override RA settings after save
-o dns: resolver outgoing interface section moved to advanced as it
-  will break setups with dynamic interfaces selected there
-o load balancer: sticky mode from firewall / system split off as
-  separate setting
+o dns: resolver outgoing interface section moved to advanced as it will break setups with dynamic interfaces selected there
+o load balancer: sticky mode from firewall / system split off as separate setting
 o snmp: do not allow unicode in system location
 o intrusion detection: remove deprecated rbn-malvertisers.rules set
 o intrusion detection: add promiscuous mode / physical interface selection

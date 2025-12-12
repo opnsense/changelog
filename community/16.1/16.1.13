@@ -15,28 +15,21 @@ release is currently scheduled for 16.1.14.
 
 Here is the full change log for 16.1.13:
 
-o ports: ntp 4.2.8p7[1], bind 9.10.4[2], php 5.6.21[3],
-  libressl 2.2.7[4], openssl 1.0.2h[5]
+o ports: ntp 4.2.8p7[1], bind 9.10.4[2], php 5.6.21[3], libressl 2.2.7[4], openssl 1.0.2h[5]
 o languages: newly packaged translations with latest updates
-o gateways: apinger monitoring quality is no longer affected by
-  NTP operation
-o backend: lowered configd connection timeout for better response
-  time when unavailable
+o gateways: apinger monitoring quality is no longer affected by NTP operation
+o backend: lowered configd connection timeout for better response time when unavailable
 o backend: plugged numerous minor crash reports caused by configd
 o backup: reworked backup strategies for RRD and DHCP leases
 o interfaces: allow bridges with at least one member
 o rc: defer recover for packages to avoid database duplication
 o intrusion detection: added an eicar test ruleset
 o intrusion detection: fixed sort order of rulesets
-o captive portal: properly catch exception for accounting
-  background job
+o captive portal: properly catch exception for accounting background job
 o firewall: annotate deprecated ICMP types in rule filter selection
-o firewall: direction arrows in rule overview now have different
-  colours for easier distinction
-o gui: correct HTML escaping in MVC between client-side JavaScript
-  and server-side API
-o gui: various improvements in MVC components required for upcoming
-  HAProxy plugin
+o firewall: direction arrows in rule overview now have different colours for easier distinction
+o gui: correct HTML escaping in MVC between client-side JavaScript and server-side API
+o gui: various improvements in MVC components required for upcoming HAProxy plugin
 o gui: enable tooltips in MVC base template
 o gui: set HTTP-only cookie
 

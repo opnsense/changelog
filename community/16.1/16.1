@@ -48,55 +48,40 @@ Finally, here are the full patch notes:
 
 o src: FreeBSD 10.2-RELEASE-p11[4]
 o bootstrap: can now update from any available FreeBSD 10 release
-o ports: libarchive 3.1.2_6[5], Suricata 3.0[6], squid 3.5.13[7],
-  bind 9.10.3P3[8], sqlite 3.10.2[9], ntp 4.2.8p6[10]
-o firewall: lock source / destination port settings when neither
-  TCP nor UDP is selected
-o firewall: simplify the outbound page to hide unwanted items and
-  zap complicated explanations (contributed by Manuel Faux)
+o ports: libarchive 3.1.2_6[5], Suricata 3.0[6], squid 3.5.13[7], bind 9.10.3P3[8], sqlite 3.10.2[9], ntp 4.2.8p6[10]
+o firewall: lock source / destination port settings when neither TCP nor UDP is selected
+o firewall: simplify the outbound page to hide unwanted items and zap complicated explanations (contributed by Manuel Faux)
 o firewall: do not leak floating rules into other interface tabs
 o firewall: add clear button to all log file types
 o firewall: hide NAT rules from normal rules screen
 o firewall: removed the unsupported dscp rule option
-o firewall: display alias descriptions as tooltips (contributed by
-  Manuel Faux)
+o firewall: display alias descriptions as tooltips (contributed by Manuel Faux)
 o universal plug and play: switch to secure mode as the new default
 o unbound: add MX entries to host overrides (contributed by Manuel Faux)
-o gateways: always safe the monitor IP regardless of monitoring being
-  on or off
+o gateways: always safe the monitor IP regardless of monitoring being on or off
 o gateways: properly add and remove routes for monitors on toggle
 o backend: fix harmless error message caused by a sample template
-o high availability: allow specification of a different port for
-  synchronisation
+o high availability: allow specification of a different port for synchronisation
 o high availability: special characters are now being properly preserved
-o high availability: added new captive portal and traffic shaper as
-  sync options
+o high availability: added new captive portal and traffic shaper as sync options
 o high availability: reworked and pruned the client synchronisation
-o firmware: optional php extensions now peacefully coexist with
-  preinstalled extensions
+o firmware: optional php extensions now peacefully coexist with preinstalled extensions
 o firmware: update plugin list on refresh to reveal available plugin list
-o intrusion detection: adds intrusion prevention mode for netmap(4)
-  devices (must disable Hardware CRC manually)
+o intrusion detection: adds intrusion prevention mode for netmap(4) devices (must disable Hardware CRC manually)
 o captive portal: completely rewritten on top of our new components
-o proxy: hook up remote ACL settings to translation engine (contributed
-  by Fabian Franz)
+o proxy: hook up remote ACL settings to translation engine (contributed by Fabian Franz)
 o proxy: add support for compressed ACLs (.gz, .tar.gz, .tgz, .zip)
 o proxy: fix toggle for storage log
 o ipsec: improve display of tunnel overview
-o openvpn: provide full ca chain on client export (contributed by
-  Manuel Faux)
+o openvpn: provide full ca chain on client export (contributed by Manuel Faux)
 o openvpn: fix engine detection for LibreSSL
-o layout: all tooltips and icons of action buttons have been updated
-  for proper look and feel (contributed by Manuel Faux)
+o layout: all tooltips and icons of action buttons have been updated for proper look and feel (contributed by Manuel Faux)
 o layout: added the infamous quick navigation feature
-o layout: consolidated the display of the upper right corner
-  as "user@host.domain"
+o layout: consolidated the display of the upper right corner as "user@host.domain"
 o interfaces: reworked all the pages for proper look and feel
-o interfaces: ARP and NDP tables have been rewritten and now properly
-  show vendor info
+o interfaces: ARP and NDP tables have been rewritten and now properly show vendor info
 o login: improved look and feel
-o dashboard: rss widget has been reworked and its library has been
-  updated to a new version
+o dashboard: rss widget has been reworked and its library has been updated to a new version
 o config: recover last backup automatically on broken xml
 o menu: properly aligned submenu icons
 o system: removed XDebug package from the default installation

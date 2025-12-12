@@ -30,13 +30,9 @@ https://sourceforge.net/projects/opnsense/files/15.1.6.1/
 
 Explaining the naming scheme:
 
-o cdrom: ISO installer image with live system capabilities running in
-  VGA-only mode
-o vga: USB installer image with live system capabilities running in
-  VGA-only mode
-o serial: USB installer image with live system capabilities running in
-  serial console (115200) mode with secondary VGA support (no kernel
-  messages there though)
+o cdrom: ISO installer image with live system capabilities running in VGA-only mode
+o vga: USB installer image with live system capabilities running in VGA-only mode
+o serial: USB installer image with live system capabilities running in serial console (115200) mode with secondary VGA support (no kernel messages there though)
 
 Explaining (experimental) base upgrades:
 
@@ -47,8 +43,7 @@ command line after the firmware upgrade to 15.1.6.1 has been completed.
 
 To upgrade the base system, as root type
 
-# opnsense-update
-# reboot
+# # opnsense-update && reboot
 
 The immediate reboot is mandatory, but you are in charge.  Again, this is
 still experimental, so please report any bugs or strange behaviour running
@@ -63,8 +58,7 @@ o Migrated FreeBSD 10.1-RELEASE-p5 plus required custom patches
 o Two additional kernel security fixes (thanks to Oliver Pinter/HardenedBSD)
 o New naming scheme for installer images: cdrom, serial, vga
 o New opnsense-update tool for base system upgrades
-o Notable port updates: pkg 1.4.12, bind 9.9.6-P2[2] (CVE-2015-1349),
-  php 5.6.6[3] (CVE-2015-0273), syslogd 10.1
+o Notable port updates: pkg 1.4.12, bind 9.9.6-P2[2] (CVE-2015-1349), php 5.6.6[3] (CVE-2015-0273), syslogd 10.1
 o Fixed wizard default settings and reload/redirect
 o DNS forwarder now properly reloads on host overrides updates
 o IPFW ruleset reload fix after start/restart of captive portal
@@ -77,8 +71,7 @@ o Assorted fixes regarding menus, page titles and links
 
 Change Log 15.1.6.1:
 
-o Don't clobber user and group settings when running opnsense-update.
-  Caused e.g. dhcpd to refuse operation.
+o Don't clobber user and group settings when running opnsense-update.  Caused e.g. dhcpd to refuse operation.
 o Fix a regression that would prevent e.g. sshd from starting.
 o Install opnsense-update by default.
 

@@ -9,8 +9,7 @@ and menu rework while at it.  Exciting stuff coming soon.  :)
 
 Here are the full patch notes:
 
-o diagnostics: added real backend code leading to upcoming privilege
-  separation for pfInfo, pfTop, States and Tables pages
+o diagnostics: added real backend code leading to upcoming privilege separation for pfInfo, pfTop, States and Tables pages
 o dynamic dns: introduce constant naming away from "DynDNS" or "DDNS"
 o gui: fix numerous typos spotted by our relentless translators
 o gui: fixed validation errors in new components

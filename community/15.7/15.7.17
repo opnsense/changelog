@@ -26,15 +26,11 @@ o dns filter: add OpenDNS IPv6 servers
 o dns resolver: fix apply glitch that would blank the settings temporarily
 o log files: search is now case-insensitive
 o firmware: improved reboot detection feedback
-o crash reporter: improved wording as reports without contact info may be
-  hard to fix
+o crash reporter: improved wording as reports without contact info may be hard to fix
 o virtual ip: fix possible apply glitch with new VIP
 o synchronisation: do not error on target down, log it instead
 o languages: French is at 35% and German is at 65% complete now
-o development: the captive portal has been replaced with a newly implemented
-  variant based on our MVC standards -- if you still want to use the old one
-  please use the release package instead (although any feedback for the new
-  captive portal is greatly appreciated)
+o development: the captive portal has been replaced with a newly implemented variant based on our MVC standards -- if you still want to use the old one please use the release package instead (although any feedback for the new captive portal is greatly appreciated)
 
 
 Stay safe,
