@@ -123,7 +123,7 @@ Your OPNsense team
 [2] https://www.max-it.de/
 [3] https://blog.getbootstrap.com/2019/02/13/bootstrap-4-3-1-and-3-4-1/
 [4] http://squid.mirror.colo-serv.net/archive/4/squid-4.0.7-RELEASENOTES.html
-[5] https://github.com/balabit/syslog-ng/releases/tag/syslog-ng-3.21.1
+[5] SYSLOG-NG:3.21.1
 
 # SHA256 (OPNsense-19.7.r1-OpenSSL-dvd-amd64.iso.bz2) = 5014dba896a425d15fbedcb44f2deec7fb5aee6a1b7c95833b819f8d352de6a1
 # SHA256 (OPNsense-19.7.r1-OpenSSL-nano-amd64.img.bz2) = b9d6ccbfdcb88f813a6494efb13647d1715500551c7dc51f632766b19189c6bc
