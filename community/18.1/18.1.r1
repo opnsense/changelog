@@ -160,7 +160,7 @@ Your OPNsense team
 --
 [1] https://lists.freebsd.org/pipermail/freebsd-security/2018-January/009719.html
 [2] https://docs.opnsense.org/manual/install.html
-[3] https://ftp.openbsd.org/pub/OpenBSD/LibreSSL/libressl-2.6.4-relnotes.txt
+[3] LIBRESSL:2.6.4
 
 # SHA256 (OPNsense-18.1.r1-OpenSSL-dvd-amd64.iso.bz2) = 2a92811d93bcad7de7752a650f9bf934a4d92b190c673bb8d0314474984a5b11
 # SHA256 (OPNsense-18.1.r1-OpenSSL-nano-amd64.img.bz2) = e2a8026c20a3a91b63b1b1195eab689254dbfa80f05e98b8cd24d9b2b6c35356

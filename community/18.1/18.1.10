@@ -61,7 +61,7 @@ Your OPNsense team
 
 --
 [1] https://github.com/jeromeetienne/jquery-qrcode/pull/43
-[2] https://ftp.openbsd.org/pub/OpenBSD/LibreSSL/libressl-2.6.5-relnotes.txt
+[2] LIBRESSL:2.6.5
 [3] FREEBSD-GH:freebsd-ports/commit/c5a81698
 [4] PHALCON:3.4.0
 [5] https://sqlite.org/releaselog/3_24_0.html

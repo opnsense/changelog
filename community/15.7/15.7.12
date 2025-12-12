@@ -47,7 +47,7 @@ Your OPNsense team
 [1] FREEBSD-SA:15:21.amd64
 [2] FREEBSD-EN:15:14.ixgbe
 [3] FREEBSD-EN:15:15.pkg
-[4] http://ftp.openbsd.org/pub/OpenBSD/LibreSSL/libressl-2.2.3-relnotes.txt
+[4] LIBRESSL:2.2.3
 [5] https://kb.isc.org/article/AA-01301/81/BIND-9.10.2-P4-Release-Notes.html
 [6] https://www.openldap.org/software/release/changes.html
 [7] http://www.litech.org/radvd/CHANGES-1.txt
