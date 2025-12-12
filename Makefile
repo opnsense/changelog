@@ -86,7 +86,7 @@ links:
 	for LINK in $$(cat Links/* | sed 's:%s.*::g'); do \
 	    grep -nr "$$LINK" ${DOCSDIRS} >> ${WORKDIR}/links; \
 	done; \
-	sort ${WORKDIR}/links; \
+	sort -u ${WORKDIR}/links; \
 	rm ${WORKDIR}/links
 
 clean:
