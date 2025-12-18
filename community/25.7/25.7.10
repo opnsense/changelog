@@ -2,7 +2,7 @@
 
 Howdy,
 
-This update is released mainly due to the fact that FreeBSD-SA-25:12.rtsold
+This update is released mainly due to the fact that FreeBSD-SA-25:12.rtsold[2]
 has impact on WAN-facing DHCPv6 connectivity being used, but also offers a
 mid-size batch of improvements like CARP VHID awareness for DHCRelay and
 a thorough cleanup and improvement pass over the Suricata integration we
