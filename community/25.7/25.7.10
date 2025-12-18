@@ -1,0 +1,84 @@
+@ December 18, 2025
+
+Howdy,
+
+This update is released mainly due to the fact that FreeBSD-SA-25:12.rtsold
+has impact on WAN-facing DHCPv6 connectivity being used, but also offers a
+mid-size batch of improvements like CARP VHID awareness for DHCRelay and
+a thorough cleanup and improvement pass over the Suricata integration we
+have been discussing during Suricon in November.
+
+Of special note is that the captive portal accounting moves back to ipfw(4)
+from pf(4) because in larger deployments accounting rules are much faster
+this way and the use case of Ethernet-less captive portals such as on top
+of WireGuard now work properly again.  The hook for pluggable pf(4) "ether"
+rules remains for now but will be removed in 26.1 as we do not intend to
+advocate its use.
+
+Also, Python has reported security issues of which a DoS in http.client could
+potentially affect existing installations given that an HTTP server sends
+a malicious response which "can consume a large amount of memory and CPU time
+and cause swapping".  Python has not released an update for version 3.11 at
+this point in time.
+
+Here are the full patch notes:
+
+o system: clean up and normalise the sample config.xml
+o system: replace "realif" variables with "device" in gateway code
+o system: replace exec() in live banner SSH probe
+o interfaces: scan pltime/vltime in "ifconfig -L" mode
+o firewall: live log: allow column modifications and combine hostname columns
+o firewall: live log: add bigger table size options and simplify table update
+o firewall: minor simplification in filter sync script
+o reporting: health: add CPU temperature y-axis label (contributed by NOYB)
+o dhcrelay: add CARP VHID tracking option to relays
+o dhcrelay: use the new mwexecf() $format support
+o firmware: opnsense-update: remove architecture pinning for -X option
+o captive portal: re-introduce ipfw for accounting purposes only
+o dnsmasq: add DHCP logging flags toinfluence log verbosity
+o intrusion detection: refactor query scripts and deprecate params.py
+o intrusion detection: increase maintainability of suricata.yaml file
+o intrusion detection: add support for /usr/local/etc/suricata/conf.d directory
+o intrusion detection: clean up views and controllers
+o openvpn: openvpn: add AES-256-CBC cipher for legacy compat (contributed by Fabian Franz)
+o openvpn: add support for verify-x509-name option (contributed by laozhoubuluo)
+o openvpn: replace exec() in MVC code
+o unbound: deprecate Blocklist.site blocklists (contributed by Drumba08)
+o unbound: clean up blocklists update marker and size file handling
+o mvc: ApiMutableModelControllerBase: add invalidateModel() method
+o mvc: Config: use is_int()/array_key_first() in toArray() and fromArray()
+o mvc: Config: mvc: use LIBXML_NOBLANKS when loading config files
+o mvc: FilterBaseController: move shared automation rule logic here
+o mvc: get translated services description from API (contributed by Tobias Degen)
+o mvc: BaseField: provide asInt() method
+o rc: bootstrap /var/lib/php/tests for upcoming test case use
+o plugins: os-ndp-proxy-go 1.2[1]
+o plugins: os-theme-rebellion 1.9.4 (contributed by Team Rebellion)
+o src: e1000: do not enable ASPM L1 without L0s
+o src: e1000: bump 82574/82583 PBA to 32K
+o src: if_ovpn: use IFT_TUNNEL
+o src: ifconfig: bring back -L for netlink
+o src: igb: fix VLAN support on VFs
+o src: irdma: fix potential memory leak on qhash cqp operation
+o src: ix: add support for debug dump for E610 adapters
+o src: netmap: fix error handling in nm_os_extmem_create()
+o src: pf: reading rules with a read lock on ioctl
+o src: pf: relax sctp v_tag verification
+o src: pf: handle divert packets
+o src: pfsync: fix incorrect unlock during destroy
+o src: rtsold: remote code execution via ND6 router advertisements[2]
+o ports: dpinger 3.4[3]
+o ports: libucl 0.9.3
+o ports: nss 3.119.1[4]
+o ports: phpseclib 3.0.48
+
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] PLUGINS:25.7/net/ndp-proxy-go
+[2] FREEBSD-SA:25:12.rtsold
+[3] DPINGER:3.4
+[4] NSS:3.119.1
+[5] PHPSECLIB:3.0.48
