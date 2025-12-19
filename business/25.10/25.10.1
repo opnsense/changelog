@@ -177,6 +177,25 @@ o ports: suricata 8.0.2[24]
 o ports: syslog-ng 4.10.2[25]
 o ports: unbound 1.24.2[26]
 
+A hotfix release was issued as 25.10.1_2:
+
+o firewall: clean up rules edit cancel button
+o firmware: opnsense-update: remove architecture pinning for -X option
+o mvc: FilterBaseController: move shared automation rule logic here
+o src: e1000: do not enable ASPM L1 without L0s
+o src: e1000: bump 82574/82583 PBA to 32K
+o src: if_ovpn: use IFT_TUNNEL
+o src: ifconfig: bring back -L for netlink
+o src: igb: fix VLAN support on VFs
+o src: irdma: fix potential memory leak on qhash cqp operation
+o src: ix: add support for debug dump for E610 adapters
+o src: netmap: fix error handling in nm_os_extmem_create()
+o src: pf: reading rules with a read lock on ioctl
+o src: pf: relax sctp v_tag verification
+o src: pf: handle divert packets
+o src: pfsync: fix incorrect unlock during destroy
+o src: rtsold: remote code execution via ND6 router advertisements[27]
+
 
 Stay safe,
 Your OPNsense team
@@ -208,3 +227,4 @@ Your OPNsense team
 [24] https://suricata.io/2025/11/06/suricata-8-0-2-and-7-0-13-released/
 [25] SYSLOG-NG:4.10.2
 [26] UNBOUND:1.24.2
+[27] FREEBSD-SA:25:12.rtsold
