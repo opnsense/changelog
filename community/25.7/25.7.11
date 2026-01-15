@@ -92,6 +92,10 @@ o src: pf: fix handling of IPv6 divert packets
 o src: rtsold: check RA lifetime before triggering the one-shot always script
 o ports: suricata 8.0.3[4]
 
+A hotfix release was issued as 25.7.11_1:
+
+o system: fix vsprintf() error on stray % invoke
+
 
 Stay safe,
 Your OPNsense team
