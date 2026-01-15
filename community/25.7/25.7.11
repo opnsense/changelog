@@ -22,6 +22,10 @@ ISC-DHCP from core.  A plugin is already available through the development
 version and should auto-install.  If not make sure you install it before
 attempting a reboot there.  For the stable version everything is as it was.
 
+That being said, 26.1-RC1 will be out early next week and RC2 likely follows
+quickly.  We are still set for a final release date of January 28.  See you on
+the other side!
+
 Here are the full patch notes:
 
 o system: add tooltip explaining active status in snapshots
