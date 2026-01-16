@@ -31,7 +31,7 @@ Here are the full patch notes:
 o system: add tooltip explaining active status in snapshots
 o system: add "lazy loading" model support on Trust\Cert
 o system: properly fill DNS SAN from existing certificates (contributed by Klaas Demter)
-o system: rename sudoers file to make it more sortable (David Jack Wange Olrik)
+o system: rename sudoers file to make it more sortable (contributed by David Jack Wange Olrik)
 o system: numerous safe execution changes
 o system: sort to retain order in syslog-ng source definitions
 o interfaces: fix comparison in PPP check code during assignment
