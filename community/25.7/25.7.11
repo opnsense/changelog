@@ -11,6 +11,12 @@ this data for the firewall MAC aliases and captive portal clients.  It is now
 enabled by default, but you can choose to opt out by disabling the automatic
 discovery option.
 
+Note to people who were already on 25.7.11 and 27.7.11_1: a modified hostwatch
+version was published disabling two excessive log messages.  Applying the
+hotfix 25.7.11_2 will not restart hostwatch.  Please do so under Interfaces:
+Neighbors: Automatic Discovery by either using "apply" or the restart button
+in the service widget.  Other reported issues will be addressed shortly.
+
 A lot of work went into IPv6 improvements over the holidays as is tradition
 with the help of users debugging their networks during that time.  A number
 of kernel fixes have been supplied and dhcp6c will also receive a larger update
@@ -91,10 +97,16 @@ o src: pf: rationalize the ip_divert_ptr test
 o src: pf: fix handling of IPv6 divert packets
 o src: rtsold: check RA lifetime before triggering the one-shot always script
 o ports: suricata 8.0.3[4]
+o ports: hostwatch 1.0.4
 
 A hotfix release was issued as 25.7.11_1:
 
 o system: fix vsprintf() error on stray % invoke
+
+A hotfix release was issued as 25.7.11_2:
+
+o system: fix edge case in tunable reset with one single tunable in the default config
+o ports: hostwatch 1.0.5 disables two excessive log messages
 
 
 Stay safe,
