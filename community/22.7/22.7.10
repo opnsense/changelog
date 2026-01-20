@@ -13,7 +13,7 @@ o system: add group (class) sync and user creation for RADIUS authentication
 o system: show and search ACL endpoints in privilege selector
 o system: replace a number of log_error() calls with log_msg() equivalent
 o system: improve SSH lockout behaviour
-o firewall: sates page performance improvements and better address parsing in search
+o firewall: states page performance improvements and better address parsing in search
 o firewall: reuse "hostid" on filter reload events
 o ipsec: allow to search all phase 2 entries via API call
 o openvpn: remove unused "pool_enable" attribute

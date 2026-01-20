@@ -32,7 +32,7 @@ o OpenVPN client-specific overrides can now be bound to selected servers
 o Added RFC 4638 support (MTU > 1492 in PPPoE)
 o NTP can now be disabled if required
 o New category-based remote ACL support in proxy server
-o ICAP configuration aded to proxy server
+o ICAP configuration added to proxy server
 o Pluggable service infrastructure
 o Pluggable syslog infrastructure
 o Finished a full sweep of visible GUI pages for improved look and feel

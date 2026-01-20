@@ -50,7 +50,7 @@ o system: fix assorted PHP 8 warnings in the codebase
 o system: extend nameservers script return for debugging purposes, i.e. "configctl system list nameservers debug"
 o system: lighttpd obsoletion of server listing directive, disabled by default
 o system: decode stored CRL data before display (contributed by kulikov-a)
-o system: work around phpseclib 3 flagging RSA-PSS as an invalid key alogrithm
+o system: work around phpseclib 3 flagging RSA-PSS as an invalid key algorithm
 o system: check for existing X509 class before doing CRL update
 o system: enforce RFC 8446 by requiring TLS_AES_128_GCM_SHA256 for TLS 1.3
 o system: consider CRL end dates after 2050 as "lifetime" in GeneralizedTime format

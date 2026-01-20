@@ -137,7 +137,7 @@ my $li = '';
 # start of text
 my $start = 0;
 
-# add empty line to flush paragaph
+# add empty line to flush paragraph
 push @lines, '';
 
 # second pass: webify all the text!

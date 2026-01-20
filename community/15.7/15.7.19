@@ -16,7 +16,7 @@ more roadmap items already finished for 16.1.
 Here are the full patch notes:
 
 o ports: sudo 1.8.15[1], sqlite 3.9.2[2]
-o aliases: make url tables useable
+o aliases: make url tables usable
 o interfaces: fix faulty GUI caching issues[3]
 o ipsec: obey force nat traversal
 o ipsec: switch status page and widget from deprecated SMP to VICI interface for reliable output
