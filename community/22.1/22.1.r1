@@ -133,7 +133,7 @@ o This release contains a new major operating system version and should be carri
 o MAC spoofing now only pertains to the configured interface and not the VLAN siblings or parent interface.  This can introduces unwanted configuration due to previous side effects in the code.  Make sure to assign and set the spoofed MAC for all interfaces that require a spoofed MAC.
 o Media settings are no longer shown for non-parent interfaces and need to be set individually to take effect.  This can introduce unwanted configuration due to previous side effects in the code.  If the parent interface was not previously assigned please assign it to reapply the required media settings.
 o Router advertisement static mode option is still subject to change in this release candidate series.
-o IPsec hash and cipher removals in FreeBSD 13 can affect existing setups as insecure cryptographic options have been removed upstream.  For more information see the FreeBSD commit in question[21].  We will be adding an explict configuration check to 21.7 before its end of life.
+o IPsec hash and cipher removals in FreeBSD 13 can affect existing setups as insecure cryptographic options have been removed upstream.  For more information see the FreeBSD commit in question[21].  We will be adding an explicit configuration check to 21.7 before its end of life.
 o Circular logging support has been removed.  No user interaction is required.
 o The migration notes are subject to change and will be extended as needed in the upcoming weeks.
 

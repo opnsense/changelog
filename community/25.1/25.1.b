@@ -19,7 +19,7 @@ will follow in early January.
 
 Highlights over version 24.7 include:
 
-o system: restructure PPP to accomodate IPv6-only deployments
+o system: restructure PPP to accommodate IPv6-only deployments
 o system: implement persistent notifications banner
 o system: dashboard widget for certificate expiry and renew
 o system: high availablilty status MVC/API conversion
