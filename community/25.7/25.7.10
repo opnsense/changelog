@@ -35,7 +35,7 @@ o dhcrelay: add CARP VHID tracking option to relays
 o dhcrelay: use the new mwexecf() $format support
 o firmware: opnsense-update: remove architecture pinning for -X option
 o captive portal: re-introduce ipfw for accounting purposes only
-o dnsmasq: add DHCP logging flags toinfluence log verbosity
+o dnsmasq: add DHCP logging flags to influence log verbosity
 o intrusion detection: refactor query scripts and deprecate params.py
 o intrusion detection: increase maintainability of suricata.yaml file
 o intrusion detection: add support for /usr/local/etc/suricata/conf.d directory
