@@ -1,0 +1,71 @@
+@ January 22, 2026
+
+Good morning world,
+
+Here we are now with the first release candidate to kickstart the 26.1
+series.  While this marks the end of an era as ISC-DHCP functionality
+moves to a plugin it is only the beginning of structural improvements
+and further innovation of topics that are important to our users: firewall
+GUI and API, IPv6, intrusion detection using Suricata and overall security.
+
+Keep in mind this is mostly an image-based pre-production test release.
+Upgrades from the 25.7.11 development version will be available at some
+point, but it is not clear when. An online-only RC2 will probably follow
+as well.  The final release date for 26.1 is January 28.
+
+https://pkg.opnsense.org/releases/26.1/
+
+Here are the development highlights since version 25.7 came out:
+
+o Introduce a new consistent rules GUI using MVC/API (formerly known as "Automation")
+o Suricata version 8 and new inline inspection mode using "divert"
+o NAT port forwarding migrated to "Destination NAT" as MVC/API
+o Various IPv6 stability improvements and additional features
+o Setup wizard improvements including use case selection
+o Services: Router Advertisements migrated to MVC/API
+o Shell command escaping improvements and audit
+o Interfaces: Settings migrated to MVC/API
+o Default IPv6 setup now relies on Dnsmasq
+o Factory reset for individual components
+o The firewall live log was rewritten
+o Unbound blocklist source selection
+o Automatic host discovery service
+
+A more detailed change log will follow!
+
+Migration notes, known issues and limitations:
+
+o ISC-DHCP moves to a plugin. It will be automatically installed during upgrades. It is not installed on new installations because it is not being used, but you can still install and keep using it.
+o To accomodate the change away from ISC-DCHP defaults the "Track interface" IPv6 mode now has a sibling called "Identity Association" which does the same except it is not automatically starting ISC-DHCPv6 and Radvd router advertisements to allow better interoperability with Kea and Dnsmasq setups.
+o Due to command line execution safety concerns the historic functions mwexec_bg() and mwexec() will be removed in 26.1.x.  Make sure your custom code is not using them and use mwexecf(), mwexecfb() and mwexecfm() instead.
+o The function sessionClose() has also been removed from the MVC code and is no longer needed.  Make sure to remove it from your custom code.
+o The custom.yaml support has been removed from intrusion detection.  Please migrate to the newer /usr/local/etc/suricata/conf.d override directory.
+
+The public key for the 26.1 series is:
+
+# -----BEGIN PUBLIC KEY-----
+# MIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEArTnFQp0jjj5bkLNx9G1j
+# q26WmN/EtAaJUt+2MY8W8h7L3kokRMlTgEvCYJOkUjbJYbjuG0Cut3JExNYa1vdD
+# 1SLIlJShyI8OsjbAS/flZdJB9c0Vxz2CwpoX9Efmp5TaB3GWqhHS0OVLx4MSI3HJ
+# qP/aQLjZMuCQHX8beUQB77YWcT6sPC5UMYeNEW1uHR7Oki/TpOXWnzNStEQXRL6/
+# MiuYJovedlNXeNUeebJyG0TyLJ/3uGMYhHKYK+OJkB03P3iLGGVE/WWNugsqX6bY
+# tTU9PquHo5zDApndp8iG49Fs/DC0r7V1P85ETPtW2SuZQ7YeDuz3VKvuMxAqyQoC
+# 1FLOsIuEfudDmRuMuTsRgB6jaGACEWUTuRyiFG4+kVDi1/qOWpYatP8C8B7Lx9UU
+# CTZhCl+Se4woWGtp5KOtYe+pvJ4oz40SL4drUQFEP3ZOsK/HzyLjPFRgxfANNUPG
+# ONayKHJXVVFPg2ATk9jeNPsLmXlcDmi/rihyN4RM2w0/bi8BWSc+dMGZ5ZhNJdsF
+# wHBIscgpiAhs+HS8Usxy3idv/JkY0h9tZ2QnljhUUwhYV+DT9yZf5ABU0B68VjJ4
+# /GloUc3bS7HBeSTAauYMOQvgkY1vcySGWTXvsGOw/Crpk4DYx5KpGNYHmENRey2c
+# AQdi+Fvi3fFkV1BoxGo78NcCAwEAAQ==
+# -----END PUBLIC KEY-----
+
+Please let us know about your experience!
+
+
+Stay safe,
+Your OPNsense team
+
+--
+# SHA256 (OPNsense-26.1.r1-dvd-amd64.iso.bz2) = b0f1f48cd9104e96c37ab11c4381e3401d7d892c97ff8ec7aec1fcec44f16feb
+# SHA256 (OPNsense-26.1.r1-nano-amd64.img.bz2) = e9c6d72908bc60fc4172ee9c6cd92e7b34bc0e234cc5ad17b3d9f951824cc22a
+# SHA256 (OPNsense-26.1.r1-serial-amd64.img.bz2) = e03638f1d6fdbc300155fedf5d350603cb1479bf0f8ffe62c439ef0993b5aeb9
+# SHA256 (OPNsense-26.1.r1-vga-amd64.img.bz2) = f78a0bb9f771fe8846c32ab501875d3970e569b0c4163eff08cfc3bedc1ad747
