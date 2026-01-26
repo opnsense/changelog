@@ -30,6 +30,11 @@ o mvc: add ChangeCase support to ProtocolField for DNAT special case
 o ports: dhcp6c v20260122
 o ports: hostwatch 1.0.9
 
+A hotfix release was issued as 26.1.r2_2:
+
+o interfaces: if no idassoc6/track6 LAN is used also emit a PD request like before
+o firewall: make previously associated DNAT rules editable
+
 Migration notes, known issues and limitations:
 
 o ISC-DHCP moves to a plugin. It will be automatically installed during upgrades. It is not installed on new installations because it is not being used, but you can still install and keep using it.
@@ -39,7 +44,7 @@ o The function sessionClose() has also been removed from the MVC code and is no 
 o The custom.yaml support has been removed from intrusion detection.  Please migrate to the newer /usr/local/etc/suricata/conf.d override directory.
 o The new host discovery service "hostwatch" is enabled by default (since 25.7.11).  You can always turn it off under Interfaces: Neighbors: Automatic Discovery if you so choose.
 o The firewall migration page is not something you need to jump into right away.  Please make yourself familiar with the new rules GUI first and check the documentation for incompatibilities.
-o Firewall: NAT: Port Forwarding is now called "Destination NAT".  Firewall rule associations are no longer supported, but the old associated firewall rules remain in place.
+o Firewall: NAT: Port Forwarding is now called "Destination NAT".  Firewall rule associations are no longer supported, but the old associated firewall rules remain in place with their last known configuration and can now be edited to suit future needs.
 
 Please let us know about your experience!
 
