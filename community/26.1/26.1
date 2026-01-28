@@ -1,0 +1,155 @@
+@ January 28, 2025
+
+Hi there,
+
+For over 11 years now, OPNsense is driving innovation through
+modularising and hardening the open source firewall, with simple
+and reliable firmware upgrades, multi-language support, fast adoption
+of upstream software updates, modern IPv6 support, as well as clear
+and stable 2-Clause BSD licensing.
+
+26.1, nicknamed "Witty Woodpecker", features almost a full firewall
+MVC/API experience as automation rules have been promoted to the new
+rules GUI, Suricata version 8 with inline inspection mode using "divert",
+assorted IPv6 reliability and feature improvements, router advertisements
+MVC/API, full code shell command escaping revamp, default IPv6
+mode now using Dnsmsaq for client connectivity, Unbound blocklist source
+selection, an automatic host discovery service, plus much more.
+
+The upgrade path for 25.7 will likely be unlocked on January 29, which
+is probably tomorrow if anyone is asking why it is not there yet.
+We want to ensure the upgrade goes as smoothly as possible so please
+be patient!  :)
+
+Download links, an installation guide[1] and the checksums for the images
+can be found below as well.
+
+o Europe: https://opnsense.c0urier.net/releases/26.1/
+o US East Coast: https://mirror.wdc1.us.leaseweb.net/opnsense/releases/26.1/
+o US West Coast: https://mirror.sfo12.us.leaseweb.net/opnsense/releases/26.1/
+o South America: http://mirror.ueb.edu.ec/opnsense/releases/26.1/
+o East Asia: https://mirror.ntct.edu.tw/opnsense/releases/26.1/
+o Full mirror list: https://opnsense.org/download/
+
+Here are the full patch notes:
+
+o system: factory reset and console tools now default to using Dnsmasq for DHCP
+o system: wizard now offers an abort button and deployment type selections
+o system: wizard can disable WAN or LAN interface now
+o system: provide resolv.conf overrides via /etc/resolv.conf.local
+o system: add XMLRPC option for hostwatch
+o firewall: improve GeoIP alias expiry condition
+o firewall: escape selector in rule_protocol
+o firewall: "Port forward" was migrated to "Destination NAT" MVC/API
+o firewall: unified look and feel of MVC/API pages formerly known as "automation"
+o firewall: improved support of gateway groups in policy-based routing
+o firewall: plugin support for "ether" rules has been removed
+o firewall: add import/export to shaper queues and pipes
+o firewall: "divert-to" support in new rules GUI
+o firewall: added a rule migration page (use with care)
+o firewall: make previously associated DNAT rules editable
+o interfaces: a new IPv6 mode called "Identity association" was added
+o interfaces: settings page was migrated to MVC/API
+o interfaces: handle hostwatch user/group via package
+o interfaces: force-reload IPv6 connectivity when PDINFO changes during renew
+o interfaces: dhcp6c rapid-commit, request-dns and config write refactoring
+o interfaces: generalise the rtsold_script code
+o interfaces: use descriptive interface names in automatic discovery table
+o interfaces: harden settings page with file_safe() and allowed_classes=false
+o dhcrelay: relax the check for present addresses and CARP-related cleanups
+o dnsmasq: add automatic RDNSS option when none is configured
+o dnsmasq: fix log conditions
+o firmware: opnsense-code: run configure script on upgrade if needed
+o intrusion detection: add a "divert" intrusion prevention mode
+o ipsec: expose ChaCha20-Poly1305 AEAD proposals in IKEv2 (contributed by Kota Shiratsuka)
+o kea: add libdhcp_host_cmds.so to expose internal API commands for reservations
+o kea: exit prefix watcher script if no lease file exists
+o kea: allow "hw-address" for reservations
+o kea: add pool in subnet validation
+o kea: minor code cleanups in model code
+o openvpn: account for CARP status in start and restart cases as well
+o openvpn: removed the stale TheGreenBow client export
+o radvd: migrated to MVC/API
+o radvd: remove faulty empty address exception
+o radvd: remove configuration file if disabled
+o radvd: implement RemoveAdvOnExit override
+o radvd: add Base6Interface constructor
+o radvd: support nat64prefix
+o console: opnsense-log now supports "backend" and "php" aliases
+o backend: safe execution changes in the whole code base
+o backend: removed short-lived mwexecf_bg() function
+o lang: various translation updates
+o mvc: add ChangeCase support to ProtocolField for DNAT special case
+o mvc: improve importCsv() to support either comma or semicolon
+o mvc: removed long obsolete sessionClose() from ControllerRoot
+o mvc: BaseModel: isEmptyAndRequired() has been removed
+o mvc: removed unusued RegexField
+o rc: replace camcontrol with diskinfo for TRIM check (contributed by Maurice Walker)
+o ui: allow HTML tags in menu items and title
+o ui: improve user readability in SimpleFileUploadDlg()
+o plugins: os-acme-client 4.12[2]
+o plugins: os-ddclient 1.29[3]
+o plugins: os-freeradius 1.10[4]
+o plugins: os-isc-dhcp 1.0[5]
+o plugins: os-nextcloud-backup 1.1[6]
+o plugins: os-nginx 1.36[7]
+o plugins: os-postfix 1.24.1[8]
+o plugins: os-q-feeds-connector 1.4[9]
+o plugins: os-wazuh-agent 1.3[10]
+o src: assorted patches from stable/14 for LinuxKPI, QAT, and network stack
+o src: e1000: revert "try auto-negotiation for fixed 100 or 10 configuration"
+o src: if_ovpn: use epoch to free peers
+o src: carp6: revise the generation of ND6 NA
+o ports: dhcp6c v20260122
+o ports: hostwatch 1.0.9
+
+Migration notes, known issues and limitations:
+
+o ISC-DHCP moves to a plugin. It will be automatically installed during upgrades. It is not installed on new installations because it is not being used, but you can still install and keep using it.
+o To accomodate the change away from ISC-DCHP defaults the "Track interface" IPv6 mode now has a sibling called "Identity Association" which does the same except it is not automatically starting ISC-DHCPv6 and Radvd router advertisements to allow better interoperability with Kea and Dnsmasq setups.
+o Dnsmasq is now the default for DHCPv4 and DHCPv6 as well as RA out of the box.  One thing that the upstream software cannot cover is prefix delegation so that is no longer offered by default.  Use another DHCPv6 server in this case.
+o Due to command line execution safety concerns the historic functions mwexec_bg() and mwexec() will be removed in 26.1.x.  Make sure your custom code is not using them and use mwexecf(), mwexecfb() and mwexecfm() instead.
+o The function sessionClose() has also been removed from the MVC code and is no longer needed.  Make sure to remove it from your custom code.
+o The custom.yaml support has been removed from intrusion detection.  Please migrate to the newer /usr/local/etc/suricata/conf.d override directory.
+o The new host discovery service "hostwatch" is enabled by default (since 25.7.11).  You can always turn it off under Interfaces: Neighbors: Automatic Discovery if you so choose.
+o The firewall migration page is not something you need to jump into right away.  Please make yourself familiar with the new rules GUI first and check the documentation for incompatibilities.  Single interface from the floating interface will not be considered "floating" in priorities.
+o Firewall: NAT: Port Forwarding is now called "Destination NAT".  Firewall rule associations are no longer supported, but the old associated firewall rules remain in place with their last known configuration and can now be edited to suit future needs.
+o Firewall: NAT: Source NAT is from the set of pages formerly known as automation, but One to One NAT is still the main page for these types of rules.
+
+The public key for the 26.1 series is:
+
+# -----BEGIN PUBLIC KEY-----
+# MIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEArTnFQp0jjj5bkLNx9G1j
+# q26WmN/EtAaJUt+2MY8W8h7L3kokRMlTgEvCYJOkUjbJYbjuG0Cut3JExNYa1vdD
+# 1SLIlJShyI8OsjbAS/flZdJB9c0Vxz2CwpoX9Efmp5TaB3GWqhHS0OVLx4MSI3HJ
+# qP/aQLjZMuCQHX8beUQB77YWcT6sPC5UMYeNEW1uHR7Oki/TpOXWnzNStEQXRL6/
+# MiuYJovedlNXeNUeebJyG0TyLJ/3uGMYhHKYK+OJkB03P3iLGGVE/WWNugsqX6bY
+# tTU9PquHo5zDApndp8iG49Fs/DC0r7V1P85ETPtW2SuZQ7YeDuz3VKvuMxAqyQoC
+# 1FLOsIuEfudDmRuMuTsRgB6jaGACEWUTuRyiFG4+kVDi1/qOWpYatP8C8B7Lx9UU
+# CTZhCl+Se4woWGtp5KOtYe+pvJ4oz40SL4drUQFEP3ZOsK/HzyLjPFRgxfANNUPG
+# ONayKHJXVVFPg2ATk9jeNPsLmXlcDmi/rihyN4RM2w0/bi8BWSc+dMGZ5ZhNJdsF
+# wHBIscgpiAhs+HS8Usxy3idv/JkY0h9tZ2QnljhUUwhYV+DT9yZf5ABU0B68VjJ4
+# /GloUc3bS7HBeSTAauYMOQvgkY1vcySGWTXvsGOw/Crpk4DYx5KpGNYHmENRey2c
+# AQdi+Fvi3fFkV1BoxGo78NcCAwEAAQ==
+# -----END PUBLIC KEY-----
+
+
+Stay safe,
+Your OPNsense team
+
+--
+# SHA256 (OPNsense-26.1-dvd-amd64.iso.bz2) = 856c00a4ddf62f40cdc0871cd9fb6bbd455fb4dcca9337713b95ff42a41c88b2
+# SHA256 (OPNsense-26.1-nano-amd64.img.bz2) = 5731a3f21c5dbe221acf5b4777ed686f705f27e7560ffb05d29a68ea4e7c7e50
+# SHA256 (OPNsense-26.1-serial-amd64.img.bz2) = aaca6d4c44371673c555be354317533cf91ced86fc86c026716325c29c451d79
+# SHA256 (OPNsense-26.1-vga-amd64.img.bz2) = 3901b83750dd19ca26632b61bf5fe7ac86b8cfa0bfb3e633928c37416a14e5f9
+
+[1] DOCS:manual/install
+[2] PLUGINS:26.1/security/acme-client
+[3] PLUGINS:26.1/dns/ddclient
+[4] PLUGINS:26.1/net/freeradius
+[5] PLUGINS:26.1/net/isc-dhcp
+[6] PLUGINS:26.1/sysutils/nextcloud-backup
+[7] PLUGINS:26.1/www/nginx
+[8] PLUGINS:26.1/mail/postfix
+[9] PLUGINS:26.1/security/q-feeds-connector
+[10] PLUGINS:26.1/security/wazuh-agent
