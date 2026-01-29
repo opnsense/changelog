@@ -108,6 +108,17 @@ A hotfix release was issued as 25.7.11_2:
 o system: fix edge case in tunable reset with one single tunable in the default config
 o ports: hostwatch 1.0.5 disables two excessive log messages
 
+A hotfix release was issued as 25.7.11_9:
+
+o interfaces: host discovery: make sure the full dump includes NDP output on fallback
+o firewall: improve GeoIP alias expiry condition
+o firewall: escape selector in rule_protocol
+o dnsmasq: fix log conditions
+o firmware: add upgrade hint and fingerprint for 26.1 plus isc-dhcp plugin migration
+o isc-dhcp: check if device we try to configure exists in the system
+o openvpn: account for CARP status in start and restart cases as well
+o ports: hostwatch 1.0.6 with community tested improvements
+
 
 Stay safe,
 Your OPNsense team
