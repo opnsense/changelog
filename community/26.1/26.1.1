@@ -1,0 +1,97 @@
+@ February 04, 2026
+
+Hello there,
+
+This ships OpenSSL and Python security updates as well as address a number
+of shortcomings of the initial 26.1 and community-infused improvements of
+the new rules GUI which we would not have dreamed of to get this quickly.
+
+We are very happy with the current state of the new rules GUI and all the
+discussions we have had on how it can be further improved.  It is just the
+beginning.  A roadmap for 26.7 will be in the works later this month.
+
+Looking back 11 years it appears that the best hopes we had for the project
+back then have all come true.  It took lot longer than expected but we
+got there together with you, our beloved community.  It will only take
+a bit more work now to achieve MVC/API support for all core components and
+remove root access from the web GUI.  And we hope that you will be up for
+it in the coming years as well.
+
+Images will likely be reissued based on this release, but it is not an
+immediate priority.  Upgrade paths from 25.7 will also be updated in the
+near future to ensure the best possible upgrade experience.
+
+Here are the full patch notes:
+
+o interfaces: fix WLAN creation when $mode is empty
+o interfaces: fix interface settings save with disabled ISC DHCPv6 server
+o interfaces: add optional interval input to ping
+o firewall: fix rule anchor rendering for plugins
+o firewall: prevent autocomplete in alias auth password
+o firewall: validate UUID on rules migration import
+o firewall: fix overload table setting being written as UUID into pf.conf in new rules GUI
+o firewall: local-port field in destination NAT does not support range and well-known name
+o firewall: change toggle_log icon to help visibility in new rules GUI
+o firewall: add missing schedules support for new rules GUI
+o firewall: make statistics column responsive for new rules GUI
+o firewall: add link to states and put it first in list in new rules GUI
+o firewall: add "any" interface filter option and make it the default
+o reporting: render RRD integer as string in command invoke
+o dnsmasq: compare leases case insensitive
+o firmware: opnsense-code: allow -r to specify the release branch for core/plugins
+o firmware: opnsense-patch: when patching make no backups
+o firmware: opnsense-update: batch use of -g and -G options
+o kea: add several missing validations
+o kea: use hostwatch as source for prefix watcher
+o openssh: style update for config generation
+o radvd: correctly verify constructor interface if used
+o lang: added Persian as a new language and a few updates/fixes in existing translations
+o installer: ufs: flush the disk to avoid spurious partitioning errors
+o mvc: support verbose logging in run_migrations.php
+o mvc: shield exec_safe() against fatal type errors
+o mvc: mark exported CSV as content safe to disable escaping
+o mvc: ArrayField: support throwing exceptions in importRecordSet()
+o mvc: fix class names of ManualSpdController and VxlanController
+o mvc: BaseModel: create missing nodes in legacy mapper
+o ui: bootgrid: allow multi word tooltips (contributed by Matthias Kaduk)
+o ui: bootgrid: introduce toggle-selected command
+o ui: bootgrid: searchable column selectors
+o ui: move refresh of selectpicker types into setFormData() and improve type detection
+o plugins: os-acme-client 4.13[1]
+o plugins: os-ddclient 1.30[2]
+o plugins: os-freeradius 1.10.1[3]
+o plugins: os-tayga 1.4[4]
+o plugins: os-tinc 1.8 adds disable subnet routes option (contributed by Thojo0)
+o src: fix multiple vulnerabilities in OpenSSL[5]
+o src: jail escape by a privileged user via nullfs[6]
+o src: arm64 SVE signal context misalignment[7]
+o src: page fault handler fails to zero memory[8]
+o ports: dnsmasq 2.92[9]
+o ports: libxml 2.15.1[10]
+o ports: openssl 3.0.19[11]
+o ports: phalcon 5.10.0[12]
+o ports: php 8.3.30[13]
+o ports: phpseclib 3.0.49[14]
+o ports: python security fixes[15][16]
+
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] PLUGINS:26.1/security/acme-client
+[2] PLUGINS:26.1/dns/ddclient
+[3] PLUGINS:26.1/net/freeradius
+[4] PLUGINS:26.1/net/tayga
+[5] FREEBSD-SA:26:01.openssl
+[6] FREEBSD-SA:26:02.jail
+[7] FREEBSD-EN:26:02.arm64
+[8] FREEBSD-EN:26:03.vm
+[9] DNSMASQ:2.92
+[10] LIBXML:2.15.1
+[11] OPENSSL:3.0.19
+[12] PHALCON:5.10.0
+[13] PHP8:8.3.30
+[14] PHPSECLIB:3.0.49
+[15] CVE:CVE-2025-12084
+[16] CVE:CVE-2025-13836
