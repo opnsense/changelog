@@ -59,7 +59,7 @@ o intrusion detection: replace "all" alert selection with explicit maximum choic
 o ipsec: most safe execution transformations done
 o isc-dhcp: interalize interfaces_staticarp_configure()
 o isc-dhcp: safeguard access to DHCPv6 "enable" property
-o kea: refactor daemon(8) call to mwexecfb()
+o kea-dhcp: refactor daemon(8) call to mwexecfb()
 o network time: fix GPS coordinate display in status page (contributed by brotherla)
 o openvpn: add simple search functionality for accounts table in client export
 o openvpn: skip dynamic content when loading the model in client export
