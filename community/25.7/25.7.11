@@ -86,7 +86,7 @@ o src: ipv6: fix off-by-one in pltime and vltime expiration checks
 o src: ipv6: do not complain when deleting an address with prefix length of 128
 o src: netlink: do not directly access ifnet members
 o src: netlink: do not overwrite existing data in a linear buffer in snl_writer
-o src: netmap: Let memory allocator parameters be settable via loader.conf
+o src: netmap: let memory allocator parameters be settable via loader.conf
 o src: pfsync: avoid zeroing the state export union
 o src: divert: fix removal of divert sockets from a group
 o src: divert: use a jenkins hash to select the target socket
