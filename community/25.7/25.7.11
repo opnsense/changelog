@@ -84,7 +84,6 @@ o plugins: os-telegraf 1.12.14[3]
 o src: in6: modify address prefix lifetimes when updating address lifetimes
 o src: ipv6: fix off-by-one in pltime and vltime expiration checks
 o src: ipv6: do not complain when deleting an address with prefix length of 128
-o src: ifconfig: fix the -L flag when using netlink
 o src: netlink: do not directly access ifnet members
 o src: netlink: do not overwrite existing data in a linear buffer in snl_writer
 o src: netmap: Let memory allocator parameters be settable via loader.conf
