@@ -1,0 +1,165 @@
+@ February 09, 2026
+
+This business release is based on the OPNsense 25.7.10 community version
+with additional reliability improvements, but without revamped Unbound
+blocklists for the time being.
+
+Here are the full patch notes:
+
+o system: gateway monitor Shell class use et al
+o system: no longer back up DUID but add compatibility glue to opnsense-importer
+o system: replace exec() in config encrypt/decrypt
+o system: replace history diff exec() with shell_safe()
+o system: safe execution tweaks in rc.routing_configure
+o system: fix log keyword search regression introduced in 25.7.7
+o system: clean up and normalise the sample config.xml
+o system: replace "realif" variables with "device" in gateway code
+o system: replace exec() in live banner SSH probe
+o system: add tooltip explaining active status in snapshots
+o system: add "lazy loading" model support on Trust\Cert
+o system: properly fill DNS SAN from existing certificates (contributed by Klaas Demter)
+o system: rename sudoers file to make it more sortable (contributed by David Jack Wange Olrik)
+o system: numerous safe execution changes
+o system: sort to retain order in syslog-ng source definitions
+o system: fix edge case in tunable reset with one single tunable in the default config
+o reporting: health: add CPU temperature y-axis label (contributed by NOYB)
+o interfaces: scan pltime/vltime in "ifconfig -L" mode
+o interfaces: fix comparison in PPP check code during assignment
+o interfaces: prefer longer lifetimes if multiple exist
+o interfaces: defer manual rtsold script execution
+o interfaces: use mwexecfb() in two instances
+o interfaces: move configure_interface_hardware() to main file
+o interfaces: migrate "sharednet" setting to its respective sysctls
+o firewall: run filterlog directly after rules apply and remove promiscuous mode
+o firewall: allow setting a custom authentication HTTP header for alias URL fetch (contributed by nox-404)
+o firewall: for better IPv6 PMTU let "timex" and "paramprob" ICMP types through
+o firewall: safe execution changes in rules reloading code
+o firewall: safe execution changes in rc.filter_synchronize
+o firewall: aliases: add has_parser() to check if an alias has a valid parser available
+o firewall: live log: allow column modifications and combine hostname columns
+o firewall: live log: add bigger table size options and simplify table update
+o firewall: minor simplification in filter sync script
+o firewall: automation: only show ICMP type when protocol is ICMP
+o firewall: automation: add multi-select ICMP6 options
+o firewall: simplify port alias check
+o firewall: improve GeoIP alias expiry condition
+o firewall: prevent autocomplete in alias auth password
+o captive portal: re-introduce ipfw for accounting purposes only
+o captive portal: assign empty array when "interface list arp json" returns invalid JSON
+o dhcrelay: add CARP VHID tracking option to relays
+o dhcrelay: use the new mwexecf() $format support
+o dhcrelay: reload table to update relay status
+o dnsmasq: minor tweaks in lease commands
+o dnsmasq: add DHCP logging flags to influence log verbosity
+o firmware: Shell class replacements in scripting
+o intrusion detection: refactor query scripts and deprecate params.py
+o intrusion detection: increase maintainability of suricata.yaml file
+o intrusion detection: add support for /usr/local/etc/suricata/conf.d directory
+o intrusion detection: clean up views and controllers
+o intrusion detection: datakey hint was missing for rules edit
+o intrusion detection: replace "all" alert selection with explicit maximum choices
+o ipsec: most safe execution transformations done
+o isc-dhcp: move syslog definitions to plugin file
+o isc-dhcp: interalize interfaces_staticarp_configure()
+o isc-dhcp: safeguard access to DHCPv6 "enable" property
+o isc-dhcp: check if device we try to configure exists in the system
+o kea-dhcp: add lease commands, tabulator GroupBy, URL hashes
+o kea-dhcp: add DNR option (contributed by schreibubi)
+o kea-dhcp: refactor daemon(8) call to mwexecfb()
+o network time: status: refactor to MVC/API
+o network time: fix GPS coordinate display in status page (contributed by brotherla)
+o openvpn: openvpn: add AES-256-CBC cipher for legacy compat (contributed by Fabian Franz)
+o openvpn: add support for verify-x509-name option (contributed by laozhoubuluo)
+o openvpn: replace exec() in MVC code
+o openvpn: add simple search functionality for accounts table in client export
+o openvpn: skip dynamic content when loading the model in client export
+o openvpn: convert two more exec() calls
+o openvpn: account for CARP status in start and restart cases as well
+o unbound: remove delete selected button for single select overrides grid
+o unbound: add overrides reference counter for aliases
+o unbound: info section was larger than table width
+o backend: minor shell execution changes and readability
+o backend: use mwexecf(m) where possible
+o backend: extend mwexecfb() with PID and log file support
+o backend: exec() removal in get_sysctl()/set_sysctl()
+o backend: exec() removal in auth scripts
+o mvc: ApiMutableModelControllerBase: add invalidateModel() method
+o mvc: Config: use is_int()/array_key_first() in toArray() and fromArray()
+o mvc: Config: mvc: use LIBXML_NOBLANKS when loading config files
+o mvc: get translated services description from API (contributed by Tobias Degen)
+o mvc: BaseField: provide asInt() method
+o mvc: reduce some call overheaad in BaseField/IntegerField
+o mvc: introduce defaultConfig property for AppConfig
+o mvc: uppercase all form labels
+o mvc: use asInt() in GidField and UidField
+o mvc: BaseField: add isSet()
+o mvc: shield exec_safe() against fatal type errors
+o rc: bootstrap /var/lib/php/tests for upcoming test case use
+o shell: rewrite timeout() using safe execution functions
+o tests: revamped config and base model tests
+o ui: refresh notification status after default apply button is done
+o ui: remove obsolete jQuery bootgrid files
+o ui: bootgrid: allow conditional command rendering through a filter function
+o plugins: os-acme-client 4.11[1]
+o plugins: os-frr 1.50[2]
+o plugins: os-ndp-proxy-go 1.3[3]
+o plugins: os-telegraf 1.12.14[4]
+o plugins: os-theme-rebellion 1.9.4 (contributed by Team Rebellion)
+o plugins: os-turnserver 1.1[5]
+o plugins: os-upnp 1.8 features assorted improvements to plugin and daemon (contributed by Self-Hosting-Group)
+o plugins: os-zabbix-agent 1.18[6]
+o plugins: os-zabbix-proxy 1.16[7]
+o src: divert: define semantics for SO_REUSEPORT_LB on divert sockets
+o src: divert: fix removal of divert sockets from a group
+o src: divert: use a jenkins hash to select the target socket
+o src: divert: use CK_SLISTs for the divcb hash table
+o src: e1000: revert "try auto-negotiation for fixed 100 or 10 configuration"
+o src: in6: modify address prefix lifetimes when updating address lifetimes
+o src: ipv6: do not complain when deleting an address with prefix length of 128
+o src: ipv6: fix off-by-one in pltime and vltime expiration checks
+o src: netlink: do not directly access ifnet members
+o src: netlink: do not overwrite existing data in a linear buffer in snl_writer
+o src: netmap: let memory allocator parameters be settable via loader.conf
+o src: pf: fix handling of IPv6 divert packets
+o src: pf: rationalize the ip_divert_ptr test
+o src: pfsync: avoid zeroing the state export union
+o src: rtsold: check RA lifetime before triggering the one-shot always script
+o src: fix multiple vulnerabilities in OpenSSL[8]
+o src: jail escape by a privileged user via nullfs[9]
+o src: arm64 SVE signal context misalignment[10]
+o src: page fault handler fails to zero memory[11]
+o ports: dpinger 3.4[12]
+o ports: filterlog no longer uses unneeded promiscuous mode
+o ports: libucl 0.9.3
+o ports: libxml 2.15.1[13]
+o ports: nss 3.119.1[14]
+o ports: openssl 3.0.19[15]
+o ports: phpseclib 3.0.48
+o ports: python security fixes[16][17][18][19]
+o ports: suricata 8.0.3[20]
+
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] PLUGINS:25.7/security/acme-client
+[2] PLUGINS:25.7/net/frr
+[3] PLUGINS:25.7/net/ndp-proxy-go
+[4] PLUGINS:25.7/net/turnserver
+[5] PLUGINS:25.7/net/upnp
+[6] PLUGINS:25.7/net-mgmt/zabbix-agent
+[7] PLUGINS:25.7/net-mgmt/zabbix-proxy
+[8] FREEBSD-SA:26:01.openssl
+[9] FREEBSD-SA:26:02.jail
+[10] FREEBSD-EN:26:02.arm64
+[11] FREEBSD-EN:26:03.vm
+[12] DPINGER:3.4
+[13] LIBXML:2.15.1
+[14] NSS:3.119.1
+[15] OPENSSL:3.0.19
+[16] CVE:CVE-2025-12084
+[17] CVE:CVE-2025-13836
+[18] CVE:CVE-2026-1299
+[19] CVE:CVE-2026-0865
+[20] https://suricata.io/2026/01/13/suricata-8-0-3-and-7-0-14-released/
