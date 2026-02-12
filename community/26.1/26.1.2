@@ -1,0 +1,61 @@
+@ February 12, 2026
+
+Hi there,
+
+This is a smallish update with a number of fixes and another round of Python
+CVEs addressed.  New images based on this stable version are planned for next
+week.
+
+At the moment work focuses on the IPv6 support for the captive portal which
+should not be too far away now.  The 26.7 roadmap will also be published at
+the end of this month.
+
+Here are the full patch notes:
+
+o system: remove "upstream" from gateway grid as priority already reflects the proper data
+o system: adjust gateway group priority (tier) wording
+o interfaces: fix wlanmode argument usage
+o firewall: fix target mapping inconsistency leading to references not being processed in destination NAT
+o firewall: use local-port as target when specified in destination NAT
+o firewall: fix missing reply-to when not specifically set in new rules
+o firewall: live view: fix parsing of combined filters stored as converted strings
+o firewall: fix group rename in source_net, destination_net and SNAT/DNAT target fields
+o firewall: add tcpflags_any in new rules GUI for parity with legacy rules
+o firewall: exclude loopback from interface selectpicker in new rules GUI
+o firewall: well known ports added to filter rule selection
+o firewall: undefined is also "*" in new rules grid
+o firewall: add download button for validation errors in rule import
+o firewall: allow TTL usage on host entries
+o firmware: avoid update-hook background cleanups
+o firmware: revoke 25.7 fingerprint
+o kea: fix subnets GUI missing root node
+o radvd: change tabs to spaces in radvd.conf for better maintenance
+o unbound: safeguard the blocklist tester against empty configuration testing
+o mvc: add $separator as parameter for CSV export and switch the default to a semicolon
+o mvc: InterfaceField: minor adjustments and add resetStaticOptionList()
+o mvc: catch empty data in CSV import
+o tests: Shell: add testing framework
+o plugins: os-haproxy 5.0[1]
+o ports: expat 2.7.4[2]
+o ports: hostwatch 1.0.12 now rate-limits database writes for recently seen hosts
+o ports: ldns 1.9.0[3]
+o ports: nss 3.120[4]
+o ports: openldap 2.6.12[5]
+o ports: openvpn 2.6.19[6]
+o ports: py-duckdb 1.4.4[7]
+o ports: python additional security fixes[8][9]
+
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] PLUGINS:26.1/net/haproxy
+[2] EXPAT:2.7.4
+[3] https://raw.githubusercontent.com/NLnetLabs/ldns/1.9.0/Changelog
+[4] NSS:3.120
+[5] OPENLDAP:2.6.12
+[6] OPENVPN26:2.6.19
+[7] DUCKDB:1.4.4
+[8] CVE:CVE-2026-1299
+[9] CVE:CVE-2026-0865
