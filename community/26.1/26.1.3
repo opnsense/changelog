@@ -1,0 +1,123 @@
+@ March 04, 2026
+
+Hi and hello,
+
+This update finally brings in Python 3.13 after the struggle we had with
+3.11 and missing security patches.  A number of things were fixed for the
+new rules GUI as well as assorted minor things in all areas of the code
+base.  Two FreeBSD security advisories are also included and a reboot is
+needed to finish this update.
+
+Of note are the recent modifications of the firmware scripting as they
+follow a fix in 26.1.2 that seems to have resolved the partial upgrade
+failures people have been reporting over the last 2 years.  It turned out
+that the issue was a cleanup routine in the core package that removed
+temporary files in the background while the package manager was still
+attempting to install more packages.
+
+Here are the full patch notes:
+
+o system: add note field to store comments for each snapshot
+o system: add configurable "memberOf" attribute to LDAP connector
+o system: do not scrub unrelated IPv6 DHCP ranges from Dnsmasq LAN config during wizard
+o system: adapt DHCP address shell setup for new config access functions
+o system: adapt web GUI certificate renew for new config access function
+o system: adapt initial port configuration DHCP setting for new config access functions
+o system: avoid using "(system)" user revision annotation to match legacy and MVC code
+o system: fix log files 'go to page' edge case and row count persistence/max
+o system: ignore future backups when they exist to ensure new backups are saved
+o system: ensure proper types are emitted in searchGatewayAction() when configd action fails
+o system: use safe iteration for cert/ca in system_trust_configure()
+o system: fixed broken link in modal header when using HA and saving administration settings
+o system: create a backup on factory reset
+o system: unify pwd_changed_at usage
+o reporting: restore canvas state in health graph to fix Firefox display bug
+o interfaces: generalise the dhcp6c_script using the new IFNAME variable
+o interfaces: fix enter key in assignment description and general cleanup
+o interfaces: protect device reads against forcing empty arrays into $config
+o firewall: check for schedules in use in new rules
+o firewall: add import/export function and missing lock on set action
+o firewall: better focus selected alias updates to in crease performance when either --aliases or --types is used
+o firewall: implement missing ICMP types in new rules GUI (contributed by Bjoern Jakobsen)
+o firewall: adjust for parseReplace() for icmp-type "skip"
+o firewall: fix NAT rule enabled checks display (contributed by Aaron Rogers)
+o firewall: prevent separator char from being used in category names
+o firewall: fix running into error using well known protocols with "-" in them
+o firewall: add validation to prevent using both gateway and reply-to in the same rule in new GUI
+o firewall: add a command button to open the live log with pre-filled rule ID in new GUI
+o firewall: move download and upload commands out of partial into global commands in new GUI
+o firewall: reduce complexity in URL hash handling and when using firewall_rule_lookup.php in new GUI
+o firewall: fix default ipprotocol mismatch so that when not specified both are indicated
+o firewall: update destination NAT ACL to match our menu entry
+o firewall: fix issues with searching in the states page
+o firewall: allow well known ports in local-port destination NAT
+o firewall: adjust row selection behaviour for internal rules in MVC pages
+o firewall: offer aliases the same was as the field type expects them
+o dnsmasq: add IP address validations for some of the DHCPv4 and DHCPv6 options (contributed by Greelan)
+o firmware: fix automatic advanced toggle in settings
+o firmware: shorten the reboot message to fit the spinner on the same line
+o firmware: tweaks for update/upgrade cleanup behaviours between core and opnsense-update
+o firmware: add support for aux repository handling in opnsense-update
+o installer: ufs: ignore errors when flushing the full disk
+o intrusion detection: upgrade ET Open ruleset to version 8.0 (contributed by 0nnyx)
+o openvpn: add options for legacy ciphers (contributed by Bjoern Jakobsen)
+o radvd: use safe config array iteration over virtual IPs
+o unbound: persist overrides PTR configuration and allow the user to deselect it
+o backend: removed mwexec() and mwexec_bg() functions following their deprecation
+o backend: add config_push_array() and config_merge_array() helpers
+o backend: remove constant configd cleanups as they may influence requests from other threads executing different commands
+o mvc: restructure menu items and system using findNodeByPath()/getItem() additions
+o mvc: BaseListField: generic implementation of static options
+o mvc: PortField: make "well-known" port numbers known by allowing them to be mapped to their respective numbers
+o mvc: collect UUID field so it can be searched, but only if the searchPhrase contains a valid UUID
+o tests: merge stable filter tests to double check upcoming changes
+o ui: batch bootgrid enable/disable-selected toggle by default
+o ui: swap order of custom bootgrid commands placement making sure they participate in command binding
+o plugins: os-acme-client 4.14[1]
+o plugins: os-caddy 2.1.0[2]
+o plugins: os-haproxy 5.1[3]
+o plugins: os-netbird 1.2
+o plugins: os-nextcloud-backup 1.2[4]
+o plugins: os-q-feeds-connector 1.5[5]
+o plugins: os-tailscale 1.4[6]
+o plugins: os-theme-cicada 1.41 (contributed by Team Rebellion)
+o plugins: os-theme-flexcolor 1.1 (contributed by Schnuffel2008)
+o plugins: os-theme-tukan 1.31 (contributed by Team Rebellion)
+o plugins: os-theme-vicuna 1.51 (contributed by Team Rebellion)
+o plugins: os-upnp 1.9[7]
+o src: igmp: do not upgrade IGMP version beyond net.inet.igmp.default_version
+o src: igmp: apply net.inet.igmp.default_version to existing interfaces
+o src: ice: handle allmulti flag in ice_if_promisc_set function
+o src: icmp6: clear csum_flags on mbuf reuse
+o src: file: qualify pointers to capsicum rights as const
+o src: file: add a fd flag with O_RESOLVE_BENEATH semantics
+o src: file: Fix the !CAPABILITIES build
+o src: unix: Set O_RESOLVE_BENEATH on fds transferred between jails[8]
+o src: rtsock: Fix stack overflow[9]
+o src: divert: Use a better source identifier for netisr_queue_src() calls
+o src: if_ovpn: add interface counters
+o src: e1000: fix setting the promiscuous mode
+o src: pfctl: allow new page character (^L) in pf.conf
+o src: sctp: support bridge interfaces
+o src: ifconfig: assorted stable fixes
+o src: ip_mroute: assorted stable fixes
+o src: vtnet: assorted stable fixes
+o ports: libucl 0.9.4
+o ports: nss 3.121[10]
+o ports: python 3.13.12[11]
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] PLUGINS:26.1/security/acme-client
+[2] PLUGINS:26.1/www/caddy
+[3] PLUGINS:26.1/net/haproxy
+[4] PLUGINS:26.1/sysutils/nextcloud-backup
+[5] PLUGINS:26.1/security/q-feeds-connector
+[6] PLUGINS:26.1/security/tailscale
+[7] PLUGINS:26.1/net/upnp
+[8] FREEBSD-SA:26:04.jail
+[9] FREEBSD-SA:26:05.route
+[10] NSS:3.121
+[11] PYTHON:3.13.12
