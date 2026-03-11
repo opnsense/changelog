@@ -1,0 +1,63 @@
+@ March 11, 2026
+
+Hi,
+
+This is basically a maintenance release in assorted areas, but also includes
+a CVE for the GUI for missing POST checks in the API.  We thank everyone
+for reporting issues and testing the fixes with us to allow for easy and fast
+releases such as this one.
+
+The roadmap is almost ready to be published.  Expect it later this week.
+
+Here are the full patch notes:
+
+o system: store dashboard layout types based on column breakpoints
+o system: do not show snapshot notes in the grid
+o system: use safe config iteration in admin settings page
+o reporting: use safe config iteration in RRD code
+o interfaces: remove unused ip_in_interface_alias_subnet()
+o interfaces: use safe config iteration in PPP edit page
+o firewall: fix access to deleted filter node in advanced settings
+o firewall: merge MVC NAT page templates into a single one
+o firewall: when repopulating the interface selectpicker, always restore current selection in new rules GUI
+o firewall: remove hardcoded colors where possible in new rules GUI
+o firewall: fix category colors in new rules GUI
+o firewall: merge read of groups and interfaces in new rules GUI
+o firewall: make MVC protocol selection match the old rules pages
+o firewall: add model validations for common errors in destination NAT
+o firewall: live view: allow regex use in "contains" cases
+o firewall: live view: fix SyntaxWarning in log reader backend
+o firewall: use safe iteration in old rule page for schedule lookup
+o firewall: use safe config iteration in outbound NAT page
+o firmware: add aux repository support
+o ipsec: use safe config iteration for VIP lookup
+o kea: guard prefix watcher when no link-local address exists for a route that should be installed
+o monit: use safe config iteration in gateway alert script
+o openvpn: debounce learn-address calls to limit the number of alias updates to a minimum
+o openvpn: add validation for selecting username as CN without setting any authentication
+o unbound: split logic in update_blocklist() and simplify getPoliciesAction()
+o unbound: move policy fetch to the controller and clean up accordingly
+o backend: remove unused examples throwing errors now
+o backend: fix configd using a new temporary file for cached items
+o mvc: ConfigMaintenance: when constructing class names use a safer way to strip .php extension
+o mvc: fix CSRF vulnerability in multiple API endpoints by enforcing POST-only requests[1] (contributed by Oliver Jueguen)
+o mvc: move CertificateField, InterfaceField and ProtocolField to newer static option API
+o shell: improve config restore UX using diff and additional meta data display
+o ui: remove two unused static PHP array definitions
+o ui: Bootgrid: split row selection behavior into rowSelection boolean
+o ui: Bootgrid: force a lightweight redraw when columns are programmatically changed
+o ui: Bootgrid: fix curRowCount type conversion issue when stored in localStorage
+o lang: various language updates
+o ports: libxml 2.15.2[2]
+o ports: strongswan 6.0.4[3]
+o ports: syslog-ng 4.11.0[4]
+
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] CVE:CVE-2026-30868
+[2] LIBXML:2.15.2
+[3] STRONGSWAN:6.0.4
+[4] SYSLOG-NG:4.11.0
