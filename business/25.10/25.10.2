@@ -138,6 +138,16 @@ o ports: phpseclib 3.0.48
 o ports: python security fixes[16][17][18][19]
 o ports: suricata 8.0.3[20]
 
+A hotfix release was issued as 25.10.2_3:
+
+o captive portal: fix hard-timeout calculation
+o firmware: avoid update-hook background cleanups
+o mvc: fix CSRF vulnerability in multiple API endpoints by enforcing POST-only requests[21] (contributed by Oliver Jueguen)
+o src: file: qualify pointers to capsicum rights as const
+o src: file: add a fd flag with O_RESOLVE_BENEATH semantics
+o src: file: Fix the !CAPABILITIES build
+o src: unix: Set O_RESOLVE_BENEATH on fds transferred between jails[22]
+o src: rtsock: Fix stack overflow[23]
 
 Stay safe,
 Your OPNsense team
@@ -163,3 +173,6 @@ Your OPNsense team
 [18] CVE:CVE-2026-1299
 [19] CVE:CVE-2026-0865
 [20] https://suricata.io/2026/01/13/suricata-8-0-3-and-7-0-14-released/
+[21] CVE:CVE-2026-30868
+[22] FREEBSD-SA:26:04.jail
+[23] FREEBSD-SA:26:05.route
