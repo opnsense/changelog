@@ -149,7 +149,7 @@ o isc-dhcp: allow static mapping export for disabled entries
 o kea-dhcp: honour IPv4 client specific reservation domain name option (contributed by NOYB)
 o kea-dhcp: expose lease expiration settings to the GUI (contributed by Konstantinos Spartalis)
 o kea-dhcp: support DHCP option 121 (classless static routes)
-o lang: add Greek as a new language (contributed by sopex)
+o lang: add Greek as a new language (contributed by Konstantinos Spartalis)
 o lang: make more strings translate-able (contributed by Tobias Degen)
 o lang: updates for Chinese, Czech, German and Greek
 o lang: new Ukrainian language and assorted updates
@@ -159,7 +159,7 @@ o openvpn: the server wizard functionality has been permanently removed as it re
 o radvd: refine checks that ignored 6rd and 6to4
 o wireguard: move backend scripts to proper location
 o unbound: fix error in edge case of initial model migration
-o unbound: configurable top domain list length in reporting view (contributed by sopex)
+o unbound: configurable top domain list length in reporting view (contributed by Konstantinos Spartalis)
 o unbound: remove unknown model reference and protect/simplify remaining one
 o unbound: add support for TXT records in host overrides
 o backend: trigger boot template reload without using configd
@@ -203,12 +203,12 @@ o ui: flatten nested containers for grid inclusion
 o ui: use snake_case for all API URLs and adjust ACLs accordingly
 o ui: move tooltip load event to single-fire mode
 o ui: add checkmark to SimpleActionButton as additional indicator
-o ui: improve menu icons/text spacing (contributed by sopex)
+o ui: improve menu icons/text spacing (contributed by Konstantinos Spartalis)
 o ui: bootgrid: clean up leftover compatibility bits
 o ui: bootgrid: add missing sortable option
 o ui: bootgrid: provide more styling possibilities from formatters
-o ui: fix language selection for low vertical resolution screens (contributed by sopex)
-o ui: hide header of the picture widget on the dashboard (contributed by sopex)
+o ui: fix language selection for low vertical resolution screens (contributed by Konstantinos Spartalis)
+o ui: hide header of the picture widget on the dashboard (contributed by Konstantinos Spartalis)
 o ui: bootgrid: add tabulatorOptions to translateCompatOptions()
 o ui: bootgrid: raise rowCount default to 50 and adjust selections accordingly for most pages
 o ui: bootgrid: simplify custom grid command additions
