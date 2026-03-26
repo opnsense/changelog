@@ -153,6 +153,15 @@ A hotfix release was issued as 25.10.2_4:
 
 o unbound: fix blocklist add in reporting page following POST-only fix
 
+A hotfix release was issued as 25.10.2_8:
+
+o interfaces: fix static neighbor apply button (contributed by Konstantinos Spartalis)
+o firewall: one-to-one NAT rendered rule missed "log" statement
+o ipsec: fix delete selected for SPD and SAD
+o mvc: ConfigMaintenance: when constructing class names use a safer way to strip .php extension
+o src: remote code execution via RPCSEC_GSS packet validation[24]
+o src: tcp: remotely exploitable DoS vector[25]
+
 
 Stay safe,
 Your OPNsense team
@@ -181,3 +190,5 @@ Your OPNsense team
 [21] CVE:CVE-2026-30868
 [22] FREEBSD-SA:26:04.jail
 [23] FREEBSD-SA:26:05.route
+[24] FREEBSD-SA:26:08.rpcsec_gss
+[25] FREEBSD-SA:26:06.tcp
