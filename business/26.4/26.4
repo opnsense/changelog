@@ -1,0 +1,407 @@
+@ April 15, 2026
+
+The OPNsense business edition transitions to this 26.4 release including
+full MVC/API experience as automation rules have been promoted to the new
+rules GUI, Suricata with a new inline inspection mode using "divert",
+assorted IPv6 reliability and feature improvements, router advertisements
+MVC/API, full code shell command escaping revamp, default IPv6 mode now
+using Dnsmsaq for client connectivity, Unbound blocklist source selection,
+an automatic host discovery service, captive portal IPv6 support plus much
+more.
+
+Please make sure to read the migration notes before upgrading.
+
+Download link is as follows.  An installation guide[1] and the checksums for
+the images can be found below as well.
+
+https://downloads.opnsense.com/
+
+This business release is based on the OPNsense 26.1.6 community version
+with additional reliability improvements.
+
+Here are the full patch notes:
+
+o system: factory reset and console tools now default to using Dnsmasq for DHCP
+o system: wizard now offers an abort button and deployment type selections
+o system: wizard can disable WAN or LAN interface now
+o system: provide resolv.conf overrides via /etc/resolv.conf.local
+o system: add XMLRPC option for hostwatch
+o system: remove "upstream" from gateway grid as priority already reflects the proper data
+o system: adjust gateway group priority (tier) wording
+o system: add note field to store comments for each snapshot
+o system: add configurable "memberOf" attribute to LDAP connector
+o system: do not scrub unrelated IPv6 DHCP ranges from Dnsmasq LAN config during wizard
+o system: adapt DHCP address shell setup for new config access functions
+o system: adapt web GUI certificate renew for new config access function
+o system: adapt initial port configuration DHCP setting for new config access functions
+o system: avoid using "(system)" user revision annotation to match legacy and MVC code
+o system: fix log files 'go to page' edge case and row count persistence/max
+o system: ignore future backups when they exist to ensure new backups are saved
+o system: ensure proper types are emitted in searchGatewayAction() when configd action fails
+o system: use safe iteration for cert/ca in system_trust_configure()
+o system: fixed broken link in modal header when using HA and saving administration settings
+o system: create a backup on factory reset
+o system: unify pwd_changed_at usage
+o system: store dashboard layout types based on column breakpoints
+o system: do not show snapshot notes in the grid
+o system: use safe config iteration in admin settings page
+o system: cleanup and simplify certificate deployment and remove legacy config import
+o system: validate monitor uniqueness based on the host route presence
+o system: simplify user/group sync scripts using config_read_array()
+o system: dashboard gauge improvements (contributed by Konstantinos Spartalis)
+o system: compress height of the log viewer grid
+o reporting: restore canvas state in health graph to fix Firefox display bug
+o reporting: use safe config iteration in RRD code
+o interfaces: a new IPv6 mode called "Identity association" was added
+o interfaces: add and enable new host discovery feature for neighbours via hostwatch
+o interfaces: settings page was migrated to MVC/API
+o interfaces: handle hostwatch user/group via package
+o interfaces: force-reload IPv6 connectivity when PDINFO changes during renew
+o interfaces: dhcp6c rapid-commit, request-dns and config write refactoring
+o interfaces: generalise the rtsold_script code
+o interfaces: use descriptive interface names in automatic discovery table
+o interfaces: harden settings page with file_safe() and allowed_classes=false
+o interfaces: host discovery: make sure the full dump includes NDP output on fallback
+o interfaces: fix migration for IPv6 no-release option
+o interfaces: fix wlanmode argument usage
+o interfaces: generalise the dhcp6c_script using the new IFNAME variable
+o interfaces: fix enter key in assignment description and general cleanup
+o interfaces: protect device reads against forcing empty arrays into $config
+o interfaces: remove unused ip_in_interface_alias_subnet()
+o interfaces: use safe config iteration in PPP edit page
+o interfaces: clean up overview UI code and fix CARP badge alignment
+o interfaces: simplify CARP scripts using config_read_array()
+o interfaces: automatic dhclient recovery
+o interfaces: settings page use cases for config_read_array()
+o interfaces: configurable cleanups for automatic neighbor discovery via hostwatch
+o interfaces: refactor PPP CARP hook
+o firewall: escape selector in rule_protocol
+o firewall: "Port forward" was migrated to "Destination NAT" MVC/API
+o firewall: unified look and feel of MVC/API pages formerly known as "automation"
+o firewall: improved support of gateway groups in policy-based routing
+o firewall: plugin support for "ether" rules has been removed
+o firewall: add import/export to shaper queues and pipes
+o firewall: "divert-to" support in new rules GUI
+o firewall: added a rule migration page (use with care)
+o firewall: make previously associated DNAT rules editable
+o firewall: FilterBaseController requires Base\UserException
+o firewall: fix typo with sprintf() with DNAT rule
+o firewall: fix target mapping inconsistency leading to references not being processed in destination NAT
+o firewall: use local-port as target when specified in destination NAT
+o firewall: fix missing reply-to when not specifically set in new rules
+o firewall: live view: fix parsing of combined filters stored as converted strings
+o firewall: fix group rename in source_net, destination_net and SNAT/DNAT target fields
+o firewall: add tcpflags_any in new rules GUI for parity with legacy rules
+o firewall: exclude loopback from interface selectpicker in new rules GUI
+o firewall: well known ports added to filter rule selection
+o firewall: undefined is also "*" in new rules grid
+o firewall: add download button for validation errors in rule import
+o firewall: allow TTL usage on host entries
+o firewall: add missing implementation for "disablereplyto" in new rules
+o firewall: fix encoding issue in dashboard widget
+o firewall: check for schedules in use in new rules
+o firewall: add import/export function and missing lock on set action
+o firewall: better focus selected alias updates to in crease performance when either --aliases or --types is used
+o firewall: implement missing ICMP types in new rules GUI (contributed by Bjoern Jakobsen)
+o firewall: adjust for parseReplace() for icmp-type "skip"
+o firewall: fix NAT rule enabled checks display (contributed by Aaron Rogers)
+o firewall: prevent separator char from being used in category names
+o firewall: fix running into error using well known protocols with "-" in them
+o firewall: add validation to prevent using both gateway and reply-to in the same rule in new GUI
+o firewall: add a command button to open the live log with pre-filled rule ID in new GUI
+o firewall: move download and upload commands out of partial into global commands in new GUI
+o firewall: reduce complexity in URL hash handling and when using firewall_rule_lookup.php in new GUI
+o firewall: fix default ipprotocol mismatch so that when not specified both are indicated
+o firewall: update destination NAT ACL to match our menu entry
+o firewall: fix issues with searching in the states page
+o firewall: allow well known ports in local-port destination NAT
+o firewall: adjust row selection behaviour for internal rules in MVC pages
+o firewall: offer aliases the same was as the field type expects them
+o firewall: fix access to deleted filter node in advanced settings
+o firewall: merge MVC NAT page templates into a single one
+o firewall: when repopulating the interface selectpicker, always restore current selection in new rules GUI
+o firewall: remove hardcoded colors where possible in new rules GUI
+o firewall: fix category colors in new rules GUI
+o firewall: merge read of groups and interfaces in new rules GUI
+o firewall: make MVC protocol selection match the old rules pages
+o firewall: add model validations for common errors in destination NAT
+o firewall: live view: allow regex use in "contains" cases
+o firewall: live view: fix SyntaxWarning in log reader backend
+o firewall: use safe iteration in old rule page for schedule lookup
+o firewall: use safe config iteration in outbound NAT page
+o firewall: fix regression in alias summary not shown in new rules GUI
+o firewall: invalidate database when last updated time is in the future
+o firewall: add missing "static port" option in source NAT
+o firewall: add semantic groups coloring option in dashboard widget (contributed by Gunnar Lieb)
+o firewall: add missing alias rename rule targets
+o firewall: add alias GeoIP database update button and move bogons one to the same tab
+o firewall: fix port handling in registered NAT rule
+o firewall: fix MVC code vs. legacy rules display issues
+o firewall: outbound NAT page use case for config_read_array()
+o firewall: fix wrong "pass" on DNAT rule when using register rule
+o firewall: adjust sort order in networks and aliases in new rules GUI
+o firewall: change sorting to interface/group name and stop caring about counted rules in new rules GUI
+o firewall: change category sorting using names instead of counted rules in new rules GUI
+o firewall: remove tokenizer from categories and use selectpicker instead in new rules GUI
+o captive portal: cleanup and simplify certificate deployment and remove legacy config import
+o captive portal: enforce POST-only on logoffAction() (contributed by Oliver Jueguen)
+o captive portal: add IPv6 support (partially contributed by Alex Goodkind)
+o captive portal: fix allowed addresses missing from session IPs in roaming case
+o dhcrelay: relax the check for present addresses and CARP-related cleanups
+o dnsmasq: add automatic RDNSS option when none is configured
+o dnsmasq: fix log conditions
+o dnsmasq: add IP address validations for some of the DHCPv4 and DHCPv6 options (contributed by Greelan)
+o dnsmasq: add "no-ping" option (contributed by Konstantinos Spartalis)
+o dnsmasq: remove a too-strict validation for suffix IPv6 addresses without constructor use
+o dnsmasq: ensure the lease view handles client-id correctly
+o dnsmasq: prevent "*" from being collected as "client_id"
+o firmware: opnsense-code: run configure script on upgrade if needed
+o firmware: revoke 25.7 fingerprint
+o firmware: fix automatic advanced toggle in settings
+o firmware: shorten the reboot message to fit the spinner on the same line
+o firmware: tweaks for update/upgrade cleanup behaviours between core and opnsense-update
+o firmware: add support for aux repository handling in opnsense-update
+o firmware: add aux repository support
+o firmware: repeat the update after pkg reinstall
+o installer: ufs: ignore errors when flushing the full disk
+o intrusion detection: add a "divert" intrusion prevention mode
+o intrusion detection: upgrade ET Open ruleset to version 8.0 (contributed by 0nnyx)
+o ipsec: expose ChaCha20-Poly1305 AEAD proposals in IKEv2 (contributed by Kota Shiratsuka)
+o ipsec: use safe config iteration for VIP lookup
+o ipsec: add 4 insecure proposals for compatibility (contributed by Bjoern Jakobsen)
+o kea: add libdhcp_host_cmds.so to expose internal API commands for reservations
+o kea: exit prefix watcher script if no lease file exists
+o kea: allow "hw-address" for reservations
+o kea: add pool in subnet validation
+o kea: minor code cleanups in model code
+o kea: fix subnets GUI missing root node
+o kea: add required scope to prefix watcher link local address route
+o kea: guard prefix watcher when no link-local address exists for a route that should be installed
+o kea: add DDNS and DHCP option support
+o kea: add DDNS subnet-specific qualifying suffix and prevent updates if no server is set
+o kea: add sockets max-retries and retry-wait-time options
+o kea: add delete lease command and use socket for up-to-date lease collection
+o kea: move pool-in-subnet validation logic mostly to KeaPoolsField
+o kea: remove KeaCtrlAgent dependency on HA configuration
+o kea: use SetConstraint for match_data to allow 0 as valid value
+o monit: use safe config iteration in gateway alert script
+o network time: add pool property for time servers (contributed by Konstantinos Spartalis)
+o network time: remove stale symlink when PPS is disabled
+o openvpn: removed the stale TheGreenBow client export
+o openvpn: add options for legacy ciphers (contributed by Bjoern Jakobsen)
+o openvpn: debounce learn-address calls to limit the number of alias updates to a minimum
+o openvpn: add validation for selecting username as CN without setting any authentication
+o radvd: migrated to MVC/API
+o radvd: remove faulty empty address exception
+o radvd: remove configuration file if disabled
+o radvd: implement RemoveAdvOnExit override
+o radvd: add Base6Interface constructor
+o radvd: support nat64prefix
+o radvd: change tabs to spaces in radvd.conf for better maintenance
+o radvd: use safe config array iteration over virtual IPs
+o radvd: when adding a manual instance for an automatic "track6" interface do not ignore its settings
+o unbound: safeguard the blocklist tester against empty configuration testing
+o unbound: persist overrides PTR configuration and allow the user to deselect it
+o unbound: split logic in update_blocklist() and simplify getPoliciesAction()
+o unbound: move policy fetch to the controller and clean up accordingly
+o unbound: only emit warning when "addptr" was requested
+o unbound: use expand formatter for blocklist URLs and DNSBL types
+o unbound: include blocklist length in state change logic
+o unbound: add harden below NXDOMAIN option (contributed by Konstantinos Spartalis)
+o unbound: consolidate override aliases into tree view
+o unbound: deprecate Blocklist.site blocklists (contributed by Drumba08)
+o unbound: clean up blocklists update marker and size file handling
+o unbound: add per-policy quick actions in reporting overview
+o unbound: improve CNAME handling of whitelisted domains
+o unbound: safe command execution changes
+o unbound: merge extended blocklists into community version
+o unbound: prevent caching of blocklist entries on overlapping subnet policies
+o unbound: notify user if a blocklist reset is required
+o unbound: reconfigure if marker file present
+o backend: safe execution changes in the whole code base
+o backend: removed short-lived mwexecf_bg() function
+o backend: allow non-intrusive config_read_array() and fix a gateway group delete issue with it
+o backend: removed mwexec() and mwexec_bg() functions following their deprecation
+o backend: add config_push_array() and config_merge_array() helpers
+o backend: remove constant configd cleanups as they may influence requests from other threads executing different commands
+o backend: remove unused examples throwing errors now
+o backend: fix configd using a new temporary file for cached items
+o backend: more fixes for re-bound SyntaxWarning throws in Python 3.13
+o backend: use config_read_array() non-insert mode mode iteration of virtual IPs
+o lang: various translation updates
+o lang: various language updates
+o mvc: add ChangeCase support to ProtocolField for DNAT special case
+o mvc: improve importCsv() to support either comma or semicolon
+o mvc: removed long obsolete sessionClose() from ControllerRoot
+o mvc: BaseModel: isEmptyAndRequired() has been removed
+o mvc: removed unusued RegexField
+o mvc: add $separator as parameter for CSV export and switch the default to a semicolon
+o mvc: InterfaceField: minor adjustments and add resetStaticOptionList()
+o mvc: catch empty data in CSV import
+o mvc: restructure menu items and system using findNodeByPath()/getItem() additions
+o mvc: BaseListField: generic implementation of static options
+o mvc: PortField: make "well-known" port numbers known by allowing them to be mapped to their respective numbers
+o mvc: collect UUID field so it can be searched, but only if the searchPhrase contains a valid UUID
+o mvc: move CertificateField, InterfaceField and ProtocolField to newer static option API
+o mvc: BaseListField: merge remaining use of shared implementation of static options
+o mvc: File: add file_update_contents() helper
+o mvc: Shell: rewrite exec_safe() to avoid vsprintf() complications
+o mvc: BaseListField: replace empty() check with isSet() for proper selection of value "0"
+o mvc: HostnameField: show string that failed validation by default
+o mvc: BaseField: add setValues() for generic use
+o mvc: add SetConstraint for problematic "0" value constraining
+o mvc: ApiMutableModelControllerBase: remove unused error returning in setActionHook()
+o rc: replace camcontrol with diskinfo for TRIM check (contributed by Maurice Walker)
+o rc: speed up maintenance file deletes
+o shell: opnsense-log now supports "backend" and "php" aliases
+o shell: improve config restore UX using diff and additional meta data display
+o tests: Shell: add testing framework
+o tests: merge stable filter tests to double check upcoming changes
+o ui: allow HTML tags in menu items and title
+o ui: improve user readability in SimpleFileUploadDlg()
+o ui: batch bootgrid enable/disable-selected toggle by default
+o ui: swap order of custom bootgrid commands placement making sure they participate in command binding
+o ui: remove two unused static PHP array definitions
+o ui: Bootgrid: split row selection behavior into rowSelection boolean
+o ui: Bootgrid: force a lightweight redraw when columns are programmatically changed
+o ui: Bootgrid: fix curRowCount type conversion issue when stored in localStorage
+o ui: bootgrid: require selection to be enabled for delete-selected
+o ui: bootgrid: introduce 'expand' formatter to cap lists of data
+o ui: set visibility hidden for base_bootgrid_table
+o ui: upgrade Tabulator to version 6.4.0
+o ui: automatic grid height calculation
+o ui: bootgrid: maintain scrolling position for both datatree and command actions
+o plugins: os-acme-client 4.15[2]
+o plugins: os-caddy 2.1.0[3]
+o plugins: os-ddclient 1.29[4]
+o plugins: os-freeradius 1.10[5]
+o plugins: os-frr 1.51[6]
+o plugins: os-haproxy 5.1[7]
+o plugins: os-isc-dhcp 1.0[8]
+o plugins: os-netbird 1.2
+o plugins: os-nextcloud-backup 1.2[9]
+o plugins: os-nginx 1.36[10]
+o plugins: os-postfix 1.24.1[11]
+o plugins: os-q-feeds-connector 1.5[12]
+o plugins: os-tailscale 1.4[13]
+o plugins: os-tayga 1.5[14]
+o plugins: os-theme-cicada 1.41 (contributed by Team Rebellion)
+o plugins: os-theme-flexcolor 1.1 (contributed by Schnuffel2008)
+o plugins: os-theme-tukan 1.31 (contributed by Team Rebellion)
+o plugins: os-theme-vicuna 1.51 (contributed by Team Rebellion)
+o plugins: os-turnserver 1.2[15]
+o plugins: os-upnp 1.9[16]
+o plugins: os-wazuh-agent 1.3[17]
+o src: assorted patches from stable/14 for LinuxKPI, QAT, and network stack
+o src: if_ovpn: use epoch to free peers
+o src: carp6: revise the generation of ND6 NA
+o src: igmp: do not upgrade IGMP version beyond net.inet.igmp.default_version
+o src: igmp: apply net.inet.igmp.default_version to existing interfaces
+o src: ice: handle allmulti flag in ice_if_promisc_set function
+o src: icmp6: clear csum_flags on mbuf reuse
+o src: divert: Use a better source identifier for netisr_queue_src() calls
+o src: if_ovpn: add interface counters
+o src: e1000: fix setting the promiscuous mode
+o src: pfctl: allow new page character (^L) in pf.conf
+o src: sctp: support bridge interfaces
+o src: ifconfig: assorted stable fixes
+o src: ip_mroute: assorted stable fixes
+o src: vtnet: assorted stable fixes
+o src: pf: silently ignores certain rules[18]
+o src: vnet: ensure the space allocated by vnet_data_alloc() is sufficent aligned
+o src: ifnet: Fix decreasing the vnet interface count
+o src: e1000: Increase FC pause/refresh time on PCH2 and newer
+o src: net80211: fix VHT160/80P80/80 chanwidth selection in the "40-" case
+o ports: curl 8.19.0[19]
+o ports: dhcp6c v20260122
+o ports: expat 2.7.4[20]
+o ports: hostwatch 1.0.13
+o ports: ldns 1.9.0[21]
+o ports: libucl 0.9.4
+o ports: libxml 2.15.2[22]
+o ports: nss 3.121[23]
+o ports: openldap 2.6.13[24]
+o ports: openssl 3.0.20[25]
+o ports: openvpn 2.6.19[26]
+o ports: perl 5.42.2[27]
+o ports: phpseclib 3.0.50[28]
+o ports: py-duckdb 1.5.0[29]
+o ports: python 3.13.13[30]
+o ports: strongswan 6.0.4[31]
+o ports: suricata 8.0.4[32]
+o ports: syslog-ng 4.11.0[33]
+
+Migration notes, known issues and limitations:
+
+o ISC-DHCP moves to a plugin. It will be automatically installed during upgrades. It is not installed on new installations because it is not being used, but you can still install a
+nd keep using it.
+o To accommodate the change away from ISC-DCHP defaults the "Track interface" IP
+v6 mode now has a sibling called "Identity Association" which does the same except it is not automatically starting ISC-DHCPv6 and Radvd router advertisements to allow better interoperability with Kea and Dnsmasq setups.
+o Dnsmasq is now the default for DHCPv4 and DHCPv6 as well as RA out of the box.  One thing that the upstream software cannot cover is prefix delegation so that is no longer offered by default.  Use another DHCPv6 server in this case.
+o Due to command line execution safety concerns the historic functions mwexec_bg() and mwexec() will be removed in 26.1.x.  Make sure your custom code is not using them and use mwexecf(), mwexecfb() and mwexecfm() instead.
+o The function sessionClose() has also been removed from the MVC code and is no longer needed.  Make sure to remove it from your custom code.
+o The custom.yaml support has been removed from intrusion detection.  Please migrate to the newer /usr/local/etc/suricata/conf.d override directory.
+o The new host discovery service "hostwatch" is enabled by default.  You can always turn it off under Interfaces: Neighbors: Automatic Discovery if you so choose.
+o The firewall migration page is not something you need to jump into right away.  Please make yourself familiar with the new rules GUI first and check the documentation for incompatibilities.  Single interface from the floating interface will not be considered "floating" in priorities.
+o Firewall: NAT: Port Forwarding is now called "Destination NAT".  Firewall rule associations are no longer supported, but the old associated firewall rules remain in place with their last known configuration and can now be edited to suit future needs.
+o Firewall: NAT: Source NAT is from the set of pages formerly known as automation, but Outbound NAT is still the main page for these types of rules.
+
+The public key for the 26.4 series is:
+
+# -----BEGIN PUBLIC KEY-----
+# MIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEArTnFQp0jjj5bkLNx9G1j
+# q26WmN/EtAaJUt+2MY8W8h7L3kokRMlTgEvCYJOkUjbJYbjuG0Cut3JExNYa1vdD
+# 1SLIlJShyI8OsjbAS/flZdJB9c0Vxz2CwpoX9Efmp5TaB3GWqhHS0OVLx4MSI3HJ
+# qP/aQLjZMuCQHX8beUQB77YWcT6sPC5UMYeNEW1uHR7Oki/TpOXWnzNStEQXRL6/
+# MiuYJovedlNXeNUeebJyG0TyLJ/3uGMYhHKYK+OJkB03P3iLGGVE/WWNugsqX6bY
+# tTU9PquHo5zDApndp8iG49Fs/DC0r7V1P85ETPtW2SuZQ7YeDuz3VKvuMxAqyQoC
+# 1FLOsIuEfudDmRuMuTsRgB6jaGACEWUTuRyiFG4+kVDi1/qOWpYatP8C8B7Lx9UU
+# CTZhCl+Se4woWGtp5KOtYe+pvJ4oz40SL4drUQFEP3ZOsK/HzyLjPFRgxfANNUPG
+# ONayKHJXVVFPg2ATk9jeNPsLmXlcDmi/rihyN4RM2w0/bi8BWSc+dMGZ5ZhNJdsF
+# wHBIscgpiAhs+HS8Usxy3idv/JkY0h9tZ2QnljhUUwhYV+DT9yZf5ABU0B68VjJ4
+# /GloUc3bS7HBeSTAauYMOQvgkY1vcySGWTXvsGOw/Crpk4DYx5KpGNYHmENRey2c
+# AQdi+Fvi3fFkV1BoxGo78NcCAwEAAQ==
+# -----END PUBLIC KEY-----
+
+Stay safe,
+Your OPNsense team
+
+--
+# SHA256 (OPNsense-business-26.4-dvd-amd64.iso.bz2) = 201fa8fb384fda534853f2a0fbc82aecbb8753e37a77426f55a1478029b02a2e
+# SHA256 (OPNsense-business-26.4-nano-amd64.img.bz2) = e133243e85aa630d00d29ea78b8f6fe3b87de06bd7e62f88c3c8fed1b51edb9e
+# SHA256 (OPNsense-business-26.4-serial-amd64.img.bz2) = 44dfd3a696bd04961145e40478128b75d911f0e8d6a9ea2a6d20a3b6205c7bc5
+# SHA256 (OPNsense-business-26.4-vga-amd64.img.bz2) = 52c4d12b87c5464f9bfff9124a6c3a1c1dd52bb9a6a16d8e5b5cdeee4f108c78
+
+[1] DOCS:manual/install
+[2] PLUGINS:26.1/security/acme-client
+[3] PLUGINS:26.1/www/caddy
+[4] PLUGINS:26.1/dns/ddclient
+[5] PLUGINS:26.1/net/freeradius
+[6] PLUGINS:26.1/net/frr
+[7] PLUGINS:26.1/net/haproxy
+[8] PLUGINS:26.1/net/isc-dhcp
+[9] PLUGINS:26.1/sysutils/nextcloud-backup
+[10] PLUGINS:26.1/www/nginx
+[11] PLUGINS:26.1/mail/postfix
+[12] PLUGINS:26.1/security/q-feeds-connector
+[13] PLUGINS:26.1/security/tailscale
+[14] PLUGINS:26.1/net/tayga
+[15] PLUGINS:26.1/net/turnserver
+[16] PLUGINS:26.1/net/upnp
+[17] PLUGINS:26.1/security/wazuh-agent
+[18] FREEBSD-SA:26:09.pf
+[19] CURL:8.19.0
+[20] EXPAT:2.7.4
+[21] LDNS:1.9.0
+[22] LIBXML:2.15.2
+[23] NSS:3.121
+[24] OPENLDAP:2.6.13
+[25] OPENSSL:3.0.20
+[26] OPENVPN26:2.6.19
+[27] PERL:5.42.2
+[28] PHPSECLIB:3.0.50
+[29] DUCKDB:1.5.0
+[30] PYTHON:3.13.13
+[31] STRONGSWAN:6.0.4
+[32] https://suricata.io/2026/03/17/suricata-8-0-4-and-7-0-15-released/
+[33] SYSLOG-NG:4.11.0
