@@ -83,6 +83,7 @@ o firewall: treat "skip" protocol as a string to avoid syntax error
 o firewall: improve alias parsing performance in diagnostics page
 o firewall: support IPinfo format for GeoIP[2]
 o firewall: adapt default table size calculation
+o firewall: fix flags not showing on GeoIP selection
 o captive portal: migrate backend from IPFW to PF
 o captive portal: fix regression when NAT reflection is enabled
 o captive portal: fix command line argument parsing in backend
@@ -95,8 +96,6 @@ o captive portal: restore the logging of drop reasons
 o captive portal: fix last_accessed being cached from previous entries if N/A
 o captive portal: mark alias as type external for use in rules
 o captive portal: align accounting session timeout with API
-o captive portal: balance fastcgi servers a bit better
-o captive portal: do not share a fastcgi socket with web GUIo firewall: fix flags not showing on GeoIP selection
 o captive portal: make room for additional authentication profiles
 o captive portal: API dispatcher is now privilege separated via "wwwonly" user and group
 o captive portal: preparations for SSO identification support
