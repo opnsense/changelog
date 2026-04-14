@@ -48,7 +48,7 @@ get_tags_from_file()
 	done
 
         # retain order for follow up tags
-	for DEFAULT in backend mvc ui plugins src ports; do
+	for DEFAULT in backend mvc rc shell tests ui plugins src ports; do
 		echo ${DEFAULT}
 	done
 }
