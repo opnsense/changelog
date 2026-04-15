@@ -30,13 +30,13 @@ o firewall: generate ipfw comments for debugging (contributed by Robin Schneider
 o firewall: move color settings from schedules to theme (contributed by Fabian Franz)
 o intrusion detection: correct typo in CSS
 o openvpn: raise default DH parameter to 2048 bit
-o console: pass output of stop scripts to user during halt/reboot
-o console: clarify that installer is for installing when SSH is off also
 o rc: change NetFlow backup to only stop/start when needed
 o rc: backup and restore via XML files again
 o rc: slightly refactor halt/reboot/shutdown
 o rc: break out config stop script
 o rc: simplify configctl plumbing
+o shell: pass output of stop scripts to user during halt/reboot
+o shell: clarify that installer is for installing when SSH is off also
 o ui: add country flags for upcoming changes in GeoIP handling
 o ui: trigger onChange event to support custom hooks in form post
 o ui: change multi-select default from tokenizer to selectpicker

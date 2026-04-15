@@ -13,11 +13,11 @@ o system: avoid default route from disappearing when no manual gateways are set
 o firewall: fix outbound NAT for OpenVPN interfaces
 o interfaces: multiple overview page improvements (contributed by NOYB)
 o firmware: revoke 17.7 update fingerprint
-o console: check for root invoke in importer, installer and console menu
 o intrusion detection: always show schedule tab
 o intrusion detection: log first drop of a flow
 o intrusion detection: add a log file viewer
 o unbound: add num-queries-per-thread option values for 4096 and 8192
+o shell: check for root invoke in importer, installer and console menu
 o ui: remove chrome=1 from X-UA-Compatible meta element (contributed by NOYB)
 o ui: HTML compliance for attribute "type" on script element (contributed by NOYB)
 o ui: HTML compliance for "navigation" "role" on nav element (contributed by NOYB)
@@ -34,8 +34,8 @@ o ports: php 7.1.14
 
 A hotfix release was issued as 18.1.2_2:
 
-o console: do not yet check for root in console menu as it clashes with rc.d
 o mvc: fix a typo in the new CRUD getBase() call, currently unused
+o shell: do not yet check for root in console menu as it clashes with rc.d
 
 Stay safe,
 Your OPNsense team

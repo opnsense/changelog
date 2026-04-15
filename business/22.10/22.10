@@ -195,7 +195,6 @@ o unbound: reduce blocklist read timeout (contributed by kulikov-a)
 o unbound: support setting type value for DNS over TLS/Query Forwarding API (contributed by kulikov-a)
 o unbound: convert advanced settings to MVC/API
 o web proxy: update pattern to zst for the Arch packages (contributed by gacekjk)
-o console: store UUID for VLAN device
 o lang: bring back Italian and update all languages to latest available translations
 o lang: fix reported issues with Italian and French translations
 o lang: fix syntax errors in French translation (contributed by kulikov-a)
@@ -207,6 +206,7 @@ o mvc: remove stray error_reporting(E_ALL) calls
 o mvc: remove "clear all", "copy" and "paste" options when only a single entry is allowed
 o mvc: fix typo in searchRecordsetBase()
 o mvc: prevent UserExceptions to end up in the crash reporter
+o shell: store UUID for VLAN device
 o ui: removed Internet Explorer support
 o ui: boostrap-select ignored header height
 o ui: merge option objects instead of replacing them in bootgrid (contributed by agh1467)

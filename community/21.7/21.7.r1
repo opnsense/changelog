@@ -63,8 +63,8 @@ o network time: added NTPD client mode
 o openvpn: offer the ability to export a user without a certificate
 o openvpn: increase consistency between export types
 o unbound: fix domain overrides for private address reverse lookup zones (contributed by Maurice Walker)
-o console: throw error when opnsense-importer encounters an encrypted config.xml
 o mvc: reduce differentials in config.xml when saving models
+o shell: throw error when opnsense-importer encounters an encrypted config.xml
 o ui: work on unification of add buttons by minifying them and adding primary color markup
 o ui: prevent translation line breaks from breaking JS
 o ui: switch firewall category icon for clarity

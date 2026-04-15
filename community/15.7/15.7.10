@@ -27,7 +27,7 @@ o menu: moved the crash reporter to system category for visibility
 o menu: added hot-plugging support for upcoming plugins
 o acl: added hot-plugging support for upcoming plugins
 o ipsec: fix faulty behaviour on configuration changes
-o console: switched halt and reboot numbering
+o shell: switched halt and reboot numbering
 o languages: bring German to 51% completed
 o graphs: remove obsolete CPU graph pages
 

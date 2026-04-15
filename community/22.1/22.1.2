@@ -43,6 +43,7 @@ o interfaces: align IPv4 address statistics read with IPv6
 o interfaces: simplify device destroy code
 o interfaces: no longer use legacy_get_interface_addresses() in MAC address read
 o interfaces: remove unused opportunistic interface address functions
+o dhcp: avoid use of find_interface_network() et al
 o firewall: exclude localhost stateless traffic from default logging (contributed by kulikov-a)
 o firewall: using port type aliases the "enable" flag was ignored when not enabled
 o firewall: add support for syncookies
@@ -53,14 +54,13 @@ o firmware: check repository and plugin state in health audit
 o ipsec: pass protocol when resolving via ipsec_resolve() (contributed by FloMeyer)
 o ipsec: fix mobile property passing when creating a new phase 2 entry
 o ipsec: rename "My Certificate Authority" to "Remote Certificate Authority" to avoid ambiguity
+o ipsec: avoid use of find_interface_network() et al
 o openvpn: avoid use of find_interface_network() et al
 o openvpn: stop removing name server-related files never written
 o openvpn: improve gateway detection in topology mode
-o ipsec: avoid use of find_interface_network() et al
-o dhcp: avoid use of find_interface_network() et al
-o console: move console mute calls into port setting function
-o ui: sidebar 2nd submenu view fix (contributed by Team Rebellion)
 o mvc: refactor and extend HostnameField to add options to validate partial hostnames and root zones
+o shell: move console mute calls into port setting function
+o ui: sidebar 2nd submenu view fix (contributed by Team Rebellion)
 o plugins: os-bind 1.22[1]
 o plugins: os-ddclient 1.2[2]
 o plugins: os-freeradius 1.9.19[3]
