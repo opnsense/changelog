@@ -99,7 +99,6 @@ o unbound: remove deprecated custom options setting
 o unbound: renamed "blacklist" to "blocklist" for clarity
 o unbound: support insecure-domain directive
 o unbound: switch model to integrate full DNS over TLS support
-o console: throw error when opnsense-importer encounters an encrypted config.xml
 o mvc: allow to unset attribute via setAttributeValue()
 o mvc: reduce differentials in config.xml when saving models
 o rc: opnsense-beep melody database directory
