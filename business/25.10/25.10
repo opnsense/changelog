@@ -16,7 +16,7 @@ https://downloads.opnsense.com/
 This business release is based on the OPNsense 25.7.5 community version
 with additional reliability improvements.
 
-Here are the full patch notes against version 25.4.3:
+Here are the full patch notes:
 
 o system: the setup wizard was rewritten using MVC/API
 o system: change default DHCP use from ISC to Dnsmasq for factory reset and console port and address assignments
