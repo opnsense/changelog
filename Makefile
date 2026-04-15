@@ -1,4 +1,4 @@
-# Copyright (c) 2015-2025 Franco Fichtner <franco@opnsense.org>
+# Copyright (c) 2015-2026 Franco Fichtner <franco@opnsense.org>
 #
 # Redistribution and use in source and binary forms, with or without
 # modification, are permitted provided that the following conditions
@@ -33,6 +33,21 @@ CDOCS=		${DOCS:M${DOCSDIR}/*}
 MODE?=		text
 WEBIFY=		${.CURDIR}/Scripts/webify.pl
 WORKDIR=	${.CURDIR}/work
+ARGS=		vim
+VIM!=		which vim || which vi || echo false
+
+.for TARGET in ${.TARGETS}
+_TARGET=	${TARGET:C/\-.*//}
+.if ${_TARGET} != ${TARGET}
+.for ARGUMENT in ${ARGS}
+.if ${_TARGET} == ${ARGUMENT}
+${_TARGET}_ARGS+=	${TARGET:C/^[^\-]*(\-|\$)//:S/,/ /g}
+${TARGET}: ${_TARGET}
+.endif
+.endfor
+${_TARGET}_ARG=		${${_TARGET}_ARGS:[0]}
+.endif
+.endfor
 
 all:
 	@cat ${.CURDIR}/README.md | ${PAGER}
@@ -92,5 +107,25 @@ links:
 
 clean:
 	@rm -f changelog.txz ${WORKDIR}/*
+
+vim:
+	@FOUND="$$(find ${.CURDIR} -type f -not -path '*/.*' -iname "*$$(basename '${vim_ARG}')*")"; \
+        if [ -n "$${FOUND}" -a "$$(dirname '${vim_ARG}')" != "." ]; then \
+		FOUND="$$(echo "$${FOUND}" | grep -iF "$$(dirname '${vim_ARG}')")"; \
+	fi; \
+	if [ -n "$${FOUND}" ]; then \
+		MATCH="$$(echo "$${FOUND}" | grep -i "/$$(basename '${vim_ARG}')$$")"; \
+		if [ -n "$${MATCH}" ]; then \
+			FOUND="$${MATCH}"; \
+		fi; \
+		if [ "$$(echo "$${FOUND}" | wc -l | awk '{ print $$1 }')" = "1" ]; then \
+			${VIM} "$${FOUND}"; \
+		else \
+			echo "Found multiple files to open:"; \
+			echo "$${FOUND}"; \
+		fi; \
+	else \
+		echo "Could not find file to open: ${vim_ARG}"; \
+	fi
 
 .PHONY: all clean links lint set
