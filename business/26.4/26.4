@@ -338,7 +338,7 @@ nd keep using it.
 o To accommodate the change away from ISC-DCHP defaults the "Track interface" IP
 v6 mode now has a sibling called "Identity Association" which does the same except it is not automatically starting ISC-DHCPv6 and Radvd router advertisements to allow better interoperability with Kea and Dnsmasq setups.
 o Dnsmasq is now the default for DHCPv4 and DHCPv6 as well as RA out of the box.  One thing that the upstream software cannot cover is prefix delegation so that is no longer offered by default.  Use another DHCPv6 server in this case.
-o Due to command line execution safety concerns the historic functions mwexec_bg() and mwexec() will be removed in 26.1.x.  Make sure your custom code is not using them and use mwexecf(), mwexecfb() and mwexecfm() instead.
+o Due to command line execution safety concerns the historic functions mwexec_bg() and mwexec() were removed.  Make sure your custom code is not using them and use mwexecf(), mwexecfb() and mwexecfm() instead.
 o The function sessionClose() has also been removed from the MVC code and is no longer needed.  Make sure to remove it from your custom code.
 o The custom.yaml support has been removed from intrusion detection.  Please migrate to the newer /usr/local/etc/suricata/conf.d override directory.
 o The new host discovery service "hostwatch" is enabled by default.  You can always turn it off under Interfaces: Neighbors: Automatic Discovery if you so choose.
