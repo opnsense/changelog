@@ -331,6 +331,42 @@ o ports: strongswan 6.0.4[31]
 o ports: suricata 8.0.4[32]
 o ports: syslog-ng 4.11.0[33]
 
+A hotfix release was issued as 26.4_6:
+
+o system: protect popen() with exec_safe()[34]
+o system: lockout bypass fix[35] (contributed by Konstantinos Spartalis)
+o system: allow gateway load balance weights from 1 to 10 for more flexibility (contributed by Matthew Hall)
+o system: add "nosync" option to gateway configuration
+o firewall: fix typo in alias update error log and make parser a bit more resilient
+o firmware: opnsense-update: handle FreeBSD.conf disable internally
+o plugins: os-acme-client 4.16[36]
+o src: vm_fault: reset m_needs_zeroing properly[37]
+o src: timerfd: Fix interval callout scheduling[38]
+o src: tty: avoid leaving dangling pointers in tty_drop_ctty()[39]
+o src: pkru: fix handling of 1GB largepage mappings[40]
+o src: contrib/tzdata: import tzdata 2025c, 2026a and 2026b[41]
+o src: amd64: fix INVLPGB range invalidation[42]
+o src: pf: improve SCTP validation[43]
+o src: execve: fix an operator precedence bug[44]
+o src: dhclient: check for unexpected characters in some DHCP server options[45]
+o src: dhclient: fix reallocation of dhclient script environments[46]
+o src: libnv: switch fd_wait() from select(2) to poll(2)[47]
+o src: libnv: fix heap overflow in nvlist_recv()[48]
+o src: libpcap: update to 1.10.6
+o src: ipfw_nptv6: fix handling the ifaddr removal event
+o src: if_tuntap: make SIOCIFDESTROY interruptible
+o src: pfctl: parser must not ignore error from pfctl_optimize_ruleset()
+o src: pf: fix duplicate rule detection for automatic tables
+o src: openssl: update from 3.0.16 to 3.0.20
+o src: routing: fix use-after-free in finalize_nhop
+o src: ixgbe: fix MRQC register value
+o src: in_mcast: Fix a lock leak in inp_set_source_filters()
+o src: linuxkpi: fix an off-by-one error in the kfifo implementation
+o src: sctp: fix so_proto when peeling off a socket
+o ports: expat 2.8.0[49]
+o ports: openvpn 2.6.20[50]
+o ports: strongswan 6.0.6[51]
+
 Migration notes, known issues and limitations:
 
 o ISC-DHCP moves to a plugin. It will be automatically installed during upgrades. It is not installed on new installations because it is not being used, but you can still install and keep using it.
@@ -404,3 +440,21 @@ Your OPNsense team
 [31] STRONGSWAN:6.0.4
 [32] https://suricata.io/2026/03/17/suricata-8-0-4-and-7-0-15-released/
 [33] SYSLOG-NG:4.11.0
+[34] GHSA:GHSA-xxp9-93cr-x54p
+[35] GHSA:GHSA-h3vx-4q27-rc42
+[36] PLUGINS:26.1/security/acme-client
+[37] FREEBSD-EN:26:05.vm
+[38] FREEBSD-EN:26:06.timerfd
+[39] FREEBSD-SA:26:10.tty
+[40] FREEBSD-SA:26:11.amd64
+[41] FREEBSD-EN:26:09.tzdata
+[42] FREEBSD-EN:26:10.amd64
+[43] FREEBSD-SA:26:14.pf
+[44] FREEBSD-SA:26:13.exec
+[45] FREEBSD-SA:26:12.dhclient
+[46] FREEBSD-SA:26:15.dhclient
+[47] FREEBSD-SA:26:16.libnv
+[48] FREEBSD-SA:26:17.libnv
+[49] EXPAT:2.8.0
+[50] OPENVPN26:2.6.20
+[51] STRONGSWAN:6.0.6
