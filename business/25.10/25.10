@@ -360,7 +360,7 @@ Your OPNsense team
 [23] CURL:8.16.0
 [24] DNSPYTHON:2.8.0
 [25] EXPAT:2.7.3
-[26] https://downloads.isc.org/isc/kea/3.0.1/Kea-3.0.1-ReleaseNotes.txt
+[26] KEA:3.0.1
 [27] KRB5:1.22
 [28] https://www.lighttpd.net/2025/9/12/1.4.82/
 [29] NSS:3.117
