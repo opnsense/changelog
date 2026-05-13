@@ -367,6 +367,19 @@ o ports: expat 2.8.0[49]
 o ports: openvpn 2.6.20[50]
 o ports: strongswan 6.0.6[51]
 
+A hotfix release was issued as 26.4_14:
+
+o system: properly escape username in sync_user.php command invoke[52] (contributed by Konstantinos Spartalis)
+o system: fix XMLRPC sync with VIP and "nosync" option
+o interfaces: safeguard DHCPv4 settings against arbitrary command injection[53] (reported by Kchigo)
+o captive portal: re-introduce hash lookup for accounting purposes
+o captive portal: reload IPFW on captive portal reconfigure too
+o dnsmasq: ignore DHCP names for "wpad" to fix CERT Vulnerability VU#598349
+o network time: fix ACL definitions (contributed by Konstantinos Spartalis)
+o openvpn: reload configuration for group sync after successful authentication
+o ports: dnsmasq 2.92rel2[54]
+o ports: expat 2.8.1[55]
+
 Migration notes, known issues and limitations:
 
 o ISC-DHCP moves to a plugin. It will be automatically installed during upgrades. It is not installed on new installations because it is not being used, but you can still install and keep using it.
@@ -458,3 +471,7 @@ Your OPNsense team
 [49] EXPAT:2.8.0
 [50] OPENVPN:2.6.20
 [51] STRONGSWAN:6.0.6
+[52] CVE:CVE-2026-44194
+[53] CVE:CVE-2026-45158
+[54] DNSMASQ:2.92rel2
+[55] EXPAT:2.8.1
