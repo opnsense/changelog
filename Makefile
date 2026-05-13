@@ -52,7 +52,9 @@ ${_TARGET}_ARG=		${${_TARGET}_ARGS:[0]}
 all:
 	@cat ${.CURDIR}/README.md | ${PAGER}
 
-lint:
+lint: lint-style lint-links lint-duplicates
+
+lint-style:
 . for _DOCSDIR in ${DOCSDIRS}
 	@grep -nr '^@.* [1-9],' ${.CURDIR}/${_DOCSDIR} || true
 	@grep -nr '[ 	]$$' ${.CURDIR}/${_DOCSDIR} || true
@@ -66,6 +68,18 @@ lint:
 	@head -n1 ${.CURDIR}/${DOC} | grep -v '^@' || true
 	@${WEBIFY} ${.CURDIR}/${DOC} text > /dev/null
 . endfor
+
+lint-links:
+	@: > ${WORKDIR}/links; \
+	for LINK in $$(cat Links/* | sed 's:%s.*::g'); do \
+            for DOCSDIR in ${DOCSDIRS}; do \
+	        grep -nr "$$LINK" $${DOCSDIR}/${DOCGLOB} >> ${WORKDIR}/links; \
+            done; \
+	done; \
+	sort -u ${WORKDIR}/links; \
+	rm ${WORKDIR}/links
+
+lint-duplicates:
 	@for DIR in $$(find -s ${DOCSDIRS} -type d -name "${DOCGLOB}" -depth 1); do \
 		echo ">>> Scanning $${DIR} for duplicates..."; \
 		FILES=$$(find $${DIR} -type f | grep -iv '\.[a-z]'); \
@@ -96,14 +110,6 @@ changelog.txz:
 	@tar -C ${WORKDIR} --exclude="^.gitignore" -cJf changelog.txz .
 
 set: changelog.txz
-
-links:
-	@: > ${WORKDIR}/links; \
-	for LINK in $$(cat Links/* | sed 's:%s.*::g'); do \
-	    grep -nr "$$LINK" ${DOCSDIRS} >> ${WORKDIR}/links; \
-	done; \
-	sort -u ${WORKDIR}/links; \
-	rm ${WORKDIR}/links
 
 clean:
 	@rm -f changelog.txz ${WORKDIR}/*
