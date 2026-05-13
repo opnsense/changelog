@@ -365,7 +365,7 @@ Your OPNsense team
 [28] https://www.lighttpd.net/2025/9/12/1.4.82/
 [29] NSS:3.117
 [30] OPENSSL:3.0.18
-[31] OPENVPN26:2.6.15
+[31] OPENVPN:2.6.15
 [32] PCRE2:10.46
 [33] PERL:5.42.0
 [34] PHP8:8.3.26

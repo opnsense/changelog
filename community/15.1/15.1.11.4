@@ -16,8 +16,6 @@ refresh the page and look for new updates.
 
 Here is the full list of changes:
 
-o notable ports updates: pcre 8.37_1[1], phalcon 2.0.2[2], strongswan 5.3.2[3], sqlite 3.8.10.2[4]
-o more notable ports: openvpn 2.3.7[5], openssl 1.0.2b[6], libressl 2.1.7[7], pkg 1.5.4[8]
 o opnsense-update: has gained the ability to do package updates as well
 o core: removed unused ssh_tunnel_shell and 3gstats utilities, added sudo to the default utilities
 o captiveportal/traffic shaper: better fix for localhost skip
@@ -31,6 +29,14 @@ o firmware: fix parsing of packages to be upgraded in fringe cases
 o firmware: fix overzealous caching of available package upgrades
 o users: user with group admins now have `wheel' group associated with them, allowing them to use `su' or `sudo' (if configured)
 o users: do not copy root's hidden files while creating a new user home directory
+o ports: pcre 8.37_1[1]
+o ports: phalcon 2.0.2[2]
+o ports: strongswan 5.3.2[3]
+o ports: sqlite 3.8.10.2[4]
+o ports: openvpn 2.3.7[5]
+o ports: openssl 1.0.2b[6]
+o ports: libressl 2.1.7[7]
+o ports: pkg 1.5.4[8]
 
 
 Stay safe,
@@ -41,7 +47,7 @@ Your OPNsense team
 [2] PHALCON2:2.0.2
 [3] https://wiki.strongswan.org/projects/strongswan/wiki/Changelog53
 [4] SQLITE:3.8.10.2
-[5] https://community.openvpn.net/openvpn/wiki/ChangesInOpenvpn23#OpenVPN2.3.7
+[5] https://github.com/OpenVPN/openvpn/blob/v2.3.7/ChangeLog
 [6] http://marc.info/?l=openbsd-announce&m=143404058913441
 [7] FREEBSD-GH:freebsd-ports/commit/40365ab880101ee
 [8] https://www.openssl.org/news/secadv_20150611.txt

@@ -16,10 +16,18 @@ and Andreas Martin!  And no, we do not make these up as we go.  ;)
 
 Here are the full patch notes:
 
-o ports: suricata 2.0.11[2], dhcp6 20080615_5[3], lighttpd 1.4.39[4]
-o ports: syslogd 10.2, mpd 5.8[5], ca_root_nss 3.21, dnsmasq 2.75_1[6]
-o ports: ntp 4.2.8p5[7], php 5.6.17[8], python 2.7.11_1[9]
-o ports: miniupnpd 1.9.20151212, openvpn 2.3.10[10]
+o ports: suricata 2.0.11[2]
+o ports: dhcp6 20080615_5[3]
+o ports: lighttpd 1.4.39[4]
+o ports: syslogd 10.2
+o ports: mpd 5.8[5]
+o ports: ca_root_nss 3.21
+o ports: dnsmasq 2.75_1[6]
+o ports: ntp 4.2.8p5[7]
+o ports: php 5.6.17[8]
+o ports: python 2.7.11_1[9]
+o ports: miniupnpd 1.9.20151212
+o ports: openvpn 2.3.10[10]
 o opnsense-update: add opnsense-verify and opnsense-sign
 o opnsense-update: improve verification of signatures of kernel and base upgrades
 o menu: bring back dashboard entry due to popular demand
@@ -81,4 +89,4 @@ Your OPNsense team
 [7] http://support.ntp.org/bin/view/Main/SecurityNotice#Recent_Vulnerabilities
 [8] PHP5:5.6.17
 [9] https://bugs.python.org/issue20397
-[10] https://community.openvpn.net/openvpn/wiki/ChangesInOpenvpn23#OpenVPN2.3.10
+[10] OPENVPN:2.3.10

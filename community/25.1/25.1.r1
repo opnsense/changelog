@@ -112,6 +112,6 @@ Your OPNsense team
 [2] PLUGINS:25.1/net/haproxy
 [3] FREEBSD-RN:14.2
 [4] https://www.lighttpd.net/2025/1/10/1.4.77/
-[5] OPENVPN26:2.6.13
+[5] OPENVPN:2.6.13
 [6] PHP8:8.3.15
 [7] RADVD:2.20

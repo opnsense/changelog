@@ -19,7 +19,6 @@ little family.
 
 Here are the full patch notes:
 
-o ports: bind 9.10.3-P2[1], python 2.7.11[2], openvpn 2.3.9[3]
 o traffic shaper: page is now properly translated (contributed by Fabian Franz)
 o system: all remaining pages in this section have been reworked for clarity
 o logs: split up the old VPN multi-log page into their respective parts (L2TP, PPTP, PPPoE)
@@ -31,6 +30,9 @@ o firewall: lock port numbers on protocols that are not TCP/UDP
 o firewall: fix apply button on outbound NAT page in translation mode
 o traffic shaper: add TCP ACK/non-ACK matching options
 o proxy: two fixes for non-local authentication
+o ports: bind 9.10.3-P2[1]
+o ports: python 2.7.11[2]
+o ports: openvpn 2.3.9[3]
 
 
 Happy holidays,
@@ -39,4 +41,4 @@ Your OPNsense team
 --
 [1] https://kb.isc.org/article/AA-01328/0/BIND-9.10.3-P2-Release-Notes.html
 [2] https://hg.python.org/cpython/raw-file/53d30ab403f1/Misc/NEWS
-[3] https://community.openvpn.net/openvpn/wiki/ChangesInOpenvpn23#OpenVPN2.3.9
+[3] OPENVPN:2.3.9
