@@ -67,7 +67,7 @@ Your OPNsense team
 [4] PLUGINS:24.1/www/nginx
 [5] PLUGINS:24.1/net-mgmt/zabbix-agent
 [6] PLUGINS:24.1/net-mgmt/zabbix-proxy
-[7] KRB5:1.21
+[7] KRB5:1.21.3
 [8] NSS:3.101
 [9] OPENSSH:9.8p1
 [10] OPENVPN:2.6.11

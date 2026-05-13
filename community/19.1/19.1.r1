@@ -165,18 +165,18 @@ Stay safe,
 Your OPNsense team
 
 --
-[1] https://docs.opnsense.org/manual/install.html
+[1] DOCS:manual/install
 [2] https://github.com/opnsense/plugins/pull/1134
 [3] https://github.com/opnsense/plugins/blob/master/security/openconnect/pkg-descr
 [4] https://github.com/opnsense/plugins/blob/master/www/nginx/pkg-descr
 [5] https://hardenedbsd.org/content/easy-feature-comparison
 [6] FREEBSD-RN:11.2
-[7] https://web.mit.edu/kerberos/krb5-1.17/
+[7] KRB5:1.17
 [8] PHP7:7.1.26
 [9] SUDOLEGACY:1.8.27
 [10] PERL:5.28.1
-[11] https://github.com/opnsense/core/commit/a2899594
-[12] https://docs.opnsense.org/manual/dynamic_routing.html
+[11] CORE:commit/a2899594
+[12] DOCS:manual/dynamic_routing
 
 # SHA256 (OPNsense-19.1.r1-OpenSSL-dvd-amd64.iso.bz2) = 7c0c6cf529cb2f8aa9c29b3645b4ec1e218c292f722941ae9880b009c93e6364
 # SHA256 (OPNsense-19.1.r1-OpenSSL-nano-amd64.img.bz2) = b355355fc6d10475af2b1c22daa2fd5f5ab78bb375aaf8100a51f087d2447289

@@ -367,7 +367,7 @@ Your OPNsense team
 [32] DNSMASQ:2.87
 [33] EXPAT:2.4.9
 [34] https://downloads.isc.org/isc/dhcp/4.4.3-P1/dhcp-4.4.3-P1-RELNOTES
-[35] https://raw.githubusercontent.com/NLnetLabs/ldns/1.8.3/Changelog
+[35] LDNS:1.8.3
 [36] LIBXML:2.10.2
 [37] https://www.lighttpd.net/2022/9/17/1.4.67/
 [38] NSS:3.83

@@ -67,8 +67,8 @@ Stay safe,
 Your OPNsense team
 
 --
-[1] https://docs.opnsense.org/manual/install.html
-[2] https://github.com/opnsense/core/commit/5cb149d
+[1] DOCS:manual/install
+[2] CORE:commit/5cb149d
 
 # SHA256 (OPNsense-17.7.r1-OpenSSL-dvd-amd64.iso.bz2) = 7455ff527a5e7ed1eac6db650fd4ddbd0a3257d2a270489fd85e273c83786d95
 # SHA256 (OPNsense-17.7.r1-OpenSSL-nano-amd64.img.bz2) = 8c7e23f3dadc22bd03e174cc768c171207d4a0d95f32273d7a4baaf2fa678b57

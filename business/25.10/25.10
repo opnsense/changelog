@@ -361,7 +361,7 @@ Your OPNsense team
 [24] DNSPYTHON:2.8.0
 [25] EXPAT:2.7.3
 [26] KEA:3.0.1
-[27] KRB5:1.22
+[27] KRB5:1.22.1
 [28] https://www.lighttpd.net/2025/9/12/1.4.82/
 [29] NSS:3.117
 [30] OPENSSL:3.0.18

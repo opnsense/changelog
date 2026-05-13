@@ -37,7 +37,7 @@ Your OPNsense team
 
 --
 [1] FREEBSD-EN:15:19.kqueue
-[2] https://github.com/opnsense/src/commit/19ba0fbfd15ea8ff24ce172dee30e1
+[2] SRC:commit/19ba0fbfd15ea8ff24ce172dee30e1
 [3] http://ftp.meisei-u.ac.jp/mirror/squid/squid-3.5-ChangeLog.txt
 [4] https://www.strongswan.org/blog/2015/11/16/strongswan-5.3.4-released.html
 [5] https://github.com/quinot/choparp

@@ -1,1 +1,1 @@
-https://web.mit.edu/kerberos/krb5-%s/
+https://web.mit.edu/kerberos/krb5-%s/ s/^(\d+\.\d+)\..*$/$1/

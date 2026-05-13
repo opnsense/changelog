@@ -70,7 +70,7 @@ Stay safe,
 Your OPNsense team
 
 --
-[1] https://github.com/opnsense/src/commit/e13c0d42ebbd4
+[1] SRC:commit/e13c0d42ebbd4
 [2] FREEBSD-SA:16:20.linux
 [3] FREEBSD-SA:16:21.43bsd
 [4] FREEBSD-SA:16:22.libarchive

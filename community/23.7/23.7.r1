@@ -132,7 +132,7 @@ Your OPNsense team
 [5] PLUGINS:23.7/net/frr
 [6] PLUGINS:23.7/net-mgmt/telegraf
 [7] FREEBSD-RN:13.2
-[8] KRB5:1.21
+[8] KRB5:1.21.1
 [9] NSS:3.91
 [10] PHP8:8.2.8
 [11] SUDO:1.9.14p2

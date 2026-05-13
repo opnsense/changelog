@@ -74,5 +74,5 @@ Your OPNsense team
 [10] PHP8:8.1.20
 [11] PYTHON:3.9.17
 [12] SQUID5:5.9
-[13] https://github.com/opnsense/core/issues/6308
+[13] CORE:issues/6308
 [14] https://suricata.io/2023/06/15/suricata-6-0-13-released/
