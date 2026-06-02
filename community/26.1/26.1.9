@@ -1,0 +1,119 @@
+@ June 02, 2026
+
+Hello again,
+
+As a sign of the times this update ships 3 core security fixes as well
+as OS and third party updates.  Kea dynamic prefix delegation is also
+included plus more GUI improvements.
+
+Time to 26.7 is short.  See you soon!  :)
+
+Here are the full patch notes:
+
+o system remove unused data-tooltip that is not properly escaped from certificates widget[1]
+o system: tighten landing page redirect (contributed by Konstantinos Spartalis)
+o system: fix passing null into getRealInterface()
+o system: fix regression in selective group delete introduced previously
+o system: allow unregistered plugin cron actions to be deleted
+o system: disable MAILTO for cron jobs
+o reporting: render NaN values as empty values and omit leading empty records from data set for health graphs
+o reporting: add max on Y axis for traffic graphs
+o interfaces: dhclient.conf does not cope with multi-line request/require
+o interfaces: account for multiple UUIDs in VIP deletion
+o interfaces: more safe iteration through config_read_array()
+o interfaces: fix wrong DUID-UUID format but keep accepting the wrong one
+o interfaces: fix regression in selective device delete introduced previously
+o interfaces: IAID selection and prefix range reservation for WAN DHCPv6
+o firewall: fix for missing HTML escape in description render in legacy rules GUI[2]
+o firewall: add an alias formatter to show content fields as "dynamic" when populated by other components
+o firewall: fix Tabulator regression with alias batch delete
+o firewall: use safe config iteration in interface registration
+o firewall: fix unintended change in filtering logic for new rules GUI
+o firewall: fix action, ipprotocol and protocol translations for legacy rules in new rules GUI
+o firewall: use safe iteration over rules in filter_core_rules_user()
+o firewall: add missing exclamation mark for "not" in scrub rules
+o firewall: fix interface sorting by value for live log and groups
+o captive portal: remove redirection on HTTPS and ditch non-functional pass statement
+o dnsmasq: change DHCP tag to DescriptionField
+o ipsec: move swanctl.conf download button to the tab
+o ipsec: restyle the connections page for clarity
+o kea: dynamic prefix delegation support[3]
+o kea: always start the prefix watcher when DHCPv6 is enabled
+o kea: cleanups for IntegerField using isSet() and no negative numbers allowed
+o kea: add decline_probation_period and set lower default to mitigate faulty client implementations to consume the whole pool
+o kea: add subnet allocator field (contributed by Marcos Della)
+o kea: add DHCPv4 compatibility options (contributed by Marcos Della)
+o kea: hook up reservation.next_server (contributed by Ian Munsie)
+o kea: fix missing visual cues for manual mode in DDNS and DHCPv4/6
+o monit: sanitize monit output before offering it
+o network time: cleanse port option before use[4] (reported by Konstantinos Spartalis)
+o network time: small cleanups in ntpd_configure_gps()
+o unbound: blocklists categorization and apply button message update (contributed by Konstantinos Spartalis)
+o acl: some missing references and using camelCase pointers instead of snake_case
+o mvc: add support for pluggable dynamic menu items and move some existing parts out of the MenuSystem class
+o mvc: stricter email address validation
+o mvc: OptionsField: use key as value if no value is set
+o mvc: unify migration message returns
+o mvc: do not translate empty strings
+o ui: clean up useRequestHandlerOnGet usage
+o ui: use space in apply box for the apply reminder
+o ui: improve form validation error append
+o ui: tab exclusion for SimpleActionButton
+o ui: split form button row render as some forms only use save
+o ui: override selectpicker defaults for translations
+o ui: hide apply button for specific tabs on multiple pages (contributed by Konstantinos Spartalis)
+o ui: bootgrid: align datakey with the rest of the options, but allow top-level placement
+o ui: bootgrid: mark state variables as such
+o ui: bootgrid: safeguard replace() function
+o ui: bootgrid: remove unused getTotalRowCount() method
+o ui: bootgrid: prevent NaN pagination values for non-ajax grids when row count is set to all
+o ui: bootgrid: clean up converter compatibility code
+o ui: bootgrid: replace "append" with "replace" for ajax: false grids
+o ui: bootgrid: adjust column persistence behavior to prevent horizontal dead space
+o plugins: use safe config iteration in interface registration code
+o plugins: os-tinc fixes evaluation of hosts enabled flag (contributed by Konstantinos Spartalis)
+o src: dhclient: improve server and filename validation[5]
+o src: setcred: fix buffer overflow[6]
+o src: kern: make sure to drain selinfo sleepers[7]
+o src: fusefs: handle buggy server LISTXATTR response[8]
+o src: ptrace: fix validation of PT_SC_REMOTE arguments[9]
+o src: libcasper: switch from select(2) to poll(2)[10]
+o src: cap_net: do not allow new limits to drop keys from the old ones[11]
+o src: ipfw: fix parsing error in nat config port_range
+o src: ipfw: fix checksum after NAT
+o src: igmp: Avoid leaving dangling pointers in the state-change queue
+o src: vxlan: Update *m0 after a pullup
+o src: routing: use a better error number in sysctl_fibs()
+o src: routing: initialize V_rt_numfibs earlier during boot
+o src: pfsync: reject invalid SCTP states
+o src: pf: do not reject rules with colliding hashes
+o src: rtnetlink: check for allocation failure in nlattr_get_multipath()
+o src: rtnetlink: align RTA_MULTIPATH length validation in nlattr_get
+o ports: nss 3.124[12]
+o ports: openvpn 2.7.4[13]
+o ports: php 8.3.31[14]
+o ports: py-numpy 2.4.4
+o ports: suricata 8.0.5[15]
+o ports: unbound 1.25.1[16]
+
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] CVE:CVE-2026-49132
+[2] CVE:CVE-2026-49131
+[3] DOCS:manual/kea
+[4] GHSA:GHSA-872g-g543-j37m
+[5] FREEBSD-EN:26:11.dhclient
+[6] FREEBSD-SA:26:18.setcred
+[7] FREEBSD-SA:26:19.file
+[8] FREEBSD-SA:26:20.fusefs
+[9] FREEBSD-SA:26:21.ptrace
+[10] FREEBSD-SA:26:22.libcasper
+[11] FREEBSD-SA:26:24.cap_net
+[12] NSS:3.124
+[13] OPENVPN:2.7.4
+[14] PHP8:8.3.31
+[15] https://suricata.io/2026/05/19/suricata-8-0-5-and-7-0-16-released/
+[16] UNBOUND:1.25.1
