@@ -380,6 +380,34 @@ o openvpn: reload configuration for group sync after successful authentication
 o ports: dnsmasq 2.92rel2[54]
 o ports: expat 2.8.1[55]
 
+A hotfix release was issued as 26.4_20:
+
+o system remove unused data-tooltip that is not properly escaped from certificates widget[56]
+o interfaces: dhclient.conf does not cope with multi-line request/require
+o firewall: fix for missing HTML escape in description render in legacy rules GUI[57]
+o monit: sanitize monit output before offering it
+o network time: cleanse port option before use[58] (reported by Konstantinos Spartalis)
+o mvc: do not translate empty strings
+o src: dhclient: improve server and filename validation[59]
+o src: setcred: fix buffer overflow[60]
+o src: kern: make sure to drain selinfo sleepers[61]
+o src: fusefs: handle buggy server LISTXATTR response[62]
+o src: ptrace: fix validation of PT_SC_REMOTE arguments[63]
+o src: libcasper: switch from select(2) to poll(2)[64]
+o src: cap_net: do not allow new limits to drop keys from the old ones[65]
+o src: ipfw: fix parsing error in nat config port_range
+o src: ipfw: fix checksum after NAT
+o src: igmp: Avoid leaving dangling pointers in the state-change queue
+o src: vxlan: Update *m0 after a pullup
+o src: routing: use a better error number in sysctl_fibs()
+o src: routing: initialize V_rt_numfibs earlier during boot
+o src: pfsync: reject invalid SCTP states
+o src: pf: do not reject rules with colliding hashes
+o src: rtnetlink: check for allocation failure in nlattr_get_multipath()
+o src: rtnetlink: align RTA_MULTIPATH length validation in nlattr_get
+o ports: suricata 8.0.5[66]
+o ports: unbound 1.25.1[67]
+
 Migration notes, known issues and limitations:
 
 o ISC-DHCP moves to a plugin. It will be automatically installed during upgrades. It is not installed on new installations because it is not being used, but you can still install and keep using it.
@@ -475,3 +503,15 @@ Your OPNsense team
 [53] CVE:CVE-2026-45158
 [54] DNSMASQ:2.92rel2
 [55] EXPAT:2.8.1
+[56] CVE:CVE-2026-49132
+[57] CVE:CVE-2026-49131
+[58] GHSA:GHSA-872g-g543-j37m
+[59] FREEBSD-EN:26:11.dhclient
+[60] FREEBSD-SA:26:18.setcred
+[61] FREEBSD-SA:26:19.file
+[62] FREEBSD-SA:26:20.fusefs
+[63] FREEBSD-SA:26:21.ptrace
+[64] FREEBSD-SA:26:22.libcasper
+[65] FREEBSD-SA:26:24.cap_net
+[66] https://suricata.io/2026/05/19/suricata-8-0-5-and-7-0-16-released/
+[67] UNBOUND:1.25.1
