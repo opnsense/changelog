@@ -92,6 +92,11 @@ o system: hasPrivilege() not merging user privs correctly[31] (reported by iys8)
 o firewall: fix some small issues in menu registration for legacy pages
 o monit: re-allow spaces in start, stop and condition
 
+A hotfix release was issued as 26.1.11_5:
+
+o firmware: support for patch release matching
+o openvpn: add a specific regex constraint for static keys to fix previous safeguarding
+
 
 Stay safe,
 Your OPNsense team
