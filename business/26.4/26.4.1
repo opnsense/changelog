@@ -3,7 +3,7 @@
 This business release is based on the OPNsense 26.1.9 community version
 with additional reliability improvements.
 
-Here are the full patch notes:
+Here are the full patch notes for the initial release:
 
 o system: refactor dashboard to use User model instead of direct config access
 o system: throw UserException when dashboard size limit was reached on save
@@ -218,6 +218,44 @@ o ports: python 3.13.14[37]
 o ports: sqlite3 3.53.1[38]
 o ports: strongswan 6.0.7[39]
 
+Here are the full patch notes for patch release 1:
+
+o system: configuration line injection via multiple GUI text fields[40] (reported by lujiefsi)
+o system: add missing legacy_html_escape_form_data() for $a_cert on administration settings[41] (reported by Jonas Ampferl of Hacking Cult)
+o system: lockout: address newline injection and correct IP parsing[42] (reported by lujiefsi)
+o system: hasPrivilege() not merging user privs correctly[43] (reported by iys8)
+o system: fix ACL pattern for carp_status action (contributed by Etienne Girault)
+o interfaces: prohibit the use of advanced DHCP option settings by non-administrators
+o firewall: safeguard ISO country codes in alias download[44] (reported by Jonas Ampferl of Hacking Cult)
+o firewall: escape user-controlled values in tooltip attributes[45] (reported by Jonas Ampferl of Hacking Cult)
+o firewall: unify group names of OpenVPN, WireGuard and IPsec encapsulation
+o firewall: skip alias on new rules GUI apply
+o captive portal: pass in ip_address as a set for accounting
+o firmware: fix small glitch that re-prompts for showing community plugins
+o network time: fix stored XSS in GPS init string display[46] (reported by Jonas Ampferl of Hacking Cult)
+o openvpn: prevent path traversal in "common_name" attribute[47] (reported by lujiefsi)
+o openvpn: escape client common_name in connection-status views[48] (reported by Jan Kahmen of turningpoint and lujiefsi)
+o mvc: checkAndThrowValueInUse validate input token which may only contain alphanum and dashes[49] (reported by Jonas Ampferl of Hacking Cult)
+o mvc: also do not translate empty labels in grids
+o ui: add generic escaping function htmlSafe() for JavaScript
+o src: vm: use-after-free in device pager page list[50]
+o src: execve: local privilege escalation via execve(2) TOCTOU race[51]
+o src: openzfs: multiple vulnerabilities in OpenZFS[52]
+o src: libalias: bffer overflow in libalias RTSP handler[53]
+o src: unlinkat: unlinkat(2) ignores AT_RESOLVE_BENEATH flag[54]
+o src: tcp: use-after-free in TCP RACK stack option handler[55]
+o src: posixshm: multiple vulnerabilities in POSIX largepage objects[56]
+o src: audit: incorrect audit records for ptrace(2) syscall requests[57]
+o src: ktls: remote DOS via uninitialized memory access in KTLS receive[58]
+o src: linux: kernel stack disclosure in Linux compatibility layer[59]
+o src: iconf: multiple vulnerabilities in iconv(3)[60]
+o ports: expat 2.8.2[61]
+o ports: ldns 1.9.2[62]
+
+
+Stay safe,
+Your OPNsense team
+
 --
 [1] GHSA:GHSA-m4m3-v627-wgc2
 [2] GHSA:GHSA-33q4-wcv7-r8fr
@@ -258,3 +296,26 @@ o ports: strongswan 6.0.7[39]
 [37] PYTHON:3.13.14
 [38] SQLITE:3.53.1
 [39] STRONGSWAN:6.0.7
+[40] CVE:CVE-2026-57154 
+[41] CVE:CVE-2026-58394
+[42] CVE:CVE-2026-57155
+[43] GHSA:GHSA-p9pr-782r-w2xw
+[44] CVE:CVE-2026-58394
+[45] GHSA:GHSA-2v2x-m4j7-76pv
+[46] CVE:CVE-2026-58392
+[47] CVE:CVE-2026-58393
+[48] CVE:CVE-2026-58390
+[49] CVE:CVE-2026-58395
+[50] FREEBSD-SA:26:37.vm
+[51] FREEBSD-SA:26:39.execve
+[52] FREEBSD-SA:26:40.zfs
+[53] FREEBSD-SA:26:41.libalias
+[54] FREEBSD-SA:26:42.unlinkat
+[55] FREEBSD-SA:26:43.tcp
+[56] FREEBSD-SA:26:44.posixshm
+[57] FREEBSD-SA:26:45.audit
+[58] FREEBSD-SA:26:46.ktls
+[59] FREEBSD-SA:26:47.linux
+[60] FREEBSD-SA:26:49.iconv
+[61] EXPAT:2.8.2
+[62] LDNS:1.9.2
