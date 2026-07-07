@@ -1,0 +1,108 @@
+@ July 07, 2026
+
+What is up everyone,
+
+Summer challenges aside: 26.7 is almost here!  It includes FreeBSD 15.1
+and a somewhat small list of other highlights.  The reason for that is
+a stringent backporting strategy that was employed in the 26.1 series.
+
+Keep in mind this is mostly an image-based pre-production test release.
+Upgrades from the 26.1.11 development version will be available later
+this week.  An online-only RC2 will probably follow as well.  The final
+release date for 26.7 is July 15.
+
+https://pkg.opnsense.org/releases/26.7/
+
+Here are the development highlights since version 26.1 came out:
+
+o Interfaces assignments to MVC/API
+o Gateway groups to MVC/API
+o Firewall rules MVC page is now the default
+o Source NAT is now a replacement for outbound NAT
+o Captive portal IPv6 support
+o Kea DDNS, custom options and dynamic prefix delegation support
+o OpenVPN 2.7 with TLS-Crypt v2 support
+o FreeBSD 15.1
+o Python 3.13
+o PHP 8.5
+
+And these are the changes against version 26.1.11:
+
+o system: remove periodic backups settings and backend code
+o system: migrate gateway groups to MVC/API
+o system: new service widget flat tile layout (partially contributed by Konstantinos Spartalis)
+o system: make LDAP auth adhere to bad login penalty as well (contributed by Matt Andreko)
+o system: move ldap_escape() to caller for now to avoid side effects
+o system: improve the log_archive script to also work on log subdirectories
+o system: change our version of "certctl" to emit files instead of links like it is the case in FreeBSD 15.1
+o reporting: migrate several settings pages to MVC/API and assorted changes
+o interfaces: migrate interface assignments to MVC/API
+o firewall: move config.xml default LAN allow rules to new rules GUI
+o firewall: legacy rules pages move to plugin
+o firewall: restrict automatic DHCPv6 filter rules to plugin/track6 use
+o firewall: always set a sequence at the end of the rule set when cloning a NAT rule
+o firewall: remove unused "safepoint" actions
+o firewall: fix automatic source NAT rules not displayed for PPPoE interfaces
+o firewall: flatten automatic source NAT rules into two per WAN type interface
+o firewall: prevent deletion if a group is referenced in MVC rules
+o captive portal: move template actions out of the ServiceController into its own TemplateController
+o dnsmasq: possible use before define in lease watcher
+o intrusion detection: rename "uncategorized" rule package to "adult" (contributed by Konstantinos Spartalis)
+o unbound: missing NetMaskAllowed=N on override address
+o wireguard: add allowed-ips to reresolve-dns.py in case none are set yet
+o acl: merge user management ACLs into one single privilege
+o backend: allow "strict" mode +TARGETS using the preamble "!"
+o mvc: refactor base_dialog and parseFormNode() to simplify the template
+o mvc: remove unused argument from getFormGrid()
+o mvc: BaseField: emit descriptions in getNodes() when they are not the same as the value to match getNodeContent()
+o mvc: PortField: reject whitespaces in port ranges during validation
+o mvc: ModelRelationField: remove grouped option handling
+o ui: add "opnsense-auto" theme which switches between "opnsense" and "opnsense-dark" depending on browser setting
+o ui: decrease flashing in opnsense-auto theme when switching (contributed by Konstantinos Spartalis)
+o ui: remove direct apply_btn_id usage in favour of base_apply_button template partial
+o ui: fix menu registration not setting "active"
+o plugins: os-firewall-legacy 1.0 contains the static PHP firewall rules pages
+o plugins: os-ndproxy has been removed, use os-ndp-proxy-go instead
+o src: FreeBSD 15.1-RELEASE-p1 plus assorted stable/15 networking commits[1]
+o ports: libevent 2.1.13[2]
+o ports: openvpn 2.7.5[3]
+o ports: sqlite 3.53.3[4]
+
+Migration notes, known issues and limitations:
+
+o The privileges "page-system-groupmanager" and "page-system-usermanager-addprivs" were merged into "page-system-groupmanager" and are no longer available separately.  This was done to avoid the misconception that access to a user management page gives constrained rights to each page, but that is not the case.  User management is a process involving all 3 pages.
+o The static PHP pages for firewall rule management have been moved to the "os-firewall-legacy" plugin that can be optionally installed.  Note that the upgrade will not install it as rules will continue to work and are easily migrated using the given assistant.
+
+The public key for the 26.7 series is:
+
+# -----BEGIN PUBLIC KEY-----
+# MIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEAziSNKuzrL2cwLx5LXmLn
+# cWS5Lk+i9CzRMXO/4xQYBQCaSnd8GBg/HA/g4aPoTUa6ovAI0AHfW8KQJQyBkFzn
+# pi6MLZJ9tEaFcn0CiV+tSTJd1RV4bB8jtpKl5oTkgFrPsyaB7iBlG5Cd49VCW19h
+# DxClQ24lkWkVoYfsfCQEt4ADNGLygWCPyf4bxGD/t6/tiW9SsOs2+gfOZ9C/G2d/
+# EBhJFoBEoz5lvULVxTdfY5PScYrHD/waZnk3rGc2A+9pI/SM2JAwKqsgZ6MSFbXO
+# DNocSjqFUUkdqhty+Qcc0OJ+hMbKKVE+f3QJBQIwT3ayys8QK0m5CCo91/f+DjoN
+# noj+t5YN9x8GREkF0wrdIi7hevkwrL2/SJQbq1bL1BLB+mMSXYR611lgT8YfYjyZ
+# 7tmpNVC3O5Pj7l20snm1lVUSqS0PsFBvh6HQtBRwQDGppaIIhH1Nt9yIatmSiGZt
+# 2YrMVNBzbQrJzSX+vWcAulkaPIt4t+XxmpO5IDNZ+4uMZ7XyJq1lAhIeyXx+Falf
+# v7S+ZpJWFVNz0/N5z6lBbADD855i+gFY6B5209xGyhd6FwaPOjISgQKkgBwF1AiW
+# MDuTuP9lkh/U5gGBZIFTnbdEMgOAL4P+Hsw9Nozav+3QIpiU3Pv9F29a1erCkq09
+# rpQyNglY7Jqme/RipzbYia8CAwEAAQ==
+# -----END PUBLIC KEY-----
+
+Please let us know about your experience!
+
+
+Stay safe,
+Your OPNsense team
+
+--
+# SHA256 (OPNsense-26.7.r1-dvd-amd64.iso.bz2) = 6b8430921316bd1d912a7bf71d02f2e354cd82b644c3fbf2646ab55382b9a758
+# SHA256 (OPNsense-26.7.r1-nano-amd64.img.bz2) = 1b95ab4cafaa195272b2b9d7ac3f42015c277b918818f535851c8c3206c5829d
+# SHA256 (OPNsense-26.7.r1-serial-amd64.img.bz2) = 0db5557508f088e513436f6f7ad5c37f42c6614ce50a34595523890cded7c336
+# SHA256 (OPNsense-26.7.r1-vga-amd64.img.bz2) = 2e352fd8628e742dd0637a8f84768f607b3ad45a4491a77d9623b4976ac6931b
+
+[1] FREEBSD-RN:15.1
+[2] LIBEVENT:2.1.13
+[3] OPENVPN:2.7.5
+[4] SQLITE:3.53.3
