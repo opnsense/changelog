@@ -35,6 +35,14 @@ o monit: fix mail-format and poll-time validation
 o mvc: add file type to forms
 o ports: suricata 8.0.6[1]
 
+A hotfix release was issued as 26.7.r2_3:
+
+o interfaces: fix faulty netmask on loopback address due to upstream change
+o firewall: change interface group render/apply order
+o backend: swap "strict" template logic as it was reversed
+o src: pf: do not mangle IP header before shared forwarding
+o src: additional stable/15 networking patches
+
 
 Stay safe,
 Your OPNsense team
