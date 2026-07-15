@@ -101,6 +101,15 @@ A hotfix release was issued as 26.1.11_6:
 
 o openvpn: further fix validation for auth token secret and static key
 
+A hotfix release was issued as 26.1.11_10:
+
+o firmware: remove overzealous cleansing in output_cmd to unhide individual character progress
+o firmware: add fingerprint and upgrade hint for 26.7
+o monit: fix mail-format and poll-time validation
+o unbound: missing NetMaskAllowed=N on override address
+o ports: openvpn 2.7.5[32]
+o ports: suricata 8.0.6[33]
+
 
 Stay safe,
 Your OPNsense team
@@ -137,3 +146,5 @@ Your OPNsense team
 [29] DUCKDB:1.5.4
 [30] SYSLOG-NG:4.12.0
 [31] GHSA:GHSA-p9pr-782r-w2xw
+[32] OPENVPN:2.7.5
+[33] https://suricata.io/2026/07/09/suricata-8-0-6-and-7-0-17-released/
