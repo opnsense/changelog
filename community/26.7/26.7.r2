@@ -48,4 +48,4 @@ Stay safe,
 Your OPNsense team
 
 --
-[1] https://forum.suricata.io/t/suricata-8-0-6-and-7-0-17-released/6391
+[1] https://suricata.io/2026/07/09/suricata-8-0-6-and-7-0-17-released/
