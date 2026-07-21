@@ -1,0 +1,42 @@
+@ July 21, 2026
+
+Hi all,
+
+This is a small stable release addressing some of the upgrade related
+issues that were reported last week as well as 4 new security advisories
+for the core code.
+
+Here are the full patch notes:
+
+o system: add correct release name to boot splash screen for 26.7
+o system: disable web GUI KTLS use for the time being
+o system: do not let the components selectpicker grow indefinitely in defaults page
+o system: DTLSv1.1 is forcefully rejected by OpenSSL 3.5, migrate to DTLSv1.2
+o system: use Bootstrap "btn" styles in services widget
+o system: use serialNumberHex for CRL so high-bit serials are not dropped (contributed by chrstnth)
+o system: lower max-request-size to roughly max post size in lighttpd configs[1] (reported by lujiefsi)
+o system: fixed several PHP 8.5 warnings
+o firewall: use "urgent" as empty default for firewall debug messages
+o firewall: skip message banner if searchPhrase set
+o firewall: fix PHP warning when scrub yields no interfaces
+o captive portal: automatic block rule should be evaluated after the anti-lockout rule
+o openvpn: client export can export private keys for unlisted certificate references[2] (reported by iys8 and lujiefsi)
+o backend: remove cache file on execution error in script_output
+o mvc: fix tab/subtab form generation for plugins
+o mvc: fix default labels in selectpickers
+o mvc: form labels can be empty so make sure to add them to avoid warnings in forms
+o mvc: safeguard some write operations with missing throwReadOnly() actions for custom action[3] (reported by lujiefsi)
+o ui: fix multiple stored XSS[4] (reported by lujiefsi)
+o plugins: os-theme-rebellion 1.9.5 (contributed by Team Rebellion)
+o ports: ca_root_nss / nss 3.125[5]
+
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] GHSA:GHSA-h4qj-j2x9-q553
+[2] GHSA:GHSA-rw63-4hw9-p4v7
+[3] GHSA:GHSA-vw8q-pqq7-2q7v
+[4] GHSA:GHSA-jm2f-ch62-rpxr
+[5] NSS:3.125
