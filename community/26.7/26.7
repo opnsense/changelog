@@ -97,6 +97,7 @@ o The privileges "page-system-groupmanager" and "page-system-usermanager-addpriv
 o The static PHP pages for firewall rule management have been moved to the "os-firewall-legacy" plugin which can be manually installed before or after the upgrade.  All rules will continue to work regardless of the plugin being installed or not and are easily migrated using the given assistant.
 o Hyper-V guests may be producing panics on certain hosts with more than one virtual processor assigned.  Make sure to snapshot beforehand and stay on 26.1.x until the situation is clear.
 o Since this is a major OS upgrade and OpenSSL changes from 3.0 to 3.5 third party repositories may interfere with your upgrade experience.  Removing offending repositories and plugins may help; or wait for affirmation from the respective repository owners.
+o The CPU microcode early loading has been known to be flaky on some setups.  A fix is in the FreeBSD 15.1 boot loader code, but can only be reached by reinstall or manually updating the boot code of your system after the upgrade succeeded.  If you want to be on the safe side during the upgrade itself please remove the plugin before proceeding.
 
 The public key for the 26.7 series is:
 
