@@ -261,6 +261,30 @@ A hotfix release issued as 26.4.1p1_3:
 
 o openvpn: further fix validation for auth token secret and static key
 
+Here are the full patch notes for patch release 2:
+
+o system: DTLSv1.1 is forcefully rejected by OpenSSL 3.5, migrate to DTLSv1.2
+o system: use serialNumberHex for CRL so high-bit serials are not dropped (contributed by chrstnth)
+o system: lower max-request-size to roughly max post size in lighttpd configs[63] (reported by lujiefsi)
+o system: do not let the components selectpicker grow indefinitely in defaults page
+o system: dashboard widget does not know about patch release syntax
+o system: make LDAP auth adhere to bad login penalty as well (contributed by Matt Andreko)
+o reporting: do not show disabled interfaces in traffic graphs (contributed by Konstantinos Spartalis)
+o firewall: use "urgent" as empty default for firewall debug messages
+o firewall: invalidate rule stats cache for firewall utilities API endpoint
+o captive portal: automatic block rule should be evaluated after the anti-lockout rule
+o firmware: remove overzealous cleansing in output_cmd to unhide individual character progress
+o monit: use throwNotFullAdmin() to restrict monit GUI write access to full admins due to intended system wide execution rights
+o monit: fix mail-format and poll-time validation
+o openvpn: client export can export private keys for unlisted certificate references[64] (reported by iys8 and lujiefsi)
+o unbound: missing NetMaskAllowed=N on override address
+o backend: remove cache file on execution error in script_output
+o mvc: safeguard some write operations with missing throwReadOnly() actions for custom action[65] (reported by lujiefsi)
+o mvc: form labels can be empty so make sure to add them to avoid warnings in forms
+o ui: fix multiple stored XSS[66] (reported by lujiefsi)
+o ports: openvpn 2.7.5[67]
+o ports: suricata 8.0.6[68]
+
 
 Stay safe,
 Your OPNsense team
@@ -328,3 +352,9 @@ Your OPNsense team
 [60] FREEBSD-SA:26:49.iconv
 [61] EXPAT:2.8.2
 [62] LDNS:1.9.2
+[63] GHSA:GHSA-h4qj-j2x9-q553
+[64] GHSA:GHSA-rw63-4hw9-p4v7
+[65] GHSA:GHSA-vw8q-pqq7-2q7v
+[66] GHSA:GHSA-jm2f-ch62-rpxr
+[67] OPENVPN:2.7.5
+[68] https://suricata.io/2026/07/09/suricata-8-0-6-and-7-0-17-released/
