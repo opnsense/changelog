@@ -1,0 +1,125 @@
+@ August 12, 2026
+
+Hello world!
+
+This update addresses the WireGuard MAC authentication issue people have
+been talking about, 4 core security advisories and the usual volume of
+quality of life improvements and bug fixes.
+
+We are currently improving the compatibility with the legacy pages in
+full privilege separation, working on feature parity between Outbound
+NAT and Source NAT and will also provide a road map in the next weeks
+for 27.1.  Stay tuned.
+
+Here are the full patch notes:
+
+o system: use /var/lib/php/tmp in static pages for proper privilege separation
+o system: improve "user-config-readonly" in static pages where write_config() was denied
+o system: service widget changes based on further community feedback
+o system: support 7680 bit RSA type for certificates and authorities
+o system: add redirection capability to SSO provider
+o reporting: correctly map NetFlow indexes when there are gaps (contributed by Thomas Cheyney)
+o reporting: improve parsing in NetFlow for overlapping flow timestamps and use UTC for cleanups
+o reporting: make parsing iftop lines more robust for traffic graphs (contributed by Brendan Bank)
+o reporting: map ARC and laundry to cache memory stats (contributed by Konstantinos Spartalis)
+o reporting: stop NetFlow service before reloading configuration
+o interfaces: fix assignment of wireless devices
+o interfaces: strict description fields in new assignments page[1] (reported by call-AX)
+o interfaces: fix typos in GIF reconfiguration script
+o interfaces: add "noclamp" flag for GIF
+o interfaces: add separate link types for IPv4 and IPv6 in overview
+o interfaces: return the proper UUID when assigning an interface (contributed by Kemoy Campbell)
+o interfaces: improve VIP page save when no subnet was posted
+o firewall: use htmlSafe() on action search value in live log[1] (reported by call-AX)
+o firewall: group invalid rules to the end of the ruleset
+o firewall: enable virtualDOM and refactor commands on alias page
+o firewall: add "endpoint-independent" support for UDP translations (full cone NAT) in source NAT
+o firewall: fix missing well-known ports in local-port in destination NAT
+o firewall: add "max-pkt-rate" rate limiting option to firewall rules
+o firewall: add proper support for container items in search field selection, export and import data and implement it in destination NAT
+o firewall: scope get action to general settings in source NAT
+o kea: improve prefix watcher accuracy via both interface and MAC address key
+o kea: store subnet IDs inside the model so they cannot shift during config regeneration
+o kea: change dynamic pool range from prefix to range 1000-2000
+o kea: switch custom DHCP option config generation to libdhcp_flex_option library
+o openvpn: add some input validation for control characters in connection status[2] (reported by lujiefsi)
+o backend: sanitize template filename replacements
+o backend: further restrict actions to root and wwwonly for more sensitive actions
+o backend: ensure strict templates are not reloaded via "*" wildcard
+o mvc: add some missing htmlSafe() calls for generated HTML[3] (reported by lujiefsi)
+o mvc: create runInterfaceRegistation() and use it for immediate device registration
+o mvc: add some exception types and handle them in the base template
+o mvc: clean up a number of stale imports
+o mvc: translate backend system status messages
+o mvc: translate grid view labels
+o ui: add some more legacy_html_escape_form_data() safeguards[4] (reported by Arpit Jain)
+o ui: add tokenize2.css in standard theme to ensure selection in opnsense-auto theme
+o ui: prevent blinking by hiding the contents while loading for opnsense-auto theme
+o ui: fix collapsed sidebar stray line and restore rail divider in opnsense-dark theme (contributed by circa1665)
+o ui: restore stacked layout for interfaces widget on narrow (contributed by circa1665)
+o ui: fix minor JavaScript bugs in dashboard widget code (contributed by Thomas Schöpf)
+o ui: do not freeze commands column on touchscreen devices
+o ui: further fixes for base templates
+o ui: fix empty legacy firewall menu container glitch
+o plugins: os-caddy 2.2.0[5]
+o plugins: os-frr 1.54[6]
+o plugins: os-intrusion-detection-content-at-antiphishing 1.0[7] (contributed by Julio Lira)
+o plugins: os-ndp-proxy-go 1.4[8]
+o plugins: os-nrpe 1.2[9]
+o plugins: os-theme-rebellion 1.9.6 (contributed by Team Rebellion)
+o src: pf: add missing PF_TS_CNT netlink attribute
+o src: pf: expose first rule label for states since rule number is insufficient
+o src: usb: bpfattach() before if_attach()
+o src: igc: disable PCIe ASPM to improve stability
+o src: ena: update driver version to v2.8.4
+o src: assorted minor commits from stable/15
+o src: coredump: do not assume that the number of ELF segments is consistent[10]
+o src: sysvsem: fix a TOCTOU race in semctl()[11]
+o src: jail: restore ktrace privileges for jailed root[12]
+o src: ktimer: check for errors from realtimer_gettime()[13]
+o src: kqueue: avoid enqueuing an already-enqueued knote[14]
+o src: zfs: multiple fixes[15]
+o src: tzdata: import 2026c[16]
+o src: wg: check for crypto operation errors[17]
+o src: revert "daemon: replace memchr with memrchr"
+o ports: dpinger 3.6
+o ports: hostapd / wpa_supplicant 2.12
+o ports: nss 3.126[18]
+o ports: openldap 2.6.14[19]
+o ports: openssh 10.4p1[20]
+o ports: openvpn 2.7.6[21]
+o ports: phalcon 5.18.2[22]
+o ports: py-duckdb 1.5.5[23]
+o ports: python 3.13.15[24]
+o ports: unbound 1.26.0[25]
+
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] GHSA:GHSA-9h93-hhcx-957c
+[2] GHSA:GHSA-fqmm-g6xw-qhm4
+[3] GHSA:GHSA-75fw-j788-j4hj
+[4] GHSA:GHSA-6vv6-fpw9-8r2g
+[5] PLUGINS:26.7/www/caddy
+[6] PLUGINS:26.7/net/frr
+[7] https://julioliraup.github.io/AT/
+[8] PLUGINS:26.7/net/ndp-proxy-go
+[9] PLUGINS:26.7/net-mgmt/nrpe
+[10] FREEBSD-SA:26:55.elf
+[11] FREEBSD-SA:26:54.sysvsem
+[12] FREEBSD-SA:26:53.ktrace
+[13] FREEBSD-SA:26:51.ktimer
+[14] FREEBSD-SA:26:50.kqueue
+[15] FREEBSD-EN:26:19.zfs
+[16] FREEBSD-EN:26:18.tzdata
+[17] FREEBSD-SA:26:52.if_wg
+[18] NSS:3.126
+[19] OPENLDAP:2.6.14
+[20] OPENSSH:10.4p1
+[21] OPENVPN:2.7.6
+[22] PHALCON:5.18.2
+[23] DUCKDB:1.5.5
+[24] PYTHON:3.13.15
+[25] UNBOUND:1.26.0
