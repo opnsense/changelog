@@ -1,0 +1,110 @@
+@ August 14, 2026
+
+This business release is based on the OPNsense 26.1.11 community version
+with additional reliability improvements.
+
+Please note that this release offers source NAT as a tentative replacement
+for outbound NAT.  Feature parity is a work in progress for the 26.10 series.
+For now, please be aware that source NAT continues to work as before,
+but the GUI will not allow you to edit the source NAT rules unless you
+choose hybrid or manual mode in the settings.  This aligns with how the
+outbound NAT page is working.  Starting with 26.10, the hybrid or manual
+mode will be required to render source NAT rules into the firewall.
+
+Here are the full patch notes for the initial release:
+
+o system: improve the log_archive script to also work on log subdirectories
+o system: routing: changed "disable" option to "enable"
+o system: add "local_uri" type in SanitizeFilter() and use it to avoid hardcoding
+o system: several compatible adjustments for upcoming PHP 8.5
+o system: enhance live log widget (contributed by Greelan)
+o system: support 7680 bit RSA type for certificates and authorities
+o reporting: improve parsing in NetFlow for overlapping flow timestamps and use UTC for cleanups
+o reporting: stop NetFlow service before reloading configuration
+o interfaces: properly format API times to ISO format and convert timezone for display in automatic discovery
+o interfaces: fix typos in GIF reconfiguration script
+o interfaces: improve VIP page save when no subnet was posted
+o firewall: use htmlSafe() on action search value in live log[1] (reported by call-AX)
+o firewall: always show automatic and legacy rules in new rules GUI
+o firewall: add the same new rules GUI design to the MVC NAT pages
+o firewall: add CSV download/upload to MVC NAT pages
+o firewall: add migration for outbound NAT into source NAT page
+o firewall: destination NAT: display effective port when local-port is omitted
+o firewall: source NAT: allow empty target which means the interface address
+o firewall: source NAT: skip rendering rules when mode is not advanced/manual or hybrid
+o firewall: improve performance on MVC pages using virtualDOM
+o firewall: allow WAN as "associated interface" for NPTv6 when prefix ID is set
+o firewall: fix TypeError on alias getItem() with unknown UUID (contributed by haxorton)
+o firewall: show rule counts that can be exported and hide tab if no rules exist
+o firewall: improve interface filter logic to include floating rules with multiple interfaces when they overlap with at least one interface in the interface filter request
+o firewall: add validations for "No RDR" option to prevent target and local-port being set
+o firewall: fix some small issues in menu registration for legacy pages
+o firewall: constraint source NAT getAction() to only general page and align setAction() accordingly
+o firewall: scope get action to general settings in source NAT
+o kea: prevent converting the decimal prefix_id using hexdec() for dynamic PD
+o kea: add widget to show DHCP leases
+o kea: simplify model option values
+o kea: improve prefix watcher accuracy via both interface and MAC address key
+o kea: store subnet IDs inside the model so they cannot shift during config regeneration
+o kea: change dynamic pool range from prefix to range 1000-2000
+o kea: switch custom DHCP option config generation to libdhcp_flex_option library
+o openvpn: add some input validation for control characters in connection status[2] (reported by lujiefsi)
+o openvpn: simplify model option values
+o unbound: switch AAAA-only mode from respip to block_a_wdata (contributed by Maurice Walker)
+o unbound: update Hagezi blocklists to use new mirror URL
+o mvc: add some missing htmlSafe() calls for generated HTML[3] (reported by lujiefsi)
+o mvc: guard BaseField::setNodes() against a list given for a scalar leaf (contributed by haxorton)
+o mvc: DescriptionField: disable special and newline characters
+o mvc: FileObject: fix exception bug (contributed by Greelan)
+o mvc: give throwReadOnly() a sibling named throwNotFullAdmin()
+o mvc: use camelCase for carp_status action
+o mvc: translate backend system status messages
+o mvc: translate grid view labels
+o ui: add some more legacy_html_escape_form_data() safeguards[4] (reported by Arpit Jain)
+o ui: bootgrid: minor optimizations
+o plugins: os-OPNDNS 1.0 is an authoritative nameserver with RFC2136 support using PowerDNS[5]
+o plugins: os-OPNWAF 2.3
+o plugins: os-cloudflared 1.1[6]
+o plugins: os-freeradius 1.10.2[7]
+o plugins: os-vnstat 1.4[8]
+o src: igc: disable PCIe ASPM to improve stability
+o src: ena: update driver version to v2.8.3
+o src: coredump: do not assume that the number of ELF segments is consistent[9]
+o src: sysvsem: fix a TOCTOU race in semctl()[10]
+o src: wg: check for crypto operation errors[11]
+o src: tzdata: import 2026c[12]
+o ports: curl 8.21.0[13]
+o ports: lighttpd 1.4.84[14]
+o ports: openssh 10.4p1[15]
+o ports: openvpn 2.7.6[16]
+o ports: phalcon 5.16.0[17]
+o ports: py-duckdb 1.5.4[18]
+o ports: python 3.13.15[19]
+o ports: syslog-ng 4.12.0[20]
+o ports: unbound 1.26.0[21]
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] GHSA:GHSA-9h93-hhcx-957c
+[2] GHSA:GHSA-fqmm-g6xw-qhm4
+[3] GHSA:GHSA-75fw-j788-j4hj
+[4] GHSA:GHSA-6vv6-fpw9-8r2g
+[5] DOCS:vendor/deciso/opndns
+[6] PLUGINS:26.1/net/cloudflared
+[7] PLUGINS:26.1/net/freeradius
+[8] PLUGINS:26.1/net/vnstat
+[9] FREEBSD-SA:26:55.elf
+[10] FREEBSD-SA:26:54.sysvsem
+[11] FREEBSD-SA:26:52.if_wg
+[12] FREEBSD-EN:26:18.tzdata
+[13] CURL:8.21.0
+[14] https://www.lighttpd.net/2026/06/17/1.4.84/
+[15] OPENSSH:10.4p1
+[16] OPENVPN:2.7.6
+[17] PHALCON:5.16.0
+[18] DUCKDB:1.5.4
+[19] PYTHON:3.13.15
+[20] SYSLOG-NG:4.12.0
+[21] UNBOUND:1.26.0
