@@ -20,6 +20,7 @@ o Captive portal IPv6 support
 o Kea DDNS, custom options and dynamic prefix delegation support
 o OpenVPN 2.7 with TLS-Crypt v2 support
 o FreeBSD 15.1
+o OpenSSL 3.5
 o Python 3.13
 o PHP 8.5
 

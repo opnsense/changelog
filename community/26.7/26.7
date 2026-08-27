@@ -12,7 +12,7 @@ and stable 2-Clause BSD licensing.
 gateway groups via MVC/API, firewall rules now defaulting to MVC/API,
 outbound NAT to source NAT migration assistant, captive portal IPv6
 support, Kea DDNS/custom options/dynamic prefix delegation, FreeBSD
-15.1, OpenVPN 2.7, PHP 8.5, Python 3.13, plus much more.
+15.1, OpenSSL 3.5, OpenVPN 2.7, PHP 8.5, Python 3.13, plus much more.
 
 The upgrade path for 26.1 will likely be unlocked later today.  We want
 to ensure the upgrade goes as smoothly as possible so please be patient!  :)
@@ -87,9 +87,10 @@ o src: pf: clear anchor after stepping into it in pf_match_translation_rule()
 o src: pf: pf_route() "dst" no longer holds the gateway in 15.x
 o ports: libevent 2.1.13[3]
 o ports: lighttpd 1.4.85[4]
-o ports: openvpn 2.7.5[5]
-o ports: sqlite 3.53.3[6]
-o ports: suricata 8.0.6[7]
+o ports: openssl 3.5.7[5]
+o ports: openvpn 2.7.5[6]
+o ports: sqlite 3.53.3[7]
+o ports: suricata 8.0.6[8]
 
 Migration notes, known issues and limitations:
 
@@ -131,6 +132,7 @@ Your OPNsense team
 [2] FREEBSD-RN:15.1
 [3] LIBEVENT:2.1.13
 [4] https://www.lighttpd.net/2026/07/08/1.4.85/
-[5] OPENVPN:2.7.5
-[6] SQLITE:3.53.3
-[7] https://suricata.io/2026/07/09/suricata-8-0-6-and-7-0-17-released/
+[5] OPENSSL35:3.5.7
+[6] OPENVPN:2.7.5
+[7] SQLITE:3.53.3
+[8] https://suricata.io/2026/07/09/suricata-8-0-6-and-7-0-17-released/

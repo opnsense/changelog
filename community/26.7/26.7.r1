@@ -23,6 +23,7 @@ o Captive portal IPv6 support
 o Kea DDNS, custom options and dynamic prefix delegation support
 o OpenVPN 2.7 with TLS-Crypt v2 support
 o FreeBSD 15.1
+o OPENSSL 3.5
 o Python 3.13
 o PHP 8.5
 
@@ -65,8 +66,9 @@ o plugins: os-firewall-legacy 1.0 contains the static PHP firewall rules pages
 o plugins: os-ndproxy has been removed, use os-ndp-proxy-go instead
 o src: FreeBSD 15.1-RELEASE-p1 plus assorted stable/15 networking commits[1]
 o ports: libevent 2.1.13[2]
-o ports: openvpn 2.7.5[3]
-o ports: sqlite 3.53.3[4]
+o ports: openssl 3.5.7[3]
+o ports: openvpn 2.7.5[4]
+o ports: sqlite 3.53.3[5]
 
 Migration notes, known issues and limitations:
 
@@ -104,5 +106,6 @@ Your OPNsense team
 
 [1] FREEBSD-RN:15.1
 [2] LIBEVENT:2.1.13
-[3] OPENVPN:2.7.5
-[4] SQLITE:3.53.3
+[3] OPENSSL:3.5.7
+[4] OPENVPN:2.7.5
+[5] SQLITE:3.53.3
