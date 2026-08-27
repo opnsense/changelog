@@ -1,0 +1,132 @@
+@ August 27, 2026
+
+Hello again,
+
+Here is your biweekly dose of bugfixes and quality of life improvements!
+This update offers several new features: VLANs on bridges, "received-on"
+firewall rule support, persistent rule label tracking, repeatable WireGuard
+QR codes, menu favourites and full screen grid support.  On top of that it
+bundles the recent FreeBSD 15.1-RELEASE-p3, fixes and cleanups as well as
+third party updates such as OpenSSL 3.5.8 and OpenSSH 10.5p1.  Enjoy.  :)
+
+Meanwhile, development is busy with adding interface settings to the new
+MVC assignments page, which includes building wireless MVC/API support.
+That is all for now.  Need to get back to work.
+
+Here are the full patch notes:
+
+o system: offer post-quantum mldsa44-ed25519 OpenSSH server host key
+o system: do not regenerate all OpenSSH key files when adding new key types
+o system: truncate long names in services dashboard widget (contributed by circa1665)
+o system: use created user name for change event (contributed by Julian Pawlowski)
+o system: handle missing objects during deletion in API (contributed by Julian Pawlowski)
+o system: multiple PHP warning fixes (contributed by Julian Pawlowski)
+o system: avoid filter_configure() calls to make existing backend call less obscure
+o system: add favorites section to menu (contributed by Greelan)
+o system: approximate user being expired for the grid view icon
+o system: replace cron restart in static PHP pages
+o system: fix server certificate purpose detection for EC
+o interfaces: permit a VLAN device as bridge member
+o interfaces: resolve VLAN devices indirectly via interfaces_configure()
+o interfaces: handle missing GRE and GIF during deletion in API (contributed by Julian Pawlowski)
+o interfaces: multiple PHP warning fixes (contributed by Julian Pawlowski)
+o interfaces: emit discovered hosts sorted by last_seen via hostwatch
+o captive portal: exclude IPv4 from roaming logic[1]
+o dhcrelay: add options for circuit_id and remote_id (contributed by Thomas Cheyney)
+o dnsmasq: remove count badge from GroupBy with static configuration elements
+o dnsmasq: add "expand-hosts" option (contributed by Konstantinos Spartalis)
+o firewall: remove 2a10::/12 from bogonsv6.sample (contributed by Belgarion)
+o firewall: deprecate old rule register function names due to functional overlaps
+o firewall: add missing TLS ports to well-known ports (contributed by Self-Hosting-Group)
+o firewall: use new "rlabel" from pfctl for persistent rule identification across reloads
+o firewall: emit gateway debug message in block rules only when gateway is not empty
+o firewall: aliases: use same dynamic label as in KEA DHCPv6 for a unified look
+o firewall: aliases: fix spinner on alias dialog save button
+o firewall: destination NAT: make local-port numeric before applying range in registered firewall rule (contributed by Thomas Cheyney)
+o firewall: rules: add "received-on" interface keyword as interface origin option
+o firewall: rules: promote "statetype" from advanced to common option for "received-on" usage
+o firmware: revoke 26.1 fingerprint
+o kea: remove count badge from GroupBy with static configuration elements
+o kea: use DOM construction for the "dynamic" label
+o network time: strict security GUI support
+o unbound: update Hagezi blocklists to use new mirror URL
+o wireguard: FreeBSD 15 no longer allows addresses without netmasks
+o wireguard: cleaner QR codes (contributed by Roy Orbitson)
+o wireguard: preserve peer generator state for existing peers
+o mvc: BaseField: add getInitialValue()
+o mvc: OptionField: fix simplified option group definition
+o mvc: fix typo in base_form.volt advanced/help toggle IDs
+o mvc: fix assorted stale imports in the code base
+o ui: tabulator: add _showMaximized() modal that can show a grid close to full screen
+o ui: add keyboard shortcut "f" to maximize a currently visible grid
+o ui: scope "all help" and "advanced mode" toggle to closest relevant form
+o ui: trigger "h" and "a" keyboard shortcuts on all relevant matches
+o plugins: os-caddy 2.2.1[2]
+o plugins: os-frr 1.55[3]
+o plugins: os-theme-rebellion 1.9.7 (contributed by Team Rebellion)
+o src: posixshm: fix a TOCTOU race in the FIOSSHMLPGCNF handler[4]
+o src: tty: revalidate after dropping the tty lock in ioctl handlers[5]
+o src: ppp: fix multiple vulnerabilities[6]
+o src: openssl: fix multiple vulnerabilities[7]
+o src: cred: fix group_is_primary()[8]
+o src: dsp: fix a potential use-after-free in dsp_oss_syncstart()[9]
+o src: unix: fix some bugs in the SOCK_STREAM receive path[10]
+o src: hwpmc: fix the execve handler[11]
+o src: ucode: fix validation on Intel platforms[12]
+o src: netmap: fix driver name handling
+o src: netmap: fix a race in kqueue registration
+o src: e1000: assorted upstream patches from stable/15
+o src: iflib: support recoverable initialization failure
+o src: route: add an eventhandler for rt_numfibs changes
+o src: rawip: fix handling of checksums in rip6_input()
+o src: pf: attempt to handle overlapping group and interface names
+o src: pf: check if a group has a kif before dereferencing it
+o src: pf: fix fallout from the STATE_LOOKUP macro removal
+o src: pf: re-optimize state key handling
+o src: pf: rule label patch was merged from a wrong version
+o src: pfsync: handle large MTU pfsync interfaces
+o src: ktls: propagate EPG_FLAG_ANON to mapped mbufs
+o src: netipsec: fix sockaddr type set in ipcomp6_nonexp_encapcheck()
+o src: src: PF_KEY socket: limit the length of copied socket address
+o src: ure: add USB device IDs for additional RTL8152/RTL8153 adapters
+o src: ure: fix spurious link flaps from MII
+o ports: ca_root_nss / nss 3.127[13]
+o ports: expat 2.8.3[14]
+o ports: kea 3.0.4[15]
+o ports: monit 6.0.0[16]
+o ports: openssh 10.5p1[17]
+o ports: openssl 3.5.8[18]
+o ports: perl 5.42.3[19]
+o ports: phalcon 5.20.3[20]
+o ports: php 8.5.9[21]
+o ports: rrdtool 1.11.0[22]
+o ports: sqlite 3.53.4[23]
+
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] GHSA:GHSA-864r-q4j5-5mjq
+[2] PLUGINS:26.7/www/caddy
+[3] PLUGINS:26.7/net/frr
+[4] FREEBSD-SA:26:63.posixshm
+[5] FREEBSD-SA:26:62.tty
+[6] FREEBSD-SA:26:60.ppp
+[7] FREEBSD-SA:26:61.openssl
+[8] FREEBSD-SA:26:59.mac_do
+[9] FREEBSD-SA:26:58.sound
+[10] FREEBSD-SA:26:57.unix
+[11] FREEBSD-SA:26:56.hwpmc
+[12] FREEBSD-EN:26:20.microcode
+[13] NSS:3.127
+[14] EXPAT:2.8.3
+[15] KEA:3.0.4
+[16] MONIT:6.0.0
+[17] OPENSSH:10.5p1
+[18] OPENSSL35:3.5.8
+[19] PERL:5.42.3
+[20] PHALCON:5.20.3
+[21] PHP8:8.5.9
+[22] RRDTOOL:1.11.0
+[23] SQLITE:3.53.4
