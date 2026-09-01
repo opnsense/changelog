@@ -83,6 +83,28 @@ o ports: python 3.13.15[19]
 o ports: syslog-ng 4.12.0[20]
 o ports: unbound 1.26.0[21]
 
+Here are the full patch notes for patch release 1:
+
+o system: audit log injection via login username in auth_log()[22]
+o system: offer post-quantum mldsa44-ed25519 OpenSSH server host key
+o system: do not regenerate all OpenSSH key files when adding new key types
+o system: use created user name for change event (contributed by Julian Pawlowski)
+o system: fix server certificate purpose detection for EC
+o system: approximate user being expired for the grid view icon
+o firewall: remove 2a10::/12 from bogonsv6.sample (contributed by Belgarion)
+o captive portal: exclude IPv4 from roaming logic[23]
+o plugins: os-OPNWAF 2.4
+o src: posixshm: fix a TOCTOU race in the FIOSSHMLPGCNF handler[24]
+o src: tty: revalidate after dropping the tty lock in ioctl handlers[25]
+o src: ppp: fix multiple vulnerabilities[26]
+o src: openssl: fix multiple vulnerabilities[27]
+o src: dsp: fix a potential use-after-free in dsp_oss_syncstart()[28]
+o src: hwpmc: fix the execve handler[29]
+o src: ucode: fix validation on Intel platforms[30]
+o ports: openssh 10.5p1[31]
+o ports: openssl 3.0.22[32]
+
+
 Stay safe,
 Your OPNsense team
 
@@ -108,3 +130,14 @@ Your OPNsense team
 [19] PYTHON:3.13.15
 [20] SYSLOG-NG:4.12.0
 [21] UNBOUND:1.26.0
+[22] GHSA:GHSA-jjm2-jg4p-3v9q
+[23] GHSA:GHSA-864r-q4j5-5mjq
+[24] FREEBSD-SA:26:63.posixshm
+[25] FREEBSD-SA:26:62.tty
+[26] FREEBSD-SA:26:60.ppp
+[27] FREEBSD-SA:26:61.openssl
+[28] FREEBSD-SA:26:58.sound
+[29] FREEBSD-SA:26:56.hwpmc
+[30] FREEBSD-EN:26:20.microcode
+[31] OPENSSH:10.5p1
+[32] OPENSSL:3.0.22
