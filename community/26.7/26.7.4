@@ -1,0 +1,119 @@
+@ September 15, 2026
+
+Hey!
+
+Today we are rolling out the wireless device MVC/API rework and a
+final push for better source NAT replacement over outbound NAT.
+
+Strongswan was updated to 6.1.0 and the GUI now offers a small
+recommended set of post-quantum key exchanges.
+
+You may also find the GUI tweaks for advanced option marker and
+a dialog search field helpful.
+
+There is a lot more going on as you can see from this changelog,
+but more on this and future plans later!
+
+Here are the full patch notes:
+
+o system: audit log injection via login username in auth_log()[1]
+o system: add pfsync version 1500 to HA settings (contributed by Bjoern Jakobsen)
+o system: add hidden services so they can be operated by pluginctl -s
+o system: privlege separated reload in static PHP pages
+o system: lower priority of automatic wg/ipsec gateways
+o system: fix disk widget loading issue (contributed by Konstantinos Spartalis)
+o system: add back the service widget link
+o system: make compare operator in authTOTP() more strict
+o interfaces: migrate wireless configuration to MVC/API
+o interfaces: return an empty string which cannot be an interface in convert_real_interface_to_friendly_interface_name()
+o interfaces: ppp-ipv6.php may be executed before later stages of interface_configure()
+o interfaces: provide "uuid" in legacy_config_get_interfaces()
+o interfaces: split media and mediaopt with tabs instead of spaces
+o interfaces: a few config_read_array() replacements
+o interfaces: refactor device matching around interface_parent_devices()
+o interfaces: remove cua matching from PPP device pattern
+o firewall: source NAT: add pool options and source hash key
+o firewall: source NAT: fix port alias and well known port usage in target_port
+o firewall: make source and destination NAT automatic rules visible in GUI
+o firewall: implement JsonAuditField in all MVC components
+o firewall: update the internally reserved pf keywords for FreeBSD 15
+o firewall: add source NAT migration banner to outbound NAT
+o firewall: add private network exclusions to default IPv6 bogons (contributed by Maurice Walker)
+o dnsmasq: leases sorting fixes (contributed by Greelan)
+o firmware: opnsense-bootstrap: fix bootstrap on FreeBSD 15 with pkgbase
+o firmware: opnsense-prefetch: new tool for sets prefetching
+o firmware: opnsense-sign: shell compatibility update
+o firmware: adjust the incompatible pkg test
+o firmware: disable FreeBSD-base repository and remove old definitions
+o intrusion detection: fix displaying URL in descriptions (contributed by Konstantinos Spartalis)
+o ipsec: add some hybrid post-quantum variants as additional key exchange
+o kea: fix leases sorting (contributed by Greelan)
+o openvpn: moved legacy CARP hook to os-openvpn-legacy plugin
+o acl: fix API patters for GIF/GRE device settings
+o acl: add missing and fix some issues (contributed by Konstantinos Spartalis)
+o backend: add CLOEXEC to a few file descriptor opens to avoid lock inheritance
+o mvc: advanced marker for form/dialog fields
+o mvc: fix stale imports for Message classes
+o mvc: JsonAduditField: shared implementation for configuration revision tracking
+o rc: add watchdog to shutdown, reboot and reload_all cases
+o ui: fix widget bottom gap in standard theme files (contributed by Konstantinos Spartalis)
+o ui: sidebar fixes and rework (contributed by Team Rebellion)
+o ui: remove spurious _formDialog portion of dialog IDs
+o ui: implement dialog search field
+o ui: ensure a minimum amount of rows to render in grids
+o plugins: os-acme-client 4.17[2]
+o plugins: os-theme-rebellion 1.9.8 (contributed by Team Rebellion)
+o plugins: os-turnserver 1.4[3]
+o src: ciss: revert patch that added max physical target
+o src: pf: do not set a null rule pointer during test
+o src: pf: fix securelevel off-by-one
+o src: pfctl: fix printing of wildcard anchors
+o src: e1000: more assorted upstream patches from stable/15
+o src: ixgbe: assorted upstream patches from stable/15
+o src: virtio_p9fs: disallow detach if a session is in progress
+o src: route/fib_algo: free leaked radix_masks in radix_lockless
+o src: netipsec: implement pr_disconnect for PF_KEY sockets
+o src: iflib: assorted upstream patches from stable/15
+o src: net: add ifmedia support for 10GBase-BX BiDi
+o src: bnxt: report initialization failures to iflib
+o src: bnxt: add led(4) identification support
+o src: ice: add led(4) identification support
+o src: ice: report initialization failures to iflib
+o src: ice: add support for E835 CNSA 2.0 adapters
+o src: ice: add two more 4-part IDs for E835 adapters
+o src: if_vxlan: fix panic by validating unused drvspec values
+o src: qat: driver updates to enhance qat infrastructure
+o src: ath10k: remove some early FreeBSD-specific debugging
+o src: ip(6)_mroute: assorted upstream patches from stable/15
+o src: in_mcast: fix uninitialized variable usage in inm_merge()
+o src: bind: lookup local address in current FIB if '*.bind_all_fibs' is active
+o src: net: add fib-aware ifa_ifwithaddr()
+o ports: ca_root_nss / nss 3.129[4]
+o ports: curl 8.22.0[5]
+o ports: dhcp6c fix for truncated env vars in dhcp6c-script (contributed by Michael Zimmermann)
+o ports: expat 2.8.4[6]
+o ports: filterlog 0.9 support for pflog actions on FreeBSD 15
+o ports: libxml 2.15.4[7]
+o ports: openldap 2.6.15[8]
+o ports: pcre2 10.48[9]
+o ports: php 8.5.10[10]
+o ports: phpseclib 3.0.57[11]
+o ports: strongswan 6.1.0[12]
+
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] GHSA:GHSA-jjm2-jg4p-3v9q
+[2] PLUGINS:26.7/security/acme-client
+[3] PLUGINS:26.7/net/turnserver
+[4] NSS:3.129
+[5] CURL:8.22.0
+[6] EXPAT:2.8.4
+[7] LIBXML:2.15.4
+[8] OPENLDAP:2.6.15
+[9] PCRE2:10.48
+[10] PHP8:8.5.10
+[11] PHPSECLIB:3.0.57
+[12] STRONGSWAN:6.1.0
