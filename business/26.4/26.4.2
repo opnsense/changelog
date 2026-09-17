@@ -105,6 +105,17 @@ o ports: openssh 10.5p1[31]
 o ports: openssl 3.0.22[32]
 o ports: openvpn 2.7.7[33]
 
+Here are the full patch notes for patch release 2:
+
+o system: make compare operator in authTOTP() more strict
+o interfaces: ppp-ipv6.php may be executed before later stages of interface_configure()
+o ipsec: add some hybrid post-quantum variants as additional key exchange
+o acl: fix API patters for GIF/GRE device settings
+o acl: add missing and fix some issues (contributed by Konstantinos Spartalis)
+o rc: add watchdog to shutdown, reboot and reload_all cases
+o ports: strongswan 6.1.0[34]
+o ports: suricata 8.0.7[35]
+o ports: unbound 1.26.1[36]
 
 Stay safe,
 Your OPNsense team
@@ -143,3 +154,6 @@ Your OPNsense team
 [31] OPENSSH:10.5p1
 [32] OPENSSL:3.0.22
 [33] OPENVPN:2.7.7
+[34] STRONGSWAN:6.1.0
+[35] https://suricata.io/2026/09/15/suricata-8-0-7-released/
+[36] UNBOUND:1.26.1
