@@ -81,7 +81,6 @@ lint-links:
 
 lint-duplicates:
 	@for DIR in $$(find -s ${DOCSDIRS} -type d -name "${DOCGLOB}" -depth 1); do \
-		echo ">>> Scanning $${DIR} for duplicates..."; \
 		FILES=$$(find $${DIR} -type f | grep -iv '\.[a-z]'); \
 		if [ -n "$${FILES}" ]; then \
 			grep -ho '^o [^\[]*' $${FILES} | sort | uniq -ic | \
