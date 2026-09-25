@@ -4,7 +4,7 @@ Dear friends and followers,
 
 Another week, another update.  We are addressing two regressions caught
 by our users and update the ports to their latest versions including NTP,
-Squid, and strongSwan.  As always, thank you for your support!
+Squid, and StrongSwan.  As always, thank you for your support!
 
 This update also enables console upgrades for the development version
 into the upcoming 17.1-BETA, which will be published right after we finish

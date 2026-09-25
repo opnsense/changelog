@@ -18,7 +18,7 @@ o firewall: add refresh button to table diagnostics page
 o captive portal: fix chroot regression since lighttpd web server update in 17.7.9
 o interfaces: provide a link-local IPv6 when asking for addresses
 o intrusion detection: sync port-groups to default template
-o ipsec: upgrade vici lib to match strongSwan package
+o ipsec: upgrade vici lib to match StrongSwan package
 o network time: fix a PHP warning during NMEA deselect
 o mvc: do not throw disabled errors in handler
 o plugins: os-dyndns 1.4_1 fixes issue with Namecheap error parsing
