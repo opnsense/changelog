@@ -1,0 +1,79 @@
+@ September 30, 2026
+
+Hi again,
+
+This update fixes a few security related things and updates to OpenSSL 3.5.9.
+We are also updating the package manager to version 2.8.4 to sync up with
+the current version being used in FreeBSD.
+
+The default password hash changes from bcrypt to argon2id.  If you wish to
+benefit from this change your hashed passwords need to be changed.  Note that
+this step is optional.  All bcrypt-hashed passwords will continue to work.
+
+The firewall outbound NAT page moves to the legacy plugin.  Note that you can
+still migrate your rules without the plugin installed via the migration
+assistant and the outbound rules will continue to work even when the legacy
+plugin is not installed.
+
+Since work on the interface settings API is progressing nicely, there is also
+work being done on the backend which is already featured in this release.
+It is now possible to debug the interface ordering sequence at boot, which
+will also help bring in more optimizations in the near future.
+
+Here are the full patch notes:
+
+o system: clear password change session flag only after password was changed[1] (reported by Wu Wenhao)
+o system: change diag.disk to return total bytes as well as formatted bytes
+o system: fix HA service restart with "id" parameter set
+o system: add webgui PAM config to test with opnsense-login
+o system: switch password hashing from bcrypt to argon2id
+o interfaces: refactor interfaces_loopback_configure() and add ::1/128 sync
+o interfaces: fix PHP warnings in interafces.php and do not write unset options
+o interfaces: fix linter complaints in WLAN model, 11a typo and wpa_pairwise labels
+o interfaces: dhclient handles keywords case-insensitive so properly match all "media" invokes (reported by Alice-Sabrina-Ivy)
+o interfaces: refactor interfaces_ppps_hardware() and avoid emitting serial device nodes
+o interfaces: allow to push $all_plugins in interface_configure()
+o interfaces: retire problematic validations in interface settings pertaining to legacy ISC-DHCP plugin
+o interfaces: stricter archive command in backend for packet capture download
+o interfaces: split out interfaces_dependencies() and make it digestible via pluginctl -Q
+o firewall: outbound NAT moves to legacy plugin
+o firewall: remove handling loopback addresses as "private"
+o firewall: fix expiry cron job default when alias TTL is smaller than 1 hour
+o firewall: use font-awesome elements for data tree controls to align with themes
+o firmware: opnsense-patch: added -R mode and updated -N mode
+o firmware: opnsense-prefetch: get remote size and print mismatches
+o firmware: opnsense-prefetch: curl use is now optional
+o firmware: add simple prompt to console changelog viewer
+o kea: add ping check settings for subnet configuration (contributed by laozhoubuluo)
+o monit: change "logfile" to "log" to fix syntax on newer daemon
+o acl: fix patterns for gateway groups (contributed by Andrew Ferk)
+o acl: merge the Dhcrelay log file pattern into the main ACL
+o bootgrid: exclude header cells from status color rendering
+o mvc: guard direct config saves against user-config-readonly (contributed by Andrew Ferk)
+o ui: remove defunct content-box-main usage
+o ui: make settings-changed trigger overridable
+o ui: fix blank bottom UI space (contributed by Konstantinos Spartalis)
+o plugins: os-ddclient 1.32[2]
+o plugins: os-firewall-legacy 1.1[3]
+o plugins: os-net-snmp 1.7[4]
+o plugins: os-puppet-agent 2.0[5]
+o plugins: os-sftp-backup 1.2 verify backups after put
+o plugins: os-theme-cicada 1.42 (contributed by Greelan)
+o plugins: os-theme-tukan 1.32 (contributed by Team Rebellion)
+o plugins: os-theme-vicuna 1.52 (contributed by Team Rebellion)
+o ports: openssl 3.5.9[6]
+o ports: phalcon 5.22.0[7]
+o ports: pkg 2.8.4
+
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] GHSA:GHSA-x3q7-cc7h-gj3v
+[2] PLUGINS:26.7/dns/ddclient
+[3] PLUGINS:26.7/net/firewall-legacy
+[4] PLUGINS:26.7/net-mgmt/net-snmp
+[5] PLUGINS:26.7/sysutils/puppet-agent
+[6] OPENSSL:3.5.9
+[7] PHALCON:5.22.0
