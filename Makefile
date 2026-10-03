@@ -114,7 +114,7 @@ clean:
 	@rm -f changelog.txz ${WORKDIR}/*
 
 vim:
-	@FOUND="$$(find ${.CURDIR} -type f -not -path '*/.*' -iname "*$$(basename '${vim_ARG}')*")"; \
+	@FOUND="$$(find -s ${.CURDIR} -type f -not -path '*/.*' -iname "*$$(basename '${vim_ARG}')*")"; \
         if [ -n "$${FOUND}" -a "$$(dirname '${vim_ARG}')" != "." ]; then \
 		FOUND="$$(echo "$${FOUND}" | grep -iF "$$(dirname '${vim_ARG}')")"; \
 	fi; \
