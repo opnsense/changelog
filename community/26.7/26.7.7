@@ -1,0 +1,51 @@
+@ October 13, 2026
+
+Here we go again...
+
+This release is mainly for the brave Hyper-V users who fought kernel panics
+since 26.7, which got fixed in 26.7.6 only to cause segmentation faults for
+others.  Thanks all for testing and correcting the problem in FreeBSD!
+
+The other reason are fixes in the new interfaces settings API so that it
+more closely matches the behaviour of the legacy page.
+
+Both the iPerf and the FRR plugin have been reworked substantially.  In case
+of FRR please read the migration notes linked below before updating.
+
+Here are the full patch notes:
+
+o interfaces: add missing validation for "configurable" and "spoofmac" in new settings API
+o interfaces: only store "dhcp6_norequest_dns" in DHCPv6 mode in new settings API
+o interfaces: only store "track6-interface" in ID association / Track interface modes in new settings API
+o interfaces: do not render "none" to configuration in new settings API
+o interfaces: move promiscuous mode to advanced in new settings API
+o interfaces: fix index into $todo for proper flag check during apply in new settings API
+o interfaces: provide better option group labels to DeviceField
+o interfaces: add proper local/remote IP support to PPPoE IPCP
+o interfaces: move legacy apply cache to /var/lib/php/tmp
+o firewall: destination NAT: fix typo in parseRdrRules() causing faulty rules not being disabled
+o firewall: aliases: validate that port aliases always have content
+o firewall: revert a clone rule change so that cloned rules to appear adjacent to the original rule again
+o mvc: UidField: add isolated updateValue() for installer user
+o ui: bootgrid: sync columnselect-input state with (un)setColumns
+o ui: sync expanded state for selected submenus
+o ui: close mobile menu when a menu entry opens another tab of the current page (contributed by Greelan)
+o plugins: os-ddclient 1.33[1]
+o plugins: os-frr 2.0[2]
+o plugins: os-iperf 2.0[3]
+o src: pf: send syncookies from the receiving thread
+o src: hyperv: fix two regressions in previous upstream patch
+o src: pcib: only apply ARI translation to the own secondary bus of a bridge
+o src: ktls CBC decrypt: avoid creating zero length iovec entries
+o src: route/fib_algo: respect immediate_sync in fd_ref_nhop
+o src: route/fib_algo: fix FIB_ALGO without ROUTE_MPATH option
+o src: sysctl: retire SYSCTL_NODE_CHILDREN()
+
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] PLUGINS:26.7/dns/ddclient
+[2] PLUGINS:26.7/net/frr
+[3] PLUGINS:26.7/benchmarks/iperf
