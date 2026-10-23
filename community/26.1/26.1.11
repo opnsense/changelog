@@ -110,6 +110,10 @@ o unbound: missing NetMaskAllowed=N on override address
 o ports: openvpn 2.7.5[32]
 o ports: suricata 8.0.6[33]
 
+Out of band hotfix for PHP CVE-2026-109618 and CVE-2026-109619:
+
+o ports: php 8.3.36[34]
+
 
 Stay safe,
 Your OPNsense team
@@ -148,3 +152,4 @@ Your OPNsense team
 [31] GHSA:GHSA-p9pr-782r-w2xw
 [32] OPENVPN:2.7.5
 [33] https://suricata.io/2026/07/09/suricata-8-0-6-and-7-0-17-released/
+[34] PHP8:8.3.36
