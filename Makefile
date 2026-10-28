@@ -72,8 +72,8 @@ lint-style:
 lint-links:
 	@: > ${WORKDIR}/links; \
 	for LINK in $$(cat Links/* | sed 's:%s.*::g'); do \
-            for DOCSDIR in ${DOCSDIRS}; do \
-	        grep -nr "$$LINK" $${DOCSDIR}/${DOCGLOB} >> ${WORKDIR}/links; \
+	    for DIR in $$(find -s ${DOCSDIRS} -type d -name "${DOCGLOB}" -depth 1); do \
+	        grep -nr "$$LINK" $${DIR} >> ${WORKDIR}/links; \
             done; \
 	done; \
 	sort -u ${WORKDIR}/links; \
