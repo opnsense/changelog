@@ -83,8 +83,19 @@ lint-duplicates:
 	@for DIR in $$(find -s ${DOCSDIRS} -type d -name "${DOCGLOB}" -depth 1); do \
 		FILES=$$(find $${DIR} -type f | grep -iv '\.[a-z]'); \
 		if [ -n "$${FILES}" ]; then \
-			grep -ho '^o [^\[]*' $${FILES} | sort | uniq -ic | \
-			    grep -v -e '^ *1 o ' -e https: -e http: || true; \
+			(grep -ho '^o [^\[]*' $${FILES} | sort | uniq -ic | \
+			    grep -v -e '^ *1 o ' -e https: -e http: || true) \
+			    > ${WORKDIR}/duplicates.tmp; \
+			if [ -s ${WORKDIR}/duplicates.tmp ]; then \
+				cat ${WORKDIR}/duplicates.tmp; \
+				echo; \
+				read -p "Remove them from which particular $$(basename $${DIR}) changelog? " CL; \
+				if [ -n "$${CL}" ] && [ -f $${DIR}/$${CL} ]; then \
+					awk '{$$1=""; print}' ${WORKDIR}/duplicates.tmp | while read LINE; do \
+						sed -i '' "\|^$${LINE}|d" $${DIR}/$${CL}; \
+					done; \
+				fi; \
+			fi; \
 		fi; \
 	done
 
