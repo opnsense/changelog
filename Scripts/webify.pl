@@ -111,7 +111,7 @@ for my $ref ( keys %refs ) {
 
 # run sanity checks on link replacements
 for my $ref ( keys %refs ) {
-	say STDERR 'unknown link ' . $refs{$ref} . "in $path" if $refs{$ref} !~ /^http/i;
+	say STDERR 'unknown link ' . $refs{$ref} . " in $path" if $refs{$ref} !~ /^http/i;
 }
 
 my @ref_sort = sort { $a <=> $b } keys %refs;
