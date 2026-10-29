@@ -1,0 +1,138 @@
+@ October 30, 2026
+
+Hi there,
+
+This update brings another batch of security fixes for core and third
+party components following one of the weirdest weeks we have ever seen.
+Please pat yourself on the back -- you made it through!
+
+Please take note that OpenSSH 10.6 rejects ML-DSA keys generated with
+10.5 so that they have to be deleted and regenerated once.  This will
+be automatic with the reboot or a service restart if the reboot does
+not happen for any reason.
+
+IKEv1 deprecation in StrongSwan is also much more visible now.  We are
+merely following the upstream lead here.  If you have not considered
+moving away from IKEv1 you should seriously consider it in the mid-term.
+
+Due to parsing and storage inconsistencies leading to configuration
+injection in the worst case we had to limit the certificate storage to
+a single certificate per entry.  This may create problems down the road
+we are willing to solve, but for the time being we have to take such
+security reports serious and not delay them.
+
+We would also like to thank everyone sending in security reports and
+assessments.  The process works best when already confirmed by a human
+and when not directly published to the Internet.  We are looking forward
+to more of them.
+
+In other news, ECMP route support has hit the development version along
+with cloneable widgets for the health graphs and a general improvement
+with the health graphs while at it.
+
+Here are the full patch notes:
+
+o system: refactor route deletion and use priv-sep in general settings page
+o system: fix deprecation warnings in XMLRPC library
+o system: no longer mark "strict security" as experimental and note that a reboot is recommended when changing the setting
+o system: write /etc/os-release (partially contributed by Alok K. Dhir)
+o system: allow a single dynamic interface gateway to work for both IPv4 and IPv6
+o system: clear snapshot note on next edit (contributed by Konstantinos Spartalis)
+o system: installer as a real user on demand
+o system: mark "X509v3 Key Usage" critical for certificate creation
+o system: fix untrusted directory support in certctl.py
+o system: add service broker flag for remote handling of Kea
+o system: fix OCSP URI on certificate generation
+o system: fix output of pw usershow
+o system: run file and configuration selfchecks during bootup
+o system: remove experimental ML-DSA OpenSSH host keys
+o system: translate $savemsg before passing it on password page
+o system: fix gettext(), sprintf() order in static pages (contributed by IvanTheGeek)
+o system: trap errors in remote_backup.php similar to how diag_backup.php handles them
+o system: add input constraints to tunable names and values
+o system: ensure that only a single certificate is accepted during save[1] (contributed by Mason Jones)
+o system: wrap around "time-loop" in RADIUS authenticator for consistency
+o system: append remote address to the log during authentication if known
+o system: adjust snapshot note file permissions for priv-sep
+o reporting: require positive integer values in insight queries
+o interfaces: priv-sep script for interface apply the legacy way
+o interfaces: fix handling of prefix delegation size on new assignment page
+o interfaces: blank description "None" is the default
+o interfaces: stricter input for several wireless options (reported by Abraxas Labs)
+o firewall: limit individual filters in live log search to a maximum of 255 characters
+o firewall: prefer aliases over well-known port names and additional port-related cleanups
+o firewall: support moving multiple rules in selection order
+o firewall: increment the sequence when cloning a rule
+o firewall: add batched log commands to multi enable/disable logging for rules
+o firmware: opnsense-update: replace known variables instead of using eval[2] (reported by Voidlet)
+o firmware: tighten validation for mirror URL (reported by Abraxas Labs)
+o intrusion detection: always initialize reference_html (reported by Adam Korczynski of Ada Logics using Anrophic)
+o intrusion detection: add abuse.ch API token input
+o intrusion detection: escape literal percent signs in rulecache.py query format
+o intrusion detection: add config locking during rule updates (contributed by Konstantinos Spartalis)
+o ipsec: move ping_hosts.sh to legacy plugin and harden (reported by Adam Korczynski of Ada Logics using Anrophic)
+o ipsec: deprecate IKEv1 visibly (contributed by Konstantinos Spartalis)
+o ipsec: add charon retry_initiate_interval to advanced settings (contributed by claudioguareschi)
+o ipsec: refactor sessions page and retain phase 1 grid selection on tunnel start/stop
+o kea: add setup.sh to create /var/log/kea before use
+o monit: fetch status through configd for strict security mode
+o monit: escape password double quotes with their hex interpretation and prevent the use of escape sequences from the input
+o unbound: CSV import for overrides and aliases
+o unbound: remove Abuse.ch - ThreatFox IOC from the list
+o backend: fix simulate_mode in configd
+o mvc: avoid empty recordset searches
+o mvc: ContainerField: exclude volatile fields in isFieldChanged()
+o mvc: ModelRelationField: safeguard mdlStructure in case setModel() was not executed
+o mvc: BaseField: add getDefault() and isDefault() for future use
+o plugins: os-caddy 2.2.2[3]
+o plugins: os-netflector 1.0 (contributed by Sergii Bogomolov)
+o plugins: os-squid 1.5[4]
+o src: caroot: TLS certificate store update due to eMudhra compromise[5]
+o src: bhyve: multiple vulnerabilities in bhyve device models[6]
+o src: sound: TOCTOU race between sound(4) buffer resizing and mmap[7]
+o src: tcp: remotely triggerable buffer overflow in tcp_rack[8]
+o src: tcp: TCP timers may overflow and fire late or not at all[9]
+o src: hastd: multiple issues in hastd(8)[10]
+o src: tzdata: import tzdata 2026e[11]
+o ports: brotli 1.2.1
+o ports: ca_root_nss / nss 3.132[12]
+o ports: curl 8.23.0[13]
+o ports: dpinger 3.7[14]
+o ports: expat 2.9.0[15]
+o ports: openldap 2.6.16[16]
+o ports: openssh 10.6p1[17]
+o ports: openvpn 2.7.8[18]
+o ports: phalcon 5.23.0[19]
+o ports: dnspython 2.9.0[20]
+o ports: python 3.13.16[21]
+o ports: suricata 8.0.8[22]
+o ports: unbound 1.26.2[23]
+
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] GHSA:GHSA-7wvp-6m2q-953c
+[2] GHSA:GHSA-p683-f7x2-pm4p
+[3] PLUGINS:26.7/www/caddy
+[4] PLUGINS:26.7/www/squid
+[5] FREEBSD-SA:26:73.caroot
+[6] FREEBSD-SA:26:72.bhyve
+[7] FREEBSD-SA:26:71.sound
+[8] FREEBSD-SA:26:70.tcp
+[9] FREEBSD-EN:26:27.tcp
+[10] FREEBSD-EN:26:26.hastd
+[11] FREEBSD-EN:26:25.tzdata
+[12] NSS:3.132
+[13] CURL:8.23.0
+[14] DPINGER:3.7
+[15] EXPAT:2.9.0
+[16] OPENLDAP:2.6.16
+[17] OPENSSH:10.6p1
+[18] OPENVPN:2.7.8
+[19] PHALCON:5.23.0
+[20] DNSPYTHON:2.9.0
+[21] PYTHON:3.13.16
+[22] https://suricata.io/2026/10/29/suricata-8-0-8-released/
+[23] UNBOUND:1.26.2
