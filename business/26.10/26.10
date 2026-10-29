@@ -239,7 +239,7 @@ o ui: fix menu registration not setting "active"
 o ui: add tokenize2.css in standard theme to ensure selection in opnsense-auto theme
 o ui: prevent blinking by hiding the contents while loading for opnsense-auto theme
 o ui: fix collapsed sidebar stray line and restore rail divider in opnsense-dark theme (contributed by circa1665)
-o ui: restore stacked layout for interfaces widget on narrow (contributed by circa1665)
+o ui: restore stacked layout for interfaces widget when narrow (contributed by circa1665)
 o ui: fix minor JavaScript bugs in dashboard widget code (contributed by Thomas Schöpf)
 o ui: do not freeze commands column on touchscreen devices
 o ui: further fixes for base templates
