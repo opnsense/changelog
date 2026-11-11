@@ -1,0 +1,157 @@
+@ November 11, 2026
+
+Hey there,
+
+The 26.7 series gets another installment with a few nice feature addition
+and UX revamps.  There are 4 new security advisories on GitHub for the
+core as well as numerous fixes throughout the components as they are being
+reported.  Of special note is that this update brings a number of performance
+improvements throughout the system.
+
+We have added "authority" annotations for the privilege selection and user
+overview.  They aim to explain how much access to the system is granted to
+the user in principle: the default is "administrative" as even though single
+privilges appear to be low priviliges they are not as administrative (root)
+tasks are being carried out by the underlying daemons and software.  The
+"limited" label means the user does not have access to root processes and
+the "unrestricted" label means that the component being accesses has no
+bounds to system access which may be part of its intended feature scope
+such as XMLRPC access.  We have also marked the static PHP pages as
+"unrestricted", because in reality they have historical privilege separation
+weaknesses that the MVC do not have.  This approach will also help shape
+how we accept security advisories and set their severity.
+
+Here are the full patch notes:
+
+o system: dashboard: refactor widget system and introduce cloneable widget types
+o system: suppress local logging by default and add it as an option for remotes
+o system: add validation error for attempted user scope change
+o system: fix certificate widget off by one in remaining days calculation
+o system: use standard throwReadOnly() on notification dismiss action[1] (reported by Janik Besendorf)
+o system: implement "source networks" check in hasPrivilege()[2] (reported by Janik Besendorf)
+o system: add "authority" option to ACLs to explain the effective control over the system for each privilege given
+o system: add dropdown field type for backup providers (contributed by Greelan)
+o system: invalidate sysctl cache on apply
+o system: fix MAILTO cron statement
+o system: validate uploaded picture types
+o reporting: health: improve graph metadata, formatting and widget support
+o interfaces: pass interfaces correctly to IPsec, Unbound during reconfiguration
+o interfaces: read "lock" property using empty() in legacy page
+o interfaces: fix track6 assoc_pd comparison typo (contributed by Konstantinos Spartalis)
+o interfaces: use default icon color for disabled interfaces
+o Interfaces: add support for TAP devices
+o interfaces: hostwatch: split off automatic discovery entries from neighbor menu under its canonical service name
+o interfaces: hostwatch: look up hostnames via reverse DNS API
+o interfaces: revisit PPP config access
+o interfaces: move "devices" array out of $ifcfg for reset
+o interfaces: introduce interfaces_device_wait() for PPP reuse
+o interfaces: backend call for interfaces_ppps_configure()
+o interfaces: add return values to PPP configuration
+o interfaces: extend line ending validation to other PPP fields as well[3] (reported by dead-lamer)
+o interfaces: fix faulty handling of "dhcp6-ia-pd-len" during assignments save
+o firewall: decorate paginated rules only
+o firewall: avoid loading the rule model twice while the initial grid request is in progress
+o firewall: be more selective which searches get decorated as well
+o firewall: only getPriority() once and reuse it
+o firewall: fix query performance regression due to introduction of automatic rules display
+o firewall: fix alias cleanup for external aliases (contributed by Florian Punz)
+o firewall: fix performance regression in aliases
+o firewall: source NAT: use getWellKnown() and properly validate port ranges
+o firewall: prepare new style scrub support in rules parser
+o firewall: use row API to handle global collapse/expand state for rules
+o firewall: remove unused getAntiLockout() function
+o captive portal: further restrict roaming to IPv6 client sessions
+o captive portal: account for Idle-Timeout in Access-Accept
+o captive portal: add configurable CORS policy per zone
+o captive portal: add limit in template parsing[4] (reported by Janik Besendorf)
+o intrusion detection: use Suricata-optimized ruleset for URLhaus (contributed by 0nnyx)
+o intrusion detection: support Suricata datasets in rule metadata
+o kea: add simple shared_networks option to subnets
+o firmware: fetch dashboard widget RSS feed from backend
+o radvd: add optional lifetime setting for PREF64 (contributed by BPplays)
+o unbound: fix locking in blocklist fetcher
+o backend: support indefinite TTL in configd
+o backend: make all long TTLs indefinite
+o backend: introduce legacy_firewall_model() and legacy_firewall_settings() helpers
+o lang: translation updates for multiple languages
+o mvc: ApiControllerBase: introduce basic locking in configd stream handle
+o mvc: OptionField: optimize option caching
+o ui: prefix edit/new/copy dialog with associated icon
+o ui: delegate bootgrid cell handlers
+o ui: add a clear button to the bootgrid search field (contributed by Alok K. Dhir)
+o plugins os-acme-client 4.18[5]
+o plugins: os-caddy 2.2.3[6]
+o plugins: os-freeradius 1.10.3[7]
+o plugins: os-frr 2.1[8]
+o plugins: os-upnp 1.10[9]
+o plugins: os-openvpn-legacy now denies read-only runtime changes (contributed by Janik Besendorf)
+o src: revert "ice: fix link speed after changing cable type"
+o src: aq: assorted backports from stable/15
+o src: axgbe: fix receive buffers without split-header mode
+o src: bnxt: assorted backports from stable/15
+o src: carp: fix global demotion counter to VRRP advertisements
+o src: e1000: separate DH89xxCC memory errors
+o src: ena: upgrade ena-com to freebsd v2.8.5
+o src: iflib: do not ring the transmit doorbell when nothing is pending
+o src: igmp: refresh the ip header pointer after m_pullup()
+o src: netinet6: allocate correct size for ip6_fwdtag struct (contributed by pletch)
+o src: netinet6: fix check for pktinfo outgoing ifindex in route cache
+o src: netlink: fix unsigned overflow on a truncated message
+o src: p9fs: fix p9fs_vget_common() panics
+o src: pf: allows TCP RST packets in the backwards window if ACK matches
+o src: pf: check extension and AH header length
+o src: pf: do not corrupt neighbour advertisements when translating
+o src: pf: do not hash pool address pointers into rule hashes
+o src: pf: do not leak a source hash row lock in the netlink dump
+o src: pf: do not loop on an address that is cleared twice in pfr_clr_astats()
+o src: pf: drain the overload task before VNET rules are freed
+o src: pf: first-match-wins for nat rules, even in anchors
+o src: pf: fix a crash on sendfile()
+o src: pf: free a table entry that cannot be routed
+o src: pf: free an unparsed rule with pf_krule_free() in pf_handle_addrule()
+o src: pf: free the packet rate counter of a rule
+o src: pf: leave the epoch to purge unlinked rules
+o src: pf: modify pfik_flags atomically
+o src: pf: parse the GETSTATES state ID as 64 bits
+o src: pf: register the netlink family only while the VNETs are set up
+o src: pf: set the reassembly flags under the rules lock
+o src: pf: take the rules read lock in pf_handle_getrule()
+o src: pfil: avoid potential mbuf tag leak
+o src: pfsync: use result of m_pullup()
+o src: re: harden re_watchdog() recovery and log controller state
+o src: re: re-arm the TX doorbell when re_txeof() leaves a non-empty ring
+o src: re: recover TX completions whose MSI was swallowed in re_intr_msi()
+o src: re:: quiesce RTL8168G+ and reset before freeing buffers in re_stop()
+o ports: dnspython 2.9.2[10]
+o ports: expat 2.10.0[11]
+o ports: krb5 1.22.3[12]
+o ports: libucl 0.10.0
+o ports: openssh 10.6p2[13]
+o ports: openvpn 2.7.9[14]
+o ports: phpseclib 3.0.58[15]
+o ports: pkg port epoch is now set to avoid catching a newer and potentially incompatible version from FreeBSD
+o ports: python 3.13.18[16]
+o ports: sqlite 3.54.1[17]
+
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] GHSA:GHSA-2w8j-hpp2-8rfj
+[2] GHSA:GHSA-2f7g-25f3-55v7
+[3] GHSA:GHSA-f35q-c34m-pfw3
+[4] GHSA:GHSA-r23v-737v-6r5h
+[5] PLUGINS:26.7/security/acme-client
+[6] PLUGINS:26.7/www/caddy
+[7] PLUGINS:26.7/net/freeradius
+[8] PLUGINS:26.7/net/frr
+[9] PLUGINS:26.7/net/upnp
+[10] DNSPYTHON:2.9.2
+[11] EXPAT:2.10.0
+[12] KRB5:1.22.3
+[13] OPENSSH:10.6p2
+[14] OPENVPN:2.7.9
+[15] PHPSECLIB:3.0.58
+[16] PYTHON:3.11.18
+[17] SQLITE:3.54.1
