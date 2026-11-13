@@ -16,7 +16,7 @@ https://downloads.opnsense.com/
 This business release is based on the OPNsense 26.7.7 community version
 with additional reliability improvements.
 
-Here are the full patch notes:
+Here are the full patch notes for the initial release:
 
 o system: remove periodic backups settings and backend code
 o system: migrate gateway groups to MVC/API
@@ -405,6 +405,77 @@ o ports: rrdtool 1.11.0[48]
 o ports: sqlite 3.53.4[49]
 o ports: unbound 1.26.2[50]
 
+Here are the full patch notes for patch release 1:
+
+o system: ensure that only a single certificate is accepted during save[51] (contributed by Mason Jones)
+o system: use standard throwReadOnly() on notification dismiss action[52] (reported by Janik Besendorf)
+o system: implement "source networks" check in hasPrivilege()[53] (reported by Janik Besendorf)
+o system: remove experimental ML-DSA OpenSSH host keys
+o system: validate uploaded picture types
+o system: fix MAILTO cron statement
+o system: wrap around "time-loop" in RADIUS authenticator for consistency
+o system: fix certificate widget off by one in remaining days calculation
+o interfaces: extend line ending validation to other PPP fields as well[54] (reported by dead-lamer)
+o interfaces: read "lock" property using empty() in legacy page
+o interfaces: fix track6 assoc_pd comparison typo (contributed by Konstantinos Spartalis)
+o interfaces: fix faulty handling of "dhcp6-ia-pd-len" during assignments save
+o firewall: fix alias cleanup for external aliases (contributed by Florian Punz)
+o captive portal: further restrict roaming to IPv6 client sessions
+o captive portal: add limit in template parsing[55] (reported by Janik Besendorf)
+o firmware: fetch dashboard widget RSS feed from backend
+o intrusion detection: add Abuse.ch API token input
+o intrusion detection: escape literal percent signs in rulecache.py query format
+o intrusion detection: add config locking during rule updates (contributed by Konstantinos Spartalis)
+o ipsec: move ping_hosts.sh to legacy plugin and harden (reported by Adam Korczynski of Ada Logics using Anrophic)
+o ipsec: refactor sessions page and retain phase 1 grid selection on tunnel start/stop
+o monit: escape password double quotes with their hex interpretation and prevent the use of escape sequences from the input
+o unbound: remove Abuse.ch ThreatFox IOC from the list
+o unbound: fix locking in blocklist fetcher
+o plugins: os-openvpn-legacy now denies read-only runtime changes (contributed by Janik Besendorf)
+o src: revert "ice: fix link speed after changing cable type"
+o src: aq: assorted backports from stable/15
+o src: axgbe: fix receive buffers without split-header mode
+o src: bnxt: assorted backports from stable/15
+o src: carp: fix global demotion counter to VRRP advertisements
+o src: e1000: separate DH89xxCC memory errors
+o src: ena: upgrade ena-com to freebsd v2.8.5
+o src: iflib: do not ring the transmit doorbell when nothing is pending
+o src: igmp: refresh the ip header pointer after m_pullup()
+o src: netinet6: allocate correct size for ip6_fwdtag struct (contributed by pletch)
+o src: netinet6: fix check for pktinfo outgoing ifindex in route cache
+o src: netlink: fix unsigned overflow on a truncated message
+o src: p9fs: fix p9fs_vget_common() panics
+o src: pf: allows TCP RST packets in the backwards window if ACK matches
+o src: pf: check extension and AH header length
+o src: pf: do not corrupt neighbour advertisements when translating
+o src: pf: do not hash pool address pointers into rule hashes
+o src: pf: do not leak a source hash row lock in the netlink dump
+o src: pf: do not loop on an address that is cleared twice in pfr_clr_astats()
+o src: pf: drain the overload task before VNET rules are freed
+o src: pf: first-match-wins for nat rules, even in anchors
+o src: pf: fix a crash on sendfile()
+o src: pf: free a table entry that cannot be routed
+o src: pf: free an unparsed rule with pf_krule_free() in pf_handle_addrule()
+o src: pf: free the packet rate counter of a rule
+o src: pf: leave the epoch to purge unlinked rules
+o src: pf: modify pfik_flags atomically
+o src: pf: parse the GETSTATES state ID as 64 bits
+o src: pf: register the netlink family only while the VNETs are set up
+o src: pf: set the reassembly flags under the rules lock
+o src: pf: take the rules read lock in pf_handle_getrule()
+o src: pfil: avoid potential mbuf tag leak
+o src: pfsync: use result of m_pullup()
+o src: re: harden re_watchdog() recovery and log controller state
+o src: re: re-arm the TX doorbell when re_txeof() leaves a non-empty ring
+o src: re: recover TX completions whose MSI was swallowed in re_intr_msi()
+o src: re: quiesce RTL8168G+ and reset before freeing buffers in re_stop()
+o ports: krb5 1.22.3[56]
+o ports: openssh 10.6p2[57]
+o ports: openvpn 2.7.9[58]
+o ports: pkg port epoch is now set to avoid catching a newer and potentially incompatible version from FreeBSD
+o ports: python 3.13.18[59]
+o ports: sqlite 3.54.1[60]
+
 Migration notes, known issues and limitations:
 
 o The privileges "page-system-groupmanager" and "page-system-usermanager-addprivs" were merged into "page-system-groupmanager" and are no longer available separately.  This was done to avoid the misconception that access to a user management page gives constrained rights to each page, but that is not the case.  User management is a process involving all 3 pages.
@@ -489,3 +560,13 @@ Your OPNsense team
 [48] RRDTOOL:1.11.0
 [49] SQLITE:3.53.4
 [50] UNBOUND:1.26.2
+[51] GHSA:GHSA-7wvp-6m2q-953c
+[52] GHSA:GHSA-2w8j-hpp2-8rfj
+[53] GHSA:GHSA-2f7g-25f3-55v7
+[54] GHSA:GHSA-f35q-c34m-pfw3
+[55] GHSA:GHSA-r23v-737v-6r5h
+[56] KRB5:1.22.3
+[57] OPENSSH:10.6p2
+[58] OPENVPN:2.7.9
+[59] PYTHON:3.11.18
+[60] SQLITE:3.54.1
