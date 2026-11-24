@@ -1,0 +1,161 @@
+@ November 24, 2026
+
+Hello!
+
+In the spirit of business as usual: here is another batch of security
+advisories, bug fixes and feature improvements in internal and external
+components.
+
+Of note are reliability improvements in DHCP and PPP client handling which
+showed good results in public calls for testing on the forum.  This update
+also switches from Hyperscan use to Vectorscan, which is a drop-in change
+and has some other portability benefits as well.
+
+Monit was updated to 6.1.0 which may have more hidden incompatibilities.
+Special thanks to Konstantinos Spartalis for a timely submission on fixing
+these proactively.
+
+PHP 8.5.13 and several FreeBSD security advisories are included as well.
+
+We have been working a bit on discussing restructures for how we deal with
+hotfix and patch releases in the future.  There is a plan going forward,
+but we will field test it before saying much more.
+
+Here are the full patch notes:
+
+o system: add user API key descriptions
+o system: throw read-only for clear log action
+o system: separate dashboard widget init from slower start routine
+o system: drop gateway threshold constraints that never ran (contributed by Stephen Cox)
+o system: show the stored history range in the log viewer (contributed by Greelan)
+o system: name the setting in backup provider validation messages (contributed by Greelan)
+o system: fix Norwegian/Vietnamese not being translated
+o system: fix argument reversal in str_starts_with() in getLandingPage()
+o reporting: netflow: modify netgraph NAT accounting to prevent duplicate flow records
+o interfaces: validate PPP array fields as well[1] (contributed by superbot-helper)
+o interfaces: update MAC vendor mappings
+o interfaces: protect against empty PPP iteration
+o interfaces: remove newwanip even from DHCP alias handling
+o interfaces: flatten the successful TIMEOUT branch of DHCP
+o interfaces: introduce DAD sleep for 6to4 and 6RD trackers
+o interfaces: remove the PPP uptime option
+o interfaces: defer PPP to after rc.bootup completes
+o interfaces: do not throw an error on getting stats for interfaces
+o interfaces: use interfaces_merge_pending() in newwanip events when interface settings are being applied
+o firewall: aliases: add Kosovo country code "XK" and remove unused "EU" workaround
+o firewall: fix multiple issues in GIF, GRE, Bridge, LAGG and PPP (contributed by Stephen Cox)
+o firewall: fix resolving source NAT target network (contributed by Steve Kerrison)
+o firewall: replace firewall_rule_lookup.php with ruleLookupAction()
+o firewall: fix multiple issues in aliases, groups and sessions (contributed by Stephen Cox)
+o firewall: generate a fallback UUID when empty during export in migration assistant
+o firewall: do not count the template rule of an empty list for DNatSequenceField (contributed by Stephen Cox)
+o captive portal: partially revert the IPv4 roaming removal to keep dual stack working
+o captive portal: make zone ID a text field and constrain it to be unique
+o firmware: support patch syntax for initial releases
+o firmware: make subscription and flavour use more strict[2] (reported by anhlvk48 from Apex Orion)
+o intrusion detection: allow % in policy descriptions (contributed by Gennaro Cimmino)
+o intrusion detection: also catch urllib3 exceptions in rule downloader
+o intrusion detection: prevent negative values in priority field
+o intrusion detection: pattern matcher "hs" is now provided by drop-in replacement Vectorscan (contributed by MajorP93)
+o ipsec: check pre-shared key uniqueness when only the remote identifier changes (contributed by Stephen Cox)
+o ipsec: better handling of "(unnamed)" connections in dashboard widget
+o kea: waste less prefix space when calculating IA_NA and IA_PD
+o kea: align domain registration of static reservations with ddns_qualifying_suffix instead of overloading DHCP options
+o lang: added Vietnamese as a new language, which was actually shipped in 26.7.9 but did not yet work
+o monit: fix faulty escape sequence in password write
+o monit: update polltime mask to include slash character (contributed by electronicm)
+o monit: allow DHCP interfaces in service settings (contributed by Konstantinos Spartalis)
+o monit: fix 6.1 incompatibilities and substitute deprecations (contributed by Konstantinos Spartalis)
+o unbound: remove support for deprecated blocklistproject entries (contributed by Konstantinos Spartalis)
+o unbound: fix a misinterpretation of IPv6 addresses in blocklist handling (contributed by Stephen Cox)
+o wireguard: add $enabled flag for support for toggleClientAction()
+o wireguard: fix restart action without instance parameter (contributed by Konstantinos Spartalis)
+o backend: restrict service stop and similar actions to "wheel,wwwonly" (contributed by Bill Flood)
+o backend: pluginctl enforce primary mode as selected by caller (reported by Dominik Münsterer)
+o shell: improve error handling of the restore backup functionality (contributed by Alok K. Dhir)
+o shell: opnsense-version: add package tree hash support
+o tests: add a test case for getNodeCotent()
+o plugins: partial rollout of restricting service stop and similar actions to "wheel,wwwonly" (contributed by Greelan)
+o plugins: os-caddy 2.2.4[3]
+o plugins: os-ddclient 1.34[4]
+o plugins: os-firewall-legacy 1.2[5]
+o plugins: os-intrusion-detection-content-et-open 1.0.3 switch to suricata-8.0 ruleset and add new ET categories (contributed by juergen2025sys)
+o plugins: os-zabbix-agent 1.20[6]
+o plugins: os-zabbix-proxy 1.18[7]
+o src: tzdata: import tzdata 2026f[8]
+o src: vfs: avoid integer overflow when faulting[9]
+o src: openssl: update to 3.5.9[10]
+o src: openzfs: data corruption involving pending block frees[11]
+o src: ktls: check the record type message holds its byte[12]
+o src: linux: kernel memory disclosure via Linuxulator extattr syscalls[13]
+o src: multiple vulnerabilities in the ocs_fc driver[14]
+o src: netlink: local privilege escalation via netlink heap buffer overflow[15]
+o src: gssd: do not map unrecognized Kerberos principals to UID 0[16]
+o src: nfsd: remote code execution via stateid type confusion[17]
+o src: vfs: privilege escalation via inotify watch descriptor wraparound[18]
+o src: vfs: apsicum and O_RESOLVE_BENEATH bypass at mount roots[19]
+o src: ipsec: stream cipher counter reuse[20]
+o src: unix: privilege escalation via shutdown race on unix sockets[21]
+o src: vmm: bhyve guests can panic the host on Intel CPUs[22]
+o src: kqueue: multiple vulnerabilities in kevent[23]
+o src: freebsd32: privilege escalation via compat32 recvmsg control messages[24]
+o src: socket: privilege escalation via socket unsplice timeout[25]
+o src: sound: privilege escalation via sound software buffer resizing[26]
+o src: bsnmp: fix multiple vulnerabilities[27]
+o src: vm: privilege escalation via prefaulting on largepage mappings[28]
+o src: fdescfs: privilege escalation via missing access checks[29]
+o src: vfs: directory permission bypass via open[30]
+o src: tcp: local privilege escalation via TCP MSG_OOB handling[31]
+o src: tmpfs: failed to clear set-group-ID bit on new files[32]
+o ports: ca_root_nss 3.134[33]
+o ports: kea 3.0.5[34]
+o ports: monit 6.1.0[35]
+o ports: nss 3.133[36]
+o ports: php 8.5.13[37]
+o ports: py-duckdb 2.0.0[38]
+o ports: vectorscan 5.4.14[39]
+
+
+Stay safe,
+Your OPNsense team
+
+--
+[1] GHSA:GHSA-f35q-c34m-pfw3
+[2] GHSA:GHSA-89wp-xvvm-9pp4
+[3] PLUGINS:26.7/www/caddy
+[4] PLUGINS:26.7/dns/ddclient
+[5] PLUGINS:26.7/net/firewall-legacy
+[6] PLUGINS:26.7/net-mgmt/zabbix-agent
+[7] PLUGINS:26.7/net-mgmt/zabbix-proxy
+[8] FREEBSD-EN:26:29.tzdata
+[9] FREEBSD-EN:26:30.vfs
+[10] FREEBSD-EN:26:31.openssl
+[11] FREEBSD-EN:26:32.zfs
+[12] FREEBSD-SA:26:74.ktls
+[13] FREEBSD-SA:26:75.linux
+[14] FREEBSD-SA:26:76.ocs_fc
+[15] FREEBSD-SA:26:77.netlink
+[16] FREEBSD-SA:26:78.gssd
+[17] FREEBSD-SA:26:79.nfs
+[18] FREEBSD-SA:26:80.vfs
+[19] FREEBSD-SA:26:81.vfs
+[20] FREEBSD-SA:26:82.ipsec
+[21] FREEBSD-SA:26:83.unix
+[22] FREEBSD-SA:26:84.vmm
+[23] FREEBSD-SA:26:85.kqueue
+[24] FREEBSD-SA:26:86.freebsd32
+[25] FREEBSD-SA:26:87.socket
+[26] FREEBSD-SA:26:88.sound
+[27] FREEBSD-SA:26:89.bsnmp
+[28] FREEBSD-SA:26:90.vm
+[29] FREEBSD-SA:26:91.fdescfs
+[30] FREEBSD-SA:26:92.vfs
+[31] FREEBSD-SA:26:93.tcp
+[32] FREEBSD-SA:26:94.tmpfs
+[33] NSS:1.134
+[34] KEA:3.0.5
+[35] MONIT:6.1.0
+[36] NSS:1.133
+[37] PHP8:8.5.13
+[38] DUCKDB:2.0.0
+[39] VECTORSCAN:5.4.14
