@@ -476,6 +476,48 @@ o ports: pkg port epoch is now set to avoid catching a newer and potentially inc
 o ports: python 3.13.18[59]
 o ports: sqlite 3.54.1[60]
 
+Here are the full patch notes for patch release 2:
+
+o system: throw read-only for clear log action
+o interfaces: validate PPP array fields as well[61] (contributed by superbot-helper)
+o interfaces: protect against empty PPP iteration
+o firewall: aliases: add Kosovo country code "XK" and remove unused "EU" workaround
+o firewall: generate a fallback UUID when empty during export in migration assistant
+o captive portal: partially revert the IPv4 roaming removal to keep dual stack working
+o firmware: make subscription and flavour use more strict[62] (reported by anhlvk48 from Apex Orion)
+o firmware: support patch syntax for initial releases
+o ipsec: better handling of "(unnamed)" connections in dashboard widget
+o monit: fix faulty escape sequence in password write
+o backend: restrict service stop and similar actions to "wheel,wwwonly" (contributed by Bill Flood)
+o backend: pluginctl enforce primary mode as selected by caller (reported by Dominik Münsterer)
+o plugins: os-frr 2.1[63]
+o src: tzdata: import tzdata 2026f[64]
+o src: vfs: avoid integer overflow when faulting[65]
+o src: openssl: update to 3.5.9[66]
+o src: openzfs: data corruption involving pending block frees[67]
+o src: ktls: check the record type message holds its byte[68]
+o src: linux: kernel memory disclosure via Linuxulator extattr syscalls[69]
+o src: multiple vulnerabilities in the ocs_fc driver[70]
+o src: netlink: local privilege escalation via netlink heap buffer overflow[71]
+o src: gssd: do not map unrecognized Kerberos principals to UID 0[72]
+o src: nfsd: remote code execution via stateid type confusion[73]
+o src: vfs: privilege escalation via inotify watch descriptor wraparound[74]
+o src: vfs: apsicum and O_RESOLVE_BENEATH bypass at mount roots[75]
+o src: ipsec: stream cipher counter reuse[76]
+o src: unix: privilege escalation via shutdown race on unix sockets[77]
+o src: vmm: bhyve guests can panic the host on Intel CPUs[78]
+o src: kqueue: multiple vulnerabilities in kevent[79]
+o src: freebsd32: privilege escalation via compat32 recvmsg control messages[80]
+o src: socket: privilege escalation via socket unsplice timeout[81]
+o src: sound: privilege escalation via sound software buffer resizing[82]
+o src: bsnmp: fix multiple vulnerabilities[83]
+o src: vm: privilege escalation via prefaulting on largepage mappings[84]
+o src: fdescfs: privilege escalation via missing access checks[85]
+o src: vfs: directory permission bypass via open[86]
+o src: tcp: local privilege escalation via TCP MSG_OOB handling[87]
+o src: tmpfs: failed to clear set-group-ID bit on new files[88]
+o ports: php 8.5.13[89]
+
 Migration notes, known issues and limitations:
 
 o The privileges "page-system-groupmanager" and "page-system-usermanager-addprivs" were merged into "page-system-groupmanager" and are no longer available separately.  This was done to avoid the misconception that access to a user management page gives constrained rights to each page, but that is not the case.  User management is a process involving all 3 pages.
@@ -570,3 +612,32 @@ Your OPNsense team
 [58] OPENVPN:2.7.9
 [59] PYTHON:3.11.18
 [60] SQLITE:3.54.1
+[61] GHSA:GHSA-f35q-c34m-pfw3
+[62] GHSA:GHSA-89wp-xvvm-9pp4
+[63] PLUGINS:26.7/net/frr
+[64] FREEBSD-EN:26:29.tzdata
+[65] FREEBSD-EN:26:30.vfs
+[66] FREEBSD-EN:26:31.openssl
+[67] FREEBSD-EN:26:32.zfs
+[68] FREEBSD-SA:26:74.ktls
+[69] FREEBSD-SA:26:75.linux
+[70] FREEBSD-SA:26:76.ocs_fc
+[71] FREEBSD-SA:26:77.netlink
+[72] FREEBSD-SA:26:78.gssd
+[73] FREEBSD-SA:26:79.nfs
+[74] FREEBSD-SA:26:80.vfs
+[75] FREEBSD-SA:26:81.vfs
+[76] FREEBSD-SA:26:82.ipsec
+[77] FREEBSD-SA:26:83.unix
+[78] FREEBSD-SA:26:84.vmm
+[79] FREEBSD-SA:26:85.kqueue
+[80] FREEBSD-SA:26:86.freebsd32
+[81] FREEBSD-SA:26:87.socket
+[82] FREEBSD-SA:26:88.sound
+[83] FREEBSD-SA:26:89.bsnmp
+[84] FREEBSD-SA:26:90.vm
+[85] FREEBSD-SA:26:91.fdescfs
+[86] FREEBSD-SA:26:92.vfs
+[87] FREEBSD-SA:26:93.tcp
+[88] FREEBSD-SA:26:94.tmpfs
+[89] PHP8:8.5.13
