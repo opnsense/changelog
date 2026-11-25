@@ -8,8 +8,8 @@ components.
 
 Of note are reliability improvements in DHCP and PPP client handling which
 showed good results in public calls for testing on the forum.  This update
-also switches from Hyperscan use to Vectorscan, which is a drop-in change
-and has some other portability benefits as well.
+also switches Suricata from Hyperscan use to Vectorscan, which is a drop-in
+change and has some other portability benefits as well.
 
 Monit was updated to 6.1.0 which may have more hidden incompatibilities.
 Special thanks to Konstantinos Spartalis for a timely submission on fixing
